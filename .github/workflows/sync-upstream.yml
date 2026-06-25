@@ -2,7 +2,6 @@ name: Sync Upstream KernelSU
 
 on:
   schedule:
-    # 每天 UTC 06:00 检查一次（北京时间 14:00）
     - cron: '0 6 * * *'
   workflow_dispatch:
 
@@ -59,28 +58,23 @@ jobs:
         run: |
           TAG="${{ steps.upstream_tag.outputs.tag }}"
           BRANCH="upstream-sync/${TAG}"
-
-          # 基于 upstream tag 创建新分支
+          # create branch from upstream tag
           git checkout -b "${BRANCH}" "upstream/${TAG}"
-
-          # 推送分支
+          # push branch
           git push origin "${BRANCH}"
+          # create PR using body from file to avoid YAML indentation issues
+          cat > /tmp/pr_body.txt << BODYEOF
+          Automated sync from tiann/KernelSU ${TAG}
 
-          # 开 PR（有冲突时 PR 会显示 conflict 状态，需人工处理）
+          ## Notes
+          - Upstream: ${TAG}
+          - Source: https://github.com/tiann/KernelSU/releases/tag/${TAG}
+
+          After merge, check T2/T3 identity replacements if upstream added new kernelsu files.
+          BODYEOF
           gh pr create \
             --base main \
             --head "${BRANCH}" \
             --title "chore: sync upstream KernelSU ${TAG}" \
-            --body "Automated sync from tiann/KernelSU ${TAG}
-
-## 说明
-- 上游版本：${TAG}
-- 来源：https://github.com/tiann/KernelSU/releases/tag/${TAG}
-
-## 操作指引
-- ✅ 无冲突：review 后直接 merge
-- ⚠️ 有冲突：在 upstream-sync 分支手动解决冲突后 merge
-- ❌ 破坏性变更：关闭此 PR，在 dev 分支手动评估后合并
-
-**注意**：merge 后检查 T2/T3 的身份替换是否需要补充（上游可能新增含 kernelsu 字样的文件）" \
+            --body "$(cat /tmp/pr_body.txt)" \
             --label "upstream-sync" || echo "PR creation failed, branch pushed."
