@@ -10,7 +10,7 @@
 #include <sys/prctl.h>
 #include <utility>
 
-#include "uapi/ksu.h"
+#include "uapi/xnsu.h"
 
 uint32_t get_version();
 
@@ -47,7 +47,7 @@ int set_selinux_hide_enabled(bool enabled);
 
 bool is_selinux_hide_enabled();
 
-bool get_allow_list(struct ksu_new_get_allow_list_cmd *);
+bool get_allow_list(struct xnsu_new_get_allow_list_cmd *);
 
 inline std::pair<int, int> legacy_get_info() {
     int32_t version = -1;

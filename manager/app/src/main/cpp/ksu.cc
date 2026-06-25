@@ -21,7 +21,7 @@
 static int fd = -1;
 
 static inline int scan_driver_fd() {
-    const char *kName = "[ksu_driver]";
+    const char *kName = "[xnsu_driver]";
     DIR *dir = opendir("/proc/self/fd");
     if (!dir) {
         return -1;
@@ -75,9 +75,9 @@ static int ksuctl(unsigned long op, Args &&... args) {
     return ioctl(fd, op, std::forward<Args>(args)...);
 }
 
-static struct ksu_get_info_cmd g_version {};
+static struct xnsu_get_info_cmd g_version {};
 
-struct ksu_get_info_cmd get_info() {
+struct xnsu_get_info_cmd get_info() {
     if (!g_version.version) {
         ksuctl(KSU_IOCTL_GET_INFO, &g_version);
     }
@@ -89,12 +89,12 @@ uint32_t get_version() {
     return info.version;
 }
 
-bool get_allow_list(struct ksu_new_get_allow_list_cmd *cmd) {
+bool get_allow_list(struct xnsu_new_get_allow_list_cmd *cmd) {
     return ksuctl(KSU_IOCTL_NEW_GET_ALLOW_LIST, cmd) == 0;
 }
 
 bool is_safe_mode() {
-    struct ksu_check_safemode_cmd cmd = {};
+    struct xnsu_check_safemode_cmd cmd = {};
     ksuctl(KSU_IOCTL_CHECK_SAFEMODE, &cmd);
     return cmd.in_safe_mode;
 }
@@ -132,34 +132,34 @@ bool is_pr_build() {
 }
 
 bool uid_should_umount(int uid) {
-    struct ksu_uid_should_umount_cmd cmd = {};
+    struct xnsu_uid_should_umount_cmd cmd = {};
     cmd.uid = uid;
     ksuctl(KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
     return cmd.should_umount;
 }
 
 bool set_app_profile(const app_profile *profile) {
-    struct ksu_set_app_profile_cmd cmd = {};
+    struct xnsu_set_app_profile_cmd cmd = {};
     cmd.profile = *profile;
     return ksuctl(KSU_IOCTL_SET_APP_PROFILE, &cmd) == 0;
 }
 
 int get_app_profile(app_profile *profile) {
-    struct ksu_get_app_profile_cmd cmd = {.profile = *profile};
+    struct xnsu_get_app_profile_cmd cmd = {.profile = *profile};
     int ret = ksuctl(KSU_IOCTL_GET_APP_PROFILE, &cmd);
     *profile = cmd.profile;
     return ret;
 }
 
 bool set_su_enabled(bool enabled) {
-    struct ksu_set_feature_cmd cmd = {};
+    struct xnsu_set_feature_cmd cmd = {};
     cmd.feature_id = KSU_FEATURE_SU_COMPAT;
     cmd.value = enabled ? 1 : 0;
     return ksuctl(KSU_IOCTL_SET_FEATURE, &cmd) == 0;
 }
 
 bool is_su_enabled() {
-    struct ksu_get_feature_cmd cmd = {};
+    struct xnsu_get_feature_cmd cmd = {};
     cmd.feature_id = KSU_FEATURE_SU_COMPAT;
     if (ksuctl(KSU_IOCTL_GET_FEATURE, &cmd) != 0) {
         return false;
@@ -171,7 +171,7 @@ bool is_su_enabled() {
 }
 
 static inline bool get_feature(uint32_t feature_id, uint64_t *out_value, bool *out_supported) {
-    struct ksu_get_feature_cmd cmd = {};
+    struct xnsu_get_feature_cmd cmd = {};
     cmd.feature_id = feature_id;
     if (ksuctl(KSU_IOCTL_GET_FEATURE, &cmd) != 0) {
         return false;
@@ -182,7 +182,7 @@ static inline bool get_feature(uint32_t feature_id, uint64_t *out_value, bool *o
 }
 
 static inline bool set_feature(uint32_t feature_id, uint64_t value) {
-    struct ksu_set_feature_cmd cmd = {};
+    struct xnsu_set_feature_cmd cmd = {};
     cmd.feature_id = feature_id;
     cmd.value = value;
     return ksuctl(KSU_IOCTL_SET_FEATURE, &cmd) == 0;
