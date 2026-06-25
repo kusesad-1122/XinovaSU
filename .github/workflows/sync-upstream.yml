@@ -1,0 +1,86 @@
+name: Sync Upstream KernelSU
+
+on:
+  schedule:
+    # 每天 UTC 06:00 检查一次（北京时间 14:00）
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout XinovaSU
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/tiann/KernelSU.git || true
+          git fetch upstream --tags
+
+      - name: Get latest upstream tag
+        id: upstream_tag
+        run: |
+          LATEST=$(git tag --sort=-version:refname \
+            | grep -v "^v0\." | head -1 || \
+            git ls-remote --tags upstream \
+            | awk '{print $2}' \
+            | grep -v '{}' \
+            | sed 's|refs/tags/||' \
+            | sort -V | tail -1)
+          echo "tag=${LATEST}" >> $GITHUB_OUTPUT
+          echo "Latest upstream tag: ${LATEST}"
+
+      - name: Check if already synced
+        id: check_sync
+        run: |
+          TAG="${{ steps.upstream_tag.outputs.tag }}"
+          BRANCH="upstream-sync/${TAG}"
+          if git ls-remote --heads origin "${BRANCH}" | grep -q "${BRANCH}"; then
+            echo "already_synced=true" >> $GITHUB_OUTPUT
+            echo "Branch ${BRANCH} already exists, skipping."
+          else
+            echo "already_synced=false" >> $GITHUB_OUTPUT
+            echo "New tag ${TAG} detected, will create PR."
+          fi
+
+      - name: Create sync branch and PR
+        if: steps.check_sync.outputs.already_synced == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.upstream_tag.outputs.tag }}"
+          BRANCH="upstream-sync/${TAG}"
+
+          # 基于 upstream tag 创建新分支
+          git checkout -b "${BRANCH}" "upstream/${TAG}"
+
+          # 推送分支
+          git push origin "${BRANCH}"
+
+          # 开 PR（有冲突时 PR 会显示 conflict 状态，需人工处理）
+          gh pr create \
+            --base main \
+            --head "${BRANCH}" \
+            --title "chore: sync upstream KernelSU ${TAG}" \
+            --body "Automated sync from tiann/KernelSU ${TAG}
+
+## 说明
+- 上游版本：${TAG}
+- 来源：https://github.com/tiann/KernelSU/releases/tag/${TAG}
+
+## 操作指引
+- ✅ 无冲突：review 后直接 merge
+- ⚠️ 有冲突：在 upstream-sync 分支手动解决冲突后 merge
+- ❌ 破坏性变更：关闭此 PR，在 dev 分支手动评估后合并
+
+**注意**：merge 后检查 T2/T3 的身份替换是否需要补充（上游可能新增含 kernelsu 字样的文件）" \
+            --label "upstream-sync" || echo "PR creation failed, branch pushed."
