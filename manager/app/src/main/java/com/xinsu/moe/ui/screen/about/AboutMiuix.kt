@@ -310,7 +310,7 @@ private fun AboutContent(
                                 )
                             } else Modifier
                         ),
-                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    painter = painterResource(id = R.mipmap.ic_launcher_foreground),
                     colorFilter = ColorFilter.tint(colorScheme.onBackground),
                     contentDescription = null,
                 )
