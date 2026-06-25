@@ -28,12 +28,11 @@ jobs:
       - name: Get latest upstream tag
         id: upstream_tag
         run: |
-          LATEST=$(git tag --sort=-version:refname \
-            | grep -v "^v0\." | head -1 || \
-            git ls-remote --tags upstream \
+          LATEST=$(git ls-remote --tags upstream \
             | awk '{print $2}' \
             | grep -v '{}' \
             | sed 's|refs/tags/||' \
+            | grep -v "^v0\." \
             | sort -V | tail -1)
           echo "tag=${LATEST}" >> $GITHUB_OUTPUT
           echo "Latest upstream tag: ${LATEST}"
@@ -58,20 +57,14 @@ jobs:
         run: |
           TAG="${{ steps.upstream_tag.outputs.tag }}"
           BRANCH="upstream-sync/${TAG}"
-          # create branch from upstream tag
-          git checkout -b "${BRANCH}" "upstream/${TAG}"
+          # create branch from upstream tag (tags are local after fetch --tags)
+          git checkout -b "${BRANCH}" "refs/tags/${TAG}"
           # push branch
           git push origin "${BRANCH}"
-          # create PR using body from file to avoid YAML indentation issues
-          cat > /tmp/pr_body.txt << BODYEOF
-          Automated sync from tiann/KernelSU ${TAG}
-
-          ## Notes
-          - Upstream: ${TAG}
-          - Source: https://github.com/tiann/KernelSU/releases/tag/${TAG}
-
-          After merge, check T2/T3 identity replacements if upstream added new kernelsu files.
-          BODYEOF
+          # create PR body
+          printf '%s\n\n## Notes\n- Upstream: %s\n- Source: https://github.com/tiann/KernelSU/releases/tag/%s\n\nAfter merge, check T2/T3 identity replacements if upstream added new kernelsu files.\n' \
+            "Automated sync from tiann/KernelSU ${TAG}" \
+            "${TAG}" "${TAG}" > /tmp/pr_body.txt
           gh pr create \
             --base main \
             --head "${BRANCH}" \
