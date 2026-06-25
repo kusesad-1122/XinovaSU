@@ -17,3 +17,4 @@ rename_kernel.py
 rename_manager.py
 gen_icons.py
 icon_source.png
+fix_icon.py
