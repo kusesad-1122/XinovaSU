@@ -66,9 +66,18 @@ jobs:
           printf 'Automated sync from tiann/KernelSU %s\n\n## 说明\n- 上游版本：%s\n- 来源：https://github.com/tiann/KernelSU/releases/tag/%s\n\n## 操作指引\n- 无冲突：review 后直接 merge\n- 有冲突：在 upstream-sync 分支手动解决后 merge\n- 破坏性变更：关闭此 PR，在 dev 分支手动评估\n\n**注意**：merge 后检查 kernel/ uapi/ userspace/ 是否有新增含 kernelsu 字样的文件，需补跑替换脚本\n' \
             "${TAG}" "${TAG}" "${TAG}" > /tmp/pr_body.txt
 
-          gh pr create \
+          PR_URL=$(gh pr create \
             --base main \
             --head "${BRANCH}" \
             --title "chore: sync upstream KernelSU ${TAG}" \
-            --body "$(cat /tmp/pr_body.txt)" \
-            --label "upstream-sync" || echo "PR created or already exists."
+            --body "$(cat /tmp/pr_body.txt)" 2>&1) || echo "PR created or already exists."
+          # Add label via API (gh CLI label lookup may fail)
+          if [ -n "$PR_URL" ]; then
+            PR_NUMBER=$(echo "$PR_URL" | grep -oP '/pull/\K[0-9]+' || true)
+            if [ -n "$PR_NUMBER" ]; then
+              curl -s -X POST -H "Authorization: token ${GH_TOKEN}" \
+                -H "Content-Type: application/json" \
+                "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/labels" \
+                -d '{"labels":["upstream-sync"]}' || true
+            fi
+          fi
