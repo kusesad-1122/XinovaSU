@@ -54,7 +54,7 @@ is_executable = "1"
 nom = "8"
 derive-new = "0.7"
 getopts = "0.2"
-ksuinit = { path = "../ksuinit" }
+xnsuinit = { path = "../xnsuinit" }
 adb_client = { git = "https://github.com/Kernel-SU/adb_client" }
 prop-rs-android = { git = "https://github.com/Kernel-SU/xnsu_props" }
 

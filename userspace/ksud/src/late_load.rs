@@ -41,7 +41,7 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
     dump_process_info("late-load start");
 
     // 1. Check if XinovaSU is already loaded
-    if ksuinit::has_xinovasu() {
+    if xnsuinit::has_xinovasu() {
         info!("XinovaSU already loaded, skip loading ko");
     } else {
         // 2. Detect current KMI version
@@ -63,7 +63,7 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
         } else {
             cstr!("")
         };
-        ksuinit::load_module(&ko_data, params).context("Failed to load xinovasu.ko")?;
+        xnsuinit::load_module(&ko_data, params).context("Failed to load xinovasu.ko")?;
         info!("xinovasu.ko loaded successfully!");
         dump_process_info("after load_module");
     }

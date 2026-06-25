@@ -604,7 +604,7 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
         } else if let Some(init_path) = init {
             Box::new(map_file(&init_path)?)
         } else {
-            assets::get_asset("ksuinit").context("Failed to load ksuinit")?
+            assets::get_asset("xnsuinit").context("Failed to load xnsuinit")?
         };
 
         let (mut cpio, vendor_ramdisk_idx) =

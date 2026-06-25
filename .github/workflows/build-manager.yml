@@ -93,11 +93,11 @@ jobs:
       expected_hash2: ${{ needs.generate-key.outputs.expected_hash || '' }}
     secrets: inherit
 
-  build-ksuinit:
-    uses: ./.github/workflows/ksuinit.yml
+  build-xnsuinit:
+    uses: ./.github/workflows/xnsuinit.yml
 
   build-ksud:
-    needs: [build-lkm, build-ksuinit]
+    needs: [build-lkm, build-xnsuinit]
     strategy:
       matrix:
         include:
@@ -107,10 +107,10 @@ jobs:
     with:
       target: ${{ matrix.target }}
       pack_lkm: true
-      pack_ksuinit: true
+      pack_xnsuinit: true
   
   build-ksud-extra:
-    needs: [build-lkm, build-ksuinit]
+    needs: [build-lkm, build-xnsuinit]
     strategy:
       matrix:
         include:
@@ -129,7 +129,7 @@ jobs:
       target: ${{ matrix.target }}
       os: ${{ matrix.os }}
       pack_lkm: true
-      pack_ksuinit: true
+      pack_xnsuinit: true
 
   build-manager:
     needs: [generate-key]

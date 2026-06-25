@@ -109,7 +109,7 @@ pub fn init() -> Result<()> {
     // This relies on the fact that we have /proc mounted
     unlimit_kmsg();
 
-    if ksuinit::has_xinovasu() {
+    if xnsuinit::has_xinovasu() {
         log::info!("XinovaSU may be already loaded in kernel, skip!");
     } else {
         log::info!("Loading xinovasu.ko..");
@@ -138,5 +138,5 @@ fn load_module_from_path(path: &str) -> Result<()> {
     let params = std::fs::read("/xnsu_config").unwrap_or_default();
     let params = unsafe { CString::from_vec_unchecked(params) };
     log::info!("load xinovasu with params {params:?}");
-    ksuinit::load_module(&buffer, &params)
+    xnsuinit::load_module(&buffer, &params)
 }

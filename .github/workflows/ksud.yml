@@ -9,7 +9,7 @@ on:
         required: false
         type: boolean
         default: false
-      pack_ksuinit:
+      pack_xnsuinit:
         required: false
         type: boolean
         default: false
@@ -29,10 +29,10 @@ jobs:
       run: |
         cp android*-lkm/*_kernelsu.ko ./userspace/ksud/bin/aarch64/
     
-    - name: Prepare ksuinit
-      if: ${{ inputs.pack_ksuinit }}
+    - name: Prepare xnsuinit
+      if: ${{ inputs.pack_xnsuinit }}
       run: |
-        mv ksuinit/*/release/ksuinit ./userspace/ksud/bin/aarch64/
+        mv xnsuinit/*/release/xnsuinit ./userspace/ksud/bin/aarch64/
         
     - name: Setup rustup
       run: |

@@ -59,7 +59,7 @@ pub fn insmod(module: &Path, params: &[String]) -> Result<()> {
         fs::read(&module).with_context(|| format!("read module failed: {}", module.display()))?;
     let cparams = CString::new(params.join(" "))?;
 
-    ksuinit::load_module(&module_data, &cparams)
+    xnsuinit::load_module(&module_data, &cparams)
         .with_context(|| format!("load module failed: {}", module.display()))?;
 
     println!("Loaded kernel module: {}", module.display());
