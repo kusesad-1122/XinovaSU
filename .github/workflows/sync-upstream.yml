@@ -43,7 +43,7 @@ jobs:
         id: check_sync
         run: |
           TAG="${{ steps.upstream_tag.outputs.tag }}"
-          BRANCH="upstream-sync-${TAG}"
+          BRANCH="upstream-sync/${TAG}"
           if git ls-remote --heads origin "${BRANCH}" | grep -q "${BRANCH}"; then
             echo "already_synced=true" >> $GITHUB_OUTPUT
             echo "Branch ${BRANCH} already exists, skipping."
@@ -58,18 +58,25 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="${{ steps.upstream_tag.outputs.tag }}"
-          BRANCH="upstream-sync-${TAG}"
+          BRANCH="upstream-sync/${TAG}"
 
-          git checkout -b "${BRANCH}" "refs/tags/${TAG}"
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git checkout -b "${BRANCH}" "upstream/${TAG}"
           git push origin "${BRANCH}"
 
-          printf '%s\n\n## 说明\n- 上游版本：%s\n- 来源：https://github.com/tiann/KernelSU/releases/tag/%s\n\n## 操作指引\n- 无冲突：review 后直接 merge\n- 有冲突：在 upstream-sync 分支手动解决后 merge\n- 破坏性变更：关闭此 PR，在 dev 分支手动评估\n\n**注意**：merge 后检查 kernel/ uapi/ userspace/ 是否有新增含 kernelsu 字样的文件，需补跑替换脚本\n' \
-            "Automated sync from tiann/KernelSU ${TAG}" \
-            "${TAG}" "${TAG}" > /tmp/pr_body.txt
           gh pr create \
             --base main \
             --head "${BRANCH}" \
             --title "chore: sync upstream KernelSU ${TAG}" \
-            --body "$(cat /tmp/pr_body.txt)" \
+            --body "Automated sync from tiann/KernelSU ${TAG}
+
+## 说明
+- 上游版本：${TAG}
+- 来源：https://github.com/tiann/KernelSU/releases/tag/${TAG}
+
+## 操作指引
+- 无冲突：review 后直接 merge
+- 有冲突：在 upstream-sync 分支手动解决后 merge
+- 破坏性变更：关闭此 PR，在 dev 分支手动评估
+
+**注意**：merge 后检查 kernel/ uapi/ userspace/ 是否有新增含 kernelsu 字样的文件，需补跑替换脚本" \
             --label "upstream-sync" || echo "PR created or already exists."
