@@ -8,3 +8,6 @@ AGENTS.md
 __pycache__
 /dist
 /repack-config.json
+repack-config.json
+xinova_release.jks
+xinova_release_b64.txt
