@@ -21,7 +21,7 @@ use crate::assets;
 #[cfg(target_os = "android")]
 mod android {
     use super::Result;
-    pub(super) use crate::defs::{BACKUP_FILENAME, KSU_BACKUP_DIR, KSU_BACKUP_FILE_PREFIX};
+    pub(super) use crate::defs::{BACKUP_FILENAME, XNSU_BACKUP_DIR, XNSU_BACKUP_FILE_PREFIX};
     use android_bootimg::cpio::{Cpio, CpioEntry};
     use anyhow::{Context, anyhow, bail, ensure};
     use regex_lite::Regex;
@@ -122,10 +122,10 @@ mod android {
 
     pub(super) fn do_backup(cpio: &mut Cpio, image: &Path) -> Result<()> {
         let sha1 = calculate_sha1(image)?;
-        let filename = format!("{KSU_BACKUP_FILE_PREFIX}{sha1}");
+        let filename = format!("{XNSU_BACKUP_FILE_PREFIX}{sha1}");
 
         println!("- Backup stock boot image");
-        let target = format!("{KSU_BACKUP_DIR}{filename}");
+        let target = format!("{XNSU_BACKUP_DIR}{filename}");
         let mut target_file = OpenOptions::new()
             .create(true)
             .truncate(true)
@@ -151,8 +151,8 @@ mod android {
 
     pub(super) fn clean_backup(sha1: &str) -> Result<()> {
         println!("- Clean up backup");
-        let backup_name = format!("{KSU_BACKUP_FILE_PREFIX}{sha1}");
-        let dir = std::fs::read_dir(KSU_BACKUP_DIR)?;
+        let backup_name = format!("{XNSU_BACKUP_FILE_PREFIX}{sha1}");
+        let dir = std::fs::read_dir(XNSU_BACKUP_DIR)?;
         for entry in dir.flatten() {
             let path = entry.path();
             if !path.is_file() {
@@ -161,7 +161,7 @@ mod android {
             if let Some(name) = path.file_name() {
                 let name = name.to_string_lossy().to_string();
                 if name != backup_name
-                    && name.starts_with(KSU_BACKUP_FILE_PREFIX)
+                    && name.starts_with(XNSU_BACKUP_FILE_PREFIX)
                     && std::fs::remove_file(path).is_ok()
                 {
                     println!("- removed {name}");
@@ -853,7 +853,7 @@ pub fn restore(args: BootRestoreArgs) -> Result<()> {
         let sha = String::from_utf8(backup_file.data().unwrap_or_default().to_vec())?;
         let sha = sha.trim();
         let backup_path =
-            PathBuf::from(KSU_BACKUP_DIR).join(format!("{KSU_BACKUP_FILE_PREFIX}{sha}"));
+            PathBuf::from(XNSU_BACKUP_DIR).join(format!("{XNSU_BACKUP_FILE_PREFIX}{sha}"));
         if backup_path.is_file() {
             println!("- Using backup file {}", backup_path.display());
             stock_boot = Some(backup_path);

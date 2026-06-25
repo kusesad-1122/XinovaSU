@@ -261,7 +261,7 @@ pub fn set_feature(id: &str, value: u64) -> Result<()> {
 
         if !managing_modules.is_empty() {
             // Feature is managed, check if caller is an authorized module
-            let caller_module = std::env::var("KSU_MODULE").unwrap_or_default();
+            let caller_module = std::env::var("XNSU_MODULE").unwrap_or_default();
 
             if caller_module.is_empty() || !managing_modules.contains(&&caller_module) {
                 bail!(

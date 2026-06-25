@@ -41,7 +41,7 @@ fn get_pkg_appid(pkg: &str) -> Result<u32> {
 pub fn set_manager(pkg: &str) -> Result<()> {
     ensure!(
         Path::new(KERNEL_PARAM_PATH).exists(),
-        "CONFIG_KSU_DEBUG is not enabled"
+        "CONFIG_XNSU_DEBUG is not enabled"
     );
 
     let appid = get_pkg_appid(pkg)?;

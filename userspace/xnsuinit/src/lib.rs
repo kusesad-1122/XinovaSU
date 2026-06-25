@@ -148,9 +148,9 @@ fn has_xinovasu_legacy() -> bool {
 
 fn has_xinovasu_v2() -> bool {
     use syscalls::{Sysno, syscall};
-    const KSU_INSTALL_MAGIC1: u32 = 0xDEADBEEF;
-    const KSU_INSTALL_MAGIC2: u32 = 0xCAFEBABE;
-    const KSU_IOCTL_GET_INFO: u32 = 0x80004b02; // _IOC(_IOC_READ, 'K', 2, 0)
+    const XNSU_INSTALL_MAGIC1: u32 = 0xDEADBEEF;
+    const XNSU_INSTALL_MAGIC2: u32 = 0xCAFEBABE;
+    const XNSU_IOCTL_GET_INFO: u32 = 0x80004b02; // _IOC(_IOC_READ, 'K', 2, 0)
 
     #[repr(C)]
     #[derive(Default)]
@@ -165,8 +165,8 @@ fn has_xinovasu_v2() -> bool {
     unsafe {
         let _ = syscall!(
             Sysno::reboot,
-            KSU_INSTALL_MAGIC1,
-            KSU_INSTALL_MAGIC2,
+            XNSU_INSTALL_MAGIC1,
+            XNSU_INSTALL_MAGIC2,
             0,
             std::ptr::addr_of_mut!(fd)
         );
@@ -176,7 +176,7 @@ fn has_xinovasu_v2() -> bool {
         // New method: try to get version info via ioctl
         let mut cmd = GetInfoCmd::default();
         let version = unsafe {
-            let ret = syscall!(Sysno::ioctl, fd, KSU_IOCTL_GET_INFO, &mut cmd as *mut _);
+            let ret = syscall!(Sysno::ioctl, fd, XNSU_IOCTL_GET_INFO, &mut cmd as *mut _);
 
             match ret {
                 Ok(_) => cmd.version,

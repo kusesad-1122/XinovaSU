@@ -14,8 +14,8 @@ use std::time::Duration;
 
 use crate::{defs, ksucalls, module_config, utils};
 
-const KSU_EVENT_QUEUE_TYPE_DROPPED: u16 = u16::MAX;
-const KSU_EVENT_RECORD_FLAG_INTERNAL: u16 = 1;
+const XNSU_EVENT_QUEUE_TYPE_DROPPED: u16 = u16::MAX;
+const XNSU_EVENT_RECORD_FLAG_INTERNAL: u16 = 1;
 const TASK_COMM_LEN: usize = 16;
 const READ_BUF_SIZE: usize = 8192;
 const SULOGD_RESTART_DELAY: Duration = Duration::from_secs(3);
@@ -543,9 +543,9 @@ fn write_log_line(writer: &mut DailyLogWriter, line: &str) -> io::Result<()> {
 }
 
 fn format_record_line(header: EventRecordHeader, payload: &[u8]) -> Result<String> {
-    if header.record_type == KSU_EVENT_QUEUE_TYPE_DROPPED {
+    if header.record_type == XNSU_EVENT_QUEUE_TYPE_DROPPED {
         ensure!(
-            header.flags & KSU_EVENT_RECORD_FLAG_INTERNAL != 0,
+            header.flags & XNSU_EVENT_RECORD_FLAG_INTERNAL != 0,
             "dropped record missing internal flag"
         );
         let info = DroppedInfo::parse(payload)?;

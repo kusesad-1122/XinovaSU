@@ -413,10 +413,10 @@ impl<'a> TryFrom<&'a NormalPerm<'a>> for Vec<AtomicStatement> {
     fn try_from(perm: &'a NormalPerm<'a>) -> Result<Self> {
         let mut result = vec![];
         let subcmd = match perm.op {
-            "allow" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_NORMAL_PERM_ALLOW,
-            "deny" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_NORMAL_PERM_DENY,
-            "auditallow" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_NORMAL_PERM_AUDITALLOW,
-            "dontaudit" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_NORMAL_PERM_DONTAUDIT,
+            "allow" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_ALLOW,
+            "deny" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_DENY,
+            "auditallow" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_AUDITALLOW,
+            "dontaudit" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_DONTAUDIT,
             _ => 0,
         };
         for &s in &perm.source {
@@ -424,7 +424,7 @@ impl<'a> TryFrom<&'a NormalPerm<'a>> for Vec<AtomicStatement> {
                 for &c in &perm.class {
                     for &p in &perm.perm {
                         result.push(AtomicStatement {
-                            cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_NORMAL_PERM,
+                            cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_NORMAL_PERM,
                             subcmd,
                             sepol1: s.try_into()?,
                             sepol2: t.try_into()?,
@@ -447,9 +447,9 @@ impl<'a> TryFrom<&'a XPerm<'a>> for Vec<AtomicStatement> {
     fn try_from(perm: &'a XPerm<'a>) -> Result<Self> {
         let mut result = vec![];
         let subcmd = match perm.op {
-            "allowxperm" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_XPERM_ALLOW,
-            "auditallowxperm" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_XPERM_AUDITALLOW,
-            "dontauditxperm" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_XPERM_DONTAUDIT,
+            "allowxperm" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_XPERM_ALLOW,
+            "auditallowxperm" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_XPERM_AUDITALLOW,
+            "dontauditxperm" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_XPERM_DONTAUDIT,
             _ => 0,
         };
         for &s in &perm.source {
@@ -457,7 +457,7 @@ impl<'a> TryFrom<&'a XPerm<'a>> for Vec<AtomicStatement> {
                 for &c in &perm.class {
                     for &r in &perm.perm_set {
                         result.push(AtomicStatement {
-                            cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_XPERM,
+                            cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_XPERM,
                             subcmd,
                             sepol1: s.try_into()?,
                             sepol2: t.try_into()?,
@@ -480,13 +480,13 @@ impl<'a> TryFrom<&'a TypeState<'a>> for Vec<AtomicStatement> {
     fn try_from(perm: &'a TypeState<'a>) -> Result<Self> {
         let mut result = vec![];
         let subcmd = match perm.op {
-            "permissive" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_TYPE_STATE_PERMISSIVE,
-            "enforce" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_TYPE_STATE_ENFORCE,
+            "permissive" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_TYPE_STATE_PERMISSIVE,
+            "enforce" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_TYPE_STATE_ENFORCE,
             _ => 0,
         };
         for &t in &perm.stype {
             result.push(AtomicStatement {
-                cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_STATE,
+                cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_STATE,
                 subcmd,
                 sepol1: t.try_into()?,
                 sepol2: PolicyObject::None,
@@ -507,7 +507,7 @@ impl<'a> TryFrom<&'a Type<'a>> for Vec<AtomicStatement> {
         let mut result = vec![];
         for &attr in &perm.attrs {
             result.push(AtomicStatement {
-                cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE,
+                cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE,
                 subcmd: 0,
                 sepol1: perm.name.try_into()?,
                 sepol2: attr.try_into()?,
@@ -529,7 +529,7 @@ impl<'a> TryFrom<&'a TypeAttr<'a>> for Vec<AtomicStatement> {
         for &t in &perm.stype {
             for &attr in &perm.sattr {
                 result.push(AtomicStatement {
-                    cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_ATTR,
+                    cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_ATTR,
                     subcmd: 0,
                     sepol1: t.try_into()?,
                     sepol2: attr.try_into()?,
@@ -549,7 +549,7 @@ impl<'a> TryFrom<&'a Attr<'a>> for Vec<AtomicStatement> {
     type Error = anyhow::Error;
     fn try_from(perm: &'a Attr<'a>) -> Result<Self> {
         let result = vec![AtomicStatement {
-            cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_ATTR,
+            cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_ATTR,
             subcmd: 0,
             sepol1: perm.name.try_into()?,
             sepol2: PolicyObject::None,
@@ -572,7 +572,7 @@ impl<'a> TryFrom<&'a TypeTransition<'a>> for Vec<AtomicStatement> {
             None => PolicyObject::None,
         };
         result.push(AtomicStatement {
-            cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_TRANSITION,
+            cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_TRANSITION,
             subcmd: 0,
             sepol1: perm.source.try_into()?,
             sepol2: perm.target.try_into()?,
@@ -591,12 +591,12 @@ impl<'a> TryFrom<&'a TypeChange<'a>> for Vec<AtomicStatement> {
     fn try_from(perm: &'a TypeChange<'a>) -> Result<Self> {
         let mut result = vec![];
         let subcmd = match perm.op {
-            "type_change" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_TYPE_CHANGE_CHANGE,
-            "type_member" => crate::xnsu_uapi::KSU_SEPOLICY_SUBCMD_TYPE_CHANGE_MEMBER,
+            "type_change" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_TYPE_CHANGE_CHANGE,
+            "type_member" => crate::xnsu_uapi::XNSU_SEPOLICY_SUBCMD_TYPE_CHANGE_MEMBER,
             _ => 0,
         };
         result.push(AtomicStatement {
-            cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_CHANGE,
+            cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_CHANGE,
             subcmd,
             sepol1: perm.source.try_into()?,
             sepol2: perm.target.try_into()?,
@@ -614,7 +614,7 @@ impl<'a> TryFrom<&'a GenFsCon<'a>> for Vec<AtomicStatement> {
     type Error = anyhow::Error;
     fn try_from(perm: &'a GenFsCon<'a>) -> Result<Self> {
         let result = vec![AtomicStatement {
-            cmd: crate::xnsu_uapi::KSU_SEPOLICY_CMD_GENFSCON,
+            cmd: crate::xnsu_uapi::XNSU_SEPOLICY_CMD_GENFSCON,
             subcmd: 0,
             sepol1: perm.fs_name.try_into()?,
             sepol2: perm.partial_path.try_into()?,
@@ -647,17 +647,17 @@ impl<'a> TryFrom<&'a PolicyStatement<'a>> for Vec<AtomicStatement> {
 
 const fn cmd_expected_argc(cmd: u32) -> Option<usize> {
     match cmd {
-        crate::xnsu_uapi::KSU_SEPOLICY_CMD_NORMAL_PERM
-        | crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_CHANGE => Some(4),
-        crate::xnsu_uapi::KSU_SEPOLICY_CMD_XPERM
-        | crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_TRANSITION => Some(5),
-        crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_STATE | crate::xnsu_uapi::KSU_SEPOLICY_CMD_ATTR => {
+        crate::xnsu_uapi::XNSU_SEPOLICY_CMD_NORMAL_PERM
+        | crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_CHANGE => Some(4),
+        crate::xnsu_uapi::XNSU_SEPOLICY_CMD_XPERM
+        | crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_TRANSITION => Some(5),
+        crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_STATE | crate::xnsu_uapi::XNSU_SEPOLICY_CMD_ATTR => {
             Some(1)
         }
-        crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE | crate::xnsu_uapi::KSU_SEPOLICY_CMD_TYPE_ATTR => {
+        crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE | crate::xnsu_uapi::XNSU_SEPOLICY_CMD_TYPE_ATTR => {
             Some(2)
         }
-        crate::xnsu_uapi::KSU_SEPOLICY_CMD_GENFSCON => Some(3),
+        crate::xnsu_uapi::XNSU_SEPOLICY_CMD_GENFSCON => Some(3),
         _ => None,
     }
 }
