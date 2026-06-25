@@ -59,6 +59,8 @@ jobs:
           BRANCH="upstream-sync/${TAG}"
           # create branch from upstream tag (tags are local after fetch --tags)
           git checkout -b "${BRANCH}" "refs/tags/${TAG}"
+          # configure push URL with token
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           # push branch
           git push origin "${BRANCH}"
           # create PR body
