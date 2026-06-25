@@ -39,7 +39,7 @@ def merge_config(file_cfg: dict, args: argparse.Namespace) -> dict:
             "key_pass": "",
         },
         "app_build_type": "debug",
-        "ksud_build_type": "debug",
+        "xnsusd_build_type": "debug",
         "arch": [],
         "output_name": "",
         "strip": False,
@@ -52,8 +52,8 @@ def merge_config(file_cfg: dict, args: argparse.Namespace) -> dict:
 
     if args.app_build_type:
         cfg["app_build_type"] = args.app_build_type
-    if args.ksud_build_type:
-        cfg["ksud_build_type"] = args.ksud_build_type
+    if args.xnsusd_build_type:
+        cfg["xnsusd_build_type"] = args.xnsusd_build_type
     if args.arch:
         cfg["arch"] = normalize_arch_values(args.arch)
     if args.output_name:
@@ -182,7 +182,7 @@ ARCH_TO_TRIPLE = {
 }
 
 
-def find_ksud_binaries_by_arch(ksud_build_type: str, arch_filters: List[str]) -> Dict[str, Path]:
+def find_xnsusd_binaries_by_arch(xnsusd_build_type: str, arch_filters: List[str]) -> Dict[str, Path]:
     result: Dict[str, Path] = {}
     target_root = workspace_root() / "target"
     for arch in arch_filters:
@@ -190,12 +190,12 @@ def find_ksud_binaries_by_arch(ksud_build_type: str, arch_filters: List[str]) ->
         if not triple:
             print(f"[WARN] Unknown arch '{arch}', cannot map to target triple.", file=sys.stderr)
             continue
-        candidate = target_root / triple / ksud_build_type / "ksud"
+        candidate = target_root / triple / xnsusd_build_type / "xnsusd"
         if candidate.exists():
             result[arch] = candidate
         else:
             print(
-                f"[WARN] ksud not found for {arch}: {candidate}",
+                f"[WARN] xnsusd not found for {arch}: {candidate}",
                 file=sys.stderr,
             )
     return result
@@ -215,12 +215,12 @@ def collect_existing_arches(apk_path: Path) -> List[str]:
     return arches
 
 
-def collect_existing_ksud_arches(apk_path: Path) -> List[str]:
+def collect_existing_xnsusd_arches(apk_path: Path) -> List[str]:
     arches = []
     seen = set()
     with ZipFile(apk_path, "r") as zin:
         for name in zin.namelist():
-            if not (name.startswith("lib/") and name.endswith("/libksud.so")):
+            if not (name.startswith("lib/") and name.endswith("/libxnsusd.so")):
                 continue
             parts = name.split("/")
             if len(parts) >= 3 and parts[1] and parts[1] not in seen:
@@ -240,16 +240,16 @@ def repack_apk(
     apk_path: Path,
     out_unsigned_path: Path,
     arch_filters: List[str],
-    ksud_by_arch: Dict[str, Path],
+    xnsusd_by_arch: Dict[str, Path],
     strip_tool: Optional[Path] = None,
 ) -> None:
     with tempfile.TemporaryDirectory() as tmp_dir:
-        ksud_bytes_by_arch: Dict[str, bytes] = {}
-        for arch, ksud_path in ksud_by_arch.items():
+        xnsusd_bytes_by_arch: Dict[str, bytes] = {}
+        for arch, xnsusd_path in xnsusd_by_arch.items():
             if strip_tool is not None:
-                ksud_bytes_by_arch[arch] = strip_binary(ksud_path, strip_tool, Path(tmp_dir))
+                xnsusd_bytes_by_arch[arch] = strip_binary(xnsusd_path, strip_tool, Path(tmp_dir))
             else:
-                ksud_bytes_by_arch[arch] = ksud_path.read_bytes()
+                xnsusd_bytes_by_arch[arch] = xnsusd_path.read_bytes()
 
         with ZipFile(apk_path, "r") as zin, ZipFile(out_unsigned_path, "w") as zout:
             for info in zin.infolist():
@@ -260,10 +260,10 @@ def repack_apk(
                     if len(parts) >= 3 and parts[1] not in arch_filters:
                         continue
 
-                # Drop original libksud.so only for arches that have a replacement binary.
-                if name.startswith("lib/") and name.endswith("/libksud.so"):
+                # Drop original libxnsusd.so only for arches that have a replacement binary.
+                if name.startswith("lib/") and name.endswith("/libxnsusd.so"):
                     parts = name.split("/")
-                    if len(parts) >= 3 and parts[1] in ksud_bytes_by_arch:
+                    if len(parts) >= 3 and parts[1] in xnsusd_bytes_by_arch:
                         continue
 
                 data = zin.read(name)
@@ -279,22 +279,22 @@ def repack_apk(
                     zout.writestr(new_info, data)
 
             for arch in arch_filters:
-                ksud_bytes = ksud_bytes_by_arch.get(arch)
-                if ksud_bytes is None:
+                xnsusd_bytes = xnsusd_bytes_by_arch.get(arch)
+                if xnsusd_bytes is None:
                     continue
-                lib_path = f"lib/{arch}/libksud.so"
+                lib_path = f"lib/{arch}/libxnsusd.so"
                 entry = ZipInfo(filename=lib_path)
                 entry.compress_type = ZIP_DEFLATED
-                zout.writestr(entry, ksud_bytes)
+                zout.writestr(entry, xnsusd_bytes)
 
 
 def assert_required_libs(apk_path: Path, arch_filters: List[str]) -> None:
     with ZipFile(apk_path, "r") as zf:
         names = set(zf.namelist())
-    missing = [arch for arch in arch_filters if f"lib/{arch}/libksud.so" not in names]
+    missing = [arch for arch in arch_filters if f"lib/{arch}/libxnsusd.so" not in names]
     if missing:
         raise RuntimeError(
-            "Missing libksud.so in APK for architecture(s): " + ", ".join(missing)
+            "Missing libxnsusd.so in APK for architecture(s): " + ", ".join(missing)
         )
 
 
@@ -329,20 +329,20 @@ def do_repack(args: argparse.Namespace) -> int:
             arch_filters = ["arm64-v8a"]
         print(f"[INFO] No arch configured, using: {', '.join(arch_filters)}")
 
-    ksud_by_arch = find_ksud_binaries_by_arch(cfg["ksud_build_type"], arch_filters)
-    missing_ksud_arches = [arch for arch in arch_filters if arch not in ksud_by_arch]
-    if missing_ksud_arches:
-        existing_ksud_arches = set(collect_existing_ksud_arches(apk))
-        missing_in_apk = [arch for arch in missing_ksud_arches if arch not in existing_ksud_arches]
+    xnsusd_by_arch = find_xnsusd_binaries_by_arch(cfg["xnsusd_build_type"], arch_filters)
+    missing_xnsusd_arches = [arch for arch in arch_filters if arch not in xnsusd_by_arch]
+    if missing_xnsusd_arches:
+        existing_xnsusd_arches = set(collect_existing_xnsusd_arches(apk))
+        missing_in_apk = [arch for arch in missing_xnsusd_arches if arch not in existing_xnsusd_arches]
         if missing_in_apk:
             raise RuntimeError(
-                "ksud binary not found and APK has no existing libksud.so for architecture(s): "
+                "xnsusd binary not found and APK has no existing libxnsusd.so for architecture(s): "
                 + ", ".join(missing_in_apk)
             )
         print(
-            "[WARN] ksud binary not found for architecture(s): "
-            + ", ".join(missing_ksud_arches)
-            + ". Using existing libksud.so from input APK.",
+            "[WARN] xnsusd binary not found for architecture(s): "
+            + ", ".join(missing_xnsusd_arches)
+            + ". Using existing libxnsusd.so from input APK.",
             file=sys.stderr,
         )
 
@@ -370,7 +370,7 @@ def do_repack(args: argparse.Namespace) -> int:
             print(f"[INFO] Strip tool: {strip_tool}")
 
     try:
-        repack_apk(apk, unsigned_path, arch_filters, ksud_by_arch, strip_tool)
+        repack_apk(apk, unsigned_path, arch_filters, xnsusd_by_arch, strip_tool)
         assert_required_libs(unsigned_path, arch_filters)
 
         zipalign = find_android_tool("zipalign")
@@ -421,11 +421,11 @@ def do_repack(args: argparse.Namespace) -> int:
                 tmp.unlink()
 
     print(f"Input APK : {apk}")
-    if ksud_by_arch:
-        ksud_desc = ", ".join(f"{arch}={path}" for arch, path in ksud_by_arch.items())
+    if xnsusd_by_arch:
+        xnsusd_desc = ", ".join(f"{arch}={path}" for arch, path in xnsusd_by_arch.items())
     else:
-        ksud_desc = "NOT FOUND"
-    print(f"ksud      : {ksud_desc}")
+        xnsusd_desc = "NOT FOUND"
+    print(f"xnsusd      : {xnsusd_desc}")
     print(f"Strip     : {'yes (' + str(strip_tool) + ')' if strip_tool else ('requested but unavailable' if do_strip else 'no')}")
     print(f"Arch      : {', '.join(arch_filters)}")
     print(f"Output    : {signed_path}")
@@ -434,14 +434,14 @@ def do_repack(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Repack manager APK with ksud injection, zipalign(16KB), and resign."
+        description="Repack manager APK with xnsusd injection, zipalign(16KB), and resign."
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     repack = subparsers.add_parser("repack", help="Repack and resign APK")
     repack.add_argument("-c", "--config", help="Path to jsonc config file")
     repack.add_argument("-b", "--app-build-type", help="APK build type override, e.g. debug/release")
-    repack.add_argument("-t", "--ksud-build-type", help="ksud build type override, e.g. debug/release")
+    repack.add_argument("-t", "--xnsusd-build-type", help="xnsusd build type override, e.g. debug/release")
     repack.add_argument(
         "-a",
         "--arch",
@@ -459,7 +459,7 @@ def build_parser() -> argparse.ArgumentParser:
         dest="strip",
         action="store_true",
         default=None,
-        help="Strip libksud.so before packing (uses NDK llvm-strip)",
+        help="Strip libxnsusd.so before packing (uses NDK llvm-strip)",
     )
     strip_group.add_argument(
         "--no-strip",
