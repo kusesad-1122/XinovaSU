@@ -7,10 +7,10 @@ on:
 
 jobs:
   sync:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout XinovaSU
         uses: actions/checkout@v4
@@ -35,7 +35,6 @@ jobs:
             | awk '{print $2}' \
             | grep -v '{}' \
             | sed 's|refs/tags/||' \
-            | grep -v "^v0\." \
             | sort -V | tail -1)
           echo "tag=${LATEST}" >> $GITHUB_OUTPUT
           echo "Latest upstream tag: ${LATEST}"
@@ -50,7 +49,7 @@ jobs:
             echo "Branch ${BRANCH} already exists, skipping."
           else
             echo "already_synced=false" >> $GITHUB_OUTPUT
-            echo "New tag ${TAG} detected, will create PR."
+            echo "New tag ${TAG} detected."
           fi
 
       - name: Create sync branch and PR
@@ -60,14 +59,12 @@ jobs:
         run: |
           TAG="${{ steps.upstream_tag.outputs.tag }}"
           BRANCH="upstream-sync-${TAG}"
-          # create branch from upstream tag (tags are local after fetch --tags)
+
           git checkout -b "${BRANCH}" "refs/tags/${TAG}"
-          # configure push URL with token
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          # push branch
           git push origin "${BRANCH}"
-          # create PR body
-          printf '%s\n\n## Notes\n- Upstream: %s\n- Source: https://github.com/tiann/KernelSU/releases/tag/%s\n\nAfter merge, check T2/T3 identity replacements if upstream added new kernelsu files.\n' \
+
+          printf '%s\n\n## 说明\n- 上游版本：%s\n- 来源：https://github.com/tiann/KernelSU/releases/tag/%s\n\n## 操作指引\n- 无冲突：review 后直接 merge\n- 有冲突：在 upstream-sync 分支手动解决后 merge\n- 破坏性变更：关闭此 PR，在 dev 分支手动评估\n\n**注意**：merge 后检查 kernel/ uapi/ userspace/ 是否有新增含 kernelsu 字样的文件，需补跑替换脚本\n' \
             "Automated sync from tiann/KernelSU ${TAG}" \
             "${TAG}" "${TAG}" > /tmp/pr_body.txt
           gh pr create \
@@ -75,4 +72,4 @@ jobs:
             --head "${BRANCH}" \
             --title "chore: sync upstream KernelSU ${TAG}" \
             --body "$(cat /tmp/pr_body.txt)" \
-            --label "upstream-sync" || echo "PR creation failed, branch pushed."
+            --label "upstream-sync" || echo "PR created or already exists."
