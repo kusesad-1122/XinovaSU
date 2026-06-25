@@ -1,17 +1,17 @@
-#ifndef __KSU_H_KSU
-#define __KSU_H_KSU
+#ifndef __XNSU_H_KSU
+#define __XNSU_H_KSU
 
 #include <linux/types.h>
 #include <linux/cred.h>
 #include <linux/workqueue.h>
 
-#define KERNEL_SU_VERSION KSU_VERSION
+#define KERNEL_SU_VERSION XNSU_VERSION
 
-extern struct cred *ksu_cred;
-extern bool ksu_late_loaded;
+extern struct cred *xnsu_cred;
+extern bool xnsu_late_loaded;
 extern bool allow_shell;
 extern struct selinux_policy *backup_sepolicy;
-extern bool ksu_no_custom_rc;
+extern bool xnsu_no_custom_rc;
 
 static inline int startswith(char *s, char *prefix)
 {

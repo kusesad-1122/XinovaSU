@@ -1,7 +1,7 @@
-menu "KernelSU"
+menu "XinovaSU"
 
 config KSU
-	tristate "KernelSU function support"
+	tristate "XinovaSU function support"
 	depends on KPROBES && EXT4_FS
 	default y
 	help
@@ -9,25 +9,25 @@ config KSU
 	  Requires CONFIG_KPROBES for kernel hooking support.
 	  Requires CONFIG_EXT4_FS for `ext4_unregister_sysfs`.
 	  To compile as a module, choose M here: the
-	  module will be called kernelsu.
+	  module will be called xinovasu.
 
-config KSU_DEBUG
-	bool "KernelSU debug mode"
+config XNSU_DEBUG
+	bool "XinovaSU debug mode"
 	depends on KSU
 	default n
 	help
-	  Enable KernelSU debug mode.
+	  Enable XinovaSU debug mode.
 
-config KSU_DISABLE_MANAGER
-	bool "Disable KernelSU manager integration"
+config XNSU_DISABLE_MANAGER
+	bool "Disable XinovaSU manager integration"
 	depends on KSU
 	default n
 	help
 	  Disable manager APK detection and manager-specific handling.
 	  Root will be used in place of manager-only functionality.
 
-config KSU_DISABLE_POLICY
-	bool "Disable KernelSU policy profiles"
+config XNSU_DISABLE_POLICY
+	bool "Disable XinovaSU policy profiles"
 	depends on KSU
 	default n
 	help

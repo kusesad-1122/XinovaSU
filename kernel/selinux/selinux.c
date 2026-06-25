@@ -4,7 +4,7 @@
 #include "objsec.h"
 #include "linux/version.h"
 #include "klog.h" // IWYU pragma: keep
-#include "ksu.h"
+#include "xnsu.h"
 
 /*
  * Cached SID values for frequently checked contexts.
@@ -21,7 +21,7 @@
 static u32 cached_su_sid __read_mostly = 0;
 static u32 cached_zygote_sid __read_mostly = 0;
 static u32 cached_init_sid __read_mostly = 0;
-u32 ksu_file_sid __read_mostly = 0;
+u32 xnsu_file_sid __read_mostly = 0;
 
 static int transive_to_domain(const char *domain, struct cred *cred, bool clear_exec_sid)
 {
@@ -61,9 +61,9 @@ void setup_selinux(const char *domain, struct cred *cred)
     }
 }
 
-void setup_ksu_cred(void)
+void setup_xnsu_cred(void)
 {
-    if (ksu_cred && transive_to_domain(KERNEL_SU_CONTEXT, ksu_cred, false)) {
+    if (xnsu_cred && transive_to_domain(KERNEL_SU_CONTEXT, xnsu_cred, false)) {
         pr_err("setup ksu cred failed.\n");
     }
 }
@@ -142,12 +142,12 @@ void cache_sid(void)
         pr_info("Cached init SID: %u\n", cached_init_sid);
     }
 
-    err = security_secctx_to_secid(KSU_FILE_CONTEXT, strlen(KSU_FILE_CONTEXT), &ksu_file_sid);
+    err = security_secctx_to_secid(XNSU_FILE_CONTEXT, strlen(XNSU_FILE_CONTEXT), &xnsu_file_sid);
     if (err) {
-        pr_warn("Failed to cache ksu_file SID: %d\n", err);
-        ksu_file_sid = 0;
+        pr_warn("Failed to cache xnsu_file SID: %d\n", err);
+        xnsu_file_sid = 0;
     } else {
-        pr_info("Cached ksu_file SID: %u\n", ksu_file_sid);
+        pr_info("Cached xnsu_file SID: %u\n", xnsu_file_sid);
     }
 }
 
@@ -185,14 +185,14 @@ static bool is_sid_match(const struct cred *cred, u32 cached_sid, const char *fa
     return result;
 }
 
-bool is_task_ksu_domain(const struct cred *cred)
+bool is_task_xnsu_domain(const struct cred *cred)
 {
     return is_sid_match(cred, cached_su_sid, KERNEL_SU_CONTEXT);
 }
 
-bool is_ksu_domain(void)
+bool is_xnsu_domain(void)
 {
-    return is_task_ksu_domain(current_cred());
+    return is_task_xnsu_domain(current_cred());
 }
 
 bool is_zygote(const struct cred *cred)

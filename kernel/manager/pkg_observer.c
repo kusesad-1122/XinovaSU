@@ -21,7 +21,7 @@ struct watch_dir {
 
 static struct fsnotify_group *g;
 
-static int ksu_handle_inode_event(struct fsnotify_mark *mark, u32 mask, struct inode *inode, struct inode *dir,
+static int xnsu_handle_inode_event(struct fsnotify_mark *mark, u32 mask, struct inode *inode, struct inode *dir,
                                   const struct qstr *file_name, u32 cookie)
 {
     if (!file_name)
@@ -35,8 +35,8 @@ static int ksu_handle_inode_event(struct fsnotify_mark *mark, u32 mask, struct i
     return 0;
 }
 
-static const struct fsnotify_ops ksu_ops = {
-    .handle_inode_event = ksu_handle_inode_event,
+static const struct fsnotify_ops xnsu_ops = {
+    .handle_inode_event = xnsu_handle_inode_event,
 };
 
 static int add_mark_on_inode(struct inode *inode, u32 mask, struct fsnotify_mark **out)
@@ -99,14 +99,14 @@ static void unwatch_one_dir(struct watch_dir *wd)
 
 static struct watch_dir g_watch = { .path = "/data/system", .mask = MASK_SYSTEM };
 
-int ksu_observer_init(void)
+int xnsu_observer_init(void)
 {
     int ret = 0;
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 0, 0)
-    g = fsnotify_alloc_group(&ksu_ops, 0);
+    g = fsnotify_alloc_group(&xnsu_ops, 0);
 #else
-    g = fsnotify_alloc_group(&ksu_ops);
+    g = fsnotify_alloc_group(&xnsu_ops);
 #endif
     if (IS_ERR(g))
         return PTR_ERR(g);
@@ -116,7 +116,7 @@ int ksu_observer_init(void)
     return 0;
 }
 
-void __exit ksu_observer_exit(void)
+void __exit xnsu_observer_exit(void)
 {
     unwatch_one_dir(&g_watch);
     fsnotify_put_group(g);

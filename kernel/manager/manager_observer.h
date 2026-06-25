@@ -1,18 +1,18 @@
-#ifndef __KSU_H_MANAGER_OBSERVER
-#define __KSU_H_MANAGER_OBSERVER
+#ifndef __XNSU_H_MANAGER_OBSERVER
+#define __XNSU_H_MANAGER_OBSERVER
 
-#ifdef CONFIG_KSU_DISABLE_MANAGER
-static inline int ksu_observer_init(void)
+#ifdef CONFIG_XNSU_DISABLE_MANAGER
+static inline int xnsu_observer_init(void)
 {
     return 0;
 }
 
-static inline void ksu_observer_exit(void)
+static inline void xnsu_observer_exit(void)
 {
 }
 #else
-int ksu_observer_init(void);
-void ksu_observer_exit(void);
+int xnsu_observer_init(void);
+void xnsu_observer_exit(void);
 #endif
 
-#endif // __KSU_H_MANAGER_OBSERVER
+#endif // __XNSU_H_MANAGER_OBSERVER

@@ -1,10 +1,10 @@
-#ifndef __KSU_H_SULOG
-#define __KSU_H_SULOG
+#ifndef __XNSU_H_SULOG
+#define __XNSU_H_SULOG
 
 #include <linux/types.h>
 
-bool ksu_sulog_is_enabled(void);
-void ksu_sulog_init(void);
-void ksu_sulog_exit(void);
+bool xnsu_sulog_is_enabled(void);
+void xnsu_sulog_init(void);
+void xnsu_sulog_exit(void);
 
 #endif

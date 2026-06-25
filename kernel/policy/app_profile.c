@@ -24,7 +24,7 @@ static struct group_info root_groups = { .usage = ATOMIC_INIT(2) };
 
 void setup_groups(struct root_profile *profile, struct cred *cred)
 {
-    if (profile->groups_count > KSU_MAX_GROUPS) {
+    if (profile->groups_count > XNSU_MAX_GROUPS) {
         pr_warn("Failed to setgroups, too large group: %d!\n", profile->uid);
         return;
     }
@@ -122,7 +122,7 @@ int escape_with_root_profile(void)
         goto out_abort_creds;
     }
 
-    profile = ksu_get_root_profile(cred->uid.val);
+    profile = xnsu_get_root_profile(cred->uid.val);
 
     cred->uid.val = profile->uid;
     cred->suid.val = profile->uid;
@@ -167,10 +167,10 @@ int escape_with_root_profile(void)
 #endif
 
     // setup capabilities
-    // we need CAP_DAC_READ_SEARCH becuase `/data/adb/ksud` is not accessible for non root process
+    // we need CAP_DAC_READ_SEARCH becuase `/data/adb/xnsusd` is not accessible for non root process
     // we add it here but don't add it to cap_inhertiable, it would be dropped automaticly after exec!
-    u64 cap_for_ksud = profile->capabilities.effective | CAP_DAC_READ_SEARCH;
-    memcpy(&cred->cap_effective, &cap_for_ksud, sizeof(cred->cap_effective));
+    u64 cap_for_xnsusd = profile->capabilities.effective | CAP_DAC_READ_SEARCH;
+    memcpy(&cred->cap_effective, &cap_for_xnsusd, sizeof(cred->cap_effective));
     memcpy(&cred->cap_permitted, &profile->capabilities.effective, sizeof(cred->cap_permitted));
     memcpy(&cred->cap_bset, &profile->capabilities.effective, sizeof(cred->cap_bset));
 
@@ -182,16 +182,16 @@ int escape_with_root_profile(void)
     disable_seccomp();
 
     for_each_thread (p, t) {
-        ksu_set_task_tracepoint_flag(t);
+        xnsu_set_task_tracepoint_flag(t);
     }
 
     setup_mount_ns(profile->namespaces);
-    ksu_put_root_profile(profile);
+    xnsu_put_root_profile(profile);
     return 0;
 
 out_abort_creds:
     if (profile)
-        ksu_put_root_profile(profile);
+        xnsu_put_root_profile(profile);
     abort_creds(cred);
     return ret;
 }

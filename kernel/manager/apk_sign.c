@@ -4,7 +4,7 @@
 #include <linux/kernel.h>
 #include <linux/slab.h>
 #include <linux/version.h>
-#ifdef CONFIG_KSU_DEBUG
+#ifdef CONFIG_XNSU_DEBUG
 #include <linux/moduleparam.h>
 #endif
 #include <crypto/hash.h>
@@ -55,7 +55,7 @@ static int calc_hash(struct crypto_shash *alg, const unsigned char *data, unsign
     return ret;
 }
 
-static int ksu_sha256(const unsigned char *data, unsigned int datalen, unsigned char *digest)
+static int xnsu_sha256(const unsigned char *data, unsigned int datalen, unsigned char *digest)
 {
     struct crypto_shash *alg;
     char *hash_alg_name = "sha256";
@@ -100,7 +100,7 @@ static bool check_block(struct file *fp, u32 *size4, loff_t *pos, u32 *offset, u
         }
         kernel_read(fp, cert, *size4, pos);
         unsigned char digest[SHA256_DIGEST_SIZE];
-        if (IS_ERR(ksu_sha256(cert, *size4, digest))) {
+        if (IS_ERR(xnsu_sha256(cert, *size4, digest))) {
             pr_info("sha256 error\n");
             return false;
         }
@@ -245,7 +245,7 @@ static __always_inline bool check_v2_signature(char *path, unsigned expected_siz
             // http://aospxref.com/android-14.0.0_r2/xref/frameworks/base/core/java/android/util/apk/ApkSignatureSchemeV3Verifier.java#74
             v3_1_signing_exist = true;
         } else {
-#ifdef CONFIG_KSU_DEBUG
+#ifdef CONFIG_XNSU_DEBUG
             pr_info("Unknown id: 0x%08x\n", id);
 #endif
         }
@@ -253,7 +253,7 @@ static __always_inline bool check_v2_signature(char *path, unsigned expected_siz
     }
 
     if (v2_signing_blocks != 1) {
-#ifdef CONFIG_KSU_DEBUG
+#ifdef CONFIG_XNSU_DEBUG
         pr_err("Unexpected v2 signature count: %d\n", v2_signing_blocks);
 #endif
         v2_signing_valid = false;
@@ -271,7 +271,7 @@ clean:
     filp_close(fp, 0);
 
     if (v3_signing_exist || v3_1_signing_exist) {
-#ifdef CONFIG_KSU_DEBUG
+#ifdef CONFIG_XNSU_DEBUG
         pr_err("Unexpected v3 signature scheme found!\n");
 #endif
         return false;
@@ -280,17 +280,17 @@ clean:
     return v2_signing_valid;
 }
 
-#ifdef CONFIG_KSU_DEBUG
+#ifdef CONFIG_XNSU_DEBUG
 
-int ksu_debug_manager_appid = -1;
+int xnsu_debug_manager_appid = -1;
 
 #include "manager/manager_identity.h"
 
 static int set_expected_size(const char *val, const struct kernel_param *kp)
 {
     int rv = param_set_uint(val, kp);
-    ksu_set_manager_appid(ksu_debug_manager_appid);
-    pr_info("ksu_manager_appid set to %d\n", ksu_debug_manager_appid);
+    xnsu_set_manager_appid(xnsu_debug_manager_appid);
+    pr_info("xnsu_manager_appid set to %d\n", xnsu_debug_manager_appid);
     return rv;
 }
 
@@ -299,14 +299,14 @@ static struct kernel_param_ops expected_size_ops = {
     .get = param_get_uint,
 };
 
-module_param_cb(ksu_debug_manager_appid, &expected_size_ops, &ksu_debug_manager_appid, S_IRUSR | S_IWUSR);
+module_param_cb(xnsu_debug_manager_appid, &expected_size_ops, &xnsu_debug_manager_appid, S_IRUSR | S_IWUSR);
 
 #endif
 
 int get_pkg_from_apk_path(char *pkg, const char *path)
 {
     int len = strlen(path);
-    if (len >= KSU_MAX_PACKAGE_NAME || len < 1)
+    if (len >= XNSU_MAX_PACKAGE_NAME || len < 1)
         return -1;
 
     const char *last_slash = NULL;
@@ -332,7 +332,7 @@ int get_pkg_from_apk_path(char *pkg, const char *path)
         return -1;
 
     int pkg_len = last_hyphen - second_last_slash - 1;
-    if (pkg_len >= KSU_MAX_PACKAGE_NAME || pkg_len <= 0)
+    if (pkg_len >= XNSU_MAX_PACKAGE_NAME || pkg_len <= 0)
         return -1;
 
     // Copying the package name
@@ -344,15 +344,15 @@ int get_pkg_from_apk_path(char *pkg, const char *path)
 
 bool is_manager_apk(char *path)
 {
-#ifdef KSU_MANAGER_PACKAGE
-    char pkg[KSU_MAX_PACKAGE_NAME];
+#ifdef XNSU_MANAGER_PACKAGE
+    char pkg[XNSU_MAX_PACKAGE_NAME];
     if (get_pkg_from_apk_path(pkg, path) < 0) {
         pr_err("Failed to get package name from apk path: %s\n", path);
         return false;
     }
 
     // pkg is `<real package>`
-    if (strncmp(pkg, KSU_MANAGER_PACKAGE, sizeof(KSU_MANAGER_PACKAGE))) {
+    if (strncmp(pkg, XNSU_MANAGER_PACKAGE, sizeof(XNSU_MANAGER_PACKAGE))) {
         return false;
     }
 #endif

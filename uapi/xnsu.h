@@ -1,5 +1,5 @@
-#ifndef __KSU_UAPI_KSU_H
-#define __KSU_UAPI_KSU_H
+#ifndef __XNSU_UAPI_XNSU_H
+#define __XNSU_UAPI_XNSU_H
 
 #include "uapi/supercall.h"
 #include "uapi/app_profile.h"
@@ -7,4 +7,4 @@
 #include "uapi/selinux.h"
 #include "uapi/sulog.h"
 
-#endif // __KSU_UAPI_KSU_H
+#endif // __XNSU_UAPI_XNSU_H

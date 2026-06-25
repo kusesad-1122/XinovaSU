@@ -16,7 +16,7 @@
 #include "policy/allowlist.h"
 #include "policy/feature.h"
 #include "klog.h" // IWYU pragma: keep
-#include "runtime/ksud.h"
+#include "runtime/xnsusd.h"
 #include "feature/sucompat.h"
 #include "policy/app_profile.h"
 #include "hook/syscall_hook.h"
@@ -25,24 +25,24 @@
 #define SU_PATH "/system/bin/su"
 #define SH_PATH "/system/bin/sh"
 
-bool ksu_su_compat_enabled __read_mostly = true;
+bool xnsu_su_compat_enabled __read_mostly = true;
 
 static int su_compat_feature_get(u64 *value)
 {
-    *value = ksu_su_compat_enabled ? 1 : 0;
+    *value = xnsu_su_compat_enabled ? 1 : 0;
     return 0;
 }
 
 static int su_compat_feature_set(u64 value)
 {
     bool enable = value != 0;
-    ksu_su_compat_enabled = enable;
+    xnsu_su_compat_enabled = enable;
     pr_info("su_compat: set to %d\n", enable);
     return 0;
 }
 
-static const struct ksu_feature_handler su_compat_handler = {
-    .feature_id = KSU_FEATURE_SU_COMPAT,
+static const struct xnsu_feature_handler su_compat_handler = {
+    .feature_id = XNSU_FEATURE_SU_COMPAT,
     .name = "su_compat",
     .get_handler = su_compat_feature_get,
     .set_handler = su_compat_feature_set,
@@ -64,18 +64,18 @@ static char __user *sh_user_path(void)
     return userspace_stack_buffer(sh_path, sizeof(sh_path));
 }
 
-static char __user *ksud_user_path(void)
+static char __user *xnsusd_user_path(void)
 {
-    static const char ksud_path[] = KSUD_PATH;
+    static const char xnsusd_path[] = KSUD_PATH;
 
-    return userspace_stack_buffer(ksud_path, sizeof(ksud_path));
+    return userspace_stack_buffer(xnsusd_path, sizeof(xnsusd_path));
 }
 
-int ksu_handle_faccessat(int *dfd, const char __user **filename_user, int *mode, int *__unused_flags)
+int xnsu_handle_faccessat(int *dfd, const char __user **filename_user, int *mode, int *__unused_flags)
 {
     const char su[] = SU_PATH;
 
-    if (!ksu_is_allow_uid_for_current(current_uid().val)) {
+    if (!xnsu_is_allow_uid_for_current(current_uid().val)) {
         return 0;
     }
 
@@ -91,12 +91,12 @@ int ksu_handle_faccessat(int *dfd, const char __user **filename_user, int *mode,
     return 0;
 }
 
-int ksu_handle_stat(int *dfd, const char __user **filename_user, int *flags)
+int xnsu_handle_stat(int *dfd, const char __user **filename_user, int *flags)
 {
     // const char sh[] = SH_PATH;
     const char su[] = SU_PATH;
 
-    if (!ksu_is_allow_uid_for_current(current_uid().val)) {
+    if (!xnsu_is_allow_uid_for_current(current_uid().val)) {
         return 0;
     }
 
@@ -116,12 +116,12 @@ int ksu_handle_stat(int *dfd, const char __user **filename_user, int *flags)
     return 0;
 }
 
-long ksu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
+long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
 {
     const char su[] = SU_PATH;
     const char __user *fn;
     const char __user *const __user *argv_user = (const char __user *const __user *)PT_REGS_PARM2(regs);
-    struct ksu_sulog_pending_event *pending_sucompat = NULL;
+    struct xnsu_sulog_pending_event *pending_sucompat = NULL;
     char path[sizeof(su) + 1];
     long ret;
     unsigned long addr;
@@ -129,7 +129,7 @@ long ksu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, 
     if (unlikely(!filename_user))
         goto do_orig_execve;
 
-    if (!ksu_is_allow_uid_for_current(current_uid().val))
+    if (!xnsu_is_allow_uid_for_current(current_uid().val))
         goto do_orig_execve;
 
     addr = untagged_addr((unsigned long)*filename_user);
@@ -147,39 +147,39 @@ long ksu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, 
         goto do_orig_execve;
 
     pr_info("sys_execve su found\n");
-    pending_sucompat = ksu_sulog_capture_sucompat(*filename_user, argv_user, GFP_KERNEL);
-    *filename_user = ksud_user_path();
+    pending_sucompat = xnsu_sulog_capture_sucompat(*filename_user, argv_user, GFP_KERNEL);
+    *filename_user = xnsusd_user_path();
 
     ret = escape_with_root_profile();
     if (ret) {
         pr_err("escape_with_root_profile failed: %ld\n", ret);
-        ksu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
+        xnsu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
         goto do_orig_execve;
     }
 
-    ret = ksu_syscall_table[orig_nr](regs);
+    ret = xnsu_syscall_table[orig_nr](regs);
     if (ret < 0) {
-        pr_err("failed to execve ksud as su: %ld, fallback to sh\n", ret);
-        ksu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
+        pr_err("failed to execve xnsusd as su: %ld, fallback to sh\n", ret);
+        xnsu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
         *filename_user = sh_user_path();
     } else {
-        ksu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
+        xnsu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
         return ret;
     }
 
 do_orig_execve:
-    return ksu_syscall_table[orig_nr](regs);
+    return xnsu_syscall_table[orig_nr](regs);
 }
 
 // sucompat: permitted process can execute 'su' to gain root access.
-void __init ksu_sucompat_init()
+void __init xnsu_sucompat_init()
 {
-    if (ksu_register_feature_handler(&su_compat_handler)) {
+    if (xnsu_register_feature_handler(&su_compat_handler)) {
         pr_err("Failed to register su_compat feature handler\n");
     }
 }
 
-void __exit ksu_sucompat_exit()
+void __exit xnsu_sucompat_exit()
 {
-    ksu_unregister_feature_handler(KSU_FEATURE_SU_COMPAT);
+    xnsu_unregister_feature_handler(XNSU_FEATURE_SU_COMPAT);
 }

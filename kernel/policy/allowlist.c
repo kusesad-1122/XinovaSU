@@ -18,8 +18,8 @@
 #include <linux/kref.h>
 
 #include "klog.h" // IWYU pragma: keep
-#include "ksu.h"
-#include "runtime/ksud_boot.h"
+#include "xnsu.h"
+#include "runtime/xnsusd_boot.h"
 #include "selinux/selinux.h"
 #include "policy/allowlist.h"
 #include "manager/manager_identity.h"
@@ -28,8 +28,8 @@
 #define FILE_MAGIC 0x7f4b5355 // ' KSU', u32
 #define FILE_FORMAT_VERSION 3 // u32
 
-#define KSU_APP_PROFILE_PRESERVE_UID 9999 // NOBODY_UID
-#define KSU_DEFAULT_SELINUX_DOMAIN "u:r:" KERNEL_SU_DOMAIN ":s0"
+#define XNSU_APP_PROFILE_PRESERVE_UID 9999 // NOBODY_UID
+#define XNSU_DEFAULT_SELINUX_DOMAIN "u:r:" KERNEL_SU_DOMAIN ":s0"
 
 static DEFINE_MUTEX(allowlist_mutex);
 
@@ -47,8 +47,8 @@ static void __init init_default_profiles()
     default_root_profile.groups[0] = 0;
     memcpy(&default_root_profile.capabilities.effective, &full_cap,
            sizeof(default_root_profile.capabilities.effective));
-    default_root_profile.namespaces = KSU_NS_INHERITED;
-    strcpy(default_root_profile.selinux_domain, KSU_DEFAULT_SELINUX_DOMAIN);
+    default_root_profile.namespaces = XNSU_NS_INHERITED;
+    strcpy(default_root_profile.selinux_domain, XNSU_DEFAULT_SELINUX_DOMAIN);
 
     // This means that we will umount modules by default!
     default_non_root_profile.umount_modules = true;
@@ -68,13 +68,13 @@ static u16 allow_list_count = 0;
 
 #define KERNEL_SU_ALLOWLIST "/data/adb/ksu/.allowlist"
 
-void ksu_persistent_allow_list(void);
+void xnsu_persistent_allow_list(void);
 
-void ksu_show_allow_list(void)
+void xnsu_show_allow_list(void)
 {
     int i;
     struct perm_data *p = NULL;
-    pr_info("ksu_show_allow_list\n");
+    pr_info("xnsu_show_allow_list\n");
     rcu_read_lock();
     hash_for_each_rcu (allow_list, i, p, list) {
         pr_info("uid :%d, allow: %d\n", p->profile.curr_uid, p->profile.allow_su);
@@ -82,7 +82,7 @@ void ksu_show_allow_list(void)
     rcu_read_unlock();
 }
 
-struct app_profile *ksu_get_app_profile(uid_t uid)
+struct app_profile *xnsu_get_app_profile(uid_t uid)
 {
     struct perm_data *p = NULL;
     bool found;
@@ -123,7 +123,7 @@ static bool profile_valid(struct app_profile *profile)
     bool need_migrate_su_domain = false;
 
     if (unlikely(profile->version == 2)) {
-        profile->version = KSU_APP_PROFILE_VER;
+        profile->version = XNSU_APP_PROFILE_VER;
         need_migrate_su_domain = true;
     }
 
@@ -132,14 +132,14 @@ static bool profile_valid(struct app_profile *profile)
         return false;
     }
 
-    if (profile->version < KSU_APP_PROFILE_VER) {
+    if (profile->version < XNSU_APP_PROFILE_VER) {
         pr_info("Unsupported profile version: %d\n", profile->version);
         return false;
     }
 
     if (profile->allow_su) {
-#ifndef CONFIG_KSU_DISABLE_POLICY
-        if (profile->rp_config.profile.groups_count > KSU_MAX_GROUPS) {
+#ifndef CONFIG_XNSU_DISABLE_POLICY
+        if (profile->rp_config.profile.groups_count > XNSU_MAX_GROUPS) {
             pr_err("invalid groups_count in app_profile: %s\n", profile->key);
             return false;
         }
@@ -148,7 +148,7 @@ static bool profile_valid(struct app_profile *profile)
         static const size_t domain_len = sizeof(profile->rp_config.profile.selinux_domain);
         if (unlikely(need_migrate_su_domain)) {
             if (strncmp(domain, "u:r:su:s0", domain_len) == 0) {
-                strscpy_pad(domain, KSU_DEFAULT_SELINUX_DOMAIN, domain_len);
+                strscpy_pad(domain, XNSU_DEFAULT_SELINUX_DOMAIN, domain_len);
                 pr_info("migrated profile domain: %s\n", profile->key);
             }
         }
@@ -175,7 +175,7 @@ static void put_perm_data(struct perm_data *data)
     kref_put(&data->ref, release_perm_data);
 }
 
-int ksu_set_app_profile(struct app_profile *profile)
+int xnsu_set_app_profile(struct app_profile *profile)
 {
     struct perm_data *p, *np;
     int result = 0;
@@ -185,7 +185,7 @@ int ksu_set_app_profile(struct app_profile *profile)
         return -EINVAL;
     }
 
-#ifdef CONFIG_KSU_DISABLE_POLICY
+#ifdef CONFIG_XNSU_DISABLE_POLICY
     if (profile->allow_su) {
         profile->rp_config.use_default = true;
         memset(profile->rp_config.template_name, 0, sizeof(profile->rp_config.template_name));
@@ -197,7 +197,7 @@ int ksu_set_app_profile(struct app_profile *profile)
 #endif
 
     // only allow default non root profile
-    if (unlikely(profile->curr_uid == KSU_APP_PROFILE_PRESERVE_UID && strcmp(profile->key, "$") != 0)) {
+    if (unlikely(profile->curr_uid == XNSU_APP_PROFILE_PRESERVE_UID && strcmp(profile->key, "$") != 0)) {
         return -EINVAL;
     }
 
@@ -206,7 +206,7 @@ int ksu_set_app_profile(struct app_profile *profile)
     hash_for_each_possible (allow_list, p, list, profile->curr_uid) {
         if (profile->curr_uid == p->profile.curr_uid) {
             if (strcmp(profile->key, p->profile.key) != 0) {
-                pr_warn("ksu_set_app_profile: key changed: uid=%d orig=%s new=%s\n", profile->curr_uid, p->profile.key,
+                pr_warn("xnsu_set_app_profile: key changed: uid=%d orig=%s new=%s\n", profile->curr_uid, p->profile.key,
                         profile->key);
             }
             // found it, just override it all!
@@ -232,7 +232,7 @@ int ksu_set_app_profile(struct app_profile *profile)
     // not found, alloc a new node!
     np = (struct perm_data *)kzalloc(sizeof(struct perm_data), GFP_KERNEL);
     if (!np) {
-        pr_err("ksu_set_app_profile alloc failed\n");
+        pr_err("xnsu_set_app_profile alloc failed\n");
         result = -ENOMEM;
         goto out_unlock;
     }
@@ -253,7 +253,7 @@ int ksu_set_app_profile(struct app_profile *profile)
 out:
     result = 0;
 
-    if (unlikely(profile->curr_uid == KSU_APP_PROFILE_PRESERVE_UID)) {
+    if (unlikely(profile->curr_uid == XNSU_APP_PROFILE_PRESERVE_UID)) {
         // set default non root profile
         default_non_root_profile.umount_modules = profile->nrp_config.profile.umount_modules;
     }
@@ -263,7 +263,7 @@ out_unlock:
     return result;
 }
 
-bool __ksu_is_allow_uid(uid_t uid)
+bool __xnsu_is_allow_uid(uid_t uid)
 {
     struct perm_data *p;
 
@@ -293,20 +293,20 @@ bool __ksu_is_allow_uid(uid_t uid)
     return false;
 }
 
-bool __ksu_is_allow_uid_for_current(uid_t uid)
+bool __xnsu_is_allow_uid_for_current(uid_t uid)
 {
     if (unlikely(uid == 0)) {
         // already root, but only allow our domain.
-        return is_ksu_domain();
+        return is_xnsu_domain();
     }
-    return __ksu_is_allow_uid(uid);
+    return __xnsu_is_allow_uid(uid);
 }
 
-bool ksu_uid_should_umount(uid_t uid)
+bool xnsu_uid_should_umount(uid_t uid)
 {
     struct app_profile *profile;
     bool res;
-    if (likely(ksu_is_manager_appid_valid()) && unlikely(ksu_get_manager_appid() == uid % PER_USER_RANGE)) {
+    if (likely(xnsu_is_manager_appid_valid()) && unlikely(xnsu_get_manager_appid() == uid % PER_USER_RANGE)) {
         // we should not umount on manager!
         return false;
     }
@@ -314,11 +314,11 @@ bool ksu_uid_should_umount(uid_t uid)
         // we should not umount for webview zygote
         return false;
     }
-#ifdef CONFIG_KSU_DISABLE_POLICY
-    return !__ksu_is_allow_uid(uid);
+#ifdef CONFIG_XNSU_DISABLE_POLICY
+    return !__xnsu_is_allow_uid(uid);
 #else
     rcu_read_lock();
-    profile = ksu_get_app_profile(uid);
+    profile = xnsu_get_app_profile(uid);
     if (!profile) {
         // no app profile found, it must be non root app
         res = default_non_root_profile.umount_modules;
@@ -336,20 +336,20 @@ bool ksu_uid_should_umount(uid_t uid)
     rcu_read_unlock();
 
     if (profile)
-        ksu_put_app_profile(profile);
+        xnsu_put_app_profile(profile);
     return res;
 #endif
 }
 
-void ksu_put_app_profile(struct app_profile *profile)
+void xnsu_put_app_profile(struct app_profile *profile)
 {
     struct perm_data *p = container_of(profile, struct perm_data, profile);
     put_perm_data(p);
 }
 
-struct root_profile *ksu_get_root_profile(uid_t uid)
+struct root_profile *xnsu_get_root_profile(uid_t uid)
 {
-#ifdef CONFIG_KSU_DISABLE_POLICY
+#ifdef CONFIG_XNSU_DISABLE_POLICY
     (void)uid;
     return &default_root_profile;
 #else
@@ -389,7 +389,7 @@ retry:
 #endif
 }
 
-void ksu_put_root_profile(struct root_profile *profile)
+void xnsu_put_root_profile(struct root_profile *profile)
 {
     if (likely(profile == &default_root_profile))
         return;
@@ -397,7 +397,7 @@ void ksu_put_root_profile(struct root_profile *profile)
     put_perm_data(p);
 }
 
-bool ksu_get_allow_list(int *array, u16 length, u16 *out_length, u16 *out_total, bool allow)
+bool xnsu_get_allow_list(int *array, u16 length, u16 *out_length, u16 *out_total, bool allow)
 {
     struct perm_data *p = NULL;
     u16 i = 0, j = 0;
@@ -432,7 +432,7 @@ static void do_persistent_allow_list(struct callback_head *_cb)
     loff_t off = 0;
     int i;
 
-    const struct cred *saved = override_creds(ksu_cred);
+    const struct cred *saved = override_creds(xnsu_cred);
     struct file *fp = filp_open(KERNEL_SU_ALLOWLIST, O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (IS_ERR(fp)) {
         pr_err("save_allow_list create file failed: %ld\n", PTR_ERR(fp));
@@ -466,7 +466,7 @@ out:
     kfree(_cb);
 }
 
-void ksu_persistent_allow_list()
+void xnsu_persistent_allow_list()
 {
     struct task_struct *tsk;
 
@@ -494,9 +494,9 @@ put_task:
     put_task_struct(tsk);
 }
 
-void ksu_load_allow_list()
+void xnsu_load_allow_list()
 {
-#ifdef CONFIG_KSU_DISABLE_POLICY
+#ifdef CONFIG_XNSU_DISABLE_POLICY
     pr_info("allowlist load skipped because policy is disabled\n");
     return;
 #endif
@@ -538,21 +538,21 @@ void ksu_load_allow_list()
         }
 
         pr_info("load_allow_uid, name: %s, uid: %d, allow: %d\n", profile.key, profile.curr_uid, profile.allow_su);
-        ksu_set_app_profile(&profile);
+        xnsu_set_app_profile(&profile);
     }
 
 exit:
-    ksu_show_allow_list();
+    xnsu_show_allow_list();
     filp_close(fp, 0);
 }
 
-void ksu_prune_allowlist(bool (*is_uid_valid)(uid_t, char *, void *), void *data)
+void xnsu_prune_allowlist(bool (*is_uid_valid)(uid_t, char *, void *), void *data)
 {
     struct perm_data *np = NULL;
     struct hlist_node *tmp;
     int i;
 
-    if (!ksu_boot_completed) {
+    if (!xnsu_boot_completed) {
         pr_info("boot not completed, skip prune\n");
         return;
     }
@@ -563,7 +563,7 @@ void ksu_prune_allowlist(bool (*is_uid_valid)(uid_t, char *, void *), void *data
         uid_t uid = np->profile.curr_uid;
         char *package = np->profile.key;
         // we use this uid for special cases, don't prune it!
-        bool is_preserved_uid = uid == KSU_APP_PROFILE_PRESERVE_UID;
+        bool is_preserved_uid = uid == XNSU_APP_PROFILE_PRESERVE_UID;
         if (!is_preserved_uid && !is_uid_valid(uid, package, data)) {
             modified = true;
             pr_info("prune uid: %d, package: %s\n", uid, package);
@@ -576,16 +576,16 @@ void ksu_prune_allowlist(bool (*is_uid_valid)(uid_t, char *, void *), void *data
 
     if (modified) {
         smp_mb();
-        ksu_persistent_allow_list();
+        xnsu_persistent_allow_list();
     }
 }
 
-void __init ksu_allowlist_init(void)
+void __init xnsu_allowlist_init(void)
 {
     init_default_profiles();
 }
 
-void __exit ksu_allowlist_exit(void)
+void __exit xnsu_allowlist_exit(void)
 {
     struct perm_data *np = NULL;
     struct hlist_node *tmp;

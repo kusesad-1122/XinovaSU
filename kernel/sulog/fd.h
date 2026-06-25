@@ -1,8 +1,8 @@
-#ifndef __KSU_H_SULOG_FD
-#define __KSU_H_SULOG_FD
+#ifndef __XNSU_H_SULOG_FD
+#define __XNSU_H_SULOG_FD
 
-int ksu_install_sulog_fd(void);
-void ksu_sulog_fd_init(void);
-void ksu_sulog_fd_exit(void);
+int xnsu_install_sulog_fd(void);
+void xnsu_sulog_fd_init(void);
+void xnsu_sulog_fd_exit(void);
 
 #endif

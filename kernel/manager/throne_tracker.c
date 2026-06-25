@@ -12,19 +12,19 @@
 #include "manager/manager_identity.h"
 #include "manager/throne_tracker.h"
 
-uid_t ksu_manager_appid = KSU_INVALID_APPID;
+uid_t xnsu_manager_appid = XNSU_INVALID_APPID;
 
 #define SYSTEM_PACKAGES_LIST_PATH "/data/system/packages.list"
 
 struct uid_data {
     struct list_head list;
     u32 uid;
-    char package[KSU_MAX_PACKAGE_NAME];
+    char package[XNSU_MAX_PACKAGE_NAME];
 };
 
 static void crown_manager(const char *apk, struct list_head *uid_data)
 {
-    char pkg[KSU_MAX_PACKAGE_NAME];
+    char pkg[XNSU_MAX_PACKAGE_NAME];
     if (get_pkg_from_apk_path(pkg, apk) < 0) {
         pr_err("Failed to get package name from apk path: %s\n", apk);
         return;
@@ -36,9 +36,9 @@ static void crown_manager(const char *apk, struct list_head *uid_data)
     struct uid_data *np;
 
     list_for_each_entry (np, list, list) {
-        if (strncmp(np->package, pkg, KSU_MAX_PACKAGE_NAME) == 0) {
+        if (strncmp(np->package, pkg, XNSU_MAX_PACKAGE_NAME) == 0) {
             pr_info("Crowning manager: %s(uid=%d)\n", pkg, np->uid);
-            ksu_set_manager_appid(np->uid);
+            xnsu_set_manager_appid(np->uid);
             break;
         }
     }
@@ -235,7 +235,7 @@ static bool is_uid_exist(uid_t uid, char *package, void *data)
 
     bool exist = false;
     list_for_each_entry (np, list, list) {
-        if (np->uid == uid % PER_USER_RANGE && strncmp(np->package, package, KSU_MAX_PACKAGE_NAME) == 0) {
+        if (np->uid == uid % PER_USER_RANGE && strncmp(np->package, package, XNSU_MAX_PACKAGE_NAME) == 0) {
             exist = true;
             break;
         }
@@ -257,7 +257,7 @@ void track_throne(bool prune_only)
     char chr = 0;
     loff_t pos = 0;
     loff_t line_start = 0;
-    char buf[KSU_MAX_PACKAGE_NAME];
+    char buf[XNSU_MAX_PACKAGE_NAME];
     for (;;) {
         ssize_t count = kernel_read(fp, &chr, sizeof(chr), &pos);
         if (count != sizeof(chr))
@@ -294,7 +294,7 @@ void track_throne(bool prune_only)
             break;
         }
         data->uid = res;
-        strncpy(data->package, package, KSU_MAX_PACKAGE_NAME);
+        strncpy(data->package, package, XNSU_MAX_PACKAGE_NAME);
         list_add_tail(&data->list, &uid_list);
         // reset line start
         line_start = pos;
@@ -311,16 +311,16 @@ void track_throne(bool prune_only)
     // first, check if manager_uid exist!
     bool manager_exist = false;
     list_for_each_entry (np, &uid_list, list) {
-        if (np->uid == ksu_get_manager_appid()) {
+        if (np->uid == xnsu_get_manager_appid()) {
             manager_exist = true;
             break;
         }
     }
 
     if (!manager_exist) {
-        if (ksu_is_manager_appid_valid()) {
+        if (xnsu_is_manager_appid_valid()) {
             pr_info("manager is uninstalled, invalidate it!\n");
-            ksu_invalidate_manager_uid();
+            xnsu_invalidate_manager_uid();
             goto prune;
         }
         pr_info("Searching manager...\n");
@@ -330,7 +330,7 @@ void track_throne(bool prune_only)
 
 prune:
     // then prune the allowlist
-    ksu_prune_allowlist(is_uid_exist, &uid_list);
+    xnsu_prune_allowlist(is_uid_exist, &uid_list);
 out:
     // free uid_list
     list_for_each_entry_safe (np, n, &uid_list, list) {
@@ -339,12 +339,12 @@ out:
     }
 }
 
-void __init ksu_throne_tracker_init()
+void __init xnsu_throne_tracker_init()
 {
     // nothing to do
 }
 
-void __exit ksu_throne_tracker_exit()
+void __exit xnsu_throne_tracker_exit()
 {
     struct apk_path_hash *pos, *n;
 

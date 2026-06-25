@@ -14,59 +14,59 @@
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
 #include "linux/static_call.h"
 #endif
-struct ksu_lsm_hook_entry {
-    struct ksu_lsm_hook *hook;
+struct xnsu_lsm_hook_entry {
+    struct xnsu_lsm_hook *hook;
 };
 
-static DEFINE_MUTEX(ksu_lsm_hook_lock);
-static struct ksu_lsm_hook_entry ksu_lsm_hook_entries[16];
-static int ksu_lsm_hook_count;
+static DEFINE_MUTEX(xnsu_lsm_hook_lock);
+static struct xnsu_lsm_hook_entry xnsu_lsm_hook_entries[16];
+static int xnsu_lsm_hook_count;
 
-static bool ksu_lsm_hook_is_tracked(struct ksu_lsm_hook *hook)
+static bool xnsu_lsm_hook_is_tracked(struct xnsu_lsm_hook *hook)
 {
     int i;
 
-    for (i = 0; i < ksu_lsm_hook_count; i++) {
-        if (ksu_lsm_hook_entries[i].hook == hook)
+    for (i = 0; i < xnsu_lsm_hook_count; i++) {
+        if (xnsu_lsm_hook_entries[i].hook == hook)
             return true;
     }
 
     return false;
 }
 
-static int ksu_lsm_hook_track(struct ksu_lsm_hook *hook)
+static int xnsu_lsm_hook_track(struct xnsu_lsm_hook *hook)
 {
-    if (ksu_lsm_hook_is_tracked(hook))
+    if (xnsu_lsm_hook_is_tracked(hook))
         return 0;
 
-    if (ksu_lsm_hook_count >= ARRAY_SIZE(ksu_lsm_hook_entries)) {
+    if (xnsu_lsm_hook_count >= ARRAY_SIZE(xnsu_lsm_hook_entries)) {
         pr_err("lsm_hook: tracking table full, cannot record %s\n", hook->head_name ?: "unknown");
         return -ENOSPC;
     }
 
-    ksu_lsm_hook_entries[ksu_lsm_hook_count++].hook = hook;
+    xnsu_lsm_hook_entries[xnsu_lsm_hook_count++].hook = hook;
     return 0;
 }
 
-static void ksu_lsm_hook_untrack(struct ksu_lsm_hook *hook)
+static void xnsu_lsm_hook_untrack(struct xnsu_lsm_hook *hook)
 {
     int i;
 
-    for (i = 0; i < ksu_lsm_hook_count; i++) {
-        if (ksu_lsm_hook_entries[i].hook != hook)
+    for (i = 0; i < xnsu_lsm_hook_count; i++) {
+        if (xnsu_lsm_hook_entries[i].hook != hook)
             continue;
 
-        ksu_lsm_hook_entries[i] = ksu_lsm_hook_entries[--ksu_lsm_hook_count];
+        xnsu_lsm_hook_entries[i] = xnsu_lsm_hook_entries[--xnsu_lsm_hook_count];
         return;
     }
 }
 
-static int ksu_lsm_hook_patch_slot(void **slot, void *value)
+static int xnsu_lsm_hook_patch_slot(void **slot, void *value)
 {
     void *patched = value;
     int ret;
 
-    ret = ksu_patch_text(slot, &patched, sizeof(patched), KSU_PATCH_TEXT_FLUSH_DCACHE);
+    ret = xnsu_patch_text(slot, &patched, sizeof(patched), XNSU_PATCH_TEXT_FLUSH_DCACHE);
     if (!ret)
         smp_wmb();
 
@@ -74,9 +74,9 @@ static int ksu_lsm_hook_patch_slot(void **slot, void *value)
 }
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
-typedef void (*ksu_static_call_update_t)(struct static_call_key *key, void *tramp, void *func);
+typedef void (*xnsu_static_call_update_t)(struct static_call_key *key, void *tramp, void *func);
 
-static int ksu_lsm_hook_update_scall(struct lsm_static_call *scall, void *value)
+static int xnsu_lsm_hook_update_scall(struct lsm_static_call *scall, void *value)
 {
     __static_call_update(scall->key, scall->trampoline, value);
     smp_wmb();
@@ -84,7 +84,7 @@ static int ksu_lsm_hook_update_scall(struct lsm_static_call *scall, void *value)
 }
 #endif
 
-int ksu_lsm_hook(struct ksu_lsm_hook *hook)
+int xnsu_lsm_hook(struct xnsu_lsm_hook *hook)
 {
     int ret = 0;
     struct security_hook_list *entry;
@@ -111,7 +111,7 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
     if (!hook || !hook->replacement)
         return -EINVAL;
 
-    mutex_lock(&ksu_lsm_hook_lock);
+    mutex_lock(&xnsu_lsm_hook_lock);
 
     if (hook->entry) {
         ret = -EALREADY;
@@ -127,7 +127,7 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
 
     target = hook->original;
     if (!target)
-        target = ksu_resolve_symbol_for_functable_hook(target_name);
+        target = xnsu_resolve_symbol_for_functable_hook(target_name);
     if (!target) {
         pr_err("lsm_hook: failed to resolve target for %s\n", hook->head_name ?: "unknown");
         ret = -ENOENT;
@@ -190,9 +190,9 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
         current_origin = READ_ONCE(*slot);
 
         int j;
-        for (j = 0; j < ksu_lsm_hook_count; j++) {
-            if (ksu_lsm_hook_entries[j].hook->replacement == current_origin) {
-                current_origin = ksu_lsm_hook_entries[j].hook->original;
+        for (j = 0; j < xnsu_lsm_hook_count; j++) {
+            if (xnsu_lsm_hook_entries[j].hook->replacement == current_origin) {
+                current_origin = xnsu_lsm_hook_entries[j].hook->original;
                 break;
             }
         }
@@ -248,20 +248,20 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
         goto out_unlock;
     }
 
-    ret = ksu_lsm_hook_track(hook);
+    ret = xnsu_lsm_hook_track(hook);
     if (ret) {
         pr_err("lsm_hook: too many hooks to track: %d\n", ret);
         goto out_unlock;
     }
 
-    if (ksu_lsm_hook_patch_slot(selected_slot, hook->replacement)) {
+    if (xnsu_lsm_hook_patch_slot(selected_slot, hook->replacement)) {
         pr_err("lsm_hook: failed to patch %s\n", hook->head_name ?: "unknown");
         ret = -EFAULT;
         goto out_untrack;
     }
 
-    if (ksu_lsm_hook_update_scall(selected_scall, hook->replacement)) {
-        if (ksu_lsm_hook_patch_slot(selected_slot, selected_origin)) {
+    if (xnsu_lsm_hook_update_scall(selected_scall, hook->replacement)) {
+        if (xnsu_lsm_hook_patch_slot(selected_slot, selected_origin)) {
             pr_err("lsm_hook: failed to roll back %s after static call update failure\n", hook->head_name ?: "unknown");
         }
         ret = -EFAULT;
@@ -298,9 +298,9 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
             void **slot = (void **)((char *)entry + hook->hook_offset);
             void *current_origin = READ_ONCE(*slot);
             int j;
-            for (j = 0; j < ksu_lsm_hook_count; j++) {
-                if (ksu_lsm_hook_entries[j].hook->replacement == current_origin) {
-                    current_origin = ksu_lsm_hook_entries[j].hook->original;
+            for (j = 0; j < xnsu_lsm_hook_count; j++) {
+                if (xnsu_lsm_hook_entries[j].hook->replacement == current_origin) {
+                    current_origin = xnsu_lsm_hook_entries[j].hook->original;
                     break;
                 }
             }
@@ -359,7 +359,7 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
         goto out_unlock;
     }
 
-    ret = ksu_lsm_hook_track(hook);
+    ret = xnsu_lsm_hook_track(hook);
     if (ret) {
         pr_err("lsm_hook: too many hooks to track: %d\n", ret);
         goto out_unlock;
@@ -367,10 +367,10 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
 
     if (selected_origin) {
         pr_info("patch func addr\n");
-        ret = ksu_lsm_hook_patch_slot(selected_slot, hook->replacement);
+        ret = xnsu_lsm_hook_patch_slot(selected_slot, hook->replacement);
     } else {
         pr_info("patch head->first\n");
-        ret = ksu_lsm_hook_patch_slot(selected_slot, &hook->list);
+        ret = xnsu_lsm_hook_patch_slot(selected_slot, &hook->list);
     }
 
     if (ret) {
@@ -386,24 +386,24 @@ int ksu_lsm_hook(struct ksu_lsm_hook *hook)
 #endif
     goto out_unlock;
 out_untrack:
-    ksu_lsm_hook_untrack(hook);
+    xnsu_lsm_hook_untrack(hook);
 
 out_unlock:
-    mutex_unlock(&ksu_lsm_hook_lock);
+    mutex_unlock(&xnsu_lsm_hook_lock);
     return ret;
 }
 
-void ksu_lsm_unhook(struct ksu_lsm_hook *hook)
+void xnsu_lsm_unhook(struct xnsu_lsm_hook *hook)
 {
     void **slot;
-    mutex_lock(&ksu_lsm_hook_lock);
+    mutex_lock(&xnsu_lsm_hook_lock);
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
     if (!hook->entry || !hook->scall) {
 #else
     if (!hook->entry) {
 #endif
-        mutex_unlock(&ksu_lsm_hook_lock);
+        mutex_unlock(&xnsu_lsm_hook_lock);
         return;
     }
 
@@ -418,58 +418,58 @@ void ksu_lsm_unhook(struct ksu_lsm_hook *hook)
         pr_info("unhook patch slot\n");
     }
 #endif
-    if (ksu_lsm_hook_patch_slot(slot, hook->original)) {
+    if (xnsu_lsm_hook_patch_slot(slot, hook->original)) {
         pr_err("lsm_hook: failed to restore %s\n", hook->head_name ?: "unknown");
-        mutex_unlock(&ksu_lsm_hook_lock);
+        mutex_unlock(&xnsu_lsm_hook_lock);
         return;
     }
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
-    if (ksu_lsm_hook_update_scall(hook->scall, hook->original)) {
-        if (ksu_lsm_hook_patch_slot(slot, hook->replacement))
+    if (xnsu_lsm_hook_update_scall(hook->scall, hook->original)) {
+        if (xnsu_lsm_hook_patch_slot(slot, hook->replacement))
             pr_err("lsm_hook: failed to reapply %s after static call restore failure\n", hook->head_name ?: "unknown");
-        mutex_unlock(&ksu_lsm_hook_lock);
+        mutex_unlock(&xnsu_lsm_hook_lock);
         return;
     }
 #endif
 
     synchronize_rcu();
     pr_info("lsm_hook: restored %s hook slot %px to %px\n", hook->head_name ?: "unknown", slot, hook->original);
-    ksu_lsm_hook_untrack(hook);
+    xnsu_lsm_hook_untrack(hook);
     hook->entry = NULL;
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
     hook->scall = NULL;
 #endif
-    mutex_unlock(&ksu_lsm_hook_lock);
+    mutex_unlock(&xnsu_lsm_hook_lock);
 }
 
-int ksu_register_lsm_hook(struct ksu_lsm_hook *hook)
+int xnsu_register_lsm_hook(struct xnsu_lsm_hook *hook)
 {
-    return ksu_lsm_hook(hook);
+    return xnsu_lsm_hook(hook);
 }
 
-void ksu_unregister_lsm_hook(struct ksu_lsm_hook *hook)
+void xnsu_unregister_lsm_hook(struct xnsu_lsm_hook *hook)
 {
-    ksu_lsm_unhook(hook);
+    xnsu_lsm_unhook(hook);
 }
 
-void __init ksu_lsm_hook_init(void)
+void __init xnsu_lsm_hook_init(void)
 {
-    pr_info("lsm_hook: init, tracked hooks=%d\n", READ_ONCE(ksu_lsm_hook_count));
+    pr_info("lsm_hook: init, tracked hooks=%d\n", READ_ONCE(xnsu_lsm_hook_count));
 }
 
-void __exit ksu_lsm_hook_exit(void)
+void __exit xnsu_lsm_hook_exit(void)
 {
-    struct ksu_lsm_hook *hooks[ARRAY_SIZE(ksu_lsm_hook_entries)];
+    struct xnsu_lsm_hook *hooks[ARRAY_SIZE(xnsu_lsm_hook_entries)];
     int count;
     int i;
 
-    mutex_lock(&ksu_lsm_hook_lock);
-    count = ksu_lsm_hook_count;
+    mutex_lock(&xnsu_lsm_hook_lock);
+    count = xnsu_lsm_hook_count;
     for (i = 0; i < count; i++)
-        hooks[i] = ksu_lsm_hook_entries[i].hook;
-    mutex_unlock(&ksu_lsm_hook_lock);
+        hooks[i] = xnsu_lsm_hook_entries[i].hook;
+    mutex_unlock(&xnsu_lsm_hook_lock);
 
     for (i = count - 1; i >= 0; i--)
-        ksu_lsm_unhook(hooks[i]);
+        xnsu_lsm_unhook(hooks[i]);
 }
