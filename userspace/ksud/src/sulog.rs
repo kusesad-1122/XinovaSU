@@ -21,7 +21,7 @@ const READ_BUF_SIZE: usize = 8192;
 const SULOGD_RESTART_DELAY: Duration = Duration::from_secs(3);
 const SULOG_DIR_MODE: u32 = 0o700;
 const SULOG_FILE_MODE: u32 = 0o600;
-pub const SULOG_CONFIG_MODULE_ID: &str = "internal.ksud.sulogd";
+pub const SULOG_CONFIG_MODULE_ID: &str = "internal.xnsusd.sulogd";
 const SULOG_RETENTION_CONFIG_KEY: &str = "log.retention.days";
 const SULOG_MAX_FILE_SIZE_CONFIG_KEY: &str = "log.max_file_size";
 const DEFAULT_SULOG_RETENTION_DAYS: u64 = 3;
@@ -779,7 +779,7 @@ pub fn run_sulogd() -> Result<()> {
 
 pub fn spawn_sulogd() -> Result<()> {
     if utils::create_daemon(true)? {
-        let current_exe = std::env::current_exe().context("failed to resolve current ksud path")?;
+        let current_exe = std::env::current_exe().context("failed to resolve current xnsusd path")?;
         let mut command = Command::new(current_exe);
         command
             .arg("sulogd")

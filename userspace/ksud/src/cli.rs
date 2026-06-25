@@ -11,7 +11,7 @@ use crate::{
     apk_sign, assets, debug, defs, init_event, ksucalls, module, module_config, sulog, utils,
 };
 
-/// KernelSU userspace cli
+/// XinovaSU userspace cli
 #[derive(Parser, Debug)]
 #[command(author, version = defs::VERSION_NAME, about, long_about = None)]
 struct Args {
@@ -21,7 +21,7 @@ struct Args {
 
 #[derive(clap::Subcommand, Debug)]
 enum Commands {
-    /// Manage KernelSU modules
+    /// Manage XinovaSU modules
     Module {
         #[command(subcommand)]
         command: Module,
@@ -33,20 +33,20 @@ enum Commands {
     /// Trigger `service` event
     Services,
 
-    /// Run sulog reader daemon. Not for user. Use `ksud debug sulogd` to launch daemon.
+    /// Run sulog reader daemon. Not for user. Use `xnsusd debug sulogd` to launch daemon.
     #[command(hide = true)]
     Sulogd,
 
     /// Trigger `boot-complete` event
     BootCompleted,
 
-    /// Load kernelsu.ko and execute late-load stage scripts
+    /// Load xinovasu.ko and execute late-load stage scripts
     LateLoad {
         /// Use adb root to execute late-load for jailbreaking by Magica
         #[arg(long, default_missing_value = "5555", num_args = 0..=1)]
         magica: Option<u16>,
 
-        /// Pass allow_shell=1 when loading kernelsu.ko
+        /// Pass allow_shell=1 when loading xinovasu.ko
         #[arg(long)]
         allow_shell: bool,
 
@@ -59,7 +59,7 @@ enum Commands {
         kmi: Option<String>,
 
         /// manager package name
-        #[arg(long, default_value_t = String::from("me.weishu.kernelsu"))]
+        #[arg(long, default_value_t = String::from("com.xinsu.moe"))]
         package_name: String,
     },
 
@@ -75,18 +75,18 @@ enum Commands {
         params: Vec<String>,
     },
 
-    /// Install KernelSU userspace component to system
+    /// Install XinovaSU userspace component to system
     Install {
         #[arg(long, default_value = None)]
         libadbroot: Option<PathBuf>,
     },
 
-    /// Unload KernelSU kernel module (LKM Only)
+    /// Unload XinovaSU kernel module (LKM Only)
     Unload,
 
-    /// Uninstall KernelSU modules and itself(LKM Only)
+    /// Uninstall XinovaSU modules and itself(LKM Only)
     Uninstall {
-        #[arg(long, default_value_t = String::from("me.weishu.kernelsu"))]
+        #[arg(long, default_value_t = String::from("com.xinsu.moe"))]
         package_name: String,
     },
 
@@ -108,10 +108,10 @@ enum Commands {
         command: Feature,
     },
 
-    /// Patch boot or init_boot images to apply KernelSU
+    /// Patch boot or init_boot images to apply XinovaSU
     BootPatch(BootPatchArgs),
 
-    /// Restore boot or init_boot images patched by KernelSU
+    /// Restore boot or init_boot images patched by XinovaSU
     BootRestore(BootRestoreArgs),
 
     /// Show boot information
@@ -175,7 +175,7 @@ enum Debug {
     /// Set the manager app, kernel CONFIG_KSU_DEBUG should be enabled.
     SetManager {
         /// manager package name
-        #[arg(default_value_t = String::from("me.weishu.kernelsu"))]
+        #[arg(default_value_t = String::from("com.xinsu.moe"))]
         apk: String,
     },
 
@@ -477,7 +477,7 @@ pub fn run() -> Result<()> {
     android_logger::init_once(
         Config::default()
             .with_max_level(crate::debug_select!(LevelFilter::Trace, LevelFilter::Info))
-            .with_tag("KernelSU"),
+            .with_tag("XinovaSU"),
     );
 
     // the kernel executes su with argv[0] = "su" and replace it with us
@@ -640,7 +640,7 @@ pub fn run() -> Result<()> {
         }
         Commands::Services => {
             if ksucalls::get_version() <= 0 {
-                info!("KernelSU not available, exiting services");
+                info!("XinovaSU not available, exiting services");
                 std::process::exit(0);
             }
             init_event::on_services();

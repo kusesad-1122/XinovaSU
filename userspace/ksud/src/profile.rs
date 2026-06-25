@@ -18,7 +18,7 @@ pub fn get_sepolicy(pkg: String) -> Result<()> {
     Ok(())
 }
 
-// ksud doesn't guarteen the correctness of template, it just save
+// xnsusd doesn't guarteen the correctness of template, it just save
 pub fn set_template(id: String, template: String) -> Result<()> {
     ensure_dir_exists(defs::PROFILE_TEMPLATE_DIR)?;
     let template_file = Path::new(defs::PROFILE_TEMPLATE_DIR).join(id);

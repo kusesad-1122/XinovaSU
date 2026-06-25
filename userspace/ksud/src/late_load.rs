@@ -40,9 +40,9 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
     info!("late-load command triggered!");
     dump_process_info("late-load start");
 
-    // 1. Check if KernelSU is already loaded
-    if ksuinit::has_kernelsu() {
-        info!("KernelSU already loaded, skip loading ko");
+    // 1. Check if XinovaSU is already loaded
+    if ksuinit::has_xinovasu() {
+        info!("XinovaSU already loaded, skip loading ko");
     } else {
         // 2. Detect current KMI version
         let kmi = kmi.map_or_else(
@@ -51,20 +51,20 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
         )?;
         info!("Detected KMI: {kmi}");
 
-        // 3. Get kernelsu.ko from embedded assets
-        let ko_name = format!("{kmi}_kernelsu.ko");
+        // 3. Get xinovasu.ko from embedded assets
+        let ko_name = format!("{kmi}_xinovasu.ko");
         let ko_data = assets::get_asset_data(&ko_name)
             .with_context(|| format!("Failed to get {ko_name} from assets"))?;
 
-        // 4. Load kernelsu.ko from memory with manual relocation
-        info!("Loading kernelsu.ko for KMI {kmi}...");
+        // 4. Load xinovasu.ko from memory with manual relocation
+        info!("Loading xinovasu.ko for KMI {kmi}...");
         let params = if allow_shell {
             cstr!("allow_shell=1")
         } else {
             cstr!("")
         };
-        ksuinit::load_module(&ko_data, params).context("Failed to load kernelsu.ko")?;
-        info!("kernelsu.ko loaded successfully!");
+        ksuinit::load_module(&ko_data, params).context("Failed to load xinovasu.ko")?;
+        info!("xinovasu.ko loaded successfully!");
         dump_process_info("after load_module");
     }
 
@@ -78,7 +78,7 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
         warn!("clear temp configs failed: {e}");
     }
 
-    utils::install(None).context("Failed to install ksud")?;
+    utils::install(None).context("Failed to install xnsusd")?;
 
     // 5. Handle module updates
     if let Err(e) = handle_updated_modules() {
@@ -130,7 +130,7 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
     init_event::run_stage("boot-completed", false);
 
     // 14. Restart Manager so it gets a fresh ksu fd from the newly loaded kernel module
-    info!("Restarting KernelSU Manager {package_name}...");
+    info!("Restarting XinovaSU Manager {package_name}...");
     let _ = Command::new("am")
         .args(["force-stop", package_name])
         .status();
@@ -138,7 +138,7 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
         .args([
             "start",
             "-n",
-            &format!("{package_name}/me.weishu.kernelsu.ui.MainActivity"),
+            &format!("{package_name}/com.xinsu.moe.ui.MainActivity"),
         ])
         .status();
 

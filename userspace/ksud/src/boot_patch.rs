@@ -464,7 +464,7 @@ pub struct BootPatchArgs {
     #[arg(long, required = false)]
     adb_debug_prop: Option<String>,
 
-    /// Do not (re-)install kernelsu, only modify configs (allow_shell, etc.)
+    /// Do not (re-)install xinovasu, only modify configs (allow_shell, etc.)
     #[arg(long, default_value = "false")]
     no_install: bool,
 
@@ -589,17 +589,17 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
             patcher.replace_kernel(Box::new(Cursor::new(kernel_data)), false);
         }
 
-        let kernelsu_ko: Box<dyn AsRef<[u8]>> = if no_install {
+        let xinovasu_ko: Box<dyn AsRef<[u8]>> = if no_install {
             Box::new(Vec::<u8>::new())
         } else if let Some(kmod_path) = kmod {
             Box::new(map_file(&kmod_path)?)
         } else {
             println!("- KMI: {kmi}");
-            let name = format!("{kmi}_kernelsu.ko");
+            let name = format!("{kmi}_xinovasu.ko");
             assets::get_asset(&name).with_context(|| format!("Failed to load {name}"))?
         };
 
-        let ksu_init: Box<dyn AsRef<[u8]>> = if no_install {
+        let xnsu_init: Box<dyn AsRef<[u8]>> = if no_install {
             Box::new(Vec::<u8>::new())
         } else if let Some(init_path) = init {
             Box::new(map_file(&init_path)?)
@@ -621,18 +621,18 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
                 "Cannot work with Magisk patched image"
             );
 
-            println!("- Adding KernelSU LKM");
-            let is_kernelsu_patched = cpio.exists("kernelsu.ko");
+            println!("- Adding XinovaSU LKM");
+            let is_xinovasu_patched = cpio.exists("xinovasu.ko");
 
-            if !is_kernelsu_patched && cpio.exists("init") {
+            if !is_xinovasu_patched && cpio.exists("init") {
                 cpio.mv("init", "init.real")?;
             }
 
-            cpio.add("init", CpioEntry::regular(0o755, ksu_init))?;
-            cpio.add("kernelsu.ko", CpioEntry::regular(0o755, kernelsu_ko))?;
+            cpio.add("init", CpioEntry::regular(0o755, xnsu_init))?;
+            cpio.add("xinovasu.ko", CpioEntry::regular(0o755, xinovasu_ko))?;
 
             #[cfg(target_os = "android")]
-            if !is_kernelsu_patched
+            if !is_xinovasu_patched
                 && flash
                 && let Err(e) = do_backup(&mut cpio, &boot_image_file)
             {
@@ -640,35 +640,35 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
             }
         }
 
-        let mut ksu_config: Vec<String> = cpio
-            .entry_by_name("ksu_config")
+        let mut xnsu_config: Vec<String> = cpio
+            .entry_by_name("xnsu_config")
             .and_then(CpioEntry::data)
             .and_then(|v| str::from_utf8(v).ok())
             .map(|v| v.split(' ').map(std::borrow::ToOwned::to_owned).collect())
             .unwrap_or_default();
 
         let mut apply_config = |name: &str, value: &str, add: bool| {
-            let has_value = ksu_config.iter().any(|v| v == value);
+            let has_value = xnsu_config.iter().any(|v| v == value);
 
             if add {
                 println!("- Adding {name} config");
                 if !has_value {
-                    ksu_config.push(value.to_owned());
+                    xnsu_config.push(value.to_owned());
                 }
             } else if has_value {
                 println!("- Removing {name} config");
-                ksu_config.retain(|v| v != value);
+                xnsu_config.retain(|v| v != value);
             }
         };
 
         apply_config("no custom rc", "norc=1", no_custom_rc);
         apply_config("allow shell", "allow_shell=1", allow_shell);
 
-        if ksu_config.is_empty() {
-            cpio.rm("ksu_config", false);
+        if xnsu_config.is_empty() {
+            cpio.rm("xnsu_config", false);
         } else {
-            let data = ksu_config.join(" ").into_bytes();
-            cpio.add("ksu_config", CpioEntry::regular(0o644, Box::new(data)))?;
+            let data = xnsu_config.join(" ").into_bytes();
+            cpio.add("xnsu_config", CpioEntry::regular(0o644, Box::new(data)))?;
         }
 
         // remove legacy config file
@@ -742,7 +742,7 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
             let output_dir = out.unwrap_or(std::env::current_dir()?);
             let name = out_name.unwrap_or_else(|| {
                 let now = chrono::Utc::now();
-                format!("kernelsu_patched_{}.img", now.format("%Y%m%d_%H%M%S"))
+                format!("xinovasu_patched_{}.img", now.format("%Y%m%d_%H%M%S"))
             });
             let output_image = output_dir.join(name);
             std::fs::write(&output_image, &new_boot_bytes).context("write out new boot failed")?;
@@ -841,8 +841,8 @@ pub fn restore(args: BootRestoreArgs) -> Result<()> {
         };
 
     ensure!(
-        cpio.exists("kernelsu.ko"),
-        "boot image is not patched by KernelSU"
+        cpio.exists("xinovasu.ko"),
+        "boot image is not patched by XinovaSU"
     );
 
     #[cfg(target_os = "android")]
@@ -911,7 +911,7 @@ pub fn restore(args: BootRestoreArgs) -> Result<()> {
         let output_dir = out.unwrap_or(std::env::current_dir()?);
         let name = out_name.unwrap_or_else(|| {
             let now = chrono::Utc::now();
-            format!("kernelsu_restore_{}.img", now.format("%Y%m%d_%H%M%S"))
+            format!("xinovasu_restore_{}.img", now.format("%Y%m%d_%H%M%S"))
         });
         let output_image = output_dir.join(name);
         std::fs::write(&output_image, &new_boot_bytes).context("copy out new boot failed")?;
@@ -928,8 +928,8 @@ fn rebuild_without_ksu(
     cpio: &mut Cpio,
     vendor_ramdisk_idx: Option<usize>,
 ) -> Result<Vec<u8>> {
-    println!("- Removing KernelSU from boot image");
-    cpio.rm("kernelsu.ko", false);
+    println!("- Removing XinovaSU from boot image");
+    cpio.rm("xinovasu.ko", false);
     if cpio.exists("init.real") {
         cpio.mv("init.real", "init")?;
     }

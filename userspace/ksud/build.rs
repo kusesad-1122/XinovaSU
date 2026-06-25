@@ -35,7 +35,7 @@ fn configure_bindgen() {
     let bindings = bindgen::Builder::default()
         // The input header we would like to generate
         // bindings for.
-        .header("src/ksu_uapi.h")
+        .header("src/xnsu_uapi.h")
         .clang_args(["-x", "c++", "-I../../"])
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.

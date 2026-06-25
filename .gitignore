@@ -12,3 +12,5 @@ repack-config.json
 xinova_release.jks
 xinova_release_b64.txt
 rename_kernel.py
+userspace_rename.py
+rename_kernel.py

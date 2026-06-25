@@ -5,7 +5,7 @@ use std::process::Command;
 
 use crate::utils;
 
-/// Find PIDs of processes running in the KernelSU su domain (u:r:ksu:s0).
+/// Find PIDs of processes running in the XinovaSU su domain (u:r:ksu:s0).
 /// Returns a list of PIDs excluding our own.
 fn find_su_domain_pids() -> Vec<i32> {
     let my_pid = std::process::id() as i32;
@@ -36,9 +36,9 @@ fn find_su_domain_pids() -> Vec<i32> {
     pids
 }
 
-/// Find PIDs of processes holding ksu_driver or ksu_fdwrapper file descriptors.
+/// Find PIDs of processes holding xnsu_driver or xnsu_fdwrapper file descriptors.
 /// Returns a list of PIDs excluding our own.
-fn find_ksu_fd_holders() -> Vec<i32> {
+fn find_xnsu_fd_holders() -> Vec<i32> {
     let my_pid = std::process::id() as i32;
     let mut pids = Vec::new();
 
@@ -64,7 +64,7 @@ fn find_ksu_fd_holders() -> Vec<i32> {
             let link_path = fd_entry.path();
             if let Ok(target) = fs::read_link(&link_path) {
                 let target_str = target.to_string_lossy();
-                if target_str.contains("[ksu_driver]") || target_str.contains("[ksu_fdwrapper]") {
+                if target_str.contains("[xnsu_driver]") || target_str.contains("[xnsu_fdwrapper]") {
                     pids.push(pid);
                     break;
                 }
@@ -83,8 +83,8 @@ fn kill_pids(pids: &[i32], signal: i32) {
     }
 }
 
-/// Close all ksu_driver and ksu_fdwrapper fds held by the current process.
-fn close_ksu_fds() {
+/// Close all xnsu_driver and xnsu_fdwrapper fds held by the current process.
+fn close_xnsu_fds() {
     let Ok(entries) = fs::read_dir("/proc/self/fd") else {
         return;
     };
@@ -95,7 +95,7 @@ fn close_ksu_fds() {
         };
         if let Ok(target) = fs::read_link(entry.path()) {
             let target_str = target.to_string_lossy();
-            if target_str.contains("[ksu_driver]") || target_str.contains("[ksu_fdwrapper]") {
+            if target_str.contains("[xnsu_driver]") || target_str.contains("[xnsu_fdwrapper]") {
                 info!("unload: closing fd {fd} -> {target_str}");
                 unsafe {
                     libc::close(fd);
@@ -106,7 +106,7 @@ fn close_ksu_fds() {
 }
 
 pub fn unload() -> Result<()> {
-    info!("unload: starting KernelSU unload sequence");
+    info!("unload: starting XinovaSU unload sequence");
 
     // 0. Switch cgroups so we don't get killed along with our parent shell
     utils::switch_cgroups();
@@ -127,7 +127,7 @@ pub fn unload() -> Result<()> {
     }
 
     info!("unload: killing processes holding ksu fds...");
-    let fd_pids = find_ksu_fd_holders();
+    let fd_pids = find_xnsu_fd_holders();
     if !fd_pids.is_empty() {
         info!(
             "unload: found {} processes holding ksu fds, sending SIGKILL",
@@ -136,14 +136,14 @@ pub fn unload() -> Result<()> {
         kill_pids(&fd_pids, libc::SIGKILL);
     }
 
-    // 3. Close all our own ksu_driver and ksu_fdwrapper fds
+    // 3. Close all our own xnsu_driver and xnsu_fdwrapper fds
     info!("unload: closing all ksu fds...");
-    close_ksu_fds();
+    close_xnsu_fds();
 
-    // 4. delete_module("kernelsu")
-    info!("unload: removing kernelsu module...");
-    if let Err(e) = rustix::system::delete_module(c"kernelsu", 0) {
-        warn!("unload: delete_module kernelsu failed: {e}");
+    // 4. delete_module("xinovasu")
+    info!("unload: removing xinovasu module...");
+    if let Err(e) = rustix::system::delete_module(c"xinovasu", 0) {
+        warn!("unload: delete_module xinovasu failed: {e}");
     }
 
     // 5. start (Android init start command - restarts all services)
@@ -151,6 +151,6 @@ pub fn unload() -> Result<()> {
     let _ = Command::new("start").status();
 
     // 6. Exit
-    info!("unload: done, exiting ksud");
+    info!("unload: done, exiting xnsusd");
     std::process::exit(0);
 }

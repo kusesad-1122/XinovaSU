@@ -365,7 +365,7 @@ pub fn prune_modules() -> Result<()> {
 const METADATA_FILE_CON: &str = "u:object_r:metadata_file:s0";
 
 // Prefer /metadata/watchdog/ when present, else /metadata.
-fn preinit_ksu_dir() -> &'static str {
+fn preinit_xnsu_dir() -> &'static str {
     if Path::new("/metadata/watchdog").is_dir() {
         defs::PREINIT_DIR_WATCHDOG
     } else {
@@ -410,7 +410,7 @@ fn collect_rc_files<P: AsRef<Path>>(
 /// module. The kernel-side read hook splices this file into init.rc on the
 /// next boot.
 pub fn regenerate_preinit_rc() -> Result<()> {
-    let preinit_str = preinit_ksu_dir();
+    let preinit_str = preinit_xnsu_dir();
     let preinit_dir = Path::new(preinit_str);
     std::fs::create_dir_all(preinit_dir)
         .with_context(|| format!("Failed to create {}", preinit_dir.display()))?;
