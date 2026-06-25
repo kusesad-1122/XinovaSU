@@ -79,7 +79,7 @@ static struct xnsu_get_info_cmd g_version {};
 
 struct xnsu_get_info_cmd get_info() {
     if (!g_version.version) {
-        ksuctl(KSU_IOCTL_GET_INFO, &g_version);
+        ksuctl(XNSU_IOCTL_GET_INFO, &g_version);
     }
     return g_version;
 }
@@ -90,27 +90,27 @@ uint32_t get_version() {
 }
 
 bool get_allow_list(struct xnsu_new_get_allow_list_cmd *cmd) {
-    return ksuctl(KSU_IOCTL_NEW_GET_ALLOW_LIST, cmd) == 0;
+    return ksuctl(XNSU_IOCTL_NEW_GET_ALLOW_LIST, cmd) == 0;
 }
 
 bool is_safe_mode() {
     struct xnsu_check_safemode_cmd cmd = {};
-    ksuctl(KSU_IOCTL_CHECK_SAFEMODE, &cmd);
+    ksuctl(XNSU_IOCTL_CHECK_SAFEMODE, &cmd);
     return cmd.in_safe_mode;
 }
 
 bool is_lkm_mode() {
     auto info = get_info();
     if (info.version > 0) {
-        return (info.flags & KSU_GET_INFO_FLAG_LKM) != 0;
+        return (info.flags & XNSU_GET_INFO_FLAG_LKM) != 0;
     }
-    return (legacy_get_info().second & KSU_GET_INFO_FLAG_LKM) != 0;
+    return (legacy_get_info().second & XNSU_GET_INFO_FLAG_LKM) != 0;
 }
 
 bool is_late_load_mode() {
     auto info = get_info();
     if (info.version > 0) {
-        return (info.flags & KSU_GET_INFO_FLAG_LATE_LOAD) != 0;
+        return (info.flags & XNSU_GET_INFO_FLAG_LATE_LOAD) != 0;
     }
     return false;
 }
@@ -118,7 +118,7 @@ bool is_late_load_mode() {
 bool is_manager() {
     auto info = get_info();
     if (info.version > 0) {
-        return (info.flags & KSU_GET_INFO_FLAG_MANAGER) != 0;
+        return (info.flags & XNSU_GET_INFO_FLAG_MANAGER) != 0;
     }
     return legacy_get_info().first > 0;
 }
@@ -126,7 +126,7 @@ bool is_manager() {
 bool is_pr_build() {
     auto info = get_info();
     if (info.version > 0) {
-        return (info.flags & KSU_GET_INFO_FLAG_PR_BUILD) != 0;
+        return (info.flags & XNSU_GET_INFO_FLAG_PR_BUILD) != 0;
     }
     return false;
 }
@@ -134,34 +134,34 @@ bool is_pr_build() {
 bool uid_should_umount(int uid) {
     struct xnsu_uid_should_umount_cmd cmd = {};
     cmd.uid = uid;
-    ksuctl(KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
+    ksuctl(XNSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
     return cmd.should_umount;
 }
 
 bool set_app_profile(const app_profile *profile) {
     struct xnsu_set_app_profile_cmd cmd = {};
     cmd.profile = *profile;
-    return ksuctl(KSU_IOCTL_SET_APP_PROFILE, &cmd) == 0;
+    return ksuctl(XNSU_IOCTL_SET_APP_PROFILE, &cmd) == 0;
 }
 
 int get_app_profile(app_profile *profile) {
     struct xnsu_get_app_profile_cmd cmd = {.profile = *profile};
-    int ret = ksuctl(KSU_IOCTL_GET_APP_PROFILE, &cmd);
+    int ret = ksuctl(XNSU_IOCTL_GET_APP_PROFILE, &cmd);
     *profile = cmd.profile;
     return ret;
 }
 
 bool set_su_enabled(bool enabled) {
     struct xnsu_set_feature_cmd cmd = {};
-    cmd.feature_id = KSU_FEATURE_SU_COMPAT;
+    cmd.feature_id = XNSU_FEATURE_SU_COMPAT;
     cmd.value = enabled ? 1 : 0;
-    return ksuctl(KSU_IOCTL_SET_FEATURE, &cmd) == 0;
+    return ksuctl(XNSU_IOCTL_SET_FEATURE, &cmd) == 0;
 }
 
 bool is_su_enabled() {
     struct xnsu_get_feature_cmd cmd = {};
-    cmd.feature_id = KSU_FEATURE_SU_COMPAT;
-    if (ksuctl(KSU_IOCTL_GET_FEATURE, &cmd) != 0) {
+    cmd.feature_id = XNSU_FEATURE_SU_COMPAT;
+    if (ksuctl(XNSU_IOCTL_GET_FEATURE, &cmd) != 0) {
         return false;
     }
     if (!cmd.supported) {
@@ -173,7 +173,7 @@ bool is_su_enabled() {
 static inline bool get_feature(uint32_t feature_id, uint64_t *out_value, bool *out_supported) {
     struct xnsu_get_feature_cmd cmd = {};
     cmd.feature_id = feature_id;
-    if (ksuctl(KSU_IOCTL_GET_FEATURE, &cmd) != 0) {
+    if (ksuctl(XNSU_IOCTL_GET_FEATURE, &cmd) != 0) {
         return false;
     }
     if (out_value) *out_value = cmd.value;
@@ -185,17 +185,17 @@ static inline bool set_feature(uint32_t feature_id, uint64_t value) {
     struct xnsu_set_feature_cmd cmd = {};
     cmd.feature_id = feature_id;
     cmd.value = value;
-    return ksuctl(KSU_IOCTL_SET_FEATURE, &cmd) == 0;
+    return ksuctl(XNSU_IOCTL_SET_FEATURE, &cmd) == 0;
 }
 
 bool set_kernel_umount_enabled(bool enabled) {
-    return set_feature(KSU_FEATURE_KERNEL_UMOUNT, enabled ? 1 : 0);
+    return set_feature(XNSU_FEATURE_KERNEL_UMOUNT, enabled ? 1 : 0);
 }
 
 bool is_kernel_umount_enabled() {
     uint64_t value = 0;
     bool supported = false;
-    if (!get_feature(KSU_FEATURE_KERNEL_UMOUNT, &value, &supported)) {
+    if (!get_feature(XNSU_FEATURE_KERNEL_UMOUNT, &value, &supported)) {
         return false;
     }
     if (!supported) {
@@ -205,7 +205,7 @@ bool is_kernel_umount_enabled() {
 }
 
 int set_selinux_hide_enabled(bool enabled) {
-    if (!set_feature(KSU_FEATURE_SELINUX_HIDE, enabled ? 1 : 0)) {
+    if (!set_feature(XNSU_FEATURE_SELINUX_HIDE, enabled ? 1 : 0)) {
         return -errno;
     }
     return 0;
@@ -214,7 +214,7 @@ int set_selinux_hide_enabled(bool enabled) {
 bool is_selinux_hide_enabled() {
     uint64_t value = 0;
     bool supported = false;
-    if (!get_feature(KSU_FEATURE_SELINUX_HIDE, &value, &supported)) {
+    if (!get_feature(XNSU_FEATURE_SELINUX_HIDE, &value, &supported)) {
         return false;
     }
     if (!supported) {

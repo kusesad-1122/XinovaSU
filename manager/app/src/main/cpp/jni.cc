@@ -123,7 +123,7 @@ static void fillArrayWithList(JNIEnv *env, jobject list, int *data, int count) {
 extern "C"
 JNIEXPORT jobject JNICALL
 Java_com_xinsu_moe_Natives_getAppProfile(JNIEnv *env, jobject, jstring pkg, jint uid) {
-    if (env->GetStringLength(pkg) > KSU_MAX_PACKAGE_NAME) {
+    if (env->GetStringLength(pkg) > XNSU_MAX_PACKAGE_NAME) {
         return nullptr;
     }
 
@@ -133,7 +133,7 @@ Java_com_xinsu_moe_Natives_getAppProfile(JNIEnv *env, jobject, jstring pkg, jint
     env->ReleaseStringUTFChars(pkg, cpkg);
 
     app_profile profile = {};
-    profile.version = KSU_APP_PROFILE_VER;
+    profile.version = XNSU_APP_PROFILE_VER;
 
     strcpy(profile.key, key);
     profile.curr_uid = uid;
@@ -190,9 +190,9 @@ Java_com_xinsu_moe_Natives_getAppProfile(JNIEnv *env, jobject, jstring pkg, jint
 
         jobject groupList = env->GetObjectField(obj, groupsField);
         int groupCount = profile.rp_config.profile.groups_count;
-        if (groupCount > KSU_MAX_GROUPS) {
+        if (groupCount > XNSU_MAX_GROUPS) {
             LOGD("kernel group count too large: %d???", groupCount);
-            groupCount = KSU_MAX_GROUPS;
+            groupCount = XNSU_MAX_GROUPS;
         }
         fillIntArray(env, groupList, profile.rp_config.profile.groups, groupCount);
 
@@ -242,7 +242,7 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
     if (!key) {
         return false;
     }
-    if (env->GetStringLength((jstring) key) > KSU_MAX_PACKAGE_NAME) {
+    if (env->GetStringLength((jstring) key) > XNSU_MAX_PACKAGE_NAME) {
         return false;
     }
 
@@ -262,7 +262,7 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
     auto umountModules = env->GetBooleanField(profile, umountModulesField);
 
     app_profile p = {};
-    p.version = KSU_APP_PROFILE_VER;
+    p.version = XNSU_APP_PROFILE_VER;
 
     strcpy(p.key, p_key);
     p.allow_su = allowSu;
@@ -281,7 +281,7 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
         p.rp_config.profile.gid = gid;
 
         int groups_count = getListSize(env, groups);
-        if (groups_count > KSU_MAX_GROUPS) {
+        if (groups_count > XNSU_MAX_GROUPS) {
             LOGD("groups count too large: %d", groups_count);
             return false;
         }
