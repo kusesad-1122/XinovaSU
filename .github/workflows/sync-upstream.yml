@@ -43,7 +43,7 @@ jobs:
         id: check_sync
         run: |
           TAG="${{ steps.upstream_tag.outputs.tag }}"
-          BRANCH="upstream-sync/${TAG}"
+          BRANCH="upstream-sync-${TAG}"
           if git ls-remote --heads origin "${BRANCH}" | grep -q "${BRANCH}"; then
             echo "already_synced=true" >> $GITHUB_OUTPUT
             echo "Branch ${BRANCH} already exists, skipping."
@@ -58,7 +58,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="${{ steps.upstream_tag.outputs.tag }}"
-          BRANCH="upstream-sync/${TAG}"
+          BRANCH="upstream-sync-${TAG}"
           # create branch from upstream tag (tags are local after fetch --tags)
           git checkout -b "${BRANCH}" "refs/tags/${TAG}"
           # configure push URL with token
