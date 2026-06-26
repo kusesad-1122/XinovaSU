@@ -43,7 +43,7 @@ extern int (*p_avc_has_perm)(u32, u32, u16, u32, struct common_audit_data *);
 
 /* sidtab */
 extern void (*p_sidtab_destroy)(struct sidtab *);
-extern int (*p_sidtab_context_to_sid)(struct sidtab *, struct policydb *, struct context *, u32 *);
+extern int (*p_sidtab_context_to_sid)(struct sidtab *, struct context *, u32 *);
 extern struct sidtab_entry *(*p_sidtab_search_entry)(struct sidtab *, const u32);
 extern int (*p_sidtab_sid2str_get)(struct sidtab *, struct sidtab_entry *, u32 *, char **);
 extern void (*p_sidtab_sid2str_put)(struct sidtab *, struct sidtab_entry *, char *);
@@ -54,7 +54,7 @@ extern int (*p_ebitmap_cmp)(const struct ebitmap *, const struct ebitmap *);
 extern int (*p_ebitmap_contains)(const struct ebitmap *, const struct ebitmap *, u32);
 
 /* MLS */
-extern int (*p_mls_context_to_sid)(struct policydb *, char, char **, struct context *, struct sidtab *, u32);
+extern int (*p_mls_context_to_sid)(struct policydb *, char, char *, struct context *, struct sidtab *, u32);
 extern int (*p_mls_compute_context_len)(const struct policydb *, const struct context *);
 extern int (*p_mls_sid_to_context)(const struct policydb *, const struct context *, char **, char *);
 
