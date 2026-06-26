@@ -72,6 +72,10 @@ jobs:
         source .github/scripts/setup-rust-build.sh ${{ inputs.target }} 26
         echo "=== RUSTEMBED TEST ==="
         ls -la ./userspace/ksud/bin/aarch64/xnsuinit 2>/dev/null && echo "xnsuinit EXISTS at build time" || echo "xnsuinit MISSING at build time"
+        # Force re-run of RustEmbed proc-macro by touching assets.rs
+        # Cargo incremental compilation may skip re-running the proc-macro
+        # when only the embedded files change but the source doesn't.
+        touch userspace/ksud/src/assets.rs
         cargo build --target $TRIPLE --release --manifest-path ./userspace/ksud/Cargo.toml
 
     - name: Upload ksud artifact
