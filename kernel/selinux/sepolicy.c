@@ -19,6 +19,28 @@
 /* SELinux internal symbols — resolved at runtime via kallsyms */
 struct common_audit_data;
 
+/* Function pointer definitions — storage allocated here, declared extern via selinux_compat.h */
+struct avtab_node *(*p_avtab_search_node)(struct avtab *, const struct avtab_key *);
+int (*p_avtab_alloc)(struct avtab *, u32);
+void (*p_avtab_destroy)(struct avtab *);
+struct avtab_node *(*p_avtab_search_node_next)(struct avtab_node *, int);
+int (*p_avtab_insert_nonunique)(struct avtab *, const struct avtab_key *, const struct avtab_datum *);
+struct task_struct *(*p_change_pid)(struct task_struct *, enum pid_type, struct pid *);
+int (*p_avc_has_perm)(u32, u32, u16, u32, struct common_audit_data *);
+void (*p_sidtab_destroy)(struct sidtab *);
+void (*p_ebitmap_destroy)(struct ebitmap *);
+int (*p_mls_context_to_sid)(struct policydb *, char, char *, struct context *, struct sidtab *, u32);
+int (*p_policydb_context_isvalid)(const struct policydb *, const struct context *);
+int (*p_sidtab_context_to_sid)(struct sidtab *, struct context *, u32 *);
+struct sidtab_entry *(*p_sidtab_search_entry)(struct sidtab *, const u32);
+int (*p_sidtab_sid2str_get)(struct sidtab *, struct sidtab_entry *, u32 *, char **);
+int (*p_mls_compute_context_len)(const struct policydb *, const struct context *);
+int (*p_mls_sid_to_context)(const struct policydb *, const struct context *, char **, char *);
+void (*p_sidtab_sid2str_put)(struct sidtab *, struct sidtab_entry *, char *);
+void (*p_cond_compute_av)(struct avtab *, struct avtab_key *, struct av_decision *, struct extended_perms *);
+int (*p_ebitmap_cmp)(const struct ebitmap *, const struct ebitmap *);
+int (*p_ebitmap_contains)(const struct ebitmap *, const struct ebitmap *, u32);
+
 /* Global flag: set to true only when ALL symbols resolved */
 bool xnsu_sepolicy_ops_available = false;
 
