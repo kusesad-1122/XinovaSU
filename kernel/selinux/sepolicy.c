@@ -16,6 +16,7 @@
 #include "infra/symbol_resolver.h"
 
 /* SELinux internal symbols — resolved at runtime via kallsyms */
+struct common_audit_data;
 static struct avtab_node *(*p_avtab_search_node)(struct avtab *, const struct avtab_key *);
 static int (*p_avtab_alloc)(struct avtab *, u32);
 static void (*p_avtab_destroy)(struct avtab *);
