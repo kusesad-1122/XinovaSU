@@ -66,7 +66,12 @@ jobs:
       env:
         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       run: |
+        echo "=== BEFORE BUILD: bin/aarch64/ contents ==="
+        ls -la ./userspace/ksud/bin/aarch64/
+        echo "=== END ==="
         source .github/scripts/setup-rust-build.sh ${{ inputs.target }} 26
+        echo "=== RUSTEMBED TEST ==="
+        ls -la ./userspace/ksud/bin/aarch64/xnsuinit 2>/dev/null && echo "xnsuinit EXISTS at build time" || echo "xnsuinit MISSING at build time"
         cargo build --target $TRIPLE --release --manifest-path ./userspace/ksud/Cargo.toml
 
     - name: Upload ksud artifact
