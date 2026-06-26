@@ -24,9 +24,14 @@ jobs:
         workspaces: . -> target
         cache-targets: false
 
+    - uses: nttld/setup-ndk@v1
+      id: setup-ndk
+      with:
+        ndk-version: r27
+
     - name: Build xnsuinit
       run: |
-        LLVM_BIN=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin
+        LLVM_BIN=${{ steps.setup-ndk.outputs.ndk-path }}/toolchains/llvm/prebuilt/linux-x86_64/bin
         export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER="$LLVM_BIN/aarch64-linux-android26-clang"
         export RUSTFLAGS="-C link-arg=-no-pie"
         cargo build --package xnsuinit --target=aarch64-unknown-linux-musl --release
