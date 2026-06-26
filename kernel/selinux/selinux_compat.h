@@ -3,7 +3,7 @@
 
 /*
  * SELinux internal function pointers — resolved at runtime via
- * find_kernel_symbol_exact().  Shared by sepolicy.c and selinux_hide.c
+ * find_kernel_symbol_exact().  Shared by sepolicy.c and selinux_hide.c and selinux_hide.c
  * to eliminate direct calls that would trigger GKI CRC checks.
  *
  * Declared extern here; defined (non-static) and resolved in sepolicy.c
