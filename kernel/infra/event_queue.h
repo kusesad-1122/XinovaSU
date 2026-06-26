@@ -51,7 +51,7 @@ void xnsu_event_queue_init(struct xnsu_event_queue *queue, __u32 max_queued, __u
 void xnsu_event_queue_destroy(struct xnsu_event_queue *queue);
 
 int xnsu_event_queue_push(struct xnsu_event_queue *queue, __u16 type, __u16 flags, const void *payload, __u32 len,
-                         gfp_t gfp);
+                          gfp_t gfp);
 void xnsu_event_queue_drop(struct xnsu_event_queue *queue);
 
 ssize_t xnsu_event_queue_read(struct xnsu_event_queue *queue, char __user *buf, size_t count, int file_flags);

@@ -196,7 +196,7 @@ static __u32 xnsu_sulog_flatten_argv(const char __user *const __user *argv_user,
 }
 
 static struct xnsu_sulog_pending_event *xnsu_sulog_capture(__u16 event_type, const char __user *filename_user,
-                                                         const char __user *const __user *argv_user, gfp_t gfp)
+                                                           const char __user *const __user *argv_user, gfp_t gfp)
 {
     struct xnsu_sulog_pending_event *pending = NULL;
     struct xnsu_sulog_event *event;
@@ -255,7 +255,7 @@ out_drop:
 }
 
 static struct xnsu_sulog_pending_event *xnsu_sulog_capture_grant_root(const struct xnsu_sulog_identity *identity,
-                                                                    gfp_t gfp)
+                                                                      gfp_t gfp)
 {
     struct xnsu_sulog_pending_event *pending;
     struct xnsu_sulog_event *event;
@@ -289,13 +289,13 @@ static void xnsu_sulog_free_pending(struct xnsu_sulog_pending_event *pending)
 }
 
 struct xnsu_sulog_pending_event *xnsu_sulog_capture_root_execve(const char __user *filename_user,
-                                                              const char __user *const __user *argv_user, gfp_t gfp)
+                                                                const char __user *const __user *argv_user, gfp_t gfp)
 {
     return xnsu_sulog_capture(XNSU_SULOG_EVENT_ROOT_EXECVE, filename_user, argv_user, gfp);
 }
 
 struct xnsu_sulog_pending_event *xnsu_sulog_capture_sucompat(const char __user *filename_user,
-                                                           const char __user *const __user *argv_user, gfp_t gfp)
+                                                             const char __user *const __user *argv_user, gfp_t gfp)
 {
     return xnsu_sulog_capture(XNSU_SULOG_EVENT_SUCOMPAT, filename_user, argv_user, gfp);
 }

@@ -103,10 +103,10 @@ fail:
 }
 
 // --- Architecture-specific Cache Flushing & Barriers ---
-#define xnsu_flush_dcache(start, sz)                                                                                    \
+#define xnsu_flush_dcache(start, sz)                                                                                   \
     do {                                                                                                               \
     } while (0)
-#define xnsu_flush_icache(start, end)                                                                                   \
+#define xnsu_flush_icache(start, end)                                                                                  \
     do {                                                                                                               \
     } while (0)
 #define xnsu_isb() smp_mb()

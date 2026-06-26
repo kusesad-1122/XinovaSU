@@ -31,9 +31,9 @@ struct xnsu_lsm_hook {
     int offset;
 };
 
-#define XNSU_LSM_HOOK_INIT(member, target_symbol, replacement_fn, off)                                                  \
+#define XNSU_LSM_HOOK_INIT(member, target_symbol, replacement_fn, off)                                                 \
     {                                                                                                                  \
-        .head_name = #member, .target_name = target_symbol, .head_offset = offsetof(XNSU_LSM_HOOK_HEADS_TYPE, member),  \
+        .head_name = #member, .target_name = target_symbol, .head_offset = offsetof(XNSU_LSM_HOOK_HEADS_TYPE, member), \
         .hook_offset = offsetof(struct security_hook_list, hook.member), .replacement = (void *)(replacement_fn),      \
         .offset = off,                                                                                                 \
     }

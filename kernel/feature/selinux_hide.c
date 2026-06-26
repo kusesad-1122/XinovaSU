@@ -197,7 +197,8 @@ out:
 }
 
 static int my_setprocattr(const char *name, void *value, size_t size);
-struct xnsu_lsm_hook selinux_setprocattr_hook = XNSU_LSM_HOOK_INIT(setprocattr, "selinux_setprocattr", my_setprocattr, 0);
+struct xnsu_lsm_hook selinux_setprocattr_hook =
+    XNSU_LSM_HOOK_INIT(setprocattr, "selinux_setprocattr", my_setprocattr, 0);
 
 typedef int (*setprocattr_fn)(const char *name, void *value, size_t size);
 static int __nocfi my_setprocattr(const char *name, void *value, size_t size)
@@ -375,15 +376,16 @@ static void xnsu_selinux_hide_unhook()
 {
     int ret;
     if (orig_context_write) {
-        ret =
-            xnsu_patch_text(context_write, &orig_context_write, sizeof(orig_context_write), XNSU_PATCH_TEXT_FLUSH_DCACHE);
+        ret = xnsu_patch_text(context_write, &orig_context_write, sizeof(orig_context_write),
+                              XNSU_PATCH_TEXT_FLUSH_DCACHE);
         orig_context_write = NULL;
         if (ret) {
             pr_err("selinux_hide: exit: patch_text context_write err: %d\n", ret);
         }
     }
     if (orig_access_write) {
-        ret = xnsu_patch_text(access_write, &orig_access_write, sizeof(orig_access_write), XNSU_PATCH_TEXT_FLUSH_DCACHE);
+        ret =
+            xnsu_patch_text(access_write, &orig_access_write, sizeof(orig_access_write), XNSU_PATCH_TEXT_FLUSH_DCACHE);
         orig_access_write = NULL;
         if (ret) {
             pr_err("selinux_hide: exit: patch_text access_write err: %d\n", ret);
@@ -391,7 +393,7 @@ static void xnsu_selinux_hide_unhook()
     }
     if (sel_open_handle_status_slot && orig_sel_open_handle_status) {
         ret = xnsu_patch_text(sel_open_handle_status_slot, &orig_sel_open_handle_status,
-                             sizeof(orig_sel_open_handle_status), XNSU_PATCH_TEXT_FLUSH_DCACHE);
+                              sizeof(orig_sel_open_handle_status), XNSU_PATCH_TEXT_FLUSH_DCACHE);
         orig_sel_open_handle_status = NULL;
         if (ret) {
             pr_err("selinux_hide: exit: patch_text sel_open_handle_status err: %d\n", ret);

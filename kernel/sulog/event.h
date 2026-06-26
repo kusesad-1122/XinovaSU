@@ -13,9 +13,9 @@ int xnsu_sulog_events_init(void);
 void xnsu_sulog_events_exit(void);
 
 struct xnsu_sulog_pending_event *xnsu_sulog_capture_root_execve(const char __user *filename_user,
-                                                              const char __user *const __user *argv_user, gfp_t gfp);
+                                                                const char __user *const __user *argv_user, gfp_t gfp);
 struct xnsu_sulog_pending_event *xnsu_sulog_capture_sucompat(const char __user *filename_user,
-                                                           const char __user *const __user *argv_user, gfp_t gfp);
+                                                             const char __user *const __user *argv_user, gfp_t gfp);
 void xnsu_sulog_emit_pending(struct xnsu_sulog_pending_event *pending, int retval, gfp_t gfp);
 int xnsu_sulog_emit_grant_root(int retval, __u32 uid, __u32 euid, gfp_t gfp);
 
