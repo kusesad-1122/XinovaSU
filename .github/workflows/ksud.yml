@@ -39,8 +39,9 @@ jobs:
         SRC=$(find . -name xnsuinit -type f | head -1)
         if [ -n "$SRC" ]; then
           echo "FOUND: $SRC ($(wc -c < "$SRC") bytes)"
-          mv "$SRC" ./userspace/ksud/bin/aarch64/
-          ls -la ./userspace/ksud/bin/aarch64/xnsuinit
+          # Use .bin extension to avoid RustEmbed include-flate filtering bug
+          cp "$SRC" ./userspace/ksud/bin/aarch64/xnsuinit.bin
+          ls -la ./userspace/ksud/bin/aarch64/xnsuinit.bin
         else
           echo "WARNING: xnsuinit NOT FOUND"
           echo "dirs:"; ls -d */

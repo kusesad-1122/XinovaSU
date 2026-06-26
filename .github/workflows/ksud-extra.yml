@@ -38,7 +38,7 @@ jobs:
       if: ${{ inputs.pack_xnsuinit }}
       run: |
         find . -name xnsuinit -type f | head -1 | \
-          xargs -I{} mv {} ./userspace/ksud/bin/aarch64/
+          xargs -I{} cp {} ./userspace/ksud/bin/aarch64/xnsuinit.bin
         
     - name: Setup rustup
       run: |

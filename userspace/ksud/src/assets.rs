@@ -14,7 +14,7 @@ mod android {
 
     pub fn ensure_binaries(ignore_if_exist: bool) -> anyhow::Result<()> {
         for file in Asset::iter() {
-            if file == "xnsuinit" || file.ends_with(".ko") {
+            if file == "xnsuinit.bin" || file.ends_with(".ko") {
                 // don't extract xnsuinit and kernel modules
                 continue;
             }
