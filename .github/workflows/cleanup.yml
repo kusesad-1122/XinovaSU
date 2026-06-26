@@ -8,20 +8,24 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     steps:
-      - name: Cleanup
+      - name: Cleanup (keep 3 most recent caches per branch)
         run: |
           gh extension install actions/gh-actions-cache
           
-          echo "Fetching list of cache key"
-          cacheKeysForPR=$(gh actions-cache list -R $REPO -L 100 | cut -f 1 )
+          echo "=== Current caches ==="
+          gh actions-cache list -R $REPO --sort last-used --order desc -L 100
+          echo ""
           
-          ## Setting this to not fail the workflow while deleting cache keys. 
-          set +e
-          echo "Deleting caches..."
-          for cacheKey in $cacheKeysForPR
-          do
-              gh actions-cache delete $cacheKey -R $REPO --confirm
-          done
+          # Group by branch, keep 3 newest per branch
+          gh actions-cache list -R $REPO --sort last-used --order desc -L 100 | \
+            awk 'NR>1 {count[$2]++; if (count[$2] > 3) print $1}' | \
+            while read key; do
+              echo "Deleting: $key"
+              gh actions-cache delete "$key" -R $REPO --confirm 2>/dev/null || true
+            done
+          
+          echo "=== Caches remaining ==="
+          gh actions-cache list -R $REPO --sort last-used --order desc -L 100
           echo "Done"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
