@@ -48,6 +48,7 @@ xinovasu-objs += supercall/perm.o
 xinovasu-objs += supercall/supercall.o
 
 xinovasu-objs += feature/adb_root.o
+
 xinovasu-objs += feature/selinux_hide.o
 
 ifdef KBUILD_EXTMOD

@@ -37,6 +37,4 @@ bool xnsu_type_member(struct policydb *db, const char *src, const char *tgt, con
 // File system labeling
 bool xnsu_genfscon(struct policydb *db, const char *fs_name, const char *path, const char *ctx);
 
-int xnsu_sepolicy_symbols_init(void);
-
 #endif

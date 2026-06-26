@@ -2,7 +2,6 @@
 #include "infra/symbol_resolver.h"
 #include "linux/jump_label.h"
 #include "selinux/sepolicy.h"
-#include "selinux/selinux_compat.h"
 #include <linux/cred.h>
 #include <linux/cpu.h>
 #include <linux/memory.h>
@@ -92,12 +91,9 @@ static ssize_t my_write_context(struct file *file, char *buf, size_t size)
     ssize_t length;
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 6, 0)
-	if (xnsu_sepolicy_ops_available && p_avc_has_perm)
-		length = p_avc_has_perm(current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY, SECURITY__CHECK_CONTEXT, NULL);
-	else
-		length = -ENOSYS;
-	if (length < 0)
-		goto out;
+    length = avc_has_perm(current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY, SECURITY__CHECK_CONTEXT, NULL);
+    if (length)
+        goto out;
     length = security_context_to_sid_with_policy(backup_sepolicy, buf, size, &sid, SECSID_NULL, GFP_KERNEL);
     if (length)
         goto out;
@@ -114,13 +110,10 @@ static ssize_t my_write_context(struct file *file, char *buf, size_t size)
         goto out;
     }
 #else
-	if (xnsu_sepolicy_ops_available && p_avc_has_perm)
-		length = p_avc_has_perm(current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY,
-					SECURITY__CHECK_CONTEXT, NULL);
-	else
-		length = -ENOSYS;
-	if (length < 0)
-		goto out;
+    length = avc_has_perm(&selinux_state, current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY,
+                          SECURITY__CHECK_CONTEXT, NULL);
+    if (length)
+        goto out;
 
     length = security_context_to_sid(&fake_state, buf, size, &sid, GFP_KERNEL);
     if (length)
@@ -151,16 +144,10 @@ static ssize_t my_write_access(struct file *file, char *buf, size_t size)
     ssize_t length;
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 6, 0)
-	if (xnsu_sepolicy_ops_available && p_avc_has_perm)
-		length = p_avc_has_perm(current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY, SECURITY__COMPUTE_AV, NULL);
-	else
-		length = -ENOSYS;
+    length = avc_has_perm(current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY, SECURITY__COMPUTE_AV, NULL);
 #else
-	if (xnsu_sepolicy_ops_available && p_avc_has_perm)
-		length = p_avc_has_perm(current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY,
-					SECURITY__COMPUTE_AV, NULL);
-	else
-		length = -ENOSYS;
+    length =
+        avc_has_perm(&selinux_state, current_sid(), SECINITSID_SECURITY, SECCLASS_SECURITY, SECURITY__COMPUTE_AV, NULL);
 #endif
     if (length)
         goto out;
@@ -229,15 +216,9 @@ static int __nocfi my_setprocattr(const char *name, void *value, size_t size)
     mysid = current_sid();
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 6, 0)
-	if (xnsu_sepolicy_ops_available && p_avc_has_perm)
-		error = p_avc_has_perm(mysid, mysid, SECCLASS_PROCESS, PROCESS__SETCURRENT, NULL);
-	else
-		error = -ENOSYS;
+    error = avc_has_perm(mysid, mysid, SECCLASS_PROCESS, PROCESS__SETCURRENT, NULL);
 #else
-	if (xnsu_sepolicy_ops_available && p_avc_has_perm)
-		error = p_avc_has_perm(mysid, mysid, SECCLASS_PROCESS, PROCESS__SETCURRENT, NULL);
-	else
-		error = -ENOSYS;
+    error = avc_has_perm(&selinux_state, mysid, mysid, SECCLASS_PROCESS, PROCESS__SETCURRENT, NULL);
 #endif
     if (error) {
         return error;
@@ -539,11 +520,8 @@ void xnsu_selinux_hide_drop_backup_if_unused()
     mutex_lock(&selinux_hide_mutex);
     if (!xnsu_selinux_hide_running && backup_sepolicy) {
         pr_info("selinux_hide is not enabled - drop backup_sepolicy\n");
-	if (xnsu_sepolicy_ops_available && p_sidtab_destroy)
-		p_sidtab_destroy(backup_sepolicy->sidtab);
-	else
-		pr_warn("selinux_hide: p_sidtab_destroy not available\n");
-	kfree(backup_sepolicy->sidtab);
+        sidtab_destroy(backup_sepolicy->sidtab);
+        kfree(backup_sepolicy->sidtab);
         xnsu_destroy_sepolicy(backup_sepolicy);
         backup_sepolicy = NULL;
     }
@@ -614,23 +592,14 @@ static int string_to_context_struct(struct policydb *pol, struct sidtab *sidtabp
 
     ctx->type = typdatum->value;
 
-	if (xnsu_sepolicy_ops_available && p_mls_context_to_sid)
-		rc = p_mls_context_to_sid(pol, oldc, p, ctx, sidtabp, def_sid);
-	else {
-		rc = -ENOSYS;
-		goto out;
-	}
+    rc = mls_context_to_sid(pol, oldc, p, ctx, sidtabp, def_sid);
     if (rc)
         goto out;
 
     /* Check the validity of the new context. */
     rc = -EINVAL;
-	if (xnsu_sepolicy_ops_available && p_policydb_context_isvalid) {
-		if (!p_policydb_context_isvalid(pol, ctx))
-			goto out;
-	} else {
-		goto out;
-	}
+    if (!policydb_context_isvalid(pol, ctx))
+        goto out;
     rc = 0;
 out:
     if (rc)
@@ -666,10 +635,7 @@ static int security_context_to_sid_with_policy(struct selinux_policy *policy, co
     rc = string_to_context_struct(policydb, sidtab, scontext2, &context, def_sid);
     if (rc)
         goto out;
-    if (xnsu_sepolicy_ops_available && p_sidtab_context_to_sid)
-		rc = p_sidtab_context_to_sid(sidtab, &context, sid);
-	else
-		rc = -ENOSYS;
+    rc = sidtab_context_to_sid(sidtab, &context, sid);
     // rc should not be frozen
     if (rc)
         goto out;
@@ -766,10 +732,7 @@ static int security_sid_to_context_with_policy(struct selinux_policy *policy, u3
     sidtab = policy->sidtab;
 
     // removed: force
-	if (xnsu_sepolicy_ops_available && p_sidtab_search_entry)
-		entry = p_sidtab_search_entry(sidtab, sid);
-	else
-		entry = NULL;
+    entry = sidtab_search_entry(sidtab, sid);
     if (!entry) {
         pr_err("SELinux: %s:  unrecognized SID %d\n", __func__, sid);
         rc = -EINVAL;
@@ -1071,23 +1034,20 @@ static void context_struct_compute_av(struct policydb *policydb, struct context 
         {
             avkey.source_type = i + 1;
             avkey.target_type = j + 1;
-		if (xnsu_sepolicy_ops_available && p_avtab_search_node) {
-			for (node = p_avtab_search_node(&policydb->te_avtab, &avkey); node;
-			     node = p_avtab_search_node_next(node, avkey.specified)) {
-				if (node->key.specified == AVTAB_ALLOWED)
-					avd->allowed |= node->datum.u.data;
-				else if (node->key.specified == AVTAB_AUDITALLOW)
-					avd->auditallow |= node->datum.u.data;
-				else if (node->key.specified == AVTAB_AUDITDENY)
-					avd->auditdeny &= node->datum.u.data;
-				else if (xperms && (node->key.specified & AVTAB_XPERMS))
-					services_compute_xperms_drivers(xperms, node);
-			}
-		}
+            for (node = avtab_search_node(&policydb->te_avtab, &avkey); node;
+                 node = avtab_search_node_next(node, avkey.specified)) {
+                if (node->key.specified == AVTAB_ALLOWED)
+                    avd->allowed |= node->datum.u.data;
+                else if (node->key.specified == AVTAB_AUDITALLOW)
+                    avd->auditallow |= node->datum.u.data;
+                else if (node->key.specified == AVTAB_AUDITDENY)
+                    avd->auditdeny &= node->datum.u.data;
+                else if (xperms && (node->key.specified & AVTAB_XPERMS))
+                    services_compute_xperms_drivers(xperms, node);
+            }
 
-		/* Check conditional av table for additional permissions */
-		if (xnsu_sepolicy_ops_available && p_cond_compute_av)
-			p_cond_compute_av(&policydb->te_cond_avtab, &avkey, avd, xperms);
+            /* Check conditional av table for additional permissions */
+            cond_compute_av(&policydb->te_cond_avtab, &avkey, avd, xperms);
         }
     }
 
