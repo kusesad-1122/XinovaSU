@@ -58,6 +58,14 @@ u32 xnsu_file_sid = 0;
 void apply_xinovasu_rules(void) { }
 int handle_sepolicy(void __user *user_data, u64 data_len) { (void)user_data; (void)data_len; return 0; }
 
+/* ───── selinux_hide.c stubs ───── */
+
+void xnsu_selinux_hide_init(void) { }
+void xnsu_selinux_hide_exit(void) { }
+void xnsu_selinux_hide_drop_backup_if_unused(void) { }
+void xnsu_selinux_hide_handle_second_stage(void) { }
+void xnsu_selinux_hide_handle_post_fs_data(void) { }
+
 /* ───── globals ───── */
 
 struct selinux_policy *backup_sepolicy;

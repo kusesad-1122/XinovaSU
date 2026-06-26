@@ -50,7 +50,7 @@ xinovasu-objs += supercall/supercall.o
 
 xinovasu-objs += feature/adb_root.o
 
-xinovasu-objs += feature/selinux_hide.o
+# xinovasu-objs += feature/selinux_hide.o  # disabled: GKI unexported symbols
 
 ifdef KBUILD_EXTMOD
 ifeq ($(CONFIG_XNSU_DISABLE_MANAGER),y)
