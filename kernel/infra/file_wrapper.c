@@ -187,7 +187,7 @@ static ssize_t xnsu_wrapper_sendpage(struct file *fp, struct page *pg, int arg1,
 #endif
 
 static unsigned long xnsu_wrapper_get_unmapped_area(struct file *fp, unsigned long arg1, unsigned long arg2,
-                                                   unsigned long arg3, unsigned long arg4)
+                                                    unsigned long arg3, unsigned long arg4)
 {
     struct xnsu_file_wrapper *data = fp->private_data;
     struct file *orig = data->orig;
@@ -210,7 +210,7 @@ static int xnsu_wrapper_flock(struct file *fp, int arg1, struct file_lock *fl)
 }
 
 static ssize_t xnsu_wrapper_splice_write(struct pipe_inode_info *pii, struct file *fp, loff_t *off, size_t sz,
-                                        unsigned int arg1)
+                                         unsigned int arg1)
 {
     struct xnsu_file_wrapper *data = fp->private_data;
     struct file *orig = data->orig;
@@ -221,7 +221,7 @@ static ssize_t xnsu_wrapper_splice_write(struct pipe_inode_info *pii, struct fil
 }
 
 static ssize_t xnsu_wrapper_splice_read(struct file *fp, loff_t *off, struct pipe_inode_info *pii, size_t sz,
-                                       unsigned int arg1)
+                                        unsigned int arg1)
 {
     struct xnsu_file_wrapper *data = fp->private_data;
     struct file *orig = data->orig;
@@ -295,7 +295,7 @@ static void xnsu_wrapper_show_fdinfo(struct seq_file *m, struct file *f)
 
 // https://cs.android.com/android/kernel/superproject/+/common-android-mainline:common/fs/read_write.c;l=1593-1606;drc=398da7defe218d3e51b0f3bdff75147e28125b60
 static ssize_t xnsu_wrapper_copy_file_range(struct file *file_in, loff_t pos_in, struct file *file_out, loff_t pos_out,
-                                           size_t len, unsigned int flags)
+                                            size_t len, unsigned int flags)
 {
     struct xnsu_file_wrapper *data = file_out->private_data;
     struct file *orig = data->orig;
@@ -308,7 +308,7 @@ static ssize_t xnsu_wrapper_copy_file_range(struct file *file_in, loff_t pos_in,
 // REMAP_FILE_DEDUP: use file_out
 // https://cs.android.com/android/kernel/superproject/+/common-android-mainline:common/fs/remap_range.c;l=483-484;drc=398da7defe218d3e51b0f3bdff75147e28125b60
 static loff_t xnsu_wrapper_remap_file_range(struct file *file_in, loff_t pos_in, struct file *file_out, loff_t pos_out,
-                                           loff_t len, unsigned int remap_flags)
+                                            loff_t len, unsigned int remap_flags)
 {
     if (remap_flags & REMAP_FILE_DEDUP) {
         struct xnsu_file_wrapper *data = file_out->private_data;
@@ -421,7 +421,7 @@ static void xnsu_wrapper_d_release(struct dentry *dentry)
 }
 
 static const struct dentry_operations xnsu_file_wrapper_d_ops = { .d_dname = xnsu_wrapper_d_dname,
-                                                                 .d_release = xnsu_wrapper_d_release };
+                                                                  .d_release = xnsu_wrapper_d_release };
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 8, 0)
 #define xnsu_anon_inode_create_getfile_compat anon_inode_create_getfile
@@ -457,7 +457,7 @@ static struct inode *xnsu_anon_inode_make_secure_inode(const char *name, const s
 }
 
 static struct file *xnsu_anon_inode_create_getfile_compat(const char *name, const struct file_operations *fops,
-                                                         void *priv, int flags, const struct inode *context_inode)
+                                                          void *priv, int flags, const struct inode *context_inode)
 {
     struct inode *inode;
     struct file *file;
@@ -510,7 +510,7 @@ int xnsu_install_file_wrapper(int fd)
     }
 
     struct file *wrapper_file = xnsu_anon_inode_create_getfile_compat("[xnsu_fdwrapper]", &file_wrapper_data->ops,
-                                                                     file_wrapper_data, orig_file->f_flags, NULL);
+                                                                      file_wrapper_data, orig_file->f_flags, NULL);
     if (IS_ERR(wrapper_file)) {
         pr_err("xnsu_fdwrapper: getfile failed: %ld\n", PTR_ERR(wrapper_file));
         ret = PTR_ERR(wrapper_file);

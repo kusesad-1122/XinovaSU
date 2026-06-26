@@ -45,11 +45,11 @@ int xnsu_sepolicy_symbols_init(void)
 {
     int missing = 0;
 
-#define RESOLVE(name) \
-    p_##name = (void *)find_kernel_symbol_exact(#name); \
-    if (!p_##name) { \
-        pr_warn("xinovasu: symbol not found: " #name " — SELinux ops degraded\n"); \
-        missing++; \
+#define RESOLVE(name)                                                                                                  \
+    p_##name = (void *)find_kernel_symbol_exact(#name);                                                                \
+    if (!p_##name) {                                                                                                   \
+        pr_warn("xinovasu: symbol not found: " #name " — SELinux ops degraded\n");                                     \
+        missing++;                                                                                                     \
     }
 
     RESOLVE(avtab_search_node)
@@ -133,7 +133,7 @@ static bool add_typeattribute(struct policydb *db, const char *type, const char 
 // rules
 #define strip_av(effect, invert) ((effect == AVTAB_AUDITDENY) == !invert)
 
-#define xnsu_hash_for_each(node_ptr, n_slot, cur)                                                                       \
+#define xnsu_hash_for_each(node_ptr, n_slot, cur)                                                                      \
     int i;                                                                                                             \
     for (i = 0; i < n_slot; ++i)                                                                                       \
         for (cur = node_ptr[i]; cur; cur = cur->next)
@@ -938,7 +938,7 @@ bool xnsu_dontauditxperm(struct policydb *db, const char *src, const char *tgt, 
 
 // Type rules
 bool xnsu_type_transition(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *def,
-                         const char *obj)
+                          const char *obj)
 {
     if (!xnsu_sepolicy_ops_available)
         return false;
