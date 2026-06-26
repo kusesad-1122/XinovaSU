@@ -30,11 +30,22 @@ jobs:
         find . -name "*_xinovasu.ko" -type f | \
           xargs -I{} cp {} ./userspace/ksud/bin/aarch64/
 
-    - name: Prepare xnsuinit
+    - name: Prepare xnsuinit (debug)
       if: ${{ inputs.pack_xnsuinit }}
       run: |
-        find . -name xnsuinit -type f | head -1 | \
-          xargs -I{} mv {} ./userspace/ksud/bin/aarch64/
+        echo "=== DEBUG: find xnsuinit ==="
+        find . -name xnsuinit -type f 2>/dev/null || echo "(none)"
+        echo "---"
+        SRC=$(find . -name xnsuinit -type f | head -1)
+        if [ -n "$SRC" ]; then
+          echo "FOUND: $SRC ($(wc -c < "$SRC") bytes)"
+          mv "$SRC" ./userspace/ksud/bin/aarch64/
+          ls -la ./userspace/ksud/bin/aarch64/xnsuinit
+        else
+          echo "WARNING: xnsuinit NOT FOUND"
+          echo "dirs:"; ls -d */
+        fi
+        echo "=== END DEBUG ==="
         
     - name: Setup rustup
       run: |
