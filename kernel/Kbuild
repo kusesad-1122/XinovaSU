@@ -36,9 +36,10 @@ xinovasu-objs += policy/feature.o
 xinovasu-objs += runtime/boot_event.o
 xinovasu-objs += runtime/xnsusd_integration.o
 
-xinovasu-objs += selinux/selinux.o
-xinovasu-objs += selinux/rules.o
-xinovasu-objs += selinux/sepolicy.o
+# xinovasu-objs += selinux/selinux.o    # disabled: GKI unexported symbols
+# xinovasu-objs += selinux/rules.o       # disabled: GKI unexported symbols
+# xinovasu-objs += selinux/sepolicy.o    # disabled: GKI unexported symbols
+xinovasu-objs += selinux_stub.o
 
 xinovasu-objs += sulog/event.o
 xinovasu-objs += sulog/fd.o
