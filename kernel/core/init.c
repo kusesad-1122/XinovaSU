@@ -22,7 +22,6 @@
 #include "xnsu.h"
 #include "infra/file_wrapper.h"
 #include "selinux/selinux.h"
-#include "selinux/sepolicy.h"
 #include "hook/syscall_hook.h"
 #include "feature/adb_root.h"
 #include "feature/selinux_hide.h"
@@ -127,7 +126,6 @@ int __init xinovasu_init(void)
     }
 
     xnsu_init_symbol_resolver();
-    xnsu_sepolicy_symbols_init();
     xnsu_syscall_hook_init();
 
     xnsu_feature_init();

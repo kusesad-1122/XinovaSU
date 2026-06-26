@@ -13,81 +13,6 @@
 #include "sepolicy.h"
 #include "klog.h" // IWYU pragma: keep
 #include "ss/symtab.h"
-#include "infra/symbol_resolver.h"
-#include "selinux_compat.h"
-
-/* SELinux internal symbols — resolved at runtime via kallsyms */
-struct common_audit_data;
-
-/* Function pointer definitions — storage allocated here, declared extern via selinux_compat.h */
-struct avtab_node *(*p_avtab_search_node)(struct avtab *, const struct avtab_key *);
-int (*p_avtab_alloc)(struct avtab *, u32);
-void (*p_avtab_destroy)(struct avtab *);
-struct avtab_node *(*p_avtab_search_node_next)(struct avtab_node *, int);
-int (*p_avtab_insert_nonunique)(struct avtab *, const struct avtab_key *, const struct avtab_datum *);
-struct task_struct *(*p_change_pid)(struct task_struct *, enum pid_type, struct pid *);
-int (*p_avc_has_perm)(u32, u32, u16, u32, struct common_audit_data *);
-void (*p_sidtab_destroy)(struct sidtab *);
-void (*p_ebitmap_destroy)(struct ebitmap *);
-int (*p_mls_context_to_sid)(struct policydb *, char, char *, struct context *, struct sidtab *, u32);
-int (*p_policydb_context_isvalid)(const struct policydb *, const struct context *);
-int (*p_sidtab_context_to_sid)(struct sidtab *, struct context *, u32 *);
-struct sidtab_entry *(*p_sidtab_search_entry)(struct sidtab *, const u32);
-int (*p_sidtab_sid2str_get)(struct sidtab *, struct sidtab_entry *, u32 *, char **);
-int (*p_mls_compute_context_len)(const struct policydb *, const struct context *);
-int (*p_mls_sid_to_context)(const struct policydb *, const struct context *, char **, char *);
-void (*p_sidtab_sid2str_put)(struct sidtab *, struct sidtab_entry *, char *);
-void (*p_cond_compute_av)(struct avtab *, struct avtab_key *, struct av_decision *, struct extended_perms *);
-int (*p_ebitmap_cmp)(const struct ebitmap *, const struct ebitmap *);
-int (*p_ebitmap_contains)(const struct ebitmap *, const struct ebitmap *, u32);
-
-/* Global flag: set to true only when ALL symbols resolved */
-bool xnsu_sepolicy_ops_available = false;
-
-int xnsu_sepolicy_symbols_init(void)
-{
-    int missing = 0;
-
-#define RESOLVE(name)                                                                                                  \
-    p_##name = (void *)find_kernel_symbol_exact(#name);                                                                \
-    if (!p_##name) {                                                                                                   \
-        pr_warn("xinovasu: symbol not found: " #name " — SELinux ops degraded\n");                                     \
-        missing++;                                                                                                     \
-    }
-
-    RESOLVE(avtab_search_node)
-    RESOLVE(avtab_alloc)
-    RESOLVE(avtab_destroy)
-    RESOLVE(avtab_search_node_next)
-    RESOLVE(avtab_insert_nonunique)
-    RESOLVE(change_pid)
-    RESOLVE(avc_has_perm)
-    RESOLVE(sidtab_destroy)
-    RESOLVE(ebitmap_destroy)
-    RESOLVE(mls_context_to_sid)
-    RESOLVE(policydb_context_isvalid)
-    RESOLVE(sidtab_context_to_sid)
-    RESOLVE(sidtab_search_entry)
-    RESOLVE(sidtab_sid2str_get)
-    RESOLVE(mls_compute_context_len)
-    RESOLVE(mls_sid_to_context)
-    RESOLVE(sidtab_sid2str_put)
-    RESOLVE(cond_compute_av)
-    RESOLVE(ebitmap_cmp)
-    RESOLVE(ebitmap_contains)
-
-#undef RESOLVE
-
-    if (missing > 0) {
-        pr_warn("xinovasu: %d SELinux symbol(s) missing, policy ops DISABLED\n", missing);
-        xnsu_sepolicy_ops_available = false;
-    } else {
-        pr_info("xinovasu: all SELinux symbols resolved, policy ops enabled\n");
-        xnsu_sepolicy_ops_available = true;
-    }
-
-    return 0;
-}
 
 #define XNSU_SUPPORT_ADD_TYPE
 
@@ -136,7 +61,7 @@ static bool add_typeattribute(struct policydb *db, const char *type, const char 
 // rules
 #define strip_av(effect, invert) ((effect == AVTAB_AUDITDENY) == !invert)
 
-#define xnsu_hash_for_each(node_ptr, n_slot, cur)                                                                      \
+#define xnsu_hash_for_each(node_ptr, n_slot, cur)                                                                       \
     int i;                                                                                                             \
     for (i = 0; i < n_slot; ++i)                                                                                       \
         for (cur = node_ptr[i]; cur; cur = cur->next)
@@ -166,19 +91,19 @@ static struct avtab_node *get_avtab_node(struct policydb *db, struct avtab_key *
     /* AVTAB_XPERMS entries are not necessarily unique */
     if (key->specified & AVTAB_XPERMS) {
         bool match = false;
-        node = p_avtab_search_node(&db->te_avtab, key);
+        node = avtab_search_node(&db->te_avtab, key);
         while (node) {
             if ((node->datum.u.xperms->specified == xperms->specified) &&
                 (node->datum.u.xperms->driver == xperms->driver)) {
                 match = true;
                 break;
             }
-            node = p_avtab_search_node_next(node, key->specified);
+            node = avtab_search_node_next(node, key->specified);
         }
         if (!match)
             node = NULL;
     } else {
-        node = p_avtab_search_node(&db->te_avtab, key);
+        node = avtab_search_node(&db->te_avtab, key);
     }
 
     if (!node) {
@@ -193,7 +118,7 @@ static struct avtab_node *get_avtab_node(struct policydb *db, struct avtab_key *
             avdatum.u.data = key->specified == AVTAB_AUDITDENY ? ~0U : 0U;
         }
         /* this is used to get the node - insertion is actually unique */
-        node = p_avtab_insert_nonunique(&db->te_avtab, key, &avdatum);
+        node = avtab_insert_nonunique(&db->te_avtab, key, &avdatum);
         if (!node)
             return NULL;
 
@@ -230,7 +155,7 @@ static bool remove_avtab_node(struct policydb *db, struct avtab_node *node)
     struct avtab_node *n;
     struct avtab_node *prev;
 
-    ret = p_avtab_alloc(&removed, 1);
+    ret = avtab_alloc(&removed, 1);
     if (ret < 0)
         return false;
 
@@ -254,14 +179,14 @@ static bool remove_avtab_node(struct policydb *db, struct avtab_node *node)
             n->next = NULL;
             removed.htable[0] = n;
             removed.nel = 1;
-            p_avtab_destroy(&removed);
+            avtab_destroy(&removed);
             if (db->len >= shrink_size)
                 db->len -= shrink_size;
             return true;
         }
     }
 
-    p_avtab_destroy(&removed);
+    avtab_destroy(&removed);
     return false;
 }
 
@@ -367,7 +292,7 @@ static bool add_rule_raw(struct policydb *db, struct type_datum *src, struct typ
         key.specified = effect;
 
         if (invert && effect != AVTAB_AUDITDENY) {
-            node = p_avtab_search_node(&db->te_avtab, &key);
+            node = avtab_search_node(&db->te_avtab, &key);
             if (!node)
                 return true;
         } else {
@@ -849,102 +774,74 @@ static bool add_typeattribute(struct policydb *db, const char *type, const char 
 // Operation on types
 bool xnsu_type(struct policydb *db, const char *name, const char *attr)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_type(db, name, false) && add_typeattribute(db, name, attr);
 }
 
 bool xnsu_attribute(struct policydb *db, const char *name)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_type(db, name, true);
 }
 
 bool xnsu_permissive(struct policydb *db, const char *type)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return set_type_state(db, type, true);
 }
 
 bool xnsu_enforce(struct policydb *db, const char *type)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return set_type_state(db, type, false);
 }
 
 bool xnsu_typeattribute(struct policydb *db, const char *type, const char *attr)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_typeattribute(db, type, attr);
 }
 
 bool xnsu_exists(struct policydb *db, const char *type)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return symtab_search(&db->p_types, type) != NULL;
 }
 
 // Access vector rules
 bool xnsu_allow(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *perm)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_rule(db, src, tgt, cls, perm, AVTAB_ALLOWED, false);
 }
 
 bool xnsu_deny(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *perm)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_rule(db, src, tgt, cls, perm, AVTAB_ALLOWED, true);
 }
 
 bool xnsu_auditallow(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *perm)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_rule(db, src, tgt, cls, perm, AVTAB_AUDITALLOW, false);
 }
 bool xnsu_dontaudit(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *perm)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_rule(db, src, tgt, cls, perm, AVTAB_AUDITDENY, true);
 }
 
 // Extended permissions access vector rules
 bool xnsu_allowxperm(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *range)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_xperm_rule(db, src, tgt, cls, range, AVTAB_XPERMS_ALLOWED, false);
 }
 
 bool xnsu_auditallowxperm(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *range)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_xperm_rule(db, src, tgt, cls, range, AVTAB_XPERMS_AUDITALLOW, false);
 }
 
 bool xnsu_dontauditxperm(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *range)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_xperm_rule(db, src, tgt, cls, range, AVTAB_XPERMS_DONTAUDIT, false);
 }
 
 // Type rules
 bool xnsu_type_transition(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *def,
-                          const char *obj)
+                         const char *obj)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     if (obj) {
         return add_filename_trans(db, src, tgt, cls, def, obj);
     } else {
@@ -954,23 +851,17 @@ bool xnsu_type_transition(struct policydb *db, const char *src, const char *tgt,
 
 bool xnsu_type_change(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *def)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_type_rule(db, src, tgt, cls, def, AVTAB_CHANGE);
 }
 
 bool xnsu_type_member(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *def)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_type_rule(db, src, tgt, cls, def, AVTAB_MEMBER);
 }
 
 // File system labeling
 bool xnsu_genfscon(struct policydb *db, const char *fs_name, const char *path, const char *ctx)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return false;
     return add_genfscon(db, fs_name, path, ctx);
 }
 
@@ -978,16 +869,12 @@ bool xnsu_genfscon(struct policydb *db, const char *fs_name, const char *path, c
 
 void xnsu_destroy_sepolicy(struct selinux_policy *pol)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return;
     policydb_destroy(&pol->policydb);
     kfree(pol);
 }
 
 struct selinux_policy *xnsu_dup_sepolicy(struct selinux_policy *old_pol)
 {
-    if (!xnsu_sepolicy_ops_available)
-        return NULL;
     int ret;
     size_t len;
     struct selinux_policy *new_pol;

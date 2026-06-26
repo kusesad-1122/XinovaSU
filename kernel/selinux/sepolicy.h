@@ -30,13 +30,11 @@ bool xnsu_dontauditxperm(struct policydb *db, const char *src, const char *tgt, 
 
 // Type rules
 bool xnsu_type_transition(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *def,
-                          const char *obj);
+                         const char *obj);
 bool xnsu_type_change(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *def);
 bool xnsu_type_member(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *def);
 
 // File system labeling
 bool xnsu_genfscon(struct policydb *db, const char *fs_name, const char *path, const char *ctx);
-
-int xnsu_sepolicy_symbols_init(void);
 
 #endif
