@@ -127,8 +127,7 @@ int __init xinovasu_init(void)
 
     xnsu_init_symbol_resolver();
     extern int xnsu_sepolicy_symbols_init(void);
-    int sep_ret = xnsu_sepolicy_symbols_init();
-    if (sep_ret) return sep_ret;
+    xnsu_sepolicy_symbols_init();   /* 非致命，忽略返回值 */
     xnsu_syscall_hook_init();
 
     xnsu_feature_init();

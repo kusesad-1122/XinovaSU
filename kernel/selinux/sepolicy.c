@@ -40,11 +40,13 @@ static int (*p_ebitmap_contains)(const struct ebitmap *, const struct ebitmap *,
 
 int xnsu_sepolicy_symbols_init(void)
 {
+    int missing = 0;
+
 #define RESOLVE(name) \
     p_##name = (void *)find_kernel_symbol_exact(#name); \
     if (!p_##name) { \
-        pr_err("xinovasu: failed to resolve symbol: " #name "\n"); \
-        return -ENOENT; \
+        pr_warn("xinovasu: symbol not found: " #name " — SELinux ops degraded\n"); \
+        missing++; \
     }
 
     RESOLVE(avtab_search_node)
@@ -69,7 +71,13 @@ int xnsu_sepolicy_symbols_init(void)
     RESOLVE(ebitmap_contains)
 
 #undef RESOLVE
-    return 0;
+
+    if (missing > 0)
+        pr_warn("xinovasu: %d SELinux symbol(s) unresolved, policy ops partially disabled\n", missing);
+    else
+        pr_info("xinovasu: all SELinux symbols resolved OK\n");
+
+    return 0;  /* 永远返回成功，不阻塞模块加载 */
 }
 
 #define XNSU_SUPPORT_ADD_TYPE
