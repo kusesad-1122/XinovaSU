@@ -13,6 +13,63 @@
 #include "sepolicy.h"
 #include "klog.h" // IWYU pragma: keep
 #include "ss/symtab.h"
+#include "infra/symbol_resolver.h"
+
+/* SELinux internal symbols — resolved at runtime via kallsyms */
+static struct avtab_node *(*p_avtab_search_node)(struct avtab *, const struct avtab_key *);
+static int (*p_avtab_alloc)(struct avtab *, u32);
+static void (*p_avtab_destroy)(struct avtab *);
+static struct avtab_node *(*p_avtab_search_node_next)(struct avtab_node *, int);
+static int (*p_avtab_insert_nonunique)(struct avtab *, const struct avtab_key *, const struct avtab_datum *);
+static struct task_struct *(*p_change_pid)(struct task_struct *, enum pid_type, struct pid *);
+static int (*p_avc_has_perm)(u32, u32, u16, u32, struct common_audit_data *);
+static void (*p_sidtab_destroy)(struct sidtab *);
+static void (*p_ebitmap_destroy)(struct ebitmap *);
+static int (*p_mls_context_to_sid)(struct policydb *, char, char **, struct context *);
+static int (*p_policydb_context_isvalid)(const struct policydb *, const struct context *);
+static int (*p_sidtab_context_to_sid)(struct sidtab *, struct policydb *, struct context *, u32 *);
+static struct sidtab_entry *(*p_sidtab_search_entry)(struct sidtab *, const u32);
+static int (*p_sidtab_sid2str_get)(struct sidtab *, struct sidtab_entry *, u32 *, char **);
+static int (*p_mls_compute_context_len)(const struct policydb *, const struct context *);
+static int (*p_mls_sid_to_context)(const struct policydb *, const struct context *, char **, char *);
+static void (*p_sidtab_sid2str_put)(struct sidtab *, struct sidtab_entry *, char *);
+static void (*p_cond_compute_av)(struct avtab *, struct avtab_key *, struct av_decision *);
+static int (*p_ebitmap_cmp)(const struct ebitmap *, const struct ebitmap *);
+static int (*p_ebitmap_contains)(const struct ebitmap *, const struct ebitmap *, u32);
+
+int xnsu_sepolicy_symbols_init(void)
+{
+#define RESOLVE(name) \
+    p_##name = (void *)find_kernel_symbol_exact(#name); \
+    if (!p_##name) { \
+        pr_err("xinovasu: failed to resolve symbol: " #name "\n"); \
+        return -ENOENT; \
+    }
+
+    RESOLVE(avtab_search_node)
+    RESOLVE(avtab_alloc)
+    RESOLVE(avtab_destroy)
+    RESOLVE(avtab_search_node_next)
+    RESOLVE(avtab_insert_nonunique)
+    RESOLVE(change_pid)
+    RESOLVE(avc_has_perm)
+    RESOLVE(sidtab_destroy)
+    RESOLVE(ebitmap_destroy)
+    RESOLVE(mls_context_to_sid)
+    RESOLVE(policydb_context_isvalid)
+    RESOLVE(sidtab_context_to_sid)
+    RESOLVE(sidtab_search_entry)
+    RESOLVE(sidtab_sid2str_get)
+    RESOLVE(mls_compute_context_len)
+    RESOLVE(mls_sid_to_context)
+    RESOLVE(sidtab_sid2str_put)
+    RESOLVE(cond_compute_av)
+    RESOLVE(ebitmap_cmp)
+    RESOLVE(ebitmap_contains)
+
+#undef RESOLVE
+    return 0;
+}
 
 #define XNSU_SUPPORT_ADD_TYPE
 
@@ -91,19 +148,19 @@ static struct avtab_node *get_avtab_node(struct policydb *db, struct avtab_key *
     /* AVTAB_XPERMS entries are not necessarily unique */
     if (key->specified & AVTAB_XPERMS) {
         bool match = false;
-        node = avtab_search_node(&db->te_avtab, key);
+        node = p_avtab_search_node(&db->te_avtab, key);
         while (node) {
             if ((node->datum.u.xperms->specified == xperms->specified) &&
                 (node->datum.u.xperms->driver == xperms->driver)) {
                 match = true;
                 break;
             }
-            node = avtab_search_node_next(node, key->specified);
+            node = p_avtab_search_node_next(node, key->specified);
         }
         if (!match)
             node = NULL;
     } else {
-        node = avtab_search_node(&db->te_avtab, key);
+        node = p_avtab_search_node(&db->te_avtab, key);
     }
 
     if (!node) {
@@ -118,7 +175,7 @@ static struct avtab_node *get_avtab_node(struct policydb *db, struct avtab_key *
             avdatum.u.data = key->specified == AVTAB_AUDITDENY ? ~0U : 0U;
         }
         /* this is used to get the node - insertion is actually unique */
-        node = avtab_insert_nonunique(&db->te_avtab, key, &avdatum);
+        node = p_avtab_insert_nonunique(&db->te_avtab, key, &avdatum);
         if (!node)
             return NULL;
 
@@ -155,7 +212,7 @@ static bool remove_avtab_node(struct policydb *db, struct avtab_node *node)
     struct avtab_node *n;
     struct avtab_node *prev;
 
-    ret = avtab_alloc(&removed, 1);
+    ret = p_avtab_alloc(&removed, 1);
     if (ret < 0)
         return false;
 
@@ -179,14 +236,14 @@ static bool remove_avtab_node(struct policydb *db, struct avtab_node *node)
             n->next = NULL;
             removed.htable[0] = n;
             removed.nel = 1;
-            avtab_destroy(&removed);
+            p_avtab_destroy(&removed);
             if (db->len >= shrink_size)
                 db->len -= shrink_size;
             return true;
         }
     }
 
-    avtab_destroy(&removed);
+    p_avtab_destroy(&removed);
     return false;
 }
 
@@ -292,7 +349,7 @@ static bool add_rule_raw(struct policydb *db, struct type_datum *src, struct typ
         key.specified = effect;
 
         if (invert && effect != AVTAB_AUDITDENY) {
-            node = avtab_search_node(&db->te_avtab, &key);
+            node = p_avtab_search_node(&db->te_avtab, &key);
             if (!node)
                 return true;
         } else {
