@@ -14,32 +14,13 @@
 #include "klog.h" // IWYU pragma: keep
 #include "ss/symtab.h"
 #include "infra/symbol_resolver.h"
+#include "selinux_compat.h"
 
 /* SELinux internal symbols — resolved at runtime via kallsyms */
 struct common_audit_data;
-static struct avtab_node *(*p_avtab_search_node)(struct avtab *, const struct avtab_key *);
-static int (*p_avtab_alloc)(struct avtab *, u32);
-static void (*p_avtab_destroy)(struct avtab *);
-static struct avtab_node *(*p_avtab_search_node_next)(struct avtab_node *, int);
-static int (*p_avtab_insert_nonunique)(struct avtab *, const struct avtab_key *, const struct avtab_datum *);
-static struct task_struct *(*p_change_pid)(struct task_struct *, enum pid_type, struct pid *);
-static int (*p_avc_has_perm)(u32, u32, u16, u32, struct common_audit_data *);
-static void (*p_sidtab_destroy)(struct sidtab *);
-static void (*p_ebitmap_destroy)(struct ebitmap *);
-static int (*p_mls_context_to_sid)(struct policydb *, char, char **, struct context *);
-static int (*p_policydb_context_isvalid)(const struct policydb *, const struct context *);
-static int (*p_sidtab_context_to_sid)(struct sidtab *, struct policydb *, struct context *, u32 *);
-static struct sidtab_entry *(*p_sidtab_search_entry)(struct sidtab *, const u32);
-static int (*p_sidtab_sid2str_get)(struct sidtab *, struct sidtab_entry *, u32 *, char **);
-static int (*p_mls_compute_context_len)(const struct policydb *, const struct context *);
-static int (*p_mls_sid_to_context)(const struct policydb *, const struct context *, char **, char *);
-static void (*p_sidtab_sid2str_put)(struct sidtab *, struct sidtab_entry *, char *);
-static void (*p_cond_compute_av)(struct avtab *, struct avtab_key *, struct av_decision *);
-static int (*p_ebitmap_cmp)(const struct ebitmap *, const struct ebitmap *);
-static int (*p_ebitmap_contains)(const struct ebitmap *, const struct ebitmap *, u32);
 
 /* Global flag: set to true only when ALL symbols resolved */
-static bool xnsu_sepolicy_ops_available = false;
+bool xnsu_sepolicy_ops_available = false;
 
 int xnsu_sepolicy_symbols_init(void)
 {
