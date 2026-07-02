@@ -7,6 +7,7 @@
 #include <linux/rculist.h>
 #include <linux/version.h>
 #include "klog.h" // IWYU pragma: keep
+#include "manager/manager_identity.h"
 #include "manager/throne_tracker.h"
 
 #define MASK_SYSTEM (FS_CREATE | FS_MOVE | FS_EVENT_ON_CHILD)
@@ -113,6 +114,14 @@ int xnsu_observer_init(void)
 
     ret = watch_one_dir(&g_watch);
     pr_info("observer init done\n");
+    // packages.list may already exist at this point (LKM boot patch path:
+    // xnsuinit -> init.real, /data is mounted before post-fs-data, and the
+    // file is left over from the previous boot). fsnotify only fires on
+    // CREATE / MOVE events, so PMS rewriting it in-place would leave the
+    // manager appid permanently invalid. Kick a scan up-front so the
+    // manager can be crowned before zygote forks it.
+    if (!xnsu_is_manager_appid_valid())
+        track_throne(false);
     return 0;
 }
 

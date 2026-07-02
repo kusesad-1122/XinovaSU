@@ -9,6 +9,7 @@
 #include "runtime/xnsusd_boot.h"
 #include "runtime/xnsusd.h"
 #include "manager/manager_observer.h"
+#include "manager/manager_identity.h"
 #include "manager/throne_tracker.h"
 
 bool xnsu_module_mounted __read_mostly = false;
@@ -66,6 +67,16 @@ void on_boot_completed(void)
 {
     xnsu_boot_completed = true;
     pr_info("on_boot_completed!\n");
-    track_throne(true);
+    // If the manager appid is still unknown by boot-completed, the packages.list
+    // fsnotify event was missed (typical after freshly flashing the patched
+    // init_boot: packages.list already exists and PMS only rewrites it in place).
+    // Force a full scan so setuid_hook can start installing the [xnsu_driver]
+    // fd on the manager process; otherwise the app stays "not installed".
+    if (!xnsu_is_manager_appid_valid()) {
+        pr_info("manager appid still invalid at boot completed, forcing full search\n");
+        track_throne(false);
+    } else {
+        track_throne(true);
+    }
     xnsu_selinux_hide_drop_backup_if_unused();
 }
