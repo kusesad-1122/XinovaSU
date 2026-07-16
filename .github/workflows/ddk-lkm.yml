@@ -1,0 +1,117 @@
+name: Build XinovaSU Kernel Module
+
+on:
+  workflow_call:
+    inputs:
+      kmi:
+        description: 'KMI version'
+        required: true
+        type: string
+      ddk_release:
+        description: 'DDK release version'
+        required: false
+        default: '20260313'
+        type: string
+      expected_size2:
+        description: 'Second expected signature size (for PR builds)'
+        required: false
+        default: ''
+        type: string
+      expected_hash2:
+        description: 'Second expected signature hash (for PR builds)'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  build-xinovasu-ko:
+    name: Build xinovasu.ko for ${{ inputs.kmi }}
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/ylarod/ddk-min:${{ inputs.kmi }}-${{ inputs.ddk_release }}
+      options: --privileged
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v6
+
+    - name: Build xinovasu.ko
+      env:
+        EXPECTED_SIZE2: ${{ inputs.expected_size2 }}
+        EXPECTED_HASH2: ${{ inputs.expected_hash2 }}
+      run: |
+        git config --global --add safe.directory /__w/XinovaSU/XinovaSU
+
+        cd kernel
+
+        echo "=== Building xinovasu.ko for KMI: ${{ inputs.kmi }} ==="
+
+        EXTRA_ARGS=""
+        if [ -n "$EXPECTED_SIZE2" ] && [ -z "$EXPECTED_HASH2" ]; then
+          echo "ERROR: expected_hash2 must be provided when expected_size2 is set."
+          exit 1
+        fi
+        if [ -z "$EXPECTED_SIZE2" ] && [ -n "$EXPECTED_HASH2" ]; then
+          echo "ERROR: expected_size2 must be provided when expected_hash2 is set."
+          exit 1
+        fi
+        if [ -n "$EXPECTED_SIZE2" ]; then
+          EXTRA_ARGS="XNSU_EXPECTED_SIZE2=$EXPECTED_SIZE2 XNSU_EXPECTED_HASH2=$EXPECTED_HASH2"
+        fi
+        CONFIG_XNSU=m CC=clang make $EXTRA_ARGS
+        
+        echo "=== Build completed ==="
+
+        # Guard against string-copy helpers the kernel has *removed*, which a
+        # modern GKI / OEM device therefore does not expose in its runtime
+        # kallsyms. The DDK's check_symbol only validates against the GKI
+        # reference vmlinux in the build container, so it cannot catch symbols
+        # a real device kernel lacks. xnsuinit resolves every undefined symbol
+        # against the device kallsyms at load time; a single unresolvable one
+        # makes the whole .ko fail to load (no hooks -> su broken, manager
+        # shows "not installed"). That is exactly how a stray strncpy shipped
+        # broken once.
+        #
+        # Denylist scope is deliberately narrow — only functions the kernel has
+        # actually deleted, whose drop-in replacement is strscpy:
+        #   strncpy : being removed; absent from GKI 6.6 device kallsyms (the bug)
+        #   strlcpy : removed in Linux 6.8, so absent on android16-6.12 kernels
+        # Do NOT add still-exported helpers here (sprintf, strcpy, strcat, ...):
+        # upstream KernelSU references them and they resolve fine on-device, so
+        # denying them would be a false positive.
+        echo "=== Checking for removed string helpers (strscpy replacements) ==="
+        DENY="strncpy strlcpy"
+        UND=$(llvm-nm -u xinovasu.ko | awk '{ print $NF }')
+        BAD=""
+        for s in $DENY; do
+          if printf '%s\n' "$UND" | grep -qx "$s"; then
+            BAD="$BAD $s"
+          fi
+        done
+        if [ -n "$BAD" ]; then
+          echo "ERROR: xinovasu.ko references deprecated symbol(s) not reliably"
+          echo "present in GKI/OEM device kallsyms:$BAD"
+          echo "These make xnsuinit fail to load the module on real devices."
+          echo "Replace with strscpy / memcpy / scnprintf and rebuild."
+          exit 1
+        fi
+        echo "OK: no denylisted symbols referenced"
+
+        # Create output directory in GitHub workspace
+        mkdir -p /github/workspace/out
+
+        # Copy with KMI-specific naming
+        OUTPUT_NAME="${{ inputs.kmi }}_xinovasu.ko"
+        cp xinovasu.ko "/github/workspace/out/$OUTPUT_NAME"
+        
+        echo "Copied to: /github/workspace/out/$OUTPUT_NAME"
+        ls -la "/github/workspace/out/$OUTPUT_NAME"
+        echo "Size: $(du -h "/github/workspace/out/$OUTPUT_NAME" | cut -f1)"
+        llvm-strip -d "/github/workspace/out/$OUTPUT_NAME"
+        echo "Size after stripping: $(du -h "/github/workspace/out/$OUTPUT_NAME" | cut -f1)"
+
+    - name: Upload xinovasu.ko artifact
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ inputs.kmi }}-lkm
+        path: /github/workspace/out/${{ inputs.kmi }}_xinovasu.ko

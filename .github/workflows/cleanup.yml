@@ -1,0 +1,32 @@
+name: Cleanup Old Caches
+on:
+  schedule:
+    - cron: '0 0 * * 0' # 每周日午夜运行
+  workflow_dispatch:    # 支持手动触发
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cleanup (keep 3 most recent caches per branch)
+        run: |
+          gh extension install actions/gh-actions-cache
+          
+          echo "=== Current caches ==="
+          gh actions-cache list -R $REPO --sort last-used --order desc -L 100
+          echo ""
+          
+          # Group by branch, keep 3 newest per branch
+          gh actions-cache list -R $REPO --sort last-used --order desc -L 100 | \
+            awk 'NR>1 {count[$2]++; if (count[$2] > 3) print $1}' | \
+            while read key; do
+              echo "Deleting: $key"
+              gh actions-cache delete "$key" -R $REPO --confirm 2>/dev/null || true
+            done
+          
+          echo "=== Caches remaining ==="
+          gh actions-cache list -R $REPO --sort last-used --order desc -L 100
+          echo "Done"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
