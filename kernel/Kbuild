@@ -1,0 +1,162 @@
+xinovasu-objs := core/init.o
+
+xinovasu-objs += feature/kernel_umount.o
+xinovasu-objs += feature/sulog.o
+xinovasu-objs += feature/sucompat.o
+
+xinovasu-objs += hook/lsm_hook.o
+xinovasu-objs += hook/setuid_hook.o
+xinovasu-objs += hook/syscall_event_bridge.o
+xinovasu-objs += hook/syscall_hook_manager.o
+xinovasu-objs += hook/tp_marker.o
+ifeq ($(CONFIG_ARM64),y)
+xinovasu-objs += hook/arm64/patch_memory.o
+xinovasu-objs += hook/arm64/syscall_hook.o
+else ifeq ($(CONFIG_X86_64),y)
+xinovasu-objs += hook/x86_64/patch_memory.o
+xinovasu-objs += hook/x86_64/syscall_hook.o
+endif
+
+xinovasu-objs += infra/file_wrapper.o
+xinovasu-objs += infra/event_queue.o
+xinovasu-objs += infra/seccomp_cache.o
+xinovasu-objs += infra/su_mount_ns.o
+xinovasu-objs += infra/symbol_resolver.o
+
+ifneq ($(CONFIG_XNSU_DISABLE_MANAGER),y)
+xinovasu-objs += manager/apk_sign.o
+xinovasu-objs += manager/pkg_observer.o
+xinovasu-objs += manager/throne_tracker.o
+endif
+
+xinovasu-objs += policy/allowlist.o
+xinovasu-objs += policy/app_profile.o
+xinovasu-objs += policy/feature.o
+
+xinovasu-objs += runtime/boot_event.o
+xinovasu-objs += runtime/xnsusd_integration.o
+
+xinovasu-objs += selinux/selinux.o
+xinovasu-objs += selinux/rules.o
+xinovasu-objs += selinux/sepolicy.o
+
+xinovasu-objs += sulog/event.o
+xinovasu-objs += sulog/fd.o
+
+xinovasu-objs += supercall/dispatch.o
+xinovasu-objs += supercall/perm.o
+xinovasu-objs += supercall/supercall.o
+
+xinovasu-objs += feature/adb_root.o
+
+xinovasu-objs += feature/kernel_spoof.o
+
+xinovasu-objs += feature/net_isolate.o
+
+xinovasu-objs += feature/path_hide.o
+
+xinovasu-objs += feature/selinux_hide.o
+
+ifdef KBUILD_EXTMOD
+ifeq ($(CONFIG_XNSU_DISABLE_MANAGER),y)
+ccflags-y += -DCONFIG_XNSU_DISABLE_MANAGER=1
+endif
+ifeq ($(CONFIG_XNSU_DISABLE_POLICY),y)
+ccflags-y += -DCONFIG_XNSU_DISABLE_POLICY=1
+endif
+ifeq ($(CONFIG_XNSU_DEBUG),y)
+ccflags-y += -DCONFIG_XNSU_DEBUG=1
+endif
+endif
+
+ccflags-y += -I$(srctree)/security/selinux -I$(srctree)/security/selinux/include
+ccflags-y += -I$(objtree)/security/selinux -include $(srctree)/include/uapi/asm-generic/errno.h
+
+ifeq ($(filter /%,$(src)),)
+XNSU_KERNEL_DIR := $(srctree)/$(src)
+else
+XNSU_KERNEL_DIR := $(src)
+endif
+
+ccflags-y += -I$(XNSU_KERNEL_DIR) -I$(XNSU_KERNEL_DIR)/include
+
+obj-$(CONFIG_XNSU) += xinovasu.o
+
+MDIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
+# Workaround bazel
+# https://github.com/tiann/XinovaSU/pull/316#issuecomment-1479043219
+GIT := $(shell PATH="$$PATH":/usr/bin:/usr/local/bin which git)
+ifneq ($(GIT),)
+# Check if this is a git repository
+# Try to detect Git repo intelligently
+GIT_ROOT := $(shell cd $(MDIR) && $(GIT) rev-parse --show-toplevel 2>/dev/null)
+ifneq ($(GIT_ROOT),)
+KERNEL_GIT_ROOT := $(shell cd $(srctree) && $(GIT) rev-parse --show-toplevel 2>/dev/null)
+ifneq ($(GIT_ROOT),$(KERNEL_GIT_ROOT))
+# Only set version if it's a different repo from kernel
+$(shell cd $(GIT_ROOT) && [ -f .git/shallow ] && $(GIT) fetch --unshallow 2>/dev/null || true)
+XNSU_GIT_VERSION := $(shell cd $(GIT_ROOT) && $(GIT) rev-list --count HEAD 2>/dev/null)
+XNSU_GIT_VERSION_VALID := 1
+$(info -- XinovaSU: Git repo detected at $(GIT_ROOT))
+endif
+endif
+else
+$(warning -- XinovaSU: Git not detected, make sure git is installed in your PATH!)
+endif
+
+
+# Calculate version if git version is available
+ifdef XNSU_GIT_VERSION_VALID
+# xnsu_version: major * 10000 + git version + 200 for historical reasons
+$(eval XNSU_VERSION=$(shell expr 30000 + $(XNSU_GIT_VERSION)))
+$(info -- XinovaSU version: $(XNSU_VERSION))
+ccflags-y += -DXNSU_VERSION=$(XNSU_VERSION)
+else
+# If there is no .git directory, use default version
+$(warning "XNSU_GIT_VERSION not defined! It is better to make XinovaSU a git repository!")
+ccflags-y += -DXNSU_VERSION=16
+endif
+
+XNSU_NEW_DCACHE_FLUSH := $(shell grep -q __flush_dcache_area $(srctree)/arch/arm64/include/asm/cacheflush.h ; echo $$?)
+$(info -- XNSU_NEW_DCACHE_FLUSH: $(XNSU_NEW_DCACHE_FLUSH))
+
+
+# XinovaSU release manager signing certificate (DER length + SHA-256).
+# This is the fork's own key, NOT upstream KernelSU's. If the release signing
+# key is ever rotated, update these two values to the new certificate.
+ifndef XNSU_EXPECTED_SIZE
+XNSU_EXPECTED_SIZE := 0x037d
+endif
+
+ifndef XNSU_EXPECTED_HASH
+XNSU_EXPECTED_HASH := 4861a86778da1deb60f19391f97ea2c01c1458de20662ff78e303127cdf1731a
+endif
+
+ifdef XNSU_MANAGER_PACKAGE
+ccflags-y += -DXNSU_MANAGER_PACKAGE=\"$(XNSU_MANAGER_PACKAGE)\"
+$(info -- XinovaSU Manager package name: $(XNSU_MANAGER_PACKAGE))
+endif
+
+$(info -- XinovaSU Manager signature size: $(XNSU_EXPECTED_SIZE))
+$(info -- XinovaSU Manager signature hash: $(XNSU_EXPECTED_HASH))
+
+ccflags-y += -DEXPECTED_SIZE=$(XNSU_EXPECTED_SIZE)
+ccflags-y += -DEXPECTED_HASH=\"$(XNSU_EXPECTED_HASH)\"
+
+ifdef XNSU_EXPECTED_SIZE2
+ifndef XNSU_EXPECTED_HASH2
+$(error XNSU_EXPECTED_HASH2 must be set when XNSU_EXPECTED_SIZE2 is set)
+endif
+ccflags-y += -DEXPECTED_SIZE2=$(XNSU_EXPECTED_SIZE2)
+ccflags-y += -DEXPECTED_HASH2=\"$(XNSU_EXPECTED_HASH2)\"
+$(info -- XinovaSU Manager signature size2: $(XNSU_EXPECTED_SIZE2))
+$(info -- XinovaSU Manager signature hash2: $(XNSU_EXPECTED_HASH2))
+endif
+
+ccflags-y += -DXNSU_NEW_DCACHE_FLUSH=$(XNSU_NEW_DCACHE_FLUSH)
+
+ccflags-y += -Wno-strict-prototypes -Wno-int-conversion -Wno-gcc-compat -Wno-missing-prototypes
+ccflags-y += -Wno-declaration-after-statement -Wno-unused-function
+
+# Keep a new line here!! Because someone may append config
