@@ -1,0 +1,107 @@
+package com.xinsu.moe.ui.viewmodel
+
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import com.xinsu.moe.data.repository.SettingsRepository
+import com.xinsu.moe.data.repository.SettingsRepositoryImpl
+import com.xinsu.moe.ksuApp
+import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.theme.BackgroundStyle
+import com.xinsu.moe.ui.theme.ThemeController
+
+class MainActivityViewModel(
+    savedStateHandle: SavedStateHandle,
+) : ViewModel() {
+
+    private val prefs = ksuApp.getSharedPreferences("settings", Context.MODE_PRIVATE)
+    private val settingRepo: SettingsRepository = SettingsRepositoryImpl()
+    private val mainPageState = MainPageState(savedStateHandle)
+    private val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+        if (key == null || key in observedKeys) {
+            _uiState.value = readUiState()
+        }
+    }
+
+    private val _uiState = MutableStateFlow(readUiState())
+    val uiState: StateFlow<MainActivityUiState> = _uiState.asStateFlow()
+    val selectedMainPage: StateFlow<Int> = mainPageState.selectedPage
+
+    init {
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+    }
+
+    override fun onCleared() {
+        prefs.unregisterOnSharedPreferenceChangeListener(listener)
+        super.onCleared()
+    }
+
+    fun setSelectedMainPage(page: Int) {
+        mainPageState.updateSelectedPage(page)
+    }
+
+    private fun readUiState(): MainActivityUiState {
+        return MainActivityUiState(
+            appSettings = ThemeController.getAppSettings(ksuApp),
+            pageScale = settingRepo.pageScale,
+            enableBlur = settingRepo.enableBlur,
+            enableFloatingBottomBar = settingRepo.enableFloatingBottomBar,
+            enableFloatingBottomBarBlur = settingRepo.enableFloatingBottomBarBlur,
+            backgroundStyle = BackgroundStyle.fromName(settingRepo.backgroundStyle),
+            backgroundImageUri = settingRepo.backgroundImageUri,
+            backgroundImageAlpha = settingRepo.backgroundImageAlpha,
+            backgroundImageAlign = settingRepo.backgroundImageAlign,
+            cardImageUri = settingRepo.cardImageUri,
+            cardImageAlpha = settingRepo.cardImageAlpha,
+            cardImageAlign = settingRepo.cardImageAlign,
+            cardOpacity = settingRepo.cardOpacity,
+            uiMode = UiMode.fromValue(settingRepo.uiMode),
+        )
+    }
+
+    private companion object {
+        val observedKeys = setOf(
+            "color_mode",
+            "key_color",
+            "color_style",
+            "color_spec",
+            "theme_preset",
+            "background_style",
+            "background_image_uri",
+            "background_image_alpha",
+            "background_image_align",
+            "card_image_uri",
+            "card_image_alpha",
+            "card_image_align",
+            "card_opacity",
+            "page_scale",
+            "enable_blur",
+            "enable_floating_bottom_bar",
+            "enable_floating_bottom_bar_blur",
+            "ui_mode",
+        )
+    }
+}
+
+private const val SELECTED_MAIN_PAGE_KEY = "selected_main_page"
+
+private class MainPageState(
+    private val savedStateHandle: SavedStateHandle,
+) {
+    val selectedPage: StateFlow<Int> = savedStateHandle.getStateFlow(SELECTED_MAIN_PAGE_KEY, 0)
+
+    fun updateSelectedPage(page: Int) {
+        savedStateHandle[SELECTED_MAIN_PAGE_KEY] = MainPagerConfig.coercePage(page)
+    }
+}
+
+object MainPagerConfig {
+    const val PAGE_COUNT = 4
+    const val LAST_PAGE_INDEX = PAGE_COUNT - 1
+
+    fun coercePage(page: Int): Int = page.coerceIn(0, LAST_PAGE_INDEX)
+}
