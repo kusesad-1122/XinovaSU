@@ -1,0 +1,6 @@
+id=xinovasu_vpnhide
+name=XinovaSU VPN Hide
+version=v1.0.0
+versionCode=1
+author=XinovaSU
+description=Framework-layer companion to XinovaSU's "hide VPN detection". Requires Zygisk (ZygiskNext). Installed and toggled automatically by the XinovaSU manager; do not enable standalone.
