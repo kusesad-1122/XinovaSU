@@ -1,0 +1,427 @@
+{
+  "schema": 1,
+  "pipeline_version": "1.0.0",
+  "source_root_hint": "E:/二次元",
+  "themes": [
+    {
+      "id": "ink-white-companions",
+      "display_name_zh": "墨白同伴",
+      "source_filename": "0A1E02817F50E67996CC9C814A7E3AA3.jpg",
+      "resource_name": "theme_ink_white_companions.jpg",
+      "width": 992,
+      "height": 1440,
+      "bytes": 72726,
+      "sha256": "595158a7164f638ec3b08ae2bd79dc6bbc883b4988c83715e2ce5b5149d2dc61",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "双人主体置于下半屏，纸张纹理延伸至顶部标题区",
+      "role_notes": {
+        "primary": "黑色制服与墨线",
+        "secondary": "灰阶服装",
+        "focus": "纸面纯白高光",
+        "surface": "编辑部式黑白纸张纹理"
+      }
+    },
+    {
+      "id": "twin-peach-heartstrings",
+      "display_name_zh": "双桃心弦",
+      "source_filename": "0BF4BF2A4133A4E571C0AA624A825D87.jpg",
+      "resource_name": "theme_twin_peach_heartstrings.jpg",
+      "width": 1085,
+      "height": 1440,
+      "bytes": 120165,
+      "sha256": "eb52c24dcc3429c55a8609ef18b152535094cbf83fb00a423027666468e3547d",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "双角色纵向铺满，交互区使用上方与两侧留白",
+      "role_notes": {
+        "primary": "粉色头发",
+        "secondary": "深青领口",
+        "focus": "酒红发饰",
+        "surface": "轻快粉彩背景"
+      }
+    },
+    {
+      "id": "winter-blue-scarf",
+      "display_name_zh": "冬日蓝围巾",
+      "source_filename": "0E6936072A8D40EE0C7B1D11807DDEA7.jpg",
+      "resource_name": "theme_winter_blue_scarf.jpg",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 193149,
+      "sha256": "d4f8c310766f0a0fb42b1342e52af9415788d3ced90873e01c85bcd6c684cd02",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "横图按高度裁切，人物靠右，左侧作为内容轨道",
+      "role_notes": {
+        "primary": "蓝色制服",
+        "secondary": "棕红头发",
+        "focus": "亮蓝瞳色",
+        "surface": "冬日雪雾"
+      }
+    },
+    {
+      "id": "dusk-iron-wind",
+      "display_name_zh": "暮铁长风",
+      "source_filename": "11F610D3776BDD160FA0E4DACA17A3A9.jpg",
+      "resource_name": "theme_dusk_iron_wind.jpg",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 256028,
+      "sha256": "26c7ce6c24974b0b385b861b5c2cb6b49e4520e2b02fc42faaae183c44a4d85c",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "角色与长发形成对角线，卡片沿低细节斜向空隙布置",
+      "role_notes": {
+        "primary": "夕照粉",
+        "secondary": "瞳色强调",
+        "focus": "暖色夕光",
+        "surface": "深海军蓝衣装"
+      }
+    },
+    {
+      "id": "cloud-slope-stars",
+      "display_name_zh": "云坡星语",
+      "source_filename": "1521B8BB3F8239CA188AF6D183C8C1D9.jpg",
+      "resource_name": "theme_cloud_slope_stars.jpg",
+      "width": 1440,
+      "height": 2278,
+      "bytes": 266023,
+      "sha256": "7a576c0d0ee2cecab78ac325d6a922b114aae7b14187ce7d1d9bad278cb74f00",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "人物左下出血，天空承载顶栏与状态区",
+      "role_notes": {
+        "primary": "天空灰蓝",
+        "secondary": "草地深绿",
+        "focus": "领巾淡粉",
+        "surface": "安静阴云与空气感"
+      }
+    },
+    {
+      "id": "sakura-street-walk",
+      "display_name_zh": "樱街漫步",
+      "source_filename": "1D9051BB0C9DB757AFD78189EC5BEF30.jpg",
+      "resource_name": "theme_sakura_street_walk.jpg",
+      "width": 1440,
+      "height": 2570,
+      "bytes": 694332,
+      "sha256": "552e4107e78892cdf04b5f90b1274f202a3fe0b558367b65bd6daf6facb109bc",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": true,
+      "composition": "人物偏右，左侧街道为阅读轨道，樱花高光保持无遮挡",
+      "role_notes": {
+        "primary": "樱花粉",
+        "secondary": "瞳色暖粉",
+        "focus": "春日高光",
+        "surface": "深蓝制服与街道阴影"
+      }
+    },
+    {
+      "id": "sakura-crown-overture",
+      "display_name_zh": "樱冠序曲",
+      "source_filename": "1FEA93741D17CC6EE13A8BC9E8BF0510.jpg",
+      "resource_name": "theme_sakura_crown_overture.jpg",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 236311,
+      "sha256": "15275a123f7a218c2b0447461a7110cd03d7e8c0f481fff00db19bff1e6d0dc0",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "保留横向视觉小说构图，左侧标题与右下操作互补",
+      "role_notes": {
+        "primary": "樱花粉",
+        "secondary": "灰紫长发",
+        "focus": "皇冠暖金",
+        "surface": "柔光紫灰背景"
+      }
+    },
+    {
+      "id": "golden-eye-cat-courtyard",
+      "display_name_zh": "金瞳猫庭",
+      "source_filename": "232493FF62B3C161DEFBE3A06F1D13C1.jpg",
+      "resource_name": "theme_golden_eye_cat_courtyard.jpg",
+      "width": 1440,
+      "height": 2564,
+      "bytes": 658940,
+      "sha256": "35bb25246f2e062e2a741b9f02341b93496578df4ea510b400766d2d691c97fc",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "人物与猫置于右下，左上建筑承载快捷操作",
+      "role_notes": {
+        "primary": "金色头发",
+        "secondary": "红色领结",
+        "focus": "金色瞳孔",
+        "surface": "深蓝制服与庭院阴影"
+      }
+    },
+    {
+      "id": "mint-pull",
+      "display_name_zh": "薄荷牵引",
+      "source_filename": "2C0A726DEF976FF8285891E7331CF062.jpg",
+      "resource_name": "theme_mint_pull.jpg",
+      "width": 810,
+      "height": 1440,
+      "bytes": 198329,
+      "sha256": "4fdd40b2c0c2f935576fd8679767c8f8bbd36a6fe3d284fdceccdf508cc0b65c",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "保留人物斜向姿态，交互区贴近低细节背景侧",
+      "role_notes": {
+        "primary": "薄荷发色",
+        "secondary": "红色领结",
+        "focus": "清凉高光",
+        "surface": "深灰蓝制服"
+      }
+    },
+    {
+      "id": "ink-order-poster",
+      "display_name_zh": "墨杀号令",
+      "source_filename": "32590DE0FF6E76FE4C1043B10F72FAD8.jpg",
+      "resource_name": "theme_ink_order_poster.jpg",
+      "width": 1440,
+      "height": 1920,
+      "bytes": 254200,
+      "sha256": "08bc9cde8b5d53c34b00e8c67de2ada44e11b48db6217d3735ae03d0a4a0dcf7",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "文字与人物构成全屏海报，UI 使用窄条半透明层",
+      "role_notes": {
+        "primary": "冷灰墨色",
+        "secondary": "纸白",
+        "focus": "受控单一冷色",
+        "surface": "黑白高对比海报"
+      }
+    },
+    {
+      "id": "moonlit-silver-blue",
+      "display_name_zh": "月下银蓝",
+      "source_filename": "3C79AF894DA8613CACE6062AF1F9BCB4.jpg",
+      "resource_name": "theme_moonlit_silver_blue.jpg",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 287643,
+      "sha256": "2be9b5f89278f1fee3b5234d094b5b9688f5b2027dad96f27576de0b99dc43a8",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": true,
+      "composition": "人物占左中，月亮保留在右上，阅读区避开脸与月亮",
+      "role_notes": {
+        "primary": "月光银蓝",
+        "secondary": "冷紫瞳色",
+        "focus": "月缘冷光",
+        "surface": "深靛制服与夜空"
+      }
+    },
+    {
+      "id": "cobalt-night-dress",
+      "display_name_zh": "苍穹夜裙",
+      "source_filename": "40DD6B4383F52CC25661DD6131F2A498.jpg",
+      "resource_name": "theme_cobalt_night_dress.jpg",
+      "width": 1440,
+      "height": 2062,
+      "bytes": 285417,
+      "sha256": "c16b3eb365e9fd9b89498a8be4212971d73c953e83f4b3db06ba432e5d38a0f7",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "人物居中下方出血，上半天空承载大标题与状态",
+      "role_notes": {
+        "primary": "天空钴蓝",
+        "secondary": "叶片绿色",
+        "focus": "夜空高亮",
+        "surface": "黑色裙装"
+      }
+    },
+    {
+      "id": "clear-sky-blue-ribbon",
+      "display_name_zh": "晴空蓝缎",
+      "source_filename": "4588AAD2877227D8848C715102D2EB28.jpg",
+      "resource_name": "theme_clear_sky_blue_ribbon.jpg",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 279965,
+      "sha256": "9b62f83899a5eebd2da87331b6639e995c29ed7eeaedeae1ce1425e5998d548a",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "角色偏右，左侧光区承载导航，裙摆形成流动边界",
+      "role_notes": {
+        "primary": "晴空蓝",
+        "secondary": "灰蓝发色",
+        "focus": "暖白阳光",
+        "surface": "蓝缎裙装阴影"
+      }
+    },
+    {
+      "id": "windfield-doll",
+      "display_name_zh": "风原人偶",
+      "source_filename": "695B928B5B8BFAD0E65B3355949EDD17.jpg",
+      "resource_name": "theme_windfield_doll.jpg",
+      "width": 1920,
+      "height": 1442,
+      "bytes": 282987,
+      "sha256": "dc40e5bd438b5e3dcb7b23fc5c58c6649add68cb665388732196a80331e48adb",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "角色位于右侧，左侧草原保留大块操作区",
+      "role_notes": {
+        "primary": "蓝白礼服",
+        "secondary": "草原绿色",
+        "focus": "柔和天光",
+        "surface": "阴云灰与礼服暗部"
+      }
+    },
+    {
+      "id": "crimson-eye-jump",
+      "display_name_zh": "绯瞳跃镜",
+      "source_filename": "75E8D9ADE2A4591B654F43134E8C0140.jpg",
+      "resource_name": "theme_crimson_eye_jump.jpg",
+      "width": 1440,
+      "height": 3140,
+      "bytes": 354730,
+      "sha256": "0e660a8fb49a8550b183f49314eb1f58c1b834165be1749a89593639346f1e94",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "近景人物自下出血，顶部留白做标题且不遮挡手势",
+      "role_notes": {
+        "primary": "赤棕发色",
+        "secondary": "亮蓝瞳色",
+        "focus": "眼部冷亮高光",
+        "surface": "深蓝制服"
+      }
+    },
+    {
+      "id": "cream-street-corner",
+      "display_name_zh": "奶油街角",
+      "source_filename": "7788D7E5779624A11DE1B69FC0226893.jpg",
+      "resource_name": "theme_cream_street_corner.jpg",
+      "width": 1440,
+      "height": 2560,
+      "bytes": 433498,
+      "sha256": "f6be878aa0be32a1d61f50396e7a031b5a436180632e042eff38fc0a049d6d30",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "全身人物居中，卡片沿街道建筑两侧排列",
+      "role_notes": {
+        "primary": "雾粉针织",
+        "secondary": "蓝灰提袋",
+        "focus": "奶油暖光",
+        "surface": "奶油白街景与建筑阴影"
+      }
+    },
+    {
+      "id": "black-rose-stone-court",
+      "display_name_zh": "黑蔷石庭",
+      "source_filename": "7DF499D2C7BD15EB0E51E650A5A6441A.jpg",
+      "resource_name": "theme_black_rose_stone_court.jpg",
+      "width": 813,
+      "height": 1440,
+      "bytes": 152304,
+      "sha256": "eac94752d01b6f6dde4a8e58075d254f8f5ace65d59f11b664ecc82981f2e1f1",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "人物居中铺满，内容避开脸部与红瞳，石墙只作弱纹理",
+      "role_notes": {
+        "primary": "深蓝裙装",
+        "secondary": "绯红瞳色",
+        "focus": "红色眼部高光",
+        "surface": "黑发与石墙阴影"
+      }
+    },
+    {
+      "id": "sea-breeze-song",
+      "display_name_zh": "海风晴歌",
+      "source_filename": "C992E5F52EC5B0BFE25175807ED80406.jpg",
+      "resource_name": "theme_sea_breeze_song.jpg",
+      "width": 944,
+      "height": 1667,
+      "bytes": 244981,
+      "sha256": "60d7c40a213f6051ff63f585df4c3d9698bcdcac209000f93d26dc344e4740f2",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": true,
+      "composition": "天空与海面全屏，人物居中下方，顶部低细节区承载状态",
+      "role_notes": {
+        "primary": "海天青",
+        "secondary": "红色领结",
+        "focus": "水光亮青",
+        "surface": "深海蓝与衣装阴影"
+      }
+    },
+    {
+      "id": "pink-mist-night-window",
+      "display_name_zh": "粉雾夜窗",
+      "source_filename": "CB43A7800E9534195B018D0867B426B0.jpg",
+      "resource_name": "theme_pink_mist_night_window.jpg",
+      "width": 864,
+      "height": 1440,
+      "bytes": 172664,
+      "sha256": "59a139e4cd95370c22a19fc9132fe7b874d378df8bd78e2e72f03a9949935d90",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "人物侧身铺满右侧，左侧窗框形成垂直信息轨",
+      "role_notes": {
+        "primary": "粉色外套",
+        "secondary": "紫色瞳光",
+        "focus": "霓虹粉紫",
+        "surface": "深蓝夜窗"
+      }
+    },
+    {
+      "id": "frost-white-crimson-eye",
+      "display_name_zh": "霜白绯瞳",
+      "source_filename": "D6EA253F6D7F57DE509845A87EE3796D.jpg",
+      "resource_name": "theme_frost_white_crimson_eye.jpg",
+      "width": 1264,
+      "height": 1580,
+      "bytes": 168641,
+      "sha256": "c49c614cb5ca7c2fa7cef9dd47131284fc35736748749979c087372a31b0140f",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "人物偏右，左侧大留白形成极简信息区",
+      "role_notes": {
+        "primary": "冰蓝发色",
+        "secondary": "绯红瞳色",
+        "focus": "受控红色强调",
+        "surface": "暖白服装与霜白背景"
+      }
+    },
+    {
+      "id": "blue-flame-cat-shadow",
+      "display_name_zh": "蓝焰猫影",
+      "source_filename": "FC1557EDD2F7352DA626DE0E1341046D.jpg",
+      "resource_name": "theme_blue_flame_cat_shadow.jpg",
+      "width": 900,
+      "height": 1500,
+      "bytes": 182055,
+      "sha256": "5d357c1afd87cdff008c058f3aed9556b9b36b4729fa2fabddfb78e3bb217a13",
+      "exif_orientation": 1,
+      "rights_status": "user-provided-pending-publication-confirmation",
+      "pressure_test": false,
+      "composition": "人物全高居中，双马尾两侧出血，卡片使用底部与局部侧栏",
+      "role_notes": {
+        "primary": "亮青袖带",
+        "secondary": "粉色手套",
+        "focus": "红色瞳孔",
+        "surface": "深蓝发色与制服"
+      }
+    }
+  ]
+}
