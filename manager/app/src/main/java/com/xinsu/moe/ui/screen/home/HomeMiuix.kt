@@ -211,7 +211,10 @@ private fun UpdateCard(
     ) {
         WarningCard(
             message = stringResource(id = R.string.new_version_available, newVersion.versionCode),
-            color = colorScheme.outline,
+            // Neutral info card; paired container/on colors keep the text readable
+            // (the old outline container got error-toned text from the card default).
+            color = colorScheme.secondaryContainer,
+            contentColor = colorScheme.onSecondaryContainer,
             onClick = {
                 if (newVersion.changelog.isEmpty()) {
                     actions.onOpenUrl(newVersion.downloadUrl)
@@ -447,6 +450,9 @@ private fun StatusCard(
                         showIndication = !state.isLateLoadMode,
                         pressFeedbackType = PressFeedbackType.Sink,
                         role = DecoratedCardRole.Hero,
+                        // Not-installed is a warning state; match HomeMaterial's errorContainer.
+                        containerColor = colorScheme.errorContainer,
+                        contentColor = colorScheme.onErrorContainer,
                     ) {
                         BasicComponent(
                             title = stringResource(R.string.home_not_installed),
@@ -456,7 +462,7 @@ private fun StatusCard(
                                     Icons.Rounded.ErrorOutline,
                                     stringResource(R.string.home_not_installed),
                                     modifier = Modifier.padding(end = 6.dp),
-                                    tint = colorScheme.onBackground,
+                                    tint = colorScheme.onErrorContainer,
                                 )
                             },
                             endActions = {
@@ -483,6 +489,9 @@ private fun StatusCard(
                     showIndication = !state.isLateLoadMode,
                     pressFeedbackType = PressFeedbackType.Sink,
                     role = DecoratedCardRole.Hero,
+                    // Unsupported kernel is a warning state; match HomeMaterial's errorContainer.
+                    containerColor = colorScheme.errorContainer,
+                    contentColor = colorScheme.onErrorContainer,
                 ) {
                     BasicComponent(
                         title = stringResource(R.string.home_unsupported),
@@ -492,7 +501,7 @@ private fun StatusCard(
                                 Icons.Rounded.ErrorOutline,
                                 stringResource(R.string.home_unsupported),
                                 modifier = Modifier.padding(end = 16.dp),
-                                tint = colorScheme.onBackground,
+                                tint = colorScheme.onErrorContainer,
                             )
                         }
                     )

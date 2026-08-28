@@ -115,6 +115,7 @@ import com.xinsu.moe.ui.theme.LocalEnableFloatingBottomBarBlur
 import com.xinsu.moe.ui.theme.BuiltInThemes
 import com.xinsu.moe.ui.theme.decoration.ThemeDecorationCatalog
 import com.xinsu.moe.ui.theme.tokens.BuiltInThemeCatalog
+import com.xinsu.moe.ui.theme.tokens.toComposeColor
 import com.xinsu.moe.ui.util.getFileName
 import com.xinsu.moe.ui.util.install
 import com.xinsu.moe.ui.util.rememberBlurBackdrop
@@ -303,7 +304,14 @@ class MainActivity : ComponentActivity() {
                                         atmosphereTokens = themeTokenBundle?.atmosphere,
                                         accentA = if (bgMaterial) MaterialTheme.colorScheme.primary else MiuixTheme.colorScheme.primary,
                                         accentB = if (bgMaterial) MaterialTheme.colorScheme.secondary else MiuixTheme.colorScheme.secondary,
-                                        accentC = if (bgMaterial) MaterialTheme.colorScheme.tertiary else MiuixTheme.colorScheme.tertiaryContainer,
+                                        // Miuix has no tertiary slot; use the active theme's real
+                                        // tertiary when a token theme is applied so the third
+                                        // gradient stop keeps its saturation instead of fading to
+                                        // the pastel tertiaryContainer.
+                                        accentC = if (bgMaterial) MaterialTheme.colorScheme.tertiary
+                                        else themeTokenBundle
+                                            ?.let { (if (bgDark) it.dark else it.light).tertiary.toComposeColor() }
+                                            ?: MiuixTheme.colorScheme.tertiaryContainer,
                                         base = glassBase,
                                         scrim = if (bgMaterial) MaterialTheme.colorScheme.surface else MiuixTheme.colorScheme.surface,
                                         isDark = bgDark,

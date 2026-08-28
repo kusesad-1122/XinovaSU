@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -28,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.xinsu.moe.ui.LocalUiMode
 import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.theme.LocalColorMode
 import com.xinsu.moe.ui.theme.XinovaSUTheme
 import com.xinsu.moe.ui.theme.ThemeController
 import top.yukonga.miuix.kmp.basic.InfiniteProgressIndicator
@@ -53,7 +56,7 @@ class WebUIActivity : ComponentActivity() {
 
             DisposableEffect(prefs) {
                 val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
-                    if (key in listOf("color_mode", "key_color", "color_style", "color_spec")) {
+                    if (key in listOf("color_mode", "key_color", "color_style", "color_spec", "theme_preset")) {
                         appSettings = ThemeController.getAppSettings(context)
                     } else if (key == "ui_mode") {
                         uiModeValue = prefs.getString("ui_mode", UiMode.DEFAULT_VALUE) ?: UiMode.DEFAULT_VALUE
@@ -63,7 +66,30 @@ class WebUIActivity : ComponentActivity() {
                 onDispose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
             }
 
-            CompositionLocalProvider(LocalUiMode provides uiMode) {
+            // Match MainActivity: system bars follow the APP's forced light/dark choice,
+            // not the system setting, and LocalColorMode must be provided so composables
+            // using isInDarkTheme() agree with the applied theme.
+            val systemDark = isSystemInDarkTheme()
+            val darkMode = appSettings.colorMode.isDark || (appSettings.colorMode.isSystem && systemDark)
+            DisposableEffect(darkMode) {
+                enableEdgeToEdge(
+                    statusBarStyle = SystemBarStyle.auto(
+                        android.graphics.Color.TRANSPARENT,
+                        android.graphics.Color.TRANSPARENT
+                    ) { darkMode },
+                    navigationBarStyle = SystemBarStyle.auto(
+                        android.graphics.Color.TRANSPARENT,
+                        android.graphics.Color.TRANSPARENT
+                    ) { darkMode },
+                )
+                window.isNavigationBarContrastEnforced = false
+                onDispose { }
+            }
+
+            CompositionLocalProvider(
+                LocalUiMode provides uiMode,
+                LocalColorMode provides appSettings.colorMode.value,
+            ) {
                 XinovaSUTheme(appSettings = appSettings, uiMode = uiMode) {
                     MainContent(activity = this, onFinish = { finish() })
                 }

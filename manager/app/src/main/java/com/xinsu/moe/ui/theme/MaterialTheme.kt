@@ -74,10 +74,12 @@ fun MaterialXinovaSUTheme(
     }
 
     MaterialExpressiveTheme(
-        colorScheme = colorScheme.applyGlassSurfaces(
-            active = glassSurfacesActive,
-            opacity = surfaceOpacity,
-        ),
+        colorScheme = colorScheme
+            .applyAmoled(amoledMode)
+            .applyGlassSurfaces(
+                active = glassSurfacesActive,
+                opacity = surfaceOpacity,
+            ),
         motionScheme = MotionScheme.expressive(),
         content = {
             MonetColorsProvider.UpdateCss()

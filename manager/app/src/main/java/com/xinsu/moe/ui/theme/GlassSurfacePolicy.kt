@@ -30,6 +30,83 @@ internal fun ColorScheme.applyGlassSurfaces(
     )
 }
 
+// AMOLED black: flatten the base and container surfaces to true black while keeping every
+// on* / outline role, so contrast relationships survive. Applied to BOTH UI stacks so
+// DARK_AMOLED behaves identically no matter which look the user runs.
+internal fun ColorScheme.applyAmoled(enabled: Boolean): ColorScheme {
+    if (!enabled) return this
+
+    return copy(
+        background = Color.Black,
+        surface = Color.Black,
+        surfaceContainerLowest = Color.Black,
+        surfaceContainerLow = Color.Black,
+        surfaceContainer = Color.Black,
+        surfaceContainerHigh = Color.Black,
+        surfaceContainerHighest = Color.Black,
+    )
+}
+
+internal fun MiuixColors.applyAmoled(enabled: Boolean): MiuixColors {
+    if (!enabled) return this
+
+    return cloneMiuixColorScheme(
+        primary = primary,
+        onPrimary = onPrimary,
+        primaryVariant = primaryVariant,
+        onPrimaryVariant = onPrimaryVariant,
+        error = error,
+        onError = onError,
+        errorContainer = errorContainer,
+        onErrorContainer = onErrorContainer,
+        disabledPrimary = disabledPrimary,
+        disabledOnPrimary = disabledOnPrimary,
+        disabledPrimaryButton = disabledPrimaryButton,
+        disabledOnPrimaryButton = disabledOnPrimaryButton,
+        disabledPrimarySlider = disabledPrimarySlider,
+        primaryContainer = primaryContainer,
+        onPrimaryContainer = onPrimaryContainer,
+        secondary = secondary,
+        onSecondary = onSecondary,
+        secondaryVariant = secondaryVariant,
+        onSecondaryVariant = onSecondaryVariant,
+        disabledSecondary = disabledSecondary,
+        disabledOnSecondary = disabledOnSecondary,
+        disabledSecondaryVariant = disabledSecondaryVariant,
+        disabledOnSecondaryVariant = disabledOnSecondaryVariant,
+        secondaryContainer = secondaryContainer,
+        onSecondaryContainer = onSecondaryContainer,
+        secondaryContainerVariant = secondaryContainerVariant,
+        onSecondaryContainerVariant = onSecondaryContainerVariant,
+        tertiaryContainer = tertiaryContainer,
+        onTertiaryContainer = onTertiaryContainer,
+        tertiaryContainerVariant = tertiaryContainerVariant,
+        background = Color.Black,
+        onBackground = onBackground,
+        onBackgroundVariant = onBackgroundVariant,
+        surface = Color.Black,
+        onSurface = onSurface,
+        surfaceVariant = surfaceVariant,
+        onSurfaceSecondary = onSurfaceSecondary,
+        onSurfaceVariantSummary = onSurfaceVariantSummary,
+        onSurfaceVariantActions = onSurfaceVariantActions,
+        disabledOnSurface = disabledOnSurface,
+        surfaceContainer = Color.Black,
+        onSurfaceContainer = onSurfaceContainer,
+        onSurfaceContainerVariant = onSurfaceContainerVariant,
+        surfaceContainerHigh = Color.Black,
+        onSurfaceContainerHigh = onSurfaceContainerHigh,
+        surfaceContainerHighest = Color.Black,
+        onSurfaceContainerHighest = onSurfaceContainerHighest,
+        outline = outline,
+        dividerLine = dividerLine,
+        windowDimming = windowDimming,
+        sliderKeyPoint = sliderKeyPoint,
+        sliderKeyPointForeground = sliderKeyPointForeground,
+        sliderBackground = sliderBackground,
+    )
+}
+
 internal fun MiuixColors.applyGlassSurfaces(
     active: Boolean,
     opacity: Float,

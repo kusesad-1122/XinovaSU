@@ -56,9 +56,14 @@ object ThemeBundle {
                     zos.write(manifest.toString().toByteArray(Charsets.UTF_8))
                     zos.closeEntry()
                     if (hasBg) {
-                        context.contentResolver.openInputStream(bgUri.toUri())?.use { input ->
+                        // Fail loudly when the source image is gone; writing nothing would
+                        // produce a bundle whose manifest claims hasBackgroundImage=true
+                        // but carries no image.
+                        val input = context.contentResolver.openInputStream(bgUri.toUri())
+                            ?: error("cannot open background image: $bgUri")
+                        input.use { reader ->
                             zos.putNextEntry(ZipEntry(BACKGROUND_ENTRY))
-                            input.copyTo(zos)
+                            reader.copyTo(zos)
                             zos.closeEntry()
                         }
                     }
@@ -84,7 +89,9 @@ object ThemeBundle {
                     while (entry != null) {
                         when (entry.name) {
                             MANIFEST_ENTRY -> manifestJson = zis.readBytes().toString(Charsets.UTF_8)
-                            BACKGROUND_ENTRY -> background = zis.readBytes()
+                            // Skip empty entries instead of persisting a 0-byte image that can
+                            // never decode (e.g. a truncated export from an older version).
+                            BACKGROUND_ENTRY -> background = zis.readBytes().takeIf { it.isNotEmpty() }
                         }
                         zis.closeEntry()
                         entry = zis.nextEntry
@@ -92,6 +99,8 @@ object ThemeBundle {
                 }
             }
             val manifest = JSONObject(manifestJson ?: error("missing manifest"))
+            val schema = manifest.optInt("schema", -1)
+            require(schema in 1..SCHEMA) { "unsupported theme bundle schema: $schema" }
 
             manifest.optString("themePreset").takeIf { it.isNotEmpty() }?.let { repo.themePreset = it }
             if (manifest.has("keyColor")) repo.keyColor = manifest.getInt("keyColor")

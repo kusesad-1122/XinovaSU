@@ -96,7 +96,6 @@ import top.yukonga.miuix.kmp.overlay.OverlayDialog
 import top.yukonga.miuix.kmp.overlay.OverlayListPopup
 import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
 import top.yukonga.miuix.kmp.theme.MiuixTheme.colorScheme
-import top.yukonga.miuix.kmp.theme.MiuixTheme.isDynamicColor
 import top.yukonga.miuix.kmp.utils.overScrollVertical
 import top.yukonga.miuix.kmp.utils.scrollEndHaptic
 
@@ -377,8 +376,11 @@ private fun SulogStatusSection(
                         TextButton(
                             text = stringResource(R.string.sulog_enable_action),
                             onClick = actions.onEnableSulog,
+                            // error/onError pairing (matches the Material implementation);
+                            // the old onErrorContainer-as-container swap was near-invisible
+                            // in dark Monet (~1.2:1 text contrast).
                             colors = ButtonDefaults.textButtonColors(
-                                color = if (isDynamicColor) colorScheme.onErrorContainer else Color(0xFFF72727),
+                                color = colorScheme.error,
                                 textColor = colorScheme.onError,
                             ),
                         )

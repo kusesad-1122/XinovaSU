@@ -73,7 +73,6 @@ import com.xinsu.moe.ui.theme.LocalBackgroundStyle
 import com.xinsu.moe.ui.theme.LocalEnableBlur
 import com.xinsu.moe.ui.theme.isActive
 import com.xinsu.moe.ui.theme.scaffoldContainerColor
-import com.xinsu.moe.ui.theme.isInDarkTheme
 import com.xinsu.moe.ui.util.BlurredBar
 import com.xinsu.moe.ui.util.ownerNameForUid
 import com.xinsu.moe.ui.util.rememberBlurBackdrop
@@ -544,21 +543,25 @@ private fun GroupItem(
     onToggleExpand: () -> Unit,
     onClickPrimary: () -> Unit,
 ) {
-    val isInDarkTheme = isInDarkTheme()
-    val bg = colorScheme.secondaryContainer.copy(alpha = 0.8f)
-    val rootBg = colorScheme.tertiaryContainer.copy(alpha = 0.6f)
-    val unmountBg = if (isInDarkTheme) Color.White.copy(alpha = 0.4f) else Color.Black.copy(alpha = 0.3f)
-    val fg = colorScheme.onSecondaryContainer
-    val rootFg = colorScheme.onTertiaryContainer.copy(alpha = 0.8f)
-    val unmountFg = if (isInDarkTheme) Color.Black.copy(alpha = 0.4f) else Color.White.copy(alpha = 0.8f)
+    // Same role mapping as SuperUserMaterial: ROOT=primary, UMOUNT=secondary,
+    // CUSTOM=secondaryContainer, USER=tertiary (Miuix has no tertiary slot, so the
+    // tertiary container pair stands in).
+    val rootBg = colorScheme.primary
+    val rootFg = colorScheme.onPrimary
+    val unmountBg = colorScheme.secondary
+    val unmountFg = colorScheme.onSecondary
+    val customBg = colorScheme.secondaryContainer
+    val customFg = colorScheme.onSecondaryContainer
+    val userBg = colorScheme.tertiaryContainer
+    val userFg = colorScheme.onTertiaryContainer
 
     val userId = group.uid / 100000
     val tags = remember(group.anyAllowSu, group.shouldUmount, group.anyCustom, userId) {
         buildList {
             if (group.anyAllowSu) add(StatusMeta("ROOT", rootBg, rootFg))
             if (group.shouldUmount) add(StatusMeta("UMOUNT", unmountBg, unmountFg))
-            if (group.anyCustom) add(StatusMeta("CUSTOM", bg, fg))
-            if (userId != 0) add(StatusMeta("USER $userId", bg, fg))
+            if (group.anyCustom) add(StatusMeta("CUSTOM", customBg, customFg))
+            if (userId != 0) add(StatusMeta("USER $userId", userBg, userFg))
         }
     }
     MiuixGlassCard(
