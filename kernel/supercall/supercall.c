@@ -50,7 +50,7 @@ int xnsu_install_fd(void)
         return fd;
     }
 
-    filp = anon_inode_getfile("[xnsu_driver]", &anon_xnsu_fops, NULL, O_RDWR | O_CLOEXEC);
+    filp = anon_inode_getfile("[ksu_driver]", &anon_xnsu_fops, NULL, O_RDWR | O_CLOEXEC);
     if (IS_ERR(filp)) {
         pr_err("xnsu_install_fd: failed to create anon inode file\n");
         put_unused_fd(fd);
@@ -86,7 +86,7 @@ static int reboot_handler_pre(struct kprobe *p, struct pt_regs *regs)
     int magic1 = (int)PT_REGS_PARM1(real_regs);
     int magic2 = (int)PT_REGS_PARM2(real_regs);
 
-    if (magic1 == XNSU_INSTALL_MAGIC1 && magic2 == XNSU_INSTALL_MAGIC2) {
+    if (magic1 == KSU_INSTALL_MAGIC1 && magic2 == KSU_INSTALL_MAGIC2) {
         struct xnsu_install_fd_tw *tw;
         unsigned long arg4 = (unsigned long)PT_REGS_SYSCALL_PARM4(real_regs);
 

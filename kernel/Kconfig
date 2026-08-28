@@ -1,6 +1,6 @@
 menu "XinovaSU"
 
-config XNSU
+config KSU
 	tristate "XinovaSU function support"
 	depends on KPROBES && EXT4_FS
 	default y
@@ -11,24 +11,24 @@ config XNSU
 	  To compile as a module, choose M here: the
 	  module will be called xinovasu.
 
-config XNSU_DEBUG
+config KSU_DEBUG
 	bool "XinovaSU debug mode"
-	depends on XNSU
+	depends on KSU
 	default n
 	help
 	  Enable XinovaSU debug mode.
 
-config XNSU_DISABLE_MANAGER
+config KSU_DISABLE_MANAGER
 	bool "Disable XinovaSU manager integration"
-	depends on XNSU
+	depends on KSU
 	default n
 	help
 	  Disable manager APK detection and manager-specific handling.
 	  Root will be used in place of manager-only functionality.
 
-config XNSU_DISABLE_POLICY
+config KSU_DISABLE_POLICY
 	bool "Disable XinovaSU policy profiles"
-	depends on XNSU
+	depends on KSU
 	default n
 	help
 	  Disable per-app root/non-root profile customization.

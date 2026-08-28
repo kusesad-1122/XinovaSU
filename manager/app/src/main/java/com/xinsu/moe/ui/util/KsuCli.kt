@@ -29,7 +29,7 @@ import java.io.File
 private const val TAG = "KsuCli"
 
 private fun getKsuDaemonPath(): String {
-    return ksuApp.applicationInfo.nativeLibraryDir + File.separator + "libxnsusd.so"
+    return ksuApp.applicationInfo.nativeLibraryDir + File.separator + "libksud.so"
 }
 
 data class FlashResult(val code: Int, val err: String, val showReboot: Boolean) {
@@ -356,8 +356,8 @@ fun installBoot(
 
     // if boot uri is empty, it is direct install, when success, we should show reboot button
     val showReboot = bootUri == null && result.isSuccess // we create a temporary val here, to avoid calc showReboot double
-    if (showReboot) { // because we decide do not update xnsusd when startActivity
-        install() // install xnsusd here
+    if (showReboot) { // because we decide do not update ksud when startActivity
+        install() // install ksud here
     }
     return FlashResult(result, showReboot)
 }

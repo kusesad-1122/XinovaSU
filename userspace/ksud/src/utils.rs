@@ -221,11 +221,11 @@ pub fn has_magisk() -> bool {
     which::which("magisk").is_ok()
 }
 
-fn link_xnsusd_to_bin() -> Result<()> {
-    let xnsu_bin = PathBuf::from(defs::DAEMON_PATH);
-    let xnsu_bin_link = PathBuf::from(defs::DAEMON_LINK_PATH);
-    if xnsu_bin.exists() && !xnsu_bin_link.exists() {
-        std::os::unix::fs::symlink(&xnsu_bin, &xnsu_bin_link)?;
+fn link_ksud_to_bin() -> Result<()> {
+    let ksu_bin = PathBuf::from(defs::DAEMON_PATH);
+    let ksu_bin_link = PathBuf::from(defs::DAEMON_LINK_PATH);
+    if ksu_bin.exists() && !ksu_bin_link.exists() {
+        std::os::unix::fs::symlink(&ksu_bin, &ksu_bin_link)?;
     }
     Ok(())
 }
@@ -241,7 +241,7 @@ pub fn install(libadbroot: Option<PathBuf>) -> Result<()> {
     // install binary assets
     assets::ensure_binaries(false).with_context(|| "Failed to extract assets")?;
 
-    link_xnsusd_to_bin()?;
+    link_ksud_to_bin()?;
 
     if let Some(libadbroot) = libadbroot {
         ensure_dir_exists(defs::LIBRARY_DIR)?;

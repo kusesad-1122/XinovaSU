@@ -4,15 +4,15 @@
 #include <linux/sched.h>
 #include <linux/types.h>
 
-#define XNSU_SULOG_EVENT_VERSION 1
+#define KSU_SULOG_EVENT_VERSION 1
 #ifndef TASK_COMM_LEN
 #define TASK_COMM_LEN 16
 #endif
 
 enum xnsu_sulog_event_type {
-    XNSU_SULOG_EVENT_ROOT_EXECVE = 1,
-    XNSU_SULOG_EVENT_SUCOMPAT = 2,
-    XNSU_SULOG_EVENT_IOCTL_GRANT_ROOT = 3,
+    KSU_SULOG_EVENT_ROOT_EXECVE = 1,
+    KSU_SULOG_EVENT_SUCOMPAT = 2,
+    KSU_SULOG_EVENT_IOCTL_GRANT_ROOT = 3,
 };
 
 struct xnsu_sulog_event {

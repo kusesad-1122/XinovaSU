@@ -43,7 +43,7 @@ static int su_compat_feature_set(u64 value)
 }
 
 static const struct xnsu_feature_handler su_compat_handler = {
-    .feature_id = XNSU_FEATURE_SU_COMPAT,
+    .feature_id = KSU_FEATURE_SU_COMPAT,
     .name = "su_compat",
     .get_handler = su_compat_feature_get,
     .set_handler = su_compat_feature_set,
@@ -201,5 +201,5 @@ void __init xnsu_sucompat_init()
 
 void __exit xnsu_sucompat_exit()
 {
-    xnsu_unregister_feature_handler(XNSU_FEATURE_SU_COMPAT);
+    xnsu_unregister_feature_handler(KSU_FEATURE_SU_COMPAT);
 }

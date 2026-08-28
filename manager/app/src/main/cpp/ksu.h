@@ -2,15 +2,15 @@
 // Created by weishu on 2022/12/9.
 //
 
-#ifndef KERNELSU_XNSU_H
-#define KERNELSU_XNSU_H
+#ifndef KERNELSU_KSU_H
+#define KERNELSU_KSU_H
 
 #include <cstdint>
 #include <sys/ioctl.h>
 #include <sys/prctl.h>
 #include <utility>
 
-#include "uapi/xnsu.h"
+#include "uapi/ksu.h"
 
 uint32_t get_version();
 
@@ -30,7 +30,7 @@ bool is_manager();
 
 bool is_pr_build();
 
-using p_key_t = char[XNSU_MAX_PACKAGE_NAME];
+using p_key_t = char[KSU_MAX_PACKAGE_NAME];
 
 bool set_app_profile(const app_profile *profile);
 
@@ -51,7 +51,7 @@ int set_selinux_hide_enabled(bool enabled);
 
 bool is_selinux_hide_enabled();
 
-bool get_allow_list(struct xnsu_new_get_allow_list_cmd *);
+bool get_allow_list(struct ksu_new_get_allow_list_cmd *);
 
 inline std::pair<int, int> legacy_get_info() {
     int32_t version = -1;
@@ -61,4 +61,4 @@ inline std::pair<int, int> legacy_get_info() {
     return {version, flags};
 }
 
-#endif //KERNELSU_XNSU_H
+#endif //KERNELSU_KSU_H

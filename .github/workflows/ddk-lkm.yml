@@ -25,7 +25,7 @@ on:
 
 jobs:
   build-xinovasu-ko:
-    name: Build xinovasu.ko for ${{ inputs.kmi }}
+    name: Build kernelsu.ko for ${{ inputs.kmi }}
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ylarod/ddk-min:${{ inputs.kmi }}-${{ inputs.ddk_release }}
@@ -35,7 +35,7 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v7
 
-    - name: Build xinovasu.ko
+    - name: Build kernelsu.ko
       env:
         EXPECTED_SIZE2: ${{ inputs.expected_size2 }}
         EXPECTED_HASH2: ${{ inputs.expected_hash2 }}
@@ -44,7 +44,7 @@ jobs:
 
         cd kernel
 
-        echo "=== Building xinovasu.ko for KMI: ${{ inputs.kmi }} ==="
+        echo "=== Building kernelsu.ko for KMI: ${{ inputs.kmi }} ==="
 
         EXTRA_ARGS=""
         if [ -n "$EXPECTED_SIZE2" ] && [ -z "$EXPECTED_HASH2" ]; then
@@ -56,9 +56,9 @@ jobs:
           exit 1
         fi
         if [ -n "$EXPECTED_SIZE2" ]; then
-          EXTRA_ARGS="XNSU_EXPECTED_SIZE2=$EXPECTED_SIZE2 XNSU_EXPECTED_HASH2=$EXPECTED_HASH2"
+          EXTRA_ARGS="KSU_EXPECTED_SIZE2=$EXPECTED_SIZE2 KSU_EXPECTED_HASH2=$EXPECTED_HASH2"
         fi
-        CONFIG_XNSU=m CC=clang make $EXTRA_ARGS
+        CONFIG_KSU=m CC=clang make $EXTRA_ARGS
 
         echo "=== Build completed ==="
 
@@ -67,8 +67,8 @@ jobs:
         mkdir -p $OUT_DIR
 
         # Copy with KMI-specific naming
-        OUTPUT_NAME="${{ inputs.kmi }}_xinovasu.ko"
-        cp xinovasu.ko "$OUT_DIR/$OUTPUT_NAME"
+        OUTPUT_NAME="${{ inputs.kmi }}_kernelsu.ko"
+        cp kernelsu.ko "$OUT_DIR/$OUTPUT_NAME"
 
         echo "Copied to: $OUT_DIR/$OUTPUT_NAME"
         ls -la "$OUT_DIR/$OUTPUT_NAME"
@@ -76,11 +76,11 @@ jobs:
         llvm-strip -d "$OUT_DIR/$OUTPUT_NAME"
         echo "Size after stripping: $(du -h "$OUT_DIR/$OUTPUT_NAME" | cut -f1)"
 
-    - name: Upload xinovasu.ko artifact
+    - name: Upload kernelsu.ko artifact
       uses: actions/upload-artifact@v7
       with:
         name: aarch64-${{ inputs.kmi }}-lkm
-        path: /github/workspace/out/aarch64/${{ inputs.kmi }}_xinovasu.ko
+        path: /github/workspace/out/aarch64/${{ inputs.kmi }}_kernelsu.ko
 
     # NOTE: no x86_64 build here. Upstream KernelSU ships x64 LKMs, but the
     # x64 GKI kernel lacks the indirect syscall bypass patches that this

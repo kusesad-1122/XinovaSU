@@ -10,11 +10,11 @@ mv .ddk-version .ddk-version.bak || true
 for kmi in $KMIS; do
     echo "========== Building $kmi =========="
     export DDK_TARGET=$kmi
-    if ddk build -e CONFIG_XNSU=m; then
-        if [ -f xinovasu.ko ]; then
-            cp xinovasu.ko "xinovasu-${kmi}.ko"
-            llvm-objcopy --strip-unneeded --discard-locals "xinovasu-${kmi}.ko"
-            echo "✓ Built xinovasu-${kmi}.ko"
+    if ddk build -e CONFIG_KSU=m; then
+        if [ -f kernelsu.ko ]; then
+            cp kernelsu.ko "kernelsu-${kmi}.ko"
+            llvm-objcopy --strip-unneeded --discard-locals "kernelsu-${kmi}.ko"
+            echo "✓ Built kernelsu-${kmi}.ko"
         fi
     else
         echo "✗ Build failed for $kmi"

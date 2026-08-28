@@ -9,7 +9,7 @@ on:
         required: false
         type: boolean
         default: false
-      pack_xnsuinit:
+      pack_ksuinit:
         required: false
         type: boolean
         default: false
@@ -28,13 +28,13 @@ jobs:
       if: ${{ inputs.pack_lkm }}
       run: |
         # aarch64 only: no x86_64 LKM is produced (see ddk-lkm.yml)
-        cp aarch64-android*-lkm/*_xinovasu.ko ./userspace/ksud/bin/aarch64/
+        cp aarch64-android*-lkm/*_kernelsu.ko ./userspace/ksud/bin/aarch64/
 
-    - name: Prepare xnsuinit
-      if: ${{ inputs.pack_xnsuinit }}
+    - name: Prepare ksuinit
+      if: ${{ inputs.pack_ksuinit }}
       run: |
-        mv xnsuinit-aarch64/xnsuinit ./userspace/ksud/bin/aarch64/
-        mv xnsuinit-x86_64/xnsuinit ./userspace/ksud/bin/x86_64/
+        mv ksuinit-aarch64/ksuinit ./userspace/ksud/bin/aarch64/
+        mv ksuinit-x86_64/ksuinit ./userspace/ksud/bin/x86_64/
 
     - name: Setup rustup
       run: |
@@ -62,4 +62,4 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: ksud-${{ inputs.target }}
-        path: target/${{ inputs.target }}/release/xnsusd
+        path: target/${{ inputs.target }}/release/ksud

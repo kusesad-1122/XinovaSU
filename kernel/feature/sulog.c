@@ -25,7 +25,7 @@ static int sulog_feature_set(u64 value)
 }
 
 static const struct xnsu_feature_handler sulog_handler = {
-    .feature_id = XNSU_FEATURE_SULOG,
+    .feature_id = KSU_FEATURE_SULOG,
     .name = "sulog",
     .get_handler = sulog_feature_get,
     .set_handler = sulog_feature_set,
@@ -51,7 +51,7 @@ void __init xnsu_sulog_init(void)
     ret = xnsu_sulog_events_init();
     if (ret) {
         pr_err("Failed to initialize sulog events: %d\n", ret);
-        xnsu_unregister_feature_handler(XNSU_FEATURE_SULOG);
+        xnsu_unregister_feature_handler(KSU_FEATURE_SULOG);
         return;
     }
 
@@ -62,5 +62,5 @@ void __exit xnsu_sulog_exit(void)
 {
     xnsu_sulog_fd_exit();
     xnsu_sulog_events_exit();
-    xnsu_unregister_feature_handler(XNSU_FEATURE_SULOG);
+    xnsu_unregister_feature_handler(KSU_FEATURE_SULOG);
 }

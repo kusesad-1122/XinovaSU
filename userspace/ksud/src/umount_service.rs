@@ -2,7 +2,7 @@
 //!
 //! Lets the user pin a list of mount points that should be unmounted for
 //! non-root apps, reusing the existing kernel try-umount infrastructure
-//! (`XNSU_IOCTL_ADD_TRY_UMOUNT` -> kernel `mount_list` -> per-app unmount on
+//! (`KSU_IOCTL_ADD_TRY_UMOUNT` -> kernel `mount_list` -> per-app unmount on
 //! setuid in `kernel/feature/kernel_umount.c`). The user paths are appended to
 //! the same `mount_list` the module mounts use, so they are unmounted per-app
 //! exactly like module mounts — this is the correct hiding semantics, and is

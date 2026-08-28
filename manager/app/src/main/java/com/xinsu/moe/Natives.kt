@@ -29,7 +29,7 @@ object Natives {
     const val ROOT_GID = 0
 
     init {
-        System.loadLibrary("xinovasu")
+        System.loadLibrary("kernelsu")
     }
 
     val version: Int
@@ -154,7 +154,7 @@ object Natives {
 
         val nonRootUseDefault: Boolean = true,
         val umountModules: Boolean = true,
-        var rules: String = "", // this field is save in xnsusd!!
+        var rules: String = "", // this field is save in ksud!!
     ) : Parcelable {
         enum class Namespace {
             INHERITED,

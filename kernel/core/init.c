@@ -77,7 +77,7 @@ __attribute__((naked)) int __init xinovasu_init_early(void)
 struct cred *xnsu_cred;
 bool xnsu_late_loaded;
 
-#ifdef CONFIG_XNSU_DEBUG
+#ifdef CONFIG_KSU_DEBUG
 bool allow_shell = true;
 #else
 bool allow_shell = false;
@@ -111,7 +111,7 @@ int __init xinovasu_init(void)
     xnsu_late_loaded = false;
 #endif
 
-#ifdef CONFIG_XNSU_DEBUG
+#ifdef CONFIG_KSU_DEBUG
     pr_alert("*************************************************************");
     pr_alert("**     NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE    **");
     pr_alert("**                                                         **");
@@ -187,7 +187,7 @@ int __init xinovasu_init(void)
     }
 
 #ifdef MODULE
-#ifndef CONFIG_XNSU_DEBUG
+#ifndef CONFIG_KSU_DEBUG
     kobject_del(&THIS_MODULE->mkobj.kobj);
 #endif
 #endif

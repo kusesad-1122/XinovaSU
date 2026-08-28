@@ -21,7 +21,7 @@ use crate::assets;
 #[cfg(target_os = "android")]
 mod android {
     use super::Result;
-    pub(super) use crate::defs::{BACKUP_FILENAME, XNSU_BACKUP_DIR, XNSU_BACKUP_FILE_PREFIX};
+    pub(super) use crate::defs::{BACKUP_FILENAME, KSU_BACKUP_DIR, KSU_BACKUP_FILE_PREFIX};
     use android_bootimg::cpio::{Cpio, CpioEntry};
     use anyhow::{Context, anyhow, bail, ensure};
     use regex_lite::Regex;
@@ -122,10 +122,10 @@ mod android {
 
     pub(super) fn do_backup(cpio: &mut Cpio, image: &Path) -> Result<()> {
         let sha1 = calculate_sha1(image)?;
-        let filename = format!("{XNSU_BACKUP_FILE_PREFIX}{sha1}");
+        let filename = format!("{KSU_BACKUP_FILE_PREFIX}{sha1}");
 
         println!("- Backup stock boot image");
-        let target = format!("{XNSU_BACKUP_DIR}{filename}");
+        let target = format!("{KSU_BACKUP_DIR}{filename}");
         let mut target_file = OpenOptions::new()
             .create(true)
             .truncate(true)
@@ -151,8 +151,8 @@ mod android {
 
     pub(super) fn clean_backup(sha1: &str) -> Result<()> {
         println!("- Clean up backup");
-        let backup_name = format!("{XNSU_BACKUP_FILE_PREFIX}{sha1}");
-        let dir = std::fs::read_dir(XNSU_BACKUP_DIR)?;
+        let backup_name = format!("{KSU_BACKUP_FILE_PREFIX}{sha1}");
+        let dir = std::fs::read_dir(KSU_BACKUP_DIR)?;
         for entry in dir.flatten() {
             let path = entry.path();
             if !path.is_file() {
@@ -161,7 +161,7 @@ mod android {
             if let Some(name) = path.file_name() {
                 let name = name.to_string_lossy().to_string();
                 if name != backup_name
-                    && name.starts_with(XNSU_BACKUP_FILE_PREFIX)
+                    && name.starts_with(KSU_BACKUP_FILE_PREFIX)
                     && std::fs::remove_file(path).is_ok()
                 {
                     println!("- removed {name}");
@@ -595,16 +595,16 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
             Box::new(map_file(&kmod_path)?)
         } else {
             println!("- KMI: {kmi}");
-            let name = format!("{kmi}_xinovasu.ko");
+            let name = format!("{kmi}_kernelsu.ko");
             assets::get_asset(&name).with_context(|| format!("Failed to load {name}"))?
         };
 
-        let xnsu_init: Box<dyn AsRef<[u8]>> = if no_install {
+        let ksu_init: Box<dyn AsRef<[u8]>> = if no_install {
             Box::new(Vec::<u8>::new())
         } else if let Some(init_path) = init {
             Box::new(map_file(&init_path)?)
         } else {
-            assets::get_asset("xnsuinit.bin").context("Failed to load xnsuinit")?
+            assets::get_asset("ksuinit.bin").context("Failed to load ksuinit")?
         };
 
         let (mut cpio, vendor_ramdisk_idx) =
@@ -626,10 +626,10 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
             // a previous patch (ours, or another root such as KernelSU) already
             // moved the real init aside to init.real. In both cases we must NOT
             // rename the current init to init.real again: the current init is a
-            // wrapper (ksuinit / xnsuinit), and renaming it would overwrite the
+            // wrapper (ksuinit / ksuinit), and renaming it would overwrite the
             // real init that init.real already holds, leaving no genuine init to
             // hand off to -> boot loop / stuck on the first screen.
-            let has_our_lkm = cpio.exists("xinovasu.ko");
+            let has_our_lkm = cpio.exists("kernelsu.ko");
             let has_init_backup = cpio.exists("init.real");
             let already_patched = has_our_lkm || has_init_backup;
 
@@ -642,8 +642,8 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
                 cpio.mv("init", "init.real")?;
             }
 
-            cpio.add("init", CpioEntry::regular(0o755, xnsu_init))?;
-            cpio.add("xinovasu.ko", CpioEntry::regular(0o755, xinovasu_ko))?;
+            cpio.add("init", CpioEntry::regular(0o755, ksu_init))?;
+            cpio.add("kernelsu.ko", CpioEntry::regular(0o755, xinovasu_ko))?;
 
             #[cfg(target_os = "android")]
             if !already_patched
@@ -654,35 +654,35 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
             }
         }
 
-        let mut xnsu_config: Vec<String> = cpio
-            .entry_by_name("xnsu_config")
+        let mut ksu_config: Vec<String> = cpio
+            .entry_by_name("ksu_config")
             .and_then(CpioEntry::data)
             .and_then(|v| str::from_utf8(v).ok())
             .map(|v| v.split(' ').map(std::borrow::ToOwned::to_owned).collect())
             .unwrap_or_default();
 
         let mut apply_config = |name: &str, value: &str, add: bool| {
-            let has_value = xnsu_config.iter().any(|v| v == value);
+            let has_value = ksu_config.iter().any(|v| v == value);
 
             if add {
                 println!("- Adding {name} config");
                 if !has_value {
-                    xnsu_config.push(value.to_owned());
+                    ksu_config.push(value.to_owned());
                 }
             } else if has_value {
                 println!("- Removing {name} config");
-                xnsu_config.retain(|v| v != value);
+                ksu_config.retain(|v| v != value);
             }
         };
 
         apply_config("no custom rc", "norc=1", no_custom_rc);
         apply_config("allow shell", "allow_shell=1", allow_shell);
 
-        if xnsu_config.is_empty() {
-            cpio.rm("xnsu_config", false);
+        if ksu_config.is_empty() {
+            cpio.rm("ksu_config", false);
         } else {
-            let data = xnsu_config.join(" ").into_bytes();
-            cpio.add("xnsu_config", CpioEntry::regular(0o644, Box::new(data)))?;
+            let data = ksu_config.join(" ").into_bytes();
+            cpio.add("ksu_config", CpioEntry::regular(0o644, Box::new(data)))?;
         }
 
         // remove legacy config file
@@ -756,7 +756,7 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
             let output_dir = out.unwrap_or(std::env::current_dir()?);
             let name = out_name.unwrap_or_else(|| {
                 let now = chrono::Utc::now();
-                format!("xinovasu_patched_{}.img", now.format("%Y%m%d_%H%M%S"))
+                format!("kernelsu_patched_{}.img", now.format("%Y%m%d_%H%M%S"))
             });
             let output_image = output_dir.join(name);
             std::fs::write(&output_image, &new_boot_bytes).context("write out new boot failed")?;
@@ -855,7 +855,7 @@ pub fn restore(args: BootRestoreArgs) -> Result<()> {
         };
 
     ensure!(
-        cpio.exists("xinovasu.ko"),
+        cpio.exists("kernelsu.ko"),
         "boot image is not patched by XinovaSU"
     );
 
@@ -867,7 +867,7 @@ pub fn restore(args: BootRestoreArgs) -> Result<()> {
         let sha = String::from_utf8(backup_file.data().unwrap_or_default().to_vec())?;
         let sha = sha.trim();
         let backup_path =
-            PathBuf::from(XNSU_BACKUP_DIR).join(format!("{XNSU_BACKUP_FILE_PREFIX}{sha}"));
+            PathBuf::from(KSU_BACKUP_DIR).join(format!("{KSU_BACKUP_FILE_PREFIX}{sha}"));
         if backup_path.is_file() {
             println!("- Using backup file {}", backup_path.display());
             stock_boot = Some(backup_path);
@@ -925,7 +925,7 @@ pub fn restore(args: BootRestoreArgs) -> Result<()> {
         let output_dir = out.unwrap_or(std::env::current_dir()?);
         let name = out_name.unwrap_or_else(|| {
             let now = chrono::Utc::now();
-            format!("xinovasu_restore_{}.img", now.format("%Y%m%d_%H%M%S"))
+            format!("kernelsu_restore_{}.img", now.format("%Y%m%d_%H%M%S"))
         });
         let output_image = output_dir.join(name);
         std::fs::write(&output_image, &new_boot_bytes).context("copy out new boot failed")?;
@@ -943,7 +943,7 @@ fn rebuild_without_ksu(
     vendor_ramdisk_idx: Option<usize>,
 ) -> Result<Vec<u8>> {
     println!("- Removing XinovaSU from boot image");
-    cpio.rm("xinovasu.ko", false);
+    cpio.rm("kernelsu.ko", false);
     if cpio.exists("init.real") {
         cpio.mv("init.real", "init")?;
     }

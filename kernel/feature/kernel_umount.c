@@ -36,7 +36,7 @@ static int kernel_umount_feature_set(u64 value)
 }
 
 static const struct xnsu_feature_handler kernel_umount_handler = {
-    .feature_id = XNSU_FEATURE_KERNEL_UMOUNT,
+    .feature_id = KSU_FEATURE_KERNEL_UMOUNT,
     .name = "kernel_umount",
     .get_handler = kernel_umount_feature_get,
     .set_handler = kernel_umount_feature_set,
@@ -57,7 +57,7 @@ static int webview_zygote_umount_feature_set(u64 value)
 }
 
 static const struct xnsu_feature_handler webview_zygote_umount_handler = {
-    .feature_id = XNSU_FEATURE_WEBVIEW_ZYGOTE_UMOUNT,
+    .feature_id = KSU_FEATURE_WEBVIEW_ZYGOTE_UMOUNT,
     .name = "webview_zygote_umount",
     .get_handler = webview_zygote_umount_feature_get,
     .set_handler = webview_zygote_umount_feature_set,
@@ -163,6 +163,6 @@ void __init xnsu_kernel_umount_init(void)
 
 void __exit xnsu_kernel_umount_exit(void)
 {
-    xnsu_unregister_feature_handler(XNSU_FEATURE_WEBVIEW_ZYGOTE_UMOUNT);
-    xnsu_unregister_feature_handler(XNSU_FEATURE_KERNEL_UMOUNT);
+    xnsu_unregister_feature_handler(KSU_FEATURE_WEBVIEW_ZYGOTE_UMOUNT);
+    xnsu_unregister_feature_handler(KSU_FEATURE_KERNEL_UMOUNT);
 }

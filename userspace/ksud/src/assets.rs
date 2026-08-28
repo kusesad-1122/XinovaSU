@@ -15,7 +15,7 @@ mod android {
     // KernelSU userspace-compat symlinks. ZygiskNext (>= 1.2.2) and various
     // modules detect the KernelSU *userspace* install by the existence of
     // /data/adb/ksud (and expect `ksud` on the module PATH). We renamed the
-    // daemon to xnsusd, so expose ksud -> xnsusd links. Both live under
+    // daemon to ksud, so expose ksud -> ksud links. Both live under
     // /data/adb (mode 0700, root-only), so they are invisible to non-root
     // detectors and cost nothing in terms of hiding.
     const KSUD_COMPAT_LINK: &str = "/data/adb/ksud";
@@ -23,8 +23,8 @@ mod android {
 
     pub fn ensure_binaries(ignore_if_exist: bool) -> anyhow::Result<()> {
         for file in Asset::iter() {
-            if file == "xnsuinit.bin" || file.ends_with(".ko") {
-                // don't extract xnsuinit and kernel modules
+            if file == "ksuinit.bin" || file.ends_with(".ko") {
+                // don't extract ksuinit and kernel modules
                 continue;
             }
             let asset =
@@ -32,16 +32,16 @@ mod android {
             ensure_binary(format!("{BINARY_DIR}{file}"), &asset.data, ignore_if_exist)?;
         }
 
-        // Create resetprop -> xnsusd symlink (resetprop is now built into xnsusd)
+        // Create resetprop -> ksud symlink (resetprop is now built into ksud)
         let resetprop_link = RESETPROP_PATH;
         let _ = std::fs::remove_file(resetprop_link);
-        std::os::unix::fs::symlink("/data/adb/xnsusd", resetprop_link)?;
+        std::os::unix::fs::symlink("/data/adb/ksud", resetprop_link)?;
 
-        // KernelSU userspace-compat symlinks (ksud -> xnsusd). Best-effort: never
+        // KernelSU userspace-compat symlinks (ksud -> ksud). Best-effort: never
         // fail boot over them, and self-heal on every post-fs-data run.
         for link in [KSUD_COMPAT_LINK, KSUD_BIN_COMPAT_LINK] {
             let _ = std::fs::remove_file(link);
-            if let Err(e) = std::os::unix::fs::symlink("/data/adb/xnsusd", link) {
+            if let Err(e) = std::os::unix::fs::symlink("/data/adb/ksud", link) {
                 log::warn!("failed to create ksud compat symlink {link}: {e}");
             }
         }
@@ -78,8 +78,8 @@ pub fn get_asset(name: &str) -> Result<Box<dyn AsRef<[u8]>>> {
 pub fn list_supported_kmi() -> std::vec::Vec<std::string::String> {
     let mut list = Vec::new();
     for file in Asset::iter() {
-        // kmi_name = "xxx_xinovasu.ko"
-        if let Some(kmi) = file.strip_suffix("_xinovasu.ko") {
+        // kmi_name = "xxx_kernelsu.ko"
+        if let Some(kmi) = file.strip_suffix("_kernelsu.ko") {
             list.push(kmi.to_string());
         }
     }

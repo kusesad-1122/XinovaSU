@@ -24,7 +24,7 @@ static struct group_info root_groups = { .usage = ATOMIC_INIT(2) };
 
 void setup_groups(struct root_profile *profile, struct cred *cred)
 {
-    if (profile->groups_count > XNSU_MAX_GROUPS) {
+    if (profile->groups_count > KSU_MAX_GROUPS) {
         pr_warn("Failed to setgroups, too large group: %d!\n", profile->uid);
         return;
     }

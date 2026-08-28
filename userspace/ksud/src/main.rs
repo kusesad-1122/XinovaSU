@@ -67,7 +67,7 @@ mod vpn_hide;
 
 #[cfg(target_os = "android")]
 #[allow(nonstandard_style, unused, unsafe_op_in_unsafe_fn)]
-mod xnsu_uapi;
+mod ksu_uapi;
 
 fn main() -> anyhow::Result<()> {
     #[cfg(target_os = "android")]

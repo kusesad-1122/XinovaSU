@@ -125,7 +125,7 @@ static bool profile_valid(struct app_profile *profile)
     bool need_migrate_su_domain = false;
 
     if (unlikely(profile->version == 2)) {
-        profile->version = XNSU_APP_PROFILE_VER;
+        profile->version = KSU_APP_PROFILE_VER;
         need_migrate_su_domain = true;
     }
 
@@ -134,14 +134,14 @@ static bool profile_valid(struct app_profile *profile)
         return false;
     }
 
-    if (profile->version < XNSU_APP_PROFILE_VER) {
+    if (profile->version < KSU_APP_PROFILE_VER) {
         pr_info("Unsupported profile version: %d\n", profile->version);
         return false;
     }
 
     if (profile->allow_su) {
-#ifndef CONFIG_XNSU_DISABLE_POLICY
-        if (profile->rp_config.profile.groups_count > XNSU_MAX_GROUPS) {
+#ifndef CONFIG_KSU_DISABLE_POLICY
+        if (profile->rp_config.profile.groups_count > KSU_MAX_GROUPS) {
             pr_err("invalid groups_count in app_profile: %s\n", profile->key);
             return false;
         }
@@ -187,7 +187,7 @@ int xnsu_set_app_profile(struct app_profile *profile)
         return -EINVAL;
     }
 
-#ifdef CONFIG_XNSU_DISABLE_POLICY
+#ifdef CONFIG_KSU_DISABLE_POLICY
     if (profile->allow_su) {
         profile->rp_config.use_default = true;
         memset(profile->rp_config.template_name, 0, sizeof(profile->rp_config.template_name));
@@ -315,7 +315,7 @@ bool xnsu_uid_should_umount(uid_t uid)
     if (unlikely(uid == WEBVIEW_ZYGOTE_UID)) {
         return xnsu_webview_zygote_umount_enabled;
     }
-#ifdef CONFIG_XNSU_DISABLE_POLICY
+#ifdef CONFIG_KSU_DISABLE_POLICY
     return !__xnsu_is_allow_uid(uid);
 #else
     rcu_read_lock();
@@ -350,7 +350,7 @@ void xnsu_put_app_profile(struct app_profile *profile)
 
 struct root_profile *xnsu_get_root_profile(uid_t uid)
 {
-#ifdef CONFIG_XNSU_DISABLE_POLICY
+#ifdef CONFIG_KSU_DISABLE_POLICY
     (void)uid;
     return &default_root_profile;
 #else
@@ -517,12 +517,12 @@ static void migrate_profile(u32 version, struct app_profile *profile)
         break;
     }
 
-    profile->version = XNSU_APP_PROFILE_VER;
+    profile->version = KSU_APP_PROFILE_VER;
 }
 
 void xnsu_load_allow_list()
 {
-#ifdef CONFIG_XNSU_DISABLE_POLICY
+#ifdef CONFIG_KSU_DISABLE_POLICY
     pr_info("allowlist load skipped because policy is disabled\n");
     return;
 #endif
@@ -552,7 +552,7 @@ void xnsu_load_allow_list()
         goto exit;
     }
 
-    if (version < 2 || version > XNSU_APP_PROFILE_VER) {
+    if (version < 2 || version > KSU_APP_PROFILE_VER) {
         pr_err("invalid allowlist version: %d\n", version);
         goto exit;
     }
@@ -563,7 +563,7 @@ void xnsu_load_allow_list()
     // Read old files with the old size and migrate each entry, so upgrading
     // the kernel does not misparse the on-disk allowlist.
     static const size_t kAppProfileSizePreV4 = 776;
-    app_profile_size = version < XNSU_APP_PROFILE_VER ? kAppProfileSizePreV4
+    app_profile_size = version < KSU_APP_PROFILE_VER ? kAppProfileSizePreV4
                                                        : sizeof(struct app_profile);
 
     while (true) {
@@ -584,7 +584,7 @@ void xnsu_load_allow_list()
     }
     xnsu_show_allow_list();
     filp_close(fp, 0);
-    if (version < XNSU_APP_PROFILE_VER)
+    if (version < KSU_APP_PROFILE_VER)
         xnsu_persistent_allow_list();
     return;
 

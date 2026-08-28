@@ -439,7 +439,7 @@ static int selinux_hide_feature_set(u64 value)
 }
 
 static const struct xnsu_feature_handler selinux_hide_handler = {
-    .feature_id = XNSU_FEATURE_SELINUX_HIDE,
+    .feature_id = KSU_FEATURE_SELINUX_HIDE,
     .name = "selinux_hide",
     .get_handler = selinux_hide_feature_get,
     .set_handler = selinux_hide_feature_set,
@@ -507,7 +507,7 @@ void __exit xnsu_selinux_hide_exit()
         xnsu_selinux_hide_running = false;
     }
     mutex_unlock(&selinux_hide_mutex);
-    xnsu_unregister_feature_handler(XNSU_FEATURE_SELINUX_HIDE);
+    xnsu_unregister_feature_handler(KSU_FEATURE_SELINUX_HIDE);
     mutex_lock(&selinux_state.status_lock);
     if (fake_status)
         __free_page(fake_status);

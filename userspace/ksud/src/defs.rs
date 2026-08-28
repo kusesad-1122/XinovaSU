@@ -20,10 +20,10 @@ mod android {
     pub const NET_ISOLATE_CONFIG: &str = concatcp!(WORKING_DIR, "net_isolate.conf");
     pub const PATH_HIDE_CONFIG: &str = concatcp!(WORKING_DIR, "path_hide.conf");
     pub const VPN_HIDE_CONFIG: &str = concatcp!(WORKING_DIR, "vpn_hide.conf");
-    pub const DAEMON_PATH: &str = concatcp!(ADB_DIR, "xnsusd");
+    pub const DAEMON_PATH: &str = concatcp!(ADB_DIR, "ksud");
     pub const LIBADBROOT_PATH: &str = concatcp!(LIBRARY_DIR, "libadbroot.so");
 
-    pub const DAEMON_LINK_PATH: &str = concatcp!(BINARY_DIR, "xnsusd");
+    pub const DAEMON_LINK_PATH: &str = concatcp!(BINARY_DIR, "ksud");
 
     pub const MODULE_DIR: &str = concatcp!(ADB_DIR, "modules/");
     pub const MODULE_UPDATE_DIR: &str = concatcp!(ADB_DIR, "modules_update/");
@@ -52,8 +52,8 @@ mod android {
     pub const METAMODULE_METAINSTALL_SCRIPT: &str = "metainstall.sh";
     pub const METAMODULE_METAUNINSTALL_SCRIPT: &str = "metauninstall.sh";
 
-    pub const XNSU_BACKUP_DIR: &str = WORKING_DIR;
-    pub const XNSU_BACKUP_FILE_PREFIX: &str = "xnsu_backup_";
+    pub const KSU_BACKUP_DIR: &str = WORKING_DIR;
+    pub const KSU_BACKUP_FILE_PREFIX: &str = "ksu_backup_";
     pub const BACKUP_FILENAME: &str = "stock_image.sha1";
 }
 

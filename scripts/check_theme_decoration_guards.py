@@ -43,9 +43,9 @@ KBUILD = ROOT / "kernel/Kbuild"
 MATERIAL_SWITCH_OWNER = MANAGER_SOURCE / "ui/component/material/ExpressiveSwitch.kt"
 MIUIX_SWITCH_OWNER = MANAGER_SOURCE / "ui/component/miuix/EnergyMiuixSwitch.kt"
 
-EXPECTED_SIZE_ANCHOR = "XNSU_EXPECTED_SIZE := 0x037d"
+EXPECTED_SIZE_ANCHOR = "KSU_EXPECTED_SIZE := 0x037d"
 EXPECTED_HASH_ANCHOR = (
-    "XNSU_EXPECTED_HASH := "
+    "KSU_EXPECTED_HASH := "
     "4861a86778da1deb60f19391f97ea2c01c1458de20662ff78e303127cdf1731a"
 )
 MAKE_PREFIX_WORDS = ("override", "export", "unexport", "private")
@@ -879,8 +879,8 @@ def protected_make_events(
 def assert_signing_anchors() -> None:
     text = source(KBUILD)
     for variable, expected in (
-        ("XNSU_EXPECTED_SIZE", EXPECTED_SIZE_ANCHOR),
-        ("XNSU_EXPECTED_HASH", EXPECTED_HASH_ANCHOR),
+        ("KSU_EXPECTED_SIZE", EXPECTED_SIZE_ANCHOR),
+        ("KSU_EXPECTED_HASH", EXPECTED_HASH_ANCHOR),
     ):
         events = protected_make_events(text, variable)
         allowed = [

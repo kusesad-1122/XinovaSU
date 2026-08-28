@@ -215,7 +215,7 @@ static int kernel_adb_root_feature_set(u64 value)
 }
 
 static const struct xnsu_feature_handler xnsu_adb_root_handler = {
-    .feature_id = XNSU_FEATURE_ADB_ROOT,
+    .feature_id = KSU_FEATURE_ADB_ROOT,
     .name = "adb_root",
     .get_handler = kernel_adb_root_feature_get,
     .set_handler = kernel_adb_root_feature_set,
@@ -230,5 +230,5 @@ void __init xnsu_adb_root_init(void)
 
 void __exit xnsu_adb_root_exit(void)
 {
-    xnsu_unregister_feature_handler(XNSU_FEATURE_ADB_ROOT);
+    xnsu_unregister_feature_handler(KSU_FEATURE_ADB_ROOT);
 }

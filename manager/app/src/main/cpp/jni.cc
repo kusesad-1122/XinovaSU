@@ -26,7 +26,7 @@ Java_com_xinsu_moe_Natives_getVersion(JNIEnv *env, jobject) {
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_xinsu_moe_Natives_getSuperuserCount(JNIEnv *env, jobject) {
-    struct xnsu_new_get_allow_list_cmd cmd = {
+    struct ksu_new_get_allow_list_cmd cmd = {
         .count = 0
     };
     bool result = get_allow_list(&cmd);
@@ -167,7 +167,7 @@ Java_com_xinsu_moe_Natives_getAppProfile(JNIEnv *env, jobject, jstring pkg, jint
     }
 
     app_profile profile = {};
-    profile.version = XNSU_APP_PROFILE_VER;
+    profile.version = KSU_APP_PROFILE_VER;
 
     strcpy(profile.key, key);
     profile.curr_uid = uid;
@@ -224,9 +224,9 @@ Java_com_xinsu_moe_Natives_getAppProfile(JNIEnv *env, jobject, jstring pkg, jint
 
         jobject groupList = env->GetObjectField(obj, groupsField);
         int groupCount = profile.rp_config.profile.groups_count;
-        if (groupCount > XNSU_MAX_GROUPS) {
+        if (groupCount > KSU_MAX_GROUPS) {
             LOGD("kernel group count too large: %d???", groupCount);
-            groupCount = XNSU_MAX_GROUPS;
+            groupCount = KSU_MAX_GROUPS;
         }
         fillIntArray(env, groupList, profile.rp_config.profile.groups, groupCount);
 
@@ -292,7 +292,7 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
     auto umountModules = env->GetBooleanField(profile, umountModulesField);
 
     app_profile p = {};
-    p.version = XNSU_APP_PROFILE_VER;
+    p.version = KSU_APP_PROFILE_VER;
 
     strcpy(p.key, p_key);
     p.allow_su = allowSu;
@@ -312,7 +312,7 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
         p.rp_config.profile.gid = gid;
 
         int groups_count = getListSize(env, groups);
-        if (groups_count > XNSU_MAX_GROUPS) {
+        if (groups_count > KSU_MAX_GROUPS) {
             LOGD("groups count too large: %d", groups_count);
             return false;
         }
@@ -384,7 +384,7 @@ Java_com_xinsu_moe_Natives_getUserName(JNIEnv *env, jobject thiz, jint uid) {
     return nullptr;
 }
 
-int fork_dont_care_and_exec_xnsusd(const char *path, const char *pkg) {
+int fork_dont_care_and_exec_ksud(const char *path, const char *pkg) {
     int pid = fork();
     if (pid < 0) {
         PLOGE("fork");
@@ -414,7 +414,7 @@ int fork_dont_care_and_exec_xnsusd(const char *path, const char *pkg) {
         _exit(0);
     }
 
-    execl(path, "xnsusd", "late-load", "--magica", "5555", "--package-name", pkg, nullptr);
+    execl(path, "ksud", "late-load", "--magica", "5555", "--package-name", pkg, nullptr);
     PLOGE("exec magica");
     _exit(1);
 }
@@ -422,11 +422,11 @@ int fork_dont_care_and_exec_xnsusd(const char *path, const char *pkg) {
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_xinsu_moe_magica_AppZygotePreload_forkDontCareAndExecKsud(JNIEnv *env, jclass clazz,
-                                                                        jstring xnsusd_path, jstring pkg_name) {
-    auto path = env->GetStringUTFChars(xnsusd_path, nullptr);
+                                                                        jstring ksud_path, jstring pkg_name) {
+    auto path = env->GetStringUTFChars(ksud_path, nullptr);
     auto pkg = env->GetStringUTFChars(pkg_name, nullptr);
     LOGD("executing magica %s (pkg %s)", path, pkg);
-    fork_dont_care_and_exec_xnsusd(path, pkg);
-    env->ReleaseStringUTFChars(xnsusd_path, path);
+    fork_dont_care_and_exec_ksud(path, pkg);
+    env->ReleaseStringUTFChars(ksud_path, path);
     env->ReleaseStringUTFChars(pkg_name, pkg);
 }

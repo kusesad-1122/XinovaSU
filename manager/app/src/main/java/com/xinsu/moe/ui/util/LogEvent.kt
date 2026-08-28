@@ -31,7 +31,7 @@ fun getBugreportFile(context: Context): File {
     val fileSystemsFile = File(bugreportDir, "filesystems.txt")
     val adbFileTree = File(bugreportDir, "adb_tree.txt")
     val adbFileDetails = File(bugreportDir, "adb_details.txt")
-    val ksuFileSize = File(bugreportDir, "xnsu_size.txt")
+    val ksuFileSize = File(bugreportDir, "ksu_size.txt")
     val appListFile = File(bugreportDir, "packages.txt")
     val propFile = File(bugreportDir, "props.txt")
     val allowListFile = File(bugreportDir, "allowlist.bin")
