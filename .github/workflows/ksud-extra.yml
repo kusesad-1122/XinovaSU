@@ -31,8 +31,8 @@ jobs:
     - name: Prepare LKM files
       if: ${{ inputs.pack_lkm }}
       run: |
+        # aarch64 only: no x86_64 LKM is produced (see ddk-lkm.yml)
         cp aarch64-android*-lkm/*_xinovasu.ko ./userspace/ksud/bin/aarch64/
-        cp x86_64-android*-lkm/*_xinovasu.ko ./userspace/ksud/bin/x86_64/
 
     - name: Prepare xnsuinit
       if: ${{ inputs.pack_xnsuinit }}
