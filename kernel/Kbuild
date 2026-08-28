@@ -82,7 +82,7 @@ endif
 
 ccflags-y += -I$(XNSU_KERNEL_DIR) -I$(XNSU_KERNEL_DIR)/include
 
-obj-$(CONFIG_KSU) += xinovasu.o
+obj-$(CONFIG_KSU) += kernelsu.o
 
 MDIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 

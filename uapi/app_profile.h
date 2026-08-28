@@ -1,5 +1,5 @@
-#ifndef __XNSU_UAPI_APP_PROFILE_H
-#define __XNSU_UAPI_APP_PROFILE_H
+#ifndef __KSU_UAPI_APP_PROFILE_H
+#define __KSU_UAPI_APP_PROFILE_H
 
 #include <linux/types.h>
 

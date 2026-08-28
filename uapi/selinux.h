@@ -1,5 +1,5 @@
-#ifndef __XNSU_UAPI_SELINUX_H
-#define __XNSU_UAPI_SELINUX_H
+#ifndef __KSU_UAPI_SELINUX_H
+#define __KSU_UAPI_SELINUX_H
 
 #include <linux/types.h>
 

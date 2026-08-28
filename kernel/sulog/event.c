@@ -88,7 +88,7 @@ static const char __user *xnsu_sulog_get_user_arg_ptr(struct user_arg_ptr argv, 
     return native;
 }
 
-static void xnsu_sulog_fill_task_info(struct xnsu_sulog_event *event, __u16 event_type, int retval)
+static void xnsu_sulog_fill_task_info(struct ksu_sulog_event *event, __u16 event_type, int retval)
 {
     event->version = KSU_SULOG_EVENT_VERSION;
     event->event_type = event_type;
@@ -101,7 +101,7 @@ static void xnsu_sulog_fill_task_info(struct xnsu_sulog_event *event, __u16 even
     get_task_comm(event->comm, current);
 }
 
-static void xnsu_sulog_set_identity(struct xnsu_sulog_event *event, const struct xnsu_sulog_identity *identity)
+static void xnsu_sulog_set_identity(struct ksu_sulog_event *event, const struct xnsu_sulog_identity *identity)
 {
     if (!identity)
         return;
@@ -199,7 +199,7 @@ static struct xnsu_sulog_pending_event *xnsu_sulog_capture(__u16 event_type, con
                                                            const char __user *const __user *argv_user, gfp_t gfp)
 {
     struct xnsu_sulog_pending_event *pending = NULL;
-    struct xnsu_sulog_event *event;
+    struct ksu_sulog_event *event;
     void *payload = NULL;
     __u32 payload_len;
     __u32 filename_len;
@@ -258,7 +258,7 @@ static struct xnsu_sulog_pending_event *xnsu_sulog_capture_grant_root(const stru
                                                                       gfp_t gfp)
 {
     struct xnsu_sulog_pending_event *pending;
-    struct xnsu_sulog_event *event;
+    struct ksu_sulog_event *event;
 
     pending = xnsu_sulog_capture(KSU_SULOG_EVENT_IOCTL_GRANT_ROOT, NULL, NULL, gfp);
     if (!pending)
@@ -302,7 +302,7 @@ struct xnsu_sulog_pending_event *xnsu_sulog_capture_sucompat(const char __user *
 
 void xnsu_sulog_emit_pending(struct xnsu_sulog_pending_event *pending, int retval, gfp_t gfp)
 {
-    struct xnsu_sulog_event *event;
+    struct ksu_sulog_event *event;
 
     if (!pending)
         return;

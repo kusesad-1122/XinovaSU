@@ -44,7 +44,7 @@ static int do_grant_root(void __user *arg)
 
 static int do_get_info(void __user *arg)
 {
-    struct xnsu_get_info_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
+    struct ksu_get_info_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
 
 #ifdef MODULE
     cmd.flags |= KSU_GET_INFO_FLAG_LKM;
@@ -72,7 +72,7 @@ static int do_get_info(void __user *arg)
 
 static int do_get_info_legacy(void __user *arg)
 {
-    struct xnsu_get_info_legacy_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
+    struct ksu_get_info_legacy_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
 
 #ifdef MODULE
     cmd.flags |= KSU_GET_INFO_FLAG_LKM;
@@ -99,7 +99,7 @@ static int do_get_info_legacy(void __user *arg)
 
 static int do_report_event(void __user *arg)
 {
-    struct xnsu_report_event_cmd cmd;
+    struct ksu_report_event_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -146,7 +146,7 @@ static int do_report_event(void __user *arg)
 
 static int do_set_sepolicy(void __user *arg)
 {
-    struct xnsu_set_sepolicy_cmd cmd;
+    struct ksu_set_sepolicy_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -157,7 +157,7 @@ static int do_set_sepolicy(void __user *arg)
 
 static int do_check_safemode(void __user *arg)
 {
-    struct xnsu_check_safemode_cmd cmd;
+    struct ksu_check_safemode_cmd cmd;
 
     cmd.in_safe_mode = xnsu_is_safe_mode();
 
@@ -175,7 +175,7 @@ static int do_check_safemode(void __user *arg)
 
 static int do_new_get_allow_list_common(void __user *arg, bool allow)
 {
-    struct xnsu_new_get_allow_list_cmd cmd;
+    struct ksu_new_get_allow_list_cmd cmd;
     int *arr = NULL;
     int err = 0;
 
@@ -203,7 +203,7 @@ static int do_new_get_allow_list_common(void __user *arg, bool allow)
         goto out;
     }
 
-    if (cmd.count && copy_to_user(&((struct xnsu_new_get_allow_list_cmd *)arg)->uids, arr, sizeof(int) * cmd.count)) {
+    if (cmd.count && copy_to_user(&((struct ksu_new_get_allow_list_cmd *)arg)->uids, arr, sizeof(int) * cmd.count)) {
         pr_err("new_get_allow_list: copy_to_user uids failed\n");
         err = -EFAULT;
     }
@@ -247,7 +247,7 @@ static int do_get_allow_list_common(void __user *arg, bool allow)
 
     out_count = count;
 
-    if (copy_to_user(arg + offsetof(struct xnsu_get_allow_list_cmd, count), &out_count, sizeof(u32))) {
+    if (copy_to_user(arg + offsetof(struct ksu_get_allow_list_cmd, count), &out_count, sizeof(u32))) {
         pr_err("get_allow_list: copy_to_user count failed\n");
         err = -EFAULT;
         goto out;
@@ -277,7 +277,7 @@ static int do_get_allow_list(void __user *arg)
 
 static int do_uid_granted_root(void __user *arg)
 {
-    struct xnsu_uid_granted_root_cmd cmd;
+    struct ksu_uid_granted_root_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -295,7 +295,7 @@ static int do_uid_granted_root(void __user *arg)
 
 static int do_uid_should_umount(void __user *arg)
 {
-    struct xnsu_uid_should_umount_cmd cmd;
+    struct ksu_uid_should_umount_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -313,7 +313,7 @@ static int do_uid_should_umount(void __user *arg)
 
 static int do_get_manager_appid(void __user *arg)
 {
-    struct xnsu_get_manager_appid_cmd cmd;
+    struct ksu_get_manager_appid_cmd cmd;
 
     cmd.appid = xnsu_get_manager_appid();
 
@@ -334,7 +334,7 @@ static int do_get_app_profile(void __user *arg)
     struct app_profile *profile;
     int ret = 0;
 
-    if (copy_from_user(&uid, (char __user *)arg + offsetof(struct xnsu_get_app_profile_cmd, profile.curr_uid),
+    if (copy_from_user(&uid, (char __user *)arg + offsetof(struct ksu_get_app_profile_cmd, profile.curr_uid),
                        sizeof(uid_t))) {
         pr_err("get_app_profile: copy_from_user failed\n");
         return -EFAULT;
@@ -346,7 +346,7 @@ static int do_get_app_profile(void __user *arg)
     if (!profile) {
         ret = -ENOENT;
     } else {
-        if (copy_to_user((char __user *)arg + offsetof(struct xnsu_get_app_profile_cmd, profile), profile,
+        if (copy_to_user((char __user *)arg + offsetof(struct ksu_get_app_profile_cmd, profile), profile,
                          sizeof(struct app_profile))) {
             pr_err("get_app_profile: copy_to_user failed\n");
             ret = -EFAULT;
@@ -362,7 +362,7 @@ static int do_set_app_profile(void __user *arg)
     return -EOPNOTSUPP;
 #endif
 
-    struct xnsu_set_app_profile_cmd cmd;
+    struct ksu_set_app_profile_cmd cmd;
     int ret;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -380,7 +380,7 @@ static int do_set_app_profile(void __user *arg)
 
 static int do_get_feature(void __user *arg)
 {
-    struct xnsu_get_feature_cmd cmd;
+    struct ksu_get_feature_cmd cmd;
     bool supported;
     int ret;
 
@@ -407,7 +407,7 @@ static int do_get_feature(void __user *arg)
 
 static int do_set_feature(void __user *arg)
 {
-    struct xnsu_set_feature_cmd cmd;
+    struct ksu_set_feature_cmd cmd;
     int ret;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -547,7 +547,7 @@ static int do_get_wrapper_fd(void __user *arg)
         return -EINVAL;
     }
 
-    struct xnsu_get_wrapper_fd_cmd cmd;
+    struct ksu_get_wrapper_fd_cmd cmd;
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         pr_err("get_wrapper_fd: copy_from_user failed\n");
         return -EFAULT;
@@ -558,7 +558,7 @@ static int do_get_wrapper_fd(void __user *arg)
 
 static int do_manage_mark(void __user *arg)
 {
-    struct xnsu_manage_mark_cmd cmd;
+    struct ksu_manage_mark_cmd cmd;
     int ret = 0;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -621,7 +621,7 @@ static int do_manage_mark(void __user *arg)
 
 static int do_nuke_ext4_sysfs(void __user *arg)
 {
-    struct xnsu_nuke_ext4_sysfs_cmd cmd;
+    struct ksu_nuke_ext4_sysfs_cmd cmd;
     char mnt[256];
     long ret;
 
@@ -655,7 +655,7 @@ DECLARE_RWSEM(mount_list_lock);
 static int add_try_umount(void __user *arg)
 {
     struct mount_entry *new_entry, *entry, *tmp;
-    struct xnsu_add_try_umount_cmd cmd;
+    struct ksu_add_try_umount_cmd cmd;
     char buf[256] = { 0 };
 
     if (copy_from_user(&cmd, arg, sizeof cmd))
@@ -789,7 +789,7 @@ out:
 
 static int do_get_sulog_fd(void __user *arg)
 {
-    struct xnsu_get_sulog_fd_cmd cmd;
+    struct ksu_get_sulog_fd_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         pr_err("get_sulog_fd: copy_from_user failed\n");
