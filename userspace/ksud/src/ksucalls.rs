@@ -1,4 +1,5 @@
 #![allow(clippy::unreadable_literal)]
+use anyhow::bail;
 use crate::xnsu_uapi;
 use std::fs;
 use std::os::fd::RawFd;
@@ -62,14 +63,17 @@ fn ksuctl<T>(request: u32, arg: *mut T) -> std::io::Result<i32> {
 }
 
 // API implementations
-fn get_info() -> xnsu_uapi::xnsu_get_info_cmd {
+pub fn get_info() -> xnsu_uapi::xnsu_get_info_cmd {
     *INFO_CACHE.get_or_init(|| {
         let mut cmd = xnsu_uapi::xnsu_get_info_cmd {
             version: 0,
             flags: 0,
             features: 0,
+            uapi_version: 0,
         };
-        let _ = ksuctl(xnsu_uapi::XNSU_IOCTL_GET_INFO, &raw mut cmd);
+        if ksuctl(xnsu_uapi::XNSU_IOCTL_GET_INFO, &raw mut cmd).is_err() {
+            let _ = ksuctl(xnsu_uapi::XNSU_IOCTL_GET_INFO_LEGACY, &raw mut cmd);
+        }
         cmd
     })
 }
@@ -80,6 +84,21 @@ pub fn get_version() -> i32 {
 
 pub fn is_late_load() -> bool {
     get_info().flags & xnsu_uapi::XNSU_GET_INFO_FLAG_LATE_LOAD != 0
+}
+
+pub const fn uapi_version() -> u32 {
+    xnsu_uapi::XNSU_KERNEL_UAPI_VERSION
+}
+
+pub fn ensure_uapi_version_matched() -> anyhow::Result<()> {
+    let kernel_uapi = get_info().uapi_version;
+    let userspace_uapi = uapi_version();
+    if kernel_uapi != userspace_uapi {
+        bail!(
+            "UAPI version mismatch: kernel={kernel_uapi}, xnsusd={userspace_uapi}. Please update XinovaSU!"
+        );
+    }
+    Ok(())
 }
 
 pub fn grant_root() -> std::io::Result<()> {

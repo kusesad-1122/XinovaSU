@@ -63,6 +63,44 @@ Java_com_xinsu_moe_Natives_isPrBuild(JNIEnv *env, jclass clazz) {
     return is_pr_build();
 }
 
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_xinsu_moe_Natives_getKernelUAPIVersion(JNIEnv *env, jobject) {
+    return get_kernel_uapi_version();
+}
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_xinsu_moe_Natives_getManagerUAPIVersion(JNIEnv *env, jobject) {
+    return get_manager_uapi_version();
+}
+
+// Copy a jstring into a fixed-size buffer with bounds checking. Returns false
+// (and leaves dst untouched) when the UTF-8 representation does not fit.
+// GetStringLength() counts UTF-16 code units, so a length check alone is not
+// sufficient: multi-byte characters can expand 3x in the modified UTF-8 used
+// by GetStringUTFChars, overflowing the destination array.
+static bool copy_jstring_bounded(JNIEnv *env, jstring src, char *dst, size_t dst_len) {
+    if (!src || !dst || dst_len == 0) {
+        return false;
+    }
+
+    jsize len = env->GetStringUTFLength(src);
+    if (len < 0 || (size_t)len >= dst_len) {
+        return false;
+    }
+
+    const char *utf = env->GetStringUTFChars(src, nullptr);
+    if (!utf) {
+        return false;
+    }
+
+    memcpy(dst, utf, (size_t)len);
+    dst[len] = '\0';
+    env->ReleaseStringUTFChars(src, utf);
+    return true;
+}
+
 static void fillIntArray(JNIEnv *env, jobject list, int *data, int count) {
     auto cls = env->GetObjectClass(list);
     auto add = env->GetMethodID(cls, "add", "(Ljava/lang/Object;)Z");
@@ -123,14 +161,10 @@ static void fillArrayWithList(JNIEnv *env, jobject list, int *data, int count) {
 extern "C"
 JNIEXPORT jobject JNICALL
 Java_com_xinsu_moe_Natives_getAppProfile(JNIEnv *env, jobject, jstring pkg, jint uid) {
-    if (env->GetStringLength(pkg) > XNSU_MAX_PACKAGE_NAME) {
+    p_key_t key = {};
+    if (!copy_jstring_bounded(env, pkg, key, sizeof(key))) {
         return nullptr;
     }
-
-    p_key_t key = {};
-    auto cpkg = env->GetStringUTFChars(pkg, nullptr);
-    strcpy(key, cpkg);
-    env->ReleaseStringUTFChars(pkg, cpkg);
 
     app_profile profile = {};
     profile.version = XNSU_APP_PROFILE_VER;
@@ -242,14 +276,10 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
     if (!key) {
         return false;
     }
-    if (env->GetStringLength((jstring) key) > XNSU_MAX_PACKAGE_NAME) {
+    p_key_t p_key = {};
+    if (!copy_jstring_bounded(env, (jstring) key, p_key, sizeof(p_key))) {
         return false;
     }
-
-    auto cpkg = env->GetStringUTFChars((jstring) key, nullptr);
-    p_key_t p_key = {};
-    strcpy(p_key, cpkg);
-    env->ReleaseStringUTFChars((jstring) key, cpkg);
 
     auto currentUid = env->GetIntField(profile, currentUidField);
 
@@ -272,9 +302,10 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
         p.rp_config.use_default = env->GetBooleanField(profile, rootUseDefaultField);
         auto templateName = env->GetObjectField(profile, rootTemplateField);
         if (templateName) {
-            auto ctemplateName = env->GetStringUTFChars((jstring) templateName, nullptr);
-            strcpy(p.rp_config.template_name, ctemplateName);
-            env->ReleaseStringUTFChars((jstring) templateName, ctemplateName);
+            if (!copy_jstring_bounded(env, (jstring) templateName, p.rp_config.template_name,
+                                      sizeof(p.rp_config.template_name))) {
+                return false;
+            }
         }
 
         p.rp_config.profile.uid = uid;
@@ -290,9 +321,10 @@ Java_com_xinsu_moe_Natives_setAppProfile(JNIEnv *env, jobject clazz, jobject pro
 
         p.rp_config.profile.capabilities.effective = capListToBits(env, capabilities);
 
-        auto cdomain = env->GetStringUTFChars((jstring) domain, nullptr);
-        strcpy(p.rp_config.profile.selinux_domain, cdomain);
-        env->ReleaseStringUTFChars((jstring) domain, cdomain);
+        if (!copy_jstring_bounded(env, (jstring) domain, p.rp_config.profile.selinux_domain,
+                                  sizeof(p.rp_config.profile.selinux_domain))) {
+            return false;
+        }
 
         p.rp_config.profile.namespaces = env->GetIntField(profile, namespacesField);
     } else {

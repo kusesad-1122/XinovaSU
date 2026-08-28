@@ -122,6 +122,11 @@ int escape_with_root_profile(void)
         goto out_abort_creds;
     }
 
+    if (test_thread_flag(TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT)) {
+        pr_warn("TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT found, don't escape!\n");
+        goto out_abort_creds;
+    }
+
     profile = xnsu_get_root_profile(cred->uid.val);
 
     cred->uid.val = profile->uid;
@@ -181,6 +186,10 @@ int escape_with_root_profile(void)
 
     disable_seccomp();
 
+    if (profile->flags & XNSU_FLAG_NO_NEW_PRIVS) {
+        set_thread_flag(TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT);
+    }
+
     for_each_thread (p, t) {
         xnsu_set_task_tracepoint_flag(t);
     }
@@ -206,4 +215,8 @@ void escape_to_root_for_init(void)
 
     setup_selinux(KERNEL_SU_CONTEXT, cred);
     commit_creds(cred);
+}
+
+void __init xnsu_app_profile_init(void)
+{
 }

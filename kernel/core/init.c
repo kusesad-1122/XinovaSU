@@ -143,6 +143,7 @@ int __init xinovasu_init(void)
     xnsu_vpn_hide_init();
 
     xnsu_supercalls_init();
+    xnsu_app_profile_init();
 
     if (xnsu_late_loaded) {
         pr_info("late load mode, skipping kprobe hooks\n");

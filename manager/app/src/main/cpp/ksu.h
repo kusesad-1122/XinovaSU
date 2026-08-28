@@ -14,6 +14,10 @@
 
 uint32_t get_version();
 
+uint32_t get_kernel_uapi_version();
+
+uint32_t get_manager_uapi_version();
+
 bool uid_should_umount(int uid);
 
 bool is_safe_mode();

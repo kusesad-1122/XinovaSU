@@ -9,6 +9,7 @@ void xnsu_xnsusd_init();
 void xnsu_xnsusd_exit();
 
 void xnsu_execve_hook_xnsusd(const struct pt_regs *regs);
+void xnsu_execveat_hook_xnsusd(const struct pt_regs *regs);
 void xnsu_stop_input_hook_runtime(void);
 
 #endif

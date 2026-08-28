@@ -134,6 +134,7 @@ void __init xnsu_syscall_hook_manager_init(void)
     // Register syscall hooks via dispatcher
     xnsu_register_syscall_hook(__NR_setresuid, xnsu_hook_setresuid);
     xnsu_register_syscall_hook(__NR_execve, xnsu_hook_execve);
+    xnsu_register_syscall_hook(__NR_execveat, xnsu_hook_execveat);
     xnsu_register_syscall_hook(__NR_newfstatat, xnsu_hook_newfstatat);
     xnsu_register_syscall_hook(__NR_faccessat, xnsu_hook_faccessat);
     xnsu_register_syscall_hook(__NR_openat, xnsu_hook_openat);
@@ -175,6 +176,7 @@ void __exit xnsu_syscall_hook_manager_exit(void)
 
     xnsu_unregister_syscall_hook(__NR_setresuid);
     xnsu_unregister_syscall_hook(__NR_execve);
+    xnsu_unregister_syscall_hook(__NR_execveat);
     xnsu_unregister_syscall_hook(__NR_newfstatat);
     xnsu_unregister_syscall_hook(__NR_faccessat);
     xnsu_unregister_syscall_hook(__NR_openat);

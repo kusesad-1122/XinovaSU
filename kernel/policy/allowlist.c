@@ -26,7 +26,7 @@
 #include "infra/su_mount_ns.h"
 
 #define FILE_MAGIC 0x7f4b5355 // ' KSU', u32
-#define FILE_FORMAT_VERSION 3 // u32
+#define FILE_FORMAT_VERSION 4 // u32
 
 #define XNSU_APP_PROFILE_PRESERVE_UID 9999 // NOBODY_UID
 #define XNSU_DEFAULT_SELINUX_DOMAIN "u:r:" KERNEL_SU_DOMAIN ":s0"
@@ -49,6 +49,7 @@ static void __init init_default_profiles()
            sizeof(default_root_profile.capabilities.effective));
     default_root_profile.namespaces = XNSU_NS_INHERITED;
     strcpy(default_root_profile.selinux_domain, XNSU_DEFAULT_SELINUX_DOMAIN);
+    default_root_profile.flags = 0;
 
     // This means that we will umount modules by default!
     default_non_root_profile.umount_modules = true;
@@ -311,8 +312,7 @@ bool xnsu_uid_should_umount(uid_t uid)
         return false;
     }
     if (unlikely(uid == WEBVIEW_ZYGOTE_UID)) {
-        // we should not umount for webview zygote
-        return false;
+        return xnsu_webview_zygote_umount_enabled;
     }
 #ifdef CONFIG_XNSU_DISABLE_POLICY
     return !__xnsu_is_allow_uid(uid);
@@ -494,6 +494,31 @@ put_task:
     put_task_struct(tsk);
 }
 
+static void migrate_profile(u32 version, struct app_profile *profile)
+{
+    char *domain;
+    static const size_t domain_len = sizeof(profile->rp_config.profile.selinux_domain);
+
+    switch (version) {
+    case 2:
+        if (profile->allow_su) {
+            domain = profile->rp_config.profile.selinux_domain;
+            if (strncmp(domain, "u:r:su:s0", domain_len) == 0) {
+                strscpy_pad(domain, XNSU_DEFAULT_SELINUX_DOMAIN, domain_len);
+                pr_info("migrated domain of profile: %s\n", profile->key);
+            }
+        }
+        fallthrough;
+    case 3:
+        if (profile->allow_su) {
+            profile->rp_config.profile.flags = XNSU_FLAG_NO_NEW_PRIVS;
+        }
+        break;
+    }
+
+    profile->version = XNSU_APP_PROFILE_VER;
+}
+
 void xnsu_load_allow_list()
 {
 #ifdef CONFIG_XNSU_DISABLE_POLICY
@@ -506,6 +531,7 @@ void xnsu_load_allow_list()
     struct file *fp = NULL;
     u32 magic;
     u32 version;
+    size_t app_profile_size;
 
     // load allowlist now!
     fp = filp_open(KERNEL_SU_ALLOWLIST, O_RDONLY, 0);
@@ -521,25 +547,45 @@ void xnsu_load_allow_list()
     }
 
     if (kernel_read(fp, &version, sizeof(version), &off) != sizeof(version)) {
-        pr_err("allowlist read version: %d failed\n", version);
+        pr_err("allowlist read version failed\n");
+        goto exit;
+    }
+
+    if (version < 2 || version > XNSU_APP_PROFILE_VER) {
+        pr_err("invalid allowlist version: %d\n", version);
         goto exit;
     }
 
     pr_info("allowlist version: %d\n", version);
 
+    // The pre-v4 app_profile struct (no root_profile.flags) is 776 bytes.
+    // Read old files with the old size and migrate each entry, so upgrading
+    // the kernel does not misparse the on-disk allowlist.
+    static const size_t kAppProfileSizePreV4 = 776;
+    app_profile_size = version < XNSU_APP_PROFILE_VER ? kAppProfileSizePreV4
+                                                       : sizeof(struct app_profile);
+
     while (true) {
         struct app_profile profile;
 
-        ret = kernel_read(fp, &profile, sizeof(profile), &off);
+        ret = kernel_read(fp, &profile, app_profile_size, &off);
 
-        if (ret <= 0) {
-            pr_info("load_allow_list read err: %zd\n", ret);
+        if (ret != app_profile_size) {
+            if (ret != 0)
+                pr_info("load_allow_list read err: %zd\n", ret);
             break;
         }
+
+        migrate_profile(version, &profile);
 
         pr_info("load_allow_uid, name: %s, uid: %d, allow: %d\n", profile.key, profile.curr_uid, profile.allow_su);
         xnsu_set_app_profile(&profile);
     }
+    xnsu_show_allow_list();
+    filp_close(fp, 0);
+    if (version < XNSU_APP_PROFILE_VER)
+        xnsu_persistent_allow_list();
+    return;
 
 exit:
     xnsu_show_allow_list();

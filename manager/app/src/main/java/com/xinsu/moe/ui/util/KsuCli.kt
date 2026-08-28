@@ -101,6 +101,13 @@ fun execKsud(args: String, newShell: Boolean = false): Boolean {
     }
 }
 
+/**
+ * POSIX single-quote escaping for shell arguments. Wraps [s] in single quotes
+ * and escapes embedded quotes (' -> '\''), so user-controlled values can never
+ * break out of the command string passed to `sh -c`.
+ */
+private fun shq(s: String): String = "'" + s.replace("'", "'\\''") + "'"
+
 suspend fun getFeatureStatus(feature: String): String = withContext(Dispatchers.IO) {
     val shell = getRootShell()
     val out = shell.newJob()
@@ -525,10 +532,10 @@ fun blHideIsEnabled(): Boolean {
 fun blHideSetEnabled(enabled: Boolean): Boolean {
     return if (enabled) {
         val ok = execKsud("bl-hide", true)
-        ShellUtils.fastCmdResult(getRootShell(), "touch '$BL_HIDE_MARKER'")
+        ShellUtils.fastCmdResult(getRootShell(), "touch ${shq(BL_HIDE_MARKER)}")
         ok
     } else {
-        ShellUtils.fastCmdResult(getRootShell(), "rm -f '$BL_HIDE_MARKER'")
+        ShellUtils.fastCmdResult(getRootShell(), "rm -f ${shq(BL_HIDE_MARKER)}")
     }
 }
 
@@ -541,7 +548,7 @@ fun umountReadPaths(): List<String> {
 }
 
 fun umountSavePaths(paths: List<String>): Boolean {
-    val args = paths.joinToString("") { " '${it}'" }
+    val args = paths.joinToString("") { " ${shq(it)}" }
     return execKsud("kernel umount save$args", true)
 }
 
@@ -563,7 +570,7 @@ fun utsSpoofRead(): UtsSpoofConfig {
 }
 
 fun utsSpoofSet(release: String, version: String): Boolean {
-    return execKsud("kernel uts-spoof set '$release' '$version'", true)
+    return execKsud("kernel uts-spoof set ${shq(release)} ${shq(version)}", true)
 }
 
 fun utsSpoofReset(): Boolean {
@@ -615,7 +622,7 @@ fun pathHideRead(): PathHideConfig {
 fun pathHideSave(enabled: Boolean, paths: List<String>, uids: Set<Int>): Boolean {
     val cmd = "kernel path-hide set" +
             (if (enabled) " --enabled" else "") +
-            paths.joinToString("") { " --path '$it'" } +
+            paths.joinToString("") { " --path ${shq(it)}" } +
             uids.joinToString("") { " --uid $it" }
     return execKsud(cmd, true)
 }

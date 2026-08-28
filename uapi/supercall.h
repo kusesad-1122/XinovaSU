@@ -22,11 +22,20 @@ static const __u32 XNSU_GET_INFO_FLAG_LKM = (1U << 0);
 static const __u32 XNSU_GET_INFO_FLAG_MANAGER = (1U << 1);
 static const __u32 XNSU_GET_INFO_FLAG_LATE_LOAD = (1U << 2);
 static const __u32 XNSU_GET_INFO_FLAG_PR_BUILD = (1U << 3);
+static const __u32 XNSU_KERNEL_UAPI_VERSION = 2;
 
 struct xnsu_get_info_cmd {
     __u32 version; /* Output: KERNEL_SU_VERSION */
     __u32 flags; /* Output: XNSU_GET_INFO_FLAG_* bits */
     __u32 features; /* Output: max feature ID supported */
+    __u32 uapi_version; /* Output: XNSU_KERNEL_UAPI_VERSION */
+};
+
+/* Compatibility form used by pre-UAPI-version clients. */
+struct xnsu_get_info_legacy_cmd {
+    __u32 version;
+    __u32 flags;
+    __u32 features;
 };
 
 struct xnsu_report_event_cmd {
@@ -140,7 +149,8 @@ static const __u8 XNSU_UMOUNT_DEL = 2; /* delete entry, strcmp */
 
 /* IOCTL command definitions */
 static const __u32 XNSU_IOCTL_GRANT_ROOT = _IOC(_IOC_NONE, 'K', 1, 0);
-static const __u32 XNSU_IOCTL_GET_INFO = _IOC(_IOC_READ, 'K', 2, 0);
+static const __u32 XNSU_IOCTL_GET_INFO = _IOR('K', 2, struct xnsu_get_info_cmd);
+static const __u32 XNSU_IOCTL_GET_INFO_LEGACY = _IOC(_IOC_READ, 'K', 2, 0);
 static const __u32 XNSU_IOCTL_REPORT_EVENT = _IOC(_IOC_WRITE, 'K', 3, 0);
 static const __u32 XNSU_IOCTL_SET_SEPOLICY = _IOC(_IOC_READ | _IOC_WRITE, 'K', 4, 0);
 static const __u32 XNSU_IOCTL_CHECK_SAFEMODE = _IOC(_IOC_READ, 'K', 5, 0);

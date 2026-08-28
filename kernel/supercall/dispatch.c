@@ -60,9 +60,37 @@ static int do_get_info(void __user *arg)
     cmd.flags |= XNSU_GET_INFO_FLAG_PR_BUILD;
 #endif
     cmd.features = XNSU_FEATURE_MAX;
+    cmd.uapi_version = XNSU_KERNEL_UAPI_VERSION;
 
     if (copy_to_user(arg, &cmd, sizeof(cmd))) {
         pr_err("get_version: copy_to_user failed\n");
+        return -EFAULT;
+    }
+
+    return 0;
+}
+
+static int do_get_info_legacy(void __user *arg)
+{
+    struct xnsu_get_info_legacy_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
+
+#ifdef MODULE
+    cmd.flags |= XNSU_GET_INFO_FLAG_LKM;
+#endif
+
+    if (is_manager()) {
+        cmd.flags |= XNSU_GET_INFO_FLAG_MANAGER;
+    }
+    if (xnsu_late_loaded) {
+        cmd.flags |= XNSU_GET_INFO_FLAG_LATE_LOAD;
+    }
+#ifdef EXPECTED_SIZE2
+    cmd.flags |= XNSU_GET_INFO_FLAG_PR_BUILD;
+#endif
+    cmd.features = XNSU_FEATURE_MAX;
+
+    if (copy_to_user(arg, &cmd, sizeof(cmd))) {
+        pr_err("get_version_legacy: copy_to_user failed\n");
         return -EFAULT;
     }
 
@@ -789,6 +817,12 @@ static const struct xnsu_ioctl_cmd_map xnsu_ioctl_handlers[] = {
         .cmd = XNSU_IOCTL_GET_INFO,
         .name = "GET_INFO",
         .handler = do_get_info,
+        .perm_check = always_allow
+    },
+    {
+        .cmd = XNSU_IOCTL_GET_INFO_LEGACY,
+        .name = "GET_INFO_LEGACY",
+        .handler = do_get_info_legacy,
         .perm_check = always_allow
     },
     {

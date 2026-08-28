@@ -11,6 +11,7 @@
 #include <linux/version.h>
 #include <linux/sched/task_stack.h>
 #include <linux/ptrace.h>
+#include <linux/fcntl.h>
 
 #include "arch.h"
 #include "policy/allowlist.h"
@@ -116,11 +117,12 @@ int xnsu_handle_stat(int *dfd, const char __user **filename_user, int *flags)
     return 0;
 }
 
-long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
+static long xnsu_handle_execve_sucompat_common(const char __user **filename_user,
+                                               const char __user *const __user *argv_user,
+                                               int orig_nr, const struct pt_regs *regs)
 {
     const char su[] = SU_PATH;
     const char __user *fn;
-    const char __user *const __user *argv_user = (const char __user *const __user *)PT_REGS_PARM2(regs);
     struct xnsu_sulog_pending_event *pending_sucompat = NULL;
     char path[sizeof(su) + 1];
     long ret;
@@ -169,6 +171,24 @@ long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr,
 
 do_orig_execve:
     return xnsu_syscall_table[orig_nr](regs);
+}
+
+long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
+{
+    return xnsu_handle_execve_sucompat_common(
+        filename_user, (const char __user *const __user *)PT_REGS_PARM2(regs), orig_nr, regs);
+}
+
+long xnsu_handle_execveat_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
+{
+    // execveat(dirfd, pathname, argv, envp, flags): only redirect when
+    // dirfd == AT_FDCWD and flags == 0. Otherwise the filename is relative
+    // to a different dirfd and rewriting it would execute the wrong file.
+    if ((int)PT_REGS_PARM1(regs) != AT_FDCWD || (int)PT_REGS_PARM5(regs) != 0)
+        return xnsu_syscall_table[orig_nr](regs);
+
+    return xnsu_handle_execve_sucompat_common(
+        filename_user, (const char __user *const __user *)PT_REGS_PARM3(regs), orig_nr, regs);
 }
 
 // sucompat: permitted process can execute 'su' to gain root access.

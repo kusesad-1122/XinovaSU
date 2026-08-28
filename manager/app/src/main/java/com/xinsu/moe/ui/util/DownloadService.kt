@@ -104,10 +104,21 @@ class DownloadService : Service() {
 
     private fun startDownload(id: Int, url: String, fileName: String) {
         val job = serviceScope.launch {
-            val target = resolveAvailableTarget(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                fileName
-            )
+            val target: File
+            try {
+                target = resolveAvailableTarget(
+                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                    fileName
+                )
+            } catch (e: Exception) {
+                DownloadManager.markFailed(id, e.message ?: "Invalid file name")
+                notificationManager.cancel(id)
+                notificationManager.notify(
+                    COMPLETION_NOTIFICATION_ID_BASE + id,
+                    buildFailureNotification("download")
+                )
+                return@launch
+            }
             try {
                 ksuApp.okhttpClient.newCall(Request.Builder().url(url).build()).execute()
                     .use { resp ->
@@ -175,14 +186,20 @@ class DownloadService : Service() {
         directory: File,
         fileName: String
     ): File {
-        val dotIndex = fileName.lastIndexOf('.')
-        val baseName = if (dotIndex > 0) fileName.substring(0, dotIndex) else fileName
-        val extension = if (dotIndex > 0) fileName.substring(dotIndex) else ""
+        // Path-traversal guard: only accept a plain file name. Strip any
+        // directory components and reject separators / ".." outright so a
+        // malicious remote resource cannot write outside the Downloads dir.
+        val safeName = sanitizeFileName(fileName)
+            ?: throw IOException("Invalid file name: $fileName")
+
+        val dotIndex = safeName.lastIndexOf('.')
+        val baseName = if (dotIndex > 0) safeName.substring(0, dotIndex) else safeName
+        val extension = if (dotIndex > 0) safeName.substring(dotIndex) else ""
 
         var index = 0
         while (true) {
             val candidateName = if (index == 0) {
-                fileName
+                safeName
             } else {
                 "$baseName ($index)$extension"
             }
@@ -192,6 +209,17 @@ class DownloadService : Service() {
             }
             index++
         }
+    }
+
+    private fun sanitizeFileName(raw: String): String? {
+        if (raw.isBlank() || raw == "." || raw == "..") return null
+
+        // Reject absolute paths and any traversal attempt; then keep only the
+        // final component so embedded separators cannot escape the directory.
+        val name = raw.substringAfterLast('/').substringAfterLast('\\')
+        if (name.isBlank() || name == "." || name == "..") return null
+        if (name.any { it == '/' || it == '\\' || it == '\u0000' }) return null
+        return name
     }
 
     private fun buildProgressNotification(

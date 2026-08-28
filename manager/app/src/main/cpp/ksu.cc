@@ -79,9 +79,24 @@ static struct xnsu_get_info_cmd g_version {};
 
 struct xnsu_get_info_cmd get_info() {
     if (!g_version.version) {
-        ksuctl(XNSU_IOCTL_GET_INFO, &g_version);
+        if (ksuctl(XNSU_IOCTL_GET_INFO, &g_version) < 0) {
+            // Pre-UAPI-version kernels only know the legacy (size-less) GET_INFO
+            // command; it fills the first three fields and leaves the UAPI
+            // version unknown (0).
+            ksuctl(XNSU_IOCTL_GET_INFO_LEGACY, &g_version);
+            g_version.uapi_version = 0;
+        }
     }
     return g_version;
+}
+
+uint32_t get_kernel_uapi_version() {
+    auto info = get_info();
+    return info.uapi_version;
+}
+
+uint32_t get_manager_uapi_version() {
+    return XNSU_KERNEL_UAPI_VERSION;
 }
 
 uint32_t get_version() {

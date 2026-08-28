@@ -114,8 +114,18 @@ object Natives {
         }
     }
 
+    val kernelUAPIVersion: Int
+        external get
+
+    val managerUAPIVersion: Int
+        external get
+
+    fun checkUAPIMismatch(): Boolean {
+        return kernelUAPIVersion != managerUAPIVersion
+    }
+
     fun requireNewKernel(): Boolean {
-        return version != -1 && version < MINIMAL_SUPPORTED_KERNEL
+        return (version != -1 && version < MINIMAL_SUPPORTED_KERNEL) || checkUAPIMismatch()
     }
 
     @Keep
