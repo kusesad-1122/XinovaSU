@@ -5,7 +5,7 @@
 #include <linux/cred.h>
 #include <linux/workqueue.h>
 
-#define KERNEL_SU_VERSION XNSU_VERSION
+#define KERNEL_SU_VERSION KSU_VERSION
 
 extern struct cred *xnsu_cred;
 extern bool xnsu_late_loaded;

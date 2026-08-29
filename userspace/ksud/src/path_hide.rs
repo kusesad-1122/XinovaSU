@@ -8,15 +8,16 @@
 //! Config ([`defs::PATH_HIDE_CONFIG`]), one directive per line:
 //! `enabled=0|1`, `filter_system=0|1`, `path=<path>`, `uid=<uid>`.
 
-use crate::{defs, ksucalls};
+use crate::{defs, ksucalls, utils};
 use anyhow::Result;
 use log::warn;
 use std::fmt::Write as _;
 use std::fs;
+use std::path::Path;
 
 // XNSU_FEATURE_PATH_HIDE (uapi/feature.h); the master switch rides the generic
 // feature IOCTL, the paths/uids ride the dedicated path-hide IOCTL.
-const FEATURE_PATH_HIDE: u32 = 7;
+const FEATURE_PATH_HIDE: u32 = 8;
 
 struct Config {
     enabled: bool,
@@ -89,7 +90,7 @@ pub fn save(enabled: bool, filter_system: bool, paths: &[String], uids: &[u32]) 
     for uid in uids {
         let _ = writeln!(body, "uid={uid}");
     }
-    fs::write(defs::PATH_HIDE_CONFIG, body)?;
+    utils::atomic_write_str(Path::new(defs::PATH_HIDE_CONFIG), &body, 0o600)?;
     apply_from_config();
     Ok(())
 }

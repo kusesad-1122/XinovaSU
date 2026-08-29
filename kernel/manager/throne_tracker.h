@@ -2,7 +2,7 @@
 #define __XNSU_H_UID_OBSERVER
 
 #include <linux/types.h>
-#ifdef CONFIG_XNSU_DISABLE_MANAGER
+#ifdef CONFIG_KSU_DISABLE_MANAGER
 static inline void xnsu_throne_tracker_init()
 {
 }

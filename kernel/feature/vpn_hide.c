@@ -1,8 +1,11 @@
 #include <linux/cred.h>
 #include <linux/dcache.h>
 #include <linux/err.h>
+#include <linux/fcntl.h>
 #include <linux/file.h>
 #include <linux/fs.h>
+#include <linux/fs_struct.h>
+#include <linux/path.h>
 #include <linux/if_addr.h>
 #include <linux/if_link.h>
 #include <linux/kernel.h>
@@ -38,7 +41,7 @@
 // Interface-name prefixes treated as VPN-ish. These are effectively always VPN
 // tunnels; real transports (wlan/eth/rmnet/lo) are never matched.
 static const char *const vh_iface_prefixes[] = {
-    "tun", "tap", "ppp", "wg", "ipsec", "utun",
+    "tun", "tap", "ppp", "wg", "ipsec", "utun", "ccmni",
 };
 
 struct xnsu_vh_dirent64 {
@@ -152,6 +155,101 @@ bool xnsu_vpn_hide_should_filter_netlink(void)
         return false;
     }
     return xnsu_vpn_hide_is_target(current_uid().val);
+}
+
+// Check if absolute path is /sys/class/net/<vpn>[/...]
+static bool vh_path_is_vpn_sysfs(const char *abs)
+{
+    static const char prefix[] = "/sys/class/net/";
+    size_t prelen = sizeof(prefix) - 1;
+    const char *iface;
+    char name[64];
+    size_t i;
+
+    if (strncmp(abs, prefix, prelen) != 0) {
+        return false;
+    }
+    iface = abs + prelen;
+    if (iface[0] == '\0') {
+        return false;
+    }
+    for (i = 0; i < sizeof(name) - 1 && iface[i] && iface[i] != '/'; i++) {
+        name[i] = iface[i];
+    }
+    name[i] = '\0';
+    if (name[0] == '\0') {
+        return false;
+    }
+    for (i = 0; i < ARRAY_SIZE(vh_iface_prefixes); i++) {
+        size_t len = strlen(vh_iface_prefixes[i]);
+        if (strncmp(name, vh_iface_prefixes[i], len) == 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+static bool vh_resolve_abs(int dfd, const char *raw, char *out, size_t outlen)
+{
+    char dirbuf[XNSU_VH_PATH_LEN];
+    char joined[XNSU_VH_PATH_LEN];
+    char *dpath;
+    struct path pwd;
+    struct file *f;
+
+    if (raw[0] == '/') {
+        strscpy(out, raw, outlen);
+        return true;
+    }
+    if (dfd == AT_FDCWD) {
+        get_fs_pwd(current->fs, &pwd);
+        dpath = d_path(&pwd, dirbuf, sizeof(dirbuf));
+        path_put(&pwd);
+    } else {
+        f = fget(dfd);
+        if (!f) {
+            return false;
+        }
+        dpath = d_path(&f->f_path, dirbuf, sizeof(dirbuf));
+        fput(f);
+    }
+    if (IS_ERR(dpath)) {
+        return false;
+    }
+    snprintf(joined, sizeof(joined), "%s/%s", dpath, raw);
+    strscpy(out, joined, outlen);
+    return true;
+}
+
+bool xnsu_vpn_hide_should_hide(int *dfd, const char __user **filename_user)
+{
+    char raw[XNSU_VH_PATH_LEN];
+    char abs[XNSU_VH_PATH_LEN];
+    const char __user *fn;
+    long len;
+
+    if (!static_branch_unlikely(&xnsu_vpn_hide)) {
+        return false;
+    }
+    if (current->pid == 1) {
+        return false;
+    }
+    if (!xnsu_vpn_hide_is_target(current_uid().val)) {
+        return false;
+    }
+    if (!filename_user || !*filename_user) {
+        return false;
+    }
+    fn = (const char __user *)untagged_addr((unsigned long)*filename_user);
+    len = strncpy_from_user(raw, fn, sizeof(raw));
+    if (len < 0) {
+        return false;
+    }
+    raw[sizeof(raw) - 1] = '\0';
+    if (!vh_resolve_abs(dfd ? *dfd : AT_FDCWD, raw, abs, sizeof(abs))) {
+        return false;
+    }
+    return vh_path_is_vpn_sysfs(abs);
 }
 
 static bool vh_name_is_vpn(const char *name)
@@ -396,24 +494,219 @@ long xnsu_vpn_hide_filter_netlink_recvfrom(unsigned int fd, void __user *ubuf, l
 long xnsu_vpn_hide_filter_netlink_recvmsg(unsigned int fd, void __user *msg_user, long total)
 {
     struct user_msghdr umsg;
-    struct iovec iov;
+    struct iovec *kiov = NULL;
+    char *kbuf = NULL;
+    long new_len = total;
+    unsigned int i;
 
     (void)fd;
     if (copy_from_user(&umsg, msg_user, sizeof(umsg))) {
         return total;
     }
-    // Only the single-iovec case (what getifaddrs / NetworkInterface use) is
-    // rewritten; scatter-gather replies pass through untouched.
-    if (umsg.msg_iovlen != 1 || !umsg.msg_iov) {
+    if (!umsg.msg_iov || umsg.msg_iovlen == 0 || umsg.msg_iovlen > UIO_MAXIOV) {
         return total;
     }
-    if (copy_from_user(&iov, umsg.msg_iov, sizeof(iov))) {
+    if (total <= 0 || total > XNSU_VH_NL_MAX) {
         return total;
     }
-    if (!iov.iov_base || (long)iov.iov_len < total) {
+
+    // Fast path: single iovec
+    if (umsg.msg_iovlen == 1) {
+        struct iovec iov;
+        if (copy_from_user(&iov, umsg.msg_iov, sizeof(iov))) {
+            return total;
+        }
+        if (!iov.iov_base || (long)iov.iov_len < total) {
+            return total;
+        }
+        return vh_rewrite_user_nl(iov.iov_base, total);
+    }
+
+    // Multi-iovec: gather, filter, scatter back
+    kiov = kmalloc_array(umsg.msg_iovlen, sizeof(struct iovec), GFP_KERNEL);
+    if (!kiov) {
         return total;
     }
-    return vh_rewrite_user_nl(iov.iov_base, total);
+    if (copy_from_user(kiov, umsg.msg_iov, umsg.msg_iovlen * sizeof(struct iovec))) {
+        kfree(kiov);
+        return total;
+    }
+    kbuf = kmalloc(total, GFP_KERNEL);
+    if (!kbuf) {
+        kfree(kiov);
+        return total;
+    }
+    // Gather
+    {
+        long off = 0;
+        for (i = 0; i < umsg.msg_iovlen && off < total; i++) {
+            long chunk = kiov[i].iov_len;
+            if (chunk > total - off) {
+                chunk = total - off;
+            }
+            if (chunk <= 0 || !kiov[i].iov_base) {
+                continue;
+            }
+            if (copy_from_user(kbuf + off, kiov[i].iov_base, chunk)) {
+                kfree(kbuf);
+                kfree(kiov);
+                return total;
+            }
+            off += chunk;
+        }
+        if (off != total) {
+            kfree(kbuf);
+            kfree(kiov);
+            return total;
+        }
+    }
+    new_len = vh_filter_nl_buf(kbuf, total);
+    if (new_len >= total || new_len <= 0) {
+        kfree(kbuf);
+        kfree(kiov);
+        return total;
+    }
+    // Scatter back
+    {
+        long off = 0;
+        for (i = 0; i < umsg.msg_iovlen && off < new_len; i++) {
+            long chunk = kiov[i].iov_len;
+            if (chunk > new_len - off) {
+                chunk = new_len - off;
+            }
+            if (chunk <= 0 || !kiov[i].iov_base) {
+                continue;
+            }
+            if (copy_to_user(kiov[i].iov_base, kbuf + off, chunk)) {
+                kfree(kbuf);
+                kfree(kiov);
+                return total;
+            }
+            off += chunk;
+        }
+    }
+    kfree(kbuf);
+    kfree(kiov);
+    return new_len;
+}
+
+long xnsu_vpn_hide_filter_netlink_recvmmsg(unsigned int fd, void __user *mmsg_user, unsigned int vlen, long ret)
+{
+    unsigned int i;
+
+    (void)fd;
+    if (!mmsg_user || vlen == 0 || ret <= 0 || ret > (long)vlen) {
+        return ret;
+    }
+    if (ret > 1024) {
+        return ret;
+    }
+    for (i = 0; i < (unsigned int)ret; i++) {
+        struct mmsghdr umsg;
+        void __user *hdr_ptr = (char __user *)mmsg_user + i * sizeof(struct mmsghdr);
+        if (copy_from_user(&umsg, hdr_ptr, sizeof(umsg))) {
+            continue;
+        }
+        // msg_len is the bytes received for this datagram
+        if (umsg.msg_len == 0 || umsg.msg_len > XNSU_VH_NL_MAX) {
+            continue;
+        }
+        // Filter this datagram's iovec(s)
+        {
+            long new_len;
+            // Reuse recvmsg logic by fabricating a user_msghdr pointer to this entry's hdr
+            // We need to handle the iovec inside umsg.msg_hdr
+            struct user_msghdr *msg_hdr = &umsg.msg_hdr;
+            // Temporarily create a user pointer to the hdr inside the mmsg array
+            // Instead of fabricating, directly handle here
+            if (!msg_hdr->msg_iov || msg_hdr->msg_iovlen == 0) {
+                continue;
+            }
+            // Single iovec fast path
+            if (msg_hdr->msg_iovlen == 1) {
+                struct iovec iov;
+                if (copy_from_user(&iov, msg_hdr->msg_iov, sizeof(iov))) {
+                    continue;
+                }
+                if (!iov.iov_base || (long)iov.iov_len < (long)umsg.msg_len) {
+                    continue;
+                }
+                new_len = vh_rewrite_user_nl(iov.iov_base, umsg.msg_len);
+            } else {
+                // Multi-iovec datagram: gather/filter/scatter
+                struct iovec *kiov = NULL;
+                char *kbuf = NULL;
+                unsigned int j;
+                long off;
+                if (msg_hdr->msg_iovlen > UIO_MAXIOV) {
+                    continue;
+                }
+                kiov = kmalloc_array(msg_hdr->msg_iovlen, sizeof(struct iovec), GFP_KERNEL);
+                if (!kiov) {
+                    continue;
+                }
+                if (copy_from_user(kiov, msg_hdr->msg_iov, msg_hdr->msg_iovlen * sizeof(struct iovec))) {
+                    kfree(kiov);
+                    continue;
+                }
+                kbuf = kmalloc(umsg.msg_len, GFP_KERNEL);
+                if (!kbuf) {
+                    kfree(kiov);
+                    continue;
+                }
+                off = 0;
+                for (j = 0; j < msg_hdr->msg_iovlen && off < (long)umsg.msg_len; j++) {
+                    long chunk = kiov[j].iov_len;
+                    if (chunk > (long)umsg.msg_len - off) {
+                        chunk = (long)umsg.msg_len - off;
+                    }
+                    if (chunk <= 0 || !kiov[j].iov_base) {
+                        continue;
+                    }
+                    if (copy_from_user(kbuf + off, kiov[j].iov_base, chunk)) {
+                        off = -1;
+                        break;
+                    }
+                    off += chunk;
+                }
+                if (off != (long)umsg.msg_len) {
+                    kfree(kbuf);
+                    kfree(kiov);
+                    continue;
+                }
+                new_len = vh_filter_nl_buf(kbuf, umsg.msg_len);
+                if (new_len >= (long)umsg.msg_len || new_len <= 0) {
+                    kfree(kbuf);
+                    kfree(kiov);
+                    continue;
+                }
+                off = 0;
+                for (j = 0; j < msg_hdr->msg_iovlen && off < new_len; j++) {
+                    long chunk = kiov[j].iov_len;
+                    if (chunk > new_len - off) {
+                        chunk = new_len - off;
+                    }
+                    if (chunk <= 0 || !kiov[j].iov_base) {
+                        continue;
+                    }
+                    if (copy_to_user(kiov[j].iov_base, kbuf + off, chunk)) {
+                        break;
+                    }
+                    off += chunk;
+                }
+                kfree(kbuf);
+                kfree(kiov);
+            }
+            if (new_len != (long)umsg.msg_len && new_len > 0 && new_len < (long)umsg.msg_len) {
+                // Update msg_len in user mmsghdr
+                umsg.msg_len = new_len;
+                if (copy_to_user(&((struct mmsghdr __user *)mmsg_user)[i].msg_len, &umsg.msg_len, sizeof(umsg.msg_len))) {
+                    // best effort
+                }
+            }
+        }
+    }
+    return ret;
 }
 
 static int vpn_hide_feature_get(u64 *value)

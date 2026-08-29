@@ -115,7 +115,7 @@ int xnsu_observer_init(void)
     ret = watch_one_dir(&g_watch);
     pr_info("observer init done\n");
     // packages.list may already exist at this point (LKM boot patch path:
-    // xnsuinit -> init.real, /data is mounted before post-fs-data, and the
+    // ksuinit -> init.real, /data is mounted before post-fs-data, and the
     // file is left over from the previous boot). fsnotify only fires on
     // CREATE / MOVE events, so PMS rewriting it in-place would leave the
     // manager appid permanently invalid. Kick a scan up-front so the

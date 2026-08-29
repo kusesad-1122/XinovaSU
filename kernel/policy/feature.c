@@ -3,7 +3,7 @@
 
 #include <linux/mutex.h>
 
-static const struct xnsu_feature_handler *feature_handlers[XNSU_FEATURE_MAX];
+static const struct xnsu_feature_handler *feature_handlers[KSU_FEATURE_MAX];
 
 static DEFINE_MUTEX(feature_mutex);
 
@@ -14,7 +14,7 @@ int __init xnsu_register_feature_handler(const struct xnsu_feature_handler *hand
         return -EINVAL;
     }
 
-    if (handler->feature_id >= XNSU_FEATURE_MAX) {
+    if (handler->feature_id >= KSU_FEATURE_MAX) {
         pr_err("feature: invalid feature_id %u\n", handler->feature_id);
         return -EINVAL;
     }
@@ -43,7 +43,7 @@ int xnsu_unregister_feature_handler(u32 feature_id)
 {
     int ret = 0;
 
-    if (feature_id >= XNSU_FEATURE_MAX) {
+    if (feature_id >= KSU_FEATURE_MAX) {
         pr_err("feature: invalid feature_id %u\n", feature_id);
         return -EINVAL;
     }
@@ -70,7 +70,7 @@ int xnsu_get_feature(u32 feature_id, u64 *value, bool *supported)
     int ret = 0;
     const struct xnsu_feature_handler *handler;
 
-    if (feature_id >= XNSU_FEATURE_MAX) {
+    if (feature_id >= KSU_FEATURE_MAX) {
         pr_err("feature: invalid feature_id %u\n", feature_id);
         return -EINVAL;
     }
@@ -114,7 +114,7 @@ int xnsu_set_feature(u32 feature_id, u64 value)
     int ret = 0;
     const struct xnsu_feature_handler *handler;
 
-    if (feature_id >= XNSU_FEATURE_MAX) {
+    if (feature_id >= KSU_FEATURE_MAX) {
         pr_err("feature: invalid feature_id %u\n", feature_id);
         return -EINVAL;
     }
@@ -149,7 +149,7 @@ void __init xnsu_feature_init(void)
 {
     int i;
 
-    for (i = 0; i < XNSU_FEATURE_MAX; i++) {
+    for (i = 0; i < KSU_FEATURE_MAX; i++) {
         feature_handlers[i] = NULL;
     }
 
@@ -162,7 +162,7 @@ void __exit xnsu_feature_exit(void)
 
     mutex_lock(&feature_mutex);
 
-    for (i = 0; i < XNSU_FEATURE_MAX; i++) {
+    for (i = 0; i < KSU_FEATURE_MAX; i++) {
         feature_handlers[i] = NULL;
     }
 

@@ -20,10 +20,10 @@ fn read_u32(path: &PathBuf) -> Result<u32> {
 fn set_kernel_param(appid: u32) -> Result<()> {
     let kernel_param_path = Path::new(KERNEL_PARAM_PATH).join("parameters");
 
-    let xnsu_debug_manager_appid = kernel_param_path.join("xnsu_debug_manager_appid");
-    let before_appid = read_u32(&xnsu_debug_manager_appid)?;
-    std::fs::write(&xnsu_debug_manager_appid, appid.to_string())?;
-    let after_appid = read_u32(&xnsu_debug_manager_appid)?;
+    let ksu_debug_manager_appid = kernel_param_path.join("ksu_debug_manager_appid");
+    let before_appid = read_u32(&ksu_debug_manager_appid)?;
+    std::fs::write(&ksu_debug_manager_appid, appid.to_string())?;
+    let after_appid = read_u32(&ksu_debug_manager_appid)?;
 
     println!("set manager appid: {before_appid} -> {after_appid}");
 
@@ -41,7 +41,7 @@ fn get_pkg_appid(pkg: &str) -> Result<u32> {
 pub fn set_manager(pkg: &str) -> Result<()> {
     ensure!(
         Path::new(KERNEL_PARAM_PATH).exists(),
-        "CONFIG_XNSU_DEBUG is not enabled"
+        "CONFIG_KSU_DEBUG is not enabled"
     );
 
     let appid = get_pkg_appid(pkg)?;
@@ -59,7 +59,7 @@ pub fn insmod(module: &Path, params: &[String]) -> Result<()> {
         fs::read(&module).with_context(|| format!("read module failed: {}", module.display()))?;
     let cparams = CString::new(params.join(" "))?;
 
-    xnsuinit::load_module(&module_data, &cparams)
+    ksuinit::load_module(&module_data, &cparams)
         .with_context(|| format!("load module failed: {}", module.display()))?;
 
     println!("Loaded kernel module: {}", module.display());

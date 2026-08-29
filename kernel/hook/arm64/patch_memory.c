@@ -89,7 +89,7 @@ fail:
 // However, it's backport to android13-5.10 but not to android12-5.10.
 // https://cs.android.com/android/_/android/kernel/common/+/6d9f07d8f1ffc310a6877153fe882f35ae380799
 // So we need to grep kernel source code to detect which one to use.
-#if XNSU_NEW_DCACHE_FLUSH
+#if KSU_NEW_DCACHE_FLUSH
 #define xnsu_flush_dcache(start, sz)                                                                                   \
     ({                                                                                                                 \
         unsigned long __start = (start);                                                                               \

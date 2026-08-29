@@ -7,6 +7,7 @@
 
 void xnsu_kernel_umount_init(void);
 void xnsu_kernel_umount_exit(void);
+extern bool xnsu_webview_zygote_umount_enabled;
 
 // Handler function to be called from setresuid hook
 int xnsu_handle_umount(uid_t old_uid, uid_t new_uid);

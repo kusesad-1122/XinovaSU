@@ -8,10 +8,11 @@
 //! Config file ([`defs::UTS_SPOOF_CONFIG`]): line 1 = release, line 2 = version.
 //! Presence of the file means spoofing is enabled.
 
-use crate::{defs, ksucalls};
+use crate::{defs, ksucalls, utils};
 use anyhow::Result;
 use log::warn;
 use std::fs;
+use std::path::Path;
 
 /// Read `(release, version)` from the config, or `None` when disabled.
 pub fn read_config() -> Option<(String, String)> {
@@ -36,7 +37,11 @@ pub fn apply_from_config() {
 
 /// Persist a spoof and apply it immediately (used by the manager).
 pub fn save(release: &str, version: &str) -> Result<()> {
-    fs::write(defs::UTS_SPOOF_CONFIG, format!("{release}\n{version}\n"))?;
+    utils::atomic_write_str(
+        Path::new(defs::UTS_SPOOF_CONFIG),
+        &format!("{release}\n{version}\n"),
+        0o600,
+    )?;
     ksucalls::uts_spoof_apply(1, release, version)?;
     Ok(())
 }

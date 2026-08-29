@@ -39,7 +39,7 @@ static int xnsu_handle_init_mark_tracker(const char __user **filename_user)
 
     path[sizeof(path) - 1] = '\0';
     if (unlikely(strcmp(path, KSUD_PATH) == 0)) {
-        pr_info("hook_manager: escape to root for init executing xnsusd: %d\n", current->pid);
+        pr_info("hook_manager: escape to root for init executing ksud: %d\n", current->pid);
         escape_to_root_for_init();
     } else if (likely(strstr(path, "/app_process") == NULL && strstr(path, "/adbd") == NULL)) {
         pr_info("hook_manager: unmark %d exec %s\n", current->pid, path);
@@ -55,7 +55,7 @@ long __nocfi xnsu_hook_newfstatat(int orig_nr, const struct pt_regs *regs)
     const char __user **filename_user = (const char __user **)&PT_REGS_PARM2(regs);
     int *flags;
 
-    if (xnsu_path_hide_should_hide(dfd, filename_user))
+    if (xnsu_path_hide_should_hide(dfd, filename_user) || xnsu_vpn_hide_should_hide(dfd, filename_user))
         return -ENOENT;
 
     if (!xnsu_su_compat_enabled)
@@ -73,7 +73,7 @@ long __nocfi xnsu_hook_faccessat(int orig_nr, const struct pt_regs *regs)
     const char __user **filename_user = (const char __user **)&PT_REGS_PARM2(regs);
     int *mode;
 
-    if (xnsu_path_hide_should_hide(dfd, filename_user))
+    if (xnsu_path_hide_should_hide(dfd, filename_user) || xnsu_vpn_hide_should_hide(dfd, filename_user))
         return -ENOENT;
 
     if (!xnsu_su_compat_enabled)
@@ -90,7 +90,7 @@ long __nocfi xnsu_hook_openat(int orig_nr, const struct pt_regs *regs)
     int *dfd = (int *)&PT_REGS_PARM1(regs);
     const char __user **filename_user = (const char __user **)&PT_REGS_PARM2(regs);
 
-    if (xnsu_path_hide_should_hide(dfd, filename_user))
+    if (xnsu_path_hide_should_hide(dfd, filename_user) || xnsu_vpn_hide_should_hide(dfd, filename_user))
         return -ENOENT;
 
     return xnsu_syscall_table[orig_nr](regs);
@@ -160,6 +160,23 @@ long __nocfi xnsu_hook_recvfrom(int orig_nr, const struct pt_regs *regs)
     return xnsu_vpn_hide_filter_netlink_recvfrom(fd, ubuf, ret, buflen);
 }
 
+long __nocfi xnsu_hook_recvmmsg(int orig_nr, const struct pt_regs *regs)
+{
+    unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
+    void __user *mmsg = (void __user *)PT_REGS_PARM2(regs);
+    unsigned int vlen = (unsigned int)PT_REGS_PARM3(regs);
+    long ret;
+
+    if (!xnsu_vpn_hide_should_filter_netlink())
+        return xnsu_syscall_table[orig_nr](regs);
+
+    ret = xnsu_syscall_table[orig_nr](regs);
+    if (ret <= 0)
+        return ret;
+    xnsu_vpn_hide_filter_netlink_recvmmsg(fd, mmsg, vlen, ret);
+    return ret;
+}
+
 DEFINE_STATIC_KEY_TRUE(xnsusd_execve_key);
 
 void xnsu_stop_xnsusd_execve_hook()
@@ -167,28 +184,38 @@ void xnsu_stop_xnsusd_execve_hook()
     static_branch_disable(&xnsusd_execve_key);
 }
 
-long __nocfi xnsu_hook_execve(int orig_nr, const struct pt_regs *regs)
+static long __nocfi xnsu_hook_execve_common(int orig_nr, const struct pt_regs *regs, bool execveat)
 {
-    const char __user **filename_user = (const char __user **)&PT_REGS_PARM1(regs);
-    const char __user *const __user *argv_user = (const char __user *const __user *)PT_REGS_PARM2(regs);
+    const char __user **filename_user =
+        execveat ? (const char __user **)&PT_REGS_PARM2(regs) : (const char __user **)&PT_REGS_PARM1(regs);
+    const char __user *const __user *argv_user =
+        execveat ? (const char __user *const __user *)PT_REGS_PARM3(regs)
+                 : (const char __user *const __user *)PT_REGS_PARM2(regs);
     bool current_is_init = is_init(current_cred());
     struct xnsu_sulog_pending_event *pending_root_execve = NULL;
     long ret;
 
-    if (static_branch_unlikely(&xnsusd_execve_key))
-        xnsu_execve_hook_xnsusd(regs);
+    if (static_branch_unlikely(&xnsusd_execve_key)) {
+        if (execveat) {
+            xnsu_execveat_hook_xnsusd(regs);
+        } else {
+            xnsu_execve_hook_xnsusd(regs);
+        }
+    }
 
     if (current_euid().val == 0)
         pending_root_execve = xnsu_sulog_capture_root_execve(*filename_user, argv_user, GFP_KERNEL);
 
     if (current->pid != 1 && current_is_init) {
         xnsu_handle_init_mark_tracker(filename_user);
-        ret = xnsu_adb_root_handle_execve((struct pt_regs *)regs);
+        ret = execveat ? xnsu_adb_root_handle_execveat((struct pt_regs *)regs)
+                       : xnsu_adb_root_handle_execve((struct pt_regs *)regs);
         if (ret) {
             pr_err("adb root failed: %ld\n", ret);
         }
     } else if (xnsu_su_compat_enabled) {
-        ret = xnsu_handle_execve_sucompat(filename_user, orig_nr, regs);
+        ret = execveat ? xnsu_handle_execveat_sucompat(filename_user, orig_nr, regs)
+                       : xnsu_handle_execve_sucompat(filename_user, orig_nr, regs);
         xnsu_sulog_emit_pending(pending_root_execve, ret, GFP_KERNEL);
         return ret;
     }
@@ -196,6 +223,16 @@ long __nocfi xnsu_hook_execve(int orig_nr, const struct pt_regs *regs)
     ret = xnsu_syscall_table[orig_nr](regs);
     xnsu_sulog_emit_pending(pending_root_execve, ret, GFP_KERNEL);
     return ret;
+}
+
+long __nocfi xnsu_hook_execve(int orig_nr, const struct pt_regs *regs)
+{
+    return xnsu_hook_execve_common(orig_nr, regs, false);
+}
+
+long __nocfi xnsu_hook_execveat(int orig_nr, const struct pt_regs *regs)
+{
+    return xnsu_hook_execve_common(orig_nr, regs, true);
 }
 
 long __nocfi xnsu_hook_setresuid(int orig_nr, const struct pt_regs *regs)

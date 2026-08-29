@@ -21,7 +21,7 @@ fun ThemeTemplate.toApplicationPlan(): ThemeApplicationPlan {
         backgroundStyle = recommendedBackground.name,
         preferredColorMode = preferredColorMode,
         artworkResourceName = bundle?.artwork?.resourceName,
-        backgroundImageAlpha = bundle?.let { 100 },
+        backgroundImageAlpha = bundle?.atmosphere?.readableOpacity?.times(100)?.roundToInt(),
         backgroundImageAlign = focalX?.let {
             when {
                 it < 0.4f -> 0

@@ -231,22 +231,22 @@ static int sepol_require_not_all(const char *value, const char *name)
 static int sepol_expected_argc(u32 cmd)
 {
     switch (cmd) {
-    case XNSU_SEPOLICY_CMD_NORMAL_PERM:
+    case KSU_SEPOLICY_CMD_NORMAL_PERM:
         return 4;
-    case XNSU_SEPOLICY_CMD_XPERM:
+    case KSU_SEPOLICY_CMD_XPERM:
         return 5;
-    case XNSU_SEPOLICY_CMD_TYPE_STATE:
+    case KSU_SEPOLICY_CMD_TYPE_STATE:
         return 1;
-    case XNSU_SEPOLICY_CMD_TYPE:
-    case XNSU_SEPOLICY_CMD_TYPE_ATTR:
+    case KSU_SEPOLICY_CMD_TYPE:
+    case KSU_SEPOLICY_CMD_TYPE_ATTR:
         return 2;
-    case XNSU_SEPOLICY_CMD_ATTR:
+    case KSU_SEPOLICY_CMD_ATTR:
         return 1;
-    case XNSU_SEPOLICY_CMD_TYPE_TRANSITION:
+    case KSU_SEPOLICY_CMD_TYPE_TRANSITION:
         return 5;
-    case XNSU_SEPOLICY_CMD_TYPE_CHANGE:
+    case KSU_SEPOLICY_CMD_TYPE_CHANGE:
         return 4;
-    case XNSU_SEPOLICY_CMD_GENFSCON:
+    case KSU_SEPOLICY_CMD_GENFSCON:
         return 3;
     default:
         return -EINVAL;
@@ -259,21 +259,21 @@ static int apply_one_sepolicy_cmd(struct policydb *db, const struct sepol_data *
     int ret;
 
     switch (header->cmd) {
-    case XNSU_SEPOLICY_CMD_NORMAL_PERM:
-        if (header->subcmd == XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_ALLOW) {
+    case KSU_SEPOLICY_CMD_NORMAL_PERM:
+        if (header->subcmd == KSU_SEPOLICY_SUBCMD_NORMAL_PERM_ALLOW) {
             success = xnsu_allow(db, args[0], args[1], args[2], args[3]);
-        } else if (header->subcmd == XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_DENY) {
+        } else if (header->subcmd == KSU_SEPOLICY_SUBCMD_NORMAL_PERM_DENY) {
             success = xnsu_deny(db, args[0], args[1], args[2], args[3]);
-        } else if (header->subcmd == XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_AUDITALLOW) {
+        } else if (header->subcmd == KSU_SEPOLICY_SUBCMD_NORMAL_PERM_AUDITALLOW) {
             success = xnsu_auditallow(db, args[0], args[1], args[2], args[3]);
-        } else if (header->subcmd == XNSU_SEPOLICY_SUBCMD_NORMAL_PERM_DONTAUDIT) {
+        } else if (header->subcmd == KSU_SEPOLICY_SUBCMD_NORMAL_PERM_DONTAUDIT) {
             success = xnsu_dontaudit(db, args[0], args[1], args[2], args[3]);
         } else {
             pr_err("sepol: unknown subcmd: %d\n", header->subcmd);
         }
         return success ? 0 : -EINVAL;
 
-    case XNSU_SEPOLICY_CMD_XPERM:
+    case KSU_SEPOLICY_CMD_XPERM:
         ret = sepol_require_not_all(args[3], "operation");
         if (ret < 0) {
             return ret;
@@ -283,34 +283,34 @@ static int apply_one_sepolicy_cmd(struct policydb *db, const struct sepol_data *
             return ret;
         }
 
-        if (header->subcmd == XNSU_SEPOLICY_SUBCMD_XPERM_ALLOW) {
+        if (header->subcmd == KSU_SEPOLICY_SUBCMD_XPERM_ALLOW) {
             success = xnsu_allowxperm(db, args[0], args[1], args[2], args[4]);
-        } else if (header->subcmd == XNSU_SEPOLICY_SUBCMD_XPERM_AUDITALLOW) {
+        } else if (header->subcmd == KSU_SEPOLICY_SUBCMD_XPERM_AUDITALLOW) {
             success = xnsu_auditallowxperm(db, args[0], args[1], args[2], args[4]);
-        } else if (header->subcmd == XNSU_SEPOLICY_SUBCMD_XPERM_DONTAUDIT) {
+        } else if (header->subcmd == KSU_SEPOLICY_SUBCMD_XPERM_DONTAUDIT) {
             success = xnsu_dontauditxperm(db, args[0], args[1], args[2], args[4]);
         } else {
             pr_err("sepol: unknown subcmd: %d\n", header->subcmd);
         }
         return success ? 0 : -EINVAL;
 
-    case XNSU_SEPOLICY_CMD_TYPE_STATE:
+    case KSU_SEPOLICY_CMD_TYPE_STATE:
         ret = sepol_require_not_all(args[0], "type");
         if (ret < 0) {
             return ret;
         }
 
-        if (header->subcmd == XNSU_SEPOLICY_SUBCMD_TYPE_STATE_PERMISSIVE) {
+        if (header->subcmd == KSU_SEPOLICY_SUBCMD_TYPE_STATE_PERMISSIVE) {
             success = xnsu_permissive(db, args[0]);
-        } else if (header->subcmd == XNSU_SEPOLICY_SUBCMD_TYPE_STATE_ENFORCE) {
+        } else if (header->subcmd == KSU_SEPOLICY_SUBCMD_TYPE_STATE_ENFORCE) {
             success = xnsu_enforce(db, args[0]);
         } else {
             pr_err("sepol: unknown subcmd: %d\n", header->subcmd);
         }
         return success ? 0 : -EINVAL;
 
-    case XNSU_SEPOLICY_CMD_TYPE:
-    case XNSU_SEPOLICY_CMD_TYPE_ATTR:
+    case KSU_SEPOLICY_CMD_TYPE:
+    case KSU_SEPOLICY_CMD_TYPE_ATTR:
         ret = sepol_require_not_all(args[0], "type");
         if (ret < 0) {
             return ret;
@@ -320,7 +320,7 @@ static int apply_one_sepolicy_cmd(struct policydb *db, const struct sepol_data *
             return ret;
         }
 
-        if (header->cmd == XNSU_SEPOLICY_CMD_TYPE) {
+        if (header->cmd == KSU_SEPOLICY_CMD_TYPE) {
             success = xnsu_type(db, args[0], args[1]);
         } else {
             success = xnsu_typeattribute(db, args[0], args[1]);
@@ -331,7 +331,7 @@ static int apply_one_sepolicy_cmd(struct policydb *db, const struct sepol_data *
         }
         return 0;
 
-    case XNSU_SEPOLICY_CMD_ATTR:
+    case KSU_SEPOLICY_CMD_ATTR:
         ret = sepol_require_not_all(args[0], "attribute");
         if (ret < 0) {
             return ret;
@@ -343,7 +343,7 @@ static int apply_one_sepolicy_cmd(struct policydb *db, const struct sepol_data *
         }
         return 0;
 
-    case XNSU_SEPOLICY_CMD_TYPE_TRANSITION: {
+    case KSU_SEPOLICY_CMD_TYPE_TRANSITION: {
         const char *object = ALL;
 
         ret = sepol_require_not_all(args[0], "src");
@@ -369,7 +369,7 @@ static int apply_one_sepolicy_cmd(struct policydb *db, const struct sepol_data *
         return success ? 0 : -EINVAL;
     }
 
-    case XNSU_SEPOLICY_CMD_TYPE_CHANGE:
+    case KSU_SEPOLICY_CMD_TYPE_CHANGE:
         ret = sepol_require_not_all(args[0], "src");
         if (ret < 0) {
             return ret;
@@ -387,16 +387,16 @@ static int apply_one_sepolicy_cmd(struct policydb *db, const struct sepol_data *
             return ret;
         }
 
-        if (header->subcmd == XNSU_SEPOLICY_SUBCMD_TYPE_CHANGE_CHANGE) {
+        if (header->subcmd == KSU_SEPOLICY_SUBCMD_TYPE_CHANGE_CHANGE) {
             success = xnsu_type_change(db, args[0], args[1], args[2], args[3]);
-        } else if (header->subcmd == XNSU_SEPOLICY_SUBCMD_TYPE_CHANGE_MEMBER) {
+        } else if (header->subcmd == KSU_SEPOLICY_SUBCMD_TYPE_CHANGE_MEMBER) {
             success = xnsu_type_member(db, args[0], args[1], args[2], args[3]);
         } else {
             pr_err("sepol: unknown subcmd: %d\n", header->subcmd);
         }
         return success ? 0 : -EINVAL;
 
-    case XNSU_SEPOLICY_CMD_GENFSCON:
+    case KSU_SEPOLICY_CMD_GENFSCON:
         ret = sepol_require_not_all(args[0], "name");
         if (ret < 0) {
             return ret;

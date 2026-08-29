@@ -64,16 +64,11 @@ pub fn get_common_script_envs(module_id: Option<&str>) -> Vec<(&'static str, Str
     let mut envs = vec![
         ("ASH_STANDALONE", "1".to_string()),
         ("KSU", "true".to_string()),
-        ("XNSU_KERNEL_VER_CODE", ksucalls::get_version().to_string()),
-        ("XNSU_VER_CODE", defs::VERSION_CODE.to_string()),
-        ("XNSU_VER", defs::VERSION_NAME.to_string()),
-        // KernelSU-compatible aliases. Third-party module installers (e.g.
-        // ZygiskNext) gate on the KernelSU version by reading the KSU_* names;
-        // the rebranded XNSU_* names are invisible to them, so they see an empty
-        // version and abort with "KernelSU version is too old". Export both.
         ("KSU_KERNEL_VER_CODE", ksucalls::get_version().to_string()),
         ("KSU_VER_CODE", defs::VERSION_CODE.to_string()),
         ("KSU_VER", defs::VERSION_NAME.to_string()),
+        ("KSU_UAPI_VER", ksucalls::uapi_version().to_string()),
+        ("KSU_RUNTIME_MODE", ksucalls::runtime_mode().to_string()),
         (
             "PATH",
             format!(
@@ -86,14 +81,14 @@ pub fn get_common_script_envs(module_id: Option<&str>) -> Vec<(&'static str, Str
 
     if let Some(id) = module_id {
         if validate_module_id(id).is_ok() {
-            envs.push(("XNSU_MODULE", id.to_string()));
+            envs.push(("KSU_MODULE", id.to_string()));
         } else {
             error!("Invalid module_id provided: {id}");
         }
     }
 
     if ksucalls::is_late_load() {
-        envs.push(("XNSU_LATE_LOAD", "1".to_string()));
+        envs.push(("KSU_LATE_LOAD", "1".to_string()));
     }
 
     envs
@@ -221,7 +216,7 @@ pub fn exec_script<T: AsRef<Path>>(path: T, wait: bool) -> Result<()> {
 
     if is_module_script && module_id.is_none() {
         debug!(
-            "Failed to extract module_id from script path '{}'. Script will run without XNSU_MODULE environment variable.",
+            "Failed to extract module_id from script path '{}'. Script will run without KSU_MODULE environment variable.",
             path.as_ref().display()
         );
     }
@@ -372,7 +367,7 @@ pub fn prune_modules() -> Result<()> {
 const METADATA_FILE_CON: &str = "u:object_r:metadata_file:s0";
 
 // Prefer /metadata/watchdog/ when present, else /metadata.
-fn preinit_xnsu_dir() -> &'static str {
+fn preinit_ksu_dir() -> &'static str {
     if Path::new("/metadata/watchdog").is_dir() {
         defs::PREINIT_DIR_WATCHDOG
     } else {
@@ -417,7 +412,7 @@ fn collect_rc_files<P: AsRef<Path>>(
 /// module. The kernel-side read hook splices this file into init.rc on the
 /// next boot.
 pub fn regenerate_preinit_rc() -> Result<()> {
-    let preinit_str = preinit_xnsu_dir();
+    let preinit_str = preinit_ksu_dir();
     let preinit_dir = Path::new(preinit_str);
     std::fs::create_dir_all(preinit_dir)
         .with_context(|| format!("Failed to create {}", preinit_dir.display()))?;
@@ -672,6 +667,8 @@ fn install_module_to_system(zip: &str) -> Result<()> {
 }
 
 pub fn install_module(zip: &str) -> Result<()> {
+    ksucalls::ensure_uapi_version_matched()?;
+
     let result = install_module_to_system(zip);
     if let Err(ref e) = result {
         println!("- Error: {e}");
@@ -723,6 +720,7 @@ pub fn uninstall_module(id: &str) -> Result<()> {
 
 pub fn run_action(id: &str) -> Result<()> {
     validate_module_id(id)?;
+    ksucalls::ensure_uapi_version_matched()?;
 
     let action_script_path = format!("/data/adb/modules/{id}/action.sh");
     exec_script(&action_script_path, true)

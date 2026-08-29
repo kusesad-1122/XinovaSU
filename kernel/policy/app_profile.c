@@ -24,7 +24,7 @@ static struct group_info root_groups = { .usage = ATOMIC_INIT(2) };
 
 void setup_groups(struct root_profile *profile, struct cred *cred)
 {
-    if (profile->groups_count > XNSU_MAX_GROUPS) {
+    if (profile->groups_count > KSU_MAX_GROUPS) {
         pr_warn("Failed to setgroups, too large group: %d!\n", profile->uid);
         return;
     }
@@ -122,6 +122,11 @@ int escape_with_root_profile(void)
         goto out_abort_creds;
     }
 
+    if (test_thread_flag(TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT)) {
+        pr_warn("TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT found, don't escape!\n");
+        goto out_abort_creds;
+    }
+
     profile = xnsu_get_root_profile(cred->uid.val);
 
     cred->uid.val = profile->uid;
@@ -167,7 +172,7 @@ int escape_with_root_profile(void)
 #endif
 
     // setup capabilities
-    // we need CAP_DAC_READ_SEARCH becuase `/data/adb/xnsusd` is not accessible for non root process
+    // we need CAP_DAC_READ_SEARCH becuase `/data/adb/ksud` is not accessible for non root process
     // we add it here but don't add it to cap_inhertiable, it would be dropped automaticly after exec!
     u64 cap_for_xnsusd = profile->capabilities.effective | CAP_DAC_READ_SEARCH;
     memcpy(&cred->cap_effective, &cap_for_xnsusd, sizeof(cred->cap_effective));
@@ -180,6 +185,10 @@ int escape_with_root_profile(void)
     commit_creds(cred);
 
     disable_seccomp();
+
+    if (profile->flags & FLAG_KSU_NO_NEW_PRIVS) {
+        set_thread_flag(TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT);
+    }
 
     for_each_thread (p, t) {
         xnsu_set_task_tracepoint_flag(t);
@@ -206,4 +215,8 @@ void escape_to_root_for_init(void)
 
     setup_selinux(KERNEL_SU_CONTEXT, cred);
     commit_creds(cred);
+}
+
+void __init xnsu_app_profile_init(void)
+{
 }

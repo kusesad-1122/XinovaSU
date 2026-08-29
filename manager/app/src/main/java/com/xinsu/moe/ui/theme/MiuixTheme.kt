@@ -82,6 +82,7 @@ fun MiuixXinovaSUTheme(
         MiuixTheme(
             colors = (tokenBundle?.toMiuixColorScheme(isDark = darkTheme)
                 ?: appSettings.themePreset.miuixColorScheme(isDark = darkTheme))
+                .applyAmoled(appSettings.colorMode.isAmoled)
                 .applyGlassSurfaces(
                     active = glassSurfacesActive,
                     opacity = surfaceOpacity,
@@ -91,10 +92,12 @@ fun MiuixXinovaSUTheme(
     } else {
         MiuixTheme(controller = controller) {
             MiuixTheme(
-                colors = MiuixTheme.colorScheme.applyGlassSurfaces(
-                    active = glassSurfacesActive,
-                    opacity = surfaceOpacity,
-                ),
+                colors = MiuixTheme.colorScheme
+                    .applyAmoled(appSettings.colorMode.isAmoled)
+                    .applyGlassSurfaces(
+                        active = glassSurfacesActive,
+                        opacity = surfaceOpacity,
+                    ),
                 content = themedContent,
             )
         }

@@ -30,7 +30,7 @@ fn get_git_version() -> Result<(u32, String), std::io::Error> {
 
 fn configure_bindgen() {
     let bindings = bindgen::Builder::default()
-        .header("src/xnsu_uapi.h")
+        .header("src/ksu_uapi.h")
         .clang_args(["-x", "c++", "-I../../"])
         .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .generate()

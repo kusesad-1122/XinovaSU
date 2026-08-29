@@ -22,6 +22,7 @@ fun WarningCard(
     message: String,
     modifier: Modifier = Modifier,
     color: Color? = null,
+    contentColor: Color? = null,
     onClick: (() -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
 ) {
@@ -33,6 +34,7 @@ fun WarningCard(
             isInDarkTheme() -> Color(0XFF310808)
             else -> Color(0xFFF8E2E2)
         },
+        contentColor = contentColor ?: colorScheme.onSurfaceContainer,
         showIndication = onClick != null,
         pressFeedbackType = PressFeedbackType.Tilt
     ) {
@@ -45,7 +47,8 @@ fun WarningCard(
         ) {
             Text(
                 text = message,
-                color = if (isDynamicColor) colorScheme.onErrorContainer else Color(0xFFF72727),
+                color = contentColor
+                    ?: if (isDynamicColor) colorScheme.onErrorContainer else Color(0xFFF72727),
                 fontSize = 14.sp
             )
             action?.invoke()

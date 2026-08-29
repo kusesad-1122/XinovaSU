@@ -3,6 +3,7 @@
 #include <asm/ptrace.h>
 
 long xnsu_adb_root_handle_execve(struct pt_regs *regs);
+long xnsu_adb_root_handle_execveat(struct pt_regs *regs);
 
 void xnsu_adb_root_init(void);
 

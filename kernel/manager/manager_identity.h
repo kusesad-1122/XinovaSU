@@ -7,7 +7,7 @@
 #define XNSU_INVALID_APPID -1
 #define XNSU_PER_USER_RANGE 100000
 
-#ifdef CONFIG_XNSU_DISABLE_MANAGER
+#ifdef CONFIG_KSU_DISABLE_MANAGER
 static inline bool xnsu_is_manager_appid_valid()
 {
     return true;

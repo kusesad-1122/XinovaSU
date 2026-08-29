@@ -36,9 +36,9 @@ fn find_su_domain_pids() -> Vec<i32> {
     pids
 }
 
-/// Find PIDs of processes holding xnsu_driver or xnsu_fdwrapper file descriptors.
+/// Find PIDs of processes holding ksu_driver or ksu_fdwrapper file descriptors.
 /// Returns a list of PIDs excluding our own.
-fn find_xnsu_fd_holders() -> Vec<i32> {
+fn find_ksu_fd_holders() -> Vec<i32> {
     let my_pid = std::process::id() as i32;
     let mut pids = Vec::new();
 
@@ -64,7 +64,7 @@ fn find_xnsu_fd_holders() -> Vec<i32> {
             let link_path = fd_entry.path();
             if let Ok(target) = fs::read_link(&link_path) {
                 let target_str = target.to_string_lossy();
-                if target_str.contains("[xnsu_driver]") || target_str.contains("[xnsu_fdwrapper]") {
+                if target_str.contains("[ksu_driver]") || target_str.contains("[ksu_fdwrapper]") {
                     pids.push(pid);
                     break;
                 }
@@ -83,7 +83,7 @@ fn kill_pids(pids: &[i32], signal: i32) {
     }
 }
 
-/// Close all xnsu_driver and xnsu_fdwrapper fds held by the current process.
+/// Close all ksu_driver and ksu_fdwrapper fds held by the current process.
 fn close_xnsu_fds() {
     let Ok(entries) = fs::read_dir("/proc/self/fd") else {
         return;
@@ -95,7 +95,7 @@ fn close_xnsu_fds() {
         };
         if let Ok(target) = fs::read_link(entry.path()) {
             let target_str = target.to_string_lossy();
-            if target_str.contains("[xnsu_driver]") || target_str.contains("[xnsu_fdwrapper]") {
+            if target_str.contains("[ksu_driver]") || target_str.contains("[ksu_fdwrapper]") {
                 info!("unload: closing fd {fd} -> {target_str}");
                 unsafe {
                     libc::close(fd);
@@ -127,7 +127,7 @@ pub fn unload() -> Result<()> {
     }
 
     info!("unload: killing processes holding ksu fds...");
-    let fd_pids = find_xnsu_fd_holders();
+    let fd_pids = find_ksu_fd_holders();
     if !fd_pids.is_empty() {
         info!(
             "unload: found {} processes holding ksu fds, sending SIGKILL",
@@ -136,7 +136,7 @@ pub fn unload() -> Result<()> {
         kill_pids(&fd_pids, libc::SIGKILL);
     }
 
-    // 3. Close all our own xnsu_driver and xnsu_fdwrapper fds
+    // 3. Close all our own ksu_driver and ksu_fdwrapper fds
     info!("unload: closing all ksu fds...");
     close_xnsu_fds();
 
@@ -151,6 +151,6 @@ pub fn unload() -> Result<()> {
     let _ = Command::new("start").status();
 
     // 6. Exit
-    info!("unload: done, exiting xnsusd");
+    info!("unload: done, exiting ksud");
     std::process::exit(0);
 }

@@ -1,5 +1,5 @@
 [package]
-name = "xnsusd"
+name = "ksud"
 version = "0.1.0"
 edition.workspace = true
 
@@ -29,7 +29,6 @@ android-bootimg = { git = "https://github.com/5ec1cff/android_bootimg", rev = "1
 rustix = { version = "1", features = [
     "all-apis",
 ] }
-android-properties = { version = "0.2", features = ["bionic-deprecated"] }
 android_logger = { version = "0.15", default-features = false }
 zip = { version = "8",  features = [
     "deflate",
@@ -54,7 +53,7 @@ is_executable = "1"
 nom = "8"
 derive-new = "0.7"
 getopts = "0.2"
-xnsuinit = { path = "../xnsuinit" }
+ksuinit = { path = "../ksuinit" }
 adb_client = { git = "https://github.com/Kernel-SU/adb_client" }
 prop-rs-android = { git = "https://github.com/Kernel-SU/ksu_props" }
 

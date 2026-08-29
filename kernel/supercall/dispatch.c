@@ -1,6 +1,7 @@
 #include <linux/capability.h>
 #include <linux/cred.h>
 #include <linux/slab.h>
+#include <linux/thread_info.h>
 #include <linux/uaccess.h>
 #include <linux/version.h>
 #include <linux/utsname.h>
@@ -44,22 +45,23 @@ static int do_grant_root(void __user *arg)
 
 static int do_get_info(void __user *arg)
 {
-    struct xnsu_get_info_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
+    struct ksu_get_info_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
 
 #ifdef MODULE
-    cmd.flags |= XNSU_GET_INFO_FLAG_LKM;
+    cmd.flags |= KSU_GET_INFO_FLAG_LKM;
 #endif
 
     if (is_manager()) {
-        cmd.flags |= XNSU_GET_INFO_FLAG_MANAGER;
+        cmd.flags |= KSU_GET_INFO_FLAG_MANAGER;
     }
     if (xnsu_late_loaded) {
-        cmd.flags |= XNSU_GET_INFO_FLAG_LATE_LOAD;
+        cmd.flags |= KSU_GET_INFO_FLAG_LATE_LOAD;
     }
 #ifdef EXPECTED_SIZE2
-    cmd.flags |= XNSU_GET_INFO_FLAG_PR_BUILD;
+    cmd.flags |= KSU_GET_INFO_FLAG_PR_BUILD;
 #endif
-    cmd.features = XNSU_FEATURE_MAX;
+    cmd.features = KSU_FEATURE_MAX;
+    cmd.uapi_version = KERNEL_SU_UAPI_VERSION;
 
     if (copy_to_user(arg, &cmd, sizeof(cmd))) {
         pr_err("get_version: copy_to_user failed\n");
@@ -69,9 +71,36 @@ static int do_get_info(void __user *arg)
     return 0;
 }
 
+static int do_get_info_legacy(void __user *arg)
+{
+    struct ksu_get_info_legacy_cmd cmd = { .version = KERNEL_SU_VERSION, .flags = 0 };
+
+#ifdef MODULE
+    cmd.flags |= KSU_GET_INFO_FLAG_LKM;
+#endif
+
+    if (is_manager()) {
+        cmd.flags |= KSU_GET_INFO_FLAG_MANAGER;
+    }
+    if (xnsu_late_loaded) {
+        cmd.flags |= KSU_GET_INFO_FLAG_LATE_LOAD;
+    }
+#ifdef EXPECTED_SIZE2
+    cmd.flags |= KSU_GET_INFO_FLAG_PR_BUILD;
+#endif
+    cmd.features = KSU_FEATURE_MAX;
+
+    if (copy_to_user(arg, &cmd, sizeof(cmd))) {
+        pr_err("get_version_legacy: copy_to_user failed\n");
+        return -EFAULT;
+    }
+
+    return 0;
+}
+
 static int do_report_event(void __user *arg)
 {
-    struct xnsu_report_event_cmd cmd;
+    struct ksu_report_event_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -118,7 +147,7 @@ static int do_report_event(void __user *arg)
 
 static int do_set_sepolicy(void __user *arg)
 {
-    struct xnsu_set_sepolicy_cmd cmd;
+    struct ksu_set_sepolicy_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -129,7 +158,7 @@ static int do_set_sepolicy(void __user *arg)
 
 static int do_check_safemode(void __user *arg)
 {
-    struct xnsu_check_safemode_cmd cmd;
+    struct ksu_check_safemode_cmd cmd;
 
     cmd.in_safe_mode = xnsu_is_safe_mode();
 
@@ -147,7 +176,7 @@ static int do_check_safemode(void __user *arg)
 
 static int do_new_get_allow_list_common(void __user *arg, bool allow)
 {
-    struct xnsu_new_get_allow_list_cmd cmd;
+    struct ksu_new_get_allow_list_cmd cmd;
     int *arr = NULL;
     int err = 0;
 
@@ -175,7 +204,7 @@ static int do_new_get_allow_list_common(void __user *arg, bool allow)
         goto out;
     }
 
-    if (cmd.count && copy_to_user(&((struct xnsu_new_get_allow_list_cmd *)arg)->uids, arr, sizeof(int) * cmd.count)) {
+    if (cmd.count && copy_to_user(&((struct ksu_new_get_allow_list_cmd *)arg)->uids, arr, sizeof(int) * cmd.count)) {
         pr_err("new_get_allow_list: copy_to_user uids failed\n");
         err = -EFAULT;
     }
@@ -219,7 +248,7 @@ static int do_get_allow_list_common(void __user *arg, bool allow)
 
     out_count = count;
 
-    if (copy_to_user(arg + offsetof(struct xnsu_get_allow_list_cmd, count), &out_count, sizeof(u32))) {
+    if (copy_to_user(arg + offsetof(struct ksu_get_allow_list_cmd, count), &out_count, sizeof(u32))) {
         pr_err("get_allow_list: copy_to_user count failed\n");
         err = -EFAULT;
         goto out;
@@ -249,7 +278,7 @@ static int do_get_allow_list(void __user *arg)
 
 static int do_uid_granted_root(void __user *arg)
 {
-    struct xnsu_uid_granted_root_cmd cmd;
+    struct ksu_uid_granted_root_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -267,7 +296,7 @@ static int do_uid_granted_root(void __user *arg)
 
 static int do_uid_should_umount(void __user *arg)
 {
-    struct xnsu_uid_should_umount_cmd cmd;
+    struct ksu_uid_should_umount_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         return -EFAULT;
@@ -285,7 +314,7 @@ static int do_uid_should_umount(void __user *arg)
 
 static int do_get_manager_appid(void __user *arg)
 {
-    struct xnsu_get_manager_appid_cmd cmd;
+    struct ksu_get_manager_appid_cmd cmd;
 
     cmd.appid = xnsu_get_manager_appid();
 
@@ -299,14 +328,14 @@ static int do_get_manager_appid(void __user *arg)
 
 static int do_get_app_profile(void __user *arg)
 {
-#ifdef CONFIG_XNSU_DISABLE_POLICY
+#ifdef CONFIG_KSU_DISABLE_POLICY
     return -EOPNOTSUPP;
 #endif
     uid_t uid;
     struct app_profile *profile;
     int ret = 0;
 
-    if (copy_from_user(&uid, (char __user *)arg + offsetof(struct xnsu_get_app_profile_cmd, profile.curr_uid),
+    if (copy_from_user(&uid, (char __user *)arg + offsetof(struct ksu_get_app_profile_cmd, profile.curr_uid),
                        sizeof(uid_t))) {
         pr_err("get_app_profile: copy_from_user failed\n");
         return -EFAULT;
@@ -318,7 +347,7 @@ static int do_get_app_profile(void __user *arg)
     if (!profile) {
         ret = -ENOENT;
     } else {
-        if (copy_to_user((char __user *)arg + offsetof(struct xnsu_get_app_profile_cmd, profile), profile,
+        if (copy_to_user((char __user *)arg + offsetof(struct ksu_get_app_profile_cmd, profile), profile,
                          sizeof(struct app_profile))) {
             pr_err("get_app_profile: copy_to_user failed\n");
             ret = -EFAULT;
@@ -330,11 +359,11 @@ static int do_get_app_profile(void __user *arg)
 
 static int do_set_app_profile(void __user *arg)
 {
-#ifdef CONFIG_XNSU_DISABLE_POLICY
+#ifdef CONFIG_KSU_DISABLE_POLICY
     return -EOPNOTSUPP;
 #endif
 
-    struct xnsu_set_app_profile_cmd cmd;
+    struct ksu_set_app_profile_cmd cmd;
     int ret;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -352,7 +381,7 @@ static int do_set_app_profile(void __user *arg)
 
 static int do_get_feature(void __user *arg)
 {
-    struct xnsu_get_feature_cmd cmd;
+    struct ksu_get_feature_cmd cmd;
     bool supported;
     int ret;
 
@@ -379,7 +408,7 @@ static int do_get_feature(void __user *arg)
 
 static int do_set_feature(void __user *arg)
 {
-    struct xnsu_set_feature_cmd cmd;
+    struct ksu_set_feature_cmd cmd;
     int ret;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -519,7 +548,7 @@ static int do_get_wrapper_fd(void __user *arg)
         return -EINVAL;
     }
 
-    struct xnsu_get_wrapper_fd_cmd cmd;
+    struct ksu_get_wrapper_fd_cmd cmd;
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         pr_err("get_wrapper_fd: copy_from_user failed\n");
         return -EFAULT;
@@ -530,7 +559,7 @@ static int do_get_wrapper_fd(void __user *arg)
 
 static int do_manage_mark(void __user *arg)
 {
-    struct xnsu_manage_mark_cmd cmd;
+    struct ksu_manage_mark_cmd cmd;
     int ret = 0;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -539,7 +568,7 @@ static int do_manage_mark(void __user *arg)
     }
 
     switch (cmd.operation) {
-    case XNSU_MARK_GET: {
+    case KSU_MARK_GET: {
         // Get task mark status
         ret = xnsu_get_task_mark(cmd.pid);
         if (ret < 0) {
@@ -549,7 +578,7 @@ static int do_manage_mark(void __user *arg)
         cmd.result = (u32)ret;
         break;
     }
-    case XNSU_MARK_MARK: {
+    case KSU_MARK_MARK: {
         if (cmd.pid == 0) {
             xnsu_mark_all_process();
         } else {
@@ -561,7 +590,7 @@ static int do_manage_mark(void __user *arg)
         }
         break;
     }
-    case XNSU_MARK_UNMARK: {
+    case KSU_MARK_UNMARK: {
         if (cmd.pid == 0) {
             xnsu_unmark_all_process();
         } else {
@@ -573,7 +602,7 @@ static int do_manage_mark(void __user *arg)
         }
         break;
     }
-    case XNSU_MARK_REFRESH: {
+    case KSU_MARK_REFRESH: {
         xnsu_mark_running_process();
         pr_info("manage_mark: refreshed running processes\n");
         break;
@@ -593,7 +622,7 @@ static int do_manage_mark(void __user *arg)
 
 static int do_nuke_ext4_sysfs(void __user *arg)
 {
-    struct xnsu_nuke_ext4_sysfs_cmd cmd;
+    struct ksu_nuke_ext4_sysfs_cmd cmd;
     char mnt[256];
     long ret;
 
@@ -627,14 +656,14 @@ DECLARE_RWSEM(mount_list_lock);
 static int add_try_umount(void __user *arg)
 {
     struct mount_entry *new_entry, *entry, *tmp;
-    struct xnsu_add_try_umount_cmd cmd;
+    struct ksu_add_try_umount_cmd cmd;
     char buf[256] = { 0 };
 
     if (copy_from_user(&cmd, arg, sizeof cmd))
         return -EFAULT;
 
     switch (cmd.mode) {
-    case XNSU_UMOUNT_WIPE: {
+    case KSU_UMOUNT_WIPE: {
         struct mount_entry *entry, *tmp;
         down_write(&mount_list_lock);
         list_for_each_entry_safe (entry, tmp, &mount_list, list) {
@@ -648,7 +677,7 @@ static int add_try_umount(void __user *arg)
         return 0;
     }
 
-    case XNSU_UMOUNT_ADD: {
+    case KSU_UMOUNT_ADD: {
         long len = strncpy_from_user(buf, (const char __user *)cmd.arg, 256);
         if (len <= 0)
             return -EFAULT;
@@ -695,7 +724,7 @@ static int add_try_umount(void __user *arg)
     }
 
     // this is just strcmp'd wipe anyway
-    case XNSU_UMOUNT_DEL: {
+    case KSU_UMOUNT_DEL: {
         long len = strncpy_from_user(buf, (const char __user *)cmd.arg, sizeof(buf) - 1);
         if (len <= 0)
             return -EFAULT;
@@ -761,7 +790,7 @@ out:
 
 static int do_get_sulog_fd(void __user *arg)
 {
-    struct xnsu_get_sulog_fd_cmd cmd;
+    struct ksu_get_sulog_fd_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
         pr_err("get_sulog_fd: copy_from_user failed\n");
@@ -776,139 +805,158 @@ static int do_get_sulog_fd(void __user *arg)
     return xnsu_install_sulog_fd();
 }
 
+static int do_disable_escape_to_root(void __user *arg)
+{
+    (void)arg;
+    set_thread_flag(TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT);
+    return 0;
+}
+
 // IOCTL handlers mapping table
 // clang-format off
 static const struct xnsu_ioctl_cmd_map xnsu_ioctl_handlers[] = {
     { 
-        .cmd = XNSU_IOCTL_GRANT_ROOT,
+        .cmd = KSU_IOCTL_GRANT_ROOT,
         .name = "GRANT_ROOT",
         .handler = do_grant_root,
         .perm_check = allowed_for_su 
     },
     {
-        .cmd = XNSU_IOCTL_GET_INFO,
+        .cmd = KSU_IOCTL_GET_INFO,
         .name = "GET_INFO",
         .handler = do_get_info,
         .perm_check = always_allow
     },
     {
-        .cmd = XNSU_IOCTL_REPORT_EVENT,
+        .cmd = KSU_IOCTL_GET_INFO_LEGACY,
+        .name = "GET_INFO_LEGACY",
+        .handler = do_get_info_legacy,
+        .perm_check = always_allow
+    },
+    {
+        .cmd = KSU_IOCTL_REPORT_EVENT,
         .name = "REPORT_EVENT",
         .handler = do_report_event,
         .perm_check = only_root
     },
     {
-        .cmd = XNSU_IOCTL_SET_SEPOLICY,
+        .cmd = KSU_IOCTL_SET_SEPOLICY,
         .name = "SET_SEPOLICY",
         .handler = do_set_sepolicy,
         .perm_check = only_root
     },
     {
-        .cmd = XNSU_IOCTL_CHECK_SAFEMODE,
+        .cmd = KSU_IOCTL_CHECK_SAFEMODE,
         .name = "CHECK_SAFEMODE",
         .handler = do_check_safemode,
         .perm_check = always_allow
     },
     {
-        .cmd = XNSU_IOCTL_GET_ALLOW_LIST,
+        .cmd = KSU_IOCTL_GET_ALLOW_LIST,
         .name = "GET_ALLOW_LIST",
         .handler = do_get_allow_list,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_GET_DENY_LIST,
+        .cmd = KSU_IOCTL_GET_DENY_LIST,
         .name = "GET_DENY_LIST",
         .handler = do_get_deny_list,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_NEW_GET_ALLOW_LIST,
+        .cmd = KSU_IOCTL_NEW_GET_ALLOW_LIST,
         .name = "NEW_GET_ALLOW_LIST",
         .handler = do_new_get_allow_list,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_NEW_GET_DENY_LIST,
+        .cmd = KSU_IOCTL_NEW_GET_DENY_LIST,
         .name = "NEW_GET_DENY_LIST",
         .handler = do_new_get_deny_list,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_UID_GRANTED_ROOT,
+        .cmd = KSU_IOCTL_UID_GRANTED_ROOT,
         .name = "UID_GRANTED_ROOT",
         .handler = do_uid_granted_root,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_UID_SHOULD_UMOUNT,
+        .cmd = KSU_IOCTL_UID_SHOULD_UMOUNT,
         .name = "UID_SHOULD_UMOUNT",
         .handler = do_uid_should_umount,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_GET_MANAGER_APPID,
+        .cmd = KSU_IOCTL_GET_MANAGER_APPID,
         .name = "GET_MANAGER_APPID",
         .handler = do_get_manager_appid,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_GET_APP_PROFILE,
+        .cmd = KSU_IOCTL_GET_APP_PROFILE,
         .name = "GET_APP_PROFILE",
         .handler = do_get_app_profile,
         .perm_check = only_manager
     },
     {
-        .cmd = XNSU_IOCTL_SET_APP_PROFILE,
+        .cmd = KSU_IOCTL_SET_APP_PROFILE,
         .name = "SET_APP_PROFILE",
         .handler = do_set_app_profile,
         .perm_check = only_manager
     },
     {
-        .cmd = XNSU_IOCTL_GET_FEATURE,
+        .cmd = KSU_IOCTL_GET_FEATURE,
         .name = "GET_FEATURE",
         .handler = do_get_feature,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_SET_FEATURE,
+        .cmd = KSU_IOCTL_SET_FEATURE,
         .name = "SET_FEATURE",
         .handler = do_set_feature,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_GET_WRAPPER_FD,
+        .cmd = KSU_IOCTL_GET_WRAPPER_FD,
         .name = "GET_WRAPPER_FD",
         .handler = do_get_wrapper_fd,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_MANAGE_MARK,
+        .cmd = KSU_IOCTL_MANAGE_MARK,
         .name = "MANAGE_MARK",
         .handler = do_manage_mark,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_NUKE_EXT4_SYSFS,
+        .cmd = KSU_IOCTL_NUKE_EXT4_SYSFS,
         .name = "NUKE_EXT4_SYSFS",
         .handler = do_nuke_ext4_sysfs,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_ADD_TRY_UMOUNT,
+        .cmd = KSU_IOCTL_ADD_TRY_UMOUNT,
         .name = "ADD_TRY_UMOUNT",
         .handler = add_try_umount,
         .perm_check = manager_or_root
     },
     {
-        .cmd = XNSU_IOCTL_SET_INIT_PGRP,
+        .cmd = KSU_IOCTL_SET_INIT_PGRP,
         .name = "SET_INIT_PGRP",
         .handler = do_set_init_pgrp,
         .perm_check = only_root
     },
     {
-        .cmd = XNSU_IOCTL_GET_SULOG_FD,
+        .cmd = KSU_IOCTL_GET_SULOG_FD,
         .name = "GET_SULOG_FD",
         .handler = do_get_sulog_fd,
+        .perm_check = only_root
+    },
+    {
+        .cmd = KSU_IOCTL_DISABLE_ESCAPE_TO_ROOT,
+        .name = "DISABLE_ESCAPE_TO_ROOT",
+        .handler = do_disable_escape_to_root,
         .perm_check = only_root
     },
     {
@@ -948,7 +996,7 @@ long xnsu_supercall_handle_ioctl(unsigned int cmd, void __user *argp)
 {
     int i;
 
-#ifdef CONFIG_XNSU_DEBUG
+#ifdef CONFIG_KSU_DEBUG
     pr_info("ksu ioctl: cmd=0x%x from uid=%d\n", cmd, current_uid().val);
 #endif
 

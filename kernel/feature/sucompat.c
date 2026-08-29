@@ -11,6 +11,7 @@
 #include <linux/version.h>
 #include <linux/sched/task_stack.h>
 #include <linux/ptrace.h>
+#include <linux/fcntl.h>
 
 #include "arch.h"
 #include "policy/allowlist.h"
@@ -42,7 +43,7 @@ static int su_compat_feature_set(u64 value)
 }
 
 static const struct xnsu_feature_handler su_compat_handler = {
-    .feature_id = XNSU_FEATURE_SU_COMPAT,
+    .feature_id = KSU_FEATURE_SU_COMPAT,
     .name = "su_compat",
     .get_handler = su_compat_feature_get,
     .set_handler = su_compat_feature_set,
@@ -116,11 +117,12 @@ int xnsu_handle_stat(int *dfd, const char __user **filename_user, int *flags)
     return 0;
 }
 
-long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
+static long xnsu_handle_execve_sucompat_common(const char __user **filename_user,
+                                               const char __user *const __user *argv_user,
+                                               int orig_nr, const struct pt_regs *regs)
 {
     const char su[] = SU_PATH;
     const char __user *fn;
-    const char __user *const __user *argv_user = (const char __user *const __user *)PT_REGS_PARM2(regs);
     struct xnsu_sulog_pending_event *pending_sucompat = NULL;
     char path[sizeof(su) + 1];
     long ret;
@@ -159,7 +161,7 @@ long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr,
 
     ret = xnsu_syscall_table[orig_nr](regs);
     if (ret < 0) {
-        pr_err("failed to execve xnsusd as su: %ld, fallback to sh\n", ret);
+        pr_err("failed to execve ksud as su: %ld, fallback to sh\n", ret);
         xnsu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
         *filename_user = sh_user_path();
     } else {
@@ -169,6 +171,24 @@ long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr,
 
 do_orig_execve:
     return xnsu_syscall_table[orig_nr](regs);
+}
+
+long xnsu_handle_execve_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
+{
+    return xnsu_handle_execve_sucompat_common(
+        filename_user, (const char __user *const __user *)PT_REGS_PARM2(regs), orig_nr, regs);
+}
+
+long xnsu_handle_execveat_sucompat(const char __user **filename_user, int orig_nr, const struct pt_regs *regs)
+{
+    // execveat(dirfd, pathname, argv, envp, flags): only redirect when
+    // dirfd == AT_FDCWD and flags == 0. Otherwise the filename is relative
+    // to a different dirfd and rewriting it would execute the wrong file.
+    if ((int)PT_REGS_PARM1(regs) != AT_FDCWD || (int)PT_REGS_PARM5(regs) != 0)
+        return xnsu_syscall_table[orig_nr](regs);
+
+    return xnsu_handle_execve_sucompat_common(
+        filename_user, (const char __user *const __user *)PT_REGS_PARM3(regs), orig_nr, regs);
 }
 
 // sucompat: permitted process can execute 'su' to gain root access.
@@ -181,5 +201,5 @@ void __init xnsu_sucompat_init()
 
 void __exit xnsu_sucompat_exit()
 {
-    xnsu_unregister_feature_handler(XNSU_FEATURE_SU_COMPAT);
+    xnsu_unregister_feature_handler(KSU_FEATURE_SU_COMPAT);
 }

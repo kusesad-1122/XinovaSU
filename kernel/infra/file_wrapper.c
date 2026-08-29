@@ -509,10 +509,10 @@ int xnsu_install_file_wrapper(int fd)
         goto out_put_fd;
     }
 
-    struct file *wrapper_file = xnsu_anon_inode_create_getfile_compat("[xnsu_fdwrapper]", &file_wrapper_data->ops,
+    struct file *wrapper_file = xnsu_anon_inode_create_getfile_compat("[ksu_fdwrapper]", &file_wrapper_data->ops,
                                                                       file_wrapper_data, orig_file->f_flags, NULL);
     if (IS_ERR(wrapper_file)) {
-        pr_err("xnsu_fdwrapper: getfile failed: %ld\n", PTR_ERR(wrapper_file));
+        pr_err("ksu_fdwrapper: getfile failed: %ld\n", PTR_ERR(wrapper_file));
         ret = PTR_ERR(wrapper_file);
         goto out_release_wrapper;
     }

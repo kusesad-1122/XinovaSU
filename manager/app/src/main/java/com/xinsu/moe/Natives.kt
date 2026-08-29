@@ -29,7 +29,7 @@ object Natives {
     const val ROOT_GID = 0
 
     init {
-        System.loadLibrary("xinovasu")
+        System.loadLibrary("kernelsu")
     }
 
     val version: Int
@@ -114,8 +114,18 @@ object Natives {
         }
     }
 
+    val kernelUAPIVersion: Int
+        external get
+
+    val managerUAPIVersion: Int
+        external get
+
+    fun checkUAPIMismatch(): Boolean {
+        return kernelUAPIVersion != managerUAPIVersion
+    }
+
     fun requireNewKernel(): Boolean {
-        return version != -1 && version < MINIMAL_SUPPORTED_KERNEL
+        return (version != -1 && version < MINIMAL_SUPPORTED_KERNEL) || checkUAPIMismatch()
     }
 
     @Keep
@@ -144,7 +154,7 @@ object Natives {
 
         val nonRootUseDefault: Boolean = true,
         val umountModules: Boolean = true,
-        var rules: String = "", // this field is save in xnsusd!!
+        var rules: String = "", // this field is save in ksud!!
     ) : Parcelable {
         enum class Namespace {
             INHERITED,

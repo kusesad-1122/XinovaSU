@@ -33,20 +33,20 @@ enum Commands {
     /// Trigger `service` event
     Services,
 
-    /// Run sulog reader daemon. Not for user. Use `xnsusd debug sulogd` to launch daemon.
+    /// Run sulog reader daemon. Not for user. Use `ksud debug sulogd` to launch daemon.
     #[command(hide = true)]
     Sulogd,
 
     /// Trigger `boot-complete` event
     BootCompleted,
 
-    /// Load xinovasu.ko and execute late-load stage scripts
+    /// Load kernelsu.ko and execute late-load stage scripts
     LateLoad {
         /// Use adb root to execute late-load for jailbreaking by Magica
         #[arg(long, default_missing_value = "5555", num_args = 0..=1)]
         magica: Option<u16>,
 
-        /// Pass allow_shell=1 when loading xinovasu.ko
+        /// Pass allow_shell=1 when loading kernelsu.ko
         #[arg(long)]
         allow_shell: bool,
 
@@ -175,7 +175,7 @@ enum BootInfo {
 
 #[derive(clap::Subcommand, Debug)]
 enum Debug {
-    /// Set the manager app, kernel CONFIG_XNSU_DEBUG should be enabled.
+    /// Set the manager app, kernel CONFIG_KSU_DEBUG should be enabled.
     SetManager {
         /// manager package name
         #[arg(default_value_t = String::from("com.xinsu.moe"))]
@@ -615,7 +615,7 @@ pub fn run() -> Result<()> {
                 Module::Config { internal, command } => {
                     let module_id = match internal {
                         Some(internal_name) => format!("internal.{internal_name}"),
-                        None => std::env::var("XNSU_MODULE").map_err(|_| {
+                        None => std::env::var("KSU_MODULE").map_err(|_| {
                             anyhow::anyhow!(
                                 "This command must be run in the context of a module or passed --internal <name>"
                             )

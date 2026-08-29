@@ -1,7 +1,7 @@
 #ifndef __XNSU_H_MANAGER_OBSERVER
 #define __XNSU_H_MANAGER_OBSERVER
 
-#ifdef CONFIG_XNSU_DISABLE_MANAGER
+#ifdef CONFIG_KSU_DISABLE_MANAGER
 static inline int xnsu_observer_init(void)
 {
     return 0;

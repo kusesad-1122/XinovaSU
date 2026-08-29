@@ -520,11 +520,10 @@ bool xnsu_is_safe_mode()
     return false;
 }
 
-void xnsu_execve_hook_xnsusd(const struct pt_regs *regs)
+static void xnsu_execve_hook_xnsusd_common(const char __user *filename_user,
+                                           const char __user *const __user *argv_user)
 {
-    const char __user **filename_user = (const char **)&PT_REGS_PARM1(regs);
-    const char __user *const __user *__argv = (const char __user *const __user *)PT_REGS_PARM2(regs);
-    struct user_arg_ptr argv = { .ptr.native = __argv };
+    struct user_arg_ptr argv = { .ptr.native = argv_user };
     char path[32];
     long ret;
     unsigned long addr;
@@ -533,7 +532,7 @@ void xnsu_execve_hook_xnsusd(const struct pt_regs *regs)
     if (!filename_user)
         return;
 
-    addr = untagged_addr((unsigned long)*filename_user);
+    addr = untagged_addr((unsigned long)filename_user);
     fn = (const char __user *)addr;
 
     memset(path, 0, sizeof(path));
@@ -544,6 +543,18 @@ void xnsu_execve_hook_xnsusd(const struct pt_regs *regs)
     }
 
     xnsu_handle_execveat_xnsusd(path, &argv);
+}
+
+void xnsu_execve_hook_xnsusd(const struct pt_regs *regs)
+{
+    xnsu_execve_hook_xnsusd_common((const char __user *)PT_REGS_PARM1(regs),
+                                   (const char __user *const __user *)PT_REGS_PARM2(regs));
+}
+
+void xnsu_execveat_hook_xnsusd(const struct pt_regs *regs)
+{
+    xnsu_execve_hook_xnsusd_common((const char __user *)PT_REGS_PARM2(regs),
+                                   (const char __user *const __user *)PT_REGS_PARM3(regs));
 }
 
 static long (*orig_sys_read)(const struct pt_regs *regs);
@@ -633,7 +644,7 @@ void xnsu_stop_input_hook_runtime(void)
     pr_info("unregister input kprobe: %d!\n", ret);
 }
 
-// xnsusd: module support
+// ksud: module support
 void __init xnsu_xnsusd_init()
 {
     int ret;
@@ -642,7 +653,7 @@ void __init xnsu_xnsusd_init()
     xnsu_syscall_table_hook(__NR_fstat, xnsu_sys_fstat, &orig_sys_fstat);
 
     ret = register_kprobe(&input_event_kp);
-    pr_info("xnsusd: input_event_kp: %d\n", ret);
+    pr_info("ksud: input_event_kp: %d\n", ret);
 
     INIT_WORK(&stop_input_hook_work, do_stop_input_hook);
 }

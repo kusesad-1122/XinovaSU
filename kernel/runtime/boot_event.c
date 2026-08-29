@@ -70,7 +70,7 @@ void on_boot_completed(void)
     // If the manager appid is still unknown by boot-completed, the packages.list
     // fsnotify event was missed (typical after freshly flashing the patched
     // init_boot: packages.list already exists and PMS only rewrites it in place).
-    // Force a full scan so setuid_hook can start installing the [xnsu_driver]
+    // Force a full scan so setuid_hook can start installing the [ksu_driver]
     // fd on the manager process; otherwise the app stays "not installed".
     if (!xnsu_is_manager_appid_valid()) {
         pr_info("manager appid still invalid at boot completed, forcing full search\n");

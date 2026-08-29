@@ -41,7 +41,7 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
     dump_process_info("late-load start");
 
     // 1. Check if XinovaSU is already loaded
-    if xnsuinit::has_xinovasu() {
+    if ksuinit::has_kernelsu() {
         info!("XinovaSU already loaded, skip loading ko");
     } else {
         // 2. Detect current KMI version
@@ -51,20 +51,20 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
         )?;
         info!("Detected KMI: {kmi}");
 
-        // 3. Get xinovasu.ko from embedded assets
-        let ko_name = format!("{kmi}_xinovasu.ko");
+        // 3. Get kernelsu.ko from embedded assets
+        let ko_name = format!("{kmi}_kernelsu.ko");
         let ko_data = assets::get_asset_data(&ko_name)
             .with_context(|| format!("Failed to get {ko_name} from assets"))?;
 
-        // 4. Load xinovasu.ko from memory with manual relocation
-        info!("Loading xinovasu.ko for KMI {kmi}...");
+        // 4. Load kernelsu.ko from memory with manual relocation
+        info!("Loading kernelsu.ko for KMI {kmi}...");
         let params = if allow_shell {
             cstr!("allow_shell=1")
         } else {
             cstr!("")
         };
-        xnsuinit::load_module(&ko_data, params).context("Failed to load xinovasu.ko")?;
-        info!("xinovasu.ko loaded successfully!");
+        ksuinit::load_module(&ko_data, params).context("Failed to load kernelsu.ko")?;
+        info!("kernelsu.ko loaded successfully!");
         dump_process_info("after load_module");
     }
 
@@ -78,7 +78,7 @@ pub fn run(package_name: &String, kmi: Option<String>, allow_shell: bool) -> Res
         warn!("clear temp configs failed: {e}");
     }
 
-    utils::install(None).context("Failed to install xnsusd")?;
+    utils::install(None).context("Failed to install ksud")?;
 
     // 5. Handle module updates
     if let Err(e) = handle_updated_modules() {

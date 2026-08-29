@@ -19,9 +19,14 @@ features focused on hiding and anti-detection.
 
 - **Hide Service** — masks Bootloader-unlock / verified-boot state against naive property checks
 - **Umount Service** — auto-unmount chosen mount points at boot, per-app
-- **Kernel Spoof** — spoof uname version / build time (uname, /proc/version, osrelease)
-- **Path Hide** — hide files/dirs from selected apps at the kernel level (ENOENT + directory-listing filtering)
-- **Network Isolation** — block chosen apps' network access at the kernel level
+- **Kernel Spoof** — spoof uname version / build time (uname, /proc/version, osrelease) via `XNSU_IOCTL_SET_UTS_SPOOF` (25)
+- **Path Hide** — hide files/dirs from selected apps at the kernel level (ENOENT + directory-listing filtering, supports `../`/`./` and sdcard alias canonicalization, optional `filter_system`)
+- **Network Isolation** — block chosen apps' *new* IP `connect()` at LSM level (`AF_INET`/`AF_INET6`)
+- **VPN Hide** — hide VPN interfaces (`tun`/`tap`/`ppp`/`wg`/`ipsec`/`utun`/`ccmni`) from `getdents`/`netlink`/`getifaddrs`/`SIOCGIFCONF` and direct `/sys/class/net/<vpn>` stat; framework `ConnectivityManager` hiding via Zygisk companion (`zygisk-vpnhide`)
+
+## Zygisk VPN Hide
+
+`zygisk-vpnhide` is the framework-layer companion to `kernel/feature/vpn_hide`. The kernel covers native enumeration; the Zygisk module covers `ConnectivityManager`/`NetworkCapabilities` (via LSPlant when vendored) and native `ioctl(SIOCGIFCONF)`. See `zygisk-vpnhide/src/main.cpp` and `zygisk-vpnhide/src/lsplant.hpp` (stub, replace with real LSPlant for full ART hooks).
 
 ## Usage
 

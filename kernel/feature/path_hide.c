@@ -50,9 +50,10 @@ static int ph_uid_count;
 static bool ph_filter_system; // reserved for a future system-wide mode
 
 // Canonicalize a path for matching: rewrite well-known sdcard aliases to the
-// canonical /storage/emulated/0 form, then strip trailing slashes (except the
-// root "/"). Both stored paths and queried paths go through this, so either
-// spelling of the same location matches. `out` must be XNSU_PH_PATH_LEN bytes.
+// canonical /storage/emulated/0 form, collapse //, resolve ./ and ../, then
+// strip trailing slashes (except root "/"). Both stored paths and queried paths
+// go through this, so either spelling of the same location matches.
+// `out` must be XNSU_PH_PATH_LEN bytes.
 static void ph_normalize(const char *in, char *out, size_t outlen)
 {
     static const struct {
@@ -65,7 +66,12 @@ static void ph_normalize(const char *in, char *out, size_t outlen)
     };
     const char *src = in;
     char tmp[XNSU_PH_PATH_LEN];
-    size_t i, len;
+    char copy[XNSU_PH_PATH_LEN];
+    char result[XNSU_PH_PATH_LEN];
+    char *components[64];
+    int comp_cnt = 0;
+    bool is_absolute;
+    size_t i;
 
     if (!in || !out || outlen == 0) {
         if (out && outlen) {
@@ -83,11 +89,53 @@ static void ph_normalize(const char *in, char *out, size_t outlen)
         }
     }
 
-    strscpy(out, src, outlen);
-    len = strlen(out);
-    while (len > 1 && out[len - 1] == '/') {
-        out[--len] = '\0';
+    strscpy(copy, src, sizeof(copy));
+    is_absolute = (copy[0] == '/');
+
+    // Tokenize by '/' and resolve . and ..
+    {
+        char *p = copy;
+        char *tok;
+        while ((tok = strsep(&p, "/")) != NULL) {
+            if (tok[0] == '\0' || strcmp(tok, ".") == 0) {
+                continue;
+            }
+            if (strcmp(tok, "..") == 0) {
+                if (comp_cnt > 0) {
+                    comp_cnt--;
+                }
+                continue;
+            }
+            if (comp_cnt < (int)ARRAY_SIZE(components)) {
+                components[comp_cnt++] = tok;
+            }
+        }
     }
+
+    // Rebuild
+    result[0] = '\0';
+    if (is_absolute) {
+        result[0] = '/';
+        result[1] = '\0';
+    }
+    for (i = 0; i < (size_t)comp_cnt; i++) {
+        size_t cur_len = strlen(result);
+        bool need_slash = !(cur_len == 1 && is_absolute && result[0] == '/') && cur_len > 0;
+        if (need_slash) {
+            if (cur_len + 1 >= sizeof(result)) break;
+            result[cur_len] = '/';
+            result[cur_len + 1] = '\0';
+            cur_len++;
+        }
+        size_t clen = strlen(components[i]);
+        if (cur_len + clen >= sizeof(result)) break;
+        memcpy(result + cur_len, components[i], clen);
+        result[cur_len + clen] = '\0';
+    }
+    if (result[0] == '\0') {
+        strscpy(result, is_absolute ? "/" : ".", sizeof(result));
+    }
+    strscpy(out, result, outlen);
 }
 
 int xnsu_path_hide_add_path(const char *path)
@@ -211,6 +259,12 @@ void xnsu_path_hide_clear_uids(void)
 void xnsu_path_hide_set_filter_system(bool on)
 {
     ph_filter_system = on;
+    xnsu_mark_running_process();
+}
+
+static inline bool ph_is_system_appid(u32 appid)
+{
+    return appid < 10000;
 }
 
 bool xnsu_path_hide_is_target(uid_t uid)
@@ -222,6 +276,11 @@ bool xnsu_path_hide_is_target(uid_t uid)
 
     if (!static_branch_unlikely(&xnsu_path_hide)) {
         return false;
+    }
+
+    // When filter_system is on, treat system appids as targets for hiding
+    if (ph_filter_system && ph_is_system_appid(appid)) {
+        return true;
     }
 
     spin_lock_irqsave(&ph_lock, flags);

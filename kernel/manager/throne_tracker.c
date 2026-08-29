@@ -19,12 +19,12 @@ uid_t xnsu_manager_appid = XNSU_INVALID_APPID;
 struct uid_data {
     struct list_head list;
     u32 uid;
-    char package[XNSU_MAX_PACKAGE_NAME];
+    char package[KSU_MAX_PACKAGE_NAME];
 };
 
 static void crown_manager(const char *apk, struct list_head *uid_data)
 {
-    char pkg[XNSU_MAX_PACKAGE_NAME];
+    char pkg[KSU_MAX_PACKAGE_NAME];
     if (get_pkg_from_apk_path(pkg, apk) < 0) {
         pr_err("Failed to get package name from apk path: %s\n", apk);
         return;
@@ -36,7 +36,7 @@ static void crown_manager(const char *apk, struct list_head *uid_data)
     struct uid_data *np;
 
     list_for_each_entry (np, list, list) {
-        if (strncmp(np->package, pkg, XNSU_MAX_PACKAGE_NAME) == 0) {
+        if (strncmp(np->package, pkg, KSU_MAX_PACKAGE_NAME) == 0) {
             pr_info("Crowning manager: %s(uid=%d)\n", pkg, np->uid);
             xnsu_set_manager_appid(np->uid);
             break;
@@ -235,7 +235,7 @@ static bool is_uid_exist(uid_t uid, char *package, void *data)
 
     bool exist = false;
     list_for_each_entry (np, list, list) {
-        if (np->uid == uid % PER_USER_RANGE && strncmp(np->package, package, XNSU_MAX_PACKAGE_NAME) == 0) {
+        if (np->uid == uid % PER_USER_RANGE && strncmp(np->package, package, KSU_MAX_PACKAGE_NAME) == 0) {
             exist = true;
             break;
         }
@@ -257,7 +257,7 @@ void track_throne(bool prune_only)
     char chr = 0;
     loff_t pos = 0;
     loff_t line_start = 0;
-    char buf[XNSU_MAX_PACKAGE_NAME];
+    char buf[KSU_MAX_PACKAGE_NAME];
     for (;;) {
         ssize_t count = kernel_read(fp, &chr, sizeof(chr), &pos);
         if (count != sizeof(chr))
@@ -295,10 +295,10 @@ void track_throne(bool prune_only)
         }
         data->uid = res;
         // Use strscpy (not strncpy): GKI 6.6 does not export strncpy via
-        // kallsyms, so referencing it makes xnsuinit fail to resolve the
+        // kallsyms, so referencing it makes ksuinit fail to resolve the
         // symbol and the whole .ko fails to load. strscpy is exported,
         // matches upstream, and additionally guarantees NUL-termination.
-        strscpy(data->package, package, XNSU_MAX_PACKAGE_NAME);
+        strscpy(data->package, package, KSU_MAX_PACKAGE_NAME);
         list_add_tail(&data->list, &uid_list);
         // reset line start
         line_start = pos;

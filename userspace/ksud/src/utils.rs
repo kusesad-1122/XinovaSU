@@ -3,6 +3,7 @@ use rustix::fs::{Mode, OFlags, open};
 use rustix::process::setpgid;
 use rustix::stdio::{dup2_stderr, dup2_stdin, dup2_stdout};
 use std::{
+    ffi::{CStr, CString, c_char, c_void},
     fs::{File, OpenOptions, create_dir_all, remove_file, write},
     io::{
         ErrorKind::{AlreadyExists, NotFound},
@@ -21,6 +22,17 @@ use std::os::unix::prelude::PermissionsExt;
 use std::path::PathBuf;
 
 use crate::boot_patch::BootRestoreArgs;
+
+type PropertyReadCallback = unsafe extern "C" fn(*mut c_void, *const c_char, *const c_char, u32);
+
+unsafe extern "C" {
+    fn __system_property_find(name: *const c_char) -> *const c_void;
+    fn __system_property_read_callback(
+        property_info: *const c_void,
+        callback: PropertyReadCallback,
+        cookie: *mut c_void,
+    );
+}
 
 use rustix::{
     process,
@@ -74,6 +86,42 @@ pub fn ensure_dir_exists<T: AsRef<Path>>(dir: T) -> Result<()> {
     }
 }
 
+pub fn atomic_write(path: &Path, data: &[u8], mode: u32) -> Result<()> {
+    let dir = path.parent().ok_or_else(|| anyhow::anyhow!("no parent for {}", path.display()))?;
+    ensure_dir_exists(dir)?;
+    let tmp = dir.join(format!(".{}.tmp", path.file_name().unwrap().to_string_lossy()));
+    {
+        let mut f = OpenOptions::new()
+            .create(true)
+            .write(true)
+            .truncate(true)
+            .open(&tmp)
+            .with_context(|| format!("open tmp {}", tmp.display()))?;
+        f.write_all(data).with_context(|| format!("write tmp {}", tmp.display()))?;
+        f.sync_all().with_context(|| format!("sync tmp {}", tmp.display()))?;
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            let _ = f.set_permissions(Permissions::from_mode(mode));
+        }
+    }
+    std::fs::rename(&tmp, path).with_context(|| format!("rename {} -> {}", tmp.display(), path.display()))?;
+    // fsync directory to persist rename
+    if let Ok(dir_f) = File::open(dir) {
+        let _ = dir_f.sync_all();
+    }
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::PermissionsExt;
+        let _ = set_permissions(path, Permissions::from_mode(mode));
+    }
+    Ok(())
+}
+
+pub fn atomic_write_str(path: &Path, s: &str, mode: u32) -> Result<()> {
+    atomic_write(path, s.as_bytes(), mode)
+}
+
 pub fn ensure_binary<T: AsRef<Path>>(
     path: T,
     contents: &[u8],
@@ -103,8 +151,37 @@ pub fn ensure_binary<T: AsRef<Path>>(
     Ok(())
 }
 
-pub fn getprop(prop: &str) -> Option<String> {
-    android_properties::getprop(prop).value()
+unsafe extern "C" fn property_read_callback(
+    cookie: *mut c_void,
+    _name: *const c_char,
+    value: *const c_char,
+    _serial: u32,
+) {
+    if cookie.is_null() || value.is_null() {
+        return;
+    }
+
+    let result = unsafe { &mut *cookie.cast::<Option<String>>() };
+    let value = unsafe { CStr::from_ptr(value) };
+    *result = Some(value.to_string_lossy().into_owned());
+}
+
+pub fn getprop(name: &str) -> Option<String> {
+    let name = CString::new(name).ok()?;
+    let property_info = unsafe { __system_property_find(name.as_ptr()) };
+    if property_info.is_null() {
+        return None;
+    }
+
+    let mut value = None;
+    unsafe {
+        __system_property_read_callback(
+            property_info,
+            property_read_callback,
+            std::ptr::addr_of_mut!(value).cast(),
+        );
+    }
+    value
 }
 
 pub fn is_safe_mode() -> bool {
@@ -180,11 +257,11 @@ pub fn has_magisk() -> bool {
     which::which("magisk").is_ok()
 }
 
-fn link_xnsusd_to_bin() -> Result<()> {
-    let xnsu_bin = PathBuf::from(defs::DAEMON_PATH);
-    let xnsu_bin_link = PathBuf::from(defs::DAEMON_LINK_PATH);
-    if xnsu_bin.exists() && !xnsu_bin_link.exists() {
-        std::os::unix::fs::symlink(&xnsu_bin, &xnsu_bin_link)?;
+fn link_ksud_to_bin() -> Result<()> {
+    let ksu_bin = PathBuf::from(defs::DAEMON_PATH);
+    let ksu_bin_link = PathBuf::from(defs::DAEMON_LINK_PATH);
+    if ksu_bin.exists() && !ksu_bin_link.exists() {
+        std::os::unix::fs::symlink(&ksu_bin, &ksu_bin_link)?;
     }
     Ok(())
 }
@@ -200,7 +277,7 @@ pub fn install(libadbroot: Option<PathBuf>) -> Result<()> {
     // install binary assets
     assets::ensure_binaries(false).with_context(|| "Failed to extract assets")?;
 
-    link_xnsusd_to_bin()?;
+    link_ksud_to_bin()?;
 
     if let Some(libadbroot) = libadbroot {
         ensure_dir_exists(defs::LIBRARY_DIR)?;
