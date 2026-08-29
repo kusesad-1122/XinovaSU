@@ -378,3 +378,12 @@ pub fn set_init_pgrp() -> std::io::Result<()> {
     )?;
     Ok(())
 }
+
+/// Disable escape to root for current thread (official KSU_IOCTL_DISABLE_ESCAPE_TO_ROOT)
+pub fn disable_escape_to_root() -> std::io::Result<()> {
+    ksuctl(
+        ksu_uapi::KSU_IOCTL_DISABLE_ESCAPE_TO_ROOT,
+        std::ptr::null_mut::<u8>(),
+    )?;
+    Ok(())
+}

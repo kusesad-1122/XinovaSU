@@ -12,7 +12,7 @@
 //! `<path>` optionally followed by whitespace and numeric umount `<flags>`
 //! (defaults to `MNT_DETACH`). Blank lines and `#` comments are ignored.
 
-use crate::{defs, ksucalls};
+use crate::{defs, ksucalls, utils};
 use anyhow::Result;
 use log::warn;
 use std::fs;
@@ -52,16 +52,13 @@ pub fn read_list() -> Vec<(String, u32)> {
 
 /// Persist the given paths (one per line) to [`defs::UMOUNT_LIST_PATH`].
 fn write_list(paths: &[String]) -> Result<()> {
-    if let Some(parent) = Path::new(defs::UMOUNT_LIST_PATH).parent() {
-        let _ = fs::create_dir_all(parent);
-    }
     let body = paths
         .iter()
         .map(|p| p.trim())
         .filter(|p| !p.is_empty())
         .collect::<Vec<_>>()
         .join("\n");
-    fs::write(defs::UMOUNT_LIST_PATH, body)?;
+    utils::atomic_write_str(Path::new(defs::UMOUNT_LIST_PATH), &body, 0o600)?;
     Ok(())
 }
 

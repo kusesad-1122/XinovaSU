@@ -9,6 +9,7 @@ long xnsu_hook_openat(int orig_nr, const struct pt_regs *regs);
 long xnsu_hook_getdents64(int orig_nr, const struct pt_regs *regs);
 long xnsu_hook_recvmsg(int orig_nr, const struct pt_regs *regs);
 long xnsu_hook_recvfrom(int orig_nr, const struct pt_regs *regs);
+long xnsu_hook_recvmmsg(int orig_nr, const struct pt_regs *regs);
 long xnsu_hook_execve(int orig_nr, const struct pt_regs *regs);
 long xnsu_hook_execveat(int orig_nr, const struct pt_regs *regs);
 long xnsu_hook_setresuid(int orig_nr, const struct pt_regs *regs);

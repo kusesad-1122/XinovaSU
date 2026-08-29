@@ -1,0 +1,32 @@
+name: ABI Guard
+
+on:
+  pull_request:
+    paths:
+      - 'uapi/**'
+      - 'kernel/**'
+      - 'userspace/ksud/**'
+      - 'scripts/check_abi_guard.py'
+  push:
+    branches: [main, 'sync/**']
+    paths:
+      - 'uapi/**'
+      - 'kernel/**'
+      - 'userspace/ksud/**'
+      - 'scripts/check_abi_guard.py'
+
+jobs:
+  abi-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run ABI guard
+        run: python scripts/check_abi_guard.py
+      - name: Run theme guards
+        run: |
+          python scripts/check_theme_catalog.py
+          python scripts/check_theme_decoration_guards.py
+          python scripts/check_theme_surface_guards.py

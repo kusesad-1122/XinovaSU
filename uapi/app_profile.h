@@ -9,7 +9,9 @@
 #define KSU_MAX_GROUPS 32
 #define KSU_SELINUX_DOMAIN 64
 
-#define XNSU_FLAG_NO_NEW_PRIVS (1ULL << 0)
+#define FLAG_KSU_NO_NEW_PRIVS (1ULL << 0)
+// Compat alias for legacy code
+#define XNSU_FLAG_NO_NEW_PRIVS FLAG_KSU_NO_NEW_PRIVS
 
 struct root_profile {
     __s32 uid;

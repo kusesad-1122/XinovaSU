@@ -86,6 +86,42 @@ pub fn ensure_dir_exists<T: AsRef<Path>>(dir: T) -> Result<()> {
     }
 }
 
+pub fn atomic_write(path: &Path, data: &[u8], mode: u32) -> Result<()> {
+    let dir = path.parent().ok_or_else(|| anyhow::anyhow!("no parent for {}", path.display()))?;
+    ensure_dir_exists(dir)?;
+    let tmp = dir.join(format!(".{}.tmp", path.file_name().unwrap().to_string_lossy()));
+    {
+        let mut f = OpenOptions::new()
+            .create(true)
+            .write(true)
+            .truncate(true)
+            .open(&tmp)
+            .with_context(|| format!("open tmp {}", tmp.display()))?;
+        f.write_all(data).with_context(|| format!("write tmp {}", tmp.display()))?;
+        f.sync_all().with_context(|| format!("sync tmp {}", tmp.display()))?;
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            let _ = f.set_permissions(Permissions::from_mode(mode));
+        }
+    }
+    std::fs::rename(&tmp, path).with_context(|| format!("rename {} -> {}", tmp.display(), path.display()))?;
+    // fsync directory to persist rename
+    if let Ok(dir_f) = File::open(dir) {
+        let _ = dir_f.sync_all();
+    }
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::PermissionsExt;
+        let _ = set_permissions(path, Permissions::from_mode(mode));
+    }
+    Ok(())
+}
+
+pub fn atomic_write_str(path: &Path, s: &str, mode: u32) -> Result<()> {
+    atomic_write(path, s.as_bytes(), mode)
+}
+
 pub fn ensure_binary<T: AsRef<Path>>(
     path: T,
     contents: &[u8],

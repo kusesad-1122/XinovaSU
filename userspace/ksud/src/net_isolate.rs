@@ -7,15 +7,16 @@
 //! Config ([`defs::NET_ISOLATE_CONFIG`]): line 1 = "1"/"0" (enabled), the
 //! remaining lines = blocked uids (one per line).
 
-use crate::{defs, ksucalls};
+use crate::{defs, ksucalls, utils};
 use anyhow::Result;
 use log::warn;
 use std::fs;
+use std::path::Path;
 
 // XNSU_FEATURE_NET_ISOLATE (uapi/feature.h). The master switch is toggled
 // through the generic feature IOCTL; the blocklist rides the dedicated
 // net-isolate IOCTL.
-const FEATURE_NET_ISOLATE: u32 = 6;
+const FEATURE_NET_ISOLATE: u32 = 7;
 
 fn read_config() -> Option<(bool, Vec<u32>)> {
     let content = fs::read_to_string(defs::NET_ISOLATE_CONFIG).ok()?;
@@ -48,7 +49,7 @@ pub fn save(enabled: bool, uids: &[u32]) -> Result<()> {
         body.push_str(&uid.to_string());
         body.push('\n');
     }
-    fs::write(defs::NET_ISOLATE_CONFIG, body)?;
+    utils::atomic_write_str(Path::new(defs::NET_ISOLATE_CONFIG), &body, 0o600)?;
     apply_from_config();
     Ok(())
 }

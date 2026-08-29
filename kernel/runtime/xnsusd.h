@@ -3,7 +3,7 @@
 
 #include <asm/syscall.h>
 
-#define KSUD_PATH "/data/adb/xnsusd"
+#define KSUD_PATH "/data/adb/ksud"
 
 void xnsu_xnsusd_init();
 void xnsu_xnsusd_exit();

@@ -75,12 +75,12 @@ ccflags-y += -I$(srctree)/security/selinux -I$(srctree)/security/selinux/include
 ccflags-y += -I$(objtree)/security/selinux -include $(srctree)/include/uapi/asm-generic/errno.h
 
 ifeq ($(filter /%,$(src)),)
-XNSU_KERNEL_DIR := $(srctree)/$(src)
+KSU_KERNEL_DIR := $(srctree)/$(src)
 else
-XNSU_KERNEL_DIR := $(src)
+KSU_KERNEL_DIR := $(src)
 endif
 
-ccflags-y += -I$(XNSU_KERNEL_DIR) -I$(XNSU_KERNEL_DIR)/include
+ccflags-y += -I$(KSU_KERNEL_DIR) -I$(KSU_KERNEL_DIR)/include
 
 obj-$(CONFIG_KSU) += kernelsu.o
 
@@ -98,8 +98,8 @@ KERNEL_GIT_ROOT := $(shell cd $(srctree) && $(GIT) rev-parse --show-toplevel 2>/
 ifneq ($(GIT_ROOT),$(KERNEL_GIT_ROOT))
 # Only set version if it's a different repo from kernel
 $(shell cd $(GIT_ROOT) && [ -f .git/shallow ] && $(GIT) fetch --unshallow 2>/dev/null || true)
-XNSU_GIT_VERSION := $(shell cd $(GIT_ROOT) && $(GIT) rev-list --count HEAD 2>/dev/null)
-XNSU_GIT_VERSION_VALID := 1
+KSU_GIT_VERSION := $(shell cd $(GIT_ROOT) && $(GIT) rev-list --count HEAD 2>/dev/null)
+KSU_GIT_VERSION_VALID := 1
 $(info -- XinovaSU: Git repo detected at $(GIT_ROOT))
 endif
 endif
@@ -110,13 +110,13 @@ endif
 
 # Calculate version if git version is available
 ifdef KSU_GIT_VERSION_VALID
-# xnsu_version: major * 10000 + git version + 200 for historical reasons
-$(eval XNSU_VERSION=$(shell expr 30000 + $(XNSU_GIT_VERSION)))
+# ksu_version: major * 10000 + git version + 200 for historical reasons
+$(eval KSU_VERSION=$(shell expr 30000 + $(KSU_GIT_VERSION)))
 $(info -- XinovaSU version: $(KSU_VERSION))
 ccflags-y += -DKSU_VERSION=$(KSU_VERSION)
 else
 # If there is no .git directory, use default version
-$(warning "XNSU_GIT_VERSION not defined! It is better to make XinovaSU a git repository!")
+$(warning "KSU_GIT_VERSION not defined! It is better to make XinovaSU a git repository!")
 ccflags-y += -DKSU_VERSION=16
 endif
 

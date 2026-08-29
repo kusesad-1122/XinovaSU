@@ -9,14 +9,15 @@
 //! Config ([`defs::VPN_HIDE_CONFIG`]): line 1 = "1"/"0" (enabled), the
 //! remaining lines = target uids (one per line).
 
-use crate::{defs, ksucalls};
+use crate::{defs, ksucalls, utils};
 use anyhow::Result;
 use log::warn;
 use std::fs;
+use std::path::Path;
 
 // XNSU_FEATURE_VPN_HIDE (uapi/feature.h). The master switch is toggled through
 // the generic feature IOCTL; the target list rides the dedicated vpn-hide IOCTL.
-const FEATURE_VPN_HIDE: u32 = 8;
+const FEATURE_VPN_HIDE: u32 = 9;
 
 fn read_config() -> Option<(bool, Vec<u32>)> {
     let content = fs::read_to_string(defs::VPN_HIDE_CONFIG).ok()?;
@@ -49,7 +50,7 @@ pub fn save(enabled: bool, uids: &[u32]) -> Result<()> {
         body.push_str(&uid.to_string());
         body.push('\n');
     }
-    fs::write(defs::VPN_HIDE_CONFIG, body)?;
+    utils::atomic_write_str(Path::new(defs::VPN_HIDE_CONFIG), &body, 0o600)?;
     apply_from_config();
     Ok(())
 }

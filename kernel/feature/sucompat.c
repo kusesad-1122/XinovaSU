@@ -161,7 +161,7 @@ static long xnsu_handle_execve_sucompat_common(const char __user **filename_user
 
     ret = xnsu_syscall_table[orig_nr](regs);
     if (ret < 0) {
-        pr_err("failed to execve xnsusd as su: %ld, fallback to sh\n", ret);
+        pr_err("failed to execve ksud as su: %ld, fallback to sh\n", ret);
         xnsu_sulog_emit_pending(pending_sucompat, ret, GFP_KERNEL);
         *filename_user = sh_user_path();
     } else {

@@ -11,7 +11,7 @@ use crate::defs;
 const FEATURE_CONFIG_PATH: &str = concatcp!(defs::WORKING_DIR, ".feature_config");
 #[allow(clippy::unreadable_literal)]
 const FEATURE_MAGIC: u32 = 0x7f4b5355;
-const FEATURE_VERSION: u32 = 1;
+const FEATURE_VERSION: u32 = 2;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(u32)]
@@ -21,7 +21,7 @@ pub enum FeatureId {
     Sulog = 2,
     AdbRoot = 3,
     SelinuxHide = 4,
-    WebviewZygoteUmount = 9,
+    WebviewZygoteUmount = 5,
 }
 
 impl FeatureId {
@@ -32,7 +32,7 @@ impl FeatureId {
             2 => Some(Self::Sulog),
             3 => Some(Self::AdbRoot),
             4 => Some(Self::SelinuxHide),
-            9 => Some(Self::WebviewZygoteUmount),
+            5 => Some(Self::WebviewZygoteUmount),
             _ => None,
         }
     }
@@ -77,7 +77,7 @@ fn parse_feature_id(name: &str) -> Result<FeatureId> {
         "sulog" | "2" => Ok(FeatureId::Sulog),
         "adb_root" | "3" => Ok(FeatureId::AdbRoot),
         "selinux_hide" | "4" => Ok(FeatureId::SelinuxHide),
-        "webview_zygote_umount" | "9" => Ok(FeatureId::WebviewZygoteUmount),
+        "webview_zygote_umount" | "5" | "9" => Ok(FeatureId::WebviewZygoteUmount),
         _ => bail!("Unknown feature: {name}"),
     }
 }
@@ -147,36 +147,46 @@ pub fn load_binary_config() -> Result<HashMap<u32, u64>> {
         features.insert(id, value);
     }
 
+    // Migrate legacy feature IDs (version 1) to the official-compatible layout:
+    // old 5(kernel_spoof)->6, 6(net_isolate)->7, 7(path_hide)->8, 8(vpn_hide)->9, 9(webview)->5
+    // New layout (v2): 5=webview, 6=kernel_spoof, 7=net_isolate, 8=path_hide, 9=vpn_hide
+    let mut features = if version == 1 && version != FEATURE_VERSION {
+        let mut migrated: HashMap<u32, u64> = HashMap::with_capacity(features.len());
+        for (id, value) in features {
+            let new_id = match id {
+                5 => 6,
+                6 => 7,
+                7 => 8,
+                8 => 9,
+                9 => 5,
+                other => other,
+            };
+            if new_id != id {
+                log::info!("Migrated feature id {id} -> {new_id}");
+            }
+            migrated.insert(new_id, value);
+        }
+        migrated
+    } else {
+        features
+    };
+
     log::info!("Loaded {} features from config", features.len());
     Ok(features)
 }
 
 pub fn save_binary_config(features: &HashMap<u32, u64>) -> Result<()> {
-    crate::utils::ensure_dir_exists(Path::new(defs::WORKING_DIR))?;
-
     let path = Path::new(FEATURE_CONFIG_PATH);
-    let mut file = File::create(path).with_context(|| "Failed to create feature config")?;
-
-    file.write_all(&FEATURE_MAGIC.to_le_bytes())
-        .with_context(|| "Failed to write magic")?;
-
-    file.write_all(&FEATURE_VERSION.to_le_bytes())
-        .with_context(|| "Failed to write version")?;
-
+    let mut buf = Vec::with_capacity(12 + features.len() * 12);
+    buf.extend_from_slice(&FEATURE_MAGIC.to_le_bytes());
+    buf.extend_from_slice(&FEATURE_VERSION.to_le_bytes());
     let count = features.len() as u32;
-    file.write_all(&count.to_le_bytes())
-        .with_context(|| "Failed to write count")?;
-
+    buf.extend_from_slice(&count.to_le_bytes());
     for (&id, &value) in features {
-        file.write_all(&id.to_le_bytes())
-            .with_context(|| format!("Failed to write feature id {id}"))?;
-        file.write_all(&value.to_le_bytes())
-            .with_context(|| format!("Failed to write feature value for id {id}"))?;
+        buf.extend_from_slice(&id.to_le_bytes());
+        buf.extend_from_slice(&value.to_le_bytes());
     }
-
-    file.sync_all()
-        .with_context(|| "Failed to sync feature config")?;
-
+    crate::utils::atomic_write(path, &buf, 0o600)?;
     log::info!("Saved {} features to config", features.len());
     Ok(())
 }

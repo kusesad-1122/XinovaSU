@@ -512,7 +512,7 @@ static void migrate_profile(u32 version, struct app_profile *profile)
         fallthrough;
     case 3:
         if (profile->allow_su) {
-            profile->rp_config.profile.flags = XNSU_FLAG_NO_NEW_PRIVS;
+            profile->rp_config.profile.flags = FLAG_KSU_NO_NEW_PRIVS;
         }
         break;
     }

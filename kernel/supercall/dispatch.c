@@ -1,6 +1,7 @@
 #include <linux/capability.h>
 #include <linux/cred.h>
 #include <linux/slab.h>
+#include <linux/thread_info.h>
 #include <linux/uaccess.h>
 #include <linux/version.h>
 #include <linux/utsname.h>
@@ -804,6 +805,13 @@ static int do_get_sulog_fd(void __user *arg)
     return xnsu_install_sulog_fd();
 }
 
+static int do_disable_escape_to_root(void __user *arg)
+{
+    (void)arg;
+    set_thread_flag(TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT);
+    return 0;
+}
+
 // IOCTL handlers mapping table
 // clang-format off
 static const struct xnsu_ioctl_cmd_map xnsu_ioctl_handlers[] = {
@@ -943,6 +951,12 @@ static const struct xnsu_ioctl_cmd_map xnsu_ioctl_handlers[] = {
         .cmd = KSU_IOCTL_GET_SULOG_FD,
         .name = "GET_SULOG_FD",
         .handler = do_get_sulog_fd,
+        .perm_check = only_root
+    },
+    {
+        .cmd = KSU_IOCTL_DISABLE_ESCAPE_TO_ROOT,
+        .name = "DISABLE_ESCAPE_TO_ROOT",
+        .handler = do_disable_escape_to_root,
         .perm_check = only_root
     },
     {

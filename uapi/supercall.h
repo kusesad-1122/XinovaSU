@@ -173,13 +173,16 @@ static const __u32 KSU_IOCTL_NUKE_EXT4_SYSFS = _IOC(_IOC_WRITE, 'K', 17, 0);
 static const __u32 KSU_IOCTL_ADD_TRY_UMOUNT = _IOC(_IOC_WRITE, 'K', 18, 0);
 static const __u32 KSU_IOCTL_SET_INIT_PGRP = _IO('K', 19);
 static const __u32 KSU_IOCTL_GET_SULOG_FD = _IOW('K', 20, struct ksu_get_sulog_fd_cmd);
+static const __u32 KSU_IOCTL_DISABLE_ESCAPE_TO_ROOT = _IO('K', 21);
 
+// Self-developed ioctls moved to 25+ to avoid colliding with upstream 21 (DISABLE_ESCAPE_TO_ROOT)
+// and reserving 22-24 for future upstream expansion.
 struct xnsu_uts_spoof_cmd {
     __aligned_u64 release; /* Input: user ptr to spoofed release, or 0 to keep */
     __aligned_u64 version; /* Input: user ptr to spoofed version, or 0 to keep */
     __u8 op; /* 0 = reset to captured original, 1 = set spoofed strings */
 };
-static const __u32 XNSU_IOCTL_SET_UTS_SPOOF = _IOW('K', 21, struct xnsu_uts_spoof_cmd);
+static const __u32 XNSU_IOCTL_SET_UTS_SPOOF = _IOW('K', 25, struct xnsu_uts_spoof_cmd);
 
 struct xnsu_net_isolate_cmd {
     __u32 uid; /* Input: target uid for ADD/REMOVE (appid-normalised in kernel) */
@@ -188,7 +191,7 @@ struct xnsu_net_isolate_cmd {
 static const __u32 XNSU_NI_ADD = 1;
 static const __u32 XNSU_NI_REMOVE = 2;
 static const __u32 XNSU_NI_CLEAR = 3;
-static const __u32 XNSU_IOCTL_MANAGE_NET_ISOLATE = _IOW('K', 22, struct xnsu_net_isolate_cmd);
+static const __u32 XNSU_IOCTL_MANAGE_NET_ISOLATE = _IOW('K', 26, struct xnsu_net_isolate_cmd);
 
 struct xnsu_path_hide_cmd {
     __aligned_u64 path; /* Input: user ptr to path string (ADD_PATH/REMOVE_PATH) */
@@ -203,7 +206,7 @@ static const __u32 XNSU_PH_ADD_UID = 4;
 static const __u32 XNSU_PH_REMOVE_UID = 5;
 static const __u32 XNSU_PH_CLEAR_UIDS = 6;
 static const __u32 XNSU_PH_SET_FILTER_SYSTEM = 7;
-static const __u32 XNSU_IOCTL_SET_PATH_HIDE = _IOW('K', 23, struct xnsu_path_hide_cmd);
+static const __u32 XNSU_IOCTL_SET_PATH_HIDE = _IOW('K', 27, struct xnsu_path_hide_cmd);
 
 struct xnsu_vpn_hide_cmd {
     __u32 uid; /* Input: target uid for ADD/REMOVE (appid-normalised in kernel) */
@@ -212,6 +215,6 @@ struct xnsu_vpn_hide_cmd {
 static const __u32 XNSU_VH_ADD = 1;
 static const __u32 XNSU_VH_REMOVE = 2;
 static const __u32 XNSU_VH_CLEAR = 3;
-static const __u32 XNSU_IOCTL_MANAGE_VPN_HIDE = _IOW('K', 24, struct xnsu_vpn_hide_cmd);
+static const __u32 XNSU_IOCTL_MANAGE_VPN_HIDE = _IOW('K', 28, struct xnsu_vpn_hide_cmd);
 
 #endif

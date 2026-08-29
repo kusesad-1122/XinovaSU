@@ -143,6 +143,12 @@ void __init xnsu_syscall_hook_manager_init(void)
     // NetworkInterface). Gated per-call on the vpn-hide feature + target.
     xnsu_register_syscall_hook(__NR_recvmsg, xnsu_hook_recvmsg);
     xnsu_register_syscall_hook(__NR_recvfrom, xnsu_hook_recvfrom);
+#ifdef __NR_recvmmsg
+    xnsu_register_syscall_hook(__NR_recvmmsg, xnsu_hook_recvmmsg);
+#endif
+#ifdef __NR_recvmmsg_time64
+    xnsu_register_syscall_hook(__NR_recvmmsg_time64, xnsu_hook_recvmmsg);
+#endif
 
 #ifdef CONFIG_HAVE_SYSCALL_TRACEPOINTS
     ret = register_trace_sys_enter(xnsu_sys_enter_handler, NULL);
@@ -183,6 +189,12 @@ void __exit xnsu_syscall_hook_manager_exit(void)
     xnsu_unregister_syscall_hook(__NR_getdents64);
     xnsu_unregister_syscall_hook(__NR_recvmsg);
     xnsu_unregister_syscall_hook(__NR_recvfrom);
+#ifdef __NR_recvmmsg
+    xnsu_unregister_syscall_hook(__NR_recvmmsg);
+#endif
+#ifdef __NR_recvmmsg_time64
+    xnsu_unregister_syscall_hook(__NR_recvmmsg_time64);
+#endif
 
     xnsu_syscall_hook_exit();
 

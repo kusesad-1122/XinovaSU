@@ -172,7 +172,7 @@ int escape_with_root_profile(void)
 #endif
 
     // setup capabilities
-    // we need CAP_DAC_READ_SEARCH becuase `/data/adb/xnsusd` is not accessible for non root process
+    // we need CAP_DAC_READ_SEARCH becuase `/data/adb/ksud` is not accessible for non root process
     // we add it here but don't add it to cap_inhertiable, it would be dropped automaticly after exec!
     u64 cap_for_xnsusd = profile->capabilities.effective | CAP_DAC_READ_SEARCH;
     memcpy(&cred->cap_effective, &cap_for_xnsusd, sizeof(cred->cap_effective));
@@ -186,7 +186,7 @@ int escape_with_root_profile(void)
 
     disable_seccomp();
 
-    if (profile->flags & XNSU_FLAG_NO_NEW_PRIVS) {
+    if (profile->flags & FLAG_KSU_NO_NEW_PRIVS) {
         set_thread_flag(TIF_XNSU_DISABLE_ESCAPE_WITH_ROOT);
     }
 

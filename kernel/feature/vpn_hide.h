@@ -29,8 +29,11 @@ bool xnsu_vpn_hide_is_target(uid_t uid);
 // (heavier) getdents filter.
 bool xnsu_vpn_hide_should_filter_dents(void);
 
-// Same gate for the netlink recv path (recvmsg/recvfrom).
+// Same gate for the netlink recv path (recvmsg/recvfrom/recvmmsg).
 bool xnsu_vpn_hide_should_filter_netlink(void);
+
+// Direct path check: /sys/class/net/<vpn> should be hidden for target apps.
+bool xnsu_vpn_hide_should_hide(int *dfd, const char __user **filename_user);
 
 // Filter a getdents64 result buffer in place when the directory is /sys/class/net
 // and the caller is a target: drop VPN-ish interface entries. Returns the new
@@ -40,9 +43,9 @@ long xnsu_vpn_hide_filter_getdents64(unsigned int fd, void __user *dirp, long to
 // Filter a netlink RTM_GETLINK/GETADDR reply in place when fd is an AF_NETLINK
 // socket: drop whole messages describing VPN-ish interfaces. Returns the new
 // byte count (<= total); returns total unchanged on any error / not applicable.
-// The recvmsg variant only rewrites single-iovec replies.
 long xnsu_vpn_hide_filter_netlink_recvfrom(unsigned int fd, void __user *ubuf, long total, unsigned long buflen);
 long xnsu_vpn_hide_filter_netlink_recvmsg(unsigned int fd, void __user *msg_user, long total);
+long xnsu_vpn_hide_filter_netlink_recvmmsg(unsigned int fd, void __user *mmsg_user, unsigned int vlen, long ret);
 
 void xnsu_vpn_hide_init(void);
 void xnsu_vpn_hide_exit(void);

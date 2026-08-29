@@ -51,7 +51,7 @@ static long is_libadbroot_ok()
     long ret = kern_path(kLibAdbRoot, 0, &path);
     if (ret < 0) {
         if (ret == -ENOENT) {
-            pr_err("libadbroot.so not exists, skip adb root. Please run `xnsusd install`\n");
+            pr_err("libadbroot.so not exists, skip adb root. Please run `ksud install`\n");
             ret = 0;
         } else {
             pr_err("access libadbroot.so failed: %ld, skip adb root\n", ret);

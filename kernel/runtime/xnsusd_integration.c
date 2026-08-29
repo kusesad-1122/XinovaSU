@@ -644,7 +644,7 @@ void xnsu_stop_input_hook_runtime(void)
     pr_info("unregister input kprobe: %d!\n", ret);
 }
 
-// xnsusd: module support
+// ksud: module support
 void __init xnsu_xnsusd_init()
 {
     int ret;
@@ -653,7 +653,7 @@ void __init xnsu_xnsusd_init()
     xnsu_syscall_table_hook(__NR_fstat, xnsu_sys_fstat, &orig_sys_fstat);
 
     ret = register_kprobe(&input_event_kp);
-    pr_info("xnsusd: input_event_kp: %d\n", ret);
+    pr_info("ksud: input_event_kp: %d\n", ret);
 
     INIT_WORK(&stop_input_hook_work, do_stop_input_hook);
 }
