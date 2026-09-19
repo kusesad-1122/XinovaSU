@@ -83,13 +83,21 @@ jobs:
           echo "--- drivers/Kconfig ---"
           grep -n 'kernelsu' drivers/Kconfig || { echo "::error::setup.sh did not patch drivers/Kconfig"; exit 1; }
 
-      - name: Enable CONFIG_KSU=y
+      # 不要往 gki_defconfig 里写 CONFIG_KSU=y!
+      # kernel/Kconfig 里 `config KSU` 是 `default y`, 默认值不该出现在 defconfig
+      # 中; 而 Kleaf 会跑 savedefconfig 一致性校验, 手动追加会让它报
+      # "savedefconfig does not match gki_defconfig" 并直接构建失败 (实测)。
+      # 所以这里只做断言, 不改配置。
+      - name: Sanity-check that KSU defaults to enabled
         run: |
           cd "$GITHUB_WORKSPACE/gki/common"
-          if ! grep -q '^CONFIG_KSU=' arch/arm64/configs/gki_defconfig; then
-            echo 'CONFIG_KSU=y' >> arch/arm64/configs/gki_defconfig
-          fi
-          tail -5 arch/arm64/configs/gki_defconfig
+          echo "--- drivers/kernelsu/Kconfig ---"
+          sed -n '/^config KSU$/,/^config /p' drivers/kernelsu/Kconfig
+          grep -A4 '^config KSU$' drivers/kernelsu/Kconfig | grep -q 'default y' \
+            || { echo "::error::config KSU is not 'default y' — enable it explicitly instead"; exit 1; }
+          grep -q '^CONFIG_KSU=' arch/arm64/configs/gki_defconfig \
+            && { echo "::error::CONFIG_KSU must NOT be in gki_defconfig (savedefconfig check)"; exit 1; } \
+            || echo "ok: gki_defconfig untouched"
 
       # Android 14+ 的 GKI 已经没有 build/build.sh 了 —— build/ 目录只剩
       # bazel_common_rules / config.sh / kernel, 构建统一走 Kleaf(bazel)。
