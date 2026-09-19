@@ -91,15 +91,15 @@ jobs:
           fi
           tail -5 arch/arm64/configs/gki_defconfig
 
-      - name: Build kernel
+      # Android 14+ 的 GKI 已经没有 build/build.sh 了 —— build/ 目录只剩
+      # bazel_common_rules / config.sh / kernel, 构建统一走 Kleaf(bazel)。
+      # 用旧命令会直接 "build/build.sh: No such file or directory" (exit 127)。
+      - name: Build kernel (Kleaf / bazel)
         run: |
           cd "$GITHUB_WORKSPACE/gki"
-          export CCACHE_DIR="$GITHUB_WORKSPACE/.ccache"
-          mkdir -p "$CCACHE_DIR"
-          ccache --max-size=20G || true
-          ccache --set-config=compression=true || true
           mkdir -p out
-          LTO="$LTO_MODE" BUILD_CONFIG=common/build.config.gki.aarch64 build/build.sh
+          ./tools/bazel run --config=fast --lto="$LTO_MODE" \
+            //common:kernel_aarch64_dist -- --destdir=out
 
       - name: Collect artifacts
         run: |
