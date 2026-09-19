@@ -29,6 +29,12 @@ data class FunctionsUiState(
     // Vpn hide
     val vpnHideEnabled: Boolean = false,
     val vpnHideUids: Set<Int> = emptySet(),
+
+    // CPU spoof — kernel-level redirect of cpuinfo/cmdline/bootconfig to decoys.
+    // Licensed: enabling goes through the internal allowlist on the server.
+    val cpuSpoofSupported: Boolean = false,
+    val cpuSpoofEnabled: Boolean = false,
+    val cpuSpoofTemplate: String = "",
 )
 
 @Immutable
@@ -57,4 +63,7 @@ data class FunctionsScreenActions(
 
     val onSetVpnHideEnabled: (Boolean) -> Unit,
     val onVpnHideUidToggle: (Int) -> Unit,
+
+    val onSetCpuSpoofEnabled: (Boolean) -> Unit,
+    val onCpuSpoofTemplateChange: (String) -> Unit,
 )

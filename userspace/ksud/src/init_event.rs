@@ -106,6 +106,9 @@ pub fn on_post_data_fs() -> Result<()> {
     // Re-apply persisted per-app VPN-detection hiding (if configured).
     crate::vpn_hide::apply_from_config();
 
+    // Re-apply persisted CPU/board spoofing (if configured).
+    crate::cpu_spoof::apply_from_config();
+
     // execute metamodule post-fs-data script first (priority)
     if let Err(e) = metamodule::exec_stage_script("post-fs-data", true) {
         warn!("exec metamodule post-fs-data script failed: {e}");

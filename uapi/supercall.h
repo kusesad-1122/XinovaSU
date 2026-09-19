@@ -204,4 +204,26 @@ static const __u32 XNSU_VH_REMOVE = 2;
 static const __u32 XNSU_VH_CLEAR = 3;
 static const __u32 XNSU_IOCTL_MANAGE_VPN_HIDE = _IOW('K', 24, struct xnsu_vpn_hide_cmd);
 
+/*
+ * CPU spoof: kernel-level path redirection for hardware-identity files.
+ *
+ * A registered rule maps an absolute source path (e.g. "/proc/cpuinfo") to a
+ * decoy file. The getname_flags hook then resolves the decoy instead, so every
+ * reader — including unprivileged apps opening the file with their own
+ * credentials — sees the spoofed content. Unlike path_hide (which returns
+ * -ENOENT), this *replaces* content, which is what CPU/board spoofing needs.
+ *
+ * The decoy files are ordinary world-readable (0644) files created by ksud;
+ * they must NOT be tightened to 0600 or non-root reads break.
+ */
+struct xnsu_cpu_spoof_cmd {
+    __aligned_u64 src; /* Input: user ptr to source path (ADD/REMOVE) */
+    __aligned_u64 dst; /* Input: user ptr to decoy path (ADD only) */
+    __u8 op; /* XNSU_CS_* */
+};
+static const __u32 XNSU_CS_ADD = 1;
+static const __u32 XNSU_CS_REMOVE = 2;
+static const __u32 XNSU_CS_CLEAR = 3;
+static const __u32 XNSU_IOCTL_SET_CPU_SPOOF = _IOW('K', 25, struct xnsu_cpu_spoof_cmd);
+
 #endif

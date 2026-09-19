@@ -443,6 +443,10 @@
     <string name="functions_net_isolate_summary">Block network access for selected apps at the kernel level</string>
     <string name="functions_vpn_hide">Hide VPN Detection</string>
     <string name="functions_vpn_hide_summary">Hide active VPN interfaces from selected apps so they cannot detect a VPN connection</string>
+    <string name="functions_cpu_spoof">CPU Spoof</string>
+    <string name="functions_cpu_spoof_summary">Redirect cpuinfo / cmdline / bootconfig to a spoof template for every reader (licensed; requires the internal allowlist)</string>
+    <string name="functions_cpu_spoof_template_label">CPU template ID</string>
+    <string name="functions_cpu_spoof_template_placeholder">e.g. 9020</string>
     <string name="functions_target_apps">Target apps</string>
     <string name="functions_select_apps">Select apps</string>
     <string name="functions_no_apps_selected">No apps selected</string>

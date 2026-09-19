@@ -59,6 +59,8 @@ xinovasu-objs += feature/vpn_hide.o
 
 xinovasu-objs += feature/selinux_hide.o
 
+xinovasu-objs += feature/cpu_spoof.o
+
 ifdef KBUILD_EXTMOD
 ifeq ($(CONFIG_XNSU_DISABLE_MANAGER),y)
 ccflags-y += -DCONFIG_XNSU_DISABLE_MANAGER=1
@@ -82,7 +84,11 @@ endif
 
 ccflags-y += -I$(XNSU_KERNEL_DIR) -I$(XNSU_KERNEL_DIR)/include
 
-obj-$(CONFIG_XNSU) += xinovasu.o
+# The tristate switch is Kconfig's `config KSU` (see kernel/Kconfig), so the
+# kbuild conditional must be CONFIG_KSU. It used to say CONFIG_XNSU, which is
+# never defined anywhere — `CONFIG_KSU=m` therefore built *nothing at all*
+# (silent empty module), and `ninja kernelsu.ko` style consumers saw no output.
+obj-$(CONFIG_KSU) += xinovasu.o
 
 MDIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 

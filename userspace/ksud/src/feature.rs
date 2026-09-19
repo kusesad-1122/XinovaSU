@@ -21,6 +21,7 @@ pub enum FeatureId {
     Sulog = 2,
     AdbRoot = 3,
     SelinuxHide = 4,
+    CpuSpoof = 9,
 }
 
 impl FeatureId {
@@ -31,6 +32,7 @@ impl FeatureId {
             2 => Some(Self::Sulog),
             3 => Some(Self::AdbRoot),
             4 => Some(Self::SelinuxHide),
+            9 => Some(Self::CpuSpoof),
             _ => None,
         }
     }
@@ -42,6 +44,7 @@ impl FeatureId {
             Self::Sulog => "sulog",
             Self::AdbRoot => "adb_root",
             Self::SelinuxHide => "selinux_hide",
+            Self::CpuSpoof => "cpu_spoof",
         }
     }
 
@@ -60,6 +63,9 @@ impl FeatureId {
             Self::SelinuxHide => {
                 "SELinux Hide - sanitize /sys/fs/selinux access results for app UIDs"
             }
+            Self::CpuSpoof => {
+                "CPU Spoof - redirect hardware-identity files to per-device decoys (licensed)"
+            }
         }
     }
 }
@@ -71,6 +77,7 @@ fn parse_feature_id(name: &str) -> Result<FeatureId> {
         "sulog" | "2" => Ok(FeatureId::Sulog),
         "adb_root" | "3" => Ok(FeatureId::AdbRoot),
         "selinux_hide" | "4" => Ok(FeatureId::SelinuxHide),
+        "cpu_spoof" | "9" => Ok(FeatureId::CpuSpoof),
         _ => bail!("Unknown feature: {name}"),
     }
 }

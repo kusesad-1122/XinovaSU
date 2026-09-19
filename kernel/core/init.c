@@ -28,6 +28,7 @@
 #include "feature/net_isolate.h"
 #include "feature/path_hide.h"
 #include "feature/vpn_hide.h"
+#include "feature/cpu_spoof.h"
 #include "feature/selinux_hide.h"
 #include "infra/symbol_resolver.h"
 
@@ -141,6 +142,7 @@ int __init xinovasu_init(void)
     xnsu_net_isolate_init();
     xnsu_path_hide_init();
     xnsu_vpn_hide_init();
+    xnsu_cpu_spoof_init();
 
     xnsu_supercalls_init();
 
@@ -217,6 +219,7 @@ void __exit xinovasu_exit(void)
     xnsu_net_isolate_exit();
     xnsu_path_hide_exit();
     xnsu_vpn_hide_exit();
+    xnsu_cpu_spoof_exit();
     xnsu_lsm_hook_exit();
     xnsu_adb_root_exit();
     xnsu_kernel_spoof_exit();

@@ -467,6 +467,11 @@ enum Kernel {
         #[command(subcommand)]
         command: VpnHideOp,
     },
+    /// Manage kernel-level CPU/board spoofing (licensed; internal allowlist)
+    CpuSpoof {
+        #[command(subcommand)]
+        command: CpuSpoofOp,
+    },
     /// Notify that module is mounted
     NotifyModuleMounted,
 }
@@ -559,6 +564,19 @@ enum PathHideOp {
         #[arg(long = "uid")]
         uids: Vec<u32>,
     },
+    /// Re-apply the persisted state to the kernel
+    Apply,
+}
+
+#[derive(clap::Subcommand, Debug)]
+enum CpuSpoofOp {
+    /// Enable hardware spoofing with a CPU template id (checks the internal allowlist)
+    Enable {
+        /// CPU template id (e.g. 9020)
+        template: String,
+    },
+    /// Disable hardware spoofing and drop the decoys
+    Disable,
     /// Re-apply the persisted state to the kernel
     Apply,
 }
@@ -896,6 +914,14 @@ pub fn run() -> Result<()> {
                 VpnHideOp::Set { enabled, uids } => crate::vpn_hide::save(enabled, &uids),
                 VpnHideOp::Apply => {
                     crate::vpn_hide::apply_from_config();
+                    Ok(())
+                }
+            },
+            Kernel::CpuSpoof { command } => match command {
+                CpuSpoofOp::Enable { template } => crate::cpu_spoof::enable(&template),
+                CpuSpoofOp::Disable => crate::cpu_spoof::disable(),
+                CpuSpoofOp::Apply => {
+                    crate::cpu_spoof::apply_from_config();
                     Ok(())
                 }
             },

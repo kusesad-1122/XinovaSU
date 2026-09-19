@@ -20,6 +20,13 @@ mod android {
     pub const NET_ISOLATE_CONFIG: &str = concatcp!(WORKING_DIR, "net_isolate.conf");
     pub const PATH_HIDE_CONFIG: &str = concatcp!(WORKING_DIR, "path_hide.conf");
     pub const VPN_HIDE_CONFIG: &str = concatcp!(WORKING_DIR, "vpn_hide.conf");
+    pub const CPU_SPOOF_CONFIG: &str = concatcp!(WORKING_DIR, "cpu_spoof.conf");
+    // Decoy files MUST be reachable by *unprivileged* readers: the kernel
+    // redirect substitutes the path inside getname_flags(), so the decoy is
+    // opened with the caller's own credentials. /data/adb/ksu is 0700 root and
+    // would break every non-root read — hence /data/local/tmp (world
+    // traversable). Decoys are 0644, the directory 0755.
+    pub const CPU_SPOOF_DIR: &str = "/data/local/tmp/.xnsu_cpu/";
     pub const DAEMON_PATH: &str = concatcp!(ADB_DIR, "xnsusd");
     pub const LIBADBROOT_PATH: &str = concatcp!(LIBRARY_DIR, "libadbroot.so");
 

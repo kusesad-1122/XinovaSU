@@ -30,6 +30,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.DeveloperBoard
 import androidx.compose.material.icons.rounded.FolderOff
 import androidx.compose.material.icons.rounded.HideSource
 import androidx.compose.material.icons.rounded.Memory
@@ -381,6 +382,46 @@ fun FunctionsMiuix(
                                     apps = apps,
                                     selectedUids = uiState.vpnHideUids,
                                     onUidToggle = actions.onVpnHideUidToggle,
+                                )
+                            }
+                        }
+                    }
+
+                    DecoratedCard(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .padding(top = 12.dp)
+                            .fillMaxWidth(),
+                        role = DecoratedCardRole.Function,
+                        active = uiState.cpuSpoofEnabled,
+                    ) {
+                        EnergyMiuixSwitchPreference(
+                            title = stringResource(R.string.functions_cpu_spoof),
+                            summary = stringResource(R.string.functions_cpu_spoof_summary),
+                            startAction = {
+                                Icon(
+                                    Icons.Rounded.DeveloperBoard,
+                                    modifier = Modifier.padding(end = 6.dp),
+                                    contentDescription = null,
+                                    tint = colorScheme.onBackground
+                                )
+                            },
+                            checked = uiState.cpuSpoofEnabled,
+                            onCheckedChange = actions.onSetCpuSpoofEnabled
+                        )
+                        AnimatedVisibility(
+                            visible = uiState.cpuSpoofEnabled,
+                            enter = expandVertically() + fadeIn(),
+                            exit = shrinkVertically() + fadeOut()
+                        ) {
+                            Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)) {
+                                TextField(
+                                    value = uiState.cpuSpoofTemplate,
+                                    onValueChange = actions.onCpuSpoofTemplateChange,
+                                    modifier = Modifier.fillMaxWidth(),
+                                    label = stringResource(R.string.functions_cpu_spoof_template_label),
+                                    maxLines = 1,
+                                    keyboardOptions = KeyboardOptions.Default,
                                 )
                             }
                         }

@@ -16,6 +16,9 @@ import com.xinsu.moe.Natives
 import com.xinsu.moe.ui.screen.functions.FunctionsUiState
 import com.xinsu.moe.ui.util.blHideIsEnabled
 import com.xinsu.moe.ui.util.blHideSetEnabled
+import com.xinsu.moe.ui.util.cpuSpoofDisable
+import com.xinsu.moe.ui.util.cpuSpoofEnable
+import com.xinsu.moe.ui.util.cpuSpoofRead
 import com.xinsu.moe.ui.util.execKsud
 import com.xinsu.moe.ui.util.getFeatureStatus
 import com.xinsu.moe.ui.util.netIsolateRead
@@ -54,6 +57,9 @@ class FunctionsViewModel : ViewModel() {
             val pathHide = runCatching { pathHideRead() }.getOrNull()
             val netIsolate = runCatching { netIsolateRead() }.getOrNull()
             val vpnHide = runCatching { vpnHideRead() }.getOrNull()
+            val cpuSpoofSupported = runCatching { getFeatureStatus("cpu_spoof") == "supported" }
+                .getOrDefault(false)
+            val cpuSpoof = runCatching { cpuSpoofRead() }.getOrNull()
 
             _uiState.update {
                 it.copy(
@@ -71,6 +77,9 @@ class FunctionsViewModel : ViewModel() {
                     netIsolateUids = netIsolate?.uids ?: emptySet(),
                     vpnHideEnabled = vpnHide?.enabled ?: false,
                     vpnHideUids = vpnHide?.uids ?: emptySet(),
+                    cpuSpoofSupported = cpuSpoofSupported,
+                    cpuSpoofEnabled = cpuSpoof?.enabled ?: false,
+                    cpuSpoofTemplate = cpuSpoof?.template.orEmpty(),
                 )
             }
         }
@@ -225,6 +234,33 @@ class FunctionsViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             vpnHideSave(state.vpnHideEnabled, state.vpnHideUids)
         }
+    }
+
+    // cpu spoof -----------------------------------------------------------
+
+    /// Enabling pulls decoy material from the licensing server (which also
+    /// enforces the internal allowlist), so a failure here is a normal outcome
+    /// — revert the switch and report it rather than showing a fake "on".
+    fun setCpuSpoofEnabled(enabled: Boolean) {
+        val template = _uiState.value.cpuSpoofTemplate.trim()
+        if (enabled && template.isEmpty()) {
+            _saveResult.tryEmit(false)
+            return
+        }
+        _uiState.update { it.copy(cpuSpoofEnabled = enabled) }
+        viewModelScope.launch(Dispatchers.IO) {
+            val ok = runCatching {
+                if (enabled) cpuSpoofEnable(template) else cpuSpoofDisable()
+            }.getOrDefault(false)
+            if (!ok) {
+                _uiState.update { it.copy(cpuSpoofEnabled = !enabled) }
+            }
+            _saveResult.emit(ok)
+        }
+    }
+
+    fun setCpuSpoofTemplate(value: String) {
+        _uiState.update { it.copy(cpuSpoofTemplate = value) }
     }
 
     private fun splitLines(text: String): List<String> =

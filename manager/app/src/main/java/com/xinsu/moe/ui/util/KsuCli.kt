@@ -620,6 +620,33 @@ fun pathHideSave(enabled: Boolean, paths: List<String>, uids: Set<Int>): Boolean
     return execKsud(cmd, true)
 }
 
+// cpu-spoof -----------------------------------------------------------------
+
+data class CpuSpoofConfig(val enabled: Boolean, val template: String)
+
+fun cpuSpoofRead(): CpuSpoofConfig {
+    val lines = catLines("$KSU_DIR/cpu_spoof.conf")
+    var enabled = false
+    var template = ""
+    for (raw in lines) {
+        val line = raw.trim()
+        when {
+            line.startsWith("enabled=") -> enabled = line.substringAfter("enabled=").trim() == "1"
+            line.startsWith("template=") -> template = line.substringAfter("template=").trim()
+        }
+    }
+    return CpuSpoofConfig(enabled = enabled, template = template)
+}
+
+/// Enabling fetches the decoy material from the licensing server (which also
+/// checks the internal allowlist), so it can legitimately fail — the caller
+/// must surface that to the user instead of pretending the switch worked.
+fun cpuSpoofEnable(template: String): Boolean =
+    execKsud("kernel cpu-spoof enable $template", true)
+
+fun cpuSpoofDisable(): Boolean =
+    execKsud("kernel cpu-spoof disable", true)
+
 // vpn-hide ------------------------------------------------------------------
 
 data class VpnHideConfig(val enabled: Boolean, val uids: Set<Int>)

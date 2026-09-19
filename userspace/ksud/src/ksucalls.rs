@@ -337,6 +337,33 @@ pub fn path_hide_set_filter_system(on: bool) -> anyhow::Result<()> {
     )
 }
 
+fn cpu_spoof_op(operation: u8, src: Option<&str>, dst: Option<&str>) -> anyhow::Result<()> {
+    let c_src = src.map(std::ffi::CString::new).transpose()?;
+    let c_dst = dst.map(std::ffi::CString::new).transpose()?;
+    let mut cmd = xnsu_uapi::xnsu_cpu_spoof_cmd {
+        src: c_src.as_ref().map_or(0, |c| c.as_ptr() as u64),
+        dst: c_dst.as_ref().map_or(0, |c| c.as_ptr() as u64),
+        op: operation,
+    };
+    ksuctl(xnsu_uapi::XNSU_IOCTL_SET_CPU_SPOOF, &raw mut cmd)?;
+    Ok(())
+}
+
+/// Install a redirect rule: reads of `src` resolve to `dst` instead.
+pub fn cpu_spoof_add_rule(src: &str, dst: &str) -> anyhow::Result<()> {
+    cpu_spoof_op(xnsu_uapi::XNSU_CS_ADD as u8, Some(src), Some(dst))
+}
+
+/// Remove a redirect rule by source path.
+pub fn cpu_spoof_remove_rule(src: &str) -> anyhow::Result<()> {
+    cpu_spoof_op(xnsu_uapi::XNSU_CS_REMOVE as u8, Some(src), None)
+}
+
+/// Remove every redirect rule.
+pub fn cpu_spoof_clear_rules() -> anyhow::Result<()> {
+    cpu_spoof_op(xnsu_uapi::XNSU_CS_CLEAR as u8, None, None)
+}
+
 /// Set current process's process group to init_group (pgid = 0)
 pub fn set_init_pgrp() -> std::io::Result<()> {
     ksuctl(

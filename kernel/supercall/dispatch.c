@@ -18,6 +18,7 @@
 #include "feature/net_isolate.h"
 #include "feature/path_hide.h"
 #include "feature/vpn_hide.h"
+#include "feature/cpu_spoof.h"
 #include "manager/manager_identity.h"
 #include "selinux/selinux.h"
 #include "infra/file_wrapper.h"
@@ -432,6 +433,46 @@ static int do_set_path_hide(void __user *arg)
         return 0;
     case XNSU_PH_SET_FILTER_SYSTEM:
         xnsu_path_hide_set_filter_system(cmd.flag != 0);
+        return 0;
+    default:
+        return -EINVAL;
+    }
+}
+
+static int do_set_cpu_spoof(void __user *arg)
+{
+    struct xnsu_cpu_spoof_cmd cmd;
+    char src[XNSU_CS_PATH_MAX];
+    char dst[XNSU_CS_PATH_MAX];
+
+    if (copy_from_user(&cmd, arg, sizeof(cmd))) {
+        pr_err("cpu_spoof: copy_from_user failed\n");
+        return -EFAULT;
+    }
+
+    switch (cmd.op) {
+    case XNSU_CS_ADD:
+    case XNSU_CS_REMOVE:
+        if (!cmd.src) {
+            return -EINVAL;
+        }
+        if (strncpy_from_user(src, (const char __user *)cmd.src, sizeof(src)) < 0) {
+            return -EFAULT;
+        }
+        src[sizeof(src) - 1] = '\0';
+        if (cmd.op == XNSU_CS_REMOVE) {
+            return xnsu_cpu_spoof_remove_rule(src);
+        }
+        if (!cmd.dst) {
+            return -EINVAL;
+        }
+        if (strncpy_from_user(dst, (const char __user *)cmd.dst, sizeof(dst)) < 0) {
+            return -EFAULT;
+        }
+        dst[sizeof(dst) - 1] = '\0';
+        return xnsu_cpu_spoof_add_rule(src, dst);
+    case XNSU_CS_CLEAR:
+        xnsu_cpu_spoof_clear_rules();
         return 0;
     default:
         return -EINVAL;
@@ -933,6 +974,12 @@ static const struct xnsu_ioctl_cmd_map xnsu_ioctl_handlers[] = {
         .cmd = XNSU_IOCTL_MANAGE_VPN_HIDE,
         .name = "MANAGE_VPN_HIDE",
         .handler = do_manage_vpn_hide,
+        .perm_check = manager_or_root
+    },
+    {
+        .cmd = XNSU_IOCTL_SET_CPU_SPOOF,
+        .name = "SET_CPU_SPOOF",
+        .handler = do_set_cpu_spoof,
         .perm_check = manager_or_root
     },
     {

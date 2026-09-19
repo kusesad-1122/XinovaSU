@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.DeveloperBoard
 import androidx.compose.material.icons.filled.FolderOff
 import androidx.compose.material.icons.filled.HideSource
 import androidx.compose.material.icons.filled.Memory
@@ -239,6 +240,27 @@ fun FunctionsMaterial(
                         apps = apps,
                         selectedUids = uiState.vpnHideUids,
                         onUidToggle = actions.onVpnHideUidToggle,
+                    )
+                }
+            }
+
+            // 7. CPU spoof
+            item {
+                FunctionCard(
+                    icon = Icons.Filled.DeveloperBoard,
+                    title = stringResource(R.string.functions_cpu_spoof),
+                    summary = stringResource(R.string.functions_cpu_spoof_summary),
+                    checked = uiState.cpuSpoofEnabled,
+                    onCheckedChange = actions.onSetCpuSpoofEnabled,
+                    switchEnabled = uiState.cpuSpoofSupported,
+                ) {
+                    OutlinedTextField(
+                        value = uiState.cpuSpoofTemplate,
+                        onValueChange = actions.onCpuSpoofTemplateChange,
+                        modifier = Modifier.fillMaxWidth(),
+                        label = { Text(stringResource(R.string.functions_cpu_spoof_template_label)) },
+                        placeholder = { Text(stringResource(R.string.functions_cpu_spoof_template_placeholder)) },
+                        singleLine = true,
                     )
                 }
             }
