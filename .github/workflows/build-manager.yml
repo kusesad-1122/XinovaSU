@@ -177,7 +177,9 @@ jobs:
             echo "CXX_aarch64_linux_android=$TC/bin/aarch64-linux-android26-clang++"
             echo "AR_aarch64_linux_android=$TC/bin/llvm-ar"
             echo "CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=$CC"
-            echo "RUSTFLAGS=-C target-feature=+crt-static -C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument -C link-arg=$BUILTINS -C link-arg=-L$LIBDIR"
+            # 注意：-C link-arg 的 -L 会被 rustc 放到 -llog 之后 → 太晚，等于没加。
+            # 必须用 rustc 自己的 -L native= 才会落在库搜索阶段之前。
+            echo "RUSTFLAGS=-C target-feature=+crt-static -C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument -C link-arg=$BUILTINS -L native=$LIBDIR"
           } >> "$GITHUB_ENV"
           echo "using NDK $NDK"
           echo "using sysroot libdir $LIBDIR"
