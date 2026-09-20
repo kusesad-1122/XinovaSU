@@ -148,7 +148,8 @@ jobs:
       - name: Export Rust cross-build env (aarch64-linux-android)
         run: |
           set -euo pipefail
-          NDK="$(ls -d "$ANDROID_HOME"/ndk/* 2>/dev/null | sort -V | tail -1)"
+          # 27.3 是 runner 预装的：xnsuinit(crt-static) 与 ksud 的 bindgen 都已在它上面通过
+          NDK="$(ls -d "$ANDROID_HOME"/ndk/* 2>/dev/null | sort -V | head -1)"
           [ -n "$NDK" ] || { echo "::error::no NDK installed"; exit 1; }
           TC="$NDK/toolchains/llvm/prebuilt/linux-x86_64"
           [ -d "$TC" ] || { echo "::error::NDK toolchain missing at $TC"; exit 1; }
@@ -156,11 +157,19 @@ jobs:
           [ -x "$CC" ] || { echo "::error::clang wrapper missing: $CC"; exit 1; }
           BUILTINS="$("$CC" --print-resource-dir)/lib/linux/libclang_rt.builtins-aarch64-android.a"
           [ -f "$BUILTINS" ] || { echo "::error::builtins missing: $BUILTINS"; exit 1; }
-          # crt-static 下 rustc 的默认库搜索路径拿不到 liblog，必须显式指到
-          # sysroot 里 API 对应的目录（liblog.a/liblog.so 都在那）。
-          LIBDIR="$TC/sysroot/usr/lib/aarch64-linux-android/26"
-          [ -d "$LIBDIR" ] || LIBDIR="$TC/sysroot/usr/lib/aarch64-linux-android"
-          [ -e "$LIBDIR/liblog.a" ] || { echo "::error::liblog.a not found in $LIBDIR"; ls -la "$TC/sysroot/usr/lib/aarch64-linux-android" || true; exit 1; }
+          # crt-static 时 ld.lld 只认静态库，而默认搜索路径拿不到 liblog；
+          # 显式把 -L 指到 sysroot 里 API 对应的目录（liblog.a/liblog.so 都在那）。
+          LIBDIR=""
+          for d in "$TC/sysroot/usr/lib/aarch64-linux-android/26" \
+                   "$TC/sysroot/usr/lib/aarch64-linux-android" \
+                   "$TC/sysroot/usr/lib"; do
+            if [ -e "$d/liblog.a" ] || [ -e "$d/liblog.so" ]; then LIBDIR="$d"; break; fi
+          done
+          if [ -z "$LIBDIR" ]; then
+            echo "::error::liblog not found under $TC/sysroot"
+            find "$TC/sysroot/usr/lib" -name 'liblog*' 2>/dev/null | head || true
+            exit 1
+          fi
           {
             echo "ANDROID_NDK_HOME=$NDK"
             echo "PATH=$TC/bin:$PATH"
