@@ -1,0 +1,74 @@
+name: Build Manager APK
+
+# 本机没有 JDK / Android SDK，管理器 APK 只能在这里编。
+# 版本号来自 `git rev-list --count HEAD` 与 `git describe --tags`，
+# 所以 checkout 必须取全量历史 + tags，否则 versionCode 会算错。
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/cpu-spoof-gki
+      - main
+    paths:
+      - 'manager/**'
+      - '.github/workflows/build-manager.yml'
+
+jobs:
+  manager:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install SDK / NDK packages
+        run: |
+          sdkmanager --list_installed || true
+          sdkmanager "platform-tools" || true
+          # compileSdk 37 / build-tools 37.0.0 / NDK 29.0.x 都比较新，
+          # 稳定通道没有时退回 canary 通道再试一次。
+          sdkmanager "platforms;android-37" "build-tools;37.0.0" "ndk;29.0.14206865" "cmake;3.22.1" \
+            || sdkmanager --channel=3 "platforms;android-37" "build-tools;37.0.0" "ndk;29.0.14206865" "cmake;3.22.1"
+          echo "--- installed ---"
+          sdkmanager --list_installed
+
+      - name: Show toolchain versions
+        run: |
+          cd manager
+          ./gradlew --version
+
+      - name: Build (debug + release, tolerate one failing)
+        run: |
+          cd manager
+          ./gradlew :app:assembleDebug :app:assembleRelease --continue --no-daemon --stacktrace
+
+      - name: Collect APKs
+        if: always()
+        run: |
+          echo "=== build outputs ==="
+          find manager/app/build/outputs -name '*.apk' -printf '%p  %s bytes\n' || true
+          mkdir -p dist
+          find manager/app/build/outputs -name '*.apk' -exec cp {} dist/ \; || true
+          ls -l dist/ || true
+          for f in dist/*.apk; do
+            [ -f "$f" ] && sha256sum "$f"
+          done
+
+      - name: Upload APK
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: XinovaSU-manager-apk
+          path: dist/*.apk
+          if-no-files-found: warn
+          retention-days: 14
