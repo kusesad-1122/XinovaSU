@@ -12,7 +12,8 @@ goblin = "0.10"
 scroll = "0.13"
 
 anyhow.workspace = true
-rustix = { git = "https://github.com/Kernel-SU/rustix.git", rev = "4a53fbc", features = ["mount", "fs", "runtime", "system", "process"] }
+# 上游 Kernel-SU/rustix 已私有（404），改用公开镜像并锁死同一 rev
+rustix = { git = "https://github.com/ReSukiSU/rustix", rev = "4a53fbc7cb7a07cabe87125cc21dbc27db316259", features = ["mount", "fs", "runtime", "system", "process"] }
 
 syscalls = { version = "0.8", default-features = false, features = [
     "aarch64",
