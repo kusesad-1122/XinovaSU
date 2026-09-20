@@ -21,7 +21,15 @@ object Natives {
     // 32310: new get_allow_list ioctl
     // 32336: new set_sepolicy ioctl
     // 32377: add set_init_pgrp ioctl
-    const val MINIMAL_SUPPORTED_KERNEL = 32377
+    //
+    // ⚠️ 本 fork 不能沿用上游的 32377:
+    //   内核版本 = 30000 + `git rev-list --count HEAD` (kernel/Kbuild)，
+    //   上游 KernelSU 当时已有 2377 个提交 → 30000 + 2377 = 32377；
+    //   而 XinovaSU 的历史被压平成 7 个提交 → 内核版本只有 30007，
+    //   永远 < 32377 → requireNewKernel() 恒为 true，
+    //   管理器会一直显示"需要新内核"并降级 UI (底栏/导航栏/install 都会被跳过)。
+    //   本 fork 内核已实现上面全部 ioctl，故按本 fork 的版本基线取 30000。
+    const val MINIMAL_SUPPORTED_KERNEL = 30000
 
     const val KERNEL_SU_DOMAIN = "u:r:ksu:s0"
 
