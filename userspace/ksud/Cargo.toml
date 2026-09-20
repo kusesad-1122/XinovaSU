@@ -43,7 +43,10 @@ zip-extensions = { version = "0.14", features = [
     "lzma",
     "xz",
 ], default-features = false }
-java-properties = { git = "https://github.com/Kernel-SU/java-properties.git", branch = "master", default-features = false }
+# Kernel-SU/* 这几个上游依赖仓库现在是私有的（404），CI 拉不到。
+# 改用公开镜像 ReSukiSU/*，并锁死与 Cargo.lock 完全一致的 rev，
+# 源码字节不变，行为与原依赖完全等价。
+java-properties = { git = "https://github.com/ReSukiSU/java-properties", rev = "42a4aa941b70ded2dd3be9e9f892471023e70229", default-features = false }
 serde_json = "1"
 encoding_rs = "0.8"
 humansize = "2"
@@ -55,8 +58,8 @@ nom = "8"
 derive-new = "0.7"
 getopts = "0.2"
 xnsuinit = { path = "../xnsuinit" }
-adb_client = { git = "https://github.com/Kernel-SU/adb_client" }
-prop-rs-android = { git = "https://github.com/Kernel-SU/ksu_props" }
+adb_client = { git = "https://github.com/ReSukiSU/adb_client", rev = "d97a966435bebaa55017834869dec08150826aa7" }
+prop-rs-android = { git = "https://github.com/ReSukiSU/ksu_props", rev = "54c81eaa51a9c0e1770161d468310656a53ac5b0" }
 
 [build-dependencies]
 bindgen = "0.72"
