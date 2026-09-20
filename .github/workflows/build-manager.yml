@@ -2,12 +2,25 @@ name: Build Manager APK
 
 # 本机没有 JDK / Android SDK，管理器 APK 只能在这里编。
 #
-# 踩过的坑（都已规避）：
+# ⚠️ 为什么这里要编 LKM 和 xnsusd（别再简化成只跑 gradle！）：
+#   管理器的「安装/修补 init_boot」是把内核模块塞进 ramdisk，靠的是内置的
+#   ksud(xnsusd) 里的 RustEmbed 资产：
+#     userspace/ksud/bin/aarch64/<kmi>_xinovasu.ko   +   xnsuinit.bin
+#   （见 userspace/ksud/src/assets.rs `#[folder = "bin/aarch64"]`，
+#     list_supported_kmi() 靠 `_xinovasu.ko` 后缀列举 KMI，
+#     boot_patch.rs 找不到文件就直接失败）
+#   而且 xnsusd 本身也不会被 Gradle 产出 —— Kotlin 侧 getKsuDaemonPath() 找的是
+#   nativeLibraryDir/libxnsusd.so，必须由本流水线编译后放进 jniLibs/。
+#   只跑 gradle 的旧版本 → APK 里既没有 libxnsusd.so 也没有 .ko，
+#   结果就是：KMI 列表全空、boot-patch 报错、根本修不了 init_boot。
+#
+# 踩过的坑：
 #  1) 版本号来自 `git rev-list --count HEAD` 与 `git describe --tags`，
 #     checkout 必须取全量历史 + tags，否则 versionCode / versionName 会算错。
 #  2) 不用 android-actions/setup-android：runner 自带 Android SDK，而那个
 #     action 还停在 Node 20，runner 已经是 Node 24 → 一上来就 exit 1。
 #  3) 所有 actions 用 v5：v4 一代同样是 Node 20，会被强制降级运行。
+#  4) LKM 必须在 DDK 容器内编（容器提供 KDIR 与内核头），不能和 Gradle 同 job。
 
 on:
   workflow_dispatch:
@@ -17,15 +30,88 @@ on:
       - main
     paths:
       - 'manager/**'
+      - 'userspace/**'
+      - 'kernel/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
       - '.github/workflows/build-manager.yml'
 
 jobs:
+  # ── 1. 每个 KMI 编一个 xinovasu.ko（DDK 容器） ──────────────────────────
+  lkm:
+    name: LKM ${{ matrix.kmi }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        kmi:
+          - android12-5.10
+          - android13-5.10
+          - android13-5.15
+          - android14-5.15
+          - android14-6.1
+          - android15-6.6
+          - android16-6.12
+    container:
+      image: ghcr.io/ylarod/ddk-min:${{ matrix.kmi }}-20260828
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Build xinovasu.ko
+        run: |
+          set -euo pipefail
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          cd kernel
+          echo "=== Building xinovasu.ko for KMI ${{ matrix.kmi }} ==="
+          if [ -z "${KDIR:-}" ] || [ ! -f "${KDIR}/Makefile" ]; then
+            echo "::error::KDIR not available inside DDK container: ${KDIR:-<empty>}"
+            exit 1
+          fi
+          echo "KDIR=$KDIR"
+          # 直接调 out-of-tree kbuild，不走 kernel/Makefile 的 `all`
+          # （那个目标额外依赖 tools/check_symbol + $KDIR/vmlinux，ddk-min 里没有）。
+          make -C "$KDIR" M="$PWD" CC=clang CONFIG_KSU=m modules -j"$(nproc --all)"
+          test -f xinovasu.ko || { echo "::error::xinovasu.ko not produced"; ls -la; exit 1; }
+          OUT=/github/workspace/out/aarch64
+          mkdir -p "$OUT"
+          cp xinovasu.ko "$OUT/${{ matrix.kmi }}_xinovasu.ko"
+          llvm-strip -d "$OUT/${{ matrix.kmi }}_xinovasu.ko" || true
+          ls -la "$OUT"
+
+      - name: Upload LKM
+        uses: actions/upload-artifact@v5
+        with:
+          name: aarch64-${{ matrix.kmi }}-lkm
+          path: /github/workspace/out/aarch64/${{ matrix.kmi }}_xinovasu.ko
+          if-no-files-found: error
+
+  # ── 2. 把 LKM + xnsuinit 嵌进 xnsusd，再编 APK ─────────────────────────
   manager:
+    needs: lkm
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+
+      - name: Download LKM artifacts
+        uses: actions/download-artifact@v5
+        with:
+          pattern: 'aarch64-*-lkm'
+          path: lkm
+
+      - name: Stage LKM into ksud embedded assets
+        run: |
+          set -euo pipefail
+          find lkm -type f | sort
+          mkdir -p userspace/ksud/bin/aarch64
+          find lkm -name '*_xinovasu.ko' -type f -exec cp -v {} userspace/ksud/bin/aarch64/ \;
+          echo "--- staged ---"
+          ls -la userspace/ksud/bin/aarch64/
+          N=$(find userspace/ksud/bin/aarch64 -name '*_xinovasu.ko' -type f | wc -l)
+          echo "STAGED_LKM=$N"
+          [ "$N" -ge 1 ] || { echo "::error::no LKM staged - APK would be unable to patch init_boot"; exit 1; }
 
       - name: Set up JDK 21
         uses: actions/setup-java@v5
@@ -59,15 +145,65 @@ jobs:
           echo "===== installed ====="
           "$SM" --list_installed || true
 
-      - name: Show toolchain versions
+      - name: Export Rust cross-build env (aarch64-linux-android)
         run: |
-          cd manager
-          ./gradlew --version
+          set -euo pipefail
+          NDK="$(ls -d "$ANDROID_HOME"/ndk/* 2>/dev/null | head -1)"
+          [ -n "$NDK" ] || { echo "::error::no NDK installed"; exit 1; }
+          TC="$NDK/toolchains/llvm/prebuilt/linux-x86_64"
+          [ -d "$TC" ] || { echo "::error::NDK toolchain missing at $TC"; exit 1; }
+          CC="$TC/bin/aarch64-linux-android26-clang"
+          [ -x "$CC" ] || { echo "::error::clang wrapper missing: $CC"; exit 1; }
+          BUILTINS="$("$CC" --print-resource-dir)/lib/linux/libclang_rt.builtins-aarch64-android.a"
+          [ -f "$BUILTINS" ] || { echo "::error::builtins missing: $BUILTINS"; exit 1; }
+          {
+            echo "ANDROID_NDK_HOME=$NDK"
+            echo "PATH=$TC/bin:$PATH"
+            echo "CC_aarch64_linux_android=$CC"
+            echo "CXX_aarch64_linux_android=$TC/bin/aarch64-linux-android26-clang++"
+            echo "AR_aarch64_linux_android=$TC/bin/llvm-ar"
+            echo "CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=$CC"
+            echo "RUSTFLAGS=-C target-feature=+crt-static -C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument -C link-arg=$BUILTINS"
+          } >> "$GITHUB_ENV"
+          echo "using NDK $NDK"
+
+      - name: Build xnsuinit -> xnsuinit.bin (embedded asset)
+        run: |
+          set -euo pipefail
+          rustup target add aarch64-linux-android
+          cargo build --package xnsuinit --target=aarch64-linux-android --release
+          cp target/aarch64-linux-android/release/xnsuinit userspace/ksud/bin/aarch64/xnsuinit.bin
+          ls -la userspace/ksud/bin/aarch64/
+          # boot_patch.rs 取资产用的就是这个名字，写错就拿不到
+          test -f userspace/ksud/bin/aarch64/xnsuinit.bin
+
+      - name: Sanity-check embedded asset inventory
+        run: |
+          set -euo pipefail
+          echo "=== userspace/ksud/bin/aarch64 (RustEmbed source dir) ==="
+          ls -la userspace/ksud/bin/aarch64/
+          find userspace/ksud/bin/aarch64 -name '*_xinovasu.ko' | wc -l
+          test -f userspace/ksud/bin/aarch64/xnsuinit.bin || { echo "::error::xnsuinit.bin missing"; exit 1; }
+
+      - name: Build xnsusd -> libxnsusd.so
+        run: |
+          set -euo pipefail
+          # 资产目录先就位再编，RustEmbed 是编译期内嵌；改资产必须重编。
+          cargo build --package xnsusd --target=aarch64-linux-android --release
+          ls -la target/aarch64-linux-android/release/xnsusd
+          mkdir -p manager/app/src/main/jniLibs/arm64-v8a
+          cp target/aarch64-linux-android/release/xnsusd manager/app/src/main/jniLibs/arm64-v8a/libxnsusd.so
+          ls -la manager/app/src/main/jniLibs/arm64-v8a/
 
       - name: Write local.properties
         run: |
           echo "sdk.dir=$ANDROID_HOME" > manager/local.properties
           cat manager/local.properties
+
+      - name: Show toolchain versions
+        run: |
+          cd manager
+          ./gradlew --version
 
       - name: Build (debug + release, tolerate one failing)
         run: |
@@ -86,6 +222,15 @@ jobs:
           else
             ls -l dist
             sha256sum dist/*.apk
+            # 冒烟检查：libxnsusd.so 必须真进了 APK，否则装了也修不了 init_boot
+            for f in dist/*.apk; do
+              if unzip -l "$f" | grep -q 'lib/arm64-v8a/libxnsusd.so'; then
+                echo "OK   $f contains lib/arm64-v8a/libxnsusd.so"
+              else
+                echo "::error::$f is MISSING lib/arm64-v8a/libxnsusd.so"
+                exit 1
+              fi
+            done
           fi
 
       - name: Upload APK
