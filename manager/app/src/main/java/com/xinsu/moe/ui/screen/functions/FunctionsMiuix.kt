@@ -387,9 +387,8 @@ fun FunctionsMiuix(
                         }
                     }
 
-                    DecoratedCard(
+                    MiuixGlassCard(
                         modifier = Modifier
-                            .padding(horizontal = 16.dp)
                             .padding(top = 12.dp)
                             .fillMaxWidth(),
                         role = DecoratedCardRole.Function,
