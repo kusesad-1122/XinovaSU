@@ -179,7 +179,13 @@ jobs:
             echo "CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=$CC"
             # 注意：-C link-arg 的 -L 会被 rustc 放到 -llog 之后 → 太晚，等于没加。
             # 必须用 rustc 自己的 -L native= 才会落在库搜索阶段之前。
-            echo "RUSTFLAGS=-C target-feature=+crt-static -C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument -C link-arg=$BUILTINS -L native=$LIBDIR"
+            #
+            # 不开 crt-static：NDK 27.3 的 sysroot 只有 liblog.so（没有 liblog.a），
+            # 而 crt-static 会让 ld.lld 拒绝 .so → "unable to find library -llog"。
+            # xnsusd 是设备上以 root 跑的普通程序（libsu 直接执行），动态链接 bionic
+            # 完全没问题；需要真正静态的是 xnsuinit（ramdisk init），它在另一条
+            # RUSTFLAGS_STATIC 里且已验证可编。
+            echo "RUSTFLAGS=-C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument -C link-arg=$BUILTINS -L native=$LIBDIR"
           } >> "$GITHUB_ENV"
           echo "using NDK $NDK"
           echo "using sysroot libdir $LIBDIR"
