@@ -46,30 +46,32 @@ object KsuCli {
     @Volatile private var cachedShell: Shell? = null
     @Volatile private var cachedGlobalMntShell: Shell? = null
 
-    // 兼容旧引用点（SuperUserRepositoryImpl）
-    val SHELL: Shell
-        get() = getRootShell(false)
-    val GLOBAL_MNT_SHELL: Shell
-        get() = getRootShell(true)
-}
-
-fun getRootShell(globalMnt: Boolean = false): Shell {
-    val cached = if (globalMnt) KsuCli.cachedGlobalMntShell else KsuCli.cachedShell
-    if (cached != null && cached.isRoot) return cached
-    return synchronized(KsuCli) {
-        val again = if (globalMnt) KsuCli.cachedGlobalMntShell else KsuCli.cachedShell
-        if (again != null && again.isRoot) {
-            again
-        } else {
-            val shell = createRootShell(globalMnt)
-            // 只有真拿到 root 才缓存；降级 shell 不缓存，让下一次调用自愈
-            if (shell.isRoot) {
-                if (globalMnt) KsuCli.cachedGlobalMntShell = shell else KsuCli.cachedShell = shell
+    fun rootShell(globalMnt: Boolean = false): Shell {
+        val cached = if (globalMnt) cachedGlobalMntShell else cachedShell
+        if (cached != null && cached.isRoot) return cached
+        return synchronized(this) {
+            val again = if (globalMnt) cachedGlobalMntShell else cachedShell
+            if (again != null && again.isRoot) {
+                again
+            } else {
+                val shell = createRootShell(globalMnt)
+                // 只有真拿到 root 才缓存；降级 shell 不缓存，让下一次调用自愈
+                if (shell.isRoot) {
+                    if (globalMnt) cachedGlobalMntShell = shell else cachedShell = shell
+                }
+                shell
             }
-            shell
         }
     }
+
+    // 兼容旧引用点（SuperUserRepositoryImpl）
+    val SHELL: Shell
+        get() = rootShell(false)
+    val GLOBAL_MNT_SHELL: Shell
+        get() = rootShell(true)
 }
+
+fun getRootShell(globalMnt: Boolean = false): Shell = KsuCli.rootShell(globalMnt)
 
 inline fun <T> withNewRootShell(
     globalMnt: Boolean = false,
