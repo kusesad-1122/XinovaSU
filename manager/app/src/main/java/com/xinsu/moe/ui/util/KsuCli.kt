@@ -38,13 +38,36 @@ data class FlashResult(val code: Int, val err: String, val showReboot: Boolean) 
 }
 
 object KsuCli {
-    val SHELL: Shell = createRootShell()
-    val GLOBAL_MNT_SHELL: Shell = createRootShell(true)
+    // ⚠️ 降级 shell（sh / su -mm）绝不能被永久缓存。
+    // 内核侧 throne_tracker 在 packages.list 半截解析时会把管理器身份"瞬时失效"，
+    // 此时创建 root shell 会失败并 fallback 成非 root 的 sh；一旦把它缓存进单例，
+    // root 就表现为"永久掉线"，只能杀掉管理器进程恢复（用户实测：重进才好）。
+    // 所以：只有真正拿到 root 的 shell 才允许缓存，降级 shell 每次调用都重试。
+    @Volatile private var cachedShell: Shell? = null
+    @Volatile private var cachedGlobalMntShell: Shell? = null
+
+    // 兼容旧引用点（SuperUserRepositoryImpl）
+    val SHELL: Shell
+        get() = getRootShell(false)
+    val GLOBAL_MNT_SHELL: Shell
+        get() = getRootShell(true)
 }
 
 fun getRootShell(globalMnt: Boolean = false): Shell {
-    return if (globalMnt) KsuCli.GLOBAL_MNT_SHELL else {
-        KsuCli.SHELL
+    val cached = if (globalMnt) KsuCli.cachedGlobalMntShell else KsuCli.cachedShell
+    if (cached != null && cached.isRoot) return cached
+    return synchronized(KsuCli) {
+        val again = if (globalMnt) KsuCli.cachedGlobalMntShell else KsuCli.cachedShell
+        if (again != null && again.isRoot) {
+            again
+        } else {
+            val shell = createRootShell(globalMnt)
+            // 只有真拿到 root 才缓存；降级 shell 不缓存，让下一次调用自愈
+            if (shell.isRoot) {
+                if (globalMnt) KsuCli.cachedGlobalMntShell = shell else KsuCli.cachedShell = shell
+            }
+            shell
+        }
     }
 }
 
