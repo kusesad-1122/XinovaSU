@@ -254,19 +254,32 @@ void track_throne(bool prune_only)
     struct list_head uid_list;
     INIT_LIST_HEAD(&uid_list);
 
+    // ⚠️ packages.list 是 PMS 在安装/更新时反复重写的文件，fsnotify 回调上下文
+    // 里很可能读到"正在被重写的半截文件"，甚至被 SELinux 拒掉一部分。
+    // 此时 uid_list 是不完整的：如果据此失效管理器身份或剪枝 allowlist，
+    // 管理器（以及其它已授权 App）的 root 会被瞬时甚至永久收回。
+    // 所以必须记录解析是否完整，不完整就什么都不做，等下一次事件。
+    bool parse_ok = true;
+    loff_t fsize = i_size_read(fp->f_inode);
+
     char chr = 0;
     loff_t pos = 0;
     loff_t line_start = 0;
     char buf[XNSU_MAX_PACKAGE_NAME];
     for (;;) {
         ssize_t count = kernel_read(fp, &chr, sizeof(chr), &pos);
-        if (count != sizeof(chr))
+        if (count != sizeof(chr)) {
+            // 正常 EOF 也要确认整个文件都读到了；提前中断就是半截
+            if (pos < fsize)
+                parse_ok = false;
             break;
+        }
         if (chr != '\n')
             continue;
 
         count = kernel_read(fp, buf, sizeof(buf) - 1, &line_start);
         if (count <= 0) {
+            parse_ok = false;
             break;
         }
         buf[count] = '\0';
@@ -284,6 +297,7 @@ void track_throne(bool prune_only)
         if (!uid || !package) {
             kfree(data);
             pr_err("update_uid: package or uid is NULL!\n");
+            parse_ok = false;
             break;
         }
 
@@ -291,6 +305,7 @@ void track_throne(bool prune_only)
         if (kstrtou32(uid, 10, &res)) {
             kfree(data);
             pr_err("update_uid: uid parse err\n");
+            parse_ok = false;
             break;
         }
         data->uid = res;
@@ -304,6 +319,15 @@ void track_throne(bool prune_only)
         line_start = pos;
     }
     filp_close(fp, 0);
+
+    if (!parse_ok) {
+        // 半截/损坏的 packages.list：uid_list 不可信。
+        // 绝不能据此失效管理器身份，更不能剪枝 allowlist（那会把已授权的
+        // root 永久收回并写盘）。宁可什么都不做，等下一次 packages.list 事件。
+        pr_info("track_throne: packages.list parse incomplete (%lld/%lld), skip this round\n",
+                pos, fsize);
+        goto out;
+    }
 
     // now update uid list
     struct uid_data *np;
