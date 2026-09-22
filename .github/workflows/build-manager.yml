@@ -204,7 +204,9 @@ jobs:
           # ⚠️ 必须静态（见文件顶部第 5 条）：aarch64-linux-android 默认动态链接，
           #    编出来的 /init 在 ramdisk 里根本跑不起来 → 刷入即无限重启。
           #    musl 目标自带静态 libc，不需要 NDK / 交叉工具链。
-          rustup target add aarch64-unknown-linux-musl
+          # ⚠️ 两个目标都要装：aarch64-linux-android 是 xnsusd 用的（这一步以前顺手装了，
+          #    改成 musl 后必须保留，否则下一步 xnsusd 报 "can't find crate for `core`"）。
+          rustup target add aarch64-linux-android aarch64-unknown-linux-musl
           # ⚠️ musl 目标默认拿宿主的 `cc` 当链接器（x86_64！）→ 直接报
           #    "ld: error: --fix-cortex-a53-843419 is only supported on AArch64 targets"。
           #    必须显式指到 Rust 自带的 rust-lld（跨架构可用，不需要任何 musl 交叉工具链）。
@@ -248,6 +250,7 @@ jobs:
       - name: Build xnsusd -> libxnsusd.so
         run: |
           set -euo pipefail
+          rustup target add aarch64-linux-android
           # 资产目录先就位再编，RustEmbed 是编译期内嵌；改资产必须重编。
           cargo build --package xnsusd --target=aarch64-linux-android --release
           ls -la target/aarch64-linux-android/release/xnsusd
