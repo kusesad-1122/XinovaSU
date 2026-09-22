@@ -205,9 +205,18 @@ jobs:
           #    编出来的 /init 在 ramdisk 里根本跑不起来 → 刷入即无限重启。
           #    musl 目标自带静态 libc，不需要 NDK / 交叉工具链。
           rustup target add aarch64-unknown-linux-musl
+          # ⚠️ musl 目标默认拿宿主的 `cc` 当链接器（x86_64！）→ 直接报
+          #    "ld: error: --fix-cortex-a53-843419 is only supported on AArch64 targets"。
+          #    必须显式指到 Rust 自带的 rust-lld（跨架构可用，不需要任何 musl 交叉工具链）。
+          SYSROOT="$(rustc --print sysroot)"
+          RUST_LLD="$(find "$SYSROOT" -name 'rust-lld' -type f 2>/dev/null | head -1)"
+          [ -n "$RUST_LLD" ] || RUST_LLD="$(command -v rust-lld || true)"
+          [ -n "$RUST_LLD" ] || { echo "::error::rust-lld not found under $SYSROOT"; exit 1; }
+          echo "using rust-lld: $RUST_LLD"
           # 必须清掉给 xnsusd 用的 android RUSTFLAGS（里面有 android 的 builtins 与 -L native），
           # 否则会把 Android 的链接参数带进 musl 链接。
           env -u RUSTFLAGS -u RUSTFLAGS_STATIC \
+            CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER="$RUST_LLD" \
             cargo build --package xnsuinit --target=aarch64-unknown-linux-musl --release
           cp target/aarch64-unknown-linux-musl/release/xnsuinit userspace/ksud/bin/aarch64/xnsuinit.bin
           ls -la userspace/ksud/bin/aarch64/
