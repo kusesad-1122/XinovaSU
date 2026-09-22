@@ -387,6 +387,60 @@ fn enforce_bootimage_version(boot: &BootImage<'_>) -> Result<()> {
     Ok(())
 }
 
+/// ramdisk 里的 `/init` 必须是一个**完全静态**的 ELF。
+///
+/// 内核把它当 PID 1 exec 的时候 `/system` 还没挂载：动态链接的二进制会带一个
+/// `PT_INTERP`（Android 上是 `/system/bin/linker64`），而解释器此时根本不存在 →
+/// execve 失败 → 内核 `Attempted to kill init!` → **刷入后直接无限重启**
+/// （30019 那版 APK 就是这么炸的：CI 用 aarch64-linux-android 目标编译，
+/// 默认是动态链接）。所以写 boot 分区之前先验证：宁可这里报错，
+/// 也不能刷出一个开不了机的包。
+fn ensure_static_init(init: &[u8]) -> Result<()> {
+    ensure!(
+        init.starts_with(b"\x7fELF"),
+        "the ramdisk init must be a static ELF binary (this one is not an ELF file)"
+    );
+    ensure!(
+        init.len() >= 64 && init[4] == 2 && init[5] == 1,
+        "the ramdisk init must be a 64-bit little-endian ELF binary"
+    );
+
+    let u16_at = |off: usize| u16::from_le_bytes([init[off], init[off + 1]]);
+    let u64_at = |off: usize| {
+        let mut buf = [0u8; 8];
+        buf.copy_from_slice(&init[off..off + 8]);
+        u64::from_le_bytes(buf)
+    };
+
+    let phoff = u64_at(32) as usize;
+    let phentsize = u16_at(54) as usize;
+    let phnum = u16_at(56) as usize;
+
+    for i in 0..phnum {
+        let off = phoff + i * phentsize;
+        if off + 40 > init.len() {
+            break;
+        }
+        // PT_INTERP == 3：这个二进制要靠动态链接器才能跑起来
+        if u32::from_le_bytes([init[off], init[off + 1], init[off + 2], init[off + 3]]) == 3 {
+            let p_offset = u64_at(off + 8) as usize;
+            let p_filesz = u64_at(off + 32) as usize;
+            let interp = p_offset
+                .checked_add(p_filesz)
+                .and_then(|end| init.get(p_offset..end))
+                .map(|s| String::from_utf8_lossy(s).trim_end_matches('\0').to_string())
+                .unwrap_or_default();
+            bail!(
+                "the ramdisk init is dynamically linked (interpreter: {interp}). \
+                 It cannot run before /system is mounted, so the device would boot-loop. \
+                 Rebuild it for a fully static target (e.g. aarch64-unknown-linux-musl)."
+            );
+        }
+    }
+
+    Ok(())
+}
+
 #[allow(clippy::struct_excessive_bools)]
 #[derive(clap::Args, Debug)]
 pub struct BootPatchArgs {
@@ -602,9 +656,13 @@ pub fn patch(args: BootPatchArgs) -> Result<()> {
         let xnsu_init: Box<dyn AsRef<[u8]>> = if no_install {
             Box::new(Vec::<u8>::new())
         } else if let Some(init_path) = init {
-            Box::new(map_file(&init_path)?)
+            let data = map_file(&init_path)?;
+            ensure_static_init(&data).context("Refusing to patch a boot image with this init")?;
+            Box::new(data)
         } else {
-            assets::get_asset("xnsuinit.bin").context("Failed to load xnsuinit")?
+            let data = assets::get_asset_data("xnsuinit.bin").context("Failed to load xnsuinit")?;
+            ensure_static_init(&data).context("Refusing to patch a boot image with this init")?;
+            Box::new(data)
         };
 
         let (mut cpio, vendor_ramdisk_idx) =

@@ -21,6 +21,13 @@ name: Build Manager APK
 #     action 还停在 Node 20，runner 已经是 Node 24 → 一上来就 exit 1。
 #  3) 所有 actions 用 v5：v4 一代同样是 Node 20，会被强制降级运行。
 #  4) LKM 必须在 DDK 容器内编（容器提供 KDIR 与内核头），不能和 Gradle 同 job。
+#  5) ⚠️⚠️ xnsuinit.bin（ramdisk 的 /init）**必须完全静态**：
+#     内核把它当 PID1 exec 时 /system 还没挂载，动态链接的二进制会带
+#     PT_INTERP=/system/bin/linker64，解释器不存在 → execve 失败 →
+#     "Attempted to kill init!" → **刷入后直接无限重启**（30019 就是这么炸的）。
+#     所以下面用 aarch64-unknown-linux-musl 目标编（musl 天生静态），并在
+#     嵌入前用 llvm-readelf 断言「没有 PT_INTERP」，不通过就整条流水线 fail。
+#     xnsusd 反而必须保持动态（NDK 27.3 的 sysroot 只有 liblog.so，没法静态链）。
 
 on:
   workflow_dispatch:
@@ -148,7 +155,8 @@ jobs:
       - name: Export Rust cross-build env (aarch64-linux-android)
         run: |
           set -euo pipefail
-          # 27.3 是 runner 预装的：xnsuinit(crt-static) 与 ksud 的 bindgen 都已在它上面通过
+          # 27.3 是 runner 预装的：xnsusd 的 bindgen 与动态链接都已在它上面验证通过
+          # （xnsuinit 不走 NDK：它用 aarch64-unknown-linux-musl 自带的静态 libc）
           NDK="$(ls -d "$ANDROID_HOME"/ndk/* 2>/dev/null | sort -V | head -1)"
           [ -n "$NDK" ] || { echo "::error::no NDK installed"; exit 1; }
           TC="$NDK/toolchains/llvm/prebuilt/linux-x86_64"
@@ -183,22 +191,42 @@ jobs:
             # 不开 crt-static：NDK 27.3 的 sysroot 只有 liblog.so（没有 liblog.a），
             # 而 crt-static 会让 ld.lld 拒绝 .so → "unable to find library -llog"。
             # xnsusd 是设备上以 root 跑的普通程序（libsu 直接执行），动态链接 bionic
-            # 完全没问题；需要真正静态的是 xnsuinit（ramdisk init），它在另一条
-            # RUSTFLAGS_STATIC 里且已验证可编。
+            # 完全没问题；需要真正静态的是 xnsuinit（ramdisk init），它在下面单独用
+            # aarch64-unknown-linux-musl 目标编（见 "Build xnsuinit" 那一步）。
             echo "RUSTFLAGS=-C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument -C link-arg=$BUILTINS -L native=$LIBDIR"
           } >> "$GITHUB_ENV"
           echo "using NDK $NDK"
           echo "using sysroot libdir $LIBDIR"
 
-      - name: Build xnsuinit -> xnsuinit.bin (embedded asset)
+      - name: Build xnsuinit -> xnsuinit.bin (embedded asset, MUST be static)
         run: |
           set -euo pipefail
-          rustup target add aarch64-linux-android
-          cargo build --package xnsuinit --target=aarch64-linux-android --release
-          cp target/aarch64-linux-android/release/xnsuinit userspace/ksud/bin/aarch64/xnsuinit.bin
+          # ⚠️ 必须静态（见文件顶部第 5 条）：aarch64-linux-android 默认动态链接，
+          #    编出来的 /init 在 ramdisk 里根本跑不起来 → 刷入即无限重启。
+          #    musl 目标自带静态 libc，不需要 NDK / 交叉工具链。
+          rustup target add aarch64-unknown-linux-musl
+          # 必须清掉给 xnsusd 用的 android RUSTFLAGS（里面有 android 的 builtins 与 -L native），
+          # 否则会把 Android 的链接参数带进 musl 链接。
+          env -u RUSTFLAGS -u RUSTFLAGS_STATIC \
+            cargo build --package xnsuinit --target=aarch64-unknown-linux-musl --release
+          cp target/aarch64-unknown-linux-musl/release/xnsuinit userspace/ksud/bin/aarch64/xnsuinit.bin
           ls -la userspace/ksud/bin/aarch64/
           # boot_patch.rs 取资产用的就是这个名字，写错就拿不到
           test -f userspace/ksud/bin/aarch64/xnsuinit.bin
+
+          # ── 硬断言：绝不能有动态解释器（有就 fail，宁可不发包也不要发砖）──
+          READELF="$(find "${ANDROID_NDK_HOME:-/nonexistent}" -path '*/bin/llvm-readelf' 2>/dev/null | head -1)"
+          [ -n "$READELF" ] || READELF="$(command -v llvm-readelf || command -v readelf || true)"
+          [ -n "$READELF" ] || { echo "::error::no readelf available to verify xnsuinit"; exit 1; }
+          echo "=== xnsuinit.bin ELF header ==="
+          "$READELF" -h userspace/ksud/bin/aarch64/xnsuinit.bin | head -n 20
+          echo "=== xnsuinit.bin program headers ==="
+          "$READELF" -l userspace/ksud/bin/aarch64/xnsuinit.bin | sed -n '1,40p'
+          if "$READELF" -l userspace/ksud/bin/aarch64/xnsuinit.bin | grep -qi 'INTERP'; then
+            echo "::error::xnsuinit.bin is DYNAMICALLY linked (PT_INTERP present) -> patched init_boot would boot-loop. Build it statically."
+            exit 1
+          fi
+          echo "OK: xnsuinit.bin is static (no PT_INTERP)"
 
       - name: Sanity-check embedded asset inventory
         run: |
