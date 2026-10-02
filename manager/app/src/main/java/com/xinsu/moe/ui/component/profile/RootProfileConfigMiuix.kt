@@ -35,6 +35,7 @@ import com.xinsu.moe.ui.util.isSepolicyValid
 import top.yukonga.miuix.kmp.basic.ButtonDefaults
 import top.yukonga.miuix.kmp.basic.TextButton
 import top.yukonga.miuix.kmp.basic.TextField
+import top.yukonga.miuix.kmp.basic.TextFieldDefaults
 import top.yukonga.miuix.kmp.overlay.OverlayDialog
 import top.yukonga.miuix.kmp.preference.ArrowPreference
 import top.yukonga.miuix.kmp.preference.CheckboxLocation
@@ -373,11 +374,15 @@ private fun SELinuxPanel(
                             .fillMaxWidth()
                             .padding(vertical = 8.dp),
                         label = stringResource(id = R.string.profile_selinux_domain),
-                        borderColor = if (isDomainValid) {
-                            colorScheme.primary
-                        } else {
-                            Color.Red.copy(alpha = if (isSystemInDarkTheme()) 0.3f else 0.6f)
-                        },
+                        // miuix 0.9.3 把 TextField 的 backgroundColor / labelColor /
+                        // borderColor 三个参数合并成了 colors: TextFieldColors。
+                        colors = TextFieldDefaults.textFieldColors(
+                            borderColor = if (isDomainValid) {
+                                colorScheme.primary
+                            } else {
+                                Color.Red.copy(alpha = if (isSystemInDarkTheme()) 0.3f else 0.6f)
+                            },
+                        ),
                         keyboardOptions = KeyboardOptions(
                             keyboardType = KeyboardType.Ascii,
                             imeAction = ImeAction.Next
@@ -391,11 +396,13 @@ private fun SELinuxPanel(
                             .fillMaxWidth()
                             .padding(vertical = 8.dp),
                         label = stringResource(id = R.string.profile_selinux_rules),
-                        borderColor = if (isRulesValid) {
-                            colorScheme.primary
-                        } else {
-                            Color.Red.copy(alpha = if (isSystemInDarkTheme()) 0.3f else 0.6f)
-                        },
+                        colors = TextFieldDefaults.textFieldColors(
+                            borderColor = if (isRulesValid) {
+                                colorScheme.primary
+                            } else {
+                                Color.Red.copy(alpha = if (isSystemInDarkTheme()) 0.3f else 0.6f)
+                            },
+                        ),
                         keyboardOptions = KeyboardOptions(
                             keyboardType = KeyboardType.Ascii,
                         ),

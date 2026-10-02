@@ -125,9 +125,11 @@ import com.xinsu.moe.ui.viewmodel.MainActivityViewModel
 import com.xinsu.moe.ui.viewmodel.MainPagerConfig
 import com.xinsu.moe.ui.webui.WebUIActivity
 import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.blur.isRenderEffectSupported
 import top.yukonga.miuix.kmp.blur.layerBackdrop
 import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
+// miuix 0.9.2 起该符号从 kmp.blur 搬到 kmp.shader（同批的 isRuntimeShaderSupported
+// 仍留在 blur，故此处只有这一个 import 走 shader）。
+import top.yukonga.miuix.kmp.shader.isRenderEffectSupported
 import top.yukonga.miuix.kmp.theme.MiuixTheme
 
 class MainActivity : ComponentActivity() {
