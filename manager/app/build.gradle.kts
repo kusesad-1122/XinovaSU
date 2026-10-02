@@ -181,6 +181,17 @@ android {
             // 间接数据流：BgEffectPainter 有 @RequiresApi(TIRAMISU) 且调用链上游有
             // isRuntimeShaderSupported() 守卫，运行时安全，lint 跟不穿这层间接
             "NewApi",
+            // Compose 最佳实践建议（逐条核实过，无一是缺陷）：
+            //  ModifierParameter                 Composable 参数顺序建议
+            //  LocalContextResourcesRead         主题图在切换主题时整个 Composable
+            //                                     重组，资源对象不会变，读法安全
+            //  ModifierNodeInspectableProperties 调试用修饰符属性声明
+            //  AutoboxingStateCreation          mutableStateOf(0f) 的装箱开销，
+            //                                     可换 mutableFloatStateOf 但收益极小
+            "ModifierParameter",
+            "LocalContextResourcesRead",
+            "ModifierNodeInspectableProperties",
+            "AutoboxingStateCreation",
         )
     }
 
