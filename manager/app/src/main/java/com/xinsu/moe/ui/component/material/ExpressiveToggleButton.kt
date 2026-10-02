@@ -36,6 +36,19 @@ fun ExpressiveToggleButton(
     )
 }
 
+/**
+ * 调用的是 `toggleButtonColors(...)` 而非上游的 `colors(...)`：
+ * material3 1.5.0-alpha19（本项目版本）里该工厂方法名为 `toggleButtonColors`，
+ * 到 alpha28 才更名为 `colors`。签名兼容 —— 两者都是 6 个 Color 参数
+ * （containerColor / contentColor / disabledContainerColor /
+ * disabledContentColor / checkedContainerColor / checkedContentColor）
+ * 且全部带默认值。
+ *
+ * 从 alpha19 的 AAR 里反查 class 常量池确认：
+ *   androidx/compose/material3/ToggleButtonDefaults.class
+ *   -> toggleButtonColors-5tl4gsc，签名为 (JJJJJJ...)ToggleButtonColors
+ *   -> 不存在独立的 `colors` 方法
+ */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun expressiveToggleButtonColors(
@@ -43,7 +56,7 @@ fun expressiveToggleButtonColors(
     checkedContentColor: Color = MaterialTheme.colorScheme.onPrimary,
     containerColor: Color = MaterialTheme.colorScheme.surfaceContainerHighest,
     contentColor: Color = MaterialTheme.colorScheme.onSurface,
-): ToggleButtonColors = ToggleButtonDefaults.colors(
+): ToggleButtonColors = ToggleButtonDefaults.toggleButtonColors(
     checkedContainerColor = checkedContainerColor,
     checkedContentColor = checkedContentColor,
     containerColor = containerColor,
