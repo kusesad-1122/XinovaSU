@@ -61,6 +61,7 @@ import com.xinsu.moe.ui.component.bottombar.BottomBar
 import com.xinsu.moe.ui.component.bottombar.MainPagerState
 import com.xinsu.moe.ui.component.bottombar.SideRail
 import com.xinsu.moe.ui.component.bottombar.rememberMainPagerState
+import com.xinsu.moe.ui.component.decoration.RememberThemeMorphHost
 import com.xinsu.moe.ui.component.dialog.rememberConfirmDialog
 import com.xinsu.moe.ui.navigation3.HandleDeepLink
 import com.xinsu.moe.ui.navigation3.LocalNavigator
@@ -191,7 +192,6 @@ class MainActivity : ComponentActivity() {
                 LocalColorMode provides appSettings.colorMode.value,
                 LocalThemePreset provides appSettings.themePreset,
                 LocalThemeTokenBundle provides themeTokenBundle,
-                LocalThemeDecorationSpec provides themeDecorationSpec,
                 LocalBackgroundStyle provides uiState.backgroundStyle,
                 LocalBackgroundImageUri provides uiState.backgroundImageUri,
                 LocalBackgroundImageAlpha provides uiState.backgroundImageAlpha,
@@ -208,7 +208,14 @@ class MainActivity : ComponentActivity() {
                 LocalEnableFloatingBottomBarBlur provides uiState.enableFloatingBottomBarBlur,
                 LocalUiMode provides uiMode,
             ) {
-                XinovaSUTheme(appSettings = appSettings, uiMode = uiMode) {
+                // 装饰配方的形变宿主包在整棵树外层：切换主题时全屏装饰卡同步过渡，
+                // 而不是逐个页面各自为政。放在这里也保证了它先于 XinovaSUTheme 完成形变计时，
+                // 主题色与装饰图案在同一帧内开始变化。
+                RememberThemeMorphHost(targetSpec = themeDecorationSpec) {
+                    CompositionLocalProvider(
+                        LocalThemeDecorationSpec provides themeDecorationSpec,
+                    ) {
+                        XinovaSUTheme(appSettings = appSettings, uiMode = uiMode) {
                     HandleDeepLink(intentState = intentState.collectAsStateWithLifecycle())
                     ZipFileIntentHandler(intentState = intentState, isManager = isManager)
                     ShortcutIntentHandler(intentState = intentState)
@@ -318,6 +325,8 @@ class MainActivity : ComponentActivity() {
                     when (uiMode) {
                         UiMode.Material -> androidx.compose.material3.Scaffold { rootContent() }
                         UiMode.Miuix -> Scaffold { rootContent() }
+                    }
+                        }
                     }
                 }
             }

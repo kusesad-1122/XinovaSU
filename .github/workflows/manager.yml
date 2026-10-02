@@ -1,0 +1,193 @@
+name: Build Manager
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/manager.yml"
+      - ".github/scripts/setup-rust-build.sh"
+      - "manager/**"
+      - "userspace/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/manager.yml"
+      - ".github/scripts/setup-rust-build.sh"
+      - "manager/**"
+      - "userspace/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
+  workflow_dispatch:
+
+# Cancel superseded runs on the same ref — a manager build is expensive
+# (Rust cross-compile + Gradle) and stale results are never useful.
+concurrency:
+  group: manager-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ksud must exist before the manager can link against it: the manager ships
+  # libksud.so inside its jniLibs, and jniLibs/libksud.so is gitignored.
+  ksud:
+    name: Build ksud (native)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: aarch64-linux-android
+            abi: arm64-v8a
+          - target: x86_64-linux-android
+            abi: x86_64
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup rustup
+        run: |
+          rustup update stable
+          rustup target add ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: userspace/ksud
+          cache-targets: false
+
+      - uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r29
+
+      - name: Build ksud
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        run: |
+          source .github/scripts/setup-rust-build.sh ${{ matrix.target }} 26
+          cargo build --target "$TRIPLE" --release --manifest-path ./userspace/ksud/Cargo.toml
+
+      - name: Package libksud.so
+        run: |
+          mkdir -p out/${{ matrix.abi }}
+          cp target/${{ matrix.target }}/release/ksud out/${{ matrix.abi }}/libksud.so
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: libksud-${{ matrix.abi }}
+          path: out/${{ matrix.abi }}/libksud.so
+          if-no-files-found: error
+          retention-days: 7
+
+  manager:
+    name: Build Manager
+    needs: ksud
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # No signing secrets are exposed to pull requests from forks: PR builds
+      # get an ephemeral throwaway key generated in-job, and the applicationId
+      # gets a ".dev" suffix so a PR build can never be mistaken for (or
+      # collide with) a real install.
+      - name: Generate ephemeral signing key (PR only)
+        if: github.event_name == 'pull_request'
+        run: |
+          KEYSTORE_PASSWORD=$(openssl rand -hex 32)
+          KEY_PASSWORD=$(openssl rand -hex 32)
+          keytool -genkeypair \
+            -alias pr-key \
+            -keyalg RSA -keysize 2048 \
+            -validity 1 \
+            -storepass "$KEYSTORE_PASSWORD" \
+            -keypass "$KEY_PASSWORD" \
+            -dname "CN=XinovaSU PR Build" \
+            -storetype JKS \
+            -keystore pr-key.jks
+          {
+            echo "KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+            echo "KEY_ALIAS=pr-key"
+            echo "KEY_PASSWORD=$KEY_PASSWORD"
+            echo "KEYSTORE_FILE=pr-key.jks"
+          } >> gradle.properties
+
+      - name: Write release key
+        if: github.event_name != 'pull_request' && secrets.KEYSTORE != ''
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          echo "$KEYSTORE_B64" | base64 -d > key.jks
+          {
+            echo "KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+            echo "KEY_ALIAS=$KEY_ALIAS"
+            echo "KEY_PASSWORD=$KEY_PASSWORD"
+            echo "KEYSTORE_FILE=key.jks"
+          } >> gradle.properties
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: libksud-*
+          path: native-libs
+
+      # Each artifact is extracted into its own subdirectory named after the
+      # artifact, so libksud.so from arm64-v8a and from x86_64 never collide.
+      # (merge-multiple: true would flatten both into one dir and silently
+      # overwrite one ABI with the other.)
+      - name: Place libksud.so into jniLibs
+        run: |
+          set -euo pipefail
+          mkdir -p manager/app/src/main/jniLibs/arm64-v8a manager/app/src/main/jniLibs/x86_64
+          for abi in arm64-v8a x86_64; do
+            src="native-libs/libksud-$abi/libksud.so"
+            if [ ! -f "$src" ]; then
+              echo "::error::libksud.so for $abi not found. Artifacts present:"
+              ls -R native-libs >&2 || true
+              exit 1
+            fi
+            cp "$src" "manager/app/src/main/jniLibs/$abi/libksud.so"
+          done
+
+      - name: Verify native libraries present
+        run: |
+          set -euo pipefail
+          for abi in arm64-v8a x86_64; do
+            f="manager/app/src/main/jniLibs/$abi/libksud.so"
+            test -f "$f" || { echo "::error::$f missing"; exit 1; }
+            # Confirm it is a real ELF shared object, not an HTML error page
+            # or a LFS pointer. A silently-wrong .so would only fail at runtime
+            # on-device, which is far more expensive to debug than here.
+            file "$f" | grep -q "ELF" || { echo "::error::$f is not an ELF binary"; exit 1; }
+            echo "$abi: $(stat -c%s "$f") bytes"
+          done
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build manager
+        working-directory: manager
+        env:
+          # Build tools expect keystore properties in manager/gradle.properties.
+          KSU_PR_BUILD: ${{ github.event_name == 'pull_request' }}
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            ./gradlew clean assembleRelease -PIS_PR_BUILD=true
+          else
+            ./gradlew clean assembleRelease
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manager-apk
+          path: manager/app/build/outputs/apk/release/*.apk
+          if-no-files-found: error
+          retention-days: 14

@@ -24,7 +24,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
-import com.xinsu.moe.ui.theme.LocalThemeDecorationSpec
 import com.xinsu.moe.ui.theme.decoration.ActivePulsePolicy
 import com.xinsu.moe.ui.theme.decoration.AmbientMotionPolicy
 import com.xinsu.moe.ui.theme.decoration.BadgeAnchor
@@ -43,7 +42,10 @@ fun DecoratedCardContent(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val context = LocalContext.current
-    val spec = LocalThemeDecorationSpec.current
+    // 形变中消费混合后的配方与光扫进度；稳态时 frame.spec 就是 LocalThemeDecorationSpec 本身，
+    // 所以下面所有绘制逻辑无需区分两种状态。
+    val morph = LocalThemeMorphFrame.current
+    val spec = morph.spec
     val pulseHost = remember { EnergyPulseHostState() }
     val fontScale = LocalDensity.current.fontScale
     val layoutDirection = when (LocalLayoutDirection.current) {
@@ -144,6 +146,15 @@ fun DecoratedCardContent(
                                     policy = policy,
                                     geometry = geometry,
                                     particleSeeds = particleSeeds,
+                                )
+                            }
+                            // 主题形变光扫。画在 clip 区内（与装饰同一层）而不是最外层，
+                            // 让文字始终保持清晰 —— 光扫只掠过边框与插画装饰区域。
+                            if (morph.sweep > 0f) {
+                                drawThemeMorphSweep(
+                                    accent = colors.forAccent(spec.frame.accent),
+                                    sweep = morph.sweep,
+                                    edgeInset = geometry.edgeInset,
                                 )
                             }
                         }

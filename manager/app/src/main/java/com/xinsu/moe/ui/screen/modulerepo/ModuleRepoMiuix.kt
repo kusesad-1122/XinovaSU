@@ -49,6 +49,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -76,6 +77,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.xinsu.moe.R
 import com.xinsu.moe.ui.component.ListPopupDefaults
+import com.xinsu.moe.ui.component.ScrollToTopOnChange
 import com.xinsu.moe.ui.component.SearchStatus
 import com.xinsu.moe.ui.component.dialog.ConfirmDialogHandle
 import com.xinsu.moe.ui.component.dialog.rememberConfirmDialog
@@ -388,9 +390,17 @@ fun ModuleRepoScreenMiuix(
             if (!isLoading && contentReady) {
                 val pullToRefreshState = rememberPullToRefreshState()
                 val lazyListState = rememberLazyListState()
-                LaunchedEffect(state.sortOrder) {
-                    lazyListState.scrollToItem(0)
-                }
+                // 排序变化后回顶。改用 ScrollToTopOnChange：它在列表按新顺序重排完成前持续钉住
+                // 顶部，避免旧写法 scrollToItem(0) 之后新顺序数据到达又把列表顶回原位。
+                val latestModules = rememberUpdatedState(state.modules)
+                val latestRefreshing = rememberUpdatedState(state.isRefreshing)
+                ScrollToTopOnChange(
+                    listState = lazyListState,
+                    state.sortOrder,
+                    state.searchStatus.searchText,
+                    isBusy = { latestRefreshing.value },
+                    observedList = { latestModules.value },
+                )
                 val refreshTexts = listOf(
                     stringResource(R.string.refresh_pulling),
                     stringResource(R.string.refresh_release),

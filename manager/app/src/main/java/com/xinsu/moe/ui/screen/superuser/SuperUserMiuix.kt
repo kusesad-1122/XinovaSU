@@ -39,8 +39,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -64,6 +66,7 @@ import com.xinsu.moe.R
 import com.xinsu.moe.data.model.AppInfo
 import com.xinsu.moe.ui.component.AppIconImage
 import com.xinsu.moe.ui.component.ListPopupDefaults
+import com.xinsu.moe.ui.component.ScrollToTopOnChange
 import com.xinsu.moe.ui.component.SearchStatus
 import com.xinsu.moe.ui.component.miuix.SearchBarFake
 import com.xinsu.moe.ui.component.miuix.SearchBox
@@ -404,14 +407,23 @@ fun SuperUserPagerMiuix(
         val layoutDirection = LocalLayoutDirection.current
         searchStatus.SearchBox {
             val lazyListState = rememberLazyListState()
-            val prevRefreshing = remember { booleanArrayOf(false) }
-            if (prevRefreshing[0] && !uiState.isRefreshing) {
-                lazyListState.requestScrollToItem(0)
-            }
-            prevRefreshing[0] = uiState.isRefreshing
-            LaunchedEffect(uiState.sortOption) {
-                lazyListState.scrollToItem(0)
-            }
+            // 排序 / 过滤 / 下拉刷新后回顶。统一用 ScrollToTopOnChange：它会在列表重排稳定前
+            // 每帧把列表钉在顶部，避免「先滚到 0、随后新数据到达又跳回原位」的闪烁（这正是
+            // 之前手写 requestScrollToItem + LaunchedEffect 的竞态）。refreshTick 只在下拉刷新
+            // 完成时自增，作为不改变排序的刷新令牌。
+            val refreshTick = remember { mutableIntStateOf(0) }
+            val latestGroupedApps = rememberUpdatedState(uiState.groupedApps)
+            val latestRefreshing = rememberUpdatedState(uiState.isRefreshing)
+            ScrollToTopOnChange(
+                listState = lazyListState,
+                uiState.sortOption,
+                uiState.showSystemApps,
+                uiState.showOnlyPrimaryUserApps,
+                uiState.searchStatus.searchText,
+                refreshTick.intValue,
+                isBusy = { latestRefreshing.value },
+                observedList = { latestGroupedApps.value },
+            )
             val pullToRefreshState = rememberPullToRefreshState()
             val refreshTexts = listOf(
                 stringResource(R.string.refresh_pulling),

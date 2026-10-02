@@ -6,6 +6,7 @@
 .cargo/config.toml
 __pycache__
 /dist
+/.workbuddy/
 /repack-config.json
 repack-config.json
 xinova_release.jks
