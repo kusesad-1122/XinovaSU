@@ -2,11 +2,17 @@ package com.xinsu.moe.ui.component.decoration
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
@@ -19,13 +25,13 @@ import com.xinsu.moe.ui.theme.AppSettings
 import com.xinsu.moe.ui.theme.ColorMode
 import com.xinsu.moe.ui.theme.KawaiiPalette
 import com.xinsu.moe.ui.theme.LocalThemeDecorationSpec
-import com.xinsu.moe.ui.theme.LocalThemeMorphFrame
 import com.xinsu.moe.ui.theme.MaterialXinovaSUTheme
 import com.xinsu.moe.ui.theme.decoration.DecoratedCardRole
 import com.xinsu.moe.ui.theme.decoration.ThemeDecorationCatalog
 import com.xinsu.moe.ui.theme.decoration.ThemeMorphFrame
 import com.xinsu.moe.ui.theme.decoration.ThemeMorphTimeline
 import com.xinsu.moe.ui.theme.neonAccent
+import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 
@@ -146,18 +152,18 @@ class ThemeMorphSnapshotTest {
                         .background(MaterialTheme.colorScheme.surface)
                         .padding(16.dp)
                 ) {
-                    androidx.compose.foundation.layout.Column {
+                    Column {
                         Text(
                             "光扫强度曲线（ThemeMorphTimeline.sweepAlpha）",
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.onSurface,
                         )
-                        androidx.compose.foundation.layout.Spacer(
+                        Spacer(
                             Modifier.height(12.dp)
                         )
-                        androidx.compose.foundation.layout.Row(
+                        Row(
                             modifier = Modifier.fillMaxSize(),
-                            verticalAlignment = androidx.compose.ui.Alignment.Bottom,
+                            verticalAlignment = Alignment.Bottom,
                         ) {
                             repeat(steps) { i ->
                                 val t = i / (steps - 1f)
@@ -170,12 +176,12 @@ class ThemeMorphSnapshotTest {
                                         .height((220 * alpha).dp.coerceAtLeast(2.dp))
                                         .background(MaterialTheme.colorScheme.primary)
                                 )
-                                androidx.compose.foundation.layout.Spacer(
+                                Spacer(
                                     Modifier.width(2.dp)
                                 )
                             }
                         }
-                        androidx.compose.foundation.layout.Spacer(
+                        Spacer(
                             Modifier.height(8.dp)
                         )
                         Text(
@@ -199,23 +205,23 @@ class ThemeMorphSnapshotTest {
         val beforeSwap = ThemeMorphTimeline.frame(from, to, rawProgress = 0.20f)
         val afterSwap = ThemeMorphTimeline.frame(from, to, rawProgress = 0.50f)
 
-        org.junit.Assert.assertEquals(
+        assertEquals(
             "t=0.20 时 eased 应小于 StyleSwapShare，造型仍为旧配方",
             from.frame.style,
             beforeSwap.spec.frame.style,
         )
-        org.junit.Assert.assertEquals(
+        assertEquals(
             "t=0.50 时 eased 应超过 StyleSwapShare，造型已切为新配方",
             to.frame.style,
             afterSwap.spec.frame.style,
         )
-        org.junit.Assert.assertEquals(
+        assertEquals(
             "t=0 与 t=1 的光扫都应不可见",
             0f,
             ThemeMorphTimeline.sweepAlpha(ThemeMorphTimeline.sweepAt(0f)),
             0.0001f,
         )
-        org.junit.Assert.assertEquals(
+        assertEquals(
             "t=1 时位置应已达 SweepEnd，亮度归零",
             0f,
             ThemeMorphTimeline.sweepAlpha(ThemeMorphTimeline.sweepAt(1f)),

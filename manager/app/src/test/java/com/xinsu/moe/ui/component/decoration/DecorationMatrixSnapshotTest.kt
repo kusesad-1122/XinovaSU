@@ -26,6 +26,7 @@ import com.materialkolor.dynamiccolor.ColorSpec
 import com.xinsu.moe.ui.component.material.TonalCard
 import com.xinsu.moe.ui.theme.AppSettings
 import com.xinsu.moe.ui.theme.ColorMode
+import com.xinsu.moe.ui.theme.KawaiiPalette
 import com.xinsu.moe.ui.theme.LocalGlassCard
 import com.xinsu.moe.ui.theme.LocalThemeDecorationSpec
 import com.xinsu.moe.ui.theme.MaterialXinovaSUTheme
@@ -77,7 +78,7 @@ class DecorationMatrixSnapshotTest {
     )
 
     private fun RenderableTheme.presetAccentFallback() =
-        com.xinsu.moe.ui.theme.KawaiiPalette.Sakura.neonAccent(isDark = true)
+        KawaiiPalette.Sakura.neonAccent(isDark = true)
 
     private fun card(theme: RenderableTheme, role: DecoratedCardRole, dark: Boolean) {
         val spec = ThemeDecorationCatalog.resolve(theme.decorationId, 0, ColorMode.DARK)
