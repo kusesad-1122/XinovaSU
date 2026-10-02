@@ -80,6 +80,30 @@ jobs:
         working-directory: manager
         run: ./gradlew :app:recordPaparazziDebug --no-daemon --stacktrace
 
+      # ── 以下是无设备可做的全部静态/动态验证 ──────────────────────────
+      # 单元测试：装饰几何、密度策略、时间轴、形变归约、主题目录一致性
+      - name: Unit tests
+        working-directory: manager
+        run: ./gradlew :app:testDebugUnitTest --no-daemon --stacktrace
+
+      - name: Project-specific checks
+        working-directory: manager
+        run: |
+          set -euo pipefail
+          ./gradlew :app:checkThemeSurfaceGuards :app:checkThemeCatalog --no-daemon --stacktrace
+
+      # Android Lint：唯一能自动抓出「编译通过但运行会崩」的手段。
+      # 已在 app/build.gradle.kts 把崩溃类规则（MissingPermission /
+      # UnspecifiedImmutableFlag / WrongThread / StaticFieldLeak 等）设为 error。
+      - name: Android Lint
+        working-directory: manager
+        run: |
+          set -euo pipefail
+          ./gradlew :app:lintDebug --no-daemon --stacktrace || {
+            echo "::error::Android Lint 发现问题，详见上方输出"
+            exit 1
+          }
+
       - name: List produced PNGs
         run: |
           set -euo pipefail
