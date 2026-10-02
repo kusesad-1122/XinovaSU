@@ -152,16 +152,12 @@ android {
             "MissingPermission",        // 缺权限标注
             "UnspecifiedRegisterReceiverFlag",
             "UnspecifiedImmutableFlag", // PendingIntent 缺 mutability flag（Android 12+ 崩）
-            "UnsafeOptInUsageError",    // 用了未标注的实验性 API
             "WrongThread",              // 跨线程访问 UI
             "Recycle",                  // 漏回收
             "StaticFieldLeak",          // 静态字段持有 Context
             "ObsoleteSdkInt",           // 废弃的 SDK 判断
             "InlinedApi",               // 用了不该 inline 的 API
         )
-        // 这两条在 Compose 项目里噪声极大（本项目大量自定义 Composable），
-        // 关掉以免淹没真正的错误。
-        disable += listOf("ComposableNaming", "ModifierMissing")
         // 资源多语言：项目有 20+ values-xx，若强制 Completeness 会因
         // 翻译不全而红 —— 那是内容工作，不是代码缺陷。
         disable += "MissingTranslation"
