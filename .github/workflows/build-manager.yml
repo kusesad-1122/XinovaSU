@@ -126,6 +126,69 @@ jobs:
           distribution: temurin
           java-version: '21'
 
+      # ── release 签名 ────────────────────────────────────────────────────
+      # app/build.gradle.kts 的 apksign {} 块从这四个属性读密钥：
+      #   KEYSTORE_FILE / KEYSTORE_PASSWORD / KEY_ALIAS / KEY_PASSWORD
+      # 之前这里什么都没配，插件静默回退到 runner 临时生成的 debug keystore ——
+      # 后果是产出的 APK 签名与已发布版本不一致，Android 拒绝覆盖安装
+      # （INSTALL_FAILED_UPDATE_INCOMPATIBLE），且**构建全程绿灯**，不报错。
+      #
+      # 私钥绝不能进仓库，所以从 GitHub Secrets 读；缺失时明确失败而不是
+      # 悄悄降级 —— 一个签错名的包比构建失败更难排查。
+      - name: Prepare release keystore
+        id: signing
+        shell: bash
+        run: |
+          set -uo pipefail
+          MISSING=()
+          [ -n "${KEYSTORE_FILE:-}" ]       || MISSING+=(KEYSTORE_FILE)
+          [ -n "${KEYSTORE_PASSWORD:-}" ]   || MISSING+=(KEYSTORE_PASSWORD)
+          [ -n "${KEY_ALIAS:-}" ]           || MISSING+=(KEY_ALIAS)
+          [ -n "${KEY_PASSWORD:-}" ]        || MISSING+=(KEY_PASSWORD)
+
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "::warning::未配置签名 Secrets（${MISSING[*]}）"
+            echo "::warning::release APK 将使用 runner 的 debug keystore 签名"
+            echo "::warning::该包**无法覆盖安装**已发布版本，仅供临时测试"
+            # 显式落一个空文件，让 apksign 插件知道「没有正式签名」而不是误读环境
+            echo "KEYSTORE_FILE=" >> "$GITHUB_ENV"
+            echo "KEYSTORE_PASSWORD=" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          mkdir -p "$RUNNER_TEMP/ks"
+          printf '%s' "$KEYSTORE_FILE" | base64 --decode > "$RUNNER_TEMP/ks/release.jks"
+          echo "  keystore 解码: $(stat -c%s "$RUNNER_TEMP/ks/release.jks") bytes"
+
+          # 校验密钥可用且口令正确 —— 错口令在这里就暴露，而不是拖到 gradle 报晦涩错
+          keytool -list -keystore "$RUNNER_TEMP/ks/release.jks" \
+                  -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" > /dev/null \
+            || { echo "::error::keystore 无法用 KEY_ALIAS/KEYSTORE_PASSWORD 打开"; exit 1; }
+          echo "  alias '$KEY_ALIAS' 校验通过"
+
+          {
+            echo "KEYSTORE_FILE=$RUNNER_TEMP/ks/release.jks"
+            echo "KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+            echo "KEY_ALIAS=$KEY_ALIAS"
+            echo "KEY_PASSWORD=$KEY_PASSWORD"
+          } >> "$GITHUB_ENV"
+          echo "  已注入签名环境变量"
+
+      - name: Report signing identity
+        shell: bash
+        run: |
+          set -uo pipefail
+          if [ -f "${KEYSTORE_FILE:-/nonexistent}" ]; then
+            echo "=== 签名证书指纹 ==="
+            keytool -list -v -keystore "$KEYSTORE_FILE" \
+                    -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" 2>/dev/null \
+              | grep -E 'Owner:|SHA256:' | head -2
+          else
+            echo "=== 本次构建使用 debug keystore（非正式签名）==="
+          fi
+
       - name: Locate Android SDK (preinstalled on runner)
         run: |
           SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
