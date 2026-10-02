@@ -82,7 +82,11 @@ endif
 
 ccflags-y += -I$(XNSU_KERNEL_DIR) -I$(XNSU_KERNEL_DIR)/include
 
-obj-$(CONFIG_XNSU) += xinovasu.o
+# kbuild conditional must be CONFIG_KSU. It used to say CONFIG_XNSU, which is
+# never defined anywhere — `CONFIG_KSU=m` therefore built *nothing at all*,
+# MODPOST ran, no .ko appeared, and the failure only surfaced as
+# "xinovasu.ko not produced" after a ~2s run.
+obj-$(CONFIG_KSU) += xinovasu.o
 
 MDIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 

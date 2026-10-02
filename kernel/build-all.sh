@@ -11,10 +11,15 @@ for kmi in $KMIS; do
     echo "========== Building $kmi =========="
     export DDK_TARGET=$kmi
     if ddk build -e CONFIG_KSU=m; then
-        if [ -f kernelsu.ko ]; then
-            cp kernelsu.ko "kernelsu-${kmi}.ko"
-            llvm-objcopy --strip-unneeded --discard-locals "kernelsu-${kmi}.ko"
-            echo "✓ Built kernelsu-${kmi}.ko"
+        # The module is named after kernel/Kbuild's objs prefix (xinovasu),
+        # not after upstream's kernelsu.ko — the old check never matched and
+        # silently dropped every artifact.
+        if [ -f xinovasu.ko ]; then
+            cp xinovasu.ko "xinovasu-${kmi}.ko"
+            llvm-objcopy --strip-unneeded --discard-locals "xinovasu-${kmi}.ko"
+            echo "✓ Built xinovasu-${kmi}.ko"
+        else
+            echo "✗ xinovasu.ko not produced for $kmi"
         fi
     else
         echo "✗ Build failed for $kmi"
