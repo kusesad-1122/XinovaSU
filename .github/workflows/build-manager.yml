@@ -1,18 +1,50 @@
 name: Build Manager APK
-true:
-  workflow_dispatch: null
+
+# 本机没有 JDK / Android SDK，管理器 APK 只能在这里编。
+#
+# ⚠️ 为什么这里要编 LKM 和 xnsusd（别再简化成只跑 gradle！）：
+#   管理器的「安装/修补 init_boot」是把内核模块塞进 ramdisk，靠的是内置的
+#   ksud(xnsusd) 里的 RustEmbed 资产：
+#     userspace/ksud/bin/aarch64/<kmi>_xinovasu.ko   +   xnsuinit.bin
+#   （见 userspace/ksud/src/assets.rs `#[folder = "bin/aarch64"]`，
+#     list_supported_kmi() 靠 `_xinovasu.ko` 后缀列举 KMI，
+#     boot_patch.rs 找不到文件就直接失败）
+#   而且 xnsusd 本身也不会被 Gradle 产出 —— Kotlin 侧 getKsuDaemonPath() 找的是
+#   nativeLibraryDir/libxnsusd.so，必须由本流水线编译后放进 jniLibs/。
+#   只跑 gradle 的旧版本 → APK 里既没有 libxnsusd.so 也没有 .ko，
+#   结果就是：KMI 列表全空、boot-patch 报错、根本修不了 init_boot。
+#
+# 踩过的坑：
+#  1) 版本号来自 `git rev-list --count HEAD` 与 `git describe --tags`，
+#     checkout 必须取全量历史 + tags，否则 versionCode / versionName 会算错。
+#  2) 不用 android-actions/setup-android：runner 自带 Android SDK，而那个
+#     action 还停在 Node 20，runner 已经是 Node 24 → 一上来就 exit 1。
+#  3) 所有 actions 用 v5：v4 一代同样是 Node 20，会被强制降级运行。
+#  4) LKM 必须在 DDK 容器内编（容器提供 KDIR 与内核头），不能和 Gradle 同 job。
+#  5) ⚠️⚠️ xnsuinit.bin（ramdisk 的 /init）**必须完全静态**：
+#     内核把它当 PID1 exec 时 /system 还没挂载，动态链接的二进制会带
+#     PT_INTERP=/system/bin/linker64，解释器不存在 → execve 失败 →
+#     "Attempted to kill init!" → **刷入后直接无限重启**（30019 就是这么炸的）。
+#     所以下面用 aarch64-unknown-linux-musl 目标编（musl 天生静态），并在
+#     嵌入前用 llvm-readelf 断言「没有 PT_INTERP」，不通过就整条流水线 fail。
+#     xnsusd 反而必须保持动态（NDK 27.3 的 sysroot 只有 liblog.so，没法静态链）。
+
+on:
+  workflow_dispatch:
   push:
     branches:
-    - feat/cpu-spoof-gki
-    - main
+      - feat/cpu-spoof-gki
+      - main
     paths:
-    - manager/**
-    - userspace/**
-    - kernel/**
-    - Cargo.toml
-    - Cargo.lock
-    - .github/workflows/build-manager.yml
+      - 'manager/**'
+      - 'userspace/**'
+      - 'kernel/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/build-manager.yml'
+
 jobs:
+  # ── 1. 每个 KMI 编一个 xinovasu.ko（DDK 容器） ──────────────────────────
   lkm:
     name: LKM ${{ matrix.kmi }}
     runs-on: ubuntu-latest
@@ -20,214 +52,386 @@ jobs:
       fail-fast: false
       matrix:
         kmi:
-        - android12-5.10
-        - android13-5.10
-        - android13-5.15
-        - android14-5.15
-        - android14-6.1
-        - android15-6.6
-        - android16-6.12
+          - android12-5.10
+          - android13-5.10
+          - android13-5.15
+          - android14-5.15
+          - android14-6.1
+          - android15-6.6
+          - android16-6.12
     container:
       image: ghcr.io/ylarod/ddk-min:${{ matrix.kmi }}-20260828
       options: --privileged
     steps:
-    - uses: actions/checkout@v5
-    - name: Build xinovasu.ko
-      run: "set -euo pipefail\ngit config --global --add safe.directory \"$GITHUB_WORKSPACE\"\ncd kernel\necho \"=== Building xinovasu.ko for KMI ${{ matrix.kmi }} ===\"\nif [ -z \"${KDIR:-}\" ] || [ !\
-        \ -f \"${KDIR}/Makefile\" ]; then\n  echo \"::error::KDIR not available inside DDK container: ${KDIR:-<empty>}\"\n  exit 1\nfi\necho \"KDIR=$KDIR\"\n# 直接调 out-of-tree kbuild，不走 kernel/Makefile 的\
-        \ `all`\n# （那个目标额外依赖 tools/check_symbol + $KDIR/vmlinux，ddk-min 里没有）。\nmake -C \"$KDIR\" M=\"$PWD\" CC=clang CONFIG_KSU=m modules -j\"$(nproc --all)\" 2>&1 | tee /tmp/kbuild.log\ntest -f xinovasu.ko\
-        \ || { echo \"::error::xinovasu.ko not produced\"; ls -la; exit 1; }\nOUT=/github/workspace/out/aarch64\nmkdir -p \"$OUT\"\ncp xinovasu.ko \"$OUT/${{ matrix.kmi }}_xinovasu.ko\"\nllvm-strip -d \"\
-        $OUT/${{ matrix.kmi }}_xinovasu.ko\" || true\nls -la \"$OUT\"\n\n\n# 捕获 Kbuild 实际算出的 XNSU_VERSION —— 唯一可靠来源。\n# 它是编译期常量、以二进制立即数存在于 .text，事后从 .ko 里\n# grep 搜不到（实测 32377 / 32637 / 30031 全都搜不到）。\n\
-        # manager job 依赖此值做断言，所以由本 job 产出并上传。\nKO_VER=$(grep -oE \"XinovaSU version: [0-9]+\" /tmp/kbuild.log | grep -oE \"[0-9]+\" | head -1 || true)\nif [ -z \"$KO_VER\" ]; then\n  echo \"::error::无法从\
-        \ make 输出解析出 XNSU_VERSION\"\n  grep -iE \"xnsu|version\" /tmp/kbuild.log | head -10 || true\n  exit 1\nfi\necho \"Kbuild 算出的 XNSU_VERSION = $KO_VER\"\nif [ \"$KO_VER\" -lt 32377 ]; then\n  echo\
-        \ \"::error::LKM 版本 $KO_VER 低于 32377 门槛\"\n  echo \"::error::刷入后模块与 su 正常，但管理器显示未安装\"\n  exit 1\nfi\nmkdir -p /github/workspace/out/version\necho \"XinovaSU version: $KO_VER\" > /github/workspace/out/version/version.txt\n"
-    - name: Upload LKM version
-      uses: actions/upload-artifact@v5
-      with:
-        name: lkm-version
-        path: /github/workspace/out/version/version.txt
-        if-no-files-found: error
-    - name: Upload LKM
-      uses: actions/upload-artifact@v5
-      with:
-        name: aarch64-${{ matrix.kmi }}-lkm
-        path: /github/workspace/out/aarch64/${{ matrix.kmi }}_xinovasu.ko
-        if-no-files-found: error
+      - uses: actions/checkout@v5
+
+      - name: Build xinovasu.ko
+        run: |
+          set -euo pipefail
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          cd kernel
+          echo "=== Building xinovasu.ko for KMI ${{ matrix.kmi }} ==="
+          if [ -z "${KDIR:-}" ] || [ ! -f "${KDIR}/Makefile" ]; then
+            echo "::error::KDIR not available inside DDK container: ${KDIR:-<empty>}"
+            exit 1
+          fi
+          echo "KDIR=$KDIR"
+          # 直接调 out-of-tree kbuild，不走 kernel/Makefile 的 `all`
+          # （那个目标额外依赖 tools/check_symbol + $KDIR/vmlinux，ddk-min 里没有）。
+          make -C "$KDIR" M="$PWD" CC=clang CONFIG_KSU=m modules -j"$(nproc --all)" 2>&1 | tee /tmp/kbuild.log
+          test -f xinovasu.ko || { echo "::error::xinovasu.ko not produced"; ls -la; exit 1; }
+
+          # 捕获 Kbuild 实际算出的 XNSU_VERSION —— 唯一可靠来源。
+          # 它是编译期常量、以二进制立即数存在于 .text，事后从 .ko 里
+          # grep 搜不到（实测 32377 / 32637 / 30031 全都搜不到）。
+          # manager job 依赖此值做门槛断言，所以由本 job 产出并上传。
+          KO_VER=$(grep -oE "XinovaSU version: [0-9]+" /tmp/kbuild.log | grep -oE "[0-9]+" | head -1 || true)
+          if [ -z "$KO_VER" ]; then
+            echo "::error::无法从 make 输出解析出 XNSU_VERSION"
+            grep -iE "xnsu|version" /tmp/kbuild.log | head -10 || true
+            exit 1
+          fi
+          echo "Kbuild 算出的 XNSU_VERSION = $KO_VER"
+          if [ "$KO_VER" -lt 32377 ]; then
+            echo "::error::LKM 版本 $KO_VER 低于 32377 门槛"
+            echo "::error::刷入后模块与 su 正常，但管理器显示未安装"
+            exit 1
+          fi
+          mkdir -p /github/workspace/out/version
+          echo "XinovaSU version: $KO_VER" > /github/workspace/out/version/version.txt
+          cat /github/workspace/out/version/version.txt
+
+          OUT=/github/workspace/out/aarch64
+          mkdir -p "$OUT"
+          cp xinovasu.ko "$OUT/${{ matrix.kmi }}_xinovasu.ko"
+          llvm-strip -d "$OUT/${{ matrix.kmi }}_xinovasu.ko" || true
+          ls -la "$OUT"
+
+      - name: Upload LKM
+        uses: actions/upload-artifact@v5
+        with:
+          name: aarch64-${{ matrix.kmi }}-lkm
+          path: /github/workspace/out/aarch64/${{ matrix.kmi }}_xinovasu.ko
+          if-no-files-found: error
+
+      # Kbuild 算出的 XNSU_VERSION 供 manager job 做门槛断言。
+      # 单独上传而非塞进 LKM artifact —— 后者按 pattern 下载会漏掉。
+      - name: Upload LKM version
+        uses: actions/upload-artifact@v5
+        with:
+          name: lkm-version
+          path: /github/workspace/out/version/version.txt
+          if-no-files-found: error
+
+  # ── 2. 把 LKM + xnsuinit 嵌进 xnsusd，再编 APK ─────────────────────────
   manager:
     needs: lkm
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v5
-      with:
-        fetch-depth: 0
-    - name: Download LKM artifacts
-      uses: actions/download-artifact@v5
-      with:
-        pattern: aarch64-*-lkm
-        path: lkm
-    - name: Download LKM version
-      uses: actions/download-artifact@v5
-      with:
-        name: lkm-version
-        path: version
-    - name: Assert versionCode consistency
-      run: "set -euo pipefail\nMIN=32377\ntest -f version/version.txt || { echo \"::error::缺少 version/version.txt\"; exit 1; }\nKO_VER=$(grep -oE \"XinovaSU version: [0-9]+\" version/version.txt | grep\
-        \ -oE \"[0-9]+\" | head -1)\nVC=$(grep -oE \"VERSION_CODE_BASE = [0-9]+\" manager/build.gradle.kts | grep -oE \"[0-9]+\")\nCOMMITS=$(git rev-list --count HEAD)\nAPK_VC=$((VC + COMMITS))\necho \"\
-        \  LKM version     = $KO_VER   (Kbuild 实际算出)\"\necho \"  APK versionCode = $VC + $COMMITS = $APK_VC\"\n[ \"$APK_VC\" -ge \"$MIN\" ] || { echo \"::error::APK versionCode $APK_VC < $MIN\"; exit 1;\
-        \ }\n[ \"$KO_VER\" -ge \"$MIN\" ] || { echo \"::error::LKM version $KO_VER < $MIN\"; exit 1; }\n[ \"$APK_VC\" -eq \"$KO_VER\" ] || {\n  echo \"::error::APK($APK_VC) 与 LKM($KO_VER) 不一致，界面会显示驱动版本不匹配\"\
-        \n  exit 1\n}\necho \"  OK: 两者一致且均 >= $MIN（余量 $((APK_VC - MIN))）\"\n"
-    - name: Stage LKM into ksud embedded assets
-      run: 'set -euo pipefail
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-        find lkm -type f | sort
+      - name: Download LKM artifacts
+        uses: actions/download-artifact@v5
+        with:
+          pattern: 'aarch64-*-lkm'
+          path: lkm
 
-        mkdir -p userspace/ksud/bin/aarch64
+      - name: Stage LKM into ksud embedded assets
+        run: |
+          set -euo pipefail
+          find lkm -type f | sort
+          mkdir -p userspace/ksud/bin/aarch64
+          find lkm -name '*_xinovasu.ko' -type f -exec cp -v {} userspace/ksud/bin/aarch64/ \;
+          echo "--- staged ---"
+          ls -la userspace/ksud/bin/aarch64/
+          N=$(find userspace/ksud/bin/aarch64 -name '*_xinovasu.ko' -type f | wc -l)
+          echo "STAGED_LKM=$N"
+          [ "$N" -ge 1 ] || { echo "::error::no LKM staged - APK would be unable to patch init_boot"; exit 1; }
+          # 必须是 7 个（与 lkm job 的 matrix 一致），缺一个就 fail。
+          # RustEmbed 是**编译期**把 bin/aarch64/ 快照进 libxnsusd.so，
+          # 所以「Stage copy 成功」不等于「真的嵌进去了」——
+          # -ge 1 会让缺 6 个模块的包照样发出去，
+          # 而那些内核版本的设备刷入后必然无法加载 LKM。
+          if [ "$N" -ne 7 ]; then
+            echo "::error::期望 7 个 KMI 的 .ko，实际 $N"
+            echo "::error::应为：android12-5.10 13-5.10 13-5.15 14-5.15 14-6.1 15-6.6 16-6.12"
+            exit 1
+          fi
 
-        find lkm -name ''*_xinovasu.ko'' -type f -exec cp -v {} userspace/ksud/bin/aarch64/ \;
+      - name: Download LKM version
+        uses: actions/download-artifact@v5
+        with:
+          name: lkm-version
+          path: version
 
-        echo "--- staged ---"
+      # 版本号断言：APK 与 LKM 必须一致，且都 >= MINIMAL_SUPPORTED_KERNEL。
+      # 这类故障编译全绿、模块与 su 也全正常，只有管理器显示"未安装"，
+      # 断言语义化才拦得住。历史上就是这样发出了 30028 < 32377 的版本。
+      - name: Assert versionCode consistency
+        run: |
+          set -euo pipefail
+          MIN=32377
+          test -f version/version.txt || { echo "::error::缺少 version/version.txt"; exit 1; }
+          KO_VER=$(grep -oE "XinovaSU version: [0-9]+" version/version.txt | grep -oE "[0-9]+" | head -1)
+          VC=$(grep -oE "VERSION_CODE_BASE = [0-9]+" manager/build.gradle.kts | grep -oE "[0-9]+")
+          COMMITS=$(git rev-list --count HEAD)
+          APK_VC=$((VC + COMMITS))
+          echo "  LKM version     = $KO_VER   (Kbuild 实际算出)"
+          echo "  APK versionCode = $VC + $COMMITS = $APK_VC"
+          [ "$APK_VC" -ge "$MIN" ] || { echo "::error::APK versionCode $APK_VC 低于 $MIN"; exit 1; }
+          [ "$KO_VER" -ge "$MIN" ] || { echo "::error::LKM version $KO_VER 低于 $MIN"; exit 1; }
+          [ "$APK_VC" -eq "$KO_VER" ] || {
+            echo "::error::APK($APK_VC) 与 LKM($KO_VER) 不一致，界面会显示驱动版本不匹配"
+            exit 1
+          }
+          echo "  OK: 两者一致且均不低于 $MIN（余量 $((APK_VC - MIN))）"
 
-        ls -la userspace/ksud/bin/aarch64/
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
 
-        N=$(find userspace/ksud/bin/aarch64 -name ''*_xinovasu.ko'' -type f | wc -l)
+      # ── release 签名 ────────────────────────────────────────────────────
+      # app/build.gradle.kts 的 apksign {} 块从这四个属性读密钥：
+      #   KEYSTORE_FILE / KEYSTORE_PASSWORD / KEY_ALIAS / KEY_PASSWORD
+      # 之前这里什么都没配，插件静默回退到 runner 临时生成的 debug keystore ——
+      # 后果是产出的 APK 签名与已发布版本不一致，Android 拒绝覆盖安装
+      # （INSTALL_FAILED_UPDATE_INCOMPATIBLE），且**构建全程绿灯**，不报错。
+      #
+      # 私钥绝不能进仓库，所以从 GitHub Secrets 读；缺失时明确失败而不是
+      # 悄悄降级 —— 一个签错名的包比构建失败更难排查。
+      - name: Prepare release keystore
+        id: signing
+        shell: bash
+        run: |
+          set -uo pipefail
+          MISSING=()
+          [ -n "${KEYSTORE_FILE:-}" ]       || MISSING+=(KEYSTORE_FILE)
+          [ -n "${KEYSTORE_PASSWORD:-}" ]   || MISSING+=(KEYSTORE_PASSWORD)
+          [ -n "${KEY_ALIAS:-}" ]           || MISSING+=(KEY_ALIAS)
+          [ -n "${KEY_PASSWORD:-}" ]        || MISSING+=(KEY_PASSWORD)
 
-        echo "STAGED_LKM=$N"
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "::warning::未配置签名 Secrets（${MISSING[*]}）"
+            echo "::warning::release APK 将使用 runner 的 debug keystore 签名"
+            echo "::warning::该包**无法覆盖安装**已发布版本，仅供临时测试"
+            # 显式落一个空文件，让 apksign 插件知道「没有正式签名」而不是误读环境
+            echo "KEYSTORE_FILE=" >> "$GITHUB_ENV"
+            echo "KEYSTORE_PASSWORD=" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=" >> "$GITHUB_ENV"
+            exit 0
+          fi
 
-        [ "$N" -ge 1 ] || { echo "::error::no LKM staged - APK would be unable to patch init_boot"; exit 1; }
+          mkdir -p "$RUNNER_TEMP/ks"
+          printf '%s' "$KEYSTORE_FILE" | base64 --decode > "$RUNNER_TEMP/ks/release.jks"
+          echo "  keystore 解码: $(stat -c%s "$RUNNER_TEMP/ks/release.jks") bytes"
 
-        '
-    - name: Set up JDK 21
-      uses: actions/setup-java@v5
-      with:
-        distribution: temurin
-        java-version: '21'
-    - name: Prepare release keystore
-      id: signing
-      shell: bash
-      run: "set -uo pipefail\nMISSING=()\n[ -n \"${KEYSTORE_FILE:-}\" ]       || MISSING+=(KEYSTORE_FILE)\n[ -n \"${KEYSTORE_PASSWORD:-}\" ]   || MISSING+=(KEYSTORE_PASSWORD)\n[ -n \"${KEY_ALIAS:-}\" ]\
-        \           || MISSING+=(KEY_ALIAS)\n[ -n \"${KEY_PASSWORD:-}\" ]        || MISSING+=(KEY_PASSWORD)\n\nif [ ${#MISSING[@]} -gt 0 ]; then\n  echo \"::warning::未配置签名 Secrets（${MISSING[*]}）\"\n  echo\
-        \ \"::warning::release APK 将使用 runner 的 debug keystore 签名\"\n  echo \"::warning::该包**无法覆盖安装**已发布版本，仅供临时测试\"\n  # 显式落一个空文件，让 apksign 插件知道「没有正式签名」而不是误读环境\n  echo \"KEYSTORE_FILE=\" >> \"$GITHUB_ENV\"\
-        \n  echo \"KEYSTORE_PASSWORD=\" >> \"$GITHUB_ENV\"\n  echo \"KEY_ALIAS=\" >> \"$GITHUB_ENV\"\n  echo \"KEY_PASSWORD=\" >> \"$GITHUB_ENV\"\n  exit 0\nfi\n\nmkdir -p \"$RUNNER_TEMP/ks\"\nprintf '%s'\
-        \ \"$KEYSTORE_FILE\" | base64 --decode > \"$RUNNER_TEMP/ks/release.jks\"\necho \"  keystore 解码: $(stat -c%s \"$RUNNER_TEMP/ks/release.jks\") bytes\"\n\n# 校验密钥可用且口令正确 —— 错口令在这里就暴露，而不是拖到 gradle 报晦涩错\n\
-        keytool -list -keystore \"$RUNNER_TEMP/ks/release.jks\" \\\n        -storepass \"$KEYSTORE_PASSWORD\" -alias \"$KEY_ALIAS\" > /dev/null \\\n  || { echo \"::error::keystore 无法用 KEY_ALIAS/KEYSTORE_PASSWORD\
-        \ 打开\"; exit 1; }\necho \"  alias '$KEY_ALIAS' 校验通过\"\n\n{\n  echo \"KEYSTORE_FILE=$RUNNER_TEMP/ks/release.jks\"\n  echo \"KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD\"\n  echo \"KEY_ALIAS=$KEY_ALIAS\"\
-        \n  echo \"KEY_PASSWORD=$KEY_PASSWORD\"\n} >> \"$GITHUB_ENV\"\necho \"  已注入签名环境变量\"\n"
-    - name: Report signing identity
-      shell: bash
-      run: "set -uo pipefail\nif [ -f \"${KEYSTORE_FILE:-/nonexistent}\" ]; then\n  echo \"=== 签名证书指纹 ===\"\n  keytool -list -v -keystore \"$KEYSTORE_FILE\" \\\n          -storepass \"$KEYSTORE_PASSWORD\"\
-        \ -alias \"$KEY_ALIAS\" 2>/dev/null \\\n    | grep -E 'Owner:|SHA256:' | head -2\nelse\n  echo \"=== 本次构建使用 debug keystore（非正式签名）===\"\nfi\n"
-    - name: Locate Android SDK (preinstalled on runner)
-      run: 'SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          # 校验密钥可用且口令正确 —— 错口令在这里就暴露，而不是拖到 gradle 报晦涩错
+          keytool -list -keystore "$RUNNER_TEMP/ks/release.jks" \
+                  -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" > /dev/null \
+            || { echo "::error::keystore 无法用 KEY_ALIAS/KEYSTORE_PASSWORD 打开"; exit 1; }
+          echo "  alias '$KEY_ALIAS' 校验通过"
 
-        echo "SDK=$SDK"
+          {
+            echo "KEYSTORE_FILE=$RUNNER_TEMP/ks/release.jks"
+            echo "KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+            echo "KEY_ALIAS=$KEY_ALIAS"
+            echo "KEY_PASSWORD=$KEY_PASSWORD"
+          } >> "$GITHUB_ENV"
+          echo "  已注入签名环境变量"
 
-        ls "$SDK" || true
+      - name: Report signing identity
+        shell: bash
+        run: |
+          set -uo pipefail
+          if [ -f "${KEYSTORE_FILE:-/nonexistent}" ]; then
+            echo "=== 签名证书指纹 ==="
+            keytool -list -v -keystore "$KEYSTORE_FILE" \
+                    -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" 2>/dev/null \
+              | grep -E 'Owner:|SHA256:' | head -2
+          else
+            echo "=== 本次构建使用 debug keystore（非正式签名）==="
+          fi
 
-        SM="$SDK/cmdline-tools/latest/bin/sdkmanager"
+      - name: Locate Android SDK (preinstalled on runner)
+        run: |
+          SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          echo "SDK=$SDK"
+          ls "$SDK" || true
+          SM="$SDK/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -x "$SM" ]; then SM="$(command -v sdkmanager || true)"; fi
+          echo "SM=$SM"
+          [ -n "$SM" ] || { echo "NO_SDKMANAGER"; exit 1; }
+          echo "ANDROID_HOME=$SDK" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK" >> "$GITHUB_ENV"
+          echo "SM=$SM" >> "$GITHUB_ENV"
+          "$SM" --version || true
 
-        if [ ! -x "$SM" ]; then SM="$(command -v sdkmanager || true)"; fi
+      - name: Install SDK / NDK packages
+        run: |
+          yes | "$SM" --licenses > /dev/null 2>&1 || true
+          # compileSdk 37 / build-tools 37.0.0 / NDK 29.0.x 偏新，
+          # 稳定通道没有时退回 canary 通道再试；单个包失败不中断其余的。
+          for pkg in "platform-tools" "platforms;android-37" "build-tools;37.0.0" "ndk;29.0.14206865" "cmake;3.22.1"; do
+            echo "===== install $pkg ====="
+            "$SM" "$pkg" || "$SM" --channel=3 "$pkg" || echo "PKG_FAILED=$pkg"
+          done
+          echo "===== installed ====="
+          "$SM" --list_installed || true
 
-        echo "SM=$SM"
+      - name: Export Rust cross-build env (aarch64-linux-android)
+        run: |
+          set -euo pipefail
+          # 27.3 是 runner 预装的：xnsusd 的 bindgen 与动态链接都已在它上面验证通过
+          # （xnsuinit 不走 NDK：它用 aarch64-unknown-linux-musl 自带的静态 libc）
+          NDK="$(ls -d "$ANDROID_HOME"/ndk/* 2>/dev/null | sort -V | head -1)"
+          [ -n "$NDK" ] || { echo "::error::no NDK installed"; exit 1; }
+          TC="$NDK/toolchains/llvm/prebuilt/linux-x86_64"
+          [ -d "$TC" ] || { echo "::error::NDK toolchain missing at $TC"; exit 1; }
+          CC="$TC/bin/aarch64-linux-android26-clang"
+          [ -x "$CC" ] || { echo "::error::clang wrapper missing: $CC"; exit 1; }
+          BUILTINS="$("$CC" --print-resource-dir)/lib/linux/libclang_rt.builtins-aarch64-android.a"
+          [ -f "$BUILTINS" ] || { echo "::error::builtins missing: $BUILTINS"; exit 1; }
+          # crt-static 时 ld.lld 只认静态库，而默认搜索路径拿不到 liblog；
+          # 显式把 -L 指到 sysroot 里 API 对应的目录（liblog.a/liblog.so 都在那）。
+          LIBDIR=""
+          for d in "$TC/sysroot/usr/lib/aarch64-linux-android/26" \
+                   "$TC/sysroot/usr/lib/aarch64-linux-android" \
+                   "$TC/sysroot/usr/lib"; do
+            if [ -e "$d/liblog.a" ] || [ -e "$d/liblog.so" ]; then LIBDIR="$d"; break; fi
+          done
+          if [ -z "$LIBDIR" ]; then
+            echo "::error::liblog not found under $TC/sysroot"
+            find "$TC/sysroot/usr/lib" -name 'liblog*' 2>/dev/null | head || true
+            exit 1
+          fi
+          {
+            echo "ANDROID_NDK_HOME=$NDK"
+            echo "PATH=$TC/bin:$PATH"
+            echo "CC_aarch64_linux_android=$CC"
+            echo "CXX_aarch64_linux_android=$TC/bin/aarch64-linux-android26-clang++"
+            echo "AR_aarch64_linux_android=$TC/bin/llvm-ar"
+            echo "CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=$CC"
+            # 注意：-C link-arg 的 -L 会被 rustc 放到 -llog 之后 → 太晚，等于没加。
+            # 必须用 rustc 自己的 -L native= 才会落在库搜索阶段之前。
+            #
+            # 不开 crt-static：NDK 27.3 的 sysroot 只有 liblog.so（没有 liblog.a），
+            # 而 crt-static 会让 ld.lld 拒绝 .so → "unable to find library -llog"。
+            # xnsusd 是设备上以 root 跑的普通程序（libsu 直接执行），动态链接 bionic
+            # 完全没问题；需要真正静态的是 xnsuinit（ramdisk init），它在下面单独用
+            # aarch64-unknown-linux-musl 目标编（见 "Build xnsuinit" 那一步）。
+            echo "RUSTFLAGS=-C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument -C link-arg=$BUILTINS -L native=$LIBDIR"
+          } >> "$GITHUB_ENV"
+          echo "using NDK $NDK"
+          echo "using sysroot libdir $LIBDIR"
 
-        [ -n "$SM" ] || { echo "NO_SDKMANAGER"; exit 1; }
+      - name: Build xnsuinit -> xnsuinit.bin (embedded asset, MUST be static)
+        run: |
+          set -euo pipefail
+          # ⚠️ 必须静态（见文件顶部第 5 条）：aarch64-linux-android 默认动态链接，
+          #    编出来的 /init 在 ramdisk 里根本跑不起来 → 刷入即无限重启。
+          #    musl 目标自带静态 libc，不需要 NDK / 交叉工具链。
+          # ⚠️ 两个目标都要装：aarch64-linux-android 是 xnsusd 用的（这一步以前顺手装了，
+          #    改成 musl 后必须保留，否则下一步 xnsusd 报 "can't find crate for `core`"）。
+          rustup target add aarch64-linux-android aarch64-unknown-linux-musl
+          # ⚠️ musl 目标默认拿宿主的 `cc` 当链接器（x86_64！）→ 直接报
+          #    "ld: error: --fix-cortex-a53-843419 is only supported on AArch64 targets"。
+          #    必须显式指到 Rust 自带的 rust-lld（跨架构可用，不需要任何 musl 交叉工具链）。
+          SYSROOT="$(rustc --print sysroot)"
+          RUST_LLD="$(find "$SYSROOT" -name 'rust-lld' -type f 2>/dev/null | head -1)"
+          [ -n "$RUST_LLD" ] || RUST_LLD="$(command -v rust-lld || true)"
+          [ -n "$RUST_LLD" ] || { echo "::error::rust-lld not found under $SYSROOT"; exit 1; }
+          echo "using rust-lld: $RUST_LLD"
+          # 必须清掉给 xnsusd 用的 android RUSTFLAGS（里面有 android 的 builtins 与 -L native），
+          # 否则会把 Android 的链接参数带进 musl 链接。
+          env -u RUSTFLAGS -u RUSTFLAGS_STATIC \
+            CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER="$RUST_LLD" \
+            cargo build --package xnsuinit --target=aarch64-unknown-linux-musl --release
+          cp target/aarch64-unknown-linux-musl/release/xnsuinit userspace/ksud/bin/aarch64/xnsuinit.bin
+          ls -la userspace/ksud/bin/aarch64/
+          # boot_patch.rs 取资产用的就是这个名字，写错就拿不到
+          test -f userspace/ksud/bin/aarch64/xnsuinit.bin
 
-        echo "ANDROID_HOME=$SDK" >> "$GITHUB_ENV"
+          # ── 硬断言：绝不能有动态解释器（有就 fail，宁可不发包也不要发砖）──
+          READELF="$(find "${ANDROID_NDK_HOME:-/nonexistent}" -path '*/bin/llvm-readelf' 2>/dev/null | head -1)"
+          [ -n "$READELF" ] || READELF="$(command -v llvm-readelf || command -v readelf || true)"
+          [ -n "$READELF" ] || { echo "::error::no readelf available to verify xnsuinit"; exit 1; }
+          echo "=== xnsuinit.bin ELF header ==="
+          "$READELF" -h userspace/ksud/bin/aarch64/xnsuinit.bin | head -n 20
+          echo "=== xnsuinit.bin program headers ==="
+          "$READELF" -l userspace/ksud/bin/aarch64/xnsuinit.bin | sed -n '1,40p'
+          if "$READELF" -l userspace/ksud/bin/aarch64/xnsuinit.bin | grep -qi 'INTERP'; then
+            echo "::error::xnsuinit.bin is DYNAMICALLY linked (PT_INTERP present) -> patched init_boot would boot-loop. Build it statically."
+            exit 1
+          fi
+          echo "OK: xnsuinit.bin is static (no PT_INTERP)"
 
-        echo "ANDROID_SDK_ROOT=$SDK" >> "$GITHUB_ENV"
+      - name: Sanity-check embedded asset inventory
+        run: |
+          set -euo pipefail
+          echo "=== userspace/ksud/bin/aarch64 (RustEmbed source dir) ==="
+          ls -la userspace/ksud/bin/aarch64/
+          find userspace/ksud/bin/aarch64 -name '*_xinovasu.ko' | wc -l
+          test -f userspace/ksud/bin/aarch64/xnsuinit.bin || { echo "::error::xnsuinit.bin missing"; exit 1; }
 
-        echo "SM=$SM" >> "$GITHUB_ENV"
+      - name: Build xnsusd -> libxnsusd.so
+        run: |
+          set -euo pipefail
+          rustup target add aarch64-linux-android
+          # 资产目录先就位再编，RustEmbed 是编译期内嵌；改资产必须重编。
+          cargo build --package xnsusd --target=aarch64-linux-android --release
+          ls -la target/aarch64-linux-android/release/xnsusd
+          mkdir -p manager/app/src/main/jniLibs/arm64-v8a
+          cp target/aarch64-linux-android/release/xnsusd manager/app/src/main/jniLibs/arm64-v8a/libxnsusd.so
+          ls -la manager/app/src/main/jniLibs/arm64-v8a/
 
-        "$SM" --version || true
+      - name: Write local.properties
+        run: |
+          echo "sdk.dir=$ANDROID_HOME" > manager/local.properties
+          cat manager/local.properties
 
-        '
-    - name: Install SDK / NDK packages
-      run: "yes | \"$SM\" --licenses > /dev/null 2>&1 || true\n# compileSdk 37 / build-tools 37.0.0 / NDK 29.0.x 偏新，\n# 稳定通道没有时退回 canary 通道再试；单个包失败不中断其余的。\nfor pkg in \"platform-tools\" \"platforms;android-37\"\
-        \ \"build-tools;37.0.0\" \"ndk;29.0.14206865\" \"cmake;3.22.1\"; do\n  echo \"===== install $pkg =====\"\n  \"$SM\" \"$pkg\" || \"$SM\" --channel=3 \"$pkg\" || echo \"PKG_FAILED=$pkg\"\ndone\necho\
-        \ \"===== installed =====\"\n\"$SM\" --list_installed || true\n"
-    - name: Export Rust cross-build env (aarch64-linux-android)
-      run: "set -euo pipefail\n# 27.3 是 runner 预装的：xnsusd 的 bindgen 与动态链接都已在它上面验证通过\n# （xnsuinit 不走 NDK：它用 aarch64-unknown-linux-musl 自带的静态 libc）\nNDK=\"$(ls -d \"$ANDROID_HOME\"/ndk/* 2>/dev/null | sort\
-        \ -V | head -1)\"\n[ -n \"$NDK\" ] || { echo \"::error::no NDK installed\"; exit 1; }\nTC=\"$NDK/toolchains/llvm/prebuilt/linux-x86_64\"\n[ -d \"$TC\" ] || { echo \"::error::NDK toolchain missing\
-        \ at $TC\"; exit 1; }\nCC=\"$TC/bin/aarch64-linux-android26-clang\"\n[ -x \"$CC\" ] || { echo \"::error::clang wrapper missing: $CC\"; exit 1; }\nBUILTINS=\"$(\"$CC\" --print-resource-dir)/lib/linux/libclang_rt.builtins-aarch64-android.a\"\
-        \n[ -f \"$BUILTINS\" ] || { echo \"::error::builtins missing: $BUILTINS\"; exit 1; }\n# crt-static 时 ld.lld 只认静态库，而默认搜索路径拿不到 liblog；\n# 显式把 -L 指到 sysroot 里 API 对应的目录（liblog.a/liblog.so 都在那）。\nLIBDIR=\"\
-        \"\nfor d in \"$TC/sysroot/usr/lib/aarch64-linux-android/26\" \\\n         \"$TC/sysroot/usr/lib/aarch64-linux-android\" \\\n         \"$TC/sysroot/usr/lib\"; do\n  if [ -e \"$d/liblog.a\" ] ||\
-        \ [ -e \"$d/liblog.so\" ]; then LIBDIR=\"$d\"; break; fi\ndone\nif [ -z \"$LIBDIR\" ]; then\n  echo \"::error::liblog not found under $TC/sysroot\"\n  find \"$TC/sysroot/usr/lib\" -name 'liblog*'\
-        \ 2>/dev/null | head || true\n  exit 1\nfi\n{\n  echo \"ANDROID_NDK_HOME=$NDK\"\n  echo \"PATH=$TC/bin:$PATH\"\n  echo \"CC_aarch64_linux_android=$CC\"\n  echo \"CXX_aarch64_linux_android=$TC/bin/aarch64-linux-android26-clang++\"\
-        \n  echo \"AR_aarch64_linux_android=$TC/bin/llvm-ar\"\n  echo \"CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=$CC\"\n  # 注意：-C link-arg 的 -L 会被 rustc 放到 -llog 之后 → 太晚，等于没加。\n  # 必须用 rustc 自己的 -L native=\
-        \ 才会落在库搜索阶段之前。\n  #\n  # 不开 crt-static：NDK 27.3 的 sysroot 只有 liblog.so（没有 liblog.a），\n  # 而 crt-static 会让 ld.lld 拒绝 .so → \"unable to find library -llog\"。\n  # xnsusd 是设备上以 root 跑的普通程序（libsu 直接执行），动态链接\
-        \ bionic\n  # 完全没问题；需要真正静态的是 xnsuinit（ramdisk init），它在下面单独用\n  # aarch64-unknown-linux-musl 目标编（见 \"Build xnsuinit\" 那一步）。\n  echo \"RUSTFLAGS=-C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wno-unused-command-line-argument\
-        \ -C link-arg=$BUILTINS -L native=$LIBDIR\"\n} >> \"$GITHUB_ENV\"\necho \"using NDK $NDK\"\necho \"using sysroot libdir $LIBDIR\"\n"
-    - name: Build xnsuinit -> xnsuinit.bin (embedded asset, MUST be static)
-      run: "set -euo pipefail\n# ⚠️ 必须静态（见文件顶部第 5 条）：aarch64-linux-android 默认动态链接，\n#    编出来的 /init 在 ramdisk 里根本跑不起来 → 刷入即无限重启。\n#    musl 目标自带静态 libc，不需要 NDK / 交叉工具链。\n# ⚠️ 两个目标都要装：aarch64-linux-android\
-        \ 是 xnsusd 用的（这一步以前顺手装了，\n#    改成 musl 后必须保留，否则下一步 xnsusd 报 \"can't find crate for `core`\"）。\nrustup target add aarch64-linux-android aarch64-unknown-linux-musl\n# ⚠️ musl 目标默认拿宿主的 `cc` 当链接器（x86_64！）→\
-        \ 直接报\n#    \"ld: error: --fix-cortex-a53-843419 is only supported on AArch64 targets\"。\n#    必须显式指到 Rust 自带的 rust-lld（跨架构可用，不需要任何 musl 交叉工具链）。\nSYSROOT=\"$(rustc --print sysroot)\"\nRUST_LLD=\"\
-        $(find \"$SYSROOT\" -name 'rust-lld' -type f 2>/dev/null | head -1)\"\n[ -n \"$RUST_LLD\" ] || RUST_LLD=\"$(command -v rust-lld || true)\"\n[ -n \"$RUST_LLD\" ] || { echo \"::error::rust-lld not\
-        \ found under $SYSROOT\"; exit 1; }\necho \"using rust-lld: $RUST_LLD\"\n# 必须清掉给 xnsusd 用的 android RUSTFLAGS（里面有 android 的 builtins 与 -L native），\n# 否则会把 Android 的链接参数带进 musl 链接。\nenv -u RUSTFLAGS\
-        \ -u RUSTFLAGS_STATIC \\\n  CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER=\"$RUST_LLD\" \\\n  cargo build --package xnsuinit --target=aarch64-unknown-linux-musl --release\ncp target/aarch64-unknown-linux-musl/release/xnsuinit\
-        \ userspace/ksud/bin/aarch64/xnsuinit.bin\nls -la userspace/ksud/bin/aarch64/\n# boot_patch.rs 取资产用的就是这个名字，写错就拿不到\ntest -f userspace/ksud/bin/aarch64/xnsuinit.bin\n\n# ── 硬断言：绝不能有动态解释器（有就 fail，宁可不发包也不要发砖）──\n\
-        READELF=\"$(find \"${ANDROID_NDK_HOME:-/nonexistent}\" -path '*/bin/llvm-readelf' 2>/dev/null | head -1)\"\n[ -n \"$READELF\" ] || READELF=\"$(command -v llvm-readelf || command -v readelf || true)\"\
-        \n[ -n \"$READELF\" ] || { echo \"::error::no readelf available to verify xnsuinit\"; exit 1; }\necho \"=== xnsuinit.bin ELF header ===\"\n\"$READELF\" -h userspace/ksud/bin/aarch64/xnsuinit.bin\
-        \ | head -n 20\necho \"=== xnsuinit.bin program headers ===\"\n\"$READELF\" -l userspace/ksud/bin/aarch64/xnsuinit.bin | sed -n '1,40p'\nif \"$READELF\" -l userspace/ksud/bin/aarch64/xnsuinit.bin\
-        \ | grep -qi 'INTERP'; then\n  echo \"::error::xnsuinit.bin is DYNAMICALLY linked (PT_INTERP present) -> patched init_boot would boot-loop. Build it statically.\"\n  exit 1\nfi\necho \"OK: xnsuinit.bin\
-        \ is static (no PT_INTERP)\"\n"
-    - name: Sanity-check embedded asset inventory
-      run: 'set -euo pipefail
+      - name: Show toolchain versions
+        run: |
+          cd manager
+          ./gradlew --version
 
-        echo "=== userspace/ksud/bin/aarch64 (RustEmbed source dir) ==="
+      - name: Build (debug + release, tolerate one failing)
+        run: |
+          cd manager
+          ./gradlew :app:assembleDebug :app:assembleRelease --continue --no-daemon --stacktrace
 
-        ls -la userspace/ksud/bin/aarch64/
+      - name: Collect APKs
+        if: always()
+        run: |
+          mkdir -p dist
+          find manager/app/build/outputs -name '*.apk' -printf '%p  %s bytes\n' || true
+          find manager/app/build/outputs -name '*.apk' -exec cp {} dist/ \; || true
+          if [ -z "$(ls -A dist 2>/dev/null)" ]; then
+            echo "NO_APK_PRODUCED"
+            find manager/app/build/outputs -maxdepth 4 -type d || true
+          else
+            ls -l dist
+            sha256sum dist/*.apk
+            # 冒烟检查：libxnsusd.so 必须真进了 APK，否则装了也修不了 init_boot
+            for f in dist/*.apk; do
+              if unzip -l "$f" | grep -q 'lib/arm64-v8a/libxnsusd.so'; then
+                echo "OK   $f contains lib/arm64-v8a/libxnsusd.so"
+              else
+                echo "::error::$f is MISSING lib/arm64-v8a/libxnsusd.so"
+                exit 1
+              fi
+            done
+          fi
 
-        find userspace/ksud/bin/aarch64 -name ''*_xinovasu.ko'' | wc -l
-
-        test -f userspace/ksud/bin/aarch64/xnsuinit.bin || { echo "::error::xnsuinit.bin missing"; exit 1; }
-
-        '
-    - name: Build xnsusd -> libxnsusd.so
-      run: 'set -euo pipefail
-
-        rustup target add aarch64-linux-android
-
-        # 资产目录先就位再编，RustEmbed 是编译期内嵌；改资产必须重编。
-
-        cargo build --package xnsusd --target=aarch64-linux-android --release
-
-        ls -la target/aarch64-linux-android/release/xnsusd
-
-        mkdir -p manager/app/src/main/jniLibs/arm64-v8a
-
-        cp target/aarch64-linux-android/release/xnsusd manager/app/src/main/jniLibs/arm64-v8a/libxnsusd.so
-
-        ls -la manager/app/src/main/jniLibs/arm64-v8a/
-
-        '
-    - name: Write local.properties
-      run: 'echo "sdk.dir=$ANDROID_HOME" > manager/local.properties
-
-        cat manager/local.properties
-
-        '
-    - name: Show toolchain versions
-      run: 'cd manager
-
-        ./gradlew --version
-
-        '
-    - name: Build (debug + release, tolerate one failing)
-      run: 'cd manager
-
-        ./gradlew :app:assembleDebug :app:assembleRelease --continue --no-daemon --stacktrace
-
-        '
-    - name: Collect APKs
-      if: always()
-      run: "mkdir -p dist\nfind manager/app/build/outputs -name '*.apk' -printf '%p  %s bytes\\n' || true\nfind manager/app/build/outputs -name '*.apk' -exec cp {} dist/ \\; || true\nif [ -z \"$(ls -A dist\
-        \ 2>/dev/null)\" ]; then\n  echo \"NO_APK_PRODUCED\"\n  find manager/app/build/outputs -maxdepth 4 -type d || true\nelse\n  ls -l dist\n  sha256sum dist/*.apk\n  # 冒烟检查：libxnsusd.so 必须真进了 APK，否则装了也修不了\
-        \ init_boot\n  for f in dist/*.apk; do\n    if unzip -l \"$f\" | grep -q 'lib/arm64-v8a/libxnsusd.so'; then\n      echo \"OK   $f contains lib/arm64-v8a/libxnsusd.so\"\n    else\n      echo \"::error::$f\
-        \ is MISSING lib/arm64-v8a/libxnsusd.so\"\n      exit 1\n    fi\n  done\nfi\n"
-    - name: Upload APK
-      if: always()
-      uses: actions/upload-artifact@v5
-      with:
-        name: XinovaSU-manager-apk
-        path: dist/*.apk
-        if-no-files-found: warn
-        retention-days: 14
+      - name: Upload APK
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: XinovaSU-manager-apk
+          path: dist/*.apk
+          if-no-files-found: warn
+          retention-days: 14
