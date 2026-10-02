@@ -149,12 +149,25 @@ $(info -- XNSU_NEW_DCACHE_FLUSH: $(XNSU_NEW_DCACHE_FLUSH))
 # XinovaSU release manager signing certificate (DER length + SHA-256).
 # This is the fork's own key, NOT upstream KernelSU's. If the release signing
 # key is ever rotated, update these two values to the new certificate.
+#
+# ⚠️ 这两个值决定「哪个 APK 会被内核认作管理器」：
+#   kernel/manager/apk_sign.c: check_v2_signature(path, EXPECTED_SIZE, EXPECTED_HASH)
+#   内核扫描 /data/app 下的 APK，校验其 v2 签名证书是否与这里一致，
+#   一致才允许 Natives.version / supercall 等管理器接口。
+#   签名 APK 用的 key 必须与这里的指纹一致，否则界面显示"未安装"
+#   （模块与 su 仍正常 —— 又一个"内核好、管理器坏"的迷惑性故障）。
+#
+# 2026-10-03 换签：原作者密钥不可用，改用仓库所有者自建的 keystore
+#   (G:\xinovasu-signing\xinovasu-release.jks, alias xinovasu, RSA-2048/30年)。
+#   指纹由 keytool -exportcert 导出 DER 后计算：
+#     DER 868 bytes (0x0364)，SHA-256 如下。
+#   下次换 key 时：导出新证书 DER → 更新这两行 → 重编 LKM → 重刷 boot。
 ifndef XNSU_EXPECTED_SIZE
-XNSU_EXPECTED_SIZE := 0x037d
+XNSU_EXPECTED_SIZE := 0x0364
 endif
 
 ifndef XNSU_EXPECTED_HASH
-XNSU_EXPECTED_HASH := 4861a86778da1deb60f19391f97ea2c01c1458de20662ff78e303127cdf1731a
+XNSU_EXPECTED_HASH := 4beda239965a8e6981889b9363701009f35372fce89181e46c0254ba8f992c50
 endif
 
 ifdef XNSU_MANAGER_PACKAGE

@@ -188,6 +188,28 @@ jobs:
           }
           echo "  OK: 两者一致且均不低于 $MIN（余量 $((APK_VC - MIN))）"
 
+          # ── 证书指纹一致性：内核只认 XNSU_EXPECTED_* 对应密钥签的 APK ──
+          # kernel/manager/apk_sign.c 用编译期固化的 (DER 长度, SHA-256)
+          # 校验 /data/app 下 APK 的 v2 签名，不匹配就判定"不是管理器"
+          # → 界面显示未安装（模块/su 仍正常，极具迷惑性）。
+          # 这里校验 Kbuild 里的指纹与 keystore 证书真的一致。
+          if [ -n "${KEYSTORE_FILE:-}" ]; then
+            printf '%s' "$KEYSTORE_FILE" | base64 --decode > /tmp/rel.jks
+            keytool -exportcert -keystore /tmp/rel.jks -storepass "$KEYSTORE_PASSWORD" \
+                    -alias "$KEY_ALIAS" -file /tmp/rel.der 2>/dev/null
+            DER_LEN=$(printf '0x%04x' $(stat -c%s /tmp/rel.der))
+            DER_HASH=$(sha256sum /tmp/rel.der | cut -d' ' -f1)
+            KB_SIZE=$(grep -oE 'XNSU_EXPECTED_SIZE := 0x[0-9a-f]+' kernel/Kbuild | cut -d' ' -f3)
+            KB_HASH=$(grep -oE 'XNSU_EXPECTED_HASH := [0-9a-f]{64}' kernel/Kbuild | cut -d' ' -f3)
+            echo "  keystore 证书: $DER_LEN / $DER_HASH"
+            echo "  Kbuild 期望:   $KB_SIZE / $KB_HASH"
+            [ "$DER_LEN" = "$KB_SIZE" ] || { echo "::error::证书 DER 长度与 Kbuild XNSU_EXPECTED_SIZE 不一致 —— 内核不会认这个 APK 为管理器"; exit 1; }
+            [ "$DER_HASH" = "$KB_HASH" ] || { echo "::error::证书 SHA-256 与 Kbuild XNSU_EXPECTED_HASH 不一致 —— 请同步 kernel/Kbuild 的两个值"; exit 1; }
+            echo "  OK: 签名证书与内核期望一致"
+          else
+            echo "::warning::未配签名 Secrets，跳过证书指纹校验（debug 签名的 APK 无法被内核认作管理器）"
+          fi
+
       - name: Set up JDK 21
         uses: actions/setup-java@v5
         with:
