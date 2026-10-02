@@ -71,9 +71,9 @@ class ThemeMorphSnapshotTest {
     private fun frameSpec(progress: Float): ThemeMorphFrame =
         ThemeMorphTimeline.frame(from = from, to = to, rawProgress = progress)
 
-    private fun renderFrame(frame: ThemeMorphFrame, label: String) {
+    private fun renderFrame(frame: ThemeMorphFrame, label: String, snapshotName: String? = null) {
         val preset = KawaiiPalette.Ember
-        paparazzi.snapshot {
+        paparazzi.snapshot(name = snapshotName) {
             MaterialXinovaSUTheme(
                 appSettings = AppSettings(
                     colorMode = ColorMode.DARK,
@@ -122,7 +122,8 @@ class ThemeMorphSnapshotTest {
     @Test
     fun morphKeyFrames() {
         listOf(0.00f, 0.20f, 0.38f, 0.50f, 0.75f, 1.00f).forEach { p ->
-            renderFrame(frameSpec(p), "morph p=$p")
+            // 必须给每帧独立文件名，否则 Paparazzi 按方法名命名会互相覆盖
+            renderFrame(frameSpec(p), "morph p=$p", snapshotName = "p${(p * 100).toInt()}")
         }
     }
 

@@ -80,9 +80,14 @@ class DecorationMatrixSnapshotTest {
     private fun RenderableTheme.presetAccentFallback() =
         KawaiiPalette.Sakura.neonAccent(isDark = true)
 
-    private fun card(theme: RenderableTheme, role: DecoratedCardRole, dark: Boolean) {
+    private fun card(
+        theme: RenderableTheme,
+        role: DecoratedCardRole,
+        dark: Boolean,
+        snapshotName: String? = null,
+    ) {
         val spec = ThemeDecorationCatalog.resolve(theme.decorationId, 0, ColorMode.DARK)
-        paparazzi.snapshot {
+        paparazzi.snapshot(name = snapshotName) {
             MaterialXinovaSUTheme(appSettings = settings(theme, dark)) {
                 CompositionLocalProvider(LocalThemeDecorationSpec provides spec) {
                     Box(
@@ -116,9 +121,9 @@ class DecorationMatrixSnapshotTest {
      * 用参数化测试而不是 32 个 @Test 方法，减少样板。
      */
     @Test
-    fun allThemesRender() {
+    fun eachThemeRenders() {
         RenderableThemes.all.forEach { theme ->
-            card(theme, DecoratedCardRole.Standard, dark = true)
+            card(theme, DecoratedCardRole.Standard, dark = true, snapshotName = theme.decorationId)
         }
     }
 
@@ -146,17 +151,17 @@ class DecorationMatrixSnapshotTest {
     fun lightVsDark() {
         // 选 modern 族的 Ember：它有独立画布，深浅色差异明显，便于像素断言。
         val theme = RenderableThemes.all.first { it.decorationId == "Ember" }
-        card(theme, DecoratedCardRole.Standard, dark = false)
-        card(theme, DecoratedCardRole.Standard, dark = true)
+        card(theme, DecoratedCardRole.Standard, dark = false, snapshotName = "light")
+        card(theme, DecoratedCardRole.Standard, dark = true, snapshotName = "dark")
     }
 
     // ── 3. 五种卡片角色 ──────────────────────────────────────────────────
 
     @Test
-    fun allCardRoles() {
+    fun eachCardRoleRenders() {
         val theme = RenderableThemes.all.first { it.decorationId == "Jade" }
         DecoratedCardRole.entries.forEach { role ->
-            card(theme, role, dark = true)
+            card(theme, role, dark = true, snapshotName = role.name)
         }
     }
 
@@ -172,7 +177,7 @@ class DecorationMatrixSnapshotTest {
         val theme = RenderableThemes.all.first { it.decorationId == "Obsidian" }
         val spec = ThemeDecorationCatalog.resolve(theme.decorationId, 0, ColorMode.DARK)
         listOf(false, true).forEach { glass ->
-            paparazzi.snapshot {
+            paparazzi.snapshot(name = "glass=$glass") {
                 MaterialXinovaSUTheme(appSettings = settings(theme, dark = true)) {
                     CompositionLocalProvider(
                         LocalThemeDecorationSpec provides spec,
@@ -209,7 +214,7 @@ class DecorationMatrixSnapshotTest {
         val theme = RenderableThemes.all.first { it.decorationId == "Cyber" }
         val spec = ThemeDecorationCatalog.resolve(theme.decorationId, 0, ColorMode.DARK)
         listOf(LayoutDirection.Ltr, LayoutDirection.Rtl).forEach { dir ->
-            paparazzi.snapshot {
+            paparazzi.snapshot(name = "dir=$dir") {
                 MaterialXinovaSUTheme(appSettings = settings(theme, dark = true)) {
                     CompositionLocalProvider(
                         LocalThemeDecorationSpec provides spec,
@@ -255,7 +260,7 @@ class DecorationMatrixSnapshotTest {
             paparazzi.unsafeUpdateConfig(
                 deviceConfig = DeviceConfig.PIXEL_6.copy(fontScale = scale)
             )
-            paparazzi.snapshot {
+            paparazzi.snapshot(name = "fontScale=$scale") {
                 MaterialXinovaSUTheme(appSettings = settings(theme, dark = true)) {
                     CompositionLocalProvider(LocalThemeDecorationSpec provides spec) {
                         Box(
@@ -330,13 +335,13 @@ class DecorationMatrixSnapshotTest {
         }
 
         paparazzi.unsafeUpdateConfig(deviceConfig = DeviceConfig.PIXEL_6)
-        paparazzi.snapshot { body() }
+        paparazzi.snapshot(name = "phone") { body() }
 
         paparazzi.unsafeUpdateConfig(deviceConfig = DeviceConfig.PIXEL_TABLET)
-        paparazzi.snapshot { body() }
+        paparazzi.snapshot(name = "tablet") { body() }
 
         paparazzi.unsafeUpdateConfig(deviceConfig = DeviceConfig.PIXEL_FOLD)
-        paparazzi.snapshot { body() }
+        paparazzi.snapshot(name = "fold") { body() }
 
         // 复位，避免影响同 class 内其他测试
         paparazzi.unsafeUpdateConfig(deviceConfig = DeviceConfig.PIXEL_6)
