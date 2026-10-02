@@ -15,7 +15,18 @@ materialKolor = "4.1.1"
 ndk = "29.0.14206865"
 libsu = "6.0.0"
 apksign = "1.4"
-miuix = "0.9.1"
+# 0.9.3（2026-07-04）。这是 0.9.4 之前的最后一个稳定版：0.9.4-rc01 移除了
+# miuix-navigation3-ui，而本项目仍在用它桥接 androidx.navigation3.ui 的
+# NavDisplay / LocalNavAnimatedContentScope（详见 docs/MIUIX_UPGRADE_PLAN.md）。
+# 要上 0.9.4 需先按该文档的「路线 A」解除桥接依赖。
+#
+# 升级前已用二进制比对核验（.workbuddy/verify_miuix_upgrade.py）：
+#   项目使用的 111 个 miuix 符号在 0.9.3 全部保留，无一消失。
+# 另核对了本项目实际调用的高风险组件签名：
+#   Snackbar / SnackbarHost          签名未变
+#   NavigationRail                   mode -> state（项目未用 mode，兼容）
+#   NavigationRailItem               末尾追加 badge（具名调用不受影响）
+miuix = "0.9.3"
 okhttp = "5.3.2"
 hiddenapibypass = "6.1"
 appiconloader = "1.5.0"
