@@ -1,1 +1,8 @@
+# 构建产物，不入库。命名契约见仓库根 justfile 的说明：
+# userspace/ksud 的 package name 是 xnsusd，编出的产物需重命名为 libxnsusd.so
+# 放进 jniLibs，供 KsuCli.getKsuDaemonPath() 从 nativeLibraryDir 读取。
+libxnsusd.so
+
+# 历史遗留：早期按上游惯例产 libksud.so，与 Kotlin 侧查找的 libxnsusd.so
+# 不一致，已不再产出，但保留此条以防旧构建残留被误提交。
 libksud.so
