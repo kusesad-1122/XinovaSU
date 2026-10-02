@@ -1,0 +1,103 @@
+name: UI Snapshots
+
+# 用 Paparazzi（LayoutLib）在 JVM 上把 Compose 渲染成 PNG —— 不需要设备、模拟器或 adb。
+#
+# 存在的原因：build-manager 只能证明「编译通过」，证明不了「界面没坏」。
+# 本项目已经吃过两次亏：
+#   1. miuix 0.9.3 把 TextField 的三个颜色参数合并成 colors —— 编译报错（幸运）
+#   2. 主题装饰的 frame / pedestal / particle 被换掉、形变过渡时长写错 ——
+#      这类改动编译照过，只有肉眼比对才发现
+#
+# 本 workflow 只录基准图（recordPaparazziDebug），不做校验 —— 校验需要把基准图入库，
+# 且 Paparazzi 的渲染结果会随 LayoutLib 版本变化，基线抖动会制造大量假失败。
+# 真正要防回归时，改用 verifyPaparazziDebug 并把 snapshots 目录提交。
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/ui-snapshots.yml"
+      - "manager/app/src/main/java/com/xinsu/moe/ui/theme/**"
+      - "manager/app/src/main/java/com/xinsu/moe/ui/component/decoration/**"
+      - "manager/app/src/test/java/com/xinsu/moe/ui/component/decoration/**"
+      - "manager/gradle/libs.versions.toml"
+  workflow_dispatch:
+
+concurrency:
+  group: snapshots-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  record:
+    name: Record UI snapshots
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Locate Android SDK (preinstalled on runner)
+        run: |
+          SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          echo "SDK=$SDK"
+          [ -d "$SDK" ] || { echo "::error::no Android SDK on runner"; exit 1; }
+          echo "ANDROID_HOME=$SDK" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK" >> "$GITHUB_ENV"
+          SM="$SDK/cmdline-tools/latest/bin/sdkmanager"
+          [ -n "$SM" ] || { echo "::error::no sdkmanager"; exit 1; }
+          echo "SM=$SM" >> "$GITHUB_ENV"
+
+      # Paparazzi 自己会拉 LayoutLib，但 compileSdk 相关的 platform 包仍需装齐。
+      # 与 build-manager.yml 一致：稳定通道没有时退回 canary。
+      - name: Install SDK packages
+        run: |
+          yes | "$SM" --licenses > /dev/null 2>&1 || true
+          for pkg in "platform-tools" "platforms;android-37" "build-tools;37.0.0"; do
+            echo "===== install $pkg ====="
+            "$SM" "$pkg" || "$SM" --channel=3 "$pkg" || echo "PKG_FAILED=$pkg"
+          done
+          "$SM" --list_installed || true
+
+      - name: Write local.properties
+        run: |
+          echo "sdk.dir=$ANDROID_HOME" > manager/local.properties
+          cat manager/local.properties
+
+      # NDK 不是 Paparazzi 所需，但 app/build.gradle.kts 声明了 externalNativeBuild，
+      # 配置阶段会校验 NDK 路径，因此仍需安装。
+      - name: Install NDK (declared in build config)
+        run: |
+          "$SM" "ndk;29.0.14206865" || "$SM" --channel=3 "ndk;29.0.14206865" || true
+
+      - name: Record snapshots
+        working-directory: manager
+        run: ./gradlew :app:recordPaparazziDebug --no-daemon --stacktrace
+
+      - name: List produced PNGs
+        run: |
+          set -euo pipefail
+          DIR=manager/app/src/test/snapshots/images
+          if [ ! -d "$DIR" ]; then
+            echo "::error::no snapshot directory at $DIR — Paparazzi produced nothing"
+            find manager/app/src/test -type d -name snapshots 2>/dev/null || true
+            exit 1
+          fi
+          find "$DIR" -name '*.png' -printf '%p  %s bytes\n' | sort | tee /tmp/png-list.txt
+          COUNT=$(wc -l < /tmp/png-list.txt)
+          echo "PNG_COUNT=$COUNT"
+          [ "$COUNT" -gt 0 ] || { echo "::error::zero PNGs produced"; exit 1; }
+
+      - name: Package snapshots
+        uses: actions/upload-artifact@v5
+        with:
+          name: ui-snapshots
+          path: manager/app/src/test/snapshots/images/**/*.png
+          if-no-files-found: error
+          retention-days: 14

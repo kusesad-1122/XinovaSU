@@ -5,6 +5,10 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.lsplugin.apksign)
+    // Paparazzi：JVM 上用 LayoutLib 把 Compose 渲染成 PNG（无需设备/模拟器）。
+    // 2.0.0-alpha05.1 是首个支持 AGP 9.x 的版本。产物落在
+    // app/src/test/snapshots/images/，仅供视觉回归，不进 APK。
+    alias(libs.plugins.paparazzi)
     id("kotlin-parcelize")
 }
 
@@ -177,6 +181,8 @@ if (isPrBuild) {
 
 dependencies {
     testImplementation(kotlin("test-junit"))
+    // 无设备截图：LayoutLib 在 JVM 上渲染 Compose，产物供视觉回归比对。
+    testImplementation(libs.paparazzi)
 
     implementation(libs.androidx.activity.compose)
 

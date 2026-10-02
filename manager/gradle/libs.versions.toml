@@ -31,6 +31,11 @@ okhttp = "5.3.2"
 hiddenapibypass = "6.1"
 appiconloader = "1.5.0"
 
+# Paparazzi：在 JVM 上用 LayoutLib 渲染 Compose 为 PNG，无需设备/模拟器。
+# 2.0.0-alpha05.1 是首个支持 AGP 9.x 的版本（本项目 AGP 9.2.1）。
+# 仅用于 test 源集的截图，不进 APK。
+paparazzi = "2.0.0-alpha05.1"
+
 [plugins]
 agp-app = { id = "com.android.application", version.ref = "agp" }
 
@@ -39,6 +44,8 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 lsplugin-apksign = { id = "org.lsposed.lsplugin.apksign", version.ref = "apksign" }
+
+paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
@@ -91,3 +98,5 @@ hiddenapibypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", vers
 material-kolor = { group = "com.materialkolor", name = "material-kolor", version.ref = "materialKolor" }
 
 appiconloader = { module = "me.zhanghai.android.appiconloader:appiconloader", version.ref = "appiconloader" }
+
+paparazzi = { module = "app.cash.paparazzi:paparazzi", version.ref = "paparazzi" }
