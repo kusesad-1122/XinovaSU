@@ -117,25 +117,36 @@ jobs:
         run: |
           set -uo pipefail
           TXT=app/build/reports/lint-results-debug.txt
-          if [ -f "$TXT" ]; then
-            echo "=== Lint 报告（前 80 行）==="
-            head -80 "$TXT" || true
-            echo ""
-            echo "=== 按规则统计 ==="
-            # 报告每条以 [RuleId] 结尾
-            grep -oE '\[[A-Za-z0-9_]+\]$' "$TXT" | sort | uniq -c | sort -rn || true
-            echo ""
-            ERRORS=$(grep -cE ': Error: ' "$TXT" || echo 0)
-            echo "ERROR_COUNT=$ERRORS"
-            if [ "$ERRORS" -gt 0 ]; then
-              echo "::error::Lint 发现 $ERRORS 个错误，完整清单见上传的 lint-results-debug.txt"
-              exit 1
-            fi
-            echo "Lint 通过（0 error）"
-          else
+          if [ ! -f "$TXT" ]; then
             echo "::error::Lint 未生成报告文件 $TXT —— lint 本身可能没跑起来"
             exit 1
           fi
+
+          echo "=== Lint 报告（前 60 行）==="
+          head -60 "$TXT"
+          echo ""
+
+          echo "=== 按规则统计 ==="
+          # grep 在无匹配时退出码为 1，必须显式兜住，否则 set -e / pipefail 会中断脚本。
+          # 注意也不能写成 `$(grep -c ... || echo 0)` —— 那样 ERRORS 会变成两行文本，
+          # 后面 `[ "$ERRORS" -gt 0 ]` 会报 "integer expression expected"。
+          RULE_COUNTS=$(grep -oE '\[[A-Za-z0-9_]+\]$' "$TXT" | sort | uniq -c | sort -rn || true)
+          if [ -n "$RULE_COUNTS" ]; then
+            echo "$RULE_COUNTS"
+          else
+            echo "（无任何 issue）"
+          fi
+          echo ""
+
+          ERROR_COUNT=$(grep -cE ': Error: ' "$TXT" || true)
+          ERROR_COUNT=${ERROR_COUNT:-0}
+          echo "ERROR_COUNT=$ERROR_COUNT"
+
+          if [ "$ERROR_COUNT" -gt 0 ]; then
+            echo "::error::Lint 发现 $ERROR_COUNT 个错误，完整清单见 artifact: lint-report"
+            exit 1
+          fi
+          echo "Lint 通过（0 error）"
 
       - name: Upload lint report
         if: always()

@@ -168,8 +168,8 @@ android {
         disable += listOf(
             // 提示类：有新版本可用
             "NewerVersionAvailable", "GradleDependency", "AndroidGradlePluginVersion",
-            // 设计决策：图标是否铺满方形、是否用圆形变体
-            "IconLauncherShape", "IconDuplicates",
+            // 设计决策：图标是否铺满方形、是否用圆形变体、是否需要单色版
+            "IconLauncherShape", "IconDuplicates", "MonochromeLauncherIcon",
             // 历史遗留：标了 translatable=false 却仍在翻译目录里
             "Untranslatable",
             // 需人工确认是否动态引用（getIdentifier 之类），误删风险大于减体积收益
