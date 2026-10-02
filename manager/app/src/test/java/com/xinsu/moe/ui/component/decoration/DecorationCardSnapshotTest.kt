@@ -17,6 +17,7 @@ import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.materialkolor.PaletteStyle
 import com.materialkolor.dynamiccolor.ColorSpec
+import com.xinsu.moe.ui.component.material.TonalCard
 import com.xinsu.moe.ui.theme.AppSettings
 import com.xinsu.moe.ui.theme.ColorMode
 import com.xinsu.moe.ui.theme.KawaiiPalette
@@ -86,9 +87,13 @@ class DecorationCardSnapshotTest {
                             .padding(16.dp)
                     ) {
                         Column {
-                            DecoratedCardContent(
+                            // 用真实的 TonalCard 而不是裸 DecoratedCardContent：
+                            // 后者只画装饰层，背景/圆角/内边距都由外层 Card 提供
+                            // （见 TonalCard.kt:38-58）。直接渲染裸装饰层会得到
+                            // 「只有细线、没有底色」的图，与实际界面不符 —— 第一版就踩了这个。
+                            TonalCard(
+                                onClick = {},
                                 role = DecoratedCardRole.Standard,
-                                colors = materialDecorationColors(),
                             ) {
                                 Text(
                                     "Standard · $themeId",
@@ -96,29 +101,29 @@ class DecorationCardSnapshotTest {
                                     color = MaterialTheme.colorScheme.onSurface,
                                 )
                                 Text(
-                                    "frame=${spec.frame.style} pedestal=${spec.iconPedestal.style}",
+                                    "frame=${spec.frame.style} · pedestal=${spec.iconPedestal.style}",
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 )
                             }
 
-                            // 注意：DecoratedCardContent 自身不带外边距，两卡之间必须显式留白，
+                            // DecoratedCardContent 自身不带外边距，两卡之间必须显式留白，
                             // 否则 Hero 的标题会紧贴 Standard 的副标题（第一版截图已踩到）。
                             Spacer(Modifier.height(20.dp))
 
                             // Hero：frameScale 最大且开启二级装饰，最能暴露几何/密度策略回归
-                            DecoratedCardContent(
+                            TonalCard(
+                                onClick = {},
                                 role = DecoratedCardRole.Hero,
-                                colors = materialDecorationColors(),
                                 active = true,
                             ) {
                                 Text(
                                     "Hero · ${spec.motif}",
-                                    style = MaterialTheme.typography.titleLarge,
+                                    style = MaterialTheme.typography.headlineSmall,
                                     color = MaterialTheme.colorScheme.onSurface,
                                 )
                                 Text(
-                                    "ambient=${spec.ambient.style} path=${spec.energy.path}",
+                                    "ambient=${spec.ambient.style} · path=${spec.energy.path} · particle=${spec.energy.particle}",
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 )
