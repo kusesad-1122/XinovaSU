@@ -15,12 +15,20 @@ name: UI Snapshots
 on:
   push:
     branches: ["main"]
+    # 触发条件要覆盖「任何可能改变像素或校验结果的文件」。
+    # 之前的过滤漏了三处，导致改了 lint 配置却不重跑：
+    #   - ui/theme/decoration/**（RenderableThemes.kt 在这里，缺 ** 后缀匹配不到）
+    #   - manager/app/build.gradle.kts（lint / paparazzi 配置）
+    #   - manager/build.gradle.kts、根 settings.gradle.kts（插件与仓库配置）
     paths:
       - ".github/workflows/ui-snapshots.yml"
       - "manager/app/src/main/java/com/xinsu/moe/ui/theme/**"
-      - "manager/app/src/main/java/com/xinsu/moe/ui/component/decoration/**"
-      - "manager/app/src/test/java/com/xinsu/moe/ui/component/decoration/**"
-      - "manager/gradle/libs.versions.toml"
+      - "manager/app/src/main/java/com/xinsu/moe/ui/component/**"
+      - "manager/app/src/test/**"
+      - "manager/gradle/**"
+      - "manager/build.gradle.kts"
+      - "manager/app/build.gradle.kts"
+      - "manager/settings.gradle.kts"
   workflow_dispatch:
 
 concurrency:
