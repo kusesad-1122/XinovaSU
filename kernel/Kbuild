@@ -115,13 +115,31 @@ endif
 # Calculate version if git version is available
 ifdef XNSU_GIT_VERSION_VALID
 # xnsu_version: major * 10000 + git version + 200 for historical reasons
-$(eval XNSU_VERSION=$(shell expr 30000 + $(XNSU_GIT_VERSION)))
-$(info -- XinovaSU version: $(XNSU_VERSION))
+#
+# ⚠️ 上一行那个历史公式与实际代码不符，别再照它推算：真实取值范围见下。
+# 实际基数为 33000，必须与 manager/build.gradle.kts 的 VERSION_CODE_BASE 逐位相同 ——
+# KERNEL_SU_VERSION 最终来自 `#define KERNEL_SU_VERSION XNSU_VERSION`
+# (kernel/include/xnsu.h)，管理器用
+# `Natives.MINIMAL_SUPPORTED_KERNEL = 32377` 做门槛判定，
+# 低于它就显示"未安装"（模块与 su 仍正常，极易误判成刷写失败）。
+#
+# 为什么会踩：原来这里写的是 `30000 + git`，本仓库历史被压成单个根提交
+# (6c26d51)，只有 30 个 commit → 30030 < 32377 → 管理器拒绝工作。
+# 官方 Releases 的 32619..32637 是完整上游仓库（2400+ commit）的产物，
+# 直接套用 `30000 + n` 永远追不上门槛。
+XNSU_VERSION_BASE := 33000
+$(eval XNSU_VERSION=$(shell expr $(XNSU_VERSION_BASE) + $(XNSU_GIT_VERSION)))
+$(info -- XinovaSU version: $(XNSU_VERSION)  (must be >= 32377, see MINIMAL_SUPPORTED_KERNEL))
+ifeq ($(shell expr $(XNSU_VERSION) >= 32377),1)
+else
+$(warning -- XinovaSU version $(XNSU_VERSION) is BELOW 32377; the manager will refuse to work!)
+endif
 ccflags-y += -DXNSU_VERSION=$(XNSU_VERSION)
 else
 # If there is no .git directory, use default version
 $(warning "XNSU_GIT_VERSION not defined! It is better to make XinovaSU a git repository!")
-ccflags-y += -DXNSU_VERSION=16
+# 无 git 时也必须给一个过门槛的值，否则一定是坏的
+ccflags-y += -DXNSU_VERSION=33000
 endif
 
 XNSU_NEW_DCACHE_FLUSH := $(shell grep -q __flush_dcache_area $(srctree)/arch/arm64/include/asm/cacheflush.h ; echo $$?)
