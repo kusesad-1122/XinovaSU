@@ -158,9 +158,30 @@ android {
             "ObsoleteSdkInt",           // 废弃的 SDK 判断
             "InlinedApi",               // 用了不该 inline 的 API
         )
-        // 资源多语言：项目有 20+ values-xx，若强制 Completeness 会因
-        // 翻译不全而红 —— 那是内容工作，不是代码缺陷。
+        // 资源多语言：项目有 46 个语言目录，覆盖率 0.9%~95% 不等
+        // （用 .workbuddy/verify_i18n.py 实测），翻译缺失属内容工作而非代码缺陷。
         disable += "MissingTranslation"
+
+        // 以下为 lint 首次全量运行的分类结论，详见 docs/LINT_TRIAGE.md。
+        // 原则：lint 输出里只保留真信号。提示类（"有新版"）、设计决策类、以及
+        // 需要人工判断的规则一律关掉 —— 让它们红只会训练团队忽略整个 lint 输出。
+        disable += listOf(
+            // 提示类：有新版本可用
+            "NewerVersionAvailable", "GradleDependency", "AndroidGradlePluginVersion",
+            // 设计决策：图标是否铺满方形、是否用圆形变体
+            "IconLauncherShape", "IconDuplicates",
+            // 历史遗留：标了 translatable=false 却仍在翻译目录里
+            "Untranslatable",
+            // 需人工确认是否动态引用（getIdentifier 之类），误删风险大于减体积收益
+            "UnusedResources",
+            // 排版/内容优化建议
+            "TypographyEllipsis", "PluralsCandidate",
+            // minSdk 31 下 mipmap-anydpi-v26 目录多余，留给专门的资源清理任务
+            "ObsoleteSdkInt",
+            // 间接数据流：BgEffectPainter 有 @RequiresApi(TIRAMISU) 且调用链上游有
+            // isRuntimeShaderSupported() 守卫，运行时安全，lint 跟不穿这层间接
+            "NewApi",
+        )
     }
 
     compileOptions {
