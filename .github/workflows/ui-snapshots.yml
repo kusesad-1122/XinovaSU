@@ -103,14 +103,48 @@ jobs:
       # Android Lint：唯一能自动抓出「编译通过但运行会崩」的手段。
       # 已在 app/build.gradle.kts 把崩溃类规则（MissingPermission /
       # UnspecifiedImmutableFlag / WrongThread / StaticFieldLeak 等）设为 error。
+      #
+      # 关键：lint 失败时 Gradle 只在日志里打印**第一个**错误（"Lint found 88 errors
+      # and 2 hints. First failure: ..."），其余 87 个得从报告文件看。所以这里
+      # 用 `|| true` 吞掉退出码先让报告落盘，再把报告作为 artifact 上传，
+      # 最后才根据真实结果决定是否 fail。
       - name: Android Lint
         working-directory: manager
+        run: ./gradlew :app:lintDebug --no-daemon --stacktrace || true
+
+      - name: Summarise lint results
+        working-directory: manager
         run: |
-          set -euo pipefail
-          ./gradlew :app:lintDebug --no-daemon --stacktrace || {
-            echo "::error::Android Lint 发现问题，详见上方输出"
+          set -uo pipefail
+          TXT=app/build/reports/lint-results-debug.txt
+          if [ -f "$TXT" ]; then
+            echo "=== Lint 报告（前 80 行）==="
+            head -80 "$TXT" || true
+            echo ""
+            echo "=== 按规则统计 ==="
+            # 报告每条以 [RuleId] 结尾
+            grep -oE '\[[A-Za-z0-9_]+\]$' "$TXT" | sort | uniq -c | sort -rn || true
+            echo ""
+            ERRORS=$(grep -cE ': Error: ' "$TXT" || echo 0)
+            echo "ERROR_COUNT=$ERRORS"
+            if [ "$ERRORS" -gt 0 ]; then
+              echo "::error::Lint 发现 $ERRORS 个错误，完整清单见上传的 lint-results-debug.txt"
+              exit 1
+            fi
+            echo "Lint 通过（0 error）"
+          else
+            echo "::error::Lint 未生成报告文件 $TXT —— lint 本身可能没跑起来"
             exit 1
-          }
+          fi
+
+      - name: Upload lint report
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: lint-report
+          path: manager/app/build/reports/lint-results-debug.*
+          if-no-files-found: warn
+          retention-days: 14
 
       - name: List produced PNGs
         run: |

@@ -533,7 +533,10 @@ public class HanziToPinyin {
         for (Token token : tokens) {
             sb.append(token.target);
         }
-        return sb.toString().toLowerCase();
+        // Locale.ROOT：拼音串用于搜索/排序的比较键，不是面向用户展示的文本。
+        // 用默认 Locale 时，tr-TR 等 locale 下 "I".toLowerCase() 会得到 "ı"（点less i），
+        // 拼音首字母排序会错乱。lint 的 DefaultLocale 检查会拦到这个。
+        return sb.toString().toLowerCase(Locale.ROOT);
     }
 
     public static class Token {

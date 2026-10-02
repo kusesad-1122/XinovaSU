@@ -17,6 +17,7 @@
 package com.xinsu.moe.ui.webui;
 
 import java.net.URLConnection;
+import java.util.Locale;
 
 class MimeUtil {
 
@@ -49,7 +50,10 @@ class MimeUtil {
             return null;
         }
 
-        final String extension = fileName.substring(finalFullStop + 1).toLowerCase();
+        // Locale.ROOT：扩展名要与下面的字面量逐一比较，属于内部数据而非面向用户的文本。
+        // 用默认 Locale 时，在 tr-TR 等 locale 下 "I".toLowerCase() 会得到 "ı"（点less i），
+        // 导致 .MP3 / .WASM 之类的文件识别失败。lint 的 DefaultLocale 检查会拦到这个。
+        final String extension = fileName.substring(finalFullStop + 1).toLowerCase(Locale.ROOT);
 
         return switch (extension) {
             case "webm" -> "video/webm";
