@@ -68,11 +68,9 @@ lsposed-cxx = { module = "org.lsposed.libcxx:libcxx", version.ref = "ndk" }
 
 miuix-ui = { module = "top.yukonga.miuix.kmp:miuix-ui-android", version.ref = "miuix" }
 miuix-icons = { module = "top.yukonga.miuix.kmp:miuix-icons-android", version.ref = "miuix" }
+miuix-navigation3-ui = { module = "top.yukonga.miuix.kmp:miuix-navigation3-ui-android", version.ref = "miuix" }
 miuix-preference = { module = "top.yukonga.miuix.kmp:miuix-preference-android", version.ref = "miuix" }
 miuix-blur = { module = "top.yukonga.miuix.kmp:miuix-blur-android", version.ref = "miuix" }
-# 注意：曾声明过 miuix-navigation3-ui，但它在本项目里零 import（导航全部走
-# androidx.navigation3 + 自实现的 ui/navigation3/Navigator.kt），且 miuix 0.9.4
-# 已移除该模块。保留声明只会把升级路径堵死，故已移除。
 
 okhttp = { module = "com.squareup.okhttp3:okhttp" }
 okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttp" }
