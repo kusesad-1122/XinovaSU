@@ -175,7 +175,7 @@ jobs:
           MIN=32377
           test -f version/version.txt || { echo "::error::缺少 version/version.txt"; exit 1; }
           KO_VER=$(grep -oE "XinovaSU version: [0-9]+" version/version.txt | grep -oE "[0-9]+" | head -1)
-          VC=$(grep -oE "VERSION_CODE_BASE = [0-9]+" manager/build.gradle.kts | grep -oE "[0-9]+")
+          VC=$(grep -oE "versionCodeBase = [0-9]+" manager/build.gradle.kts | grep -oE "[0-9]+")
           COMMITS=$(git rev-list --count HEAD)
           APK_VC=$((VC + COMMITS))
           echo "  LKM version     = $KO_VER   (Kbuild 实际算出)"

@@ -48,11 +48,14 @@ fun getGitDescribe(): String {
 // 现在固定基数为 33000：既高于 32377 门槛，也给后续 commit 留出余量
 // （要攒 2377 个 commit 才会掉回门槛以下，实际不可能触及）。
 // major 位保留 3（对应 v3.x），便于将来升 v4 时自然进位到 40000+。
-private const val VERSION_CODE_MAJOR = 3
-private const val VERSION_CODE_BASE = 33000
+//
+// 注意：Gradle Kotlin DSL 里**不能用 `const val`** —— 脚本编译报
+// "Const 'val' is only allowed on top level, in named objects, or in
+// companion objects"，因为这里实际在一个 script class 内。用普通 val。
+private val versionCodeBase = 33000
 
 fun getVersionCode(): Int {
-    return VERSION_CODE_BASE + getGitCommitCount()
+    return versionCodeBase + getGitCommitCount()
 }
 
 fun getVersionName(): String {
