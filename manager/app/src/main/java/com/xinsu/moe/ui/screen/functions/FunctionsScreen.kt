@@ -55,6 +55,7 @@ fun FunctionsScreen() {
         onNetIsolateUidToggle = viewModel::toggleNetIsolateUid,
         onSetVpnHideEnabled = viewModel::setVpnHideEnabled,
         onVpnHideUidToggle = viewModel::toggleVpnHideUid,
+        onSetVpnPortsEnabled = viewModel::setVpnPortsEnabled,
     )
 
     when (LocalUiMode.current) {

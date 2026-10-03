@@ -421,6 +421,10 @@
     <string name="functions_net_isolate_summary">在内核层面阻止所选应用的网络访问</string>
     <string name="functions_vpn_hide">屏蔽 VPN 检测</string>
     <string name="functions_vpn_hide_summary">向所选应用隐藏正在使用的 VPN 网络接口，使其无法检测到 VPN 连接</string>
+    <string name="functions_vpn_ports">阻断本地回环端口</string>
+    <string name="functions_vpn_ports_summary">对同一批目标应用拒绝连接 127.0.0.1 / ::1，防止其通过探测本地端口发现 VPN / 代理进程</string>
+    <string name="functions_vpn_coverage_title">覆盖范围</string>
+    <string name="functions_vpn_coverage">内核层（按目标应用生效）：/sys/class/net、netlink 枚举、/proc/net/{route,dev,if_inet6}、SIOCGIF* 系列 ioctl、SO_BINDTODEVICE 绑定探测，以及可选的回环 connect 阻断。不覆盖：Java 框架层（ConnectivityManager 的 TRANSPORT_VPN、VpnService、dumpsys）—— 这些答案来自 system_server，需要 LSPosed 类框架配合，超出内核能力范围。</string>
     <string name="functions_target_apps">目标应用</string>
     <string name="functions_select_apps">选择应用</string>
     <string name="functions_no_apps_selected">未选择应用</string>

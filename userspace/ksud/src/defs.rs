@@ -27,6 +27,7 @@ mod android {
     pub const NET_ISOLATE_CONFIG: &str = concatcp!(WORKING_DIR, "net_isolate.conf");
     pub const PATH_HIDE_CONFIG: &str = concatcp!(WORKING_DIR, "path_hide.conf");
     pub const VPN_HIDE_CONFIG: &str = concatcp!(WORKING_DIR, "vpn_hide.conf");
+    pub const VPN_PORTS_CONFIG: &str = concatcp!(WORKING_DIR, "vpn_ports.conf");
     pub const DAEMON_PATH: &str = concatcp!(ADB_DIR, "xnsusd");
     pub const LIBADBROOT_PATH: &str = concatcp!(LIBRARY_DIR, "libadbroot.so");
 

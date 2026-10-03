@@ -29,6 +29,7 @@ data class FunctionsUiState(
     // Vpn hide
     val vpnHideEnabled: Boolean = false,
     val vpnHideUids: Set<Int> = emptySet(),
+    val vpnPortsEnabled: Boolean = false,
 )
 
 @Immutable
@@ -57,4 +58,5 @@ data class FunctionsScreenActions(
 
     val onSetVpnHideEnabled: (Boolean) -> Unit,
     val onVpnHideUidToggle: (Int) -> Unit,
+    val onSetVpnPortsEnabled: (Boolean) -> Unit,
 )

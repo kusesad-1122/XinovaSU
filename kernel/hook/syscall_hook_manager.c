@@ -142,6 +142,13 @@ void __init xnsu_syscall_hook_manager_init(void)
     // NetworkInterface). Gated per-call on the vpn-hide feature + target.
     xnsu_register_syscall_hook(__NR_recvmsg, xnsu_hook_recvmsg);
     xnsu_register_syscall_hook(__NR_recvfrom, xnsu_hook_recvfrom);
+    // vpn-hide: /proc/net/{route,dev,if_inet6} line filtering (native readers
+    // that bypass netlink), SIOCGIF* ioctl masking, SO_BINDTODEVICE denial.
+    xnsu_register_syscall_hook(__NR_read, xnsu_hook_read);
+    xnsu_register_syscall_hook(__NR_ioctl, xnsu_hook_ioctl);
+    xnsu_register_syscall_hook(__NR_setsockopt, xnsu_hook_setsockopt);
+    // vpn-ports: optional loopback connect() blocking for target apps.
+    xnsu_register_syscall_hook(__NR_connect, xnsu_hook_connect);
 
 #ifdef CONFIG_HAVE_SYSCALL_TRACEPOINTS
     ret = register_trace_sys_enter(xnsu_sys_enter_handler, NULL);
@@ -181,6 +188,10 @@ void __exit xnsu_syscall_hook_manager_exit(void)
     xnsu_unregister_syscall_hook(__NR_getdents64);
     xnsu_unregister_syscall_hook(__NR_recvmsg);
     xnsu_unregister_syscall_hook(__NR_recvfrom);
+    xnsu_unregister_syscall_hook(__NR_read);
+    xnsu_unregister_syscall_hook(__NR_ioctl);
+    xnsu_unregister_syscall_hook(__NR_setsockopt);
+    xnsu_unregister_syscall_hook(__NR_connect);
 
     xnsu_syscall_hook_exit();
 

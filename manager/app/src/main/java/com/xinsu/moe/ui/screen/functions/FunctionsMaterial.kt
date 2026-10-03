@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Block
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.FolderOff
 import androidx.compose.material.icons.filled.HideSource
@@ -243,7 +244,53 @@ fun FunctionsMaterial(
                 }
             }
 
+            // 6b. Vpn ports layer (shares the vpn-hide target list)
+            item {
+                FunctionCard(
+                    icon = Icons.Filled.Block,
+                    title = stringResource(R.string.functions_vpn_ports),
+                    summary = stringResource(R.string.functions_vpn_ports_summary),
+                    checked = uiState.vpnPortsEnabled,
+                    onCheckedChange = actions.onSetVpnPortsEnabled,
+                )
+            }
+
+            // 6c. Coverage note: what the kernel layer can and cannot hide.
+            item {
+                VpnCoverageNote()
+            }
+
             item { Spacer(Modifier.height(16.dp)) }
+        }
+    }
+}
+
+@Composable
+private fun VpnCoverageNote() {
+    TonalCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        role = DecoratedCardRole.Function,
+        active = false,
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+        ) {
+            Text(
+                text = stringResource(R.string.functions_vpn_coverage_title),
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.onSurface,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                text = stringResource(R.string.functions_vpn_coverage),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }

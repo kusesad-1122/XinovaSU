@@ -15,7 +15,11 @@ fn get_git_version() -> Result<(u32, String), std::io::Error> {
         .trim()
         .parse()
         .map_err(|_| std::io::Error::other("Failed to parse git count"))?;
-    let version_code = 30000 + version_code;
+    // ⚠️ Must match manager/build.gradle.kts (versionCodeBase) and
+    // kernel/Kbuild (XNSU_VERSION_BASE) -- all three derive the version from
+    // the same commit count over the same base. 30000 was the pre-fix base
+    // that could not clear MINIMAL_SUPPORTED_KERNEL (32377).
+    let version_code: u32 = 33000 + version_code;
 
     let version_name = String::from_utf8(
         Command::new("git")

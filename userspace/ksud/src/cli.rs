@@ -467,6 +467,11 @@ enum Kernel {
         #[command(subcommand)]
         command: VpnHideOp,
     },
+    /// Manage the optional loopback-port blocking layer (shares targets)
+    VpnPorts {
+        #[command(subcommand)]
+        command: VpnPortsOp,
+    },
     /// Notify that module is mounted
     NotifyModuleMounted,
 }
@@ -537,6 +542,18 @@ enum VpnHideOp {
         enabled: bool,
         /// target uids
         uids: Vec<u32>,
+    },
+    /// Re-apply the persisted state to the kernel
+    Apply,
+}
+
+#[derive(clap::Subcommand, Debug)]
+enum VpnPortsOp {
+    /// Set the ports-layer toggle and persist (targets shared with vpn-hide)
+    Set {
+        /// block loopback connect() for target apps
+        #[arg(long)]
+        enabled: bool,
     },
     /// Re-apply the persisted state to the kernel
     Apply,
@@ -895,6 +912,13 @@ pub fn run() -> Result<()> {
             Kernel::VpnHide { command } => match command {
                 VpnHideOp::Set { enabled, uids } => crate::vpn_hide::save(enabled, &uids),
                 VpnHideOp::Apply => {
+                    crate::vpn_hide::apply_from_config();
+                    Ok(())
+                }
+            },
+            Kernel::VpnPorts { command } => match command {
+                VpnPortsOp::Set { enabled } => crate::vpn_hide::save_ports(enabled),
+                VpnPortsOp::Apply => {
                     crate::vpn_hide::apply_from_config();
                     Ok(())
                 }

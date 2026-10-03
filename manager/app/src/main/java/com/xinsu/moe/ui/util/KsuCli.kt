@@ -638,3 +638,13 @@ fun vpnHideSave(enabled: Boolean, uids: Set<Int>): Boolean {
             uids.joinToString("") { " $it" }
     return execKsud(cmd, true)
 }
+
+fun vpnPortsRead(): Boolean {
+    val lines = catLines("$KSU_DIR/vpn_ports.conf")
+    return lines.firstOrNull()?.trim() == "1"
+}
+
+fun vpnPortsSave(enabled: Boolean): Boolean {
+    val flag = if (enabled) " --enabled" else ""
+    return execKsud("kernel vpn-ports set$flag", true)
+}

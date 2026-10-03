@@ -443,6 +443,10 @@
     <string name="functions_net_isolate_summary">Block network access for selected apps at the kernel level</string>
     <string name="functions_vpn_hide">Hide VPN Detection</string>
     <string name="functions_vpn_hide_summary">Hide active VPN interfaces from selected apps so they cannot detect a VPN connection</string>
+    <string name="functions_vpn_ports">Block Loopback Ports</string>
+    <string name="functions_vpn_ports_summary">Refuse connect() to 127.0.0.1 / ::1 for the same target apps, so local VPN / proxy daemons cannot be discovered by port probing</string>
+    <string name="functions_vpn_coverage_title">Coverage</string>
+    <string name="functions_vpn_coverage">Kernel layer (per target app): /sys/class/net, netlink dumps, /proc/net/{route,dev,if_inet6}, SIOCGIF* ioctls, SO_BINDTODEVICE and optional loopback connect blocking. Not covered: the Java framework layer (ConnectivityManager TRANSPORT_VPN, VpnService, dumpsys) — those answers come from system_server and need an LSPosed-class hook outside kernel scope.</string>
     <string name="functions_target_apps">Target apps</string>
     <string name="functions_select_apps">Select apps</string>
     <string name="functions_no_apps_selected">No apps selected</string>

@@ -30,6 +30,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Block
 import androidx.compose.material.icons.rounded.FolderOff
 import androidx.compose.material.icons.rounded.HideSource
 import androidx.compose.material.icons.rounded.Memory
@@ -384,6 +385,25 @@ fun FunctionsMiuix(
                                 )
                             }
                         }
+                        EnergyMiuixSwitchPreference(
+                            title = stringResource(R.string.functions_vpn_ports),
+                            summary = stringResource(R.string.functions_vpn_ports_summary),
+                            startAction = {
+                                Icon(
+                                    Icons.Rounded.Block,
+                                    modifier = Modifier.padding(end = 6.dp),
+                                    contentDescription = null,
+                                    tint = colorScheme.onBackground
+                                )
+                            },
+                            checked = uiState.vpnPortsEnabled,
+                            onCheckedChange = actions.onSetVpnPortsEnabled
+                        )
+                        Text(
+                            text = stringResource(R.string.functions_vpn_coverage),
+                            color = colorScheme.onBackground.copy(alpha = 0.6f),
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                        )
                     }
 
                     Spacer(

@@ -3,8 +3,11 @@
 #include <linux/err.h>
 #include <linux/file.h>
 #include <linux/fs.h>
+#include <linux/if.h>
 #include <linux/if_addr.h>
 #include <linux/if_link.h>
+#include <linux/in.h>
+#include <linux/in6.h>
 #include <linux/kernel.h>
 #include <linux/netlink.h>
 #include <linux/printk.h>
@@ -12,6 +15,7 @@
 #include <linux/sched.h>
 #include <linux/slab.h>
 #include <linux/socket.h>
+#include <linux/sockios.h>
 #include <linux/spinlock.h>
 #include <linux/static_key.h>
 #include <linux/stddef.h>
@@ -25,12 +29,13 @@
 #include "policy/feature.h"
 #include "klog.h" // IWYU pragma: keep
 
-#define XNSU_VH_MAX_UIDS 4096
 #define XNSU_VH_APPID(uid) ((uid) % 100000)
+#define XNSU_VH_APPID_MAX 100000
 #define XNSU_VH_PATH_LEN 256
 #define XNSU_VH_DENTS_MAX (256 * 1024)
-// Upper bound on a netlink dump we will rewrite; larger replies pass through.
-#define XNSU_VH_NL_MAX (256 * 1024)
+// Upper bound on a netlink dump / proc read we will rewrite; larger replies
+// pass through untouched.
+#define XNSU_VH_BUF_MAX (256 * 1024)
 
 // The directory apps read to enumerate interfaces ("is there a tun0?").
 #define XNSU_VH_NET_DIR "/sys/class/net"
@@ -52,83 +57,58 @@ struct xnsu_vh_dirent64 {
 // Master switch: the XNSU_FEATURE_VPN_HIDE toggle. Keeps the marked hot getdents
 // path near-free while the feature is off.
 static DEFINE_STATIC_KEY_FALSE(xnsu_vpn_hide);
+// Optional loopback-port blocking (XNSU_FEATURE_VPN_PORTS): while on, target
+// apps' connect() to 127.0.0.1 / ::1 fails with ECONNREFUSED, so local proxy
+// daemons cannot be discovered by port probing. Aligned with the upstream
+// vpnhide "ports" module.
+static DEFINE_STATIC_KEY_FALSE(xnsu_vpn_ports);
 static DEFINE_SPINLOCK(vh_lock);
-static u32 vh_appids[XNSU_VH_MAX_UIDS];
-static int vh_count;
+// appid-space bitmap (appid = uid % 100000): O(1) lockless is_target on the
+// hot read/ioctl/connect paths, replacing the previous array+count linear
+// scan that took a spinlock per call. Writers still serialize on vh_lock.
+static DECLARE_BITMAP(vh_appids, XNSU_VH_APPID_MAX);
 
 int xnsu_vpn_hide_add_uid(u32 uid)
 {
     u32 appid = XNSU_VH_APPID(uid);
-    int i;
-    int ret = 0;
-    unsigned long flags;
 
-    spin_lock_irqsave(&vh_lock, flags);
-    for (i = 0; i < vh_count; i++) {
-        if (vh_appids[i] == appid) {
-            goto out; // already present
-        }
-    }
-    if (vh_count >= XNSU_VH_MAX_UIDS) {
-        ret = -ENOSPC;
-        goto out;
-    }
-    vh_appids[vh_count++] = appid;
-out:
-    spin_unlock_irqrestore(&vh_lock, flags);
+    // Atomic set: concurrent add/remove/clear are serialized on vh_lock below
+    // is not required for correctness of a single bit; keep it lock-free so the
+    // manager can toggle targets cheaply.
+    test_and_set_bit(appid, vh_appids);
     // Re-evaluate marks so the newly targeted app is marked.
     xnsu_mark_running_process();
-    return ret;
+    return 0;
 }
 
 int xnsu_vpn_hide_remove_uid(u32 uid)
 {
     u32 appid = XNSU_VH_APPID(uid);
-    int i;
-    unsigned long flags;
 
-    spin_lock_irqsave(&vh_lock, flags);
-    for (i = 0; i < vh_count; i++) {
-        if (vh_appids[i] == appid) {
-            vh_appids[i] = vh_appids[--vh_count];
-            break;
-        }
-    }
-    spin_unlock_irqrestore(&vh_lock, flags);
+    test_and_clear_bit(appid, vh_appids);
     xnsu_mark_running_process();
     return 0;
 }
 
 void xnsu_vpn_hide_clear_uids(void)
 {
-    unsigned long flags;
-
-    spin_lock_irqsave(&vh_lock, flags);
-    vh_count = 0;
-    spin_unlock_irqrestore(&vh_lock, flags);
+    spin_lock_irq(&vh_lock);
+    bitmap_zero(vh_appids, XNSU_VH_APPID_MAX);
+    spin_unlock_irq(&vh_lock);
     xnsu_mark_running_process();
 }
 
+// Bitmap membership only. Callers gate on their own feature's static key:
+// the combined check below merely keeps the tracepoint mark alive while
+// either vpn-hide layer is active (the mark is what routes target apps'
+// syscalls into the hook dispatcher at all).
 bool xnsu_vpn_hide_is_target(uid_t uid)
 {
-    u32 appid = XNSU_VH_APPID(uid);
-    int i;
-    bool found = false;
-    unsigned long flags;
-
-    if (!static_branch_unlikely(&xnsu_vpn_hide)) {
+    if (!static_branch_unlikely(&xnsu_vpn_hide) &&
+        !static_branch_unlikely(&xnsu_vpn_ports)) {
         return false;
     }
-
-    spin_lock_irqsave(&vh_lock, flags);
-    for (i = 0; i < vh_count; i++) {
-        if (vh_appids[i] == appid) {
-            found = true;
-            break;
-        }
-    }
-    spin_unlock_irqrestore(&vh_lock, flags);
-    return found;
+    return test_bit(XNSU_VH_APPID(uid), vh_appids);
 }
 
 bool xnsu_vpn_hide_should_filter_dents(void)
@@ -139,7 +119,53 @@ bool xnsu_vpn_hide_should_filter_dents(void)
     if (current->pid == 1) {
         return false;
     }
-    return xnsu_vpn_hide_is_target(current_uid().val);
+    return test_bit(XNSU_VH_APPID(current_uid().val), vh_appids);
+}
+
+// Gates for the read/ioctl/setsockopt hooks: same shape as the dents gate.
+bool xnsu_vpn_hide_should_filter_read(void)
+{
+    if (!static_branch_unlikely(&xnsu_vpn_hide)) {
+        return false;
+    }
+    if (current->pid == 1) {
+        return false;
+    }
+    return test_bit(XNSU_VH_APPID(current_uid().val), vh_appids);
+}
+
+bool xnsu_vpn_hide_should_filter_ioctl(void)
+{
+    if (!static_branch_unlikely(&xnsu_vpn_hide)) {
+        return false;
+    }
+    if (current->pid == 1) {
+        return false;
+    }
+    return test_bit(XNSU_VH_APPID(current_uid().val), vh_appids);
+}
+
+bool xnsu_vpn_hide_should_filter_sockopt(void)
+{
+    if (!static_branch_unlikely(&xnsu_vpn_hide)) {
+        return false;
+    }
+    if (current->pid == 1) {
+        return false;
+    }
+    return test_bit(XNSU_VH_APPID(current_uid().val), vh_appids);
+}
+
+// Ports blocking gates on its own static key, sharing the target bitmap.
+bool xnsu_vpn_ports_should_block_connect(void)
+{
+    if (!static_branch_unlikely(&xnsu_vpn_ports)) {
+        return false;
+    }
+    if (current->pid == 1) {
+        return false;
+    }
+    return test_bit(XNSU_VH_APPID(current_uid().val), vh_appids);
 }
 
 bool xnsu_vpn_hide_should_filter_netlink(void)
@@ -151,7 +177,7 @@ bool xnsu_vpn_hide_should_filter_netlink(void)
     if (current->pid == 1) {
         return false;
     }
-    return xnsu_vpn_hide_is_target(current_uid().val);
+    return test_bit(XNSU_VH_APPID(current_uid().val), vh_appids);
 }
 
 static bool vh_name_is_vpn(const char *name)
@@ -357,7 +383,7 @@ static long vh_rewrite_user_nl(void __user *ubuf, long total)
     char *kbuf;
     long wr;
 
-    if (!ubuf || total <= 0 || total > XNSU_VH_NL_MAX) {
+    if (!ubuf || total <= 0 || total > XNSU_VH_BUF_MAX) {
         return total;
     }
     kbuf = kmalloc(total, GFP_KERNEL);
@@ -416,6 +442,291 @@ long xnsu_vpn_hide_filter_netlink_recvmsg(unsigned int fd, void __user *msg_user
     return vh_rewrite_user_nl(iov.iov_base, total);
 }
 
+// ── /proc/net reads ─────────────────────────────────────────────────────────
+//
+// /proc/net/{route,dev,if_inet6} name every interface including tunnels; apps
+// that cannot use netlink (or simply grep) read these instead. Filtered by
+// line: a line is dropped when any of its whitespace/colon-delimited tokens
+// names a VPN-ish interface. The iface column differs per file (route: first
+// token, dev: token before ':', if_inet6: last token) -- matching any token
+// covers all three shapes without per-file parsers. Hex fields cannot
+// false-match: none of the prefixes starts with a hex digit.
+
+static const char *const vh_proc_files[] = { "route", "dev", "if_inet6" };
+
+// Identify the interesting files by dentry names: the opened path is
+// /proc/<pid>/net/<name> (proc "net" is a self-symlink, so d_path would leak
+// the pid form), which makes "parent is net, name is one of ours" the stable
+// check regardless of which pid form the opener used.
+static bool vh_file_is_proc_net_iface_table(const struct file *f)
+{
+    const unsigned char *name, *parent;
+    size_t i;
+
+    if (!f || !f->f_path.dentry || !f->f_path.dentry->d_parent)
+        return false;
+    name = f->f_path.dentry->d_name.name;
+    parent = f->f_path.dentry->d_parent->d_name.name;
+    if (!name || !parent || strcmp(parent, "net") != 0)
+        return false;
+    for (i = 0; i < ARRAY_SIZE(vh_proc_files); i++) {
+        if (strcmp(name, vh_proc_files[i]) == 0)
+            return true;
+    }
+    return false;
+}
+
+static bool vh_line_names_vpn(const char *line, long len)
+{
+    long i = 0;
+
+    while (i < len) {
+        long start;
+        char name[IFNAMSIZ];
+        long n;
+
+        while (i < len && (line[i] == ' ' || line[i] == '\t' || line[i] == ':'))
+            i++;
+        start = i;
+        while (i < len && line[i] != ' ' && line[i] != '\t' && line[i] != ':')
+            i++;
+        n = i - start;
+        if (n <= 0)
+            continue;
+        if (n >= sizeof(name))
+            n = sizeof(name) - 1;
+        memcpy(name, line + start, n);
+        name[n] = '\0';
+        if (vh_name_is_vpn(name))
+            return true;
+    }
+    return false;
+}
+
+// Post-filter a read() result: drop VPN-naming lines. Line fragments split
+// across reads are a known limitation (seq_file rarely splits these small
+// tables in practice).
+long xnsu_vpn_hide_filter_read(unsigned int fd, void __user *ubuf, long total)
+{
+    struct file *f;
+    char *kbuf;
+    long off, wr;
+    bool changed = false;
+
+    if (total <= 0 || total > XNSU_VH_BUF_MAX)
+        return total;
+    f = fget(fd);
+    if (!f)
+        return total;
+    if (!vh_file_is_proc_net_iface_table(f)) {
+        fput(f);
+        return total;
+    }
+    fput(f);
+
+    kbuf = kmalloc(total, GFP_KERNEL);
+    if (!kbuf)
+        return total;
+    if (copy_from_user(kbuf, ubuf, total)) {
+        kfree(kbuf);
+        return total;
+    }
+
+    off = 0;
+    wr = 0;
+    while (off < total) {
+        long end = off;
+        long n;
+
+        while (end < total && kbuf[end] != '\n')
+            end++;
+        n = end - off + (end < total ? 1 : 0);
+        if (!vh_line_names_vpn(kbuf + off, end - off)) {
+            if (wr != off)
+                memmove(kbuf + wr, kbuf + off, n);
+            wr += n;
+        } else {
+            changed = true;
+        }
+        off = end + 1;
+    }
+
+    if (!changed) {
+        kfree(kbuf);
+        return total;
+    }
+    if (copy_to_user(ubuf, kbuf, wr)) {
+        kfree(kbuf);
+        return total;
+    }
+    kfree(kbuf);
+    return wr;
+}
+
+// ── ioctl masking ───────────────────────────────────────────────────────────
+
+static bool vh_fd_is_socket(unsigned int fd)
+{
+    struct file *f;
+    bool is_sock;
+
+    f = fget(fd);
+    if (!f)
+        return false;
+    is_sock = S_ISSOCK(file_inode(f)->i_mode);
+    fput(f);
+    return is_sock;
+}
+
+// Pre-block: SIOCGIF* queries that NAME a specific interface return ENODEV
+// when that name is a tunnel, so the iface "does not exist" from the app's
+// point of view (also skips the real syscall -- no timing side channel).
+bool xnsu_vpn_hide_ioctl_pre(unsigned int cmd, void __user *arg)
+{
+    struct ifreq ifr;
+
+    switch (cmd) {
+    case SIOCGIFFLAGS:
+    case SIOCGIFADDR:
+    case SIOCGIFDSTADDR:
+    case SIOCGIFBRDADDR:
+    case SIOCGIFNETMASK:
+    case SIOCGIFMETRIC:
+    case SIOCGIFMTU:
+    case SIOCGIFHWADDR:
+    case SIOCGIFTXQLEN:
+    case SIOCGIFMAP:
+        break;
+    default:
+        return false;
+    }
+    if (!arg)
+        return false;
+    if (copy_from_user(&ifr, arg, sizeof(ifr)))
+        return false;
+    return vh_name_is_vpn(ifr.ifr_name);
+}
+
+// Post-filter the two output-shaped queries:
+//   SIOCGIFNAME (index -> name): report ENODEV when the resolved name is VPN-ish.
+//   SIOCGIFCONF (enumerate): compact the ifreq array in place, dropping VPN
+//   entries and shrinking ifc_len accordingly.
+long xnsu_vpn_hide_ioctl_post(unsigned int cmd, void __user *arg, long ret)
+{
+    struct ifreq ifr;
+
+    if (ret < 0 || !arg)
+        return ret;
+
+    if (cmd == SIOCGIFNAME) {
+        if (copy_from_user(&ifr, arg, sizeof(ifr)))
+            return ret;
+        if (vh_name_is_vpn(ifr.ifr_name))
+            return -ENODEV;
+        return ret;
+    }
+
+    if (cmd == SIOCGIFCONF) {
+        struct ifconf ifc;
+        char *kreq;
+        long count, rd, wr;
+
+        if (copy_from_user(&ifc, arg, sizeof(ifc)))
+            return ret;
+        if (!ifc.ifc_req || ifc.ifc_len <= 0 || ifc.ifc_len > XNSU_VH_BUF_MAX)
+            return ret;
+        kreq = kmalloc(ifc.ifc_len, GFP_KERNEL);
+        if (!kreq)
+            return ret;
+        if (copy_from_user(kreq, ifc.ifc_req, ifc.ifc_len)) {
+            kfree(kreq);
+            return ret;
+        }
+
+        count = ifc.ifc_len / (long)sizeof(struct ifreq);
+        wr = 0;
+        for (rd = 0; rd < count; rd++) {
+            struct ifreq *cur = kreq + rd * sizeof(struct ifreq);
+
+            if (vh_name_is_vpn(cur->ifr_name))
+                continue;
+            if (wr != rd)
+                memcpy(kreq + wr * sizeof(struct ifreq), cur, sizeof(struct ifreq));
+            wr++;
+        }
+        if (wr != count) {
+            int newlen = (int)(wr * sizeof(struct ifreq));
+
+            if (!copy_to_user(ifc.ifc_req, kreq, newlen)) {
+                ifc.ifc_len = newlen;
+                // Best effort: if the header write fails the app sees the
+                // original (larger) length and reads garbage tail entries --
+                // treat that as unrecoverable and keep the success return,
+                // since the real kernel call already succeeded.
+                copy_to_user(arg, &ifc, sizeof(ifc));
+            }
+        }
+        kfree(kreq);
+        return ret;
+    }
+
+    return ret;
+}
+
+// ── SO_BINDTODEVICE / loopback connect (ports layer) ────────────────────────
+
+// Deny SO_BINDTODEVICE naming a VPN interface for target apps: unprivileged
+// probing of tunnel devices via a bound socket is a known VPN-exit-IP leak
+// (Google issue 516559265, "won't fix"). Returns -EPERM to short-circuit,
+// 0 to run the real setsockopt.
+int xnsu_vpn_hide_filter_setsockopt(unsigned int fd, int level, int optname,
+                                    void __user *optval, int optlen)
+{
+    char name[IFNAMSIZ];
+
+    (void)fd;
+    if (level != SOL_SOCKET || optname != SO_BINDTODEVICE)
+        return 0;
+    if (!optval || optlen <= 0 || optlen > (int)sizeof(name))
+        return 0;
+    if (copy_from_user(name, optval, optlen))
+        return 0;
+    name[sizeof(name) - 1] = '\0';
+    if (vh_name_is_vpn(name))
+        return -EPERM;
+    return 0;
+}
+
+// connect() to 127.0.0.1 / ::1 fails with ECONNREFUSED for target apps while
+// the ports layer is on, so locally running VPN / proxy daemons cannot be
+// found by port probing. IPv4-mapped-v6 loopback is covered too.
+int xnsu_vpn_ports_filter_connect(void __user *addr_user, int addrlen)
+{
+    union {
+        struct sockaddr sa;
+        struct sockaddr_in in4;
+        struct sockaddr_in6 in6;
+    } addr;
+
+    if (!addr_user || addrlen < (int)sizeof(struct sockaddr_in) ||
+        addrlen > (int)sizeof(addr))
+        return 0;
+    if (copy_from_user(&addr, addr_user, addrlen))
+        return 0;
+
+    if (addr.sa.sa_family == AF_INET) {
+        if (addr.in4.sin_addr.s_addr == htonl(INADDR_LOOPBACK))
+            return -ECONNREFUSED;
+    } else if (addr.sa.sa_family == AF_INET6) {
+        if (ipv6_addr_loopback(&addr.in6.sin6_addr))
+            return -ECONNREFUSED;
+        if (ipv6_addr_v4mapped(&addr.in6.sin6_addr) &&
+            addr.in6.sin6_addr.s6_addr32[3] == htonl(INADDR_LOOPBACK))
+            return -ECONNREFUSED;
+    }
+    return 0;
+}
+
 static int vpn_hide_feature_get(u64 *value)
 {
     *value = static_key_enabled(&xnsu_vpn_hide) ? 1 : 0;
@@ -442,14 +753,44 @@ static const struct xnsu_feature_handler vpn_hide_handler = {
     .set_handler = vpn_hide_feature_set,
 };
 
+static int vpn_ports_feature_get(u64 *value)
+{
+    *value = static_key_enabled(&xnsu_vpn_ports) ? 1 : 0;
+    return 0;
+}
+
+static int vpn_ports_feature_set(u64 value)
+{
+    if (value) {
+        static_key_enable(&xnsu_vpn_ports.key);
+    } else {
+        static_key_disable(&xnsu_vpn_ports.key);
+    }
+    pr_info("vpn_ports: set to %llu\n", value);
+    // Target marks are shared with vpn_hide; refresh for the new state.
+    xnsu_mark_running_process();
+    return 0;
+}
+
+static const struct xnsu_feature_handler vpn_ports_handler = {
+    .feature_id = XNSU_FEATURE_VPN_PORTS,
+    .name = "vpn_ports",
+    .get_handler = vpn_ports_feature_get,
+    .set_handler = vpn_ports_feature_set,
+};
+
 void __init xnsu_vpn_hide_init(void)
 {
     if (xnsu_register_feature_handler(&vpn_hide_handler)) {
         pr_err("Failed to register vpn_hide feature handler\n");
+    }
+    if (xnsu_register_feature_handler(&vpn_ports_handler)) {
+        pr_err("Failed to register vpn_ports feature handler\n");
     }
 }
 
 void __exit xnsu_vpn_hide_exit(void)
 {
     xnsu_unregister_feature_handler(XNSU_FEATURE_VPN_HIDE);
+    xnsu_unregister_feature_handler(XNSU_FEATURE_VPN_PORTS);
 }

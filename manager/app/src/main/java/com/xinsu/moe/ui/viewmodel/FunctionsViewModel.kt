@@ -29,6 +29,8 @@ import com.xinsu.moe.ui.util.utsSpoofReset
 import com.xinsu.moe.ui.util.utsSpoofSet
 import com.xinsu.moe.ui.util.vpnHideRead
 import com.xinsu.moe.ui.util.vpnHideSave
+import com.xinsu.moe.ui.util.vpnPortsRead
+import com.xinsu.moe.ui.util.vpnPortsSave
 
 class FunctionsViewModel : ViewModel() {
 
@@ -54,6 +56,7 @@ class FunctionsViewModel : ViewModel() {
             val pathHide = runCatching { pathHideRead() }.getOrNull()
             val netIsolate = runCatching { netIsolateRead() }.getOrNull()
             val vpnHide = runCatching { vpnHideRead() }.getOrNull()
+            val vpnPorts = runCatching { vpnPortsRead() }.getOrDefault(false)
 
             _uiState.update {
                 it.copy(
@@ -71,6 +74,7 @@ class FunctionsViewModel : ViewModel() {
                     netIsolateUids = netIsolate?.uids ?: emptySet(),
                     vpnHideEnabled = vpnHide?.enabled ?: false,
                     vpnHideUids = vpnHide?.uids ?: emptySet(),
+                    vpnPortsEnabled = vpnPorts,
                 )
             }
         }
@@ -213,6 +217,13 @@ class FunctionsViewModel : ViewModel() {
         val state = _uiState.value
         viewModelScope.launch(Dispatchers.IO) {
             vpnHideSave(enabled, state.vpnHideUids)
+        }
+    }
+
+    fun setVpnPortsEnabled(enabled: Boolean) {
+        _uiState.update { it.copy(vpnPortsEnabled = enabled) }
+        viewModelScope.launch(Dispatchers.IO) {
+            vpnPortsSave(enabled)
         }
     }
 

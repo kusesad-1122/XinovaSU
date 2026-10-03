@@ -96,6 +96,87 @@ long __nocfi xnsu_hook_openat(int orig_nr, const struct pt_regs *regs)
     return xnsu_syscall_table[orig_nr](regs);
 }
 
+long __nocfi xnsu_hook_ioctl(int orig_nr, const struct pt_regs *regs)
+{
+    unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
+    unsigned int cmd = (unsigned int)PT_REGS_PARM2(regs);
+    void __user *arg = (void __user *)PT_REGS_PARM3(regs);
+    long ret;
+
+    if (!xnsu_vpn_hide_should_filter_ioctl())
+        return xnsu_syscall_table[orig_nr](regs);
+
+    // Pre-block: SIOCGIF* queries naming a tunnel return ENODEV without
+    // running the real ioctl (no timing side channel).
+    if (xnsu_vpn_hide_ioctl_pre(cmd, arg))
+        return -ENODEV;
+
+    ret = xnsu_syscall_table[orig_nr](regs);
+    if (ret < 0)
+        return ret;
+    // Post: SIOCGIFNAME / SIOCGIFCONF outputs still carry interface names.
+    return xnsu_vpn_hide_ioctl_post(cmd, arg, ret);
+}
+
+long __nocfi xnsu_hook_read(int orig_nr, const struct pt_regs *regs)
+{
+    unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
+    void __user *buf = (void __user *)PT_REGS_PARM2(regs);
+    long ret;
+
+    if (!xnsu_vpn_hide_should_filter_read())
+        return xnsu_syscall_table[orig_nr](regs);
+
+    // Single-pass like recvmsg: run the real read, then drop VPN-naming lines
+    // when the fd is a /proc/net interface table.
+    ret = xnsu_syscall_table[orig_nr](regs);
+    if (ret <= 0)
+        return ret;
+    return xnsu_vpn_hide_filter_read(fd, buf, ret);
+}
+
+long __nocfi xnsu_hook_setsockopt(int orig_nr, const struct pt_regs *regs)
+{
+    unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
+    int level = (int)PT_REGS_PARM2(regs);
+    int optname = (int)PT_REGS_PARM3(regs);
+    void __user *optval = (void __user *)PT_REGS_PARM4(regs);
+    int optlen = (int)PT_REGS_PARM5(regs);
+    int block;
+
+    if (!xnsu_vpn_hide_should_filter_sockopt())
+        return xnsu_syscall_table[orig_nr](regs);
+
+    // Pre-block: SO_BINDTODEVICE naming a tunnel returns EPERM without
+    // reaching the real setsockopt.
+    block = xnsu_vpn_hide_filter_setsockopt(fd, level, optname, optval, optlen);
+    if (block)
+        return block;
+
+    return xnsu_syscall_table[orig_nr](regs);
+}
+
+long __nocfi xnsu_hook_connect(int orig_nr, const struct pt_regs *regs)
+{
+    unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
+    void __user *addr = (void __user *)PT_REGS_PARM2(regs);
+    int addrlen = (int)PT_REGS_PARM3(regs);
+    int block;
+
+    (void)fd;
+
+    if (!xnsu_vpn_ports_should_block_connect())
+        return xnsu_syscall_table[orig_nr](regs);
+
+    // Ports layer: loopback connect() for a target app is refused before it
+    // reaches the socket layer.
+    block = xnsu_vpn_ports_filter_connect(addr, addrlen);
+    if (block)
+        return block;
+
+    return xnsu_syscall_table[orig_nr](regs);
+}
+
 long __nocfi xnsu_hook_getdents64(int orig_nr, const struct pt_regs *regs)
 {
     unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
