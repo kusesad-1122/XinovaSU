@@ -86,7 +86,13 @@ fun KyantLiquidGlassCard(
 ) {
     val isDark = containerColor.luminance() < 0.5f
     val scrimAlpha = if (isDark) LiquidGlassSpec.DarkScrimAlpha else LiquidGlassSpec.LightScrimAlpha
-    val highlightBase = if (isDark) Highlight.GlassStrokeMiddleDark else Highlight.GlassStrokeMiddleLight
+    // 注意预设名的来源差异：GlassStroke* 是 miuix-blur 的 Highlight 预设，
+    // 真库 io.github.kyant0:backdrop 只有 Default / Ambient / Plain（见其 Highlight.kt）。
+    // 厚度与透明度按 LiquidGlassSpec 统一，深色模式压低一档 alpha 避免边缘过亮。
+    val highlight = Highlight.Default.copy(
+        width = LiquidGlassSpec.HighlightWidth,
+        alpha = if (isDark) 0.8f else 1f,
+    )
 
     Box(
         modifier = modifier
@@ -126,7 +132,7 @@ fun KyantLiquidGlassCard(
                         }
                     }
                 },
-                highlight = { highlightBase.copy(width = LiquidGlassSpec.HighlightWidth) },
+                highlight = { highlight },
                 onDrawSurface = { drawRect(containerColor.copy(alpha = scrimAlpha)) },
             ),
     ) {

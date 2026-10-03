@@ -47,8 +47,10 @@ import top.yukonga.miuix.kmp.utils.PressFeedbackType
 // to use.
 @Composable
 private fun glassCardStyle(cornerRadius: Dp, resolvedContainer: Color): Pair<Modifier, Color> {
-    val glassBackdrop = if (LocalGlassCard.current) LocalCardBackdrop.current else null
-        ?: return Modifier to resolvedContainer
+    if (!LocalGlassCard.current) return Modifier to resolvedContainer
+    // 注意：不能写成 `if (c) X else null ?: return` —— elvis 只绑定到 else 分支的 null 上，
+    // 整体类型仍是 X? ，会让后面的 drawBackdrop/textureBlur 拿到可空值。
+    val glassBackdrop = LocalCardBackdrop.current ?: return Modifier to resolvedContainer
 
     val shape = RoundedCornerShape(cornerRadius)
     val density = LocalDensity.current
