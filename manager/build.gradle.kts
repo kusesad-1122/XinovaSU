@@ -13,6 +13,23 @@ val androidBuildToolsVersion by extra("37.0.0")
 val androidCompileNdkVersion: String by extra(libs.versions.ndk.get())
 val androidSourceCompatibility by extra(JavaVersion.VERSION_21)
 val androidTargetCompatibility by extra(JavaVersion.VERSION_21)
+// ── versionCode 必须与 kernel/Kbuild 的 XNSU_VERSION 保持一致 ──────────────
+//
+// 两者都要满足 Natives.kt 的硬门槛：
+//     const val MINIMAL_SUPPORTED_KERNEL = 32377
+// 低于它管理器就拒绝工作。KERNEL_SU_VERSION 走
+// `kernel/include/xnsu.h: #define KERNEL_SU_VERSION XNSU_VERSION`，
+// 所以这个公式在 Kbuild 与这里必须逐位相同（Kbuild: XNSU_VERSION_BASE := 33000）。
+//
+// ⚠️ versionCodeBase 必须声明在下方 managerVersionCode 的调用点之前：
+//    Gradle Kotlin DSL 的顶层 val 按声明顺序初始化，函数 getVersionCode()
+//    虽然声明在后但调用在前没问题（JVM 方法提升），可它引用的 val 若声明
+//    在调用点之后，执行时会读到 Int 默认值 0 —— 实测把 versionCode 算成
+//    37（0+37），导致管理器与驱动版本永远对不上、首页常驻"不匹配"黄条。
+//    原始写法 `return 30000 + commitCount` 是字面量，没这个坑，是本轮
+//    把字面量提取成 val 时引入的。
+private val versionCodeBase = 33000
+
 val managerVersionCode by extra(getVersionCode())
 val managerVersionName by extra(getVersionName())
 
@@ -48,12 +65,6 @@ fun getGitDescribe(): String {
 // 现在固定基数为 33000：既高于 32377 门槛，也给后续 commit 留出余量
 // （要攒 2377 个 commit 才会掉回门槛以下，实际不可能触及）。
 // major 位保留 3（对应 v3.x），便于将来升 v4 时自然进位到 40000+。
-//
-// 注意：Gradle Kotlin DSL 里**不能用 `const val`** —— 脚本编译报
-// "Const 'val' is only allowed on top level, in named objects, or in
-// companion objects"，因为这里实际在一个 script class 内。用普通 val。
-private val versionCodeBase = 33000
-
 fun getVersionCode(): Int {
     return versionCodeBase + getGitCommitCount()
 }

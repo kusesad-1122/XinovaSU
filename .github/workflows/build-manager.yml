@@ -461,6 +461,29 @@ jobs:
               fi
             done
 
+            # ── 终极断言 2：release APK 的**实际 versionCode**（aapt 读成品）──
+            # 上一轮的教训：源码级断言 grep 到 33000 算出 33036，而成品 APK
+            # 实际是 37（Gradle DSL 的 val 前向引用读到 0）—— 源码推算
+            # 与产物可以完全脱节。这里直接读 APK 的 manifest，与 LKM 版本
+            # （内核将上报的值）逐字符比对，不等就 fail。
+            if [ -f version/version.txt ] && [ -n "$(ls dist/*-release.apk 2>/dev/null)" ]; then
+              KO_VER=$(grep -oE "XinovaSU version: [0-9]+" version/version.txt | grep -oE "[0-9]+" | head -1)
+              APK=$(ls dist/*-release.apk 2>/dev/null | head -1)
+              AAPT=$(find "${ANDROID_HOME:-/usr/local/lib/android/sdk}/build-tools" \( -name aapt -o -name aapt2 \) -type f 2>/dev/null | sort | tail -1)
+              if [ -n "$AAPT" ] && [ -n "$KO_VER" ]; then
+                APK_VC=$("$AAPT" dump badging "$APK" 2>/dev/null | grep -oE "versionCode='[0-9]+'" | grep -oE "[0-9]+" | head -1)
+                echo "  APK 实际 versionCode: $APK_VC"
+                echo "  LKM 将上报版本:       $KO_VER"
+                [ "$APK_VC" = "$KO_VER" ] || {
+                  echo "::error::成品 APK versionCode($APK_VC) ≠ LKM 版本($KO_VER)"
+                  echo "::error::首页会常驻『版本不匹配』黄条 —— 检查 build.gradle.kts 的 getVersionCode()"
+                  exit 1
+                }
+                [ "$APK_VC" -ge 32377 ] || { echo "::error::versionCode $APK_VC < 32377"; exit 1; }
+                echo "  OK: 成品 versionCode 与 LKM 一致且过门槛"
+              fi
+            fi
+
             # ── 终极断言：release APK 的**真实签名证书**必须等于内核期望 ──
             # 之前所有断言都在验证「keystore 对不对」，没验证「APK 实际用
             # 它签了没有」—— apksign 插件读 Gradle 属性，属性没传到位时
