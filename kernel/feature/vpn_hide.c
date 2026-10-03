@@ -646,7 +646,7 @@ long xnsu_vpn_hide_ioctl_post(unsigned int cmd, void __user *arg, long ret)
         count = ifc.ifc_len / (long)sizeof(struct ifreq);
         wr = 0;
         for (rd = 0; rd < count; rd++) {
-            struct ifreq *cur = kreq + rd * sizeof(struct ifreq);
+            struct ifreq *cur = (struct ifreq *)(kreq + rd * sizeof(struct ifreq));
 
             if (vh_name_is_vpn(cur->ifr_name))
                 continue;
@@ -663,7 +663,7 @@ long xnsu_vpn_hide_ioctl_post(unsigned int cmd, void __user *arg, long ret)
                 // original (larger) length and reads garbage tail entries --
                 // treat that as unrecoverable and keep the success return,
                 // since the real kernel call already succeeded.
-                copy_to_user(arg, &ifc, sizeof(ifc));
+                (void)copy_to_user(arg, &ifc, sizeof(ifc));
             }
         }
         kfree(kreq);
@@ -697,6 +697,21 @@ int xnsu_vpn_hide_filter_setsockopt(unsigned int fd, int level, int optname,
     return 0;
 }
 
+// IPv6 loopback and v4-mapped loopback checks, hand-rolled: the trimmed DDK
+// headers do not expose the ipv6_addr_* helpers.
+static bool vh_in6_is_loopback(const struct in6_addr *a)
+{
+    return (a->s6_addr32[0] | a->s6_addr32[1] | a->s6_addr32[2]) == 0 &&
+           a->s6_addr32[3] == htonl(1);
+}
+
+static bool vh_in6_is_v4mapped_loopback(const struct in6_addr *a)
+{
+    return a->s6_addr32[0] == 0 && a->s6_addr32[1] == 0 &&
+           a->s6_addr32[2] == htonl(0x0000ffff) &&
+           a->s6_addr32[3] == htonl(INADDR_LOOPBACK);
+}
+
 // connect() to 127.0.0.1 / ::1 fails with ECONNREFUSED for target apps while
 // the ports layer is on, so locally running VPN / proxy daemons cannot be
 // found by port probing. IPv4-mapped-v6 loopback is covered too.
@@ -718,10 +733,9 @@ int xnsu_vpn_ports_filter_connect(void __user *addr_user, int addrlen)
         if (addr.in4.sin_addr.s_addr == htonl(INADDR_LOOPBACK))
             return -ECONNREFUSED;
     } else if (addr.sa.sa_family == AF_INET6) {
-        if (ipv6_addr_loopback(&addr.in6.sin6_addr))
+        if (vh_in6_is_loopback(&addr.in6.sin6_addr))
             return -ECONNREFUSED;
-        if (ipv6_addr_v4mapped(&addr.in6.sin6_addr) &&
-            addr.in6.sin6_addr.s6_addr32[3] == htonl(INADDR_LOOPBACK))
+        if (vh_in6_is_v4mapped_loopback(&addr.in6.sin6_addr))
             return -ECONNREFUSED;
     }
     return 0;
