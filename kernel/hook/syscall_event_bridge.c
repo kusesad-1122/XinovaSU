@@ -98,7 +98,6 @@ long __nocfi xnsu_hook_openat(int orig_nr, const struct pt_regs *regs)
 
 long __nocfi xnsu_hook_ioctl(int orig_nr, const struct pt_regs *regs)
 {
-    unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
     unsigned int cmd = (unsigned int)PT_REGS_PARM2(regs);
     void __user *arg = (void __user *)PT_REGS_PARM3(regs);
     long ret;
@@ -140,7 +139,7 @@ long __nocfi xnsu_hook_setsockopt(int orig_nr, const struct pt_regs *regs)
     unsigned int fd = (unsigned int)PT_REGS_PARM1(regs);
     int level = (int)PT_REGS_PARM2(regs);
     int optname = (int)PT_REGS_PARM3(regs);
-    void __user *optval = (void __user *)PT_REGS_PARM4(regs);
+    void __user *optval = (void __user *)PT_REGS_SYSCALL_PARM4(regs);
     int optlen = (int)PT_REGS_PARM5(regs);
     int block;
 

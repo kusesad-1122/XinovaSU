@@ -130,7 +130,7 @@ ifdef XNSU_GIT_VERSION_VALID
 XNSU_VERSION_BASE := 33000
 $(eval XNSU_VERSION=$(shell expr $(XNSU_VERSION_BASE) + $(XNSU_GIT_VERSION)))
 $(info -- XinovaSU version: $(XNSU_VERSION)  (must be >= 32377, see MINIMAL_SUPPORTED_KERNEL))
-ifeq ($(shell expr $(XNSU_VERSION) >= 32377),1)
+ifeq ($(shell test $(XNSU_VERSION) -ge 32377 && echo 1),1)
 else
 $(warning -- XinovaSU version $(XNSU_VERSION) is BELOW 32377; the manager will refuse to work!)
 endif
