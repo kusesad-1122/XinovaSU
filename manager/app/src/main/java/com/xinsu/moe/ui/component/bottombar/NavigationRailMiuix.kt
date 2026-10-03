@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.xinsu.moe.Natives
 import com.xinsu.moe.ui.LocalMainPagerState
 import com.xinsu.moe.ui.util.BlurredBar
+import com.xinsu.moe.ui.util.barLiquidGlassEnabled
 import com.xinsu.moe.ui.util.rootAvailable
 import top.yukonga.miuix.kmp.basic.NavigationRail
 import top.yukonga.miuix.kmp.basic.NavigationRailItem
@@ -32,7 +33,7 @@ fun NavigationRailMiuix(
         Pair(stringResource(destination.label), destination.icon)
     }
 
-    BlurredBar(blurBackdrop) {
+    BlurredBar(blurBackdrop, liquidGlass = barLiquidGlassEnabled()) {
         NavigationRail(
             modifier = modifier
                 .fillMaxHeight(),

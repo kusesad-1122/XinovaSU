@@ -120,6 +120,11 @@ class SettingsRepositoryImpl : SettingsRepository {
         get() = prefs.getBoolean("enable_floating_bottom_bar_blur", false)
         set(value) = prefs.edit { putBoolean("enable_floating_bottom_bar_blur", value) }
 
+    // 顶栏液态玻璃：独立开关，避免顶栏与下方滚动的卡片采样同一 backdrop 时出现叠糊接缝。
+    override var enableTopBarGlass: Boolean
+        get() = prefs.getBoolean("enable_top_bar_glass", false)
+        set(value) = prefs.edit { putBoolean("enable_top_bar_glass", value) }
+
     override var pageScale: Float
         get() = prefs.getFloat("page_scale", 1.0f)
         set(value) = prefs.edit { putFloat("page_scale", value) }

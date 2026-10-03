@@ -141,7 +141,9 @@ half4 main(float2 coord) {
 }
 """
 
-private const val ROUNDED_RECT_REFRACTION_WITH_DISPERSION_SHADER = """
+// internal 而非 private：KyantLiquidGlassCard 走 io.github.kyant0:backdrop 的
+// runtimeShaderEffect 注入同一份 shader，保证两个引擎的色散强度都是 LiquidGlassSpec.Dispersion。
+internal const val ROUNDED_RECT_REFRACTION_WITH_DISPERSION_SHADER = """
 uniform shader content;
 
 uniform float2 size;

@@ -318,7 +318,7 @@
     <string name="background_style_image">Custom image</string>
     <string name="background_style_stage">Scene (cinematic)</string>
     <string name="settings_glass_cards">Glass cards</string>
-    <string name="settings_glass_cards_summary">Frost the home cards so the background shows through, like the bottom bar. Needs blur on; real blur is Miuix-only (Material uses a translucent look).</string>
+    <string name="settings_glass_cards_summary">Turn cards across the whole app into liquid glass so the background shows through — home, superuser, modules, the settings module and every detail page opened from settings. Needs blur on; refraction and dispersion need Android 13+ (older versions fall back to frosted), and Material mode still uses a translucent look.</string>
     <string name="settings_home_card_layout">Home card layout</string>
     <string name="settings_home_card_layout_summary">Long-press the handle to reorder, tap the shape chip to change corners.</string>
     <string name="home_card_status">Status</string>
@@ -393,7 +393,9 @@
     <string name="settings_floating_bottom_bar">Floating bottom bar</string>
     <string name="settings_floating_bottom_bar_summary">Use Apple style floating bottom bar.</string>
     <string name="settings_enable_glass">Liquid glass</string>
-    <string name="settings_enable_glass_summary">Enable liquid glass effect for floating bottom bar.</string>
+    <string name="settings_enable_glass_summary">Apply liquid glass to every page: cards, floating bottom bar and navigation bar share one material (blur 22dp / dispersion 0.02 / 1.2dp edge highlight / press scale).</string>
+    <string name="settings_enable_top_bar_glass">Liquid glass top bar</string>
+    <string name="settings_enable_top_bar_glass_summary">Also give the top bar the liquid glass material. The top bar samples the same background as the cards scrolling underneath, so if that reads as a double-frosted seam or costs frames, switch this off without affecting the cards.</string>
     <string name="show_only_primary_user_apps">Show only primary user apps</string>
     <string name="settings_auto_jailbreak">Auto jailbreak</string>
     <string name="settings_auto_jailbreak_summary">Automatically use Magica to escalate privileges when Permissive SELinux is detected at boot. Requires granting autostart permission to this app.</string>

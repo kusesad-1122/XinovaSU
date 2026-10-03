@@ -46,6 +46,7 @@ class SettingsViewModel(
             val enableBlur = repo.enableBlur
             val enableFloatingBottomBar = repo.enableFloatingBottomBar
             val enableFloatingBottomBarBlur = repo.enableFloatingBottomBarBlur
+            val enableTopBarGlass = repo.enableTopBarGlass
             val pageScale = repo.pageScale
             val enableWebDebugging = repo.enableWebDebugging
             val colorStyle = repo.colorStyle
@@ -96,6 +97,7 @@ class SettingsViewModel(
                     enableBlur = enableBlur,
                     enableFloatingBottomBar = enableFloatingBottomBar,
                     enableFloatingBottomBarBlur = enableFloatingBottomBarBlur,
+                    enableTopBarGlass = enableTopBarGlass,
                     pageScale = pageScale,
                     enableWebDebugging = enableWebDebugging,
                     colorStyle = colorStyle,
@@ -367,6 +369,11 @@ class SettingsViewModel(
     fun setEnableFloatingBottomBarBlur(enabled: Boolean) {
         repo.enableFloatingBottomBarBlur = enabled
         _uiState.update { it.copy(enableFloatingBottomBarBlur = enabled) }
+    }
+
+    fun setEnableTopBarGlass(enabled: Boolean) {
+        repo.enableTopBarGlass = enabled
+        _uiState.update { it.copy(enableTopBarGlass = enabled) }
     }
 
     fun setPageScale(scale: Float) {

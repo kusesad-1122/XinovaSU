@@ -53,6 +53,7 @@ class MainActivityViewModel(
             enableBlur = settingRepo.enableBlur,
             enableFloatingBottomBar = settingRepo.enableFloatingBottomBar,
             enableFloatingBottomBarBlur = settingRepo.enableFloatingBottomBarBlur,
+            enableTopBarGlass = settingRepo.enableTopBarGlass,
             backgroundStyle = BackgroundStyle.fromName(settingRepo.backgroundStyle),
             backgroundImageUri = settingRepo.backgroundImageUri,
             backgroundImageAlpha = settingRepo.backgroundImageAlpha,
@@ -90,6 +91,7 @@ class MainActivityViewModel(
             "enable_blur",
             "enable_floating_bottom_bar",
             "enable_floating_bottom_bar_blur",
+            "enable_top_bar_glass",
             "ui_mode",
         )
     }

@@ -290,7 +290,7 @@
     <string name="background_style_image">自定义图片</string>
     <string name="background_style_stage">场景（电影感）</string>
     <string name="settings_glass_cards">玻璃卡片</string>
-    <string name="settings_glass_cards_summary">让首页卡片变成毛玻璃、透出背景，和底栏一个质感。需先开启模糊；真模糊仅 Miuix 端有（Material 端用半透明近似）。</string>
+    <string name="settings_glass_cards_summary">让全应用卡片变成液态玻璃、透出背景：首页、超级用户主页、模块、设置模块以及从设置点进去的所有子页面一并生效，和底栏一个质感。需先开启模糊；折射与色散需 Android 13+（低版本自动退为毛玻璃），Material 端仍用半透明近似。</string>
     <string name="settings_home_card_layout">首页卡片布局</string>
     <string name="settings_home_card_layout_summary">长按手柄拖动排序，点右侧形状标签切换圆角。</string>
     <string name="home_card_status">状态</string>
@@ -368,7 +368,9 @@
     <string name="settings_floating_bottom_bar">悬浮底栏</string>
     <string name="settings_floating_bottom_bar_summary">使用 Apple 风格的悬浮底栏</string>
     <string name="settings_enable_glass">液态玻璃</string>
-    <string name="settings_enable_glass_summary">启用悬浮底栏的液态玻璃效果</string>
+    <string name="settings_enable_glass_summary">把液态玻璃应用到所有页面：卡片、悬浮底栏与导航栏统一材质（模糊 22dp / 色散 0.02 / 1.2dp 边缘高光 / 按压缩放）。</string>
+    <string name="settings_enable_top_bar_glass">顶栏液态玻璃</string>
+    <string name="settings_enable_top_bar_glass_summary">让顶栏也使用液态玻璃材质。顶栏与下方滚动的卡片会采样同一片背景，若出现叠糊接缝或掉帧，可单独关掉这一项而不影响卡片。</string>
     <string name="show_only_primary_user_apps">只显示主用户应用</string>
     <string name="settings_auto_jailbreak">自动越狱</string>
     <string name="settings_auto_jailbreak_summary">开机检测到 Permissive SELinux 时自动使用 Magica 提权。需要授予本应用自启动权限。</string>

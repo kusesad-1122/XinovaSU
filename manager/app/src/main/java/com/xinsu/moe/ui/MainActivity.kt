@@ -104,6 +104,9 @@ import com.xinsu.moe.ui.theme.LocalCardImageAlign
 import com.xinsu.moe.ui.theme.LocalCardOpacity
 import com.xinsu.moe.ui.theme.LocalCardBackdrop
 import com.xinsu.moe.ui.theme.LocalGlassCardsSetting
+import com.xinsu.moe.ui.theme.LocalGlassCard
+import com.xinsu.moe.ui.theme.LocalLiquidGlassSetting
+import com.xinsu.moe.ui.theme.LocalTopBarGlassSetting
 import com.xinsu.moe.ui.theme.LocalHomeCardOrder
 import com.xinsu.moe.ui.theme.LocalHomeCardShapes
 import com.xinsu.moe.ui.theme.LocalColorMode
@@ -205,6 +208,13 @@ class MainActivity : ComponentActivity() {
                 LocalHomeCardOrder provides uiState.homeCardOrder,
                 LocalHomeCardShapes provides uiState.homeCardShapes,
                 LocalGlassCardsSetting provides uiState.cardsGlass,
+                // 玻璃卡片由"仅首页"扩到全应用：所有路由（四个主页 + 设置模块 + 超级用户主页 +
+                // 设置里点进去的任何子页面）都拿同一个材质，LocalCardBackdrop 本身已是全路由提供。
+                LocalGlassCard provides uiState.cardsGlass,
+                // 液态玻璃：折射 + 色散 + 边缘高光的完整材质，驱动底栏与所有玻璃卡片。
+                LocalLiquidGlassSetting provides uiState.enableFloatingBottomBarBlur,
+                // 顶栏材质单独开关，避免与下方滚动的卡片采样同一 backdrop 时出现叠糊接缝。
+                LocalTopBarGlassSetting provides uiState.enableTopBarGlass,
                 LocalEnableBlur provides uiState.enableBlur,
                 LocalEnableFloatingBottomBar provides uiState.enableFloatingBottomBar,
                 LocalEnableFloatingBottomBarBlur provides uiState.enableFloatingBottomBarBlur,

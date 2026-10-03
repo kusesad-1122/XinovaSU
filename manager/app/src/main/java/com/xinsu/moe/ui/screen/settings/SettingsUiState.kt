@@ -33,6 +33,7 @@ data class SettingsUiState(
     val enableBlur: Boolean = true,
     val enableFloatingBottomBar: Boolean = false,
     val enableFloatingBottomBarBlur: Boolean = false,
+    val enableTopBarGlass: Boolean = false,
     val pageScale: Float = 1.0f,
     val enableWebDebugging: Boolean = false,
 

@@ -631,7 +631,10 @@ fun ColorPaletteScreenMiuix(
                                 actions.onSetEnableFloatingBottomBar(it)
                             }
                         )
-                        AnimatedVisibility(visible = uiState.enableFloatingBottomBar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        // 液态玻璃已从"仅悬浮底栏"扩到全应用：所有页面的玻璃卡片与底栏共用
+                        // 同一套折射/色散/高光材质，因此不再要求先开启悬浮底栏。
+                        // AGSL 折射需 API 33+，低版本由卡片侧自动退回毛玻璃档。
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                             EnergyMiuixSwitchPreference(
                                 title = stringResource(id = R.string.settings_enable_glass),
                                 summary = stringResource(id = R.string.settings_enable_glass_summary),
@@ -646,6 +649,24 @@ fun ColorPaletteScreenMiuix(
                                 checked = uiState.enableFloatingBottomBarBlur,
                                 onCheckedChange = {
                                     actions.onSetEnableFloatingBottomBarBlur(it)
+                                }
+                            )
+                            // 顶栏独立开关：顶栏与下方滚动的卡片会采样同一个 backdrop，
+                            // 部分布局下会读成一道叠糊接缝，所以给它单独的开关。
+                            EnergyMiuixSwitchPreference(
+                                title = stringResource(id = R.string.settings_enable_top_bar_glass),
+                                summary = stringResource(id = R.string.settings_enable_top_bar_glass_summary),
+                                startAction = {
+                                    Icon(
+                                        Icons.Rounded.CallToAction,
+                                        modifier = Modifier.padding(end = 6.dp),
+                                        contentDescription = stringResource(id = R.string.settings_enable_top_bar_glass),
+                                        tint = colorScheme.onBackground
+                                    )
+                                },
+                                checked = uiState.enableTopBarGlass,
+                                onCheckedChange = {
+                                    actions.onSetEnableTopBarGlass(it)
                                 }
                             )
                         }

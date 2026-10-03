@@ -180,9 +180,23 @@ val LocalCardBackdrop = compositionLocalOf<LayerBackdrop?> { null }
 // App-wide setting: whether the user turned on frosted "glass cards".
 val LocalGlassCardsSetting = staticCompositionLocalOf { false }
 
-// Scoped flag the card wrappers actually read — provided true only around the home dashboard cards
-// so glass stays off for the rest of the app even when the setting is on.
+// Scoped flag the card wrappers actually read. Provided app-wide from MainActivity (alongside
+// LocalCardBackdrop) so every route — the four main pages, the settings module, the superuser
+// dashboard and every detail screen pushed from settings — renders the same card material.
+// It stays a separate local from LocalGlassCardsSetting so a single subtree can still opt out.
 val LocalGlassCard = compositionLocalOf { false }
+
+// App-wide setting: the "liquid glass" tier (refraction + dispersion + edge highlight + press
+// feedback) on top of the frosted tier. Drives the floating bottom bar and, since this change,
+// every glass card in the app. Requires API 33+ for the AGSL refraction pass; below that the
+// callers fall back to the frosted tier.
+val LocalLiquidGlassSetting = staticCompositionLocalOf { false }
+
+// App-wide setting: whether the Miuix top app bar participates in the liquid-glass material.
+// Kept separate from LocalLiquidGlassSetting because a glass top bar samples the same backdrop as
+// the cards scrolling underneath it; on some layouts that reads as a double-frosted seam, so users
+// get an independent switch.
+val LocalTopBarGlassSetting = staticCompositionLocalOf { false }
 
 val LocalEnableBlur = staticCompositionLocalOf { false }
 

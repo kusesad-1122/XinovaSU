@@ -31,6 +31,7 @@ import com.xinsu.moe.ui.component.FloatingBottomBarItem
 import com.xinsu.moe.ui.theme.LocalEnableFloatingBottomBar
 import com.xinsu.moe.ui.theme.LocalEnableFloatingBottomBarBlur
 import com.xinsu.moe.ui.util.BlurredBar
+import com.xinsu.moe.ui.util.barLiquidGlassEnabled
 import com.xinsu.moe.ui.util.rootAvailable
 import top.yukonga.miuix.kmp.basic.Icon
 import top.yukonga.miuix.kmp.basic.NavigationBar
@@ -61,7 +62,7 @@ fun BottomBarMiuix(
         )
     }
     if (!enableFloatingBottomBar) {
-        BlurredBar(blurBackdrop) {
+        BlurredBar(blurBackdrop, liquidGlass = barLiquidGlassEnabled()) {
             NavigationBar(
                 modifier = modifier,
                 color = if (blurBackdrop != null) Color.Transparent else MiuixTheme.colorScheme.surface,

@@ -81,6 +81,7 @@ fun ColorPaletteScreen() {
         onSetEnableBlur = viewModel::setEnableBlur,
         onSetEnableFloatingBottomBar = viewModel::setEnableFloatingBottomBar,
         onSetEnableFloatingBottomBarBlur = viewModel::setEnableFloatingBottomBarBlur,
+        onSetEnableTopBarGlass = viewModel::setEnableTopBarGlass,
         onSetEnablePredictiveBack = {
             viewModel.setEnablePredictiveBack(it)
             XinovaSUApplication.setEnableOnBackInvokedCallback(context.applicationInfo, it)

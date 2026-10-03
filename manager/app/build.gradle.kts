@@ -279,6 +279,10 @@ dependencies {
     implementation(libs.miuix.preference)
     implementation(libs.miuix.blur)
 
+    // 液态玻璃：Kyant0/AndroidLiquidGlass（Maven Central 上名为 backdrop）。
+    // 与 miuix-blur 同源，共用 LiquidGlassSpec 视觉规格。
+    implementation(libs.kyant.backdrop)
+
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okhttp)
 

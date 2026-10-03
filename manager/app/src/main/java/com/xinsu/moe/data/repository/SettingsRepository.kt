@@ -25,6 +25,7 @@ interface SettingsRepository {
     var enableBlur: Boolean
     var enableFloatingBottomBar: Boolean
     var enableFloatingBottomBarBlur: Boolean
+    var enableTopBarGlass: Boolean
     var pageScale: Float
     var enableWebDebugging: Boolean
     var autoJailbreak: Boolean

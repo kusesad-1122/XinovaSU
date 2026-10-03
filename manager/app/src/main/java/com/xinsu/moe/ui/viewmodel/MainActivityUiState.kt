@@ -14,6 +14,7 @@ data class MainActivityUiState(
     val enableBlur: Boolean,
     val enableFloatingBottomBar: Boolean,
     val enableFloatingBottomBarBlur: Boolean,
+    val enableTopBarGlass: Boolean,
     val backgroundStyle: BackgroundStyle,
     val backgroundImageUri: String,
     val backgroundImageAlpha: Int,

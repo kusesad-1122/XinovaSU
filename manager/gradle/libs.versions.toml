@@ -27,6 +27,20 @@ apksign = "1.4"
 #   NavigationRail                   mode -> state（项目未用 mode，兼容）
 #   NavigationRailItem               末尾追加 badge（具名调用不受影响）
 miuix = "0.9.3"
+
+# Kyant0 的液态玻璃库（仓库名 AndroidLiquidGlass，2.x 起改称 Backdrop）。
+# 发布在 Maven Central：io.github.kyant0:backdrop，带 Gradle metadata，
+# Android 变体由 Gradle 自动选择（backdrop-android）。
+# AAR 内 minSdkVersion=21，与本项目 minSdk 31 兼容。
+# 注意：模糊(BlurEffect)需 API 31+，折射/色散(AGSL RuntimeShader)需 API 33+，
+#      库内部用 isRenderEffectSupported()/isRuntimeShaderSupported() 自行降级。
+#
+# 本项目同时保留了 miuix-blur 侧的同源实现（ui/component/liquid/ 下的
+# lens/InnerShadow/vibrancy，文件头标注 Adapted from Kyant0/AndroidLiquidGlass）。
+# 二者共用同一套视觉规格（LiquidGlassSpec），同一时刻只启用一个引擎，
+# 避免重复图层捕获导致滚动掉帧。
+kyantBackdrop = "2.0.1"
+
 okhttp = "5.3.2"
 hiddenapibypass = "6.1"
 appiconloader = "1.5.0"
@@ -89,6 +103,8 @@ miuix-icons = { module = "top.yukonga.miuix.kmp:miuix-icons-android", version.re
 miuix-navigation3-ui = { module = "top.yukonga.miuix.kmp:miuix-navigation3-ui-android", version.ref = "miuix" }
 miuix-preference = { module = "top.yukonga.miuix.kmp:miuix-preference-android", version.ref = "miuix" }
 miuix-blur = { module = "top.yukonga.miuix.kmp:miuix-blur-android", version.ref = "miuix" }
+
+kyant-backdrop = { module = "io.github.kyant0:backdrop", version.ref = "kyantBackdrop" }
 
 okhttp = { module = "com.squareup.okhttp3:okhttp" }
 okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttp" }
