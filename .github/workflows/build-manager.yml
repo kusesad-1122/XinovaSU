@@ -170,6 +170,12 @@ jobs:
       # 这类故障编译全绿、模块与 su 也全正常，只有管理器显示"未安装"，
       # 断言语义化才拦得住。历史上就是这样发出了 30028 < 32377 的版本。
       - name: Assert versionCode consistency
+        # 证书指纹校验也要读 Secrets（本步骤在 Prepare release keystore 之前）
+        env:
+          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           set -euo pipefail
           MIN=32377
@@ -228,6 +234,13 @@ jobs:
       - name: Prepare release keystore
         id: signing
         shell: bash
+        # ⚠️ Secrets 不会自动暴露为环境变量 —— 必须显式映射。
+        # 上一版漏了这段，导致 Secrets 配了也全空、始终走 debug 签名分支。
+        env:
+          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           set -uo pipefail
           MISSING=()
