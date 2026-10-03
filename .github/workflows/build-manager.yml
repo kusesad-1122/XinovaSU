@@ -253,11 +253,6 @@ jobs:
             echo "::warning::未配置签名 Secrets（${MISSING[*]}）"
             echo "::warning::release APK 将使用 runner 的 debug keystore 签名"
             echo "::warning::该包**无法覆盖安装**已发布版本，仅供临时测试"
-            # 显式落一个空文件，让 apksign 插件知道「没有正式签名」而不是误读环境
-            echo "KEYSTORE_FILE=" >> "$GITHUB_ENV"
-            echo "KEYSTORE_PASSWORD=" >> "$GITHUB_ENV"
-            echo "KEY_ALIAS=" >> "$GITHUB_ENV"
-            echo "KEY_PASSWORD=" >> "$GITHUB_ENV"
             exit 0
           fi
 
@@ -271,13 +266,18 @@ jobs:
             || { echo "::error::keystore 无法用 KEY_ALIAS/KEYSTORE_PASSWORD 打开"; exit 1; }
           echo "  alias '$KEY_ALIAS' 校验通过"
 
+          # ⚠️ 关键：apksign 插件读的是 **Gradle 项目属性**（findProperty），
+          # 普通环境变量 Gradle 根本看不到。Gradle 的约定是
+          # ORG_GRADLE_PROJECT_<name> 形式的环境变量会映射为项目属性 <name>。
+          # 之前这里写的是普通 KEYSTORE_FILE，导致「keystore 解码成功、
+          # 断言通过，但 Gradle 实际仍用 debug 签名」—— 极难排查。
           {
-            echo "KEYSTORE_FILE=$RUNNER_TEMP/ks/release.jks"
-            echo "KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
-            echo "KEY_ALIAS=$KEY_ALIAS"
-            echo "KEY_PASSWORD=$KEY_PASSWORD"
+            echo "ORG_GRADLE_PROJECT_KEYSTORE_FILE=$RUNNER_TEMP/ks/release.jks"
+            echo "ORG_GRADLE_PROJECT_KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+            echo "ORG_GRADLE_PROJECT_KEY_ALIAS=$KEY_ALIAS"
+            echo "ORG_GRADLE_PROJECT_KEY_PASSWORD=$KEY_PASSWORD"
           } >> "$GITHUB_ENV"
-          echo "  已注入签名环境变量"
+          echo "  已注入 Gradle 项目属性（ORG_GRADLE_PROJECT_*）"
 
       - name: Report signing identity
         shell: bash
@@ -460,6 +460,35 @@ jobs:
                 exit 1
               fi
             done
+
+            # ── 终极断言：release APK 的**真实签名证书**必须等于内核期望 ──
+            # 之前所有断言都在验证「keystore 对不对」，没验证「APK 实际用
+            # 它签了没有」—— apksign 插件读 Gradle 属性，属性没传到位时
+            # 它静默回退 debug 签名，而前面每一步都是绿的。
+            # 这里用 apksigner 从成品 APK 提取证书比对（keytool -jarfile
+            # 只认 v1 签名，我们的 APK 是 v2，不能用）。
+            KB_HASH=$(grep -oE 'XNSU_EXPECTED_HASH := [0-9a-f]{64}' kernel/Kbuild | cut -d' ' -f3)
+            APK=$(ls dist/*-release.apk 2>/dev/null | head -1)
+            if [ -n "$APK" ] && [ -n "$KB_HASH" ]; then
+              APKSIGNER=$(find "${ANDROID_HOME:-/usr/local/lib/android/sdk}/build-tools" -name apksigner -type f 2>/dev/null | sort | tail -1)
+              if [ -z "$APKSIGNER" ]; then
+                echo "::error::runner 上找不到 apksigner，无法校验 APK 签名"
+                exit 1
+              fi
+              APK_HASH=$("$APKSIGNER" verify --print-certs "$APK" 2>/dev/null \
+                | grep -m1 -E 'certificate SHA-256 digest' | grep -oE '[0-9a-f]{64}')
+              echo "  APK 实际签名: $APK_HASH"
+              echo "  内核期望:     $KB_HASH"
+              if [ "$APK_HASH" != "$KB_HASH" ]; then
+                echo "::error::release APK 的签名证书与 kernel/Kbuild 的 XNSU_EXPECTED_HASH 不一致！"
+                echo "::error::该包刷入后管理器会显示『未安装』（内核按证书识别管理器）"
+                echo "::error::检查 ORG_GRADLE_PROJECT_KEYSTORE_* 是否真的传到了 Gradle"
+                exit 1
+              fi
+              echo "  OK: release APK 签名证书与内核期望一致"
+            else
+              echo "::warning::无 release APK 或内核期望为空，跳过签名校验"
+            fi
           fi
 
       - name: Upload APK
