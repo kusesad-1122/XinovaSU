@@ -1,4 +1,4 @@
-use crate::module::{handle_updated_modules, prune_modules};
+use crate::module::{ScriptWait, handle_updated_modules, prune_modules};
 use crate::utils::{is_safe_mode, switch_mnt_ns};
 use crate::{
     assets, defs, ksucalls, metamodule, restorecon,
@@ -10,10 +10,10 @@ use log::{info, warn};
 use prop_rs_android::resetprop::ResetProp;
 use prop_rs_android::sys_prop;
 use rustix::process::chdir;
-use std::path::Path;
+use std::{path::Path, time::Instant};
 use std::process::Command;
 
-pub fn on_post_data_fs() -> Result<()> {
+pub fn on_post_fs_data() -> Result<()> {
     ksucalls::report_post_fs_data();
 
     utils::umask(0);
@@ -23,9 +23,7 @@ pub fn on_post_data_fs() -> Result<()> {
         warn!("clear temp configs failed: {e}");
     }
 
-    #[cfg(unix)]
     let _ = catch_bootlog("logcat", &["logcat", "-b", "all"]);
-    #[cfg(unix)]
     let _ = catch_bootlog("dmesg", &["dmesg", "-w", "-r"]);
 
     if utils::has_magisk() {
@@ -34,6 +32,7 @@ pub fn on_post_data_fs() -> Result<()> {
     }
 
     let safe_mode = crate::utils::is_safe_mode();
+    let wait = ScriptWait::Until(Instant::now() + defs::BOOT_STAGE_TIMEOUT);
 
     if safe_mode {
         // we should still ensure module directory exists in safe mode
@@ -41,7 +40,7 @@ pub fn on_post_data_fs() -> Result<()> {
         warn!("safe mode, skip common post-fs-data.d scripts");
     } else {
         // Then exec common post-fs-data scripts
-        if let Err(e) = crate::module::exec_common_scripts("post-fs-data.d", true) {
+        if let Err(e) = crate::module::exec_common_scripts("post-fs-data.d", wait) {
             warn!("exec common post-fs-data scripts failed: {e}");
         }
     }
@@ -107,13 +106,12 @@ pub fn on_post_data_fs() -> Result<()> {
     crate::vpn_hide::apply_from_config();
 
     // execute metamodule post-fs-data script first (priority)
-    if let Err(e) = metamodule::exec_stage_script("post-fs-data", true) {
+    if let Err(e) = metamodule::exec_stage_script("post-fs-data", wait) {
         warn!("exec metamodule post-fs-data script failed: {e}");
     }
 
     // exec modules post-fs-data scripts
-    // TODO: Add timeout
-    if let Err(e) = crate::module::exec_stage_script("post-fs-data", true) {
+    if let Err(e) = crate::module::exec_stage_script("post-fs-data", wait) {
         warn!("exec post-fs-data scripts failed: {e}");
     }
 
@@ -135,7 +133,7 @@ pub fn on_post_data_fs() -> Result<()> {
         warn!("execute metamodule mount failed: {e}");
     }
 
-    run_stage("post-mount", true);
+    run_stage("post-mount", wait);
 
     // Apply the user-configured umount-service list. These paths join the same
     // kernel mount_list used for per-app module hiding, so they are unmounted
@@ -148,7 +146,7 @@ pub fn on_post_data_fs() -> Result<()> {
     Ok(())
 }
 
-pub fn run_stage(stage: &str, block: bool) {
+pub fn run_stage(stage: &str, wait: ScriptWait) {
     utils::umask(0);
 
     if utils::has_magisk() {
@@ -161,31 +159,31 @@ pub fn run_stage(stage: &str, block: bool) {
         return;
     }
 
-    if let Err(e) = crate::module::exec_common_scripts(&format!("{stage}.d"), block) {
+    if let Err(e) = crate::module::exec_common_scripts(&format!("{stage}.d"), wait) {
         warn!("Failed to exec common {stage} scripts: {e}");
     }
 
     // execute metamodule stage script first (priority)
-    if let Err(e) = metamodule::exec_stage_script(stage, block) {
+    if let Err(e) = metamodule::exec_stage_script(stage, wait) {
         warn!("Failed to exec metamodule {stage} script: {e}");
     }
 
     // execute regular modules stage scripts
-    if let Err(e) = crate::module::exec_stage_script(stage, block) {
+    if let Err(e) = crate::module::exec_stage_script(stage, wait) {
         warn!("Failed to exec {stage} scripts: {e}");
     }
 }
 
 pub fn on_services() {
     info!("on_services triggered!");
-    run_stage("service", false);
+    run_stage("service", ScriptWait::NoWait);
 }
 
 pub fn on_boot_completed() {
     ksucalls::report_boot_complete();
     info!("on_boot_completed triggered!");
 
-    run_stage("boot-completed", false);
+    run_stage("boot-completed", ScriptWait::NoWait);
 }
 
 const fn resetprop() -> ResetProp {
@@ -233,7 +231,7 @@ fn catch_bootlog(logname: &str, command: &[&str]) -> Result<()> {
 
     let bootlog = std::fs::File::create(bootlog)?;
 
-    let mut args = vec!["-s", "9", "30s"];
+    let mut args = vec!["-s", "9", defs::BOOTLOG_TIMEOUT];
     args.extend_from_slice(command);
     // timeout -s 9 30s logcat > boot.log
     let result = unsafe {
@@ -266,14 +264,17 @@ pub fn soft_reboot() -> Result<()> {
     if let Err(e) = reset_boot_completed() {
         warn!("reset boot completed failed: {e}");
     }
-    run_stage("emulated-soft-reboot", true);
+    run_stage(
+        "emulated-soft-reboot",
+        ScriptWait::Until(Instant::now() + defs::EMULATED_SOFT_REBOOT_TIMEOUT),
+    );
     info!("stop");
     let status = Command::new("stop").status().context("stop failed")?;
     if !status.success() {
         warn!("stop exited with status: {status}");
     }
     info!("post-fs-data");
-    on_post_data_fs()?;
+    on_post_fs_data()?;
     info!("start");
     let status = Command::new("start").status().context("start failed")?;
     if !status.success() {
