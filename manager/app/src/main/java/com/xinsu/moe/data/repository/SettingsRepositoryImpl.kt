@@ -12,6 +12,7 @@ import com.xinsu.moe.Natives
 import com.xinsu.moe.ksuApp
 import com.xinsu.moe.magica.BootCompletedReceiver
 import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
 import com.xinsu.moe.ui.theme.BackgroundStyle
 import com.xinsu.moe.ui.theme.KawaiiPalette
 import com.xinsu.moe.ui.util.execKsud
@@ -128,6 +129,10 @@ class SettingsRepositoryImpl : SettingsRepository {
     override var pageScale: Float
         get() = prefs.getFloat("page_scale", 1.0f)
         set(value) = prefs.edit { putFloat("page_scale", value) }
+
+    override var glassBlurRadius: Float
+        get() = prefs.getFloat("glass_blur_radius", LiquidGlassSpec.BlurRadius.value)
+        set(value) = prefs.edit { putFloat("glass_blur_radius", value) }
 
     override var enableWebDebugging: Boolean
         get() = prefs.getBoolean("enable_web_debugging", false)

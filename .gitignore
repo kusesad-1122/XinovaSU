@@ -7,6 +7,11 @@
 __pycache__
 /dist
 /.workbuddy/
+# 本地构建注入的预编译 userspace 守护进程（libxnsusd.so / *.ko）：
+# CI 在流水线里编出来后放进 jniLibs 再打包，仓库里本就没有这些二进制。
+# 本地为了能出完整包（否则 getKsuDaemonPath() 找不到二进制、内核功能开关全灰）
+# 也从 CI 包里提取一份放这里，属于构建产物，不入库。
+manager/app/src/main/jniLibs/
 /repack-config.json
 repack-config.json
 xinova_release.jks

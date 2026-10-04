@@ -17,6 +17,7 @@ import com.xinsu.moe.ui.component.liquid.liquidPressScale
 import com.xinsu.moe.ui.component.liquid.vibrancy
 import com.xinsu.moe.ui.theme.LocalCardBackdrop
 import com.xinsu.moe.ui.theme.LocalGlassCard
+import com.xinsu.moe.ui.theme.LocalGlassBlurRadius
 import com.xinsu.moe.ui.theme.LocalHomeCardCornerRadius
 import com.xinsu.moe.ui.theme.LocalLiquidGlassSetting
 import com.xinsu.moe.ui.theme.decoration.DecoratedCardRole
@@ -57,13 +58,15 @@ private fun glassCardStyle(cornerRadius: Dp, resolvedContainer: Color): Pair<Mod
     val isDark = resolvedContainer.luminance() < 0.5f
     val scrimAlpha = if (isDark) LiquidGlassSpec.DarkScrimAlpha else LiquidGlassSpec.LightScrimAlpha
     val scrim = resolvedContainer.copy(alpha = scrimAlpha)
+    // 模糊半径来自设置里的"毛玻璃模糊度"滑块（全应用同一个值）。
+    val blurRadiusDp = LocalGlassBlurRadius.current
 
     if (!LocalLiquidGlassSetting.current || !isRuntimeShaderSupported()) {
         return Modifier
             .textureBlur(
                 backdrop = glassBackdrop,
                 shape = shape,
-                blurRadius = with(density) { LiquidGlassSpec.BlurRadius.toPx() },
+                blurRadius = with(density) { blurRadiusDp.toPx() },
                 colors = BlurColors(
                     blendColors = listOf(BlendColorEntry(scrim)),
                 ),
@@ -71,7 +74,9 @@ private fun glassCardStyle(cornerRadius: Dp, resolvedContainer: Color): Pair<Mod
             .liquidPressScale() to Color.Transparent
     }
 
-    val highlightBase = if (isDark) Highlight.GlassStrokeMiddleDark else Highlight.GlassStrokeMiddleLight
+    // 高光预设取 miuix 里最强的一档（Small = 紧凑卡片，主光强度 0.6 / 次光 0.35），
+    // 之前用的 Middle 太弱（0.4 / 0.25），实测"看不出边缘高光"。
+    val highlightBase = if (isDark) Highlight.GlassStrokeSmallDark else Highlight.GlassStrokeSmallLight
     val highlight = highlightBase.copy(width = LiquidGlassSpec.HighlightWidth)
 
     val liquidGlass = Modifier.drawBackdrop(
@@ -79,7 +84,7 @@ private fun glassCardStyle(cornerRadius: Dp, resolvedContainer: Color): Pair<Mod
         shape = { shape },
         effects = {
             vibrancy()
-            val radius = LiquidGlassSpec.BlurRadius.toPx()
+            val radius = with(density) { blurRadiusDp.toPx() }
             blur(radius, radius)
             lens(
                 refractionHeight = LiquidGlassSpec.RefractionHeight.toPx(),

@@ -61,4 +61,5 @@ data class ColorPaletteScreenActions(
     val onSetEnableTopBarGlass: (Boolean) -> Unit,
     val onSetEnablePredictiveBack: (Boolean) -> Unit,
     val onSetPageScale: (Float) -> Unit,
+    val onSetGlassBlurRadius: (Float) -> Unit,
 )

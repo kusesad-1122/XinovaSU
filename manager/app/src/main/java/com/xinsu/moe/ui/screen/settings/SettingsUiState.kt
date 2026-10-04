@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import com.materialkolor.PaletteStyle
 import com.materialkolor.dynamiccolor.ColorSpec
 import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
 import com.xinsu.moe.ui.theme.BackgroundStyle
 import com.xinsu.moe.ui.theme.KawaiiPalette
 
@@ -35,6 +36,8 @@ data class SettingsUiState(
     val enableFloatingBottomBarBlur: Boolean = false,
     val enableTopBarGlass: Boolean = false,
     val pageScale: Float = 1.0f,
+    /** 毛玻璃模糊度（dp）。默认取 LiquidGlassSpec 的默认值，保证与内核/仓库一致。 */
+    val glassBlurRadius: Float = LiquidGlassSpec.BlurRadius.value,
     val enableWebDebugging: Boolean = false,
 
     // Su Compat

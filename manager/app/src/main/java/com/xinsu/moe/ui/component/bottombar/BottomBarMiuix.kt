@@ -62,7 +62,8 @@ fun BottomBarMiuix(
         )
     }
     if (!enableFloatingBottomBar) {
-        BlurredBar(blurBackdrop, liquidGlass = barLiquidGlassEnabled()) {
+        // useAppBackdrop = false：底栏浮在内容之上，要模糊的是滚过去的卡片而不是壁纸。
+        BlurredBar(blurBackdrop, liquidGlass = barLiquidGlassEnabled(), useAppBackdrop = false) {
             NavigationBar(
                 modifier = modifier,
                 color = if (blurBackdrop != null) Color.Transparent else MiuixTheme.colorScheme.surface,

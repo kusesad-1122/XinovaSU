@@ -18,6 +18,7 @@ import com.xinsu.moe.R
 import com.xinsu.moe.data.repository.SettingsRepository
 import com.xinsu.moe.data.repository.SettingsRepositoryImpl
 import com.xinsu.moe.ksuApp
+import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
 import com.xinsu.moe.ui.screen.settings.SettingsUiState
 import com.xinsu.moe.ui.theme.BuiltInThemes
 import com.xinsu.moe.ui.theme.ColorMode
@@ -48,6 +49,7 @@ class SettingsViewModel(
             val enableFloatingBottomBarBlur = repo.enableFloatingBottomBarBlur
             val enableTopBarGlass = repo.enableTopBarGlass
             val pageScale = repo.pageScale
+            val glassBlurRadius = repo.glassBlurRadius
             val enableWebDebugging = repo.enableWebDebugging
             val colorStyle = repo.colorStyle
             val colorSpec = repo.colorSpec
@@ -99,6 +101,7 @@ class SettingsViewModel(
                     enableFloatingBottomBarBlur = enableFloatingBottomBarBlur,
                     enableTopBarGlass = enableTopBarGlass,
                     pageScale = pageScale,
+                    glassBlurRadius = glassBlurRadius,
                     enableWebDebugging = enableWebDebugging,
                     colorStyle = colorStyle,
                     colorSpec = colorSpec,
@@ -379,6 +382,15 @@ class SettingsViewModel(
     fun setPageScale(scale: Float) {
         repo.pageScale = scale
         _uiState.update { it.copy(pageScale = scale) }
+    }
+
+    fun setGlassBlurRadius(radius: Float) {
+        val clamped = radius.coerceIn(
+            LiquidGlassSpec.MinBlurRadius.value,
+            LiquidGlassSpec.MaxBlurRadius.value,
+        )
+        repo.glassBlurRadius = clamped
+        _uiState.update { it.copy(glassBlurRadius = clamped) }
     }
 
     fun setEnableWebDebugging(enabled: Boolean) {

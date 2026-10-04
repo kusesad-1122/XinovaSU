@@ -100,6 +100,10 @@ import com.xinsu.moe.ui.theme.LocalBackgroundStyle
 import com.xinsu.moe.ui.theme.isActive
 import kotlinx.coroutines.launch
 import com.xinsu.moe.ui.util.BlurredBar
+import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
+import com.xinsu.moe.ui.component.liquid.liquidGlassSurface
+import com.xinsu.moe.ui.component.liquid.liquidPressScale
+import com.xinsu.moe.ui.theme.LocalCardBackdrop
 import com.xinsu.moe.ui.util.rememberBlurBackdrop
 import top.yukonga.miuix.kmp.basic.Icon
 import top.yukonga.miuix.kmp.basic.IconButton
@@ -614,6 +618,10 @@ fun ColorPaletteScreenMiuix(
                                     actions.onSetEnableBlur(it)
                                 }
                             )
+                            GlassBlurRadiusPreference(
+                                value = uiState.glassBlurRadius,
+                                onChange = actions.onSetGlassBlurRadius,
+                            )
                         }
                         EnergyMiuixSwitchPreference(
                             title = stringResource(id = R.string.settings_floating_bottom_bar),
@@ -697,6 +705,8 @@ fun ColorPaletteScreenMiuix(
                         }
 
                         var sliderValue by remember(uiState.pageScale) { mutableFloatStateOf(uiState.pageScale) }
+                        // 与「毛玻璃模糊度」同一套液态玻璃材质 + 按压弹性。
+                        LiquidGlassSliderRow {
                         ArrowPreference(
                             title = stringResource(id = R.string.settings_page_scale),
                             summary = stringResource(id = R.string.settings_page_scale_summary),
@@ -733,6 +743,7 @@ fun ColorPaletteScreenMiuix(
                                 )
                             },
                         )
+                        }
                         ScaleDialog(
                             show = showScaleDialog.value,
                             onDismissRequest = { showScaleDialog.value = false },
@@ -936,6 +947,78 @@ private fun ThemeStudioMiuix(
 }
 
 // Opacity (0-100%) control for a decorative image / card, styled like the page-scale slider row.
+/**
+ * 液态玻璃滑块行：把整行（图标 + 标题 + 数值 + 滑块）包进一层液态玻璃，
+ * 并按 [LiquidGlassSpec.PressedScale] 做"按住才形变"的轻微弹性反馈 —— 与悬浮底栏同源的按压手感。
+ *
+ * 「毛玻璃模糊度」与「界面缩放」两个滑块共用它，材质和手感才能完全一致。
+ */
+@Composable
+private fun LiquidGlassSliderRow(content: @Composable () -> Unit) {
+    val backdrop = LocalCardBackdrop.current
+    Box(
+        modifier = Modifier
+            .padding(horizontal = 8.dp, vertical = 6.dp)
+            .fillMaxWidth()
+            .liquidGlassSurface(
+                backdrop = backdrop,
+                shapeProvider = { RoundedCornerShape(LiquidGlassSpec.CardCornerRadius) },
+                // 这一层玻璃嵌在设置卡片（本身已是玻璃）里，底色要压淡，
+                // 否则两层 0.30 白叠起来又变成一块白。
+                scrimAlphaOverride = 0.12f,
+            )
+            .liquidPressScale(),
+    ) {
+        content()
+    }
+}
+
+/**
+ * 「毛玻璃模糊度」滑块。
+ *
+ * 整行包在一层**液态玻璃**里，并按 [LiquidGlassSpec.PressedScale] 做"按住才形变"的轻微弹性反馈
+ * （liquidPressScale 常态目标值恒为 1f，不产生每帧工作）—— 与悬浮底栏的按压手感同源。
+ * 拖动时数值实时回显，松手才落盘并作用于全应用材质。
+ */
+@Composable
+private fun GlassBlurRadiusPreference(
+    value: Float,
+    onChange: (Float) -> Unit,
+) {
+    var sliderValue by remember(value) { mutableFloatStateOf(value) }
+
+    LiquidGlassSliderRow {
+        ArrowPreference(
+            title = stringResource(id = R.string.settings_glass_blur_radius),
+            summary = stringResource(id = R.string.settings_glass_blur_radius_summary),
+            startAction = {
+                Icon(
+                    Icons.Rounded.BlurOn,
+                    modifier = Modifier.padding(end = 6.dp),
+                    contentDescription = stringResource(id = R.string.settings_glass_blur_radius),
+                    tint = colorScheme.onBackground
+                )
+            },
+            endActions = {
+                Text(
+                    text = "${sliderValue.toInt()} dp",
+                    color = colorScheme.onSurfaceVariantActions,
+                )
+            },
+            onClick = {},
+            bottomAction = {
+                Slider(
+                    value = sliderValue,
+                    onValueChange = { sliderValue = it },
+                    onValueChangeFinished = { onChange(sliderValue) },
+                    valueRange = LiquidGlassSpec.MinBlurRadius.value..LiquidGlassSpec.MaxBlurRadius.value,
+                    hapticEffect = SliderDefaults.SliderHapticEffect.Step,
+                )
+            },
+        )
+    }
+}
+
 @Composable
 private fun ImageOpacityPreference(
     title: String,

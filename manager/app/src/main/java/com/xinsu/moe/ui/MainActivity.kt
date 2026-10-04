@@ -44,6 +44,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -62,6 +63,8 @@ import com.xinsu.moe.ui.component.bottombar.MainPagerState
 import com.xinsu.moe.ui.component.bottombar.SideRail
 import com.xinsu.moe.ui.component.bottombar.rememberMainPagerState
 import com.xinsu.moe.ui.component.decoration.RememberThemeMorphHost
+import com.xinsu.moe.ui.component.liquid.LiquidGlassTopPanel
+import com.xinsu.moe.ui.component.liquid.rememberLiquidGlassTopPanelState
 import com.xinsu.moe.ui.component.dialog.rememberConfirmDialog
 import com.xinsu.moe.ui.navigation3.HandleDeepLink
 import com.xinsu.moe.ui.navigation3.LocalNavigator
@@ -104,6 +107,7 @@ import com.xinsu.moe.ui.theme.LocalCardImageAlign
 import com.xinsu.moe.ui.theme.LocalCardOpacity
 import com.xinsu.moe.ui.theme.LocalCardBackdrop
 import com.xinsu.moe.ui.theme.LocalGlassCardsSetting
+import com.xinsu.moe.ui.theme.LocalGlassBlurRadius
 import com.xinsu.moe.ui.theme.LocalGlassCard
 import com.xinsu.moe.ui.theme.LocalLiquidGlassSetting
 import com.xinsu.moe.ui.theme.LocalTopBarGlassSetting
@@ -215,6 +219,9 @@ class MainActivity : ComponentActivity() {
                 LocalLiquidGlassSetting provides uiState.enableFloatingBottomBarBlur,
                 // 顶栏材质单独开关，避免与下方滚动的卡片采样同一 backdrop 时出现叠糊接缝。
                 LocalTopBarGlassSetting provides uiState.enableTopBarGlass,
+                // 「毛玻璃模糊度」滑块 —— 卡片、圆形玻璃、顶栏/底栏的模糊档全部读它，
+                // 所以拖一次滑块，全应用材质同帧一起变。
+                LocalGlassBlurRadius provides uiState.glassBlurRadius.dp,
                 LocalEnableBlur provides uiState.enableBlur,
                 LocalEnableFloatingBottomBar provides uiState.enableFloatingBottomBar,
                 LocalEnableFloatingBottomBarBlur provides uiState.enableFloatingBottomBarBlur,
@@ -296,7 +303,18 @@ class MainActivity : ComponentActivity() {
                     // A backdrop capturing ONLY the background region (base + decorative layer), so
                     // "glass cards" can frost what's behind them without sampling the cards (which
                     // would feed back on itself). Miuix-blur only; null when blur is off/unsupported.
-                    val cardBackdrop = if (uiState.cardsGlass && uiState.enableBlur && isRenderEffectSupported()) {
+                    //
+                    // 注意：这里**不再**依赖 enableBlur —— "模糊"开关的文案是"启用顶栏和底栏的模糊
+                    // 效果"，它管的是栏，不该把卡片玻璃一起关掉（实测用户一关模糊，液态玻璃就整片消失）。
+                    // 卡片玻璃只由"玻璃卡片"开关决定；液态玻璃档位由 LocalLiquidGlassSetting 决定。
+                    // 只要有任何一个玻璃消费方开着就建这个 backdrop：顶栏也用它 ——
+                    // 页面自己的 backdrop 基底是不透明的 surface 白，顶栏压着的又正好是页面空白区，
+                    // 采样到就会变成一整条纯白（用户反馈的"每个页面都会出现的白"）。
+                    val anyGlassConsumer = uiState.cardsGlass ||
+                        uiState.enableBlur ||
+                        uiState.enableTopBarGlass ||
+                        uiState.enableFloatingBottomBarBlur
+                    val cardBackdrop = if (anyGlassConsumer && isRenderEffectSupported()) {
                         rememberLayerBackdrop {
                             drawRect(glassBase)
                             drawContent()
@@ -334,9 +352,14 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
-                    when (uiMode) {
-                        UiMode.Material -> androidx.compose.material3.Scaffold { rootContent() }
-                        UiMode.Miuix -> Scaffold { rootContent() }
+                    // LocalCardBackdrop 提到 Scaffold 之外：弹层（电源菜单等）由 Scaffold 的
+                    // popupHost 渲染，属于 rootContent 的**兄弟节点**——只包在 navDisplay 里的话，
+                    // 弹层读到的 backdrop 是 null，弹出的卡片就只能退化成半透明实底。
+                    CompositionLocalProvider(LocalCardBackdrop provides cardBackdrop) {
+                        when (uiMode) {
+                            UiMode.Material -> androidx.compose.material3.Scaffold { rootContent() }
+                            UiMode.Miuix -> Scaffold { rootContent() }
+                        }
                     }
                         }
                     }
@@ -408,6 +431,10 @@ fun MainScreen(
     CompositionLocalProvider(
         LocalMainPagerState provides mainPagerState
     ) {
+        // ══ 组件 2 的宿主：只叠一层 overlay Box，
+        //    下面的 Scaffold / 分页 / 底栏位置与层级完全不动。 ══
+        val topPanelState = rememberLiquidGlassTopPanelState()
+        Box(modifier = Modifier.fillMaxSize()) {
         val contentReady = rememberContentReady()
         val pagerContent = @Composable { bottomInnerPadding: Dp ->
             Box(modifier = if (blurBackdrop != null) Modifier.layerBackdrop(blurBackdrop) else Modifier) {
@@ -497,6 +524,11 @@ fun MainScreen(
                     pagerContent(innerPadding.calculateBottomPadding())
                 }
             }
+        }
+
+            // ══ 组件 2：顶部下拉液态玻璃面板 ══
+            // 内容插槽留空 —— 组件本身不含任何业务，后续要放什么直接传给 content 即可。
+            LiquidGlassTopPanel(state = topPanelState)
         }
     }
 }

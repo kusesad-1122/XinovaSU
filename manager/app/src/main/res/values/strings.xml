@@ -318,7 +318,7 @@
     <string name="background_style_image">Custom image</string>
     <string name="background_style_stage">Scene (cinematic)</string>
     <string name="settings_glass_cards">Glass cards</string>
-    <string name="settings_glass_cards_summary">Turn cards across the whole app into liquid glass so the background shows through — home, superuser, modules, the settings module and every detail page opened from settings. Needs blur on; refraction and dispersion need Android 13+ (older versions fall back to frosted), and Material mode still uses a translucent look.</string>
+    <string name="settings_glass_cards_summary">Turn cards across the whole app into liquid glass so the background shows through — home, superuser, modules, the settings module and every detail page opened from settings. Refraction and dispersion need Android 13+ (older versions fall back to frosted), and Material mode still uses a translucent look.</string>
     <string name="settings_home_card_layout">Home card layout</string>
     <string name="settings_home_card_layout_summary">Long-press the handle to reorder, tap the shape chip to change corners.</string>
     <string name="home_card_status">Status</string>
@@ -390,10 +390,12 @@
     <string name="current_device_kmi">This device KMI</string>
     <string name="settings_enable_blur">Blur</string>
     <string name="settings_enable_blur_summary">Enable blur effect for top and bottom bars.</string>
+    <string name="settings_glass_blur_radius">Frosted blur strength</string>
+    <string name="settings_glass_blur_radius_summary">How strongly frosted glass blurs the background. Shared by cards, top bar and bottom bar (0 = nearly sharp, 24 = strongest).</string>
     <string name="settings_floating_bottom_bar">Floating bottom bar</string>
     <string name="settings_floating_bottom_bar_summary">Use Apple style floating bottom bar.</string>
     <string name="settings_enable_glass">Liquid glass</string>
-    <string name="settings_enable_glass_summary">Apply liquid glass to every page: cards, floating bottom bar and navigation bar share one material (blur 22dp / dispersion 0.02 / 1.2dp edge highlight / press scale).</string>
+    <string name="settings_enable_glass_summary">Apply liquid glass to every page: cards, floating bottom bar and navigation bar share one material (blur strength comes from "Frosted blur strength" below / dispersion 0.02 / 1.2dp edge highlight / press scale).</string>
     <string name="settings_enable_top_bar_glass">Liquid glass top bar</string>
     <string name="settings_enable_top_bar_glass_summary">Also give the top bar the liquid glass material. The top bar samples the same background as the cards scrolling underneath, so if that reads as a double-frosted seam or costs frames, switch this off without affecting the cards.</string>
     <string name="show_only_primary_user_apps">Show only primary user apps</string>

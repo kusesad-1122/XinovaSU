@@ -50,6 +50,7 @@ class MainActivityViewModel(
         return MainActivityUiState(
             appSettings = ThemeController.getAppSettings(ksuApp),
             pageScale = settingRepo.pageScale,
+            glassBlurRadius = settingRepo.glassBlurRadius,
             enableBlur = settingRepo.enableBlur,
             enableFloatingBottomBar = settingRepo.enableFloatingBottomBar,
             enableFloatingBottomBarBlur = settingRepo.enableFloatingBottomBarBlur,
@@ -88,6 +89,7 @@ class MainActivityViewModel(
             "home_card_shapes",
             "cards_glass",
             "page_scale",
+            "glass_blur_radius",
             "enable_blur",
             "enable_floating_bottom_bar",
             "enable_floating_bottom_bar_blur",

@@ -13,6 +13,7 @@ import com.materialkolor.PaletteStyle
 import com.materialkolor.dynamiccolor.ColorSpec
 import com.xinsu.moe.ui.LocalUiMode
 import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
 import com.xinsu.moe.ui.screen.home.HomeCardId
 import com.xinsu.moe.ui.screen.home.HomeCardShape
 import com.xinsu.moe.ui.theme.decoration.ThemeDecorationCatalog
@@ -199,6 +200,15 @@ val LocalLiquidGlassSetting = staticCompositionLocalOf { false }
 val LocalTopBarGlassSetting = staticCompositionLocalOf { false }
 
 val LocalEnableBlur = staticCompositionLocalOf { false }
+
+/**
+ * 「毛玻璃模糊度」滑块的运行时取值（单位 dp）。
+ *
+ * 卡片、圆形玻璃、顶栏/底栏的毛玻璃档全部读它，所以拖动滑块时全应用材质
+ * 在同一帧内一起变化。默认值 [LiquidGlassSpec.DefaultBlurRadius]。
+ */
+val LocalGlassBlurRadius = compositionLocalOf { LiquidGlassSpec.BlurRadius }
+
 
 val LocalEnableFloatingBottomBar = staticCompositionLocalOf { false }
 

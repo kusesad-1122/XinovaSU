@@ -27,6 +27,8 @@ interface SettingsRepository {
     var enableFloatingBottomBarBlur: Boolean
     var enableTopBarGlass: Boolean
     var pageScale: Float
+    /** 「毛玻璃模糊度」滑块的取值，单位 dp（见 LiquidGlassSpec）。 */
+    var glassBlurRadius: Float
     var enableWebDebugging: Boolean
     var autoJailbreak: Boolean
 

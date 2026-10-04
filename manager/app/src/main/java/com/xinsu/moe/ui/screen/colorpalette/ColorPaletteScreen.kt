@@ -88,6 +88,7 @@ fun ColorPaletteScreen() {
             activity?.recreate()
         },
         onSetPageScale = viewModel::setPageScale,
+        onSetGlassBlurRadius = viewModel::setGlassBlurRadius,
     )
 
     when (LocalUiMode.current) {

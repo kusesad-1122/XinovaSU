@@ -33,7 +33,8 @@ fun NavigationRailMiuix(
         Pair(stringResource(destination.label), destination.icon)
     }
 
-    BlurredBar(blurBackdrop, liquidGlass = barLiquidGlassEnabled()) {
+    // 同 BottomBarMiuix：导航栏也要模糊滚动内容，不换成全局壁纸 backdrop。
+    BlurredBar(blurBackdrop, liquidGlass = barLiquidGlassEnabled(), useAppBackdrop = false) {
         NavigationRail(
             modifier = modifier
                 .fillMaxHeight(),
