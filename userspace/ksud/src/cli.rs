@@ -472,8 +472,27 @@ enum Kernel {
         #[command(subcommand)]
         command: VpnPortsOp,
     },
+    /// Manage kernel-side log suppression (audit_log_start / avc_denied)
+    LogHide {
+        #[command(subcommand)]
+        command: LogHideOp,
+    },
     /// Notify that module is mounted
     NotifyModuleMounted,
+}
+
+#[derive(clap::Subcommand, Debug)]
+enum LogHideOp {
+    /// Enable/disable log suppression and persist the choice
+    Set {
+        /// suppress audit/AVC records
+        #[arg(long)]
+        enabled: bool,
+    },
+    /// Re-apply the persisted state to the kernel
+    Apply,
+    /// Print the persisted state
+    Status,
 }
 
 #[derive(clap::Subcommand, Debug)]
@@ -920,6 +939,17 @@ pub fn run() -> Result<()> {
                 VpnPortsOp::Set { enabled } => crate::vpn_hide::save_ports(enabled),
                 VpnPortsOp::Apply => {
                     crate::vpn_hide::apply_from_config();
+                    Ok(())
+                }
+            },
+            Kernel::LogHide { command } => match command {
+                LogHideOp::Set { enabled } => crate::log_hide::save_enabled(enabled),
+                LogHideOp::Apply => {
+                    crate::log_hide::apply();
+                    Ok(())
+                }
+                LogHideOp::Status => {
+                    println!("log_hide: {}", if crate::log_hide::status() { "on" } else { "off" });
                     Ok(())
                 }
             },

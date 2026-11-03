@@ -12,6 +12,7 @@ enum xnsu_feature_id {
     XNSU_FEATURE_PATH_HIDE = 7,
     XNSU_FEATURE_VPN_HIDE = 8,
     XNSU_FEATURE_VPN_PORTS = 9,
+    XNSU_FEATURE_LOG_HIDE = 10,
 
     XNSU_FEATURE_MAX
 };
