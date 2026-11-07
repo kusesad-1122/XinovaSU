@@ -27,17 +27,17 @@ extern int avc_ss_reset(u32 seqno);
 extern int avc_ss_reset(struct selinux_avc *avc, u32 seqno);
 #endif
 // reset avc cache table, otherwise the new rules will not take effect if already denied
-static void reset_avc_cache()
+static void reset_avc_cache(u32 seqno)
 {
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 4, 0))
-    avc_ss_reset(0);
-    selnl_notify_policyload(0);
-    selinux_status_update_policyload(0);
+    avc_ss_reset(seqno);
+    selnl_notify_policyload(seqno);
+    selinux_status_update_policyload(seqno);
 #else
     struct selinux_avc *avc = selinux_state.avc;
-    avc_ss_reset(avc, 0);
-    selnl_notify_policyload(0);
-    selinux_status_update_policyload(&selinux_state, 0);
+    avc_ss_reset(avc, seqno);
+    selnl_notify_policyload(seqno);
+    selinux_status_update_policyload(&selinux_state, seqno);
 #endif
     selinux_xfrm_notify_policyload();
 }
@@ -148,11 +148,12 @@ void apply_xinovasu_rules()
     xnsu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "getpgid");
     xnsu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "sigkill");
 
+    pol->latest_granting = old_pol->latest_granting + 1;
     rcu_assign_pointer(selinux_state.policy, pol);
     synchronize_rcu();
     xnsu_destroy_sepolicy(old_pol);
 
-    reset_avc_cache();
+    reset_avc_cache(pol->latest_granting);
 out_unlock:
     mutex_unlock(&selinux_state.policy_mutex);
 }
@@ -507,11 +508,12 @@ int handle_sepolicy(void __user *user_data, u64 data_len)
         cmd_index++;
     }
 
+    pol->latest_granting = old_pol->latest_granting + 1;
     rcu_assign_pointer(selinux_state.policy, pol);
     synchronize_rcu();
     xnsu_destroy_sepolicy(old_pol);
 
-    reset_avc_cache();
+    reset_avc_cache(pol->latest_granting);
     ret = success_cmd_count;
     goto out_unlock;
 
