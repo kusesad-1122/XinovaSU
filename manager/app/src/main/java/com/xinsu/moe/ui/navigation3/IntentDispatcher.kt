@@ -1,1 +1,187 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLm5hdmlnYXRpb24zCgppbXBvcnQgYW5kcm9pZC5hbm5vdGF0aW9uLlN1cHByZXNzTGludAppbXBvcnQgYW5kcm9pZC5jb250ZW50LkludGVudAppbXBvcnQgYW5kcm9pZC5uZXQuVXJpCmltcG9ydCBhbmRyb2lkLndpZGdldC5Ub2FzdAppbXBvcnQgYW5kcm9pZHguYWN0aXZpdHkuY29tcG9zZS5Mb2NhbEFjdGl2aXR5CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuQ29tcG9zYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkxhdW5jaGVkRWZmZWN0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuZ2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5tdXRhYmxlSW50U3RhdGVPZgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLm11dGFibGVTdGF0ZU9mCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUucmVtZW1iZXIKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5yZW1lbWJlckNvcm91dGluZVNjb3BlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2F2ZWFibGUubGlzdFNhdmVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2F2ZWFibGUucmVtZW1iZXJTYXZlYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnNldFZhbHVlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnBsYXRmb3JtLkxvY2FsQ29udGV4dAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5wbGF0Zm9ybS5Mb2NhbFJlc291cmNlcwppbXBvcnQgYW5kcm9pZHguY29yZS5uZXQudG9VcmkKaW1wb3J0IGFuZHJvaWR4LmxpZmVjeWNsZS5jb21wb3NlLmNvbGxlY3RBc1N0YXRlV2l0aExpZmVjeWNsZQppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmZsb3cuTXV0YWJsZVN0YXRlRmxvdwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmxhdW5jaAppbXBvcnQgY29tLnhpbnN1Lm1vZS5OYXRpdmVzCmltcG9ydCBjb20ueGluc3UubW9lLlIKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5zY3JpcHQuU2NyaXB0UmVwb3NpdG9yeQppbXBvcnQgY29tLnhpbnN1Lm1vZS5rc3VBcHAKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuY29tcG9uZW50LmRpYWxvZy5yZW1lbWJlckNvbmZpcm1EaWFsb2cKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuc2NyZWVuLmZsYXNoLkZsYXNoSXQKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuc2NyZWVuLnNjcmlwdHJ1bi5TY3JpcHRSdW5BcmcKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5Eb3dubG9hZFNlcnZpY2UKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5nZXRGaWxlTmFtZQoKLyoqCiAqIFJlc29sdmVkIGludGVudCBhY3Rpb24gdG8gZXhlY3V0ZSBhZnRlciB2YWxpZGF0aW9uLgogKi8KcHJpdmF0ZSBzZWFsZWQgaW50ZXJmYWNlIFBlbmRpbmdBY3Rpb24gewogICAgLyoqIEluc3RhbGwgbW9kdWxlKHMpIGZyb20gVVJJIOKAlCB0cmlnZ2VyZWQgYnkgRG93bmxvYWRTZXJ2aWNlIG5vdGlmaWNhdGlvbiBvciBaSVAgZmlsZSBvcGVuLiAqLwogICAgZGF0YSBjbGFzcyBJbnN0YWxsTW9kdWxlKAogICAgICAgIHZhbCB1cmk6IFVyaSwKICAgICAgICB2YWwgZGlzcGxheU5hbWU6IFN0cmluZywKICAgICAgICB2YWwgcmVxdWlyZXNDb25maXJtYXRpb246IEJvb2xlYW4sCiAgICApIDogUGVuZGluZ0FjdGlvbiB7CiAgICAgICAgY29tcGFuaW9uIG9iamVjdCB7CiAgICAgICAgICAgIHZhbCBJbnN0YWxsTW9kdWxlU2F2ZXIgPSBsaXN0U2F2ZXI8SW5zdGFsbE1vZHVsZT8sIEFueT4oCiAgICAgICAgICAgICAgICBzYXZlID0geyBtb2R1bGUgLT4KICAgICAgICAgICAgICAgICAgICBpZiAobW9kdWxlID09IG51bGwpIHsKICAgICAgICAgICAgICAgICAgICAgICAgZW1wdHlMaXN0KCkKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICBsaXN0T2YoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtb2R1bGUudXJpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kdWxlLmRpc3BsYXlOYW1lLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kdWxlLnJlcXVpcmVzQ29uZmlybWF0aW9uCiAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgcmVzdG9yZSA9IHsgbGlzdCAtPgogICAgICAgICAgICAgICAgICAgIGlmIChsaXN0LmlzRW1wdHkoKSkgewogICAgICAgICAgICAgICAgICAgICAgICBudWxsCiAgICAgICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICAgICAgSW5zdGFsbE1vZHVsZSgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVyaSA9IGxpc3RbMF0gYXMgVXJpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGxheU5hbWUgPSBsaXN0WzFdIGFzIFN0cmluZywKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlcXVpcmVzQ29uZmlybWF0aW9uID0gbGlzdFsyXSBhcyBCb29sZWFuCiAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICkKICAgICAgICB9CiAgICB9Cn0KCmZ1biBnZXREaXNwbGF5TmFtZSh1cmk6IFVyaSk6IFN0cmluZyB7CiAgICByZXR1cm4gdXJpLmdldEZpbGVOYW1lKGtzdUFwcCkgPzogdXJpLmxhc3RQYXRoU2VnbWVudCA/OiAiVW5rbm93biIKfQoKLyoqCiAqIFJlc29sdmUgYW4gaW50ZW50IHNuYXBzaG90IGludG8gYSBbUGVuZGluZ0FjdGlvbl0uCiAqIFJldHVybnMgbnVsbCBpZiB0aGUgaW50ZW50IGNhcnJpZXMgbm8gcmVjb2duaXplZCBhY3Rpb24uCiAqLwpwcml2YXRlIGZ1biByZXNvbHZlSW50ZW50KGludGVudDogSW50ZW50KTogUGVuZGluZ0FjdGlvbj8gewogICAgLy8gRG93bmxvYWRTZXJ2aWNlIG5vdGlmaWNhdGlvbjogaW5zdGFsbCBtb2R1bGUKICAgIGlmIChpbnRlbnQuYWN0aW9uID09IERvd25sb2FkU2VydmljZS5BQ1RJT05fSU5TVEFMTF9NT0RVTEUpIHsKICAgICAgICB2YWwgdXJpU3RyaW5nID0gaW50ZW50LmdldFN0cmluZ0V4dHJhKERvd25sb2FkU2VydmljZS5FWFRSQV9NT0RVTEVfVVJJKQogICAgICAgICAgICA/OiByZXR1cm4gbnVsbAogICAgICAgIHZhbCB1cmkgPSB1cmlTdHJpbmcudG9VcmkoKQogICAgICAgIHJldHVybiBQZW5kaW5nQWN0aW9uLkluc3RhbGxNb2R1bGUoCiAgICAgICAgICAgIHVyaSA9IHVyaSwKICAgICAgICAgICAgZGlzcGxheU5hbWUgPSBnZXREaXNwbGF5TmFtZSh1cmkpLAogICAgICAgICAgICByZXF1aXJlc0NvbmZpcm1hdGlvbiA9IGZhbHNlLAogICAgICAgICkKICAgIH0KCiAgICAvLyBGaWxlIG1hbmFnZXI6IG9wZW4gWklQCiAgICB2YWwgdmlld1VyaSA9IGludGVudC5kYXRhCiAgICBpZiAodmlld1VyaSAhPSBudWxsICYmIHZpZXdVcmkuc2NoZW1lID09ICJjb250ZW50IiAmJiBpbnRlbnQudHlwZSBpbiBaSVBfTUlNRV9UWVBFUykgewogICAgICAgIHJldHVybiBQZW5kaW5nQWN0aW9uLkluc3RhbGxNb2R1bGUoCiAgICAgICAgICAgIHVyaSA9IHZpZXdVcmksCiAgICAgICAgICAgIGRpc3BsYXlOYW1lID0gZ2V0RGlzcGxheU5hbWUodmlld1VyaSksCiAgICAgICAgICAgIHJlcXVpcmVzQ29uZmlybWF0aW9uID0gdHJ1ZSwKICAgICAgICApCiAgICB9CgogICAgcmV0dXJuIG51bGwKfQoKLyoqCiAqIEZvcmstc2lkZSBpbnRlbnQgZGlzcGF0Y2hlci4gVGhlIGZvcmsgaGFzIG5vIENoYW5uZWw8SW50ZW50PiBwbHVtYmluZzsgaXQgYnVtcHMKICogW2ludGVudFN0YXRlXSBpbiBvbk5ld0ludGVudCBhbmQgcmUtcmVhZHMgYWN0aXZpdHkuaW50ZW50LCBzbyBlYWNoIHNuYXBzaG90IGlzIGNvbnN1bWVkIG9uY2UuCiAqLwpAU3VwcHJlc3NMaW50KCJTdHJpbmdGb3JtYXRJbnZhbGlkIiwgIkxvY2FsQ29udGV4dEdldFJlc291cmNlVmFsdWVDYWxsIikKQENvbXBvc2FibGUKZnVuIEludGVudERpc3BhdGNoZXIoaW50ZW50U3RhdGU6IE11dGFibGVTdGF0ZUZsb3c8SW50PikgewogICAgdmFsIGNvbnRleHQgPSBMb2NhbENvbnRleHQuY3VycmVudAogICAgdmFsIGFjdGl2aXR5ID0gTG9jYWxBY3Rpdml0eS5jdXJyZW50CiAgICB2YWwgcmVzb3VyY2VzID0gTG9jYWxSZXNvdXJjZXMuY3VycmVudAogICAgdmFsIG5hdmlnYXRvciA9IExvY2FsTmF2aWdhdG9yLmN1cnJlbnQKICAgIHZhbCBpc1NhZmVNb2RlID0gTmF0aXZlcy5pc1NhZmVNb2RlCiAgICB2YWwgaXNNYW5hZ2VyID0gTmF0aXZlcy5pc01hbmFnZXIKICAgIHZhciBwZW5kaW5nWmlwSW5zdGFsbCBieSByZW1lbWJlclNhdmVhYmxlKHN0YXRlU2F2ZXIgPSBQZW5kaW5nQWN0aW9uLkluc3RhbGxNb2R1bGUuSW5zdGFsbE1vZHVsZVNhdmVyKSB7IG11dGFibGVTdGF0ZU9mKG51bGwpIH0KICAgIHZhbCBzY29wZSA9IHJlbWVtYmVyQ29yb3V0aW5lU2NvcGUoKQoKICAgIC8vIEEgb25lLXNob3Qgc2NyaXB0IFpJUCBvcGVucyB0aGUgcnVuIHBhZ2UsIHdoaWNoIGFsc28gb2ZmZXJzIGluc3RhbGxpbmcgaXQgYXMgYSBtb2R1bGUuCiAgICB2YWwgb3Blbk1vZHVsZVppcDogKFVyaSkgLT4gVW5pdCA9IHsgdXJpIC0+CiAgICAgICAgc2NvcGUubGF1bmNoIHsKICAgICAgICAgICAgdmFsIHNjcmlwdCA9IFNjcmlwdFJlcG9zaXRvcnkucGVla09uZXNob3QodXJpKQogICAgICAgICAgICBpZiAoc2NyaXB0ICE9IG51bGwpIHsKICAgICAgICAgICAgICAgIG5hdmlnYXRvci5wdXNoKFJvdXRlLlNjcmlwdFJ1bihTY3JpcHRSdW5BcmcodXJpLCBvZmZlckluc3RhbGwgPSB0cnVlLCBkaXNwbGF5TmFtZSA9IHNjcmlwdC5uYW1lKSkpCiAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICBuYXZpZ2F0b3IucHVzaChSb3V0ZS5GbGFzaChGbGFzaEl0LkZsYXNoTW9kdWxlcyhsaXN0T2YodXJpKSkpKQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIHZhbCBpbnN0YWxsRGlhbG9nID0gcmVtZW1iZXJDb25maXJtRGlhbG9nKAogICAgICAgIG9uQ29uZmlybSA9IHsKICAgICAgICAgICAgcGVuZGluZ1ppcEluc3RhbGw/LmxldCB7IGFjdGlvbiAtPiBvcGVuTW9kdWxlWmlwKGFjdGlvbi51cmkpIH0KICAgICAgICAgICAgcGVuZGluZ1ppcEluc3RhbGwgPSBudWxsCiAgICAgICAgfSwKICAgICAgICBvbkRpc21pc3MgPSB7IHBlbmRpbmdaaXBJbnN0YWxsID0gbnVsbCB9CiAgICApCgogICAgdmFsIGludGVudFN0YXRlVmFsdWUgYnkgaW50ZW50U3RhdGUuY29sbGVjdEFzU3RhdGVXaXRoTGlmZWN5Y2xlKCkKICAgIC8vIE5vdCBzYXZlYWJsZTogaW50ZW50U3RhdGUgaXRzZWxmIHJlc3RhcnRzIGF0IDAgb24gYWN0aXZpdHkgcmVjcmVhdGlvbi4KICAgIHZhciBsYXN0SGFuZGxlZEludGVudElkIGJ5IHJlbWVtYmVyIHsgbXV0YWJsZUludFN0YXRlT2YoLTEpIH0KICAgIExhdW5jaGVkRWZmZWN0KGludGVudFN0YXRlVmFsdWUpIHsKICAgICAgICBpZiAoIWlzTWFuYWdlciB8fCBpbnRlbnRTdGF0ZVZhbHVlID09IGxhc3RIYW5kbGVkSW50ZW50SWQpIHJldHVybkBMYXVuY2hlZEVmZmVjdAogICAgICAgIHZhbCBpbnRlbnQgPSBhY3Rpdml0eT8uaW50ZW50ID86IHJldHVybkBMYXVuY2hlZEVmZmVjdAogICAgICAgIHZhbCBhY3Rpb24gPSByZXNvbHZlSW50ZW50KGludGVudCkgPzogcmV0dXJuQExhdW5jaGVkRWZmZWN0CgogICAgICAgIHdoZW4gKGFjdGlvbikgewogICAgICAgICAgICBpcyBQZW5kaW5nQWN0aW9uLkluc3RhbGxNb2R1bGUgLT4gewogICAgICAgICAgICAgICAgaWYgKGlzU2FmZU1vZGUpIHsKICAgICAgICAgICAgICAgICAgICBUb2FzdC5tYWtlVGV4dCgKICAgICAgICAgICAgICAgICAgICAgICAgY29udGV4dCwKICAgICAgICAgICAgICAgICAgICAgICAgcmVzb3VyY2VzLmdldFN0cmluZyhSLnN0cmluZy5zYWZlX21vZGVfbW9kdWxlX2Rpc2FibGVkKSwKICAgICAgICAgICAgICAgICAgICAgICAgVG9hc3QuTEVOR1RIX1NIT1JUCiAgICAgICAgICAgICAgICAgICAgKS5zaG93KCkKICAgICAgICAgICAgICAgIH0gZWxzZSBpZiAoYWN0aW9uLnJlcXVpcmVzQ29uZmlybWF0aW9uKSB7CiAgICAgICAgICAgICAgICAgICAgcGVuZGluZ1ppcEluc3RhbGwgPSBhY3Rpb24KICAgICAgICAgICAgICAgICAgICBpbnN0YWxsRGlhbG9nLnNob3dDb25maXJtKAogICAgICAgICAgICAgICAgICAgICAgICB0aXRsZSA9IHJlc291cmNlcy5nZXRTdHJpbmcoUi5zdHJpbmcubW9kdWxlKSwKICAgICAgICAgICAgICAgICAgICAgICAgY29udGVudCA9IHJlc291cmNlcy5nZXRTdHJpbmcoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBSLnN0cmluZy5tb2R1bGVfaW5zdGFsbF9wcm9tcHRfd2l0aF9uYW1lLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIlxuJHthY3Rpb24uZGlzcGxheU5hbWV9IgogICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICBvcGVuTW9kdWxlWmlwKGFjdGlvbi51cmkpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIC8vIENvbnN1bWUgdGhlIHNuYXBzaG90IHNvIHRoZSBuZXh0IGludGVudFN0YXRlIGJ1bXAgZG9lcyBub3QgcmVwbGF5IGl0LgogICAgICAgIGlmIChpbnRlbnQuYWN0aW9uID09IERvd25sb2FkU2VydmljZS5BQ1RJT05fSU5TVEFMTF9NT0RVTEUpIHsKICAgICAgICAgICAgaW50ZW50LmFjdGlvbiA9IG51bGwKICAgICAgICAgICAgaW50ZW50LnJlbW92ZUV4dHJhKERvd25sb2FkU2VydmljZS5FWFRSQV9NT0RVTEVfVVJJKQogICAgICAgICAgICBpbnRlbnQucmVtb3ZlRXh0cmEoRG93bmxvYWRTZXJ2aWNlLkVYVFJBX0RPV05MT0FEX0lEKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIGludGVudC5kYXRhID0gbnVsbAogICAgICAgICAgICBpbnRlbnQudHlwZSA9IG51bGwKICAgICAgICB9CiAgICAgICAgbGFzdEhhbmRsZWRJbnRlbnRJZCA9IGludGVudFN0YXRlVmFsdWUKICAgIH0KfQoKCg==
+package com.xinsu.moe.ui.navigation3
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
+import androidx.activity.compose.LocalActivity
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.listSaver
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
+import androidx.core.net.toUri
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import com.xinsu.moe.Natives
+import com.xinsu.moe.R
+import com.xinsu.moe.data.script.ScriptRepository
+import com.xinsu.moe.ksuApp
+import com.xinsu.moe.ui.component.dialog.rememberConfirmDialog
+import com.xinsu.moe.ui.screen.flash.FlashIt
+import com.xinsu.moe.ui.screen.scriptrun.ScriptRunArg
+import com.xinsu.moe.ui.util.DownloadService
+import com.xinsu.moe.ui.util.getFileName
+
+/**
+ * Resolved intent action to execute after validation.
+ */
+private sealed interface PendingAction {
+    /** Install module(s) from URI — triggered by DownloadService notification or ZIP file open. */
+    data class InstallModule(
+        val uri: Uri,
+        val displayName: String,
+        val requiresConfirmation: Boolean,
+    ) : PendingAction {
+        companion object {
+            val InstallModuleSaver = listSaver<InstallModule?, Any>(
+                save = { module ->
+                    if (module == null) {
+                        emptyList()
+                    } else {
+                        listOf(
+                            module.uri,
+                            module.displayName,
+                            module.requiresConfirmation
+                        )
+                    }
+                },
+                restore = { list ->
+                    if (list.isEmpty()) {
+                        null
+                    } else {
+                        InstallModule(
+                            uri = list[0] as Uri,
+                            displayName = list[1] as String,
+                            requiresConfirmation = list[2] as Boolean
+                        )
+                    }
+                }
+            )
+        }
+    }
+}
+
+fun getDisplayName(uri: Uri): String {
+    return uri.getFileName(ksuApp) ?: uri.lastPathSegment ?: "Unknown"
+}
+
+/**
+ * Resolve an intent snapshot into a [PendingAction].
+ * Returns null if the intent carries no recognized action.
+ */
+private fun resolveIntent(intent: Intent): PendingAction? {
+    // DownloadService notification: install module
+    if (intent.action == DownloadService.ACTION_INSTALL_MODULE) {
+        val uriString = intent.getStringExtra(DownloadService.EXTRA_MODULE_URI)
+            ?: return null
+        val uri = uriString.toUri()
+        return PendingAction.InstallModule(
+            uri = uri,
+            displayName = getDisplayName(uri),
+            requiresConfirmation = false,
+        )
+    }
+
+    // File manager: open ZIP
+    val viewUri = intent.data
+    if (viewUri != null && viewUri.scheme == "content" && intent.type in ZIP_MIME_TYPES) {
+        return PendingAction.InstallModule(
+            uri = viewUri,
+            displayName = getDisplayName(viewUri),
+            requiresConfirmation = true,
+        )
+    }
+
+    return null
+}
+
+/**
+ * Fork-side intent dispatcher. The fork has no Channel<Intent> plumbing; it bumps
+ * [intentState] in onNewIntent and re-reads activity.intent, so each snapshot is consumed once.
+ */
+@SuppressLint("StringFormatInvalid", "LocalContextGetResourceValueCall")
+@Composable
+fun IntentDispatcher(intentState: MutableStateFlow<Int>) {
+    val context = LocalContext.current
+    val activity = LocalActivity.current
+    val resources = LocalResources.current
+    val navigator = LocalNavigator.current
+    val isSafeMode = Natives.isSafeMode
+    val isManager = Natives.isManager
+    var pendingZipInstall by rememberSaveable(stateSaver = PendingAction.InstallModule.InstallModuleSaver) { mutableStateOf(null) }
+    val scope = rememberCoroutineScope()
+
+    // A one-shot script ZIP opens the run page, which also offers installing it as a module.
+    val openModuleZip: (Uri) -> Unit = { uri ->
+        scope.launch {
+            val script = ScriptRepository.peekOneshot(uri)
+            if (script != null) {
+                navigator.push(Route.ScriptRun(ScriptRunArg(uri, offerInstall = true, displayName = script.name)))
+            } else {
+                navigator.push(Route.Flash(FlashIt.FlashModules(listOf(uri))))
+            }
+        }
+    }
+
+    val installDialog = rememberConfirmDialog(
+        onConfirm = {
+            pendingZipInstall?.let { action -> openModuleZip(action.uri) }
+            pendingZipInstall = null
+        },
+        onDismiss = { pendingZipInstall = null }
+    )
+
+    val intentStateValue by intentState.collectAsStateWithLifecycle()
+    // Not saveable: intentState itself restarts at 0 on activity recreation.
+    var lastHandledIntentId by remember { mutableIntStateOf(-1) }
+    LaunchedEffect(intentStateValue) {
+        if (!isManager || intentStateValue == lastHandledIntentId) return@LaunchedEffect
+        val intent = activity?.intent ?: return@LaunchedEffect
+        val action = resolveIntent(intent) ?: return@LaunchedEffect
+
+        when (action) {
+            is PendingAction.InstallModule -> {
+                if (isSafeMode) {
+                    Toast.makeText(
+                        context,
+                        resources.getString(R.string.safe_mode_module_disabled),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (action.requiresConfirmation) {
+                    pendingZipInstall = action
+                    installDialog.showConfirm(
+                        title = resources.getString(R.string.module),
+                        content = resources.getString(
+                            R.string.module_install_prompt_with_name,
+                            "\n${action.displayName}"
+                        )
+                    )
+                } else {
+                    openModuleZip(action.uri)
+                }
+            }
+        }
+
+        // Consume the snapshot so the next intentState bump does not replay it.
+        if (intent.action == DownloadService.ACTION_INSTALL_MODULE) {
+            intent.action = null
+            intent.removeExtra(DownloadService.EXTRA_MODULE_URI)
+            intent.removeExtra(DownloadService.EXTRA_DOWNLOAD_ID)
+        } else {
+            intent.data = null
+            intent.type = null
+        }
+        lastHandledIntentId = intentStateValue
+    }
+}
+
+

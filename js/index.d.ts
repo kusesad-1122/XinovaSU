@@ -1,1 +1,194 @@
-aW50ZXJmYWNlIEV4ZWNPcHRpb25zIHsKICAgIGN3ZD86IHN0cmluZywKICAgIGVudj86IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH0KfQoKaW50ZXJmYWNlIEV4ZWNSZXN1bHRzIHsKICAgIGVycm5vOiBudW1iZXIsCiAgICBzdGRvdXQ6IHN0cmluZywKICAgIHN0ZGVycjogc3RyaW5nCn0KCmRlY2xhcmUgZnVuY3Rpb24gZXhlYyhjb21tYW5kOiBzdHJpbmcpOiBQcm9taXNlPEV4ZWNSZXN1bHRzPjsKZGVjbGFyZSBmdW5jdGlvbiBleGVjKGNvbW1hbmQ6IHN0cmluZywgb3B0aW9uczogRXhlY09wdGlvbnMpOiBQcm9taXNlPEV4ZWNSZXN1bHRzPjsKCmludGVyZmFjZSBTcGF3bk9wdGlvbnMgewogICAgY3dkPzogc3RyaW5nLAogICAgZW52PzogeyBba2V5OiBzdHJpbmddOiBzdHJpbmcgfQp9CgppbnRlcmZhY2UgU3RkaW8gewogICAgb24oZXZlbnQ6ICdkYXRhJywgY2FsbGJhY2s6IChkYXRhOiBzdHJpbmcpID0+IHZvaWQpCn0KCmludGVyZmFjZSBDaGlsZFByb2Nlc3MgewogICAgc3Rkb3V0OiBTdGRpbywKICAgIHN0ZGVycjogU3RkaW8sCiAgICBvbihldmVudDogJ2V4aXQnLCBjYWxsYmFjazogKGNvZGU6IG51bWJlcikgPT4gdm9pZCkKICAgIG9uKGV2ZW50OiAnZXJyb3InLCBjYWxsYmFjazogKGVycjogYW55KSA9PiB2b2lkKQp9CgpkZWNsYXJlIGZ1bmN0aW9uIHNwYXduKGNvbW1hbmQ6IHN0cmluZyk6IENoaWxkUHJvY2VzczsKZGVjbGFyZSBmdW5jdGlvbiBzcGF3bihjb21tYW5kOiBzdHJpbmcsIGFyZ3M6IHN0cmluZ1tdKTogQ2hpbGRQcm9jZXNzOwpkZWNsYXJlIGZ1bmN0aW9uIHNwYXduKGNvbW1hbmQ6IHN0cmluZywgb3B0aW9uczogU3Bhd25PcHRpb25zKTogQ2hpbGRQcm9jZXNzOwpkZWNsYXJlIGZ1bmN0aW9uIHNwYXduKGNvbW1hbmQ6IHN0cmluZywgYXJnczogc3RyaW5nW10sIG9wdGlvbnM6IFNwYXduT3B0aW9ucyk6IENoaWxkUHJvY2VzczsKCmRlY2xhcmUgZnVuY3Rpb24gZnVsbFNjcmVlbihpc0Z1bGxTY3JlZW46IGJvb2xlYW4pOwoKZGVjbGFyZSBmdW5jdGlvbiBlbmFibGVFZGdlVG9FZGdlKGVuYWJsZTogYm9vbGVhbik7CgpkZWNsYXJlIGZ1bmN0aW9uIHRvYXN0KG1lc3NhZ2U6IHN0cmluZyk7CgpkZWNsYXJlIGZ1bmN0aW9uIG1vZHVsZUluZm8oKTogc3RyaW5nOwoKaW50ZXJmYWNlIFBhY2thZ2VzSW5mbyB7CiAgICBwYWNrYWdlTmFtZTogc3RyaW5nOwogICAgdmVyc2lvbk5hbWU6IHN0cmluZzsKICAgIHZlcnNpb25Db2RlOiBudW1iZXI7CiAgICBhcHBMYWJlbDogc3RyaW5nOwogICAgaXNTeXN0ZW06IGJvb2xlYW4gfCBudWxsOwogICAgdWlkOiBudW1iZXIgfCBudWxsOwp9CgppbnRlcmZhY2UgUGFja2FnZUluZm9FcnJvciB7CiAgICBwYWNrYWdlTmFtZTogc3RyaW5nOwogICAgZXJyb3I6IHN0cmluZzsKfQoKLyoqCiAqIEBkZXByZWNhdGVkIFVzZSBgcG0ubGlzdFBhY2thZ2VzYCBpbnN0ZWFkLgogKi8KZGVjbGFyZSBmdW5jdGlvbiBsaXN0UGFja2FnZXModHlwZTogc3RyaW5nKTogc3RyaW5nW107CgovKioKICogQGRlcHJlY2F0ZWQgVXNlIGBwbS5nZXRQYWNrYWdlc0luZm9gIGluc3RlYWQuCiAqLwpkZWNsYXJlIGZ1bmN0aW9uIGdldFBhY2thZ2VzSW5mbyhwYWNrYWdlczogc3RyaW5nW10pOiBBcnJheTxQYWNrYWdlc0luZm8gfCBQYWNrYWdlSW5mb0Vycm9yPjsKCmludGVyZmFjZSBQYWNrYWdlSW5mb1BlclVpZCBleHRlbmRzIFBhY2thZ2VzSW5mbyB7CiAgICB1c2VySWQ6IG51bWJlciB8IG51bGw7Cn0KCmludGVyZmFjZSBLc3VQbSB7CiAgICByZWFkb25seSBzdXBwb3J0OiBib29sZWFuOwogICAgcmVhZG9ubHkgdmVyc2lvbjogbnVtYmVyOwogICAgbGlzdFBhY2thZ2VzKHR5cGU6IHN0cmluZyk6IHN0cmluZ1tdOwogICAgZ2V0UGFja2FnZXNJbmZvKHBhY2thZ2VzOiBzdHJpbmdbXSk6IEFycmF5PFBhY2thZ2VJbmZvUGVyVWlkIHwgUGFja2FnZUluZm9FcnJvcj47Cn0KCmRlY2xhcmUgY29uc3QgcG06IEtzdVBtOwoKZGVjbGFyZSBmdW5jdGlvbiBleGl0KCk7CgppbnRlcmZhY2UgRmlsZUluc3RhbmNlIHsKICAgIGV4aXN0cygpOiBib29sZWFuOwogICAgaXNGaWxlKCk6IGJvb2xlYW47CiAgICBpc0RpcmVjdG9yeSgpOiBib29sZWFuOwogICAgY2FuUmVhZCgpOiBib29sZWFuOwogICAgY2FuV3JpdGUoKTogYm9vbGVhbjsKICAgIGNhbkV4ZWN1dGUoKTogYm9vbGVhbjsKICAgIGNyZWF0ZU5ld0ZpbGUoKTogYm9vbGVhbjsKICAgIGRlbGV0ZSgpOiBib29sZWFuOwogICAgZGVsZXRlUmVjdXJzaXZlKCk6IGJvb2xlYW47CiAgICBta2RpcigpOiBib29sZWFuOwogICAgbWtkaXJzKCk6IGJvb2xlYW47CiAgICByZW5hbWVUbyhkZXN0UGF0aDogc3RyaW5nKTogYm9vbGVhbjsKICAgIGxpc3QoKTogc3RyaW5nW107CiAgICBsaXN0RmlsZXMoKTogc3RyaW5nW107CiAgICBsZW5ndGgoKTogbnVtYmVyOwogICAgbGFzdE1vZGlmaWVkKCk6IG51bWJlcjsKICAgIHNldExhc3RNb2RpZmllZCh0aW1lOiBudW1iZXIpOiBib29sZWFuOwogICAgZ2V0QWJzb2x1dGVQYXRoKCk6IHN0cmluZzsKICAgIGdldENhbm9uaWNhbFBhdGgoKTogc3RyaW5nOwogICAgZ2V0UGFyZW50KCk6IHN0cmluZyB8IG51bGw7CiAgICBnZXRQYXRoKCk6IHN0cmluZzsKICAgIGdldE5hbWUoKTogc3RyaW5nOwogICAgaXNIaWRkZW4oKTogYm9vbGVhbjsKICAgIGlzQmxvY2soKTogYm9vbGVhbjsKICAgIGlzQ2hhcmFjdGVyKCk6IGJvb2xlYW47CiAgICBpc1N5bWxpbmsoKTogYm9vbGVhbjsKICAgIGNyZWF0ZU5ld1N5bWxpbmsodGFyZ2V0OiBzdHJpbmcpOiBib29sZWFuOwogICAgY3JlYXRlTmV3TGluayhleGlzdGluZzogc3RyaW5nKTogYm9vbGVhbjsKICAgIGNsZWFyKCk6IGJvb2xlYW47CiAgICBzZXRSZWFkT25seSgpOiBib29sZWFuOwogICAgc2V0UmVhZGFibGUocmVhZGFibGU6IGJvb2xlYW4sIG93bmVyT25seTogYm9vbGVhbik6IGJvb2xlYW47CiAgICBzZXRXcml0YWJsZSh3cml0YWJsZTogYm9vbGVhbiwgb3duZXJPbmx5OiBib29sZWFuKTogYm9vbGVhbjsKICAgIHNldEV4ZWN1dGFibGUoZXhlY3V0YWJsZTogYm9vbGVhbiwgb3duZXJPbmx5OiBib29sZWFuKTogYm9vbGVhbjsKICAgIGdldEZyZWVTcGFjZSgpOiBudW1iZXI7CiAgICBnZXRUb3RhbFNwYWNlKCk6IG51bWJlcjsKICAgIGdldFVzYWJsZVNwYWNlKCk6IG51bWJlcjsKICAgIG5ld0lucHV0U3RyZWFtKCk6IHN0cmluZzsKICAgIG5ld091dHB1dFN0cmVhbShhcHBlbmQ/OiBib29sZWFuKTogc3RyaW5nOwogICAgdG9TdHJpbmcoKTogc3RyaW5nOwp9CgppbnRlcmZhY2UgRmlsZUlucHV0U3RyZWFtSW5zdGFuY2UgewogICAgb3BlbihwYXRoOiBzdHJpbmcpOiBzdHJpbmc7CiAgICByZWFkKGlkOiBzdHJpbmcpOiBzdHJpbmc7CiAgICByZWFkKGlkOiBzdHJpbmcsIG1heEJ5dGVzOiBudW1iZXIpOiBzdHJpbmc7CiAgICBhdmFpbGFibGUoaWQ6IHN0cmluZyk6IG51bWJlcjsKICAgIGNsb3NlKGlkOiBzdHJpbmcpOiBib29sZWFuOwp9CgppbnRlcmZhY2UgRmlsZU91dHB1dFN0cmVhbUluc3RhbmNlIHsKICAgIG9wZW4ocGF0aDogc3RyaW5nLCBhcHBlbmQ/OiBib29sZWFuKTogc3RyaW5nOwogICAgd3JpdGUoaWQ6IHN0cmluZywgYmFzZTY0OiBzdHJpbmcpOiBib29sZWFuOwogICAgd3JpdGVCeXRlKGlkOiBzdHJpbmcsIGI6IG51bWJlcik6IGJvb2xlYW47CiAgICBmbHVzaChpZDogc3RyaW5nKTogYm9vbGVhbjsKICAgIGNsb3NlKGlkOiBzdHJpbmcpOiBib29sZWFuOwp9CgppbnRlcmZhY2UgUmFuZG9tQWNjZXNzRmlsZUluc3RhbmNlIHsKICAgIG9wZW4ocGF0aDogc3RyaW5nLCBtb2RlOiBzdHJpbmcpOiBzdHJpbmc7CiAgICByZWFkKGlkOiBzdHJpbmcpOiBudW1iZXI7CiAgICByZWFkQnl0ZXMoaWQ6IHN0cmluZywgbGVuOiBudW1iZXIpOiBzdHJpbmc7CiAgICByZWFkQm9vbGVhbihpZDogc3RyaW5nKTogYm9vbGVhbjsKICAgIHJlYWRCeXRlKGlkOiBzdHJpbmcpOiBudW1iZXI7CiAgICByZWFkSW50KGlkOiBzdHJpbmcpOiBudW1iZXI7CiAgICByZWFkTG9uZyhpZDogc3RyaW5nKTogbnVtYmVyOwogICAgcmVhZFNob3J0KGlkOiBzdHJpbmcpOiBudW1iZXI7CiAgICByZWFkRmxvYXQoaWQ6IHN0cmluZyk6IG51bWJlcjsKICAgIHJlYWREb3VibGUoaWQ6IHN0cmluZyk6IG51bWJlcjsKICAgIHJlYWRVVEYoaWQ6IHN0cmluZyk6IHN0cmluZzsKICAgIHJlYWRMaW5lKGlkOiBzdHJpbmcpOiBzdHJpbmcgfCBudWxsOwogICAgd3JpdGUoaWQ6IHN0cmluZywgYjogbnVtYmVyKTogdm9pZDsKICAgIHdyaXRlQmFzZTY0KGlkOiBzdHJpbmcsIGRhdGE6IHN0cmluZyk6IHZvaWQ7CiAgICB3cml0ZUJvb2xlYW4oaWQ6IHN0cmluZywgdjogYm9vbGVhbik6IHZvaWQ7CiAgICB3cml0ZUJ5dGUoaWQ6IHN0cmluZywgdjogbnVtYmVyKTogdm9pZDsKICAgIHdyaXRlSW50KGlkOiBzdHJpbmcsIHY6IG51bWJlcik6IHZvaWQ7CiAgICB3cml0ZUxvbmcoaWQ6IHN0cmluZywgdjogbnVtYmVyKTogdm9pZDsKICAgIHdyaXRlU2hvcnQoaWQ6IHN0cmluZywgdjogbnVtYmVyKTogdm9pZDsKICAgIHdyaXRlRmxvYXQoaWQ6IHN0cmluZywgdjogbnVtYmVyKTogdm9pZDsKICAgIHdyaXRlRG91YmxlKGlkOiBzdHJpbmcsIHY6IG51bWJlcik6IHZvaWQ7CiAgICB3cml0ZVVURihpZDogc3RyaW5nLCBzdHI6IHN0cmluZyk6IHZvaWQ7CiAgICBzZWVrKGlkOiBzdHJpbmcsIHBvczogbnVtYmVyKTogYm9vbGVhbjsKICAgIGdldEZpbGVQb2ludGVyKGlkOiBzdHJpbmcpOiBudW1iZXI7CiAgICBsZW5ndGgoaWQ6IHN0cmluZyk6IG51bWJlcjsKICAgIHNldExlbmd0aChpZDogc3RyaW5nLCBuZXdMZW5ndGg6IG51bWJlcik6IGJvb2xlYW47CiAgICBjbG9zZShpZDogc3RyaW5nKTogYm9vbGVhbjsKfQoKaW50ZXJmYWNlIEtzdUlPIHsKICAgIHJlYWRvbmx5IHN1cHBvcnQ6IGJvb2xlYW47CiAgICByZWFkb25seSB2ZXJzaW9uOiBudW1iZXI7CiAgICBGaWxlKHBhdGg6IHN0cmluZyk6IEZpbGVJbnN0YW5jZTsKICAgIEZpbGVJbnB1dFN0cmVhbSgpOiBGaWxlSW5wdXRTdHJlYW1JbnN0YW5jZTsKICAgIEZpbGVPdXRwdXRTdHJlYW0oKTogRmlsZU91dHB1dFN0cmVhbUluc3RhbmNlOwogICAgUmFuZG9tQWNjZXNzRmlsZSgpOiBSYW5kb21BY2Nlc3NGaWxlSW5zdGFuY2U7Cn0KCmRlY2xhcmUgY29uc3QgaW86IEtzdUlPOwoKZXhwb3J0IHsKICAgIGV4ZWMsCiAgICBzcGF3biwKICAgIGZ1bGxTY3JlZW4sCiAgICBlbmFibGVFZGdlVG9FZGdlLAogICAgdG9hc3QsCiAgICBtb2R1bGVJbmZvLAogICAgbGlzdFBhY2thZ2VzLAogICAgZ2V0UGFja2FnZXNJbmZvLAogICAgZXhpdCwKICAgIGlvLAogICAgcG0sCn0K
+interface ExecOptions {
+    cwd?: string,
+    env?: { [key: string]: string }
+}
+
+interface ExecResults {
+    errno: number,
+    stdout: string,
+    stderr: string
+}
+
+declare function exec(command: string): Promise<ExecResults>;
+declare function exec(command: string, options: ExecOptions): Promise<ExecResults>;
+
+interface SpawnOptions {
+    cwd?: string,
+    env?: { [key: string]: string }
+}
+
+interface Stdio {
+    on(event: 'data', callback: (data: string) => void)
+}
+
+interface ChildProcess {
+    stdout: Stdio,
+    stderr: Stdio,
+    on(event: 'exit', callback: (code: number) => void)
+    on(event: 'error', callback: (err: any) => void)
+}
+
+declare function spawn(command: string): ChildProcess;
+declare function spawn(command: string, args: string[]): ChildProcess;
+declare function spawn(command: string, options: SpawnOptions): ChildProcess;
+declare function spawn(command: string, args: string[], options: SpawnOptions): ChildProcess;
+
+declare function fullScreen(isFullScreen: boolean);
+
+declare function enableEdgeToEdge(enable: boolean);
+
+declare function toast(message: string);
+
+declare function moduleInfo(): string;
+
+interface PackagesInfo {
+    packageName: string;
+    versionName: string;
+    versionCode: number;
+    appLabel: string;
+    isSystem: boolean | null;
+    uid: number | null;
+}
+
+interface PackageInfoError {
+    packageName: string;
+    error: string;
+}
+
+/**
+ * @deprecated Use `pm.listPackages` instead.
+ */
+declare function listPackages(type: string): string[];
+
+/**
+ * @deprecated Use `pm.getPackagesInfo` instead.
+ */
+declare function getPackagesInfo(packages: string[]): Array<PackagesInfo | PackageInfoError>;
+
+interface PackageInfoPerUid extends PackagesInfo {
+    userId: number | null;
+}
+
+interface KsuPm {
+    readonly support: boolean;
+    readonly version: number;
+    listPackages(type: string): string[];
+    getPackagesInfo(packages: string[]): Array<PackageInfoPerUid | PackageInfoError>;
+}
+
+declare const pm: KsuPm;
+
+declare function exit();
+
+interface FileInstance {
+    exists(): boolean;
+    isFile(): boolean;
+    isDirectory(): boolean;
+    canRead(): boolean;
+    canWrite(): boolean;
+    canExecute(): boolean;
+    createNewFile(): boolean;
+    delete(): boolean;
+    deleteRecursive(): boolean;
+    mkdir(): boolean;
+    mkdirs(): boolean;
+    renameTo(destPath: string): boolean;
+    list(): string[];
+    listFiles(): string[];
+    length(): number;
+    lastModified(): number;
+    setLastModified(time: number): boolean;
+    getAbsolutePath(): string;
+    getCanonicalPath(): string;
+    getParent(): string | null;
+    getPath(): string;
+    getName(): string;
+    isHidden(): boolean;
+    isBlock(): boolean;
+    isCharacter(): boolean;
+    isSymlink(): boolean;
+    createNewSymlink(target: string): boolean;
+    createNewLink(existing: string): boolean;
+    clear(): boolean;
+    setReadOnly(): boolean;
+    setReadable(readable: boolean, ownerOnly: boolean): boolean;
+    setWritable(writable: boolean, ownerOnly: boolean): boolean;
+    setExecutable(executable: boolean, ownerOnly: boolean): boolean;
+    getFreeSpace(): number;
+    getTotalSpace(): number;
+    getUsableSpace(): number;
+    newInputStream(): string;
+    newOutputStream(append?: boolean): string;
+    toString(): string;
+}
+
+interface FileInputStreamInstance {
+    open(path: string): string;
+    read(id: string): string;
+    read(id: string, maxBytes: number): string;
+    available(id: string): number;
+    close(id: string): boolean;
+}
+
+interface FileOutputStreamInstance {
+    open(path: string, append?: boolean): string;
+    write(id: string, base64: string): boolean;
+    writeByte(id: string, b: number): boolean;
+    flush(id: string): boolean;
+    close(id: string): boolean;
+}
+
+interface RandomAccessFileInstance {
+    open(path: string, mode: string): string;
+    read(id: string): number;
+    readBytes(id: string, len: number): string;
+    readBoolean(id: string): boolean;
+    readByte(id: string): number;
+    readInt(id: string): number;
+    readLong(id: string): number;
+    readShort(id: string): number;
+    readFloat(id: string): number;
+    readDouble(id: string): number;
+    readUTF(id: string): string;
+    readLine(id: string): string | null;
+    write(id: string, b: number): void;
+    writeBase64(id: string, data: string): void;
+    writeBoolean(id: string, v: boolean): void;
+    writeByte(id: string, v: number): void;
+    writeInt(id: string, v: number): void;
+    writeLong(id: string, v: number): void;
+    writeShort(id: string, v: number): void;
+    writeFloat(id: string, v: number): void;
+    writeDouble(id: string, v: number): void;
+    writeUTF(id: string, str: string): void;
+    seek(id: string, pos: number): boolean;
+    getFilePointer(id: string): number;
+    length(id: string): number;
+    setLength(id: string, newLength: number): boolean;
+    close(id: string): boolean;
+}
+
+interface KsuIO {
+    readonly support: boolean;
+    readonly version: number;
+    File(path: string): FileInstance;
+    FileInputStream(): FileInputStreamInstance;
+    FileOutputStream(): FileOutputStreamInstance;
+    RandomAccessFile(): RandomAccessFileInstance;
+}
+
+declare const io: KsuIO;
+
+export {
+    exec,
+    spawn,
+    fullScreen,
+    enableEdgeToEdge,
+    toast,
+    moduleInfo,
+    listPackages,
+    getPackagesInfo,
+    exit,
+    io,
+    pm,
+}

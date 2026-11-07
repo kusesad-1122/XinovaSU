@@ -1,1 +1,217 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0CgppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRFcXVhbHMKaW1wb3J0IG9yZy5qdW5pdC5Bc3NlcnQuYXNzZXJ0TnVsbAppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRUaHJvd3MKaW1wb3J0IG9yZy5qdW5pdC5Bc3NlcnQuYXNzZXJ0VHJ1ZQppbXBvcnQgb3JnLmp1bml0LlRlc3QKCmNsYXNzIFNjcmlwdFBhcmFtc1Rlc3QgewoKICAgIHByaXZhdGUgdmFsIHNhbXBsZSA9ICIiIgogICAgICAgIHsKICAgICAgICAgICJzY2hlbWFWZXJzaW9uIjogMSwKICAgICAgICAgICJwYXJhbXMiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAia2V5IjogIkVOQUJMRV9GQVNUQk9PVCIsCiAgICAgICAgICAgICAgInR5cGUiOiAiYm9vbCIsCiAgICAgICAgICAgICAgImxhYmVsIjogIkFsc28gZW5hYmxlIGZhc3Rib290IiwKICAgICAgICAgICAgICAiZGVzY3JpcHRpb24iOiAiT3B0aW9uYWwgbG9uZ2VyIGhlbHAgdGV4dCIsCiAgICAgICAgICAgICAgImRlZmF1bHQiOiB0cnVlLAogICAgICAgICAgICAgICJmdXR1cmVGaWVsZCI6IDEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgeyAia2V5IjogIk1PREUiLCAidHlwZSI6ICJlbnVtIiwgImxhYmVsIjogIk1vZGUiLCAiZGVmYXVsdCI6ICJhIiwKICAgICAgICAgICAgICAib3B0aW9ucyI6IFsgeyAidmFsdWUiOiAiYSIsICJsYWJlbCI6ICJBIiB9LCB7ICJ2YWx1ZSI6ICJiIiB9IF0gfSwKICAgICAgICAgICAgeyAia2V5IjogIk5BTUUiLCAidHlwZSI6ICJzdHJpbmciLCAibGFiZWwiOiAiTmFtZSIsICJkZWZhdWx0IjogIiIsICJtYXhMZW5ndGgiOiA2NCwKICAgICAgICAgICAgICAicmVxdWlyZWQiOiBmYWxzZSB9LAogICAgICAgICAgICB7ICJrZXkiOiAiQ09VTlQiLCAidHlwZSI6ICJpbnQiLCAibGFiZWwiOiAiQ291bnQiLCAiZGVmYXVsdCI6IDEsICJtaW4iOiAwLCAibWF4IjogMTAgfQogICAgICAgICAgXQogICAgICAgIH0KICAgICIiIi50cmltSW5kZW50KCkKCiAgICBwcml2YXRlIGZ1biBwYXJzZShwYXJhbXM6IFN0cmluZykgPSBTY3JpcHRQYXJhbXNQYXJzZXIucGFyc2UoIiIieyJzY2hlbWFWZXJzaW9uIjoxLCJwYXJhbXMiOlskcGFyYW1zXX0iIiIpCgogICAgcHJpdmF0ZSBmdW4gYXNzZXJ0SW52YWxpZChwYXJhbXM6IFN0cmluZykgewogICAgICAgIGFzc2VydFRocm93cyhTY3JpcHRQYXJhbXNFeGNlcHRpb246OmNsYXNzLmphdmEpIHsgcGFyc2UocGFyYW1zKSB9CiAgICB9CgogICAgQFRlc3QKICAgIGZ1biBwYXJzZXNDb250cmFjdFNhbXBsZSgpIHsKICAgICAgICB2YWwgcCA9IFNjcmlwdFBhcmFtc1BhcnNlci5wYXJzZShzYW1wbGUpLnBhcmFtcwogICAgICAgIGFzc2VydEVxdWFscyhsaXN0T2YoIkVOQUJMRV9GQVNUQk9PVCIsICJNT0RFIiwgIk5BTUUiLCAiQ09VTlQiKSwgcC5tYXAgeyBpdC5rZXkgfSkKCiAgICAgICAgdmFsIGJvb2wgPSBwWzBdIGFzIFNjcmlwdFBhcmFtLkJvb2wKICAgICAgICBhc3NlcnRFcXVhbHModHJ1ZSwgYm9vbC5kZWZhdWx0KQogICAgICAgIGFzc2VydEVxdWFscygiQWxzbyBlbmFibGUgZmFzdGJvb3QiLCBib29sLmxhYmVsKQogICAgICAgIGFzc2VydEVxdWFscygiT3B0aW9uYWwgbG9uZ2VyIGhlbHAgdGV4dCIsIGJvb2wuZGVzY3JpcHRpb24pCgogICAgICAgIHZhbCBjaG9pY2UgPSBwWzFdIGFzIFNjcmlwdFBhcmFtLkNob2ljZQogICAgICAgIGFzc2VydEVxdWFscyhsaXN0T2YoImEiLCAiYiIpLCBjaG9pY2Uub3B0aW9ucy5tYXAgeyBpdC52YWx1ZSB9KQogICAgICAgIGFzc2VydEVxdWFscygiQSIsIGNob2ljZS5vcHRpb25zWzBdLmxhYmVsKQogICAgICAgIGFzc2VydE51bGwoY2hvaWNlLm9wdGlvbnNbMV0ubGFiZWwpCgogICAgICAgIHZhbCB0ZXh0ID0gcFsyXSBhcyBTY3JpcHRQYXJhbS5UZXh0CiAgICAgICAgYXNzZXJ0RXF1YWxzKDY0LCB0ZXh0Lm1heExlbmd0aCkKCiAgICAgICAgdmFsIGludCA9IHBbM10gYXMgU2NyaXB0UGFyYW0uSW50ZWdlcgogICAgICAgIGFzc2VydEVxdWFscygxLCBpbnQuZGVmYXVsdCkKICAgICAgICBhc3NlcnRFcXVhbHMoMCwgaW50Lm1pbikKICAgICAgICBhc3NlcnRFcXVhbHMoMTAsIGludC5tYXgpCgogICAgICAgIGFzc2VydEVxdWFscygKICAgICAgICAgICAgbWFwT2YoIkVOQUJMRV9GQVNUQk9PVCIgdG8gInRydWUiLCAiTU9ERSIgdG8gImEiLCAiTkFNRSIgdG8gIiIsICJDT1VOVCIgdG8gIjEiKSwKICAgICAgICAgICAgU2NyaXB0UGFyYW1zUGFyc2VyLnBhcnNlKHNhbXBsZSkuZGVmYXVsdHMsCiAgICAgICAgKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gYXBwbGllc0RlZmF1bHRzKCkgewogICAgICAgIHZhbCBwID0gcGFyc2UoCiAgICAgICAgICAgICIiIgogICAgICAgICAgICB7ImtleSI6IkIiLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjoiYiJ9LAogICAgICAgICAgICB7ImtleSI6IkUiLCJ0eXBlIjoiZW51bSIsImxhYmVsIjoiZSIsIm9wdGlvbnMiOlt7InZhbHVlIjoieCJ9LHsidmFsdWUiOiJ5In1dfSwKICAgICAgICAgICAgeyJrZXkiOiJTIiwidHlwZSI6InN0cmluZyIsImxhYmVsIjoicyJ9LAogICAgICAgICAgICB7ImtleSI6IkkiLCJ0eXBlIjoiaW50IiwibGFiZWwiOiJpIn0sCiAgICAgICAgICAgIHsia2V5IjoiSiIsInR5cGUiOiJpbnQiLCJsYWJlbCI6ImoiLCJtaW4iOjV9CiAgICAgICAgICAgICIiIgogICAgICAgICkKICAgICAgICBhc3NlcnRFcXVhbHMobWFwT2YoIkIiIHRvICJmYWxzZSIsICJFIiB0byAieCIsICJTIiB0byAiIiwgIkkiIHRvICIwIiwgIkoiIHRvICI1IiksIHAuZGVmYXVsdHMpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFNjcmlwdFBhcmFtc1BhcnNlci5ERUZBVUxUX01BWF9MRU5HVEgsIChwLnBhcmFtc1syXSBhcyBTY3JpcHRQYXJhbS5UZXh0KS5tYXhMZW5ndGgpCiAgICAgICAgYXNzZXJ0RXF1YWxzKGZhbHNlLCAocC5wYXJhbXNbMl0gYXMgU2NyaXB0UGFyYW0uVGV4dCkucmVxdWlyZWQpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biByZWplY3RzU2NoZW1hVmlvbGF0aW9ucygpIHsKICAgICAgICBhc3NlcnRUaHJvd3MoU2NyaXB0UGFyYW1zRXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7IFNjcmlwdFBhcmFtc1BhcnNlci5wYXJzZSgiIiJ7InNjaGVtYVZlcnNpb24iOjIsInBhcmFtcyI6W119IiIiKSB9CiAgICAgICAgYXNzZXJ0VGhyb3dzKFNjcmlwdFBhcmFtc0V4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgeyBTY3JpcHRQYXJhbXNQYXJzZXIucGFyc2UoIiIieyJzY2hlbWFWZXJzaW9uIjoiMSIsInBhcmFtcyI6W119IiIiKSB9CiAgICAgICAgYXNzZXJ0VGhyb3dzKFNjcmlwdFBhcmFtc0V4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgeyBTY3JpcHRQYXJhbXNQYXJzZXIucGFyc2UoIiIieyJzY2hlbWFWZXJzaW9uIjoxfSIiIikgfQogICAgICAgIGFzc2VydFRocm93cyhTY3JpcHRQYXJhbXNFeGNlcHRpb246OmNsYXNzLmphdmEpIHsgU2NyaXB0UGFyYW1zUGFyc2VyLnBhcnNlKCJub3QganNvbiIpIH0KICAgICAgICBhc3NlcnRUaHJvd3MoU2NyaXB0UGFyYW1zRXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7IFNjcmlwdFBhcmFtc1BhcnNlci5wYXJzZSgiW10iKSB9CgogICAgICAgIHZhbCB0b29NYW55ID0gKDEuLjE3KS5qb2luVG9TdHJpbmcoIiwiKSB7ICIiInsia2V5IjoiSyRpdCIsInR5cGUiOiJib29sIiwibGFiZWwiOiJ4In0iIiIgfQogICAgICAgIGFzc2VydEludmFsaWQodG9vTWFueSkKICAgICAgICBhc3NlcnRFcXVhbHMoMTYsIHBhcnNlKCgxLi4xNikuam9pblRvU3RyaW5nKCIsIikgeyAiIiJ7ImtleSI6IkskaXQiLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjoieCJ9IiIiIH0pLnBhcmFtcy5zaXplKQoKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoibG93ZXIiLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjoieCJ9IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiIxQUJDIiwidHlwZSI6ImJvb2wiLCJsYWJlbCI6IngifSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSR7IkIiLnJlcGVhdCgzMil9IiwidHlwZSI6ImJvb2wiLCJsYWJlbCI6IngifSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJib29sIiwibGFiZWwiOiJ4In0seyJrZXkiOiJBIiwidHlwZSI6ImJvb2wiLCJsYWJlbCI6InkifSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJmbG9hdCIsImxhYmVsIjoieCJ9IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImJvb2wifSIiIikKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHZhbGlkYXRlc1RleHQoKSB7CiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjoiIn0iIiIpCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjoiJHsieCIucmVwZWF0KDIwMSl9In0iIiIpCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjp7ImVuIjoieCJ9fSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJlbnVtIiwibGFiZWwiOiJ4Iiwib3B0aW9ucyI6W3sidmFsdWUiOiJhIiwibGFiZWwiOnsiZW4iOiJBIn19XX0iIiIpCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjoxfSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJib29sIiwibGFiZWwiOiJ4IiwiZGVzY3JpcHRpb24iOiIifSIiIikKICAgICAgICAvLyBUcmltbWVkIGJlZm9yZSB0aGUgbGVuZ3RoIGNoZWNrLCBsaWtlIHRoZSB2YWxpZGF0b3IncyB6b2Qgc2NoZW1hLgogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImJvb2wiLCJsYWJlbCI6IiAgICJ9IiIiKQogICAgICAgIGFzc2VydEVxdWFscygieCIucmVwZWF0KDIwMCksIHBhcnNlKCIiInsia2V5IjoiQSIsInR5cGUiOiJib29sIiwibGFiZWwiOiIgJHsieCIucmVwZWF0KDIwMCl9ICAifSIiIikucGFyYW1zWzBdLmxhYmVsKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gbWF0Y2hlc1ZhbGlkYXRvckpzb25SZWFkaW5nKCkgewogICAgICAgIC8vIEEgVVRGLTggQk9NIGlzIGRyb3BwZWQsIGFuZCBpbnRlZ2VycyBtYXkgYmUgd3JpdHRlbiBsaWtlIGFueSBKU09OIG51bWJlciB3aXRoIGFuIGludGVncmFsIHZhbHVlLgogICAgICAgIGFzc2VydEVxdWFscygwLCBTY3JpcHRQYXJhbXNQYXJzZXIucGFyc2UoIlx1RkVGRntcInNjaGVtYVZlcnNpb25cIjoxLFwicGFyYW1zXCI6W119IikucGFyYW1zLnNpemUpCiAgICAgICAgYXNzZXJ0RXF1YWxzKDAsIFNjcmlwdFBhcmFtc1BhcnNlci5wYXJzZSgiIiJ7InNjaGVtYVZlcnNpb24iOjEuMCwicGFyYW1zIjpbXX0iIiIpLnBhcmFtcy5zaXplKQogICAgICAgIHZhbCB0ZXh0ID0gcGFyc2UoIiIieyJrZXkiOiJBIiwidHlwZSI6InN0cmluZyIsImxhYmVsIjoieCIsIm1heExlbmd0aCI6NS4wfSIiIikucGFyYW1zWzBdIGFzIFNjcmlwdFBhcmFtLlRleHQKICAgICAgICBhc3NlcnRFcXVhbHMoNSwgdGV4dC5tYXhMZW5ndGgpCiAgICAgICAgdmFsIGludCA9IHBhcnNlKCIiInsia2V5IjoiQSIsInR5cGUiOiJpbnQiLCJsYWJlbCI6IngiLCJtaW4iOjFlMSwibWF4IjoyRSsxfSIiIikucGFyYW1zWzBdIGFzIFNjcmlwdFBhcmFtLkludGVnZXIKICAgICAgICBhc3NlcnRFcXVhbHMoMTAsIGludC5taW4pCiAgICAgICAgYXNzZXJ0RXF1YWxzKDIwLCBpbnQubWF4KQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImludCIsImxhYmVsIjoieCIsIm1pbiI6MS41fSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJpbnQiLCJsYWJlbCI6IngiLCJtaW4iOjFlMTB9IiIiKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gdmFsaWRhdGVzVHlwZVNwZWNpZmljRmllbGRzKCkgewogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImJvb2wiLCJsYWJlbCI6IngiLCJkZWZhdWx0IjoidHJ1ZSJ9IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImVudW0iLCJsYWJlbCI6IngiLCJvcHRpb25zIjpbXX0iIiIpCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiZW51bSIsImxhYmVsIjoieCIsIm9wdGlvbnMiOlt7InZhbHVlIjoiYSBiIn1dfSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJlbnVtIiwibGFiZWwiOiJ4Iiwib3B0aW9ucyI6W3sidmFsdWUiOiJhIn0seyJ2YWx1ZSI6ImEifV19IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImVudW0iLCJsYWJlbCI6IngiLCJvcHRpb25zIjpbeyJ2YWx1ZSI6ImEifV0sImRlZmF1bHQiOiJiIn0iIiIpCiAgICAgICAgdmFsIG9wdGlvbnMgPSAoMS4uMzMpLmpvaW5Ub1N0cmluZygiLCIpIHsgIiIieyJ2YWx1ZSI6InYkaXQifSIiIiB9CiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiZW51bSIsImxhYmVsIjoieCIsIm9wdGlvbnMiOlskb3B0aW9uc119IiIiKQoKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJzdHJpbmciLCJsYWJlbCI6IngiLCJtYXhMZW5ndGgiOjB9IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6InN0cmluZyIsImxhYmVsIjoieCIsIm1heExlbmd0aCI6MTAyNX0iIiIpCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoic3RyaW5nIiwibGFiZWwiOiJ4IiwibWF4TGVuZ3RoIjoyLCJkZWZhdWx0IjoiYWJjIn0iIiIpCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoic3RyaW5nIiwibGFiZWwiOiJ4IiwiZGVmYXVsdCI6ImFcbmIifSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJzdHJpbmciLCJsYWJlbCI6IngiLCJyZXF1aXJlZCI6InllcyJ9IiIiKQogICAgICAgIC8vIEEgcmVxdWlyZWQgZmllbGQgbWF5IHN0YXJ0IG91dCBlbXB0eTogdGhlIHVzZXIgaGFzIHRvIGZpbGwgaXQgaW4uCiAgICAgICAgcGFyc2UoIiIieyJrZXkiOiJBIiwidHlwZSI6InN0cmluZyIsImxhYmVsIjoieCIsInJlcXVpcmVkIjp0cnVlfSIiIikKCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiaW50IiwibGFiZWwiOiJ4IiwiZGVmYXVsdCI6MS41fSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJpbnQiLCJsYWJlbCI6IngiLCJkZWZhdWx0IjoiMSJ9IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImludCIsImxhYmVsIjoieCIsIm1pbiI6NSwibWF4IjoxfSIiIikKICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJpbnQiLCJsYWJlbCI6IngiLCJtaW4iOjEsIm1heCI6MywiZGVmYXVsdCI6NH0iIiIpCiAgICAgICAgYXNzZXJ0SW52YWxpZCgiIiJ7ImtleSI6IkEiLCJ0eXBlIjoiaW50IiwibGFiZWwiOiJ4IiwibWF4IjotMX0iIiIpCiAgICAgICAgLy8gaW50MzIgb25seS4KICAgICAgICBhc3NlcnRJbnZhbGlkKCIiInsia2V5IjoiQSIsInR5cGUiOiJpbnQiLCJsYWJlbCI6IngiLCJtYXgiOjIxNDc0ODM2NDh9IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImludCIsImxhYmVsIjoieCIsIm1pbiI6LTIxNDc0ODM2NDl9IiIiKQogICAgICAgIGFzc2VydEludmFsaWQoIiIieyJrZXkiOiJBIiwidHlwZSI6ImludCIsImxhYmVsIjoieCIsImRlZmF1bHQiOjIxNDc0ODM2NDh9IiIiKQogICAgICAgIHBhcnNlKCIiInsia2V5IjoiQSIsInR5cGUiOiJpbnQiLCJsYWJlbCI6IngiLCJtaW4iOi0yMTQ3NDgzNjQ4LCJtYXgiOjIxNDc0ODM2NDd9IiIiKQoKICAgICAgICAvLyBgcGF0dGVybmAgaXMgbm90IHBhcnQgb2YgdGhlIGZvcm1hdDogbGlrZSBhbnkgdW5rbm93biBmaWVsZCBpdCBpcyBpZ25vcmVkLCBuZXZlciBlbmZvcmNlZC4KICAgICAgICB2YWwgdGV4dCA9IHBhcnNlKCIiInsia2V5IjoiQSIsInR5cGUiOiJzdHJpbmciLCJsYWJlbCI6IngiLCJwYXR0ZXJuIjoiKGErKSskIn0iIiIpLnBhcmFtc1swXQogICAgICAgIGFzc2VydE51bGwodGV4dC52YWxpZGF0ZSgiYSIucmVwZWF0KDY0KSArICIhIikpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biByZWplY3RzRHVwbGljYXRlSnNvbktleXMoKSB7CiAgICAgICAgdmFsIGUgPSBhc3NlcnRUaHJvd3MoU2NyaXB0UGFyYW1zRXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7CiAgICAgICAgICAgIFNjcmlwdFBhcmFtc1BhcnNlci5wYXJzZSgiIiJ7InNjaGVtYVZlcnNpb24iOjEsInBhcmFtcyI6W3sia2V5IjoiQSIsInR5cGUiOiJib29sIiwibGFiZWwiOiJ4IiwibGFiZWwiOiJ5In1dfSIiIikKICAgICAgICB9CiAgICAgICAgYXNzZXJ0VHJ1ZShlLm1lc3NhZ2UhIS5jb250YWlucygibGFiZWwiKSkKICAgICAgICBhc3NlcnRUaHJvd3MoU2NyaXB0UGFyYW1zRXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7CiAgICAgICAgICAgIFNjcmlwdFBhcmFtc1BhcnNlci5wYXJzZSgiIiJ7InNjaGVtYVZlcnNpb24iOjEsInBhcmFtcyI6W10sInBhcmFtcyI6W119IiIiKQogICAgICAgIH0KICAgICAgICAvLyBFc2NhcGVkIHNwZWxsaW5ncyBvZiB0aGUgc2FtZSBrZXkgYXJlIHRoZSBzYW1lIGtleS4KICAgICAgICBhc3NlcnRFcXVhbHMoImFiIiwgU2NyaXB0UGFyYW1zUGFyc2VyLmZpbmREdXBsaWNhdGVLZXkoIiIieyJhYiI6MSwiYVx1MDA2MiI6Mn0iIiIpKQogICAgICAgIC8vIFNhbWUga2V5IGluIGRpZmZlcmVudCBvYmplY3RzLCBvciBhcyBhIHN0cmluZyB2YWx1ZSwgaXMgZmluZS4KICAgICAgICBhc3NlcnROdWxsKFNjcmlwdFBhcmFtc1BhcnNlci5maW5kRHVwbGljYXRlS2V5KCIiInsiYSI6eyJhIjoxfSwiYiI6WyJhIiwiYSJdLCJjIjoiYSIsImQiOnsieCI6IlwiYVwiIn19IiIiKSkKICAgICAgICBhc3NlcnROdWxsKFNjcmlwdFBhcmFtc1BhcnNlci5maW5kRHVwbGljYXRlS2V5KHNhbXBsZSkpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biB2YWxpZGF0ZXNWYWx1ZXMoKSB7CiAgICAgICAgdmFsIHAgPSBTY3JpcHRQYXJhbXNQYXJzZXIucGFyc2Uoc2FtcGxlKQogICAgICAgIHZhbCBib29sID0gcC5wYXJhbXNbMF0KICAgICAgICBhc3NlcnROdWxsKGJvb2wudmFsaWRhdGUoImZhbHNlIikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFBhcmFtRXJyb3IuSU5WQUxJRF9CT09MRUFOLCBib29sLnZhbGlkYXRlKCJ5ZXMiKSkKCiAgICAgICAgdmFsIGNob2ljZSA9IHAucGFyYW1zWzFdCiAgICAgICAgYXNzZXJ0TnVsbChjaG9pY2UudmFsaWRhdGUoImIiKSkKICAgICAgICBhc3NlcnRFcXVhbHMoUGFyYW1FcnJvci5JTlZBTElEX09QVElPTiwgY2hvaWNlLnZhbGlkYXRlKCJjIikpCgogICAgICAgIHZhbCB0ZXh0ID0gcC5wYXJhbXNbMl0KICAgICAgICBhc3NlcnROdWxsKHRleHQudmFsaWRhdGUoIiIpKQogICAgICAgIGFzc2VydE51bGwodGV4dC52YWxpZGF0ZSgiYWJjIikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFBhcmFtRXJyb3IuVE9PX0xPTkcsIHRleHQudmFsaWRhdGUoImEiLnJlcGVhdCg2NSkpKQogICAgICAgIGFzc2VydEVxdWFscyhQYXJhbUVycm9yLklOVkFMSURfQ0hBUkFDVEVSUywgdGV4dC52YWxpZGF0ZSgiYVxuYiIpKQogICAgICAgIGFzc2VydEVxdWFscyhQYXJhbUVycm9yLklOVkFMSURfQ0hBUkFDVEVSUywgdGV4dC52YWxpZGF0ZSgiYVx1MDAwMCIpKQoKICAgICAgICB2YWwgcmVxdWlyZWQgPSBwYXJzZSgiIiJ7ImtleSI6IlIiLCJ0eXBlIjoic3RyaW5nIiwibGFiZWwiOiJ4IiwicmVxdWlyZWQiOnRydWV9IiIiKS5wYXJhbXNbMF0KICAgICAgICBhc3NlcnRFcXVhbHMoUGFyYW1FcnJvci5SRVFVSVJFRCwgcmVxdWlyZWQudmFsaWRhdGUoIiIpKQogICAgICAgIGFzc2VydE51bGwocmVxdWlyZWQudmFsaWRhdGUoIml0J3MgXCRmaW5lIGByZWFsbHlgIikpCgogICAgICAgIHZhbCBjb3VudCA9IHAucGFyYW1zWzNdCiAgICAgICAgYXNzZXJ0TnVsbChjb3VudC52YWxpZGF0ZSgiMTAiKSkKICAgICAgICBhc3NlcnROdWxsKGNvdW50LnZhbGlkYXRlKCIgNyAiKSkKICAgICAgICBhc3NlcnRFcXVhbHMoIjciLCBjb3VudC5jYW5vbmljYWwoIis3IikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFBhcmFtRXJyb3IuQUJPVkVfTUFYLCBjb3VudC52YWxpZGF0ZSgiMTEiKSkKICAgICAgICBhc3NlcnRFcXVhbHMoUGFyYW1FcnJvci5CRUxPV19NSU4sIGNvdW50LnZhbGlkYXRlKCItMSIpKQogICAgICAgIGFzc2VydEVxdWFscyhQYXJhbUVycm9yLk5PVF9BTl9JTlRFR0VSLCBjb3VudC52YWxpZGF0ZSgiMS4wIikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFBhcmFtRXJyb3IuTk9UX0FOX0lOVEVHRVIsIGNvdW50LnZhbGlkYXRlKCIiKSkKICAgICAgICBhc3NlcnRFcXVhbHMoUGFyYW1FcnJvci5OT1RfQU5fSU5URUdFUiwgY291bnQudmFsaWRhdGUoIjk5OTk5OTk5OTk5OTk5OTk5OTk5IikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFBhcmFtRXJyb3IuTk9UX0FOX0lOVEVHRVIsIGNvdW50LnZhbGlkYXRlKCIyMTQ3NDgzNjQ4IikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFBhcmFtRXJyb3IuSU5WQUxJRF9DSEFSQUNURVJTLCB0ZXh0LnZhbGlkYXRlKCJhXHJiIikpCgogICAgICAgIGFzc2VydFRydWUocC52YWxpZGF0ZShwLmRlZmF1bHRzKS5pc0VtcHR5KCkpCiAgICAgICAgYXNzZXJ0RXF1YWxzKG1hcE9mKCJDT1VOVCIgdG8gUGFyYW1FcnJvci5BQk9WRV9NQVgpLCBwLnZhbGlkYXRlKG1hcE9mKCJDT1VOVCIgdG8gIjQyIikpKQogICAgfQp9Cg==
+package com.xinsu.moe.data.script
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertThrows
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+class ScriptParamsTest {
+
+    private val sample = """
+        {
+          "schemaVersion": 1,
+          "params": [
+            {
+              "key": "ENABLE_FASTBOOT",
+              "type": "bool",
+              "label": "Also enable fastboot",
+              "description": "Optional longer help text",
+              "default": true,
+              "futureField": 1
+            },
+            { "key": "MODE", "type": "enum", "label": "Mode", "default": "a",
+              "options": [ { "value": "a", "label": "A" }, { "value": "b" } ] },
+            { "key": "NAME", "type": "string", "label": "Name", "default": "", "maxLength": 64,
+              "required": false },
+            { "key": "COUNT", "type": "int", "label": "Count", "default": 1, "min": 0, "max": 10 }
+          ]
+        }
+    """.trimIndent()
+
+    private fun parse(params: String) = ScriptParamsParser.parse("""{"schemaVersion":1,"params":[$params]}""")
+
+    private fun assertInvalid(params: String) {
+        assertThrows(ScriptParamsException::class.java) { parse(params) }
+    }
+
+    @Test
+    fun parsesContractSample() {
+        val p = ScriptParamsParser.parse(sample).params
+        assertEquals(listOf("ENABLE_FASTBOOT", "MODE", "NAME", "COUNT"), p.map { it.key })
+
+        val bool = p[0] as ScriptParam.Bool
+        assertEquals(true, bool.default)
+        assertEquals("Also enable fastboot", bool.label)
+        assertEquals("Optional longer help text", bool.description)
+
+        val choice = p[1] as ScriptParam.Choice
+        assertEquals(listOf("a", "b"), choice.options.map { it.value })
+        assertEquals("A", choice.options[0].label)
+        assertNull(choice.options[1].label)
+
+        val text = p[2] as ScriptParam.Text
+        assertEquals(64, text.maxLength)
+
+        val int = p[3] as ScriptParam.Integer
+        assertEquals(1, int.default)
+        assertEquals(0, int.min)
+        assertEquals(10, int.max)
+
+        assertEquals(
+            mapOf("ENABLE_FASTBOOT" to "true", "MODE" to "a", "NAME" to "", "COUNT" to "1"),
+            ScriptParamsParser.parse(sample).defaults,
+        )
+    }
+
+    @Test
+    fun appliesDefaults() {
+        val p = parse(
+            """
+            {"key":"B","type":"bool","label":"b"},
+            {"key":"E","type":"enum","label":"e","options":[{"value":"x"},{"value":"y"}]},
+            {"key":"S","type":"string","label":"s"},
+            {"key":"I","type":"int","label":"i"},
+            {"key":"J","type":"int","label":"j","min":5}
+            """
+        )
+        assertEquals(mapOf("B" to "false", "E" to "x", "S" to "", "I" to "0", "J" to "5"), p.defaults)
+        assertEquals(ScriptParamsParser.DEFAULT_MAX_LENGTH, (p.params[2] as ScriptParam.Text).maxLength)
+        assertEquals(false, (p.params[2] as ScriptParam.Text).required)
+    }
+
+    @Test
+    fun rejectsSchemaViolations() {
+        assertThrows(ScriptParamsException::class.java) { ScriptParamsParser.parse("""{"schemaVersion":2,"params":[]}""") }
+        assertThrows(ScriptParamsException::class.java) { ScriptParamsParser.parse("""{"schemaVersion":"1","params":[]}""") }
+        assertThrows(ScriptParamsException::class.java) { ScriptParamsParser.parse("""{"schemaVersion":1}""") }
+        assertThrows(ScriptParamsException::class.java) { ScriptParamsParser.parse("not json") }
+        assertThrows(ScriptParamsException::class.java) { ScriptParamsParser.parse("[]") }
+
+        val tooMany = (1..17).joinToString(",") { """{"key":"K$it","type":"bool","label":"x"}""" }
+        assertInvalid(tooMany)
+        assertEquals(16, parse((1..16).joinToString(",") { """{"key":"K$it","type":"bool","label":"x"}""" }).params.size)
+
+        assertInvalid("""{"key":"lower","type":"bool","label":"x"}""")
+        assertInvalid("""{"key":"1ABC","type":"bool","label":"x"}""")
+        assertInvalid("""{"key":"A${"B".repeat(32)}","type":"bool","label":"x"}""")
+        assertInvalid("""{"key":"A","type":"bool","label":"x"},{"key":"A","type":"bool","label":"y"}""")
+        assertInvalid("""{"key":"A","type":"float","label":"x"}""")
+        assertInvalid("""{"key":"A","type":"bool"}""")
+    }
+
+    @Test
+    fun validatesText() {
+        assertInvalid("""{"key":"A","type":"bool","label":""}""")
+        assertInvalid("""{"key":"A","type":"bool","label":"${"x".repeat(201)}"}""")
+        assertInvalid("""{"key":"A","type":"bool","label":{"en":"x"}}""")
+        assertInvalid("""{"key":"A","type":"enum","label":"x","options":[{"value":"a","label":{"en":"A"}}]}""")
+        assertInvalid("""{"key":"A","type":"bool","label":1}""")
+        assertInvalid("""{"key":"A","type":"bool","label":"x","description":""}""")
+        // Trimmed before the length check, like the validator's zod schema.
+        assertInvalid("""{"key":"A","type":"bool","label":"   "}""")
+        assertEquals("x".repeat(200), parse("""{"key":"A","type":"bool","label":" ${"x".repeat(200)}  "}""").params[0].label)
+    }
+
+    @Test
+    fun matchesValidatorJsonReading() {
+        // A UTF-8 BOM is dropped, and integers may be written like any JSON number with an integral value.
+        assertEquals(0, ScriptParamsParser.parse("\uFEFF{\"schemaVersion\":1,\"params\":[]}").params.size)
+        assertEquals(0, ScriptParamsParser.parse("""{"schemaVersion":1.0,"params":[]}""").params.size)
+        val text = parse("""{"key":"A","type":"string","label":"x","maxLength":5.0}""").params[0] as ScriptParam.Text
+        assertEquals(5, text.maxLength)
+        val int = parse("""{"key":"A","type":"int","label":"x","min":1e1,"max":2E+1}""").params[0] as ScriptParam.Integer
+        assertEquals(10, int.min)
+        assertEquals(20, int.max)
+        assertInvalid("""{"key":"A","type":"int","label":"x","min":1.5}""")
+        assertInvalid("""{"key":"A","type":"int","label":"x","min":1e10}""")
+    }
+
+    @Test
+    fun validatesTypeSpecificFields() {
+        assertInvalid("""{"key":"A","type":"bool","label":"x","default":"true"}""")
+        assertInvalid("""{"key":"A","type":"enum","label":"x","options":[]}""")
+        assertInvalid("""{"key":"A","type":"enum","label":"x","options":[{"value":"a b"}]}""")
+        assertInvalid("""{"key":"A","type":"enum","label":"x","options":[{"value":"a"},{"value":"a"}]}""")
+        assertInvalid("""{"key":"A","type":"enum","label":"x","options":[{"value":"a"}],"default":"b"}""")
+        val options = (1..33).joinToString(",") { """{"value":"v$it"}""" }
+        assertInvalid("""{"key":"A","type":"enum","label":"x","options":[$options]}""")
+
+        assertInvalid("""{"key":"A","type":"string","label":"x","maxLength":0}""")
+        assertInvalid("""{"key":"A","type":"string","label":"x","maxLength":1025}""")
+        assertInvalid("""{"key":"A","type":"string","label":"x","maxLength":2,"default":"abc"}""")
+        assertInvalid("""{"key":"A","type":"string","label":"x","default":"a\nb"}""")
+        assertInvalid("""{"key":"A","type":"string","label":"x","required":"yes"}""")
+        // A required field may start out empty: the user has to fill it in.
+        parse("""{"key":"A","type":"string","label":"x","required":true}""")
+
+        assertInvalid("""{"key":"A","type":"int","label":"x","default":1.5}""")
+        assertInvalid("""{"key":"A","type":"int","label":"x","default":"1"}""")
+        assertInvalid("""{"key":"A","type":"int","label":"x","min":5,"max":1}""")
+        assertInvalid("""{"key":"A","type":"int","label":"x","min":1,"max":3,"default":4}""")
+        assertInvalid("""{"key":"A","type":"int","label":"x","max":-1}""")
+        // int32 only.
+        assertInvalid("""{"key":"A","type":"int","label":"x","max":2147483648}""")
+        assertInvalid("""{"key":"A","type":"int","label":"x","min":-2147483649}""")
+        assertInvalid("""{"key":"A","type":"int","label":"x","default":2147483648}""")
+        parse("""{"key":"A","type":"int","label":"x","min":-2147483648,"max":2147483647}""")
+
+        // `pattern` is not part of the format: like any unknown field it is ignored, never enforced.
+        val text = parse("""{"key":"A","type":"string","label":"x","pattern":"(a+)+$"}""").params[0]
+        assertNull(text.validate("a".repeat(64) + "!"))
+    }
+
+    @Test
+    fun rejectsDuplicateJsonKeys() {
+        val e = assertThrows(ScriptParamsException::class.java) {
+            ScriptParamsParser.parse("""{"schemaVersion":1,"params":[{"key":"A","type":"bool","label":"x","label":"y"}]}""")
+        }
+        assertTrue(e.message!!.contains("label"))
+        assertThrows(ScriptParamsException::class.java) {
+            ScriptParamsParser.parse("""{"schemaVersion":1,"params":[],"params":[]}""")
+        }
+        // Escaped spellings of the same key are the same key.
+        assertEquals("ab", ScriptParamsParser.findDuplicateKey("""{"ab":1,"a\u0062":2}"""))
+        // Same key in different objects, or as a string value, is fine.
+        assertNull(ScriptParamsParser.findDuplicateKey("""{"a":{"a":1},"b":["a","a"],"c":"a","d":{"x":"\"a\""}}"""))
+        assertNull(ScriptParamsParser.findDuplicateKey(sample))
+    }
+
+    @Test
+    fun validatesValues() {
+        val p = ScriptParamsParser.parse(sample)
+        val bool = p.params[0]
+        assertNull(bool.validate("false"))
+        assertEquals(ParamError.INVALID_BOOLEAN, bool.validate("yes"))
+
+        val choice = p.params[1]
+        assertNull(choice.validate("b"))
+        assertEquals(ParamError.INVALID_OPTION, choice.validate("c"))
+
+        val text = p.params[2]
+        assertNull(text.validate(""))
+        assertNull(text.validate("abc"))
+        assertEquals(ParamError.TOO_LONG, text.validate("a".repeat(65)))
+        assertEquals(ParamError.INVALID_CHARACTERS, text.validate("a\nb"))
+        assertEquals(ParamError.INVALID_CHARACTERS, text.validate("a\u0000"))
+
+        val required = parse("""{"key":"R","type":"string","label":"x","required":true}""").params[0]
+        assertEquals(ParamError.REQUIRED, required.validate(""))
+        assertNull(required.validate("it's \$fine `really`"))
+
+        val count = p.params[3]
+        assertNull(count.validate("10"))
+        assertNull(count.validate(" 7 "))
+        assertEquals("7", count.canonical("+7"))
+        assertEquals(ParamError.ABOVE_MAX, count.validate("11"))
+        assertEquals(ParamError.BELOW_MIN, count.validate("-1"))
+        assertEquals(ParamError.NOT_AN_INTEGER, count.validate("1.0"))
+        assertEquals(ParamError.NOT_AN_INTEGER, count.validate(""))
+        assertEquals(ParamError.NOT_AN_INTEGER, count.validate("99999999999999999999"))
+        assertEquals(ParamError.NOT_AN_INTEGER, count.validate("2147483648"))
+        assertEquals(ParamError.INVALID_CHARACTERS, text.validate("a\rb"))
+
+        assertTrue(p.validate(p.defaults).isEmpty())
+        assertEquals(mapOf("COUNT" to ParamError.ABOVE_MAX), p.validate(mapOf("COUNT" to "42")))
+    }
+}

@@ -1,1 +1,25 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5leGVjdXRlbW9kdWxlYWN0aW9uCgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkltbXV0YWJsZQoKQEltbXV0YWJsZQpkYXRhIGNsYXNzIEV4ZWN1dGVNb2R1bGVBY3Rpb25VaVN0YXRlKAogICAgdmFsIHRleHQ6IFN0cmluZywKICAgIHZhbCBpc0NvbXBsZXRlOiBCb29sZWFuID0gZmFsc2UsCiAgICAvKiogVG9wIGJhciB0aXRsZTsgZGVmYXVsdHMgdG8gIkFjdGlvbiIuICovCiAgICB2YWwgdGl0bGU6IFN0cmluZz8gPSBudWxsLAogICAgLyoqIE91dGNvbWUgc2hvd24gYmVsb3cgdGhlIG91dHB1dCBvbmNlIGNvbXBsZXRlIChvbmUtc2hvdCBzY3JpcHRzKS4gKi8KICAgIHZhbCByZXN1bHROb3RpY2U6IEFjdGlvblJlc3VsdE5vdGljZT8gPSBudWxsLAopCgplbnVtIGNsYXNzIEFjdGlvblJlc3VsdEtpbmQgeyBTVUNDRVNTLCBOT1RfQVBQTElDQUJMRSwgRkFJTFVSRSB9CgpASW1tdXRhYmxlCmRhdGEgY2xhc3MgQWN0aW9uUmVzdWx0Tm90aWNlKHZhbCBraW5kOiBBY3Rpb25SZXN1bHRLaW5kLCB2YWwgdGV4dDogU3RyaW5nKQoKQEltbXV0YWJsZQpkYXRhIGNsYXNzIEV4ZWN1dGVNb2R1bGVBY3Rpb25TY3JlZW5BY3Rpb25zKAogICAgdmFsIG9uQmFjazogKCkgLT4gVW5pdCwKICAgIHZhbCBvblNhdmVMb2c6ICgpIC0+IFVuaXQsCiAgICB2YWwgb25DbG9zZTogKCkgLT4gVW5pdCA9IHt9LAopCg==
+package com.xinsu.moe.ui.screen.executemoduleaction
+
+import androidx.compose.runtime.Immutable
+
+@Immutable
+data class ExecuteModuleActionUiState(
+    val text: String,
+    val isComplete: Boolean = false,
+    /** Top bar title; defaults to "Action". */
+    val title: String? = null,
+    /** Outcome shown below the output once complete (one-shot scripts). */
+    val resultNotice: ActionResultNotice? = null,
+)
+
+enum class ActionResultKind { SUCCESS, NOT_APPLICABLE, FAILURE }
+
+@Immutable
+data class ActionResultNotice(val kind: ActionResultKind, val text: String)
+
+@Immutable
+data class ExecuteModuleActionScreenActions(
+    val onBack: () -> Unit,
+    val onSaveLog: () -> Unit,
+    val onClose: () -> Unit = {},
+)

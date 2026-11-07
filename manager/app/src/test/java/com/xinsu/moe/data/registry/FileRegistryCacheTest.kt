@@ -1,1 +1,43 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBvcmcuanVuaXQuQXNzZXJ0LmFzc2VydEVxdWFscwppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnROdWxsCmltcG9ydCBvcmcuanVuaXQuUnVsZQppbXBvcnQgb3JnLmp1bml0LlRlc3QKaW1wb3J0IG9yZy5qdW5pdC5ydWxlcy5UZW1wb3JhcnlGb2xkZXIKaW1wb3J0IGphdmEuaW8uRmlsZQppbXBvcnQgamF2YS51dGlsLmNvbmN1cnJlbnQuRXhlY3V0b3JzCmltcG9ydCBqYXZhLnV0aWwuY29uY3VycmVudC5UaW1lVW5pdAoKY2xhc3MgRmlsZVJlZ2lzdHJ5Q2FjaGVUZXN0IHsKCiAgICBAZ2V0OlJ1bGUKICAgIHZhbCB0bXAgPSBUZW1wb3JhcnlGb2xkZXIoKQoKICAgIEBUZXN0CiAgICBmdW4gd3JpdGVzUmVhZHNBbmRSZXBsYWNlc1dpdGhvdXRMZWZ0b3ZlcnMoKSB7CiAgICAgICAgdmFsIGRpciA9IEZpbGUodG1wLnJvb3QsICJjYWNoZSIpCiAgICAgICAgdmFsIGNhY2hlID0gRmlsZVJlZ2lzdHJ5Q2FjaGUoZGlyKQogICAgICAgIGFzc2VydE51bGwoY2FjaGUucmVhZCgiY2F0YWxvZyIpKQogICAgICAgIGNhY2hlLndyaXRlKCJjYXRhbG9nIiwgIm9uZSIpCiAgICAgICAgY2FjaGUud3JpdGUoImNhdGFsb2ciLCAidHdvIOKckyIpCiAgICAgICAgYXNzZXJ0RXF1YWxzKCJ0d28g4pyTIiwgY2FjaGUucmVhZCgiY2F0YWxvZyIpKQogICAgICAgIGNhY2hlLndyaXRlKCJkZXRhaWwvLi4veCIsICJzYWZlIikKICAgICAgICBhc3NlcnRFcXVhbHMoInNhZmUiLCBjYWNoZS5yZWFkKCJkZXRhaWwvLi4veCIpKQogICAgICAgIGFzc2VydEVxdWFscyhsaXN0T2YoImNhdGFsb2cuY2FjaGUiLCAiZGV0YWlsXy4uX3guY2FjaGUiKSwgZGlyLmxpc3QoKSEhLnNvcnRlZCgpKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gY29uY3VycmVudFdyaXRlcnNVc2VEaXN0aW5jdFRlbXBGaWxlcygpIHsKICAgICAgICB2YWwgZGlyID0gRmlsZSh0bXAucm9vdCwgImNhY2hlIikKICAgICAgICB2YWwgY2FjaGUgPSBGaWxlUmVnaXN0cnlDYWNoZShkaXIpCiAgICAgICAgdmFsIHBvb2wgPSBFeGVjdXRvcnMubmV3Rml4ZWRUaHJlYWRQb29sKDgpCiAgICAgICAgdmFsIHZhbHVlcyA9ICgwIHVudGlsIDY0KS5tYXAgeyAidmFsdWUtJGl0LSIgKyAieCIucmVwZWF0KDEwXzAwMCkgfQogICAgICAgIHZhbHVlcy5mb3JFYWNoIHsgdiAtPiBwb29sLnN1Ym1pdCB7IGNhY2hlLndyaXRlKCJzYW1lIiwgdikgfSB9CiAgICAgICAgcG9vbC5zaHV0ZG93bigpCiAgICAgICAgcG9vbC5hd2FpdFRlcm1pbmF0aW9uKDMwLCBUaW1lVW5pdC5TRUNPTkRTKQogICAgICAgIC8vIFdoYXRldmVyIHdvbiwgaXQgaXMgb25lIGNvbXBsZXRlIHZhbHVlIGFuZCBubyB0ZW1wIGZpbGUgaXMgbGVmdCBiZWhpbmQuCiAgICAgICAgYXNzZXJ0KGNhY2hlLnJlYWQoInNhbWUiKSBpbiB2YWx1ZXMpCiAgICAgICAgYXNzZXJ0RXF1YWxzKGxpc3RPZigic2FtZS5jYWNoZSIpLCBkaXIubGlzdCgpISEuc29ydGVkKCkpCiAgICB9Cn0K
+package com.xinsu.moe.data.registry
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import org.junit.Rule
+import org.junit.Test
+import org.junit.rules.TemporaryFolder
+import java.io.File
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
+
+class FileRegistryCacheTest {
+
+    @get:Rule
+    val tmp = TemporaryFolder()
+
+    @Test
+    fun writesReadsAndReplacesWithoutLeftovers() {
+        val dir = File(tmp.root, "cache")
+        val cache = FileRegistryCache(dir)
+        assertNull(cache.read("catalog"))
+        cache.write("catalog", "one")
+        cache.write("catalog", "two ✓")
+        assertEquals("two ✓", cache.read("catalog"))
+        cache.write("detail/../x", "safe")
+        assertEquals("safe", cache.read("detail/../x"))
+        assertEquals(listOf("catalog.cache", "detail_.._x.cache"), dir.list()!!.sorted())
+    }
+
+    @Test
+    fun concurrentWritersUseDistinctTempFiles() {
+        val dir = File(tmp.root, "cache")
+        val cache = FileRegistryCache(dir)
+        val pool = Executors.newFixedThreadPool(8)
+        val values = (0 until 64).map { "value-$it-" + "x".repeat(10_000) }
+        values.forEach { v -> pool.submit { cache.write("same", v) } }
+        pool.shutdown()
+        pool.awaitTermination(30, TimeUnit.SECONDS)
+        // Whatever won, it is one complete value and no temp file is left behind.
+        assert(cache.read("same") in values)
+        assertEquals(listOf("same.cache"), dir.list()!!.sorted())
+    }
+}

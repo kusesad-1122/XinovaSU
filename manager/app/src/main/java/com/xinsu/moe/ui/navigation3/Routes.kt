@@ -1,1 +1,95 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLm5hdmlnYXRpb24zCgppbXBvcnQgYW5kcm9pZC5vcy5QYXJjZWxhYmxlCmltcG9ydCBhbmRyb2lkeC5uYXZpZ2F0aW9uMy5ydW50aW1lLk5hdktleQppbXBvcnQga290bGlueC5wYXJjZWxpemUuUGFyY2VsaXplCmltcG9ydCBrb3RsaW54LnNlcmlhbGl6YXRpb24uU2VyaWFsaXphYmxlCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5mbGFzaC5GbGFzaEl0CmltcG9ydCBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5tb2R1bGVyZXBvLlJlcG9Nb2R1bGVBcmcKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuc2NyZWVuLnNjcmlwdHJ1bi5TY3JpcHRSdW5BcmcKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5GbGFzaEl0U2VyaWFsaXplcgppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLlJlcG9Nb2R1bGVBcmdTZXJpYWxpemVyCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwuU2NyaXB0UnVuQXJnU2VyaWFsaXplcgppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLlRlbXBsYXRlSW5mb1NlcmlhbGl6ZXIKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudmlld21vZGVsLlRlbXBsYXRlVmlld01vZGVsCgovKioKICogVHlwZS1zYWZlIG5hdmlnYXRpb24ga2V5cyBmb3IgTmF2aWdhdGlvbjMuCiAqIEVhY2ggZGVzdGluYXRpb24gaXMgYSBOYXZLZXkgKGRhdGEgb2JqZWN0L2RhdGEgY2xhc3MpIGFuZCBjYW4gYmUgc2F2ZWQvcmVzdG9yZWQgaW4gdGhlIGJhY2sgc3RhY2suCiAqLwpzZWFsZWQgaW50ZXJmYWNlIFJvdXRlIDogTmF2S2V5LCBQYXJjZWxhYmxlIHsKICAgIEBQYXJjZWxpemUKICAgIEBTZXJpYWxpemFibGUKICAgIGRhdGEgb2JqZWN0IE1haW4gOiBSb3V0ZQoKICAgIEBQYXJjZWxpemUKICAgIEBTZXJpYWxpemFibGUKICAgIGRhdGEgb2JqZWN0IEhvbWUgOiBSb3V0ZQoKICAgIEBQYXJjZWxpemUKICAgIEBTZXJpYWxpemFibGUKICAgIGRhdGEgb2JqZWN0IFN1cGVyVXNlciA6IFJvdXRlCgogICAgQFBhcmNlbGl6ZQogICAgQFNlcmlhbGl6YWJsZQogICAgZGF0YSBvYmplY3QgTW9kdWxlIDogUm91dGUKCiAgICBAUGFyY2VsaXplCiAgICBAU2VyaWFsaXphYmxlCiAgICBkYXRhIG9iamVjdCBTZXR0aW5ncyA6IFJvdXRlCgogICAgQFBhcmNlbGl6ZQogICAgQFNlcmlhbGl6YWJsZQogICAgZGF0YSBvYmplY3QgQWJvdXQgOiBSb3V0ZQoKICAgIEBQYXJjZWxpemUKICAgIEBTZXJpYWxpemFibGUKICAgIGRhdGEgb2JqZWN0IEZ1bmN0aW9ucyA6IFJvdXRlCgogICAgQFBhcmNlbGl6ZQogICAgQFNlcmlhbGl6YWJsZQogICAgZGF0YSBvYmplY3QgU3Vsb2cgOiBSb3V0ZQoKICAgIEBQYXJjZWxpemUKICAgIEBTZXJpYWxpemFibGUKICAgIGRhdGEgb2JqZWN0IENvbG9yUGFsZXR0ZSA6IFJvdXRlCgogICAgQFBhcmNlbGl6ZQogICAgQFNlcmlhbGl6YWJsZQogICAgZGF0YSBvYmplY3QgQXBwUHJvZmlsZVRlbXBsYXRlIDogUm91dGUKCiAgICBAUGFyY2VsaXplCiAgICBAU2VyaWFsaXphYmxlCiAgICBkYXRhIGNsYXNzIFRlbXBsYXRlRWRpdG9yKAogICAgICAgIEBTZXJpYWxpemFibGUod2l0aCA9IFRlbXBsYXRlSW5mb1NlcmlhbGl6ZXI6OmNsYXNzKSB2YWwgdGVtcGxhdGU6IFRlbXBsYXRlVmlld01vZGVsLlRlbXBsYXRlSW5mbywKICAgICAgICB2YWwgcmVhZE9ubHk6IEJvb2xlYW4KICAgICkgOiBSb3V0ZQoKICAgIEBQYXJjZWxpemUKICAgIEBTZXJpYWxpemFibGUKICAgIGRhdGEgY2xhc3MgQXBwUHJvZmlsZSh2YWwgdWlkOiBJbnQpIDogUm91dGUKCiAgICBAUGFyY2VsaXplCiAgICBAU2VyaWFsaXphYmxlCiAgICBkYXRhIG9iamVjdCBJbnN0YWxsIDogUm91dGUKCiAgICBAUGFyY2VsaXplCiAgICBAU2VyaWFsaXphYmxlCiAgICBkYXRhIGNsYXNzIE1vZHVsZVJlcG9EZXRhaWwoQFNlcmlhbGl6YWJsZSh3aXRoID0gUmVwb01vZHVsZUFyZ1NlcmlhbGl6ZXI6OmNsYXNzKSB2YWwgbW9kdWxlOiBSZXBvTW9kdWxlQXJnKSA6IFJvdXRlCgogICAgQFBhcmNlbGl6ZQogICAgQFNlcmlhbGl6YWJsZQogICAgZGF0YSBvYmplY3QgTW9kdWxlUmVwbyA6IFJvdXRlCgogICAgQFBhcmNlbGl6ZQogICAgQFNlcmlhbGl6YWJsZQogICAgZGF0YSBjbGFzcyBGbGFzaChAU2VyaWFsaXphYmxlKHdpdGggPSBGbGFzaEl0U2VyaWFsaXplcjo6Y2xhc3MpIHZhbCBmbGFzaEl0OiBGbGFzaEl0KSA6IFJvdXRlCgogICAgQFBhcmNlbGl6ZQogICAgQFNlcmlhbGl6YWJsZQogICAgZGF0YSBjbGFzcyBFeGVjdXRlTW9kdWxlQWN0aW9uKHZhbCBtb2R1bGVJZDogU3RyaW5nLCB2YWwgZnJvbVNob3J0Y3V0OiBCb29sZWFuID0gZmFsc2UpIDogUm91dGUKCiAgICBAUGFyY2VsaXplCiAgICBAU2VyaWFsaXphYmxlCiAgICBkYXRhIGNsYXNzIFNjcmlwdFJ1bihAU2VyaWFsaXphYmxlKHdpdGggPSBTY3JpcHRSdW5BcmdTZXJpYWxpemVyOjpjbGFzcykgdmFsIGFyZzogU2NyaXB0UnVuQXJnKSA6IFJvdXRlCn0K
+package com.xinsu.moe.ui.navigation3
+
+import android.os.Parcelable
+import androidx.navigation3.runtime.NavKey
+import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
+import com.xinsu.moe.ui.screen.flash.FlashIt
+import com.xinsu.moe.ui.screen.modulerepo.RepoModuleArg
+import com.xinsu.moe.ui.screen.scriptrun.ScriptRunArg
+import com.xinsu.moe.ui.util.FlashItSerializer
+import com.xinsu.moe.ui.util.RepoModuleArgSerializer
+import com.xinsu.moe.ui.util.ScriptRunArgSerializer
+import com.xinsu.moe.ui.util.TemplateInfoSerializer
+import com.xinsu.moe.ui.viewmodel.TemplateViewModel
+
+/**
+ * Type-safe navigation keys for Navigation3.
+ * Each destination is a NavKey (data object/data class) and can be saved/restored in the back stack.
+ */
+sealed interface Route : NavKey, Parcelable {
+    @Parcelize
+    @Serializable
+    data object Main : Route
+
+    @Parcelize
+    @Serializable
+    data object Home : Route
+
+    @Parcelize
+    @Serializable
+    data object SuperUser : Route
+
+    @Parcelize
+    @Serializable
+    data object Module : Route
+
+    @Parcelize
+    @Serializable
+    data object Settings : Route
+
+    @Parcelize
+    @Serializable
+    data object About : Route
+
+    @Parcelize
+    @Serializable
+    data object Functions : Route
+
+    @Parcelize
+    @Serializable
+    data object Sulog : Route
+
+    @Parcelize
+    @Serializable
+    data object ColorPalette : Route
+
+    @Parcelize
+    @Serializable
+    data object AppProfileTemplate : Route
+
+    @Parcelize
+    @Serializable
+    data class TemplateEditor(
+        @Serializable(with = TemplateInfoSerializer::class) val template: TemplateViewModel.TemplateInfo,
+        val readOnly: Boolean
+    ) : Route
+
+    @Parcelize
+    @Serializable
+    data class AppProfile(val uid: Int) : Route
+
+    @Parcelize
+    @Serializable
+    data object Install : Route
+
+    @Parcelize
+    @Serializable
+    data class ModuleRepoDetail(@Serializable(with = RepoModuleArgSerializer::class) val module: RepoModuleArg) : Route
+
+    @Parcelize
+    @Serializable
+    data object ModuleRepo : Route
+
+    @Parcelize
+    @Serializable
+    data class Flash(@Serializable(with = FlashItSerializer::class) val flashIt: FlashIt) : Route
+
+    @Parcelize
+    @Serializable
+    data class ExecuteModuleAction(val moduleId: String, val fromShortcut: Boolean = false) : Route
+
+    @Parcelize
+    @Serializable
+    data class ScriptRun(@Serializable(with = ScriptRunArgSerializer::class) val arg: ScriptRunArg) : Route
+}

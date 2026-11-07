@@ -1,1 +1,251 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0CgppbXBvcnQgYW5kcm9pZC5jb250ZW50LkNvbnRlbnRSZXNvbHZlcgppbXBvcnQgYW5kcm9pZC5jb250ZW50LkNvbnRleHQKaW1wb3J0IGFuZHJvaWQubmV0LlVyaQppbXBvcnQgYW5kcm9pZC51dGlsLkxvZwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLkNvcm91dGluZVNjb3BlCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuRGlzcGF0Y2hlcnMKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5TdXBlcnZpc29ySm9iCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5NdXRhYmxlU3RhdGVGbG93CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5TdGF0ZUZsb3cKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5mbG93LmFzU3RhdGVGbG93CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy51cGRhdGUKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5sYXVuY2gKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5zeW5jLk11dGV4CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuc3luYy53aXRoTG9jawppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLndpdGhDb250ZXh0CmltcG9ydCBjb20ueGluc3UubW9lLkJ1aWxkQ29uZmlnCmltcG9ydCBjb20ueGluc3UubW9lLk5hdGl2ZXMKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZWdpc3RyeS5Eb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbgppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlZ2lzdHJ5LlJlZ2lzdHJ5RG93bmxvYWRTdG9yZQppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlZ2lzdHJ5LmNvcHlGb3JJbnN0YWxsCmltcG9ydCBjb20ueGluc3UubW9lLmtzdUFwcAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLnJlbW92ZUFzUm9vdAppbXBvcnQgamF2YS5pby5GaWxlCmltcG9ydCBqYXZhLmlvLklPRXhjZXB0aW9uCmltcG9ydCBqYXZhLm5pby5maWxlLkZpbGVzCmltcG9ydCBqYXZhLm5pby5maWxlLkxpbmtPcHRpb24KaW1wb3J0IGphdmEuc2VjdXJpdHkuTWVzc2FnZURpZ2VzdAppbXBvcnQgamF2YS51dGlsLlVVSUQKaW1wb3J0IGtvdGxpbi5pby5wYXRoLkV4cGVyaW1lbnRhbFBhdGhBcGkKaW1wb3J0IGtvdGxpbi5pby5wYXRoLmRlbGV0ZVJlY3Vyc2l2ZWx5CgovKiogQSB2YWxpZGF0ZWQgc2NyaXB0LCBleHRyYWN0ZWQgYW5kIHJlYWR5IHRvIHJ1bi4gKi8KZGF0YSBjbGFzcyBQcmVwYXJlZFNjcmlwdCgKICAgIHZhbCBtYW5pZmVzdDogU2NyaXB0TWFuaWZlc3QsCiAgICAvKiogRXh0cmFjdGlvbiBkaXJlY3Rvcnk6IHRoZSBzY3JpcHQncyB3b3JraW5nIGRpcmVjdG9yeSBhbmQgYCRNT0RQQVRIYC4gKi8KICAgIHZhbCBkaXI6IEZpbGUsCiAgICB2YWwgc2hhMjU2OiBTdHJpbmcsCiAgICB2YWwgcGFyYW1zOiBTY3JpcHRQYXJhbXMsCiAgICB2YWwgYWN0aW9uU291cmNlOiBTdHJpbmcsCiAgICB2YWwgYWN0aW9uU291cmNlVHJ1bmNhdGVkOiBCb29sZWFuLAopCgovKiogVGhlIHBhZ2UgcmVsZWFzZWQgdGhlIGV4dHJhY3Rpb24gd2hpbGUgaXQgd2FzIGJlaW5nIHByZXBhcmVkOyBub2JvZHkgd2FpdHMgZm9yIHRoZSByZXN1bHQuICovCmNsYXNzIFJlbGVhc2VkRXhjZXB0aW9uIDogSU9FeGNlcHRpb24oIkV4dHJhY3Rpb24gcmVsZWFzZWQgZHVyaW5nIHByZXBhcmF0aW9uIikKCi8qKiBUaGUgcmVnaXN0cnkgWklQIGlzIG5vdCAob3Igbm8gbG9uZ2VyKSBhIHZlcmlmaWVkIGRvd25sb2FkIG9mIHRoZSBzdG9yZS4gKi8KY2xhc3MgVW52ZXJpZmllZFNjcmlwdEV4Y2VwdGlvbiA6IElPRXhjZXB0aW9uKCJSZWdpc3RyeSBkb3dubG9hZCBpcyBub3QgdmVyaWZpZWQiKQoKb2JqZWN0IFNjcmlwdFJlcG9zaXRvcnkgewogICAgcHJpdmF0ZSBjb25zdCB2YWwgVEFHID0gIlNjcmlwdFJlcG9zaXRvcnkiCiAgICBjb25zdCB2YWwgRElSX05BTUUgPSAib25lc2hvdCIKICAgIHByaXZhdGUgY29uc3QgdmFsIFBSRUZTID0gIm9uZXNob3Rfc2NyaXB0cyIKICAgIHByaXZhdGUgY29uc3QgdmFsIE1BWF9TT1VSQ0VfQ0hBUlMgPSAyNTYgKiAxMDI0CgogICAgcHJpdmF0ZSBmdW4gcm9vdCgpOiBGaWxlID0gRmlsZShrc3VBcHAuZmlsZXNEaXIsIERJUl9OQU1FKQoKICAgIC8qKgogICAgICogRXh0cmFjdGlvbiBoZWxkIGJ5IGVhY2ggb3duZXIgKG9uZSBwcmVwYXJhdGlvbiBvZiBhIHJ1biBwYWdlKTsgZXZlcnl0aGluZyBlbHNlIHVuZGVyCiAgICAgKiBbcm9vdF0gaXMgc3RhbGUuIEd1YXJkZWQgYnkgaXRzZWxmIHRvZ2V0aGVyIHdpdGggW3JlbGVhc2VkXS4KICAgICAqLwogICAgcHJpdmF0ZSB2YWwgZXh0cmFjdGlvbnMgPSBIYXNoTWFwPFN0cmluZywgRmlsZT4oKQoKICAgIC8qKiBPd25lcnMgcmVsZWFzZWQgYmVmb3JlIHRoZWlyIHByZXBhcmF0aW9uIHJlZ2lzdGVyZWQgYW4gZXh0cmFjdGlvbi4gKi8KICAgIHByaXZhdGUgdmFsIHJlbGVhc2VkID0gSGFzaFNldDxTdHJpbmc+KCkKCiAgICAvKiogRGVsZXRlcyByZWxlYXNlZCBleHRyYWN0aW9ucyBvZmYgdGhlIGNhbGxlcidzIChvZnRlbiB0aGUgbWFpbikgdGhyZWFkLiAqLwogICAgcHJpdmF0ZSB2YWwgaW9TY29wZSA9IENvcm91dGluZVNjb3BlKFN1cGVydmlzb3JKb2IoKSArIERpc3BhdGNoZXJzLklPKQoKICAgIC8qKiBTZXJpYWxpc2VzIHByZXBhcmF0aW9ucywgc28gY2xlYW51cCBuZXZlciBzZWVzIGFub3RoZXIgcHJlcGFyYXRpb24ncyBoYWxmLWRvbmUgZmlsZXMuICovCiAgICBwcml2YXRlIHZhbCBwcmVwYXJlTG9jayA9IE11dGV4KCkKCiAgICB2YWwgaGlzdG9yeTogU2NyaXB0UnVuSGlzdG9yeSBieSBsYXp5IHsKICAgICAgICB2YWwgcHJlZnMgPSBrc3VBcHAuZ2V0U2hhcmVkUHJlZmVyZW5jZXMoUFJFRlMsIENvbnRleHQuTU9ERV9QUklWQVRFKQogICAgICAgIFNjcmlwdFJ1bkhpc3Rvcnkob2JqZWN0IDogU2NyaXB0UnVuU3RvcmFnZSB7CiAgICAgICAgICAgIG92ZXJyaWRlIGZ1biByZWFkKGtleTogU3RyaW5nKTogU3RyaW5nPyA9IHByZWZzLmdldFN0cmluZyhrZXksIG51bGwpCiAgICAgICAgICAgIG92ZXJyaWRlIGZ1biB3cml0ZShrZXk6IFN0cmluZywgdmFsdWU6IFN0cmluZykgewogICAgICAgICAgICAgICAgcHJlZnMuZWRpdCgpLnB1dFN0cmluZyhrZXksIHZhbHVlKS5hcHBseSgpCiAgICAgICAgICAgIH0KICAgICAgICB9KQogICAgfQoKICAgIGZ1biBob3N0SW5mbygpOiBTY3JpcHRIb3N0SW5mbyA9IFNjcmlwdEhvc3RJbmZvKAogICAgICAgIC8vIFNhbWUgdmFsdWUgYXMga3N1ZCdzIFZFUlNJT05fTkFNRSAoZ2l0IGRlc2NyaWJlIHdpdGhvdXQgdGhlIGxlYWRpbmcgInYiKS4KICAgICAgICBrc3VWZXJzaW9uID0gQnVpbGRDb25maWcuVkVSU0lPTl9OQU1FLnJlbW92ZVByZWZpeCgidiIpLAogICAgICAgIGtzdVZlcnNpb25Db2RlID0gQnVpbGRDb25maWcuVkVSU0lPTl9DT0RFLAogICAgICAgIGtlcm5lbFZlcnNpb25Db2RlID0gTmF0aXZlcy52ZXJzaW9uLAogICAgICAgIGxhdGVMb2FkID0gTmF0aXZlcy5pc0xhdGVMb2FkTW9kZSwKICAgICkKCiAgICAvKiogbW9kdWxlLnByb3Agb2YgW3VyaV0gaWYgaXQgaXMgYSBvbmUtc2hvdCBzY3JpcHQgWklQLCBvdGhlcndpc2UgKG9yIHdoZW4gdW5yZWFkYWJsZSkgbnVsbC4gKi8KICAgIHN1c3BlbmQgZnVuIHBlZWtPbmVzaG90KHVyaTogVXJpKTogU2NyaXB0TWFuaWZlc3Q/ID0gd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgIGtzdUFwcC5jb250ZW50UmVzb2x2ZXIub3BlbklucHV0U3RyZWFtKHVyaSk/LnVzZSB7IFNjcmlwdFBhY2thZ2UucmVhZE9uZXNob3RNYW5pZmVzdChpdCkgfQogICAgICAgIH0uZ2V0T3JOdWxsKCkKICAgIH0KCiAgICAvKioKICAgICAqIENvcGllcywgdmVyaWZpZXMsIHZhbGlkYXRlcyBhbmQgZXh0cmFjdHMgdGhlIFpJUCBhdCBbdXJpXS4gV2l0aCBbcmVnaXN0cnlJZF0gdGhlIFpJUCBtdXN0CiAgICAgKiBiZSBhIHZlcmlmaWVkIHJlZ2lzdHJ5IGRvd25sb2FkIChyZS1oYXNoZWQgaGVyZSBsaWtlIGEgbW9kdWxlIGluc3RhbGwpIHdob3NlIG1vZHVsZS5wcm9wCiAgICAgKiBpZCBlcXVhbHMgW3JlZ2lzdHJ5SWRdLiBUaGUgZXh0cmFjdGlvbiBiZWxvbmdzIHRvIFtvd25lcl0sIGEgdG9rZW4gdW5pcXVlIHRvIHRoaXMKICAgICAqIHByZXBhcmF0aW9uLCB1bnRpbCBbcmVsZWFzZV07IHJlbGVhc2luZyBpdCBlYXJsaWVyIChldmVuIGJlZm9yZSB0aGlzIHJldHVybnMpIGRyb3BzIGl0LgogICAgICovCiAgICBzdXNwZW5kIGZ1biBwcmVwYXJlKHVyaTogVXJpLCByZWdpc3RyeUlkOiBTdHJpbmc/LCBvd25lcjogU3RyaW5nKTogUHJlcGFyZWRTY3JpcHQgPSB3aXRoQ29udGV4dChEaXNwYXRjaGVycy5JTykgewogICAgICAgIHRyeSB7CiAgICAgICAgICAgIHByZXBhcmVMb2NrLndpdGhMb2NrIHsgcHJlcGFyZUxvY2tlZCh1cmksIHJlZ2lzdHJ5SWQsIG93bmVyKSB9CiAgICAgICAgfSBmaW5hbGx5IHsKICAgICAgICAgICAgLy8gVGhlIHRva2VuIGlzIG5ldmVyIHJldXNlZDogZm9yZ2V0IGFuIGVhcmx5IHJlbGVhc2UgdGhhdCBmb3VuZCBub3RoaW5nIHRvIGRyb3AuCiAgICAgICAgICAgIHN5bmNocm9uaXplZChleHRyYWN0aW9ucykgeyByZWxlYXNlZC5yZW1vdmUob3duZXIpIH0KICAgICAgICB9CiAgICB9CgogICAgcHJpdmF0ZSBmdW4gcHJlcGFyZUxvY2tlZCh1cmk6IFVyaSwgcmVnaXN0cnlJZDogU3RyaW5nPywgb3duZXI6IFN0cmluZyk6IFByZXBhcmVkU2NyaXB0IHsKICAgICAgICB2YWwgc3RvcmVSb290ID0gRmlsZShrc3VBcHAuZmlsZXNEaXIsIFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5ESVJfTkFNRSkKICAgICAgICB2YWwgZXhwZWN0ZWQgPSBpZiAodXJpLnNjaGVtZSA9PSBDb250ZW50UmVzb2x2ZXIuU0NIRU1FX0ZJTEUpIHsKICAgICAgICAgICAgdXJpLnBhdGg/LmxldCB7IFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5leHBlY3RlZEZvcihzdG9yZVJvb3QsIEZpbGUoaXQpKSB9CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgbnVsbAogICAgICAgIH0KICAgICAgICBpZiAocmVnaXN0cnlJZCAhPSBudWxsICYmIGV4cGVjdGVkID09IG51bGwpIHRocm93IFVudmVyaWZpZWRTY3JpcHRFeGNlcHRpb24oKQoKICAgICAgICB2YWwgemlwID0gRmlsZS5jcmVhdGVUZW1wRmlsZSgib25lc2hvdC0iLCAiLnppcCIsIGtzdUFwcC5jYWNoZURpcikKICAgICAgICB0cnkgewogICAgICAgICAgICB0cnkgewogICAgICAgICAgICAgICAgdmFsIGlucHV0ID0ga3N1QXBwLmNvbnRlbnRSZXNvbHZlci5vcGVuSW5wdXRTdHJlYW0odXJpKSA/OiB0aHJvdyBJT0V4Y2VwdGlvbigiQ2Fubm90IG9wZW4gJHVyaSIpCiAgICAgICAgICAgICAgICAvLyBBIGxvY2FsIHNvdXJjZSBoYXMgbm8gdmVyaWZpZWQgc2l6ZSBhbmQgbWF5IG5ldmVyIGVuZC4KICAgICAgICAgICAgICAgIGlucHV0LnVzZSB7IGNvcHlGb3JJbnN0YWxsKGlmIChleHBlY3RlZCA9PSBudWxsKSBTY3JpcHRQYWNrYWdlLmJvdW5kZWQoaXQsIFNjcmlwdFBhY2thZ2UuTUFYX1pJUF9CWVRFUykgZWxzZSBpdCwgemlwLCBleHBlY3RlZCkgfQogICAgICAgICAgICB9IGNhdGNoIChlOiBEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbikgewogICAgICAgICAgICAgICAgLy8gQ29ycnVwdGVkIG9yIHRhbXBlcmVkIGFmdGVyIGRvd25sb2FkOiBuZXZlciBrZWVwIGl0IGFyb3VuZCBmb3IgYSByZXRyeS4KICAgICAgICAgICAgICAgIHVyaS5wYXRoPy5sZXQgeyBSZWdpc3RyeURvd25sb2FkU3RvcmUuZGVsZXRlKHN0b3JlUm9vdCwgRmlsZShpdCkpIH0KICAgICAgICAgICAgICAgIHRocm93IGUKICAgICAgICAgICAgfQogICAgICAgICAgICB2YWwgbWFuaWZlc3QgPSBTY3JpcHRQYWNrYWdlLnZhbGlkYXRlKHppcCwgcmVnaXN0cnlJZCkKICAgICAgICAgICAgdmFsIHNoYTI1NiA9IHNoYTI1Nih6aXApCiAgICAgICAgICAgIC8vIE9uZSBkaXJlY3RvcnkgcGVyIHByZXBhcmF0aW9uOiB0aGUgc2FtZSBaSVAgbWF5IGJlIG9wZW4gb24gdHdvIHJ1biBwYWdlcyBhdCBvbmNlLgogICAgICAgICAgICB2YWwgZGlyID0gRmlsZShyb290KCksICIkc2hhMjU2LSR7VVVJRC5yYW5kb21VVUlEKCl9IikKICAgICAgICAgICAgc3luY2hyb25pemVkKGV4dHJhY3Rpb25zKSB7CiAgICAgICAgICAgICAgICBpZiAocmVsZWFzZWQucmVtb3ZlKG93bmVyKSkgdGhyb3cgUmVsZWFzZWRFeGNlcHRpb24oKQogICAgICAgICAgICAgICAgZXh0cmFjdGlvbnNbb3duZXJdID0gZGlyCiAgICAgICAgICAgIH0KICAgICAgICAgICAgY2xlYW51cCgpCiAgICAgICAgICAgIHRyeSB7CiAgICAgICAgICAgICAgICBTY3JpcHRQYWNrYWdlLmV4dHJhY3QoemlwLCBkaXIpCiAgICAgICAgICAgICAgICB2YWwgcHJlcGFyZWQgPSByZWFkUHJlcGFyZWQobWFuaWZlc3QsIGRpciwgc2hhMjU2KQogICAgICAgICAgICAgICAgLy8gUmVsZWFzZWQgd2hpbGUgZXh0cmFjdGluZzogcmVsZWFzZSgpIG1heSBoYXZlIHJ1biBiZWZvcmUgdGhlIGRpcmVjdG9yeSBleGlzdGVkLgogICAgICAgICAgICAgICAgaWYgKHN5bmNocm9uaXplZChleHRyYWN0aW9ucykgeyBleHRyYWN0aW9uc1tvd25lcl0gIT0gZGlyIH0pIHRocm93IFJlbGVhc2VkRXhjZXB0aW9uKCkKICAgICAgICAgICAgICAgIHJldHVybiBwcmVwYXJlZAogICAgICAgICAgICB9IGNhdGNoIChlOiBUaHJvd2FibGUpIHsKICAgICAgICAgICAgICAgIHJlbGVhc2Uob3duZXIpCiAgICAgICAgICAgICAgICBkZWxldGUoZGlyKQogICAgICAgICAgICAgICAgdGhyb3cgZQogICAgICAgICAgICB9CiAgICAgICAgfSBmaW5hbGx5IHsKICAgICAgICAgICAgemlwLmRlbGV0ZSgpCiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIHJlYWRQcmVwYXJlZChtYW5pZmVzdDogU2NyaXB0TWFuaWZlc3QsIGRpcjogRmlsZSwgc2hhMjU2OiBTdHJpbmcpOiBQcmVwYXJlZFNjcmlwdCB7CiAgICAgICAgdmFsIHBhcmFtc0ZpbGUgPSBGaWxlKGRpciwgU2NyaXB0UGFja2FnZS5QQVJBTVMpCiAgICAgICAgdmFsIHBhcmFtcyA9IGlmIChwYXJhbXNGaWxlLmlzRmlsZSkgewogICAgICAgICAgICBTY3JpcHRQYWNrYWdlLnBhcnNlUGFyYW1zKHBhcmFtc0ZpbGUucmVhZFRleHQoKSkKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBTY3JpcHRQYXJhbXMuRU1QVFkKICAgICAgICB9CiAgICAgICAgLy8gUmVhZCBhdCBtb3N0IG9uZSBjaGFyIHBhc3QgdGhlIGxpbWl0OiBhY3Rpb24uc2ggaXRzZWxmIG1heSBiZSB1cCB0byB0aGUgWklQIHNpemUgY2FwLgogICAgICAgIHZhbCBzb3VyY2UgPSBGaWxlKGRpciwgU2NyaXB0UGFja2FnZS5BQ1RJT04pLmJ1ZmZlcmVkUmVhZGVyKCkudXNlIHsgcmVhZGVyIC0+CiAgICAgICAgICAgIHZhbCBidWYgPSBDaGFyQXJyYXkoTUFYX1NPVVJDRV9DSEFSUyArIDEpCiAgICAgICAgICAgIHZhciBuID0gMAogICAgICAgICAgICB3aGlsZSAobiA8IGJ1Zi5zaXplKSB7CiAgICAgICAgICAgICAgICB2YWwgcmVhZCA9IHJlYWRlci5yZWFkKGJ1ZiwgbiwgYnVmLnNpemUgLSBuKQogICAgICAgICAgICAgICAgaWYgKHJlYWQgPT0gLTEpIGJyZWFrCiAgICAgICAgICAgICAgICBuICs9IHJlYWQKICAgICAgICAgICAgfQogICAgICAgICAgICBTdHJpbmcoYnVmLCAwLCBuKQogICAgICAgIH0KICAgICAgICByZXR1cm4gUHJlcGFyZWRTY3JpcHQoCiAgICAgICAgICAgIG1hbmlmZXN0ID0gbWFuaWZlc3QsCiAgICAgICAgICAgIGRpciA9IGRpciwKICAgICAgICAgICAgc2hhMjU2ID0gc2hhMjU2LAogICAgICAgICAgICBwYXJhbXMgPSBwYXJhbXMsCiAgICAgICAgICAgIGFjdGlvblNvdXJjZSA9IHNvdXJjZS50YWtlKE1BWF9TT1VSQ0VfQ0hBUlMpLAogICAgICAgICAgICBhY3Rpb25Tb3VyY2VUcnVuY2F0ZWQgPSBzb3VyY2UubGVuZ3RoID4gTUFYX1NPVVJDRV9DSEFSUywKICAgICAgICApCiAgICB9CgogICAgLyoqCiAgICAgKiBEcm9wcyB0aGUgZXh0cmFjdGlvbiBvZiBbb3duZXJdIChwYWdlIGxlZnQsIG9yIHRoZSBwcmVwYXJhdGlvbiBmYWlsZWQpLiBOb3QgZm9yIGEgcnVubmluZwogICAgICogc2NyaXB0OiB0aGUgcnVuIHJlbW92ZXMgaXRzIGRpcmVjdG9yeSBhcyByb290LCBzaW5jZSB0aGUgc2NyaXB0IG1heSBjcmVhdGUgcm9vdC1vd25lZCBmaWxlcy4KICAgICAqLwogICAgZnVuIHJlbGVhc2Uob3duZXI6IFN0cmluZykgewogICAgICAgIHZhbCBkaXIgPSBzeW5jaHJvbml6ZWQoZXh0cmFjdGlvbnMpIHsKICAgICAgICAgICAgZXh0cmFjdGlvbnMucmVtb3ZlKG93bmVyKSA/OiBydW4geyByZWxlYXNlZC5hZGQob3duZXIpOyBudWxsIH0KICAgICAgICB9ID86IHJldHVybgogICAgICAgIGlvU2NvcGUubGF1bmNoIHsgZGVsZXRlKGRpcikgfQogICAgfQoKICAgIHByaXZhdGUgdmFsIF9ydW5Db3VudCA9IE11dGFibGVTdGF0ZUZsb3coMCkKCiAgICAvKiogQnVtcGVkIGFmdGVyIGV2ZXJ5IHJlY29yZGVkIHJ1biwgc28gc2NyZWVucyBzaG93aW5nIHRoZSBsYXN0IHJ1biBjYW4gcmVmcmVzaC4gKi8KICAgIHZhbCBydW5Db3VudDogU3RhdGVGbG93PEludD4gPSBfcnVuQ291bnQuYXNTdGF0ZUZsb3coKQoKICAgIGZ1biByZWNvcmRSdW4ocHJlcGFyZWQ6IFByZXBhcmVkU2NyaXB0LCBleGl0Q29kZTogSW50KSB7CiAgICAgICAgaGlzdG9yeS5yZWNvcmQoCiAgICAgICAgICAgIFNjcmlwdFJ1blJlY29yZCgKICAgICAgICAgICAgICAgIGlkID0gcHJlcGFyZWQubWFuaWZlc3QuaWQsCiAgICAgICAgICAgICAgICB2ZXJzaW9uQ29kZSA9IHByZXBhcmVkLm1hbmlmZXN0LnZlcnNpb25Db2RlLAogICAgICAgICAgICAgICAgdGltZSA9IFN5c3RlbS5jdXJyZW50VGltZU1pbGxpcygpLAogICAgICAgICAgICAgICAgZXhpdENvZGUgPSBleGl0Q29kZSwKICAgICAgICAgICAgKQogICAgICAgICkKICAgICAgICBfcnVuQ291bnQudXBkYXRlIHsgaXQgKyAxIH0KICAgIH0KCiAgICAvKiogRHJvcHMgZXh0cmFjdGlvbnMgbm8gcGFnZSBob2xkcywgZS5nLiBsZWZ0IGJlaGluZCBieSBhIGtpbGxlZCBwcm9jZXNzLiAqLwogICAgcHJpdmF0ZSBmdW4gY2xlYW51cCgpIHsKICAgICAgICB2YWwgaGVsZCA9IHN5bmNocm9uaXplZChleHRyYWN0aW9ucykgeyBleHRyYWN0aW9ucy52YWx1ZXMubWFwVG8oSGFzaFNldCgpKSB7IGl0Lm5hbWUgfSB9CiAgICAgICAgcm9vdCgpLmxpc3RGaWxlcygpPy5mb3JFYWNoIHsgZiAtPiBpZiAoZi5uYW1lICFpbiBoZWxkKSBkZWxldGUoZikgfQogICAgfQoKICAgIC8qKgogICAgICogRGVsZXRlcyBbZGlyXSB3aXRob3V0IGZvbGxvd2luZyBzeW1saW5rcyAoYSBzY3JpcHQgbWF5IGhhdmUgbGlua2VkIHRvIGFueXdoZXJlKSwgYW5kIGFzCiAgICAgKiByb290IHdoZW4gdGhlIGFwcCBjYW5ub3QgKHJvb3Qtb3duZWQgZmlsZXMgbGVmdCBieSBhIHJ1biB3aG9zZSBvd24gY2xlYW51cCBmYWlsZWQpLgogICAgICovCiAgICBAT3B0SW4oRXhwZXJpbWVudGFsUGF0aEFwaTo6Y2xhc3MpCiAgICBwcml2YXRlIGZ1biBkZWxldGUoZGlyOiBGaWxlKSB7CiAgICAgICAgdmFsIHBhdGggPSBkaXIudG9QYXRoKCkKICAgICAgICBpZiAoIUZpbGVzLmV4aXN0cyhwYXRoLCBMaW5rT3B0aW9uLk5PRk9MTE9XX0xJTktTKSkgcmV0dXJuCiAgICAgICAgdHJ5IHsKICAgICAgICAgICAgcGF0aC5kZWxldGVSZWN1cnNpdmVseSgpCiAgICAgICAgfSBjYXRjaCAoZTogSU9FeGNlcHRpb24pIHsKICAgICAgICAgICAgTG9nLncoVEFHLCAiY2Fubm90IGRlbGV0ZSAkZGlyLCByZXRyeWluZyBhcyByb290IiwgZSkKICAgICAgICAgICAgcnVuQ2F0Y2hpbmcgeyByZW1vdmVBc1Jvb3QoZGlyLmFic29sdXRlUGF0aCkgfQogICAgICAgICAgICAgICAgLm9uU3VjY2VzcyB7IHJlbW92ZWQgLT4gaWYgKCFyZW1vdmVkKSBMb2cudyhUQUcsICJjYW5ub3QgcmVtb3ZlICRkaXIgYXMgcm9vdCIpIH0KICAgICAgICAgICAgICAgIC5vbkZhaWx1cmUgeyBMb2cudyhUQUcsICJjYW5ub3QgcmVtb3ZlICRkaXIgYXMgcm9vdCIsIGl0KSB9CiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIHNoYTI1NihmaWxlOiBGaWxlKTogU3RyaW5nIHsKICAgICAgICB2YWwgZGlnZXN0ID0gTWVzc2FnZURpZ2VzdC5nZXRJbnN0YW5jZSgiU0hBLTI1NiIpCiAgICAgICAgZmlsZS5pbnB1dFN0cmVhbSgpLnVzZSB7IGlucHV0IC0+CiAgICAgICAgICAgIHZhbCBidWYgPSBCeXRlQXJyYXkoNjQgKiAxMDI0KQogICAgICAgICAgICB3aGlsZSAodHJ1ZSkgewogICAgICAgICAgICAgICAgdmFsIG4gPSBpbnB1dC5yZWFkKGJ1ZikKICAgICAgICAgICAgICAgIGlmIChuID09IC0xKSBicmVhawogICAgICAgICAgICAgICAgZGlnZXN0LnVwZGF0ZShidWYsIDAsIG4pCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgcmV0dXJuIGRpZ2VzdC5kaWdlc3QoKS5qb2luVG9TdHJpbmcoIiIpIHsgIiUwMngiLmZvcm1hdChpdCkgfQogICAgfQp9Cg==
+package com.xinsu.moe.data.script
+
+import android.content.ContentResolver
+import android.content.Context
+import android.net.Uri
+import android.util.Log
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
+import com.xinsu.moe.BuildConfig
+import com.xinsu.moe.Natives
+import com.xinsu.moe.data.registry.DownloadVerificationException
+import com.xinsu.moe.data.registry.RegistryDownloadStore
+import com.xinsu.moe.data.registry.copyForInstall
+import com.xinsu.moe.ksuApp
+import com.xinsu.moe.ui.util.removeAsRoot
+import java.io.File
+import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.LinkOption
+import java.security.MessageDigest
+import java.util.UUID
+import kotlin.io.path.ExperimentalPathApi
+import kotlin.io.path.deleteRecursively
+
+/** A validated script, extracted and ready to run. */
+data class PreparedScript(
+    val manifest: ScriptManifest,
+    /** Extraction directory: the script's working directory and `$MODPATH`. */
+    val dir: File,
+    val sha256: String,
+    val params: ScriptParams,
+    val actionSource: String,
+    val actionSourceTruncated: Boolean,
+)
+
+/** The page released the extraction while it was being prepared; nobody waits for the result. */
+class ReleasedException : IOException("Extraction released during preparation")
+
+/** The registry ZIP is not (or no longer) a verified download of the store. */
+class UnverifiedScriptException : IOException("Registry download is not verified")
+
+object ScriptRepository {
+    private const val TAG = "ScriptRepository"
+    const val DIR_NAME = "oneshot"
+    private const val PREFS = "oneshot_scripts"
+    private const val MAX_SOURCE_CHARS = 256 * 1024
+
+    private fun root(): File = File(ksuApp.filesDir, DIR_NAME)
+
+    /**
+     * Extraction held by each owner (one preparation of a run page); everything else under
+     * [root] is stale. Guarded by itself together with [released].
+     */
+    private val extractions = HashMap<String, File>()
+
+    /** Owners released before their preparation registered an extraction. */
+    private val released = HashSet<String>()
+
+    /** Deletes released extractions off the caller's (often the main) thread. */
+    private val ioScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+    /** Serialises preparations, so cleanup never sees another preparation's half-done files. */
+    private val prepareLock = Mutex()
+
+    val history: ScriptRunHistory by lazy {
+        val prefs = ksuApp.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        ScriptRunHistory(object : ScriptRunStorage {
+            override fun read(key: String): String? = prefs.getString(key, null)
+            override fun write(key: String, value: String) {
+                prefs.edit().putString(key, value).apply()
+            }
+        })
+    }
+
+    fun hostInfo(): ScriptHostInfo = ScriptHostInfo(
+        // Same value as ksud's VERSION_NAME (git describe without the leading "v").
+        ksuVersion = BuildConfig.VERSION_NAME.removePrefix("v"),
+        ksuVersionCode = BuildConfig.VERSION_CODE,
+        kernelVersionCode = Natives.version,
+        lateLoad = Natives.isLateLoadMode,
+    )
+
+    /** module.prop of [uri] if it is a one-shot script ZIP, otherwise (or when unreadable) null. */
+    suspend fun peekOneshot(uri: Uri): ScriptManifest? = withContext(Dispatchers.IO) {
+        runCatching {
+            ksuApp.contentResolver.openInputStream(uri)?.use { ScriptPackage.readOneshotManifest(it) }
+        }.getOrNull()
+    }
+
+    /**
+     * Copies, verifies, validates and extracts the ZIP at [uri]. With [registryId] the ZIP must
+     * be a verified registry download (re-hashed here like a module install) whose module.prop
+     * id equals [registryId]. The extraction belongs to [owner], a token unique to this
+     * preparation, until [release]; releasing it earlier (even before this returns) drops it.
+     */
+    suspend fun prepare(uri: Uri, registryId: String?, owner: String): PreparedScript = withContext(Dispatchers.IO) {
+        try {
+            prepareLock.withLock { prepareLocked(uri, registryId, owner) }
+        } finally {
+            // The token is never reused: forget an early release that found nothing to drop.
+            synchronized(extractions) { released.remove(owner) }
+        }
+    }
+
+    private fun prepareLocked(uri: Uri, registryId: String?, owner: String): PreparedScript {
+        val storeRoot = File(ksuApp.filesDir, RegistryDownloadStore.DIR_NAME)
+        val expected = if (uri.scheme == ContentResolver.SCHEME_FILE) {
+            uri.path?.let { RegistryDownloadStore.expectedFor(storeRoot, File(it)) }
+        } else {
+            null
+        }
+        if (registryId != null && expected == null) throw UnverifiedScriptException()
+
+        val zip = File.createTempFile("oneshot-", ".zip", ksuApp.cacheDir)
+        try {
+            try {
+                val input = ksuApp.contentResolver.openInputStream(uri) ?: throw IOException("Cannot open $uri")
+                // A local source has no verified size and may never end.
+                input.use { copyForInstall(if (expected == null) ScriptPackage.bounded(it, ScriptPackage.MAX_ZIP_BYTES) else it, zip, expected) }
+            } catch (e: DownloadVerificationException) {
+                // Corrupted or tampered after download: never keep it around for a retry.
+                uri.path?.let { RegistryDownloadStore.delete(storeRoot, File(it)) }
+                throw e
+            }
+            val manifest = ScriptPackage.validate(zip, registryId)
+            val sha256 = sha256(zip)
+            // One directory per preparation: the same ZIP may be open on two run pages at once.
+            val dir = File(root(), "$sha256-${UUID.randomUUID()}")
+            synchronized(extractions) {
+                if (released.remove(owner)) throw ReleasedException()
+                extractions[owner] = dir
+            }
+            cleanup()
+            try {
+                ScriptPackage.extract(zip, dir)
+                val prepared = readPrepared(manifest, dir, sha256)
+                // Released while extracting: release() may have run before the directory existed.
+                if (synchronized(extractions) { extractions[owner] != dir }) throw ReleasedException()
+                return prepared
+            } catch (e: Throwable) {
+                release(owner)
+                delete(dir)
+                throw e
+            }
+        } finally {
+            zip.delete()
+        }
+    }
+
+    private fun readPrepared(manifest: ScriptManifest, dir: File, sha256: String): PreparedScript {
+        val paramsFile = File(dir, ScriptPackage.PARAMS)
+        val params = if (paramsFile.isFile) {
+            ScriptPackage.parseParams(paramsFile.readText())
+        } else {
+            ScriptParams.EMPTY
+        }
+        // Read at most one char past the limit: action.sh itself may be up to the ZIP size cap.
+        val source = File(dir, ScriptPackage.ACTION).bufferedReader().use { reader ->
+            val buf = CharArray(MAX_SOURCE_CHARS + 1)
+            var n = 0
+            while (n < buf.size) {
+                val read = reader.read(buf, n, buf.size - n)
+                if (read == -1) break
+                n += read
+            }
+            String(buf, 0, n)
+        }
+        return PreparedScript(
+            manifest = manifest,
+            dir = dir,
+            sha256 = sha256,
+            params = params,
+            actionSource = source.take(MAX_SOURCE_CHARS),
+            actionSourceTruncated = source.length > MAX_SOURCE_CHARS,
+        )
+    }
+
+    /**
+     * Drops the extraction of [owner] (page left, or the preparation failed). Not for a running
+     * script: the run removes its directory as root, since the script may create root-owned files.
+     */
+    fun release(owner: String) {
+        val dir = synchronized(extractions) {
+            extractions.remove(owner) ?: run { released.add(owner); null }
+        } ?: return
+        ioScope.launch { delete(dir) }
+    }
+
+    private val _runCount = MutableStateFlow(0)
+
+    /** Bumped after every recorded run, so screens showing the last run can refresh. */
+    val runCount: StateFlow<Int> = _runCount.asStateFlow()
+
+    fun recordRun(prepared: PreparedScript, exitCode: Int) {
+        history.record(
+            ScriptRunRecord(
+                id = prepared.manifest.id,
+                versionCode = prepared.manifest.versionCode,
+                time = System.currentTimeMillis(),
+                exitCode = exitCode,
+            )
+        )
+        _runCount.update { it + 1 }
+    }
+
+    /** Drops extractions no page holds, e.g. left behind by a killed process. */
+    private fun cleanup() {
+        val held = synchronized(extractions) { extractions.values.mapTo(HashSet()) { it.name } }
+        root().listFiles()?.forEach { f -> if (f.name !in held) delete(f) }
+    }
+
+    /**
+     * Deletes [dir] without following symlinks (a script may have linked to anywhere), and as
+     * root when the app cannot (root-owned files left by a run whose own cleanup failed).
+     */
+    @OptIn(ExperimentalPathApi::class)
+    private fun delete(dir: File) {
+        val path = dir.toPath()
+        if (!Files.exists(path, LinkOption.NOFOLLOW_LINKS)) return
+        try {
+            path.deleteRecursively()
+        } catch (e: IOException) {
+            Log.w(TAG, "cannot delete $dir, retrying as root", e)
+            runCatching { removeAsRoot(dir.absolutePath) }
+                .onSuccess { removed -> if (!removed) Log.w(TAG, "cannot remove $dir as root") }
+                .onFailure { Log.w(TAG, "cannot remove $dir as root", it) }
+        }
+    }
+
+    private fun sha256(file: File): String {
+        val digest = MessageDigest.getInstance("SHA-256")
+        file.inputStream().use { input ->
+            val buf = ByteArray(64 * 1024)
+            while (true) {
+                val n = input.read(buf)
+                if (n == -1) break
+                digest.update(buf, 0, n)
+            }
+        }
+        return digest.digest().joinToString("") { "%02x".format(it) }
+    }
+}

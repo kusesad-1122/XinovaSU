@@ -1,1 +1,55 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5zY3JpcHRydW4KCmltcG9ydCBhbmRyb2lkLm5ldC5VcmkKaW1wb3J0IGFuZHJvaWQub3MuUGFyY2VsYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkltbXV0YWJsZQppbXBvcnQga290bGlueC5wYXJjZWxpemUuUGFyY2VsaXplCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0LlBhcmFtRXJyb3IKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5zY3JpcHQuUHJlcGFyZWRTY3JpcHQKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5zY3JpcHQuU2NyaXB0UnVuUmVjb3JkCgovKiogTmF2aWdhdGlvbiBhcmd1bWVudCBvZiB0aGUgc2NyaXB0IHJ1biBwYWdlLiAqLwpAUGFyY2VsaXplCmRhdGEgY2xhc3MgU2NyaXB0UnVuQXJnKAogICAgdmFsIHVyaTogVXJpLAogICAgLyoqIFJlZ2lzdHJ5IGZsb3c6IHRoZSBaSVAgbXVzdCBiZSBhIHZlcmlmaWVkIHJlZ2lzdHJ5IGRvd25sb2FkIHdpdGggdGhpcyBtb2R1bGUucHJvcCBpZC4gKi8KICAgIHZhbCByZWdpc3RyeUlkOiBTdHJpbmc/ID0gbnVsbCwKICAgIC8qKiBMb2NhbCBaSVAgZnJvbSAiaW5zdGFsbCBmcm9tIHN0b3JhZ2UiOiBhbHNvIG9mZmVyIGluc3RhbGxpbmcgaXQgYXMgYSBtb2R1bGUuICovCiAgICB2YWwgb2ZmZXJJbnN0YWxsOiBCb29sZWFuID0gZmFsc2UsCiAgICAvKiogU2hvd24gaW4gdGhlIHRpdGxlIGFyZWEgdW50aWwgbW9kdWxlLnByb3AgaGFzIGJlZW4gcmVhZC4gKi8KICAgIHZhbCBkaXNwbGF5TmFtZTogU3RyaW5nPyA9IG51bGwsCikgOiBQYXJjZWxhYmxlCgplbnVtIGNsYXNzIFNjcmlwdFJ1blBoYXNlIHsKICAgIFBSRVBBUklORywKICAgIEZBSUxFRCwKICAgIFJFQURZLAogICAgUlVOTklORywKICAgIEZJTklTSEVELAp9CgpASW1tdXRhYmxlCmRhdGEgY2xhc3MgU2NyaXB0UnVuVWlTdGF0ZSgKICAgIHZhbCBwaGFzZTogU2NyaXB0UnVuUGhhc2UgPSBTY3JpcHRSdW5QaGFzZS5QUkVQQVJJTkcsCiAgICB2YWwgZGlzcGxheU5hbWU6IFN0cmluZz8gPSBudWxsLAogICAgdmFsIG9mZmVySW5zdGFsbDogQm9vbGVhbiA9IGZhbHNlLAogICAgdmFsIHByZXBhcmVkOiBQcmVwYXJlZFNjcmlwdD8gPSBudWxsLAogICAgLyoqIExvY2FsaXplZCByZWFzb24gdGhlIHNjcmlwdCBjYW5ub3QgYmUgcnVuIChwaGFzZSBGQUlMRUQpLiAqLwogICAgdmFsIGVycm9yOiBTdHJpbmc/ID0gbnVsbCwKICAgIC8qKiBDdXJyZW50IGlucHV0IHBlciBwYXJhbSBrZXkuICovCiAgICB2YWwgdmFsdWVzOiBNYXA8U3RyaW5nLCBTdHJpbmc+ID0gZW1wdHlNYXAoKSwKICAgIHZhbCBlcnJvcnM6IE1hcDxTdHJpbmcsIFBhcmFtRXJyb3I+ID0gZW1wdHlNYXAoKSwKICAgIHZhbCBsYXN0UnVuOiBTY3JpcHRSdW5SZWNvcmQ/ID0gbnVsbCwKICAgIHZhbCBvdXRwdXQ6IFN0cmluZyA9ICIiLAogICAgdmFsIGV4aXRDb2RlOiBJbnQ/ID0gbnVsbCwKKSB7CiAgICB2YWwgY2FuUnVuOiBCb29sZWFuIGdldCgpID0gcGhhc2UgPT0gU2NyaXB0UnVuUGhhc2UuUkVBRFkgJiYgZXJyb3JzLmlzRW1wdHkoKQp9CgpASW1tdXRhYmxlCmRhdGEgY2xhc3MgU2NyaXB0UnVuQWN0aW9ucygKICAgIHZhbCBvbkJhY2s6ICgpIC0+IFVuaXQsCiAgICB2YWwgb25WYWx1ZUNoYW5nZTogKGtleTogU3RyaW5nLCB2YWx1ZTogU3RyaW5nKSAtPiBVbml0LAogICAgdmFsIG9uUnVuOiAoKSAtPiBVbml0LAogICAgdmFsIG9uSW5zdGFsbEFzTW9kdWxlOiAoKSAtPiBVbml0LAopCg==
+package com.xinsu.moe.ui.screen.scriptrun
+
+import android.net.Uri
+import android.os.Parcelable
+import androidx.compose.runtime.Immutable
+import kotlinx.parcelize.Parcelize
+import com.xinsu.moe.data.script.ParamError
+import com.xinsu.moe.data.script.PreparedScript
+import com.xinsu.moe.data.script.ScriptRunRecord
+
+/** Navigation argument of the script run page. */
+@Parcelize
+data class ScriptRunArg(
+    val uri: Uri,
+    /** Registry flow: the ZIP must be a verified registry download with this module.prop id. */
+    val registryId: String? = null,
+    /** Local ZIP from "install from storage": also offer installing it as a module. */
+    val offerInstall: Boolean = false,
+    /** Shown in the title area until module.prop has been read. */
+    val displayName: String? = null,
+) : Parcelable
+
+enum class ScriptRunPhase {
+    PREPARING,
+    FAILED,
+    READY,
+    RUNNING,
+    FINISHED,
+}
+
+@Immutable
+data class ScriptRunUiState(
+    val phase: ScriptRunPhase = ScriptRunPhase.PREPARING,
+    val displayName: String? = null,
+    val offerInstall: Boolean = false,
+    val prepared: PreparedScript? = null,
+    /** Localized reason the script cannot be run (phase FAILED). */
+    val error: String? = null,
+    /** Current input per param key. */
+    val values: Map<String, String> = emptyMap(),
+    val errors: Map<String, ParamError> = emptyMap(),
+    val lastRun: ScriptRunRecord? = null,
+    val output: String = "",
+    val exitCode: Int? = null,
+) {
+    val canRun: Boolean get() = phase == ScriptRunPhase.READY && errors.isEmpty()
+}
+
+@Immutable
+data class ScriptRunActions(
+    val onBack: () -> Unit,
+    val onValueChange: (key: String, value: String) -> Unit,
+    val onRun: () -> Unit,
+    val onInstallAsModule: () -> Unit,
+)

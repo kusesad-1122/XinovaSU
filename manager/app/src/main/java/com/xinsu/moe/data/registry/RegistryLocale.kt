@@ -1,1 +1,38 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCi8qKgogKiBNb2R1bGUgY29udGVudCBpbiB0aGUgcmVnaXN0cnkgaXMgc2luZ2xlLWxhbmd1YWdlLCBzbyBubyBjb250ZW50IGxvY2FsZSBmYWxsYmFjayBleGlzdHMuCiAqIFRoZSBvbmx5IGxvY2FsZSBkZWNpc2lvbiBsZWZ0IGlzIHdoaWNoIFVJIGxvY2FsZSBvZiB0aGUgcHVibGljIHNpdGUgdG8gbGluayB0by4KICovCm9iamVjdCBSZWdpc3RyeUxvY2FsZSB7CgogICAgLyoqIFVJIGxvY2FsZXMgb2YgdGhlIHB1YmxpYyBzaXRlIChodHRwczovL21vZHVsZXMua2VybmVsc3Uub3JnL3tsb2NhbGV9L21vZHVsZXMve2lkfS8pLiAqLwogICAgY29uc3QgdmFsIFNJVEVfTE9DQUxFX0VOID0gImVuIgogICAgY29uc3QgdmFsIFNJVEVfTE9DQUxFX1pIX0NOID0gInpoLUNOIgoKICAgIC8qKiBTY3JpcHQgaW1wbGllZCBieSBhIENoaW5lc2UgcmVnaW9uIChDTERSIGxpa2VseSBzdWJ0YWdzKS4gKi8KICAgIHByaXZhdGUgdmFsIGNoaW5lc2VSZWdpb25TY3JpcHRzID0gbWFwT2YoCiAgICAgICAgIkNOIiB0byAiSGFucyIsICJTRyIgdG8gIkhhbnMiLCAiTVkiIHRvICJIYW5zIiwKICAgICAgICAiVFciIHRvICJIYW50IiwgIkhLIiB0byAiSGFudCIsICJNTyIgdG8gIkhhbnQiLAogICAgKQoKICAgIC8qKgogICAgICogTWFwcyBhIGRldmljZSBsb2NhbGUgKEJDUCA0NyBvciBBbmRyb2lkL0phdmEgYF9gIHNwZWxsaW5nLCBwb3NzaWJseSB3aXRoIHZhcmlhbnRzIG9yCiAgICAgKiBgLXUtYC9gLXgtYCBleHRlbnNpb25zKSB0byBhIHNpdGUgVUkgbG9jYWxlOiBDaGluZXNlIHdyaXR0ZW4gaW4gU2ltcGxpZmllZCBzY3JpcHQgKHpoLAogICAgICogemgtQ04sIHpoLUhhbnMqLCB6aC1TRywgemgtTVkpIC0+IHpoLUNOOyBldmVyeXRoaW5nIGVsc2UgKGluY2wuIHpoLVRXL0hLL01PLCB6aC1IYW50KikKICAgICAqIC0+IGVuLgogICAgICovCiAgICBmdW4gc2l0ZUxvY2FsZShyZXF1ZXN0ZWQ6IFN0cmluZyk6IFN0cmluZyB7CiAgICAgICAgdmFsIHBhcnRzID0gcmVxdWVzdGVkLnRyaW0oKS5yZXBsYWNlKCdfJywgJy0nKS5zcGxpdCgnLScpLmZpbHRlciB7IGl0LmlzTm90RW1wdHkoKSB9CiAgICAgICAgaWYgKHBhcnRzLmlzRW1wdHkoKSB8fCAhcGFydHNbMF0uZXF1YWxzKCJ6aCIsIGlnbm9yZUNhc2UgPSB0cnVlKSkgcmV0dXJuIFNJVEVfTE9DQUxFX0VOCiAgICAgICAgdmFyIGkgPSAxCiAgICAgICAgdmFyIHNjcmlwdDogU3RyaW5nPyA9IG51bGwKICAgICAgICBpZiAoaSA8IHBhcnRzLnNpemUgJiYgcGFydHNbaV0ubGVuZ3RoID09IDQgJiYgcGFydHNbaV0uYWxsIHsgaXQuaXNMZXR0ZXIoKSB9KSB7CiAgICAgICAgICAgIHNjcmlwdCA9IHBhcnRzW2ldLmxvd2VyY2FzZSgpLnJlcGxhY2VGaXJzdENoYXIgeyBpdC51cHBlcmNhc2VDaGFyKCkgfQogICAgICAgICAgICBpKysKICAgICAgICB9CiAgICAgICAgdmFsIHJlZ2lvbiA9IHBhcnRzLmdldE9yTnVsbChpKT8udGFrZUlmIHsgaXQubGVuZ3RoID09IDIgJiYgaXQuYWxsKENoYXI6OmlzTGV0dGVyKSB9Py51cHBlcmNhc2UoKQogICAgICAgIHZhbCBlZmZlY3RpdmUgPSBzY3JpcHQgPzogcmVnaW9uPy5sZXQgeyBjaGluZXNlUmVnaW9uU2NyaXB0c1tpdF0gfSA/OiAiSGFucyIKICAgICAgICByZXR1cm4gaWYgKGVmZmVjdGl2ZSA9PSAiSGFucyIpIFNJVEVfTE9DQUxFX1pIX0NOIGVsc2UgU0lURV9MT0NBTEVfRU4KICAgIH0KfQo=
+package com.xinsu.moe.data.registry
+
+/**
+ * Module content in the registry is single-language, so no content locale fallback exists.
+ * The only locale decision left is which UI locale of the public site to link to.
+ */
+object RegistryLocale {
+
+    /** UI locales of the public site (https://modules.kernelsu.org/{locale}/modules/{id}/). */
+    const val SITE_LOCALE_EN = "en"
+    const val SITE_LOCALE_ZH_CN = "zh-CN"
+
+    /** Script implied by a Chinese region (CLDR likely subtags). */
+    private val chineseRegionScripts = mapOf(
+        "CN" to "Hans", "SG" to "Hans", "MY" to "Hans",
+        "TW" to "Hant", "HK" to "Hant", "MO" to "Hant",
+    )
+
+    /**
+     * Maps a device locale (BCP 47 or Android/Java `_` spelling, possibly with variants or
+     * `-u-`/`-x-` extensions) to a site UI locale: Chinese written in Simplified script (zh,
+     * zh-CN, zh-Hans*, zh-SG, zh-MY) -> zh-CN; everything else (incl. zh-TW/HK/MO, zh-Hant*)
+     * -> en.
+     */
+    fun siteLocale(requested: String): String {
+        val parts = requested.trim().replace('_', '-').split('-').filter { it.isNotEmpty() }
+        if (parts.isEmpty() || !parts[0].equals("zh", ignoreCase = true)) return SITE_LOCALE_EN
+        var i = 1
+        var script: String? = null
+        if (i < parts.size && parts[i].length == 4 && parts[i].all { it.isLetter() }) {
+            script = parts[i].lowercase().replaceFirstChar { it.uppercaseChar() }
+            i++
+        }
+        val region = parts.getOrNull(i)?.takeIf { it.length == 2 && it.all(Char::isLetter) }?.uppercase()
+        val effective = script ?: region?.let { chineseRegionScripts[it] } ?: "Hans"
+        return if (effective == "Hans") SITE_LOCALE_ZH_CN else SITE_LOCALE_EN
+    }
+}

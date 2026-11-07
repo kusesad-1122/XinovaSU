@@ -1,1 +1,218 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnV0aWwKCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuQ29tcG9zYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkltbXV0YWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnJlbWVtYmVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLmdyYXBoaWNzLkNvbG9yCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLmdyYXBoaWNzLmx1bWluYW5jZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS50ZXh0LkFubm90YXRlZFN0cmluZwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS50ZXh0LlNwYW5TdHlsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS50ZXh0LmZvbnQuRm9udFN0eWxlCgplbnVtIGNsYXNzIFNoZWxsVG9rZW5LaW5kIHsgQ09NTUVOVCwgU1RSSU5HLCBWQVJJQUJMRSwgS0VZV09SRCB9CgpkYXRhIGNsYXNzIFNoZWxsVG9rZW4odmFsIGtpbmQ6IFNoZWxsVG9rZW5LaW5kLCB2YWwgc3RhcnQ6IEludCwgdmFsIGVuZDogSW50KQoKQEltbXV0YWJsZQpkYXRhIGNsYXNzIFNoZWxsSGlnaGxpZ2h0Q29sb3JzKAogICAgdmFsIGNvbW1lbnQ6IENvbG9yLAogICAgdmFsIHN0cmluZzogQ29sb3IsCiAgICB2YWwgdmFyaWFibGU6IENvbG9yLAogICAgdmFsIGtleXdvcmQ6IENvbG9yLAopIHsKICAgIGNvbXBhbmlvbiBvYmplY3QgewogICAgICAgIHByaXZhdGUgdmFsIGxpZ2h0ID0gU2hlbGxIaWdobGlnaHRDb2xvcnMoCiAgICAgICAgICAgIGNvbW1lbnQgPSBDb2xvcigweEZGNkE3MzdEKSwKICAgICAgICAgICAgc3RyaW5nID0gQ29sb3IoMHhGRjAzMkY2MiksCiAgICAgICAgICAgIHZhcmlhYmxlID0gQ29sb3IoMHhGRkUzNjIwOSksCiAgICAgICAgICAgIGtleXdvcmQgPSBDb2xvcigweEZGRDczQTQ5KSwKICAgICAgICApCiAgICAgICAgcHJpdmF0ZSB2YWwgZGFyayA9IFNoZWxsSGlnaGxpZ2h0Q29sb3JzKAogICAgICAgICAgICBjb21tZW50ID0gQ29sb3IoMHhGRjhCOTQ5RSksCiAgICAgICAgICAgIHN0cmluZyA9IENvbG9yKDB4RkZBNUQ2RkYpLAogICAgICAgICAgICB2YXJpYWJsZSA9IENvbG9yKDB4RkZGRkE2NTcpLAogICAgICAgICAgICBrZXl3b3JkID0gQ29sb3IoMHhGRkZGN0I3MiksCiAgICAgICAgKQoKICAgICAgICAvKiogRml4ZWQgY29kZSBjb2xvcnMgdGhhdCBzdGF5IHJlYWRhYmxlIG9uIFtiYWNrZ3JvdW5kXSwgaW5kZXBlbmRlbnQgb2YgdGhlIGFwcCBhY2NlbnQuICovCiAgICAgICAgZnVuIGZvckJhY2tncm91bmQoYmFja2dyb3VuZDogQ29sb3IpOiBTaGVsbEhpZ2hsaWdodENvbG9ycyA9CiAgICAgICAgICAgIGlmIChiYWNrZ3JvdW5kLmx1bWluYW5jZSgpIDwgMC41ZikgZGFyayBlbHNlIGxpZ2h0CiAgICB9Cn0KCnByaXZhdGUgdmFsIHNoZWxsS2V5d29yZHMgPSBzZXRPZigKICAgICJpZiIsICJ0aGVuIiwgImVsc2UiLCAiZWxpZiIsICJmaSIsICJmb3IiLCAid2hpbGUiLCAidW50aWwiLCAiZG8iLCAiZG9uZSIsCiAgICAiY2FzZSIsICJlc2FjIiwgInNlbGVjdCIsICJmdW5jdGlvbiIsICJpbiIsICIhIiwgInsiLCAifSIsCikKCi8qKiBLZXl3b3JkcyBhZnRlciB3aGljaCB0aGUgbmV4dCB3b3JkIGlzIGEgY29tbWFuZCBhZ2Fpbi4gKi8KcHJpdmF0ZSB2YWwgY29tbWFuZFByZWZpeEtleXdvcmRzID0gc2V0T2YoImlmIiwgInRoZW4iLCAiZWxzZSIsICJlbGlmIiwgImRvIiwgIndoaWxlIiwgInVudGlsIiwgIiEiLCAieyIpCgpwcml2YXRlIGZ1biBpc05hbWVTdGFydChjOiBDaGFyKSA9IGMgPT0gJ18nIHx8IGMgaW4gJ2EnLi4neicgfHwgYyBpbiAnQScuLidaJwpwcml2YXRlIGZ1biBpc05hbWVDaGFyKGM6IENoYXIpID0gaXNOYW1lU3RhcnQoYykgfHwgYyBpbiAnMCcuLic5JwoKLyoqCiAqIExleGVzIFBPU0lYIHNoZWxsIHNvdXJjZSBqdXN0IGVub3VnaCBmb3IgaGlnaGxpZ2h0aW5nOiBjb21tZW50cywgcXVvdGVkIHN0cmluZ3MsIHBhcmFtZXRlcgogKiBleHBhbnNpb25zIChgJHhgLCBgJHt4fWAsIGAkKGAsIGAkMWAsIGAkP2AsIC4uLiksIHJlc2VydmVkIHdvcmRzIGluIGNvbW1hbmQgcG9zaXRpb24gYW5kIHRoZQogKiBuYW1lIG9mIGBOQU1FPXZhbHVlYCBhc3NpZ25tZW50cy4gVG9rZW5zIGFyZSBub24tb3ZlcmxhcHBpbmcgYW5kIGluIHNvdXJjZSBvcmRlcjsgdmFyaWFibGVzCiAqIGluc2lkZSBkb3VibGUgcXVvdGVzIGFyZSBlbWl0dGVkIGJldHdlZW4gdGhlIHN0cmluZyBwaWVjZXMgYXJvdW5kIHRoZW0uCiAqLwpmdW4gc2hlbGxUb2tlbnMoc3JjOiBTdHJpbmcpOiBMaXN0PFNoZWxsVG9rZW4+IHsKICAgIHZhbCB0b2tlbnMgPSBtdXRhYmxlTGlzdE9mPFNoZWxsVG9rZW4+KCkKICAgIHZhciBpID0gMAogICAgdmFsIG4gPSBzcmMubGVuZ3RoCiAgICB2YXIgY29tbWFuZFBvc2l0aW9uID0gdHJ1ZQogICAgLy8gUHJldmlvdXMgcmVzZXJ2ZWQgd29yZCBvbiB0aGlzIGNvbW1hbmQsIHRvIHJlY29nbmlzZSBgaW5gIG9mIGZvciAvIGNhc2UgLyBzZWxlY3QuCiAgICB2YXIgcGVuZGluZ0luID0gZmFsc2UKICAgIHZhciB3b3Jkc1NpbmNlRm9yID0gMAoKICAgIGZ1biB2YXJpYWJsZUVuZChmcm9tOiBJbnQpOiBJbnQgewogICAgICAgIC8vIHNyY1tmcm9tXSA9PSAnJCcKICAgICAgICB2YWwgbmV4dCA9IGZyb20gKyAxCiAgICAgICAgaWYgKG5leHQgPj0gbikgcmV0dXJuIG5leHQKICAgICAgICB2YWwgYyA9IHNyY1tuZXh0XQogICAgICAgIHJldHVybiB3aGVuIHsKICAgICAgICAgICAgYyA9PSAneycgLT4gewogICAgICAgICAgICAgICAgdmFsIGNsb3NlID0gc3JjLmluZGV4T2YoJ30nLCBuZXh0ICsgMSkKICAgICAgICAgICAgICAgIGlmIChjbG9zZSA8IDApIG4gZWxzZSBjbG9zZSArIDEKICAgICAgICAgICAgfQoKICAgICAgICAgICAgYyA9PSAnKCcgLT4gbmV4dCArIDEKICAgICAgICAgICAgaXNOYW1lU3RhcnQoYykgLT4gewogICAgICAgICAgICAgICAgdmFyIGogPSBuZXh0ICsgMQogICAgICAgICAgICAgICAgd2hpbGUgKGogPCBuICYmIGlzTmFtZUNoYXIoc3JjW2pdKSkgaisrCiAgICAgICAgICAgICAgICBqCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGMgaW4gJzAnLi4nOScgfHwgYyBpbiAiP0AjJCEqLSIgLT4gbmV4dCArIDEKICAgICAgICAgICAgZWxzZSAtPiBmcm9tCiAgICAgICAgfQogICAgfQoKICAgIHdoaWxlIChpIDwgbikgewogICAgICAgIHZhbCBjID0gc3JjW2ldCiAgICAgICAgd2hlbiB7CiAgICAgICAgICAgIGMgPT0gJ1xuJyAtPiB7CiAgICAgICAgICAgICAgICBjb21tYW5kUG9zaXRpb24gPSB0cnVlCiAgICAgICAgICAgICAgICBwZW5kaW5nSW4gPSBmYWxzZQogICAgICAgICAgICAgICAgaSsrCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGMgPT0gJyAnIHx8IGMgPT0gJ1x0JyAtPiBpKysKCiAgICAgICAgICAgIGMgPT0gJ1xcJyAtPiB7CiAgICAgICAgICAgICAgICBpICs9IDIKICAgICAgICAgICAgICAgIGNvbW1hbmRQb3NpdGlvbiA9IGZhbHNlCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGMgPT0gJyMnIC0+IHsKICAgICAgICAgICAgICAgIHZhbCBlbmQgPSBzcmMuaW5kZXhPZignXG4nLCBpKS5sZXQgeyBpZiAoaXQgPCAwKSBuIGVsc2UgaXQgfQogICAgICAgICAgICAgICAgdG9rZW5zICs9IFNoZWxsVG9rZW4oU2hlbGxUb2tlbktpbmQuQ09NTUVOVCwgaSwgZW5kKQogICAgICAgICAgICAgICAgaSA9IGVuZAogICAgICAgICAgICB9CgogICAgICAgICAgICBjID09ICc7JyB8fCBjID09ICcmJyB8fCBjID09ICd8JyB8fCBjID09ICcoJyB8fCBjID09ICcpJyAtPiB7CiAgICAgICAgICAgICAgICBjb21tYW5kUG9zaXRpb24gPSB0cnVlCiAgICAgICAgICAgICAgICBwZW5kaW5nSW4gPSBmYWxzZQogICAgICAgICAgICAgICAgaSsrCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGMgPT0gJ1wnJyAtPiB7CiAgICAgICAgICAgICAgICB2YWwgY2xvc2UgPSBzcmMuaW5kZXhPZignXCcnLCBpICsgMSkKICAgICAgICAgICAgICAgIHZhbCBlbmQgPSBpZiAoY2xvc2UgPCAwKSBuIGVsc2UgY2xvc2UgKyAxCiAgICAgICAgICAgICAgICB0b2tlbnMgKz0gU2hlbGxUb2tlbihTaGVsbFRva2VuS2luZC5TVFJJTkcsIGksIGVuZCkKICAgICAgICAgICAgICAgIGkgPSBlbmQKICAgICAgICAgICAgICAgIGNvbW1hbmRQb3NpdGlvbiA9IGZhbHNlCiAgICAgICAgICAgICAgICBpZiAocGVuZGluZ0luKSB3b3Jkc1NpbmNlRm9yKysKICAgICAgICAgICAgfQoKICAgICAgICAgICAgYyA9PSAnIicgLT4gewogICAgICAgICAgICAgICAgdmFyIHNlZ21lbnRTdGFydCA9IGkKICAgICAgICAgICAgICAgIHZhciBqID0gaSArIDEKICAgICAgICAgICAgICAgIHdoaWxlIChqIDwgbiAmJiBzcmNbal0gIT0gJyInKSB7CiAgICAgICAgICAgICAgICAgICAgd2hlbiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHNyY1tqXSA9PSAnXFwnIC0+IGogKz0gMgogICAgICAgICAgICAgICAgICAgICAgICBzcmNbal0gPT0gJyQnIC0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBlbmQgPSB2YXJpYWJsZUVuZChqKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGVuZCA+IGopIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiAoaiA+IHNlZ21lbnRTdGFydCkgdG9rZW5zICs9IFNoZWxsVG9rZW4oU2hlbGxUb2tlbktpbmQuU1RSSU5HLCBzZWdtZW50U3RhcnQsIGopCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdG9rZW5zICs9IFNoZWxsVG9rZW4oU2hlbGxUb2tlbktpbmQuVkFSSUFCTEUsIGosIGVuZCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZWdtZW50U3RhcnQgPSBlbmQKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBqID0gZW5kCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGorKwogICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgICAgICBlbHNlIC0+IGorKwogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIHZhbCBlbmQgPSBtaW5PZihqICsgMSwgbikKICAgICAgICAgICAgICAgIGlmIChlbmQgPiBzZWdtZW50U3RhcnQpIHRva2VucyArPSBTaGVsbFRva2VuKFNoZWxsVG9rZW5LaW5kLlNUUklORywgc2VnbWVudFN0YXJ0LCBlbmQpCiAgICAgICAgICAgICAgICBpID0gZW5kCiAgICAgICAgICAgICAgICBjb21tYW5kUG9zaXRpb24gPSBmYWxzZQogICAgICAgICAgICAgICAgaWYgKHBlbmRpbmdJbikgd29yZHNTaW5jZUZvcisrCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGMgPT0gJyQnIC0+IHsKICAgICAgICAgICAgICAgIHZhbCBlbmQgPSB2YXJpYWJsZUVuZChpKQogICAgICAgICAgICAgICAgaWYgKGVuZCA+IGkpIHsKICAgICAgICAgICAgICAgICAgICB0b2tlbnMgKz0gU2hlbGxUb2tlbihTaGVsbFRva2VuS2luZC5WQVJJQUJMRSwgaSwgZW5kKQogICAgICAgICAgICAgICAgICAgIC8vIGAkKGAgb3BlbnMgYSBjb21tYW5kIHN1YnN0aXR1dGlvbi4KICAgICAgICAgICAgICAgICAgICBjb21tYW5kUG9zaXRpb24gPSBzcmNbZW5kIC0gMV0gPT0gJygnCiAgICAgICAgICAgICAgICAgICAgaWYgKHBlbmRpbmdJbikgd29yZHNTaW5jZUZvcisrCiAgICAgICAgICAgICAgICAgICAgaSA9IGVuZAogICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICBpKysKICAgICAgICAgICAgICAgICAgICBjb21tYW5kUG9zaXRpb24gPSBmYWxzZQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CgogICAgICAgICAgICBlbHNlIC0+IHsKICAgICAgICAgICAgICAgIHZhciBqID0gaQogICAgICAgICAgICAgICAgd2hpbGUgKGogPCBuICYmIHNyY1tqXSAhaW4gIiBcdFxuOyZ8KCknXCJcXCQiKSBqKysKICAgICAgICAgICAgICAgIGlmIChqID09IGkpIGogPSBpICsgMQogICAgICAgICAgICAgICAgdmFsIHdvcmQgPSBzcmMuc3Vic3RyaW5nKGksIGopCiAgICAgICAgICAgICAgICBpZiAoY29tbWFuZFBvc2l0aW9uICYmIHdvcmQgaW4gc2hlbGxLZXl3b3JkcykgewogICAgICAgICAgICAgICAgICAgIHRva2VucyArPSBTaGVsbFRva2VuKFNoZWxsVG9rZW5LaW5kLktFWVdPUkQsIGksIGopCiAgICAgICAgICAgICAgICAgICAgY29tbWFuZFBvc2l0aW9uID0gd29yZCBpbiBjb21tYW5kUHJlZml4S2V5d29yZHMKICAgICAgICAgICAgICAgICAgICBwZW5kaW5nSW4gPSB3b3JkID09ICJmb3IiIHx8IHdvcmQgPT0gImNhc2UiIHx8IHdvcmQgPT0gInNlbGVjdCIKICAgICAgICAgICAgICAgICAgICB3b3Jkc1NpbmNlRm9yID0gMAogICAgICAgICAgICAgICAgfSBlbHNlIGlmIChwZW5kaW5nSW4gJiYgd29yZCA9PSAiaW4iICYmIHdvcmRzU2luY2VGb3IgPT0gMSkgewogICAgICAgICAgICAgICAgICAgIHRva2VucyArPSBTaGVsbFRva2VuKFNoZWxsVG9rZW5LaW5kLktFWVdPUkQsIGksIGopCiAgICAgICAgICAgICAgICAgICAgcGVuZGluZ0luID0gZmFsc2UKICAgICAgICAgICAgICAgICAgICBjb21tYW5kUG9zaXRpb24gPSBmYWxzZQogICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICB2YWwgZXEgPSB3b3JkLmluZGV4T2YoJz0nKQogICAgICAgICAgICAgICAgICAgIGlmIChjb21tYW5kUG9zaXRpb24gJiYgZXEgPiAwICYmIGlzTmFtZVN0YXJ0KHdvcmRbMF0pICYmICgxIHVudGlsIGVxKS5hbGwgeyBpc05hbWVDaGFyKHdvcmRbaXRdKSB9KSB7CiAgICAgICAgICAgICAgICAgICAgICAgIC8vIE5BTUU9dmFsdWUga2VlcHMgY29tbWFuZCBwb3NpdGlvbjogYEE9MSBCPTIgY21kYC4KICAgICAgICAgICAgICAgICAgICAgICAgdG9rZW5zICs9IFNoZWxsVG9rZW4oU2hlbGxUb2tlbktpbmQuVkFSSUFCTEUsIGksIGkgKyBlcSkKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICBjb21tYW5kUG9zaXRpb24gPSBmYWxzZQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBpZiAocGVuZGluZ0luKSB3b3Jkc1NpbmNlRm9yKysKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGkgPSBqCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CiAgICByZXR1cm4gdG9rZW5zCn0KCmZ1biBoaWdobGlnaHRTaGVsbChzcmM6IFN0cmluZywgY29sb3JzOiBTaGVsbEhpZ2hsaWdodENvbG9ycyk6IEFubm90YXRlZFN0cmluZyB7CiAgICB2YWwgYnVpbGRlciA9IEFubm90YXRlZFN0cmluZy5CdWlsZGVyKHNyYykKICAgIGZvciAodG9rZW4gaW4gc2hlbGxUb2tlbnMoc3JjKSkgewogICAgICAgIHZhbCBzdHlsZSA9IHdoZW4gKHRva2VuLmtpbmQpIHsKICAgICAgICAgICAgU2hlbGxUb2tlbktpbmQuQ09NTUVOVCAtPiBTcGFuU3R5bGUoY29sb3IgPSBjb2xvcnMuY29tbWVudCwgZm9udFN0eWxlID0gRm9udFN0eWxlLkl0YWxpYykKICAgICAgICAgICAgU2hlbGxUb2tlbktpbmQuU1RSSU5HIC0+IFNwYW5TdHlsZShjb2xvciA9IGNvbG9ycy5zdHJpbmcpCiAgICAgICAgICAgIFNoZWxsVG9rZW5LaW5kLlZBUklBQkxFIC0+IFNwYW5TdHlsZShjb2xvciA9IGNvbG9ycy52YXJpYWJsZSkKICAgICAgICAgICAgU2hlbGxUb2tlbktpbmQuS0VZV09SRCAtPiBTcGFuU3R5bGUoY29sb3IgPSBjb2xvcnMua2V5d29yZCkKICAgICAgICB9CiAgICAgICAgYnVpbGRlci5hZGRTdHlsZShzdHlsZSwgdG9rZW4uc3RhcnQsIHRva2VuLmVuZCkKICAgIH0KICAgIHJldHVybiBidWlsZGVyLnRvQW5ub3RhdGVkU3RyaW5nKCkKfQoKQENvbXBvc2FibGUKZnVuIHJlbWVtYmVyU2hlbGxIaWdobGlnaHQoc3JjOiBTdHJpbmcsIGNvbG9yczogU2hlbGxIaWdobGlnaHRDb2xvcnMpOiBBbm5vdGF0ZWRTdHJpbmcgPQogICAgcmVtZW1iZXIoc3JjLCBjb2xvcnMpIHsgaGlnaGxpZ2h0U2hlbGwoc3JjLCBjb2xvcnMpIH0K
+package com.xinsu.moe.ui.util
+
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontStyle
+
+enum class ShellTokenKind { COMMENT, STRING, VARIABLE, KEYWORD }
+
+data class ShellToken(val kind: ShellTokenKind, val start: Int, val end: Int)
+
+@Immutable
+data class ShellHighlightColors(
+    val comment: Color,
+    val string: Color,
+    val variable: Color,
+    val keyword: Color,
+) {
+    companion object {
+        private val light = ShellHighlightColors(
+            comment = Color(0xFF6A737D),
+            string = Color(0xFF032F62),
+            variable = Color(0xFFE36209),
+            keyword = Color(0xFFD73A49),
+        )
+        private val dark = ShellHighlightColors(
+            comment = Color(0xFF8B949E),
+            string = Color(0xFFA5D6FF),
+            variable = Color(0xFFFFA657),
+            keyword = Color(0xFFFF7B72),
+        )
+
+        /** Fixed code colors that stay readable on [background], independent of the app accent. */
+        fun forBackground(background: Color): ShellHighlightColors =
+            if (background.luminance() < 0.5f) dark else light
+    }
+}
+
+private val shellKeywords = setOf(
+    "if", "then", "else", "elif", "fi", "for", "while", "until", "do", "done",
+    "case", "esac", "select", "function", "in", "!", "{", "}",
+)
+
+/** Keywords after which the next word is a command again. */
+private val commandPrefixKeywords = setOf("if", "then", "else", "elif", "do", "while", "until", "!", "{")
+
+private fun isNameStart(c: Char) = c == '_' || c in 'a'..'z' || c in 'A'..'Z'
+private fun isNameChar(c: Char) = isNameStart(c) || c in '0'..'9'
+
+/**
+ * Lexes POSIX shell source just enough for highlighting: comments, quoted strings, parameter
+ * expansions (`$x`, `${x}`, `$(`, `$1`, `$?`, ...), reserved words in command position and the
+ * name of `NAME=value` assignments. Tokens are non-overlapping and in source order; variables
+ * inside double quotes are emitted between the string pieces around them.
+ */
+fun shellTokens(src: String): List<ShellToken> {
+    val tokens = mutableListOf<ShellToken>()
+    var i = 0
+    val n = src.length
+    var commandPosition = true
+    // Previous reserved word on this command, to recognise `in` of for / case / select.
+    var pendingIn = false
+    var wordsSinceFor = 0
+
+    fun variableEnd(from: Int): Int {
+        // src[from] == '$'
+        val next = from + 1
+        if (next >= n) return next
+        val c = src[next]
+        return when {
+            c == '{' -> {
+                val close = src.indexOf('}', next + 1)
+                if (close < 0) n else close + 1
+            }
+
+            c == '(' -> next + 1
+            isNameStart(c) -> {
+                var j = next + 1
+                while (j < n && isNameChar(src[j])) j++
+                j
+            }
+
+            c in '0'..'9' || c in "?@#$!*-" -> next + 1
+            else -> from
+        }
+    }
+
+    while (i < n) {
+        val c = src[i]
+        when {
+            c == '\n' -> {
+                commandPosition = true
+                pendingIn = false
+                i++
+            }
+
+            c == ' ' || c == '\t' -> i++
+
+            c == '\\' -> {
+                i += 2
+                commandPosition = false
+            }
+
+            c == '#' -> {
+                val end = src.indexOf('\n', i).let { if (it < 0) n else it }
+                tokens += ShellToken(ShellTokenKind.COMMENT, i, end)
+                i = end
+            }
+
+            c == ';' || c == '&' || c == '|' || c == '(' || c == ')' -> {
+                commandPosition = true
+                pendingIn = false
+                i++
+            }
+
+            c == '\'' -> {
+                val close = src.indexOf('\'', i + 1)
+                val end = if (close < 0) n else close + 1
+                tokens += ShellToken(ShellTokenKind.STRING, i, end)
+                i = end
+                commandPosition = false
+                if (pendingIn) wordsSinceFor++
+            }
+
+            c == '"' -> {
+                var segmentStart = i
+                var j = i + 1
+                while (j < n && src[j] != '"') {
+                    when {
+                        src[j] == '\\' -> j += 2
+                        src[j] == '$' -> {
+                            val end = variableEnd(j)
+                            if (end > j) {
+                                if (j > segmentStart) tokens += ShellToken(ShellTokenKind.STRING, segmentStart, j)
+                                tokens += ShellToken(ShellTokenKind.VARIABLE, j, end)
+                                segmentStart = end
+                                j = end
+                            } else {
+                                j++
+                            }
+                        }
+
+                        else -> j++
+                    }
+                }
+                val end = minOf(j + 1, n)
+                if (end > segmentStart) tokens += ShellToken(ShellTokenKind.STRING, segmentStart, end)
+                i = end
+                commandPosition = false
+                if (pendingIn) wordsSinceFor++
+            }
+
+            c == '$' -> {
+                val end = variableEnd(i)
+                if (end > i) {
+                    tokens += ShellToken(ShellTokenKind.VARIABLE, i, end)
+                    // `$(` opens a command substitution.
+                    commandPosition = src[end - 1] == '('
+                    if (pendingIn) wordsSinceFor++
+                    i = end
+                } else {
+                    i++
+                    commandPosition = false
+                }
+            }
+
+            else -> {
+                var j = i
+                while (j < n && src[j] !in " \t\n;&|()'\"\\$") j++
+                if (j == i) j = i + 1
+                val word = src.substring(i, j)
+                if (commandPosition && word in shellKeywords) {
+                    tokens += ShellToken(ShellTokenKind.KEYWORD, i, j)
+                    commandPosition = word in commandPrefixKeywords
+                    pendingIn = word == "for" || word == "case" || word == "select"
+                    wordsSinceFor = 0
+                } else if (pendingIn && word == "in" && wordsSinceFor == 1) {
+                    tokens += ShellToken(ShellTokenKind.KEYWORD, i, j)
+                    pendingIn = false
+                    commandPosition = false
+                } else {
+                    val eq = word.indexOf('=')
+                    if (commandPosition && eq > 0 && isNameStart(word[0]) && (1 until eq).all { isNameChar(word[it]) }) {
+                        // NAME=value keeps command position: `A=1 B=2 cmd`.
+                        tokens += ShellToken(ShellTokenKind.VARIABLE, i, i + eq)
+                    } else {
+                        commandPosition = false
+                    }
+                    if (pendingIn) wordsSinceFor++
+                }
+                i = j
+            }
+        }
+    }
+    return tokens
+}
+
+fun highlightShell(src: String, colors: ShellHighlightColors): AnnotatedString {
+    val builder = AnnotatedString.Builder(src)
+    for (token in shellTokens(src)) {
+        val style = when (token.kind) {
+            ShellTokenKind.COMMENT -> SpanStyle(color = colors.comment, fontStyle = FontStyle.Italic)
+            ShellTokenKind.STRING -> SpanStyle(color = colors.string)
+            ShellTokenKind.VARIABLE -> SpanStyle(color = colors.variable)
+            ShellTokenKind.KEYWORD -> SpanStyle(color = colors.keyword)
+        }
+        builder.addStyle(style, token.start, token.end)
+    }
+    return builder.toAnnotatedString()
+}
+
+@Composable
+fun rememberShellHighlight(src: String, colors: ShellHighlightColors): AnnotatedString =
+    remember(src, colors) { highlightShell(src, colors) }

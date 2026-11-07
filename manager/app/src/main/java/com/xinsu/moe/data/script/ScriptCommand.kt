@@ -1,1 +1,89 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0CgovKiogV2hhdCB0aGUgbWFuYWdlciBrbm93cyBhYm91dCB0aGUgcnVubmluZyBLZXJuZWxTVSwgZXhwb3J0ZWQgdG8gdGhlIHNjcmlwdCBsaWtlIGtzdWQgZG9lcy4gKi8KZGF0YSBjbGFzcyBTY3JpcHRIb3N0SW5mbygKICAgIHZhbCBrc3VWZXJzaW9uOiBTdHJpbmcsCiAgICB2YWwga3N1VmVyc2lvbkNvZGU6IEludCwKICAgIHZhbCBrZXJuZWxWZXJzaW9uQ29kZTogSW50LAogICAgdmFsIGxhdGVMb2FkOiBCb29sZWFuLAopCgovKioKICogQnVpbGRzIHRoZSBzaGVsbCBjb21tYW5kIHRoYXQgcnVucyBhIG9uZS1zaG90IHNjcmlwdCdzIGFjdGlvbi5zaC4gRXZlcnkgdmFyaWFibGUgdmFsdWUgaXMKICogc2luZ2xlLXF1b3RlZDsgb25seSBgJFBBVEhgIGl0c2VsZiBpcyBsZWZ0IHRvIHRoZSBzaGVsbCB0byBleHBhbmQuCiAqLwpvYmplY3QgU2NyaXB0Q29tbWFuZCB7CiAgICBjb25zdCB2YWwgQklOX0RJUiA9ICIvZGF0YS9hZGIva3N1L2JpbiIKICAgIGNvbnN0IHZhbCBCVVNZQk9YID0gIiRCSU5fRElSL2J1c3lib3giCiAgICBjb25zdCB2YWwgRU5UUlkgPSAiYWN0aW9uLnNoIgoKICAgIHByaXZhdGUgdmFsIEVOVl9OQU1FID0gUmVnZXgoIl5bQS1aYS16X11bQS1aYS16MC05X10qJCIpCgogICAgLyoqIFF1b3RlcyBbdmFsdWVdIGZvciBhIFBPU0lYIHNoZWxsOiBgaXQnc2AgLT4gYCdpdCdcJydzJ2AuICovCiAgICBmdW4gcXVvdGUodmFsdWU6IFN0cmluZyk6IFN0cmluZyB7CiAgICAgICAgcmVxdWlyZSgnXHUwMDAwJyAhaW4gdmFsdWUpIHsgIk5VTCBjYW5ub3QgYmUgcGFzc2VkIHRocm91Z2ggYSBzaGVsbCIgfQogICAgICAgIHJldHVybiAiJyIgKyB2YWx1ZS5yZXBsYWNlKCInIiwgIidcXCcnIikgKyAiJyIKICAgIH0KCiAgICAvKioKICAgICAqIEVudmlyb25tZW50IG9mIGEgcnVuLCBpbiBvcmRlci4gW3ZhbHVlc10gYXJlIHRoZSB1c2VyJ3MgaW5wdXRzIHBlciBwYXJhbSBrZXkgKG1pc3NpbmcKICAgICAqIGtleXMgdXNlIHRoZSBkZWZhdWx0KTsgdGhyb3dzIFtJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb25dIGlmIGFueSBvZiB0aGVtIGlzIGludmFsaWQuCiAgICAgKi8KICAgIGZ1biBlbnZpcm9ubWVudCgKICAgICAgICBob3N0OiBTY3JpcHRIb3N0SW5mbywKICAgICAgICBtb2R1bGVJZDogU3RyaW5nLAogICAgICAgIGRpcjogU3RyaW5nLAogICAgICAgIHBhcmFtczogU2NyaXB0UGFyYW1zLAogICAgICAgIHZhbHVlczogTWFwPFN0cmluZywgU3RyaW5nPiwKICAgICk6IExpc3Q8UGFpcjxTdHJpbmcsIFN0cmluZz4+IHsKICAgICAgICB2YWwgZW52ID0gbXV0YWJsZUxpc3RPZigKICAgICAgICAgICAgIkFTSF9TVEFOREFMT05FIiB0byAiMSIsCiAgICAgICAgICAgICJLU1UiIHRvICJ0cnVlIiwKICAgICAgICAgICAgIktTVV9WRVIiIHRvIGhvc3Qua3N1VmVyc2lvbiwKICAgICAgICAgICAgIktTVV9WRVJfQ09ERSIgdG8gaG9zdC5rc3VWZXJzaW9uQ29kZS50b1N0cmluZygpLAogICAgICAgICAgICAiS1NVX0tFUk5FTF9WRVJfQ09ERSIgdG8gaG9zdC5rZXJuZWxWZXJzaW9uQ29kZS50b1N0cmluZygpLAogICAgICAgICkKICAgICAgICBpZiAoaG9zdC5sYXRlTG9hZCkgZW52ICs9ICJLU1VfTEFURV9MT0FEIiB0byAiMSIKICAgICAgICBlbnYgKz0gIktTVV9NT0RVTEUiIHRvIG1vZHVsZUlkCiAgICAgICAgZW52ICs9ICJLU1VfT05FU0hPVCIgdG8gIjEiCiAgICAgICAgZW52ICs9ICJNT0RQQVRIIiB0byBkaXIKICAgICAgICBmb3IgKHBhcmFtIGluIHBhcmFtcy5wYXJhbXMpIHsKICAgICAgICAgICAgdmFsIHZhbHVlID0gdmFsdWVzW3BhcmFtLmtleV0gPzogcGFyYW0uZGVmYXVsdFZhbHVlCiAgICAgICAgICAgIHBhcmFtLnZhbGlkYXRlKHZhbHVlKT8ubGV0IHsgdGhyb3cgSWxsZWdhbEFyZ3VtZW50RXhjZXB0aW9uKCIke3BhcmFtLmtleX06ICRpdCIpIH0KICAgICAgICAgICAgZW52ICs9IHBhcmFtLmVudk5hbWUgdG8gcGFyYW0uY2Fub25pY2FsKHZhbHVlKQogICAgICAgIH0KICAgICAgICByZXR1cm4gZW52CiAgICB9CgogICAgLyoqIGBjZCA8ZGlyPiAmJiA8ZW52Li4uPiBQQVRIPS4uLiBidXN5Ym94IHNoIC4vYWN0aW9uLnNoIDwvZGV2L251bGxgICovCiAgICBmdW4gYnVpbGQoZGlyOiBTdHJpbmcsIGVudjogTGlzdDxQYWlyPFN0cmluZywgU3RyaW5nPj4pOiBTdHJpbmcgPSBidWlsZFN0cmluZyB7CiAgICAgICAgYXBwZW5kKCJjZCAiKS5hcHBlbmQocXVvdGUoZGlyKSkuYXBwZW5kKCIgJiYgIikKICAgICAgICBmb3IgKChuYW1lLCB2YWx1ZSkgaW4gZW52KSB7CiAgICAgICAgICAgIHJlcXVpcmUoRU5WX05BTUUubWF0Y2hlcyhuYW1lKSAmJiBuYW1lICE9ICJQQVRIIikgeyAiSW52YWxpZCB2YXJpYWJsZSBuYW1lOiAkbmFtZSIgfQogICAgICAgICAgICBhcHBlbmQobmFtZSkuYXBwZW5kKCc9JykuYXBwZW5kKHF1b3RlKHZhbHVlKSkuYXBwZW5kKCcgJykKICAgICAgICB9CiAgICAgICAgYXBwZW5kKCJQQVRIPVwiXCRQQVRIXCI6IikuYXBwZW5kKHF1b3RlKEJJTl9ESVIpKS5hcHBlbmQoJyAnKQogICAgICAgIGFwcGVuZChxdW90ZShCVVNZQk9YKSkuYXBwZW5kKCIgc2ggLi8iKS5hcHBlbmQoRU5UUlkpCiAgICAgICAgLy8gbGlic3UgZmVlZHMgY29tbWFuZHMgdGhyb3VnaCB0aGUgc2hlbGwncyBzdGRpbjogdGhlIHNjcmlwdCBtdXN0IG5ldmVyIHJlYWQgZnJvbSBpdC4KICAgICAgICBhcHBlbmQoIiA8L2Rldi9udWxsIikKICAgIH0KfQoKLyoqIFJlc3VsdCBvZiBhIHJ1biwgYnkgZXhpdCBjb2RlLiAqLwplbnVtIGNsYXNzIFNjcmlwdE91dGNvbWUgewogICAgU1VDQ0VTUywKCiAgICAvKiogRXhpdCBjb2RlIDI6IHRoZSBzY3JpcHQgZGVjaWRlZCBpdCBkb2VzIG5vdCBhcHBseSB0byB0aGlzIGRldmljZS4gKi8KICAgIE5PVF9BUFBMSUNBQkxFLAogICAgRkFJTFVSRTsKCiAgICBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICBjb25zdCB2YWwgRVhJVF9OT1RfQVBQTElDQUJMRSA9IDIKCiAgICAgICAgZnVuIG9mKGV4aXRDb2RlOiBJbnQpOiBTY3JpcHRPdXRjb21lID0gd2hlbiAoZXhpdENvZGUpIHsKICAgICAgICAgICAgMCAtPiBTVUNDRVNTCiAgICAgICAgICAgIEVYSVRfTk9UX0FQUExJQ0FCTEUgLT4gTk9UX0FQUExJQ0FCTEUKICAgICAgICAgICAgZWxzZSAtPiBGQUlMVVJFCiAgICAgICAgfQogICAgfQp9Cg==
+package com.xinsu.moe.data.script
+
+/** What the manager knows about the running KernelSU, exported to the script like ksud does. */
+data class ScriptHostInfo(
+    val ksuVersion: String,
+    val ksuVersionCode: Int,
+    val kernelVersionCode: Int,
+    val lateLoad: Boolean,
+)
+
+/**
+ * Builds the shell command that runs a one-shot script's action.sh. Every variable value is
+ * single-quoted; only `$PATH` itself is left to the shell to expand.
+ */
+object ScriptCommand {
+    const val BIN_DIR = "/data/adb/ksu/bin"
+    const val BUSYBOX = "$BIN_DIR/busybox"
+    const val ENTRY = "action.sh"
+
+    private val ENV_NAME = Regex("^[A-Za-z_][A-Za-z0-9_]*$")
+
+    /** Quotes [value] for a POSIX shell: `it's` -> `'it'\''s'`. */
+    fun quote(value: String): String {
+        require('\u0000' !in value) { "NUL cannot be passed through a shell" }
+        return "'" + value.replace("'", "'\\''") + "'"
+    }
+
+    /**
+     * Environment of a run, in order. [values] are the user's inputs per param key (missing
+     * keys use the default); throws [IllegalArgumentException] if any of them is invalid.
+     */
+    fun environment(
+        host: ScriptHostInfo,
+        moduleId: String,
+        dir: String,
+        params: ScriptParams,
+        values: Map<String, String>,
+    ): List<Pair<String, String>> {
+        val env = mutableListOf(
+            "ASH_STANDALONE" to "1",
+            "KSU" to "true",
+            "KSU_VER" to host.ksuVersion,
+            "KSU_VER_CODE" to host.ksuVersionCode.toString(),
+            "KSU_KERNEL_VER_CODE" to host.kernelVersionCode.toString(),
+        )
+        if (host.lateLoad) env += "KSU_LATE_LOAD" to "1"
+        env += "KSU_MODULE" to moduleId
+        env += "KSU_ONESHOT" to "1"
+        env += "MODPATH" to dir
+        for (param in params.params) {
+            val value = values[param.key] ?: param.defaultValue
+            param.validate(value)?.let { throw IllegalArgumentException("${param.key}: $it") }
+            env += param.envName to param.canonical(value)
+        }
+        return env
+    }
+
+    /** `cd <dir> && <env...> PATH=... busybox sh ./action.sh </dev/null` */
+    fun build(dir: String, env: List<Pair<String, String>>): String = buildString {
+        append("cd ").append(quote(dir)).append(" && ")
+        for ((name, value) in env) {
+            require(ENV_NAME.matches(name) && name != "PATH") { "Invalid variable name: $name" }
+            append(name).append('=').append(quote(value)).append(' ')
+        }
+        append("PATH=\"\$PATH\":").append(quote(BIN_DIR)).append(' ')
+        append(quote(BUSYBOX)).append(" sh ./").append(ENTRY)
+        // libsu feeds commands through the shell's stdin: the script must never read from it.
+        append(" </dev/null")
+    }
+}
+
+/** Result of a run, by exit code. */
+enum class ScriptOutcome {
+    SUCCESS,
+
+    /** Exit code 2: the script decided it does not apply to this device. */
+    NOT_APPLICABLE,
+    FAILURE;
+
+    companion object {
+        const val EXIT_NOT_APPLICABLE = 2
+
+        fun of(exitCode: Int): ScriptOutcome = when (exitCode) {
+            0 -> SUCCESS
+            EXIT_NOT_APPLICABLE -> NOT_APPLICABLE
+            else -> FAILURE
+        }
+    }
+}

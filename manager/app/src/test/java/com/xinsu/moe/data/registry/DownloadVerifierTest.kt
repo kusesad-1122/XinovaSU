@@ -1,1 +1,61 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBvcmcuanVuaXQuQXNzZXJ0LmFzc2VydEVxdWFscwppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRUaHJvd3MKaW1wb3J0IG9yZy5qdW5pdC5UZXN0CmltcG9ydCBqYXZhLnNlY3VyaXR5Lk1lc3NhZ2VEaWdlc3QKCmNsYXNzIERvd25sb2FkVmVyaWZpZXJUZXN0IHsKCiAgICBwcml2YXRlIHZhbCBkYXRhID0gQnl0ZUFycmF5KDEwXzAwMCkgeyAoaXQgJSAyNTEpLnRvQnl0ZSgpIH0KICAgIHByaXZhdGUgdmFsIHNoYSA9IE1lc3NhZ2VEaWdlc3QuZ2V0SW5zdGFuY2UoIlNIQS0yNTYiKS5kaWdlc3QoZGF0YSkuam9pblRvU3RyaW5nKCIiKSB7ICIlMDJ4Ii5mb3JtYXQoaXQpIH0KCiAgICBwcml2YXRlIGZ1biBmZWVkKHZlcmlmaWVyOiBEb3dubG9hZFZlcmlmaWVyLCBieXRlczogQnl0ZUFycmF5LCBjaHVuazogSW50ID0gNDA5NikgewogICAgICAgIHZhciBvZmYgPSAwCiAgICAgICAgd2hpbGUgKG9mZiA8IGJ5dGVzLnNpemUpIHsKICAgICAgICAgICAgdmFsIGxlbiA9IG1pbk9mKGNodW5rLCBieXRlcy5zaXplIC0gb2ZmKQogICAgICAgICAgICB2ZXJpZmllci51cGRhdGUoYnl0ZXMsIG9mZiwgbGVuKQogICAgICAgICAgICBvZmYgKz0gbGVuCiAgICAgICAgfQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gYWNjZXB0c01hdGNoaW5nRmlsZSgpIHsKICAgICAgICB2YWwgdiA9IERvd25sb2FkVmVyaWZpZXIoRXhwZWN0ZWRGaWxlKGRhdGEuc2l6ZS50b0xvbmcoKSwgc2hhKSkKICAgICAgICBmZWVkKHYsIGRhdGEpCiAgICAgICAgdi5maW5pc2goKQogICAgICAgIGFzc2VydEVxdWFscyhkYXRhLnNpemUudG9Mb25nKCksIHYuYnl0ZXNTZWVuKQogICAgICAgIC8vIFVwcGVyLWNhc2UgZXhwZWN0ZWQgaGFzaCBpcyBhY2NlcHRlZCB0b28uCiAgICAgICAgRG93bmxvYWRWZXJpZmllcihFeHBlY3RlZEZpbGUoZGF0YS5zaXplLnRvTG9uZygpLCBzaGEudXBwZXJjYXNlKCkpKS5hbHNvIHsgZmVlZChpdCwgZGF0YSk7IGl0LmZpbmlzaCgpIH0KICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHJlamVjdHNIYXNoTWlzbWF0Y2goKSB7CiAgICAgICAgdmFsIHRhbXBlcmVkID0gZGF0YS5jb3B5T2YoKS5hbHNvIHsgaXRbNDJdID0gKGl0WzQyXSArIDEpLnRvQnl0ZSgpIH0KICAgICAgICB2YWwgdiA9IERvd25sb2FkVmVyaWZpZXIoRXhwZWN0ZWRGaWxlKGRhdGEuc2l6ZS50b0xvbmcoKSwgc2hhKSkKICAgICAgICBmZWVkKHYsIHRhbXBlcmVkKQogICAgICAgIHZhbCBlID0gYXNzZXJ0VGhyb3dzKERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7IHYuZmluaXNoKCkgfQogICAgICAgIGFzc2VydEVxdWFscyhEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbi5SZWFzb24uU0hBMjU2X01JU01BVENILCBlLnJlYXNvbikKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHJlamVjdHNTaG9ydEZpbGUoKSB7CiAgICAgICAgdmFsIHYgPSBEb3dubG9hZFZlcmlmaWVyKEV4cGVjdGVkRmlsZShkYXRhLnNpemUudG9Mb25nKCksIHNoYSkpCiAgICAgICAgZmVlZCh2LCBkYXRhLmNvcHlPZihkYXRhLnNpemUgLSAxKSkKICAgICAgICB2YWwgZSA9IGFzc2VydFRocm93cyhEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgeyB2LmZpbmlzaCgpIH0KICAgICAgICBhc3NlcnRFcXVhbHMoRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb24uUmVhc29uLlNJWkVfTUlTTUFUQ0gsIGUucmVhc29uKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gYWJvcnRzRWFybHlPbk92ZXJzaXplZEZpbGUoKSB7CiAgICAgICAgdmFsIHYgPSBEb3dubG9hZFZlcmlmaWVyKEV4cGVjdGVkRmlsZShkYXRhLnNpemUudG9Mb25nKCksIHNoYSkpCiAgICAgICAgdmFsIGUgPSBhc3NlcnRUaHJvd3MoRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb246OmNsYXNzLmphdmEpIHsgZmVlZCh2LCBkYXRhICsgYnl0ZUFycmF5T2YoMCkpIH0KICAgICAgICBhc3NlcnRFcXVhbHMoRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb24uUmVhc29uLlNJWkVfTUlTTUFUQ0gsIGUucmVhc29uKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gcmVqZWN0c0ludmFsaWRFeHBlY3RhdGlvbigpIHsKICAgICAgICBhc3NlcnRUaHJvd3MoSWxsZWdhbEFyZ3VtZW50RXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7IERvd25sb2FkVmVyaWZpZXIoRXhwZWN0ZWRGaWxlKDAsIHNoYSkpIH0KICAgICAgICBhc3NlcnRUaHJvd3MoSWxsZWdhbEFyZ3VtZW50RXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7IERvd25sb2FkVmVyaWZpZXIoRXhwZWN0ZWRGaWxlKDEsICJhYmMiKSkgfQogICAgfQp9Cg==
+package com.xinsu.moe.data.registry
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThrows
+import org.junit.Test
+import java.security.MessageDigest
+
+class DownloadVerifierTest {
+
+    private val data = ByteArray(10_000) { (it % 251).toByte() }
+    private val sha = MessageDigest.getInstance("SHA-256").digest(data).joinToString("") { "%02x".format(it) }
+
+    private fun feed(verifier: DownloadVerifier, bytes: ByteArray, chunk: Int = 4096) {
+        var off = 0
+        while (off < bytes.size) {
+            val len = minOf(chunk, bytes.size - off)
+            verifier.update(bytes, off, len)
+            off += len
+        }
+    }
+
+    @Test
+    fun acceptsMatchingFile() {
+        val v = DownloadVerifier(ExpectedFile(data.size.toLong(), sha))
+        feed(v, data)
+        v.finish()
+        assertEquals(data.size.toLong(), v.bytesSeen)
+        // Upper-case expected hash is accepted too.
+        DownloadVerifier(ExpectedFile(data.size.toLong(), sha.uppercase())).also { feed(it, data); it.finish() }
+    }
+
+    @Test
+    fun rejectsHashMismatch() {
+        val tampered = data.copyOf().also { it[42] = (it[42] + 1).toByte() }
+        val v = DownloadVerifier(ExpectedFile(data.size.toLong(), sha))
+        feed(v, tampered)
+        val e = assertThrows(DownloadVerificationException::class.java) { v.finish() }
+        assertEquals(DownloadVerificationException.Reason.SHA256_MISMATCH, e.reason)
+    }
+
+    @Test
+    fun rejectsShortFile() {
+        val v = DownloadVerifier(ExpectedFile(data.size.toLong(), sha))
+        feed(v, data.copyOf(data.size - 1))
+        val e = assertThrows(DownloadVerificationException::class.java) { v.finish() }
+        assertEquals(DownloadVerificationException.Reason.SIZE_MISMATCH, e.reason)
+    }
+
+    @Test
+    fun abortsEarlyOnOversizedFile() {
+        val v = DownloadVerifier(ExpectedFile(data.size.toLong(), sha))
+        val e = assertThrows(DownloadVerificationException::class.java) { feed(v, data + byteArrayOf(0)) }
+        assertEquals(DownloadVerificationException.Reason.SIZE_MISMATCH, e.reason)
+    }
+
+    @Test
+    fun rejectsInvalidExpectation() {
+        assertThrows(IllegalArgumentException::class.java) { DownloadVerifier(ExpectedFile(0, sha)) }
+        assertThrows(IllegalArgumentException::class.java) { DownloadVerifier(ExpectedFile(1, "abc")) }
+    }
+}

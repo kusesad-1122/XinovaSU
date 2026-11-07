@@ -1,1 +1,209 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpCgppbXBvcnQgYW5kcm9pZC5hbm5vdGF0aW9uLlN1cHByZXNzTGludAppbXBvcnQgYW5kcm9pZC5hcHAuQWN0aXZpdHkKaW1wb3J0IGFuZHJvaWQuYXBwLkFjdGl2aXR5TWFuYWdlcgppbXBvcnQgYW5kcm9pZC5jb250ZW50LkNvbnRleHQKaW1wb3J0IGFuZHJvaWQuY29udGVudC5JbnRlbnQKaW1wb3J0IGFuZHJvaWQuZ3JhcGhpY3MuQ29sb3IKaW1wb3J0IGFuZHJvaWQubmV0LlVyaQppbXBvcnQgYW5kcm9pZC5vcy5CdWlsZAppbXBvcnQgYW5kcm9pZC53ZWJraXQuSnNQcm9tcHRSZXN1bHQKaW1wb3J0IGFuZHJvaWQud2Via2l0LkpzUmVzdWx0CmltcG9ydCBhbmRyb2lkLndlYmtpdC5WYWx1ZUNhbGxiYWNrCmltcG9ydCBhbmRyb2lkLndlYmtpdC5XZWJDaHJvbWVDbGllbnQKaW1wb3J0IGFuZHJvaWQud2Via2l0LldlYlJlc291cmNlUmVxdWVzdAppbXBvcnQgYW5kcm9pZC53ZWJraXQuV2ViUmVzb3VyY2VSZXNwb25zZQppbXBvcnQgYW5kcm9pZC53ZWJraXQuV2ViVmlldwppbXBvcnQgYW5kcm9pZC53ZWJraXQuV2ViVmlld0NsaWVudAppbXBvcnQgYW5kcm9pZHgud2Via2l0LldlYlZpZXdBc3NldExvYWRlcgppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLkRpc3BhdGNoZXJzCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMucnVuQmxvY2tpbmcKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy53aXRoQ29udGV4dAppbXBvcnQgY29tLnhpbnN1Lm1vZS5SCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeS5Nb2R1bGVSZXBvc2l0b3J5SW1wbAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLmNyZWF0ZVJvb3RTaGVsbAppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLm1vZGVsLkFwcEluZm8KaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudmlld21vZGVsLlN1cGVyVXNlclZpZXdNb2RlbAppbXBvcnQgamF2YS5pby5GaWxlCgppbnRlcm5hbCBmdW4gd2ViVUlBcHBzKCk6IExpc3Q8QXBwSW5mbz4gPSBydW5CbG9ja2luZyB7CiAgICBTdXBlclVzZXJWaWV3TW9kZWwubG9hZEFwcHModXNlQ2FjaGUgPSB0cnVlKS5nZXRPck51bGwoKT8uZmlyc3Qub3JFbXB0eSgpCn0KCnByaXZhdGUgY29uc3QgdmFsIFdFQl9ET01BSU4gPSAibXVpLnhpbm92YXN1Lm9yZyIKcHJpdmF0ZSBjb25zdCB2YWwgS1NVX1NDSEVNRSA9ICJrc3UiCnByaXZhdGUgY29uc3QgdmFsIElDT05fSE9TVCA9ICJpY29uIgpwcml2YXRlIGNvbnN0IHZhbCBJTlRFUk5BTF9CTE9CX0RPV05MT0FEX0hPU1QgPSAiYmxvYi1kb3dubG9hZC5rZXJuZWxzdS5pbnRlcm5hbCIKCnByaXZhdGUgZnVuIGxvYWREb3dubG9hZEpzKGNvbnRleHQ6IENvbnRleHQpOiBTdHJpbmcgewogICAgcmV0dXJuIGNvbnRleHQuYXNzZXRzLm9wZW4oIndlYnZpZXcvZG93bmxvYWQuanMiKS5idWZmZXJlZFJlYWRlcihDaGFyc2V0cy5VVEZfOCkudXNlIHsgaXQucmVhZFRleHQoKSB9Cn0KCmZ1biBBY3Rpdml0eS5zZXRUYXNrRGVzY3JpcHRpb24obGFiZWw6IFN0cmluZykgewogICAgaWYgKEJ1aWxkLlZFUlNJT04uU0RLX0lOVCA8IEJ1aWxkLlZFUlNJT05fQ09ERVMuVElSQU1JU1UpIHsKICAgICAgICBAU3VwcHJlc3MoIkRFUFJFQ0FUSU9OIikKICAgICAgICBzZXRUYXNrRGVzY3JpcHRpb24oQWN0aXZpdHlNYW5hZ2VyLlRhc2tEZXNjcmlwdGlvbihsYWJlbCkpCiAgICB9IGVsc2UgewogICAgICAgIHZhbCB0YXNrRGVzY3JpcHRpb24gPSBBY3Rpdml0eU1hbmFnZXIuVGFza0Rlc2NyaXB0aW9uLkJ1aWxkZXIoKQogICAgICAgICAgICAuc2V0TGFiZWwobGFiZWwpCiAgICAgICAgICAgIC5idWlsZCgpCiAgICAgICAgc2V0VGFza0Rlc2NyaXB0aW9uKHRhc2tEZXNjcmlwdGlvbikKICAgIH0KfQoKQFN1cHByZXNzTGludCgiU2V0SmF2YVNjcmlwdEVuYWJsZWQiKQppbnRlcm5hbCBzdXNwZW5kIGZ1biBwcmVwYXJlV2ViVmlldygKICAgIGFjdGl2aXR5OiBBY3Rpdml0eSwKICAgIG1vZHVsZUlkOiBTdHJpbmcsCiAgICB3ZWJVSVN0YXRlOiBXZWJVSVN0YXRlLAopIHsKICAgIHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgdmFsIHJlcG8gPSBNb2R1bGVSZXBvc2l0b3J5SW1wbCgpCiAgICAgICAgdmFsIG1vZHVsZXMgPSByZXBvLmdldE1vZHVsZXMoKS5nZXRPckRlZmF1bHQoZW1wdHlMaXN0KCkpCiAgICAgICAgdmFsIG1vZHVsZUluZm8gPSBtb2R1bGVzLmZpbmQgeyBpbmZvIC0+IGluZm8uaWQgPT0gbW9kdWxlSWQgfQoKICAgICAgICBpZiAobW9kdWxlSW5mbyA9PSBudWxsKSB7CiAgICAgICAgICAgIHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLk1haW4pIHsKICAgICAgICAgICAgICAgIHdlYlVJU3RhdGUudWlFdmVudCA9IFdlYlVJRXZlbnQuRXJyb3IoYWN0aXZpdHkuZ2V0U3RyaW5nKFIuc3RyaW5nLm5vX3N1Y2hfbW9kdWxlLCBtb2R1bGVJZCkpCiAgICAgICAgICAgIH0KICAgICAgICAgICAgcmV0dXJuQHdpdGhDb250ZXh0CiAgICAgICAgfQoKICAgICAgICBpZiAoIW1vZHVsZUluZm8uaGFzV2ViVWkgfHwgIW1vZHVsZUluZm8uZW5hYmxlZCB8fCBtb2R1bGVJbmZvLnVwZGF0ZSB8fCBtb2R1bGVJbmZvLnJlbW92ZSkgewogICAgICAgICAgICB3aXRoQ29udGV4dChEaXNwYXRjaGVycy5NYWluKSB7CiAgICAgICAgICAgICAgICB3ZWJVSVN0YXRlLnVpRXZlbnQgPSBXZWJVSUV2ZW50LkVycm9yKGFjdGl2aXR5LmdldFN0cmluZyhSLnN0cmluZy5tb2R1bGVfdW5hdmFpbGFibGUsIG1vZHVsZUluZm8ubmFtZSkpCiAgICAgICAgICAgIH0KICAgICAgICAgICAgcmV0dXJuQHdpdGhDb250ZXh0CiAgICAgICAgfQoKICAgICAgICB3ZWJVSVN0YXRlLm1vZHVsZU5hbWUgPSBtb2R1bGVJbmZvLm5hbWUKICAgICAgICB3ZWJVSVN0YXRlLm1vZERpciA9ICIvZGF0YS9hZGIvbW9kdWxlcy8ke21vZHVsZUlkfSIKCiAgICAgICAgaWYgKFN1cGVyVXNlclZpZXdNb2RlbC5hcHBzLmlzRW1wdHkoKSkgewogICAgICAgICAgICBTdXBlclVzZXJWaWV3TW9kZWwoKS5mZXRjaEFwcExpc3QoKQogICAgICAgIH0KICAgICAgICB2YWwgc2hlbGwgPSBjcmVhdGVSb290U2hlbGwodHJ1ZSkKICAgICAgICB3ZWJVSVN0YXRlLnJvb3RTaGVsbCA9IHNoZWxsCgogICAgICAgIHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLk1haW4pIHsKICAgICAgICAgICAgYWN0aXZpdHkuc2V0VGFza0Rlc2NyaXB0aW9uKGFjdGl2aXR5LmdldFN0cmluZyhSLnN0cmluZy5hcHBfbmFtZSkgKyAiIC0gJHttb2R1bGVJbmZvLm5hbWV9IikKCiAgICAgICAgICAgIHZhbCB3ZWJWaWV3ID0gV2ViVmlldyhhY3Rpdml0eSkKICAgICAgICAgICAgd2ViVmlldy5zZXRCYWNrZ3JvdW5kQ29sb3IoQ29sb3IuVFJBTlNQQVJFTlQpCgogICAgICAgICAgICB2YWwgcHJlZnMgPSBhY3Rpdml0eS5nZXRTaGFyZWRQcmVmZXJlbmNlcygic2V0dGluZ3MiLCBDb250ZXh0Lk1PREVfUFJJVkFURSkKICAgICAgICAgICAgV2ViVmlldy5zZXRXZWJDb250ZW50c0RlYnVnZ2luZ0VuYWJsZWQocHJlZnMuZ2V0Qm9vbGVhbigiZW5hYmxlX3dlYl9kZWJ1Z2dpbmciLCBmYWxzZSkpCgogICAgICAgICAgICB3ZWJWaWV3LnNldHRpbmdzLmFwcGx5IHsKICAgICAgICAgICAgICAgIGphdmFTY3JpcHRFbmFibGVkID0gdHJ1ZQogICAgICAgICAgICAgICAgZG9tU3RvcmFnZUVuYWJsZWQgPSB0cnVlCiAgICAgICAgICAgICAgICBhbGxvd0ZpbGVBY2Nlc3MgPSBmYWxzZQogICAgICAgICAgICB9CgogICAgICAgICAgICB2YWwgd2ViUm9vdCA9IEZpbGUoIiR7d2ViVUlTdGF0ZS5tb2REaXJ9L3dlYnJvb3QiKQogICAgICAgICAgICB2YWwgd2ViVmlld0Fzc2V0TG9hZGVyID0gV2ViVmlld0Fzc2V0TG9hZGVyLkJ1aWxkZXIoKQogICAgICAgICAgICAgICAgLnNldERvbWFpbihXRUJfRE9NQUlOKQogICAgICAgICAgICAgICAgLmFkZFBhdGhIYW5kbGVyKAogICAgICAgICAgICAgICAgICAgICIvIiwKICAgICAgICAgICAgICAgICAgICBTdUZpbGVQYXRoSGFuZGxlcigKICAgICAgICAgICAgICAgICAgICAgICAgYWN0aXZpdHksCiAgICAgICAgICAgICAgICAgICAgICAgIHdlYlJvb3QsCiAgICAgICAgICAgICAgICAgICAgICAgIHNoZWxsLAogICAgICAgICAgICAgICAgICAgICAgICB7IHdlYlVJU3RhdGUuY3VycmVudEluc2V0cyB9LAogICAgICAgICAgICAgICAgICAgICAgICB7IGVuYWJsZSAtPiB3ZWJVSVN0YXRlLmlzSW5zZXRzRW5hYmxlZCA9IGVuYWJsZSB9KQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgLmJ1aWxkKCkKCiAgICAgICAgICAgIC8vIFdlYlZpZXdDbGllbnQKICAgICAgICAgICAgd2ViVmlldy53ZWJWaWV3Q2xpZW50ID0gb2JqZWN0IDogV2ViVmlld0NsaWVudCgpIHsKICAgICAgICAgICAgICAgIG92ZXJyaWRlIGZ1biBzaG91bGRJbnRlcmNlcHRSZXF1ZXN0KHZpZXc6IFdlYlZpZXcsIHJlcXVlc3Q6IFdlYlJlc291cmNlUmVxdWVzdCk6IFdlYlJlc291cmNlUmVzcG9uc2U/IHsKICAgICAgICAgICAgICAgICAgICB2YWwgdXJsID0gcmVxdWVzdC51cmwKCiAgICAgICAgICAgICAgICAgICAgQmxvYkRvd25sb2FkSGFuZGxlci5zaG91bGRJbnRlcmNlcHRSZXF1ZXN0KHJlcXVlc3QpPy5sZXQgeyByZXR1cm4gaXQgfQoKICAgICAgICAgICAgICAgICAgICBpZiAodXJsLnNjaGVtZS5lcXVhbHMoS1NVX1NDSEVNRSwgaWdub3JlQ2FzZSA9IHRydWUpICYmIHVybC5ob3N0LmVxdWFscyhJQ09OX0hPU1QsIGlnbm9yZUNhc2UgPSB0cnVlKSkgewogICAgICAgICAgICAgICAgICAgICAgICB2YWwgcGFja2FnZU5hbWUgPSB1cmwucGF0aD8uc3Vic3RyaW5nKDEpCiAgICAgICAgICAgICAgICAgICAgICAgIGlmICghcGFja2FnZU5hbWUuaXNOdWxsT3JFbXB0eSgpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWwgaWNvbiA9IEFwcEljb25VdGlsLmxvYWRBcHBJY29uU3luYyhhY3Rpdml0eSwgcGFja2FnZU5hbWUsIDUxMikKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChpY29uICE9IG51bGwpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWwgc3RyZWFtID0gamF2YS5pby5CeXRlQXJyYXlPdXRwdXRTdHJlYW0oKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGljb24uY29tcHJlc3MoYW5kcm9pZC5ncmFwaGljcy5CaXRtYXAuQ29tcHJlc3NGb3JtYXQuUE5HLCAxMDAsIHN0cmVhbSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gV2ViUmVzb3VyY2VSZXNwb25zZSgKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgImltYWdlL3BuZyIsIG51bGwsIDIwMCwgIk9LIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbWFwT2YoIkFjY2Vzcy1Db250cm9sLUFsbG93LU9yaWdpbiIgdG8gIioiKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgamF2YS5pby5CeXRlQXJyYXlJbnB1dFN0cmVhbShzdHJlYW0udG9CeXRlQXJyYXkoKSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHdlYlZpZXdBc3NldExvYWRlci5zaG91bGRJbnRlcmNlcHRSZXF1ZXN0KHVybCkKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBvdmVycmlkZSBmdW4gZG9VcGRhdGVWaXNpdGVkSGlzdG9yeSh2aWV3OiBXZWJWaWV3PywgdXJsOiBTdHJpbmc/LCBpc1JlbG9hZDogQm9vbGVhbikgewogICAgICAgICAgICAgICAgICAgIHdlYlVJU3RhdGUud2ViQ2FuR29CYWNrID0gdmlldz8uY2FuR29CYWNrKCkgPzogZmFsc2UKICAgICAgICAgICAgICAgICAgICBpZiAod2ViVUlTdGF0ZS5pc0luc2V0c0VuYWJsZWQpIHdlYlVJU3RhdGUud2ViVmlldz8uZXZhbHVhdGVKYXZhc2NyaXB0KHdlYlVJU3RhdGUuY3VycmVudEluc2V0cy5qcywgbnVsbCkKICAgICAgICAgICAgICAgICAgICB2aWV3Py5ldmFsdWF0ZUphdmFzY3JpcHQobG9hZERvd25sb2FkSnMoYWN0aXZpdHkpLCBudWxsKQogICAgICAgICAgICAgICAgICAgIHN1cGVyLmRvVXBkYXRlVmlzaXRlZEhpc3RvcnkodmlldywgdXJsLCBpc1JlbG9hZCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQoKICAgICAgICAgICAgLy8gV2ViQ2hyb21lQ2xpZW50CiAgICAgICAgICAgIHdlYlZpZXcud2ViQ2hyb21lQ2xpZW50ID0gb2JqZWN0IDogV2ViQ2hyb21lQ2xpZW50KCkgewogICAgICAgICAgICAgICAgb3ZlcnJpZGUgZnVuIG9uSnNBbGVydCh2aWV3OiBXZWJWaWV3PywgdXJsOiBTdHJpbmc/LCBtZXNzYWdlOiBTdHJpbmc/LCByZXN1bHQ6IEpzUmVzdWx0Pyk6IEJvb2xlYW4gewogICAgICAgICAgICAgICAgICAgIGlmIChtZXNzYWdlID09IG51bGwgfHwgcmVzdWx0ID09IG51bGwpIHJldHVybiBmYWxzZQogICAgICAgICAgICAgICAgICAgIHdlYlVJU3RhdGUudWlFdmVudCA9IFdlYlVJRXZlbnQuU2hvd0FsZXJ0KG1lc3NhZ2UsIHJlc3VsdCkKICAgICAgICAgICAgICAgICAgICByZXR1cm4gdHJ1ZQogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIG92ZXJyaWRlIGZ1biBvbkpzQ29uZmlybSh2aWV3OiBXZWJWaWV3PywgdXJsOiBTdHJpbmc/LCBtZXNzYWdlOiBTdHJpbmc/LCByZXN1bHQ6IEpzUmVzdWx0Pyk6IEJvb2xlYW4gewogICAgICAgICAgICAgICAgICAgIGlmIChtZXNzYWdlID09IG51bGwgfHwgcmVzdWx0ID09IG51bGwpIHJldHVybiBmYWxzZQogICAgICAgICAgICAgICAgICAgIHdlYlVJU3RhdGUudWlFdmVudCA9IFdlYlVJRXZlbnQuU2hvd0NvbmZpcm0obWVzc2FnZSwgcmVzdWx0KQogICAgICAgICAgICAgICAgICAgIHJldHVybiB0cnVlCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgb3ZlcnJpZGUgZnVuIG9uSnNQcm9tcHQoCiAgICAgICAgICAgICAgICAgICAgdmlldzogV2ViVmlldz8sCiAgICAgICAgICAgICAgICAgICAgdXJsOiBTdHJpbmc/LAogICAgICAgICAgICAgICAgICAgIG1lc3NhZ2U6IFN0cmluZz8sCiAgICAgICAgICAgICAgICAgICAgZGVmYXVsdFZhbHVlOiBTdHJpbmc/LAogICAgICAgICAgICAgICAgICAgIHJlc3VsdDogSnNQcm9tcHRSZXN1bHQ/CiAgICAgICAgICAgICAgICApOiBCb29sZWFuIHsKICAgICAgICAgICAgICAgICAgICBpZiAobWVzc2FnZSA9PSBudWxsIHx8IHJlc3VsdCA9PSBudWxsIHx8IGRlZmF1bHRWYWx1ZSA9PSBudWxsKSByZXR1cm4gZmFsc2UKICAgICAgICAgICAgICAgICAgICB3ZWJVSVN0YXRlLnVpRXZlbnQgPSBXZWJVSUV2ZW50LlNob3dQcm9tcHQobWVzc2FnZSwgZGVmYXVsdFZhbHVlLCByZXN1bHQpCiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHRydWUKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBvdmVycmlkZSBmdW4gb25TaG93RmlsZUNob29zZXIoCiAgICAgICAgICAgICAgICAgICAgd2ViVmlldzogV2ViVmlldz8sIGZpbGVQYXRoQ2FsbGJhY2s6IFZhbHVlQ2FsbGJhY2s8QXJyYXk8VXJpPj4/LCBmaWxlQ2hvb3NlclBhcmFtczogRmlsZUNob29zZXJQYXJhbXM/CiAgICAgICAgICAgICAgICApOiBCb29sZWFuIHsKICAgICAgICAgICAgICAgICAgICB3ZWJVSVN0YXRlLmZpbGVQYXRoQ2FsbGJhY2s/Lm9uUmVjZWl2ZVZhbHVlKG51bGwpCiAgICAgICAgICAgICAgICAgICAgd2ViVUlTdGF0ZS5maWxlUGF0aENhbGxiYWNrID0gZmlsZVBhdGhDYWxsYmFjawoKICAgICAgICAgICAgICAgICAgICB2YWwgaW50ZW50ID0gZmlsZUNob29zZXJQYXJhbXM/LmNyZWF0ZUludGVudCgpID86IEludGVudChJbnRlbnQuQUNUSU9OX0dFVF9DT05URU5UKS5hcHBseSB7IHR5cGUgPSAiKi8qIiB9CiAgICAgICAgICAgICAgICAgICAgaWYgKGZpbGVDaG9vc2VyUGFyYW1zPy5tb2RlID09IEZpbGVDaG9vc2VyUGFyYW1zLk1PREVfT1BFTl9NVUxUSVBMRSkgewogICAgICAgICAgICAgICAgICAgICAgICBpbnRlbnQucHV0RXh0cmEoSW50ZW50LkVYVFJBX0FMTE9XX01VTFRJUExFLCB0cnVlKQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB3ZWJVSVN0YXRlLnVpRXZlbnQgPSBXZWJVSUV2ZW50LlNob3dGaWxlQ2hvb3NlcihpbnRlbnQpCiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHRydWUKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQoKICAgICAgICAgICAgLy8gSlMgSW50ZXJmYWNlCiAgICAgICAgICAgIHZhbCB3ZWJ2aWV3SW50ZXJmYWNlID0gV2ViVmlld0ludGVyZmFjZSh3ZWJVSVN0YXRlKQogICAgICAgICAgICB2YWwgZG93bmxvYWRJbnRlcmZhY2UgPSBXZWJVSURvd25sb2FkSW50ZXJmYWNlKHdlYlVJU3RhdGUpCiAgICAgICAgICAgIHdlYlVJU3RhdGUud2ViVmlld0ludGVyZmFjZSA9IHdlYnZpZXdJbnRlcmZhY2UKICAgICAgICAgICAgd2ViVUlTdGF0ZS5kb3dubG9hZEludGVyZmFjZSA9IGRvd25sb2FkSW50ZXJmYWNlCiAgICAgICAgICAgIHdlYlVJU3RhdGUud2ViVmlldyA9IHdlYlZpZXcKICAgICAgICAgICAgd2ViVmlldy5hZGRKYXZhc2NyaXB0SW50ZXJmYWNlKHdlYnZpZXdJbnRlcmZhY2UsICJrc3UiKQogICAgICAgICAgICB3ZWJWaWV3LmFkZEphdmFzY3JpcHRJbnRlcmZhY2UoZG93bmxvYWRJbnRlcmZhY2UsICJrc3VfZG93bmxvYWQiKQogICAgICAgICAgICB3ZWJWaWV3LnNldERvd25sb2FkTGlzdGVuZXIgeyB1cmwsIF8sIF8sIF8sIF8gLT4KICAgICAgICAgICAgICAgIGlmIChVcmkucGFyc2UodXJsKS5ob3N0ICE9IElOVEVSTkFMX0JMT0JfRE9XTkxPQURfSE9TVCkgewogICAgICAgICAgICAgICAgICAgIGRvd25sb2FkSW50ZXJmYWNlLm9wZW5FeHRlcm5hbCh1cmwpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgd2ViVmlldy5ldmFsdWF0ZUphdmFzY3JpcHQobG9hZERvd25sb2FkSnMoYWN0aXZpdHkpLCBudWxsKQogICAgICAgICAgICB3ZWJVSVN0YXRlLnVpRXZlbnQgPSBXZWJVSUV2ZW50LldlYlZpZXdSZWFkeQogICAgICAgIH0KICAgIH0KfQo=
+package com.xinsu.moe.ui.webui
+
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.ActivityManager
+import android.content.Context
+import android.content.Intent
+import android.graphics.Color
+import android.net.Uri
+import android.os.Build
+import android.webkit.JsPromptResult
+import android.webkit.JsResult
+import android.webkit.ValueCallback
+import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.webkit.WebViewAssetLoader
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import com.xinsu.moe.R
+import com.xinsu.moe.data.repository.ModuleRepositoryImpl
+import com.xinsu.moe.ui.util.createRootShell
+import com.xinsu.moe.data.model.AppInfo
+import com.xinsu.moe.ui.viewmodel.SuperUserViewModel
+import java.io.File
+
+internal fun webUIApps(): List<AppInfo> = runBlocking {
+    SuperUserViewModel.loadApps(useCache = true).getOrNull()?.first.orEmpty()
+}
+
+private const val WEB_DOMAIN = "mui.xinovasu.org"
+private const val KSU_SCHEME = "ksu"
+private const val ICON_HOST = "icon"
+private const val INTERNAL_BLOB_DOWNLOAD_HOST = "blob-download.kernelsu.internal"
+
+private fun loadDownloadJs(context: Context): String {
+    return context.assets.open("webview/download.js").bufferedReader(Charsets.UTF_8).use { it.readText() }
+}
+
+fun Activity.setTaskDescription(label: String) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        @Suppress("DEPRECATION")
+        setTaskDescription(ActivityManager.TaskDescription(label))
+    } else {
+        val taskDescription = ActivityManager.TaskDescription.Builder()
+            .setLabel(label)
+            .build()
+        setTaskDescription(taskDescription)
+    }
+}
+
+@SuppressLint("SetJavaScriptEnabled")
+internal suspend fun prepareWebView(
+    activity: Activity,
+    moduleId: String,
+    webUIState: WebUIState,
+) {
+    withContext(Dispatchers.IO) {
+        val repo = ModuleRepositoryImpl()
+        val modules = repo.getModules().getOrDefault(emptyList())
+        val moduleInfo = modules.find { info -> info.id == moduleId }
+
+        if (moduleInfo == null) {
+            withContext(Dispatchers.Main) {
+                webUIState.uiEvent = WebUIEvent.Error(activity.getString(R.string.no_such_module, moduleId))
+            }
+            return@withContext
+        }
+
+        if (!moduleInfo.hasWebUi || !moduleInfo.enabled || moduleInfo.update || moduleInfo.remove) {
+            withContext(Dispatchers.Main) {
+                webUIState.uiEvent = WebUIEvent.Error(activity.getString(R.string.module_unavailable, moduleInfo.name))
+            }
+            return@withContext
+        }
+
+        webUIState.moduleName = moduleInfo.name
+        webUIState.modDir = "/data/adb/modules/${moduleId}"
+
+        if (SuperUserViewModel.apps.isEmpty()) {
+            SuperUserViewModel().fetchAppList()
+        }
+        val shell = createRootShell(true)
+        webUIState.rootShell = shell
+
+        withContext(Dispatchers.Main) {
+            activity.setTaskDescription(activity.getString(R.string.app_name) + " - ${moduleInfo.name}")
+
+            val webView = WebView(activity)
+            webView.setBackgroundColor(Color.TRANSPARENT)
+
+            val prefs = activity.getSharedPreferences("settings", Context.MODE_PRIVATE)
+            WebView.setWebContentsDebuggingEnabled(prefs.getBoolean("enable_web_debugging", false))
+
+            webView.settings.apply {
+                javaScriptEnabled = true
+                domStorageEnabled = true
+                allowFileAccess = false
+            }
+
+            val webRoot = File("${webUIState.modDir}/webroot")
+            val webViewAssetLoader = WebViewAssetLoader.Builder()
+                .setDomain(WEB_DOMAIN)
+                .addPathHandler(
+                    "/",
+                    SuFilePathHandler(
+                        activity,
+                        webRoot,
+                        shell,
+                        { webUIState.currentInsets },
+                        { enable -> webUIState.isInsetsEnabled = enable })
+                )
+                .build()
+
+            // WebViewClient
+            webView.webViewClient = object : WebViewClient() {
+                override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
+                    val url = request.url
+
+                    BlobDownloadHandler.shouldInterceptRequest(request)?.let { return it }
+
+                    if (url.scheme.equals(KSU_SCHEME, ignoreCase = true) && url.host.equals(ICON_HOST, ignoreCase = true)) {
+                        val packageName = url.path?.substring(1)
+                        if (!packageName.isNullOrEmpty()) {
+                            val icon = AppIconUtil.loadAppIconSync(activity, packageName, 512)
+                            if (icon != null) {
+                                val stream = java.io.ByteArrayOutputStream()
+                                icon.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, stream)
+                                return WebResourceResponse(
+                                    "image/png", null, 200, "OK",
+                                    mapOf("Access-Control-Allow-Origin" to "*"),
+                                    java.io.ByteArrayInputStream(stream.toByteArray())
+                                )
+                            }
+                        }
+                    }
+                    return webViewAssetLoader.shouldInterceptRequest(url)
+                }
+
+                override fun doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean) {
+                    webUIState.webCanGoBack = view?.canGoBack() ?: false
+                    if (webUIState.isInsetsEnabled) webUIState.webView?.evaluateJavascript(webUIState.currentInsets.js, null)
+                    view?.evaluateJavascript(loadDownloadJs(activity), null)
+                    super.doUpdateVisitedHistory(view, url, isReload)
+                }
+            }
+
+            // WebChromeClient
+            webView.webChromeClient = object : WebChromeClient() {
+                override fun onJsAlert(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
+                    if (message == null || result == null) return false
+                    webUIState.uiEvent = WebUIEvent.ShowAlert(message, result)
+                    return true
+                }
+
+                override fun onJsConfirm(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
+                    if (message == null || result == null) return false
+                    webUIState.uiEvent = WebUIEvent.ShowConfirm(message, result)
+                    return true
+                }
+
+                override fun onJsPrompt(
+                    view: WebView?,
+                    url: String?,
+                    message: String?,
+                    defaultValue: String?,
+                    result: JsPromptResult?
+                ): Boolean {
+                    if (message == null || result == null || defaultValue == null) return false
+                    webUIState.uiEvent = WebUIEvent.ShowPrompt(message, defaultValue, result)
+                    return true
+                }
+
+                override fun onShowFileChooser(
+                    webView: WebView?, filePathCallback: ValueCallback<Array<Uri>>?, fileChooserParams: FileChooserParams?
+                ): Boolean {
+                    webUIState.filePathCallback?.onReceiveValue(null)
+                    webUIState.filePathCallback = filePathCallback
+
+                    val intent = fileChooserParams?.createIntent() ?: Intent(Intent.ACTION_GET_CONTENT).apply { type = "*/*" }
+                    if (fileChooserParams?.mode == FileChooserParams.MODE_OPEN_MULTIPLE) {
+                        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+                    }
+                    webUIState.uiEvent = WebUIEvent.ShowFileChooser(intent)
+                    return true
+                }
+            }
+
+            // JS Interface
+            val webviewInterface = WebViewInterface(webUIState)
+            val downloadInterface = WebUIDownloadInterface(webUIState)
+            webUIState.webViewInterface = webviewInterface
+            webUIState.downloadInterface = downloadInterface
+            webUIState.webView = webView
+            webView.addJavascriptInterface(webviewInterface, "ksu")
+            webView.addJavascriptInterface(downloadInterface, "ksu_download")
+            webView.setDownloadListener { url, _, _, _, _ ->
+                if (Uri.parse(url).host != INTERNAL_BLOB_DOWNLOAD_HOST) {
+                    downloadInterface.openExternal(url)
+                }
+            }
+            webView.evaluateJavascript(loadDownloadJs(activity), null)
+            webUIState.uiEvent = WebUIEvent.WebViewReady
+        }
+    }
+}

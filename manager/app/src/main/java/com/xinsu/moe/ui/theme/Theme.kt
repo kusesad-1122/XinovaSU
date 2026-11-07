@@ -1,1 +1,217 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnRoZW1lCgppbXBvcnQgYW5kcm9pZC5jb250ZW50LkNvbnRleHQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5pc1N5c3RlbUluRGFya1RoZW1lCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuQ29tcG9zYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLlJlYWRPbmx5Q29tcG9zYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLmNvbXBvc2l0aW9uTG9jYWxPZgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5wbGF0Zm9ybS5Mb2NhbENvbnRleHQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudW5pdC5EcAppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmJsdXIuTGF5ZXJCYWNrZHJvcAppbXBvcnQgY29tLm1hdGVyaWFsa29sb3IuUGFsZXR0ZVN0eWxlCmltcG9ydCBjb20ubWF0ZXJpYWxrb2xvci5keW5hbWljY29sb3IuQ29sb3JTcGVjCmltcG9ydCBjb20ueGluc3UubW9lLnVpLkxvY2FsVWlNb2RlCmltcG9ydCBjb20ueGluc3UubW9lLnVpLlVpTW9kZQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5jb21wb25lbnQubGlxdWlkLkxpcXVpZEdsYXNzU3BlYwppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5zY3JlZW4uaG9tZS5Ib21lQ2FyZElkCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5ob21lLkhvbWVDYXJkU2hhcGUKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudGhlbWUuZGVjb3JhdGlvbi5UaGVtZURlY29yYXRpb25DYXRhbG9nCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnRoZW1lLnRva2Vucy5UaGVtZVRva2VuQnVuZGxlCgplbnVtIGNsYXNzIENvbG9yTW9kZSh2YWwgdmFsdWU6IEludCkgewogICAgU1lTVEVNKDApLAogICAgTElHSFQoMSksCiAgICBEQVJLKDIpLAogICAgTU9ORVRfU1lTVEVNKDMpLAogICAgTU9ORVRfTElHSFQoNCksCiAgICBNT05FVF9EQVJLKDUpLAogICAgREFSS19BTU9MRUQoNik7CgogICAgY29tcGFuaW9uIG9iamVjdCB7CiAgICAgICAgZnVuIGZyb21WYWx1ZSh2YWx1ZTogSW50KSA9IGVudHJpZXMuZmluZCB7IGl0LnZhbHVlID09IHZhbHVlIH0gPzogU1lTVEVNCiAgICB9CgogICAgdmFsIGlzU3lzdGVtOiBCb29sZWFuIGdldCgpID0gdmFsdWUgPT0gMCB8fCB2YWx1ZSA9PSAzCiAgICB2YWwgaXNEYXJrOiBCb29sZWFuIGdldCgpID0gdmFsdWUgPT0gMiB8fCB2YWx1ZSA9PSA1IHx8IHZhbHVlID09IDYKICAgIHZhbCBpc0Ftb2xlZDogQm9vbGVhbiBnZXQoKSA9IHZhbHVlID09IDYKICAgIHZhbCBpc01vbmV0OiBCb29sZWFuIGdldCgpID0gdmFsdWUgPj0gMwoKICAgIGZ1biB0b05vbk1vbmV0TW9kZSgpOiBJbnQgPSB3aGVuICh0aGlzKSB7CiAgICAgICAgTU9ORVRfU1lTVEVNIC0+IDAKICAgICAgICBNT05FVF9MSUdIVCAtPiAxCiAgICAgICAgTU9ORVRfREFSSywgREFSS19BTU9MRUQgLT4gMgogICAgICAgIGVsc2UgLT4gdmFsdWUKICAgIH0KCiAgICBmdW4gdG9Nb25ldE1vZGUoKTogSW50ID0gd2hlbiAodGhpcykgewogICAgICAgIFNZU1RFTSAtPiAzCiAgICAgICAgTElHSFQgLT4gNAogICAgICAgIERBUksgLT4gNQogICAgICAgIGVsc2UgLT4gdmFsdWUKICAgIH0KfQoKZGF0YSBjbGFzcyBBcHBTZXR0aW5ncygKICAgIHZhbCBjb2xvck1vZGU6IENvbG9yTW9kZSwKICAgIHZhbCBrZXlDb2xvcjogSW50LAogICAgdmFsIHBhbGV0dGVTdHlsZTogUGFsZXR0ZVN0eWxlLAogICAgdmFsIGNvbG9yU3BlYzogQ29sb3JTcGVjLlNwZWNWZXJzaW9uLAogICAgLyoqIFN0YWJsZSB0ZW1wbGF0ZSBpZCBzdG9yZWQgaW4gcHJlZmVyZW5jZXM7IGFydHdvcmsgdGhlbWVzIGFyZSBub3QgcGFsZXR0ZSBlbnVtIHZhbHVlcy4gKi8KICAgIHZhbCB0aGVtZVByZXNldElkOiBTdHJpbmcgPSBLYXdhaWlQYWxldHRlLk5vbmUubmFtZSwKKSB7CiAgICAvKiogQ29tcGF0aWJpbGl0eSBwYWxldHRlIHVzZWQgb25seSBieSB0aGUgb3JpZ2luYWwgaGFuZC1hdXRob3JlZCBjb2xvciBwcmVzZXRzLiAqLwogICAgdmFsIHRoZW1lUHJlc2V0OiBLYXdhaWlQYWxldHRlIGdldCgpID0gS2F3YWlpUGFsZXR0ZS5mcm9tTmFtZSh0aGVtZVByZXNldElkKQp9CgpvYmplY3QgVGhlbWVDb250cm9sbGVyIHsKICAgIGZ1biBnZXRBcHBTZXR0aW5ncyhjb250ZXh0OiBDb250ZXh0KTogQXBwU2V0dGluZ3MgewogICAgICAgIHZhbCBwcmVmcyA9IGNvbnRleHQuZ2V0U2hhcmVkUHJlZmVyZW5jZXMoInNldHRpbmdzIiwgQ29udGV4dC5NT0RFX1BSSVZBVEUpCiAgICAgICAgdmFsIHVpTW9kZSA9IHByZWZzLmdldFN0cmluZygidWlfbW9kZSIsIFVpTW9kZS5ERUZBVUxUX1ZBTFVFKSA/OiBVaU1vZGUuREVGQVVMVF9WQUxVRQogICAgICAgIHZhciBjb2xvck1vZGVWYWx1ZSA9IHByZWZzLmdldEludCgiY29sb3JfbW9kZSIsIENvbG9yTW9kZS5TWVNURU0udmFsdWUpCgogICAgICAgIGlmICh1aU1vZGUgPT0gIm1pdWl4IikgewogICAgICAgICAgICB2YWwgbWl1aXhNb25ldCA9IHByZWZzLmdldEJvb2xlYW4oIm1pdWl4X21vbmV0IiwgZmFsc2UpCiAgICAgICAgICAgIHZhbCBjb2xvck1vZGUgPSBDb2xvck1vZGUuZnJvbVZhbHVlKGNvbG9yTW9kZVZhbHVlKQogICAgICAgICAgICBjb2xvck1vZGVWYWx1ZSA9IGlmICghbWl1aXhNb25ldCAmJiBjb2xvck1vZGUuaXNNb25ldCkgewogICAgICAgICAgICAgICAgY29sb3JNb2RlLnRvTm9uTW9uZXRNb2RlKCkKICAgICAgICAgICAgfSBlbHNlIGlmIChtaXVpeE1vbmV0ICYmICFjb2xvck1vZGUuaXNNb25ldCkgewogICAgICAgICAgICAgICAgY29sb3JNb2RlLnRvTW9uZXRNb2RlKCkKICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgIGNvbG9yTW9kZVZhbHVlCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHZhbCBjb2xvck1vZGUgPSBDb2xvck1vZGUuZnJvbVZhbHVlKGNvbG9yTW9kZVZhbHVlKQogICAgICAgIHZhbCBrZXlDb2xvciA9IHByZWZzLmdldEludCgia2V5X2NvbG9yIiwgMCkKICAgICAgICB2YWwgcGFsZXR0ZVN0eWxlU3RyID0gcHJlZnMuZ2V0U3RyaW5nKCJjb2xvcl9zdHlsZSIsIFBhbGV0dGVTdHlsZS5Ub25hbFNwb3QubmFtZSkKICAgICAgICB2YWwgcGFsZXR0ZVN0eWxlID0gdHJ5IHsKICAgICAgICAgICAgUGFsZXR0ZVN0eWxlLnZhbHVlT2YocGFsZXR0ZVN0eWxlU3RyISEpCiAgICAgICAgfSBjYXRjaCAoXzogRXhjZXB0aW9uKSB7CiAgICAgICAgICAgIFBhbGV0dGVTdHlsZS5Ub25hbFNwb3QKICAgICAgICB9CiAgICAgICAgdmFsIGNvbG9yU3BlY1N0ciA9IHByZWZzLmdldFN0cmluZygiY29sb3Jfc3BlYyIsIENvbG9yU3BlYy5TcGVjVmVyc2lvbi5EZWZhdWx0Lm5hbWUpCiAgICAgICAgdmFsIGNvbG9yU3BlYyA9IHRyeSB7CiAgICAgICAgICAgIENvbG9yU3BlYy5TcGVjVmVyc2lvbi52YWx1ZU9mKGNvbG9yU3BlY1N0ciEhKQogICAgICAgIH0gY2F0Y2ggKF86IEV4Y2VwdGlvbikgewogICAgICAgICAgICBDb2xvclNwZWMuU3BlY1ZlcnNpb24uRGVmYXVsdAogICAgICAgIH0KICAgICAgICB2YWwgdGhlbWVQcmVzZXRJZCA9IHByZWZzLmdldFN0cmluZygidGhlbWVfcHJlc2V0IiwgS2F3YWlpUGFsZXR0ZS5Ob25lLm5hbWUpCiAgICAgICAgICAgID86IEthd2FpaVBhbGV0dGUuTm9uZS5uYW1lCgogICAgICAgIHJldHVybiBBcHBTZXR0aW5ncyhjb2xvck1vZGUsIGtleUNvbG9yLCBwYWxldHRlU3R5bGUsIGNvbG9yU3BlYywgdGhlbWVQcmVzZXRJZCkKICAgIH0KfQoKQENvbXBvc2FibGUKZnVuIFhpbm92YVNVVGhlbWUoCiAgICBhcHBTZXR0aW5nczogQXBwU2V0dGluZ3M/ID0gbnVsbCwKICAgIHVpTW9kZTogVWlNb2RlID0gTG9jYWxVaU1vZGUuY3VycmVudCwKICAgIGNvbnRlbnQ6IEBDb21wb3NhYmxlICgpIC0+IFVuaXQKKSB7CiAgICB2YWwgY29udGV4dCA9IExvY2FsQ29udGV4dC5jdXJyZW50CiAgICB2YWwgY3VycmVudEFwcFNldHRpbmdzID0gYXBwU2V0dGluZ3MgPzogVGhlbWVDb250cm9sbGVyLmdldEFwcFNldHRpbmdzKGNvbnRleHQpCgogICAgd2hlbiAodWlNb2RlKSB7CiAgICAgICAgVWlNb2RlLk1pdWl4IC0+IE1pdWl4WGlub3ZhU1VUaGVtZSgKICAgICAgICAgICAgYXBwU2V0dGluZ3MgPSBjdXJyZW50QXBwU2V0dGluZ3MsCiAgICAgICAgICAgIGNvbnRlbnQgPSBjb250ZW50CiAgICAgICAgKQoKICAgICAgICBVaU1vZGUuTWF0ZXJpYWwgLT4gTWF0ZXJpYWxYaW5vdmFTVVRoZW1lKAogICAgICAgICAgICBhcHBTZXR0aW5ncyA9IGN1cnJlbnRBcHBTZXR0aW5ncywKICAgICAgICAgICAgY29udGVudCA9IGNvbnRlbnQKICAgICAgICApCiAgICB9Cn0KCkBDb21wb3NhYmxlCkBSZWFkT25seUNvbXBvc2FibGUKZnVuIGlzSW5EYXJrVGhlbWUoKTogQm9vbGVhbiB7CiAgICByZXR1cm4gd2hlbiAoTG9jYWxDb2xvck1vZGUuY3VycmVudCkgewogICAgICAgIDEsIDQgLT4gZmFsc2UgIC8vIEZvcmNlIGxpZ2h0IG1vZGUKICAgICAgICAyLCA1LCA2IC0+IHRydWUgICAvLyBGb3JjZSBkYXJrIG1vZGUKICAgICAgICBlbHNlIC0+IGlzU3lzdGVtSW5EYXJrVGhlbWUoKSAgLy8gRm9sbG93IHN5c3RlbSAoMCBvciBkZWZhdWx0KQogICAgfQp9CgoKdmFsIExvY2FsQ29sb3JNb2RlID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mIHsgMCB9Cgp2YWwgTG9jYWxUaGVtZVByZXNldCA9IHN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZiB7IEthd2FpaVBhbGV0dGUuTm9uZSB9Cgp2YWwgTG9jYWxUaGVtZVRva2VuQnVuZGxlID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mPFRoZW1lVG9rZW5CdW5kbGU/PiB7IG51bGwgfQoKdmFsIExvY2FsVGhlbWVEZWNvcmF0aW9uU3BlYyA9IHN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZiB7CiAgICBUaGVtZURlY29yYXRpb25DYXRhbG9nLmRlZmF1bHRTcGVjCn0KCnZhbCBMb2NhbEJhY2tncm91bmRTdHlsZSA9IHN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZiB7IEJhY2tncm91bmRTdHlsZS5Ob25lIH0KCnZhbCBMb2NhbEJhY2tncm91bmRJbWFnZVVyaSA9IHN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZiB7ICIiIH0KCi8vIEltYWdlIGFscGhhIGlzIGEgMC0xMDAgcGVyY2VudGFnZTsgYWxpZ25tZW50IGlzIDA9c3RhcnQsIDE9Y2VudGVyLCAyPWVuZC4KdmFsIExvY2FsQmFja2dyb3VuZEltYWdlQWxwaGEgPSBzdGF0aWNDb21wb3NpdGlvbkxvY2FsT2YgeyAxMDAgfQoKdmFsIExvY2FsQmFja2dyb3VuZEltYWdlQWxpZ24gPSBzdGF0aWNDb21wb3NpdGlvbkxvY2FsT2YgeyAxIH0KCnZhbCBMb2NhbENhcmRJbWFnZVVyaSA9IHN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZiB7ICIiIH0KCnZhbCBMb2NhbENhcmRJbWFnZUFscGhhID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mIHsgMTAwIH0KCnZhbCBMb2NhbENhcmRJbWFnZUFsaWduID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mIHsgMSB9CgovLyAwLTEwMCBjYXJkIGNvbnRhaW5lciBvcGFjaXR5OiBsZXRzIHRoZSBhcHAgYmFja2dyb3VuZCBzaG93IHRocm91Z2ggY2FyZHMgZm9yIGEgZ2xhc3MgbG9vay4KdmFsIExvY2FsQ2FyZE9wYWNpdHkgPSBzdGF0aWNDb21wb3NpdGlvbkxvY2FsT2YgeyAxMDAgfQoKLy8gSG9tZSBkYXNoYm9hcmQgY2FyZCBjdXN0b21pemF0aW9uOiB0aGUgdXNlci1jaG9zZW4gb3JkZXIgb2YgdGhlIHJlb3JkZXJhYmxlIGhvbWUgY2FyZHMsIGFuZCBhCi8vIHBlci1jYXJkIGNvcm5lci1zaGFwZSBvdmVycmlkZS4KdmFsIExvY2FsSG9tZUNhcmRPcmRlciA9IHN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZiB7IEhvbWVDYXJkSWQuREVGQVVMVF9PUkRFUiB9Cgp2YWwgTG9jYWxIb21lQ2FyZFNoYXBlcyA9IHN0YXRpY0NvbXBvc2l0aW9uTG9jYWxPZjxNYXA8SG9tZUNhcmRJZCwgSG9tZUNhcmRTaGFwZT4+IHsgZW1wdHlNYXAoKSB9CgovLyBTZXQgKHBlciBjYXJkLCBpbiB0aGUgaG9tZSByZW5kZXIgbG9vcCkgdG8gb3ZlcnJpZGUgdGhlIGNvbnRhaW5lciBjb3JuZXIgcmFkaXVzIG9mIHRoZSB2ZXJ5IG5leHQKLy8gY2FyZCB3cmFwcGVyLiBOdWxsIGtlZXBzIGVhY2ggcmVuZGVyZXIncyBkZWZhdWx0IHNoYXBlLCBzbyBub24taG9tZSBjYXJkcyBhcmUgdW5hZmZlY3RlZC4KdmFsIExvY2FsSG9tZUNhcmRDb3JuZXJSYWRpdXMgPSBjb21wb3NpdGlvbkxvY2FsT2Y8RHA/PiB7IG51bGwgfQoKLy8gIkdsYXNzIGNhcmRzIjogYSBiYWNrZHJvcCBjYXB0dXJpbmcgT05MWSB0aGUgYXBwIGJhY2tncm91bmQgbGF5ZXIgKG5ldmVyIHRoZSBjYXJkcyB0aGVtc2VsdmVzLAovLyBzbyBubyBmZWVkYmFjayksIHNvIGEgY2FyZCBjYW4gc2FtcGxlIGFuZCBmcm9zdCB3aGF0J3MgYmVoaW5kIGl0LiBOdWxsIHdoZW4gYmx1ciBpcyBvZmYvdW5zdXBwb3J0ZWQuCnZhbCBMb2NhbENhcmRCYWNrZHJvcCA9IGNvbXBvc2l0aW9uTG9jYWxPZjxMYXllckJhY2tkcm9wPz4geyBudWxsIH0KCi8vIEFwcC13aWRlIHNldHRpbmc6IHdoZXRoZXIgdGhlIHVzZXIgdHVybmVkIG9uIGZyb3N0ZWQgImdsYXNzIGNhcmRzIi4KdmFsIExvY2FsR2xhc3NDYXJkc1NldHRpbmcgPSBzdGF0aWNDb21wb3NpdGlvbkxvY2FsT2YgeyBmYWxzZSB9CgovLyBTY29wZWQgZmxhZyB0aGUgY2FyZCB3cmFwcGVycyBhY3R1YWxseSByZWFkLiBQcm92aWRlZCBhcHAtd2lkZSBmcm9tIE1haW5BY3Rpdml0eSAoYWxvbmdzaWRlCi8vIExvY2FsQ2FyZEJhY2tkcm9wKSBzbyBldmVyeSByb3V0ZSDigJQgdGhlIGZvdXIgbWFpbiBwYWdlcywgdGhlIHNldHRpbmdzIG1vZHVsZSwgdGhlIHN1cGVydXNlcgovLyBkYXNoYm9hcmQgYW5kIGV2ZXJ5IGRldGFpbCBzY3JlZW4gcHVzaGVkIGZyb20gc2V0dGluZ3Mg4oCUIHJlbmRlcnMgdGhlIHNhbWUgY2FyZCBtYXRlcmlhbC4KLy8gSXQgc3RheXMgYSBzZXBhcmF0ZSBsb2NhbCBmcm9tIExvY2FsR2xhc3NDYXJkc1NldHRpbmcgc28gYSBzaW5nbGUgc3VidHJlZSBjYW4gc3RpbGwgb3B0IG91dC4KdmFsIExvY2FsR2xhc3NDYXJkID0gY29tcG9zaXRpb25Mb2NhbE9mIHsgZmFsc2UgfQoKLy8gQXBwLXdpZGUgc2V0dGluZzogdGhlICJsaXF1aWQgZ2xhc3MiIHRpZXIgKHJlZnJhY3Rpb24gKyBkaXNwZXJzaW9uICsgZWRnZSBoaWdobGlnaHQgKyBwcmVzcwovLyBmZWVkYmFjaykgb24gdG9wIG9mIHRoZSBmcm9zdGVkIHRpZXIuIERyaXZlcyB0aGUgZmxvYXRpbmcgYm90dG9tIGJhciBhbmQsIHNpbmNlIHRoaXMgY2hhbmdlLAovLyBldmVyeSBnbGFzcyBjYXJkIGluIHRoZSBhcHAuIFJlcXVpcmVzIEFQSSAzMysgZm9yIHRoZSBBR1NMIHJlZnJhY3Rpb24gcGFzczsgYmVsb3cgdGhhdCB0aGUKLy8gY2FsbGVycyBmYWxsIGJhY2sgdG8gdGhlIGZyb3N0ZWQgdGllci4KdmFsIExvY2FsTGlxdWlkR2xhc3NTZXR0aW5nID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mIHsgZmFsc2UgfQoKLy8gQXBwLXdpZGUgc2V0dGluZzogd2hldGhlciB0aGUgTWl1aXggdG9wIGFwcCBiYXIgcGFydGljaXBhdGVzIGluIHRoZSBsaXF1aWQtZ2xhc3MgbWF0ZXJpYWwuCi8vIEtlcHQgc2VwYXJhdGUgZnJvbSBMb2NhbExpcXVpZEdsYXNzU2V0dGluZyBiZWNhdXNlIGEgZ2xhc3MgdG9wIGJhciBzYW1wbGVzIHRoZSBzYW1lIGJhY2tkcm9wIGFzCi8vIHRoZSBjYXJkcyBzY3JvbGxpbmcgdW5kZXJuZWF0aCBpdDsgb24gc29tZSBsYXlvdXRzIHRoYXQgcmVhZHMgYXMgYSBkb3VibGUtZnJvc3RlZCBzZWFtLCBzbyB1c2VycwovLyBnZXQgYW4gaW5kZXBlbmRlbnQgc3dpdGNoLgp2YWwgTG9jYWxUb3BCYXJHbGFzc1NldHRpbmcgPSBzdGF0aWNDb21wb3NpdGlvbkxvY2FsT2YgeyBmYWxzZSB9Cgp2YWwgTG9jYWxFbmFibGVCbHVyID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mIHsgZmFsc2UgfQoKLyoqCiAqIOOAjOavm+eOu+eSg+aooeeziuW6puOAjea7keWdl+eahOi/kOihjOaXtuWPluWAvO+8iOWNleS9jSBkcO+8ieOAggogKgogKiDljaHniYfjgIHlnIblvaLnjrvnkoPjgIHpobbmoI8v5bqV5qCP55qE5q+b546755KD5qGj5YWo6YOo6K+75a6D77yM5omA5Lul5ouW5Yqo5ruR5Z2X5pe25YWo5bqU55So5p2Q6LSoCiAqIOWcqOWQjOS4gOW4p+WGheS4gOi1t+WPmOWMluOAgum7mOiupOWAvCBbTGlxdWlkR2xhc3NTcGVjLkRlZmF1bHRCbHVyUmFkaXVzXeOAggogKi8KdmFsIExvY2FsR2xhc3NCbHVyUmFkaXVzID0gY29tcG9zaXRpb25Mb2NhbE9mIHsgTGlxdWlkR2xhc3NTcGVjLkJsdXJSYWRpdXMgfQoKCnZhbCBMb2NhbE1vZHVsZURlc2NyaXB0aW9uTWF4TGluZXMgPSBzdGF0aWNDb21wb3NpdGlvbkxvY2FsT2YgeyA0IH0KCnZhbCBMb2NhbEVuYWJsZUZsb2F0aW5nQm90dG9tQmFyID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mIHsgZmFsc2UgfQoKdmFsIExvY2FsRW5hYmxlRmxvYXRpbmdCb3R0b21CYXJCbHVyID0gc3RhdGljQ29tcG9zaXRpb25Mb2NhbE9mIHsgZmFsc2UgfQo=
+package com.xinsu.moe.ui.theme
+
+import android.content.Context
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.Dp
+import top.yukonga.miuix.kmp.blur.LayerBackdrop
+import com.materialkolor.PaletteStyle
+import com.materialkolor.dynamiccolor.ColorSpec
+import com.xinsu.moe.ui.LocalUiMode
+import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
+import com.xinsu.moe.ui.screen.home.HomeCardId
+import com.xinsu.moe.ui.screen.home.HomeCardShape
+import com.xinsu.moe.ui.theme.decoration.ThemeDecorationCatalog
+import com.xinsu.moe.ui.theme.tokens.ThemeTokenBundle
+
+enum class ColorMode(val value: Int) {
+    SYSTEM(0),
+    LIGHT(1),
+    DARK(2),
+    MONET_SYSTEM(3),
+    MONET_LIGHT(4),
+    MONET_DARK(5),
+    DARK_AMOLED(6);
+
+    companion object {
+        fun fromValue(value: Int) = entries.find { it.value == value } ?: SYSTEM
+    }
+
+    val isSystem: Boolean get() = value == 0 || value == 3
+    val isDark: Boolean get() = value == 2 || value == 5 || value == 6
+    val isAmoled: Boolean get() = value == 6
+    val isMonet: Boolean get() = value >= 3
+
+    fun toNonMonetMode(): Int = when (this) {
+        MONET_SYSTEM -> 0
+        MONET_LIGHT -> 1
+        MONET_DARK, DARK_AMOLED -> 2
+        else -> value
+    }
+
+    fun toMonetMode(): Int = when (this) {
+        SYSTEM -> 3
+        LIGHT -> 4
+        DARK -> 5
+        else -> value
+    }
+}
+
+data class AppSettings(
+    val colorMode: ColorMode,
+    val keyColor: Int,
+    val paletteStyle: PaletteStyle,
+    val colorSpec: ColorSpec.SpecVersion,
+    /** Stable template id stored in preferences; artwork themes are not palette enum values. */
+    val themePresetId: String = KawaiiPalette.None.name,
+) {
+    /** Compatibility palette used only by the original hand-authored color presets. */
+    val themePreset: KawaiiPalette get() = KawaiiPalette.fromName(themePresetId)
+}
+
+object ThemeController {
+    fun getAppSettings(context: Context): AppSettings {
+        val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+        val uiMode = prefs.getString("ui_mode", UiMode.DEFAULT_VALUE) ?: UiMode.DEFAULT_VALUE
+        var colorModeValue = prefs.getInt("color_mode", ColorMode.SYSTEM.value)
+
+        if (uiMode == "miuix") {
+            val miuixMonet = prefs.getBoolean("miuix_monet", false)
+            val colorMode = ColorMode.fromValue(colorModeValue)
+            colorModeValue = if (!miuixMonet && colorMode.isMonet) {
+                colorMode.toNonMonetMode()
+            } else if (miuixMonet && !colorMode.isMonet) {
+                colorMode.toMonetMode()
+            } else {
+                colorModeValue
+            }
+        }
+
+        val colorMode = ColorMode.fromValue(colorModeValue)
+        val keyColor = prefs.getInt("key_color", 0)
+        val paletteStyleStr = prefs.getString("color_style", PaletteStyle.TonalSpot.name)
+        val paletteStyle = try {
+            PaletteStyle.valueOf(paletteStyleStr!!)
+        } catch (_: Exception) {
+            PaletteStyle.TonalSpot
+        }
+        val colorSpecStr = prefs.getString("color_spec", ColorSpec.SpecVersion.Default.name)
+        val colorSpec = try {
+            ColorSpec.SpecVersion.valueOf(colorSpecStr!!)
+        } catch (_: Exception) {
+            ColorSpec.SpecVersion.Default
+        }
+        val themePresetId = prefs.getString("theme_preset", KawaiiPalette.None.name)
+            ?: KawaiiPalette.None.name
+
+        return AppSettings(colorMode, keyColor, paletteStyle, colorSpec, themePresetId)
+    }
+}
+
+@Composable
+fun XinovaSUTheme(
+    appSettings: AppSettings? = null,
+    uiMode: UiMode = LocalUiMode.current,
+    content: @Composable () -> Unit
+) {
+    val context = LocalContext.current
+    val currentAppSettings = appSettings ?: ThemeController.getAppSettings(context)
+
+    when (uiMode) {
+        UiMode.Miuix -> MiuixXinovaSUTheme(
+            appSettings = currentAppSettings,
+            content = content
+        )
+
+        UiMode.Material -> MaterialXinovaSUTheme(
+            appSettings = currentAppSettings,
+            content = content
+        )
+    }
+}
+
+@Composable
+@ReadOnlyComposable
+fun isInDarkTheme(): Boolean {
+    return when (LocalColorMode.current) {
+        1, 4 -> false  // Force light mode
+        2, 5, 6 -> true   // Force dark mode
+        else -> isSystemInDarkTheme()  // Follow system (0 or default)
+    }
+}
+
+
+val LocalColorMode = staticCompositionLocalOf { 0 }
+
+val LocalThemePreset = staticCompositionLocalOf { KawaiiPalette.None }
+
+val LocalThemeTokenBundle = staticCompositionLocalOf<ThemeTokenBundle?> { null }
+
+val LocalThemeDecorationSpec = staticCompositionLocalOf {
+    ThemeDecorationCatalog.defaultSpec
+}
+
+val LocalBackgroundStyle = staticCompositionLocalOf { BackgroundStyle.None }
+
+val LocalBackgroundImageUri = staticCompositionLocalOf { "" }
+
+// Image alpha is a 0-100 percentage; alignment is 0=start, 1=center, 2=end.
+val LocalBackgroundImageAlpha = staticCompositionLocalOf { 100 }
+
+val LocalBackgroundImageAlign = staticCompositionLocalOf { 1 }
+
+val LocalCardImageUri = staticCompositionLocalOf { "" }
+
+val LocalCardImageAlpha = staticCompositionLocalOf { 100 }
+
+val LocalCardImageAlign = staticCompositionLocalOf { 1 }
+
+// 0-100 card container opacity: lets the app background show through cards for a glass look.
+val LocalCardOpacity = staticCompositionLocalOf { 100 }
+
+// Home dashboard card customization: the user-chosen order of the reorderable home cards, and a
+// per-card corner-shape override.
+val LocalHomeCardOrder = staticCompositionLocalOf { HomeCardId.DEFAULT_ORDER }
+
+val LocalHomeCardShapes = staticCompositionLocalOf<Map<HomeCardId, HomeCardShape>> { emptyMap() }
+
+// Set (per card, in the home render loop) to override the container corner radius of the very next
+// card wrapper. Null keeps each renderer's default shape, so non-home cards are unaffected.
+val LocalHomeCardCornerRadius = compositionLocalOf<Dp?> { null }
+
+// "Glass cards": a backdrop capturing ONLY the app background layer (never the cards themselves,
+// so no feedback), so a card can sample and frost what's behind it. Null when blur is off/unsupported.
+val LocalCardBackdrop = compositionLocalOf<LayerBackdrop?> { null }
+
+// App-wide setting: whether the user turned on frosted "glass cards".
+val LocalGlassCardsSetting = staticCompositionLocalOf { false }
+
+// Scoped flag the card wrappers actually read. Provided app-wide from MainActivity (alongside
+// LocalCardBackdrop) so every route — the four main pages, the settings module, the superuser
+// dashboard and every detail screen pushed from settings — renders the same card material.
+// It stays a separate local from LocalGlassCardsSetting so a single subtree can still opt out.
+val LocalGlassCard = compositionLocalOf { false }
+
+// App-wide setting: the "liquid glass" tier (refraction + dispersion + edge highlight + press
+// feedback) on top of the frosted tier. Drives the floating bottom bar and, since this change,
+// every glass card in the app. Requires API 33+ for the AGSL refraction pass; below that the
+// callers fall back to the frosted tier.
+val LocalLiquidGlassSetting = staticCompositionLocalOf { false }
+
+// App-wide setting: whether the Miuix top app bar participates in the liquid-glass material.
+// Kept separate from LocalLiquidGlassSetting because a glass top bar samples the same backdrop as
+// the cards scrolling underneath it; on some layouts that reads as a double-frosted seam, so users
+// get an independent switch.
+val LocalTopBarGlassSetting = staticCompositionLocalOf { false }
+
+val LocalEnableBlur = staticCompositionLocalOf { false }
+
+/**
+ * 「毛玻璃模糊度」滑块的运行时取值（单位 dp）。
+ *
+ * 卡片、圆形玻璃、顶栏/底栏的毛玻璃档全部读它，所以拖动滑块时全应用材质
+ * 在同一帧内一起变化。默认值 [LiquidGlassSpec.DefaultBlurRadius]。
+ */
+val LocalGlassBlurRadius = compositionLocalOf { LiquidGlassSpec.BlurRadius }
+
+
+val LocalModuleDescriptionMaxLines = staticCompositionLocalOf { 4 }
+
+val LocalEnableFloatingBottomBar = staticCompositionLocalOf { false }
+
+val LocalEnableFloatingBottomBarBlur = staticCompositionLocalOf { false }

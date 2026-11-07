@@ -1,1 +1,58 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnZpZXdtb2RlbAoKaW1wb3J0IGFuZHJvaWR4LmxpZmVjeWNsZS5WaWV3TW9kZWwKaW1wb3J0IGFuZHJvaWR4LmxpZmVjeWNsZS52aWV3TW9kZWxTY29wZQppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLkpvYgppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmZsb3cuTXV0YWJsZVN0YXRlRmxvdwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmZsb3cuU3RhdGVGbG93CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5hc1N0YXRlRmxvdwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmZsb3cudXBkYXRlCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMubGF1bmNoCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuUmVwb01vZHVsZURldGFpbAppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlZ2lzdHJ5Lk1vZHVsZU5vdEluSW5kZXhFeGNlcHRpb24KaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZXBvc2l0b3J5Lk1vZHVsZVJlcG9SZXBvc2l0b3J5CmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeS5Nb2R1bGVSZXBvUmVwb3NpdG9yeUltcGwKCi8qKiBMb2FkcyB0aGUgcmVnaXN0cnkgZGV0YWlsIChhbmQgUkVBRE1FKSBvZiBvbmUgbW9kdWxlIGZvciB0aGUgZGV0YWlsIHNjcmVlbi4gKi8KY2xhc3MgTW9kdWxlUmVwb0RldGFpbFZpZXdNb2RlbCgKICAgIHByaXZhdGUgdmFsIHJlcG86IE1vZHVsZVJlcG9SZXBvc2l0b3J5ID0gTW9kdWxlUmVwb1JlcG9zaXRvcnlJbXBsKCksCikgOiBWaWV3TW9kZWwoKSB7CgogICAgZGF0YSBjbGFzcyBTdGF0ZSgKICAgICAgICB2YWwgbW9kdWxlSWQ6IFN0cmluZz8gPSBudWxsLAogICAgICAgIHZhbCBkZXRhaWw6IFJlcG9Nb2R1bGVEZXRhaWw/ID0gbnVsbCwKICAgICAgICB2YWwgbG9hZGVkOiBCb29sZWFuID0gZmFsc2UsCiAgICAgICAgLyoqIE5vdCBpbiB0aGUgY3VycmVudCBpbmRleCAoZS5nLiBzdXNwZW5kZWQpOiBuZXZlciBvZmZlciBpbnN0YWxsYXRpb24uICovCiAgICAgICAgdmFsIG5vdEluSW5kZXg6IEJvb2xlYW4gPSBmYWxzZSwKICAgICAgICB2YWwgbG9hZEZhaWxlZDogQm9vbGVhbiA9IGZhbHNlLAogICAgKQoKICAgIHByaXZhdGUgdmFsIF9zdGF0ZSA9IE11dGFibGVTdGF0ZUZsb3coU3RhdGUoKSkKICAgIHZhbCBzdGF0ZTogU3RhdGVGbG93PFN0YXRlPiA9IF9zdGF0ZS5hc1N0YXRlRmxvdygpCgogICAgcHJpdmF0ZSB2YXIgam9iOiBKb2I/ID0gbnVsbAoKICAgIC8qKiBMb2FkcyBbbW9kdWxlSWRdIHVubGVzcyBpdCBpcyBhbHJlYWR5IGxvYWRlZDsgW2ZvcmNlXSByZWxvYWRzIChyZXRyeSkuICovCiAgICBmdW4gbG9hZChtb2R1bGVJZDogU3RyaW5nLCBmb3JjZTogQm9vbGVhbiA9IGZhbHNlKSB7CiAgICAgICAgdmFsIGN1cnJlbnQgPSBfc3RhdGUudmFsdWUKICAgICAgICBpZiAoIWZvcmNlICYmIGN1cnJlbnQubW9kdWxlSWQgPT0gbW9kdWxlSWQgJiYgKGN1cnJlbnQubG9hZGVkIHx8IGpvYj8uaXNBY3RpdmUgPT0gdHJ1ZSkpIHJldHVybgogICAgICAgIGlmIChjdXJyZW50Lm1vZHVsZUlkICE9IG1vZHVsZUlkKSBfc3RhdGUudmFsdWUgPSBTdGF0ZShtb2R1bGVJZCA9IG1vZHVsZUlkKQogICAgICAgIGpvYj8uY2FuY2VsKCkKICAgICAgICBqb2IgPSB2aWV3TW9kZWxTY29wZS5sYXVuY2ggewogICAgICAgICAgICBfc3RhdGUudXBkYXRlIHsgaXQuY29weShsb2FkZWQgPSBmYWxzZSkgfQogICAgICAgICAgICByZXBvLmZldGNoRGV0YWlsKG1vZHVsZUlkKQogICAgICAgICAgICAgICAgLm9uU3VjY2VzcyB7IGRldGFpbCAtPgogICAgICAgICAgICAgICAgICAgIF9zdGF0ZS51cGRhdGUgeyBpdC5jb3B5KGRldGFpbCA9IGRldGFpbCwgbm90SW5JbmRleCA9IGZhbHNlLCBsb2FkRmFpbGVkID0gZmFsc2UsIGxvYWRlZCA9IHRydWUpIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIC5vbkZhaWx1cmUgeyBlIC0+CiAgICAgICAgICAgICAgICAgICAgX3N0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmIChlIGlzIE1vZHVsZU5vdEluSW5kZXhFeGNlcHRpb24pIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGl0LmNvcHkoZGV0YWlsID0gbnVsbCwgbm90SW5JbmRleCA9IHRydWUsIGxvYWRlZCA9IHRydWUpCiAgICAgICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpdC5jb3B5KGxvYWRGYWlsZWQgPSBpdC5kZXRhaWwgPT0gbnVsbCwgbG9hZGVkID0gdHJ1ZSkKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0K
+package com.xinsu.moe.ui.viewmodel
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import com.xinsu.moe.data.model.RepoModuleDetail
+import com.xinsu.moe.data.registry.ModuleNotInIndexException
+import com.xinsu.moe.data.repository.ModuleRepoRepository
+import com.xinsu.moe.data.repository.ModuleRepoRepositoryImpl
+
+/** Loads the registry detail (and README) of one module for the detail screen. */
+class ModuleRepoDetailViewModel(
+    private val repo: ModuleRepoRepository = ModuleRepoRepositoryImpl(),
+) : ViewModel() {
+
+    data class State(
+        val moduleId: String? = null,
+        val detail: RepoModuleDetail? = null,
+        val loaded: Boolean = false,
+        /** Not in the current index (e.g. suspended): never offer installation. */
+        val notInIndex: Boolean = false,
+        val loadFailed: Boolean = false,
+    )
+
+    private val _state = MutableStateFlow(State())
+    val state: StateFlow<State> = _state.asStateFlow()
+
+    private var job: Job? = null
+
+    /** Loads [moduleId] unless it is already loaded; [force] reloads (retry). */
+    fun load(moduleId: String, force: Boolean = false) {
+        val current = _state.value
+        if (!force && current.moduleId == moduleId && (current.loaded || job?.isActive == true)) return
+        if (current.moduleId != moduleId) _state.value = State(moduleId = moduleId)
+        job?.cancel()
+        job = viewModelScope.launch {
+            _state.update { it.copy(loaded = false) }
+            repo.fetchDetail(moduleId)
+                .onSuccess { detail ->
+                    _state.update { it.copy(detail = detail, notInIndex = false, loadFailed = false, loaded = true) }
+                }
+                .onFailure { e ->
+                    _state.update {
+                        if (e is ModuleNotInIndexException) {
+                            it.copy(detail = null, notInIndex = true, loaded = true)
+                        } else {
+                            it.copy(loadFailed = it.detail == null, loaded = true)
+                        }
+                    }
+                }
+        }
+    }
+}

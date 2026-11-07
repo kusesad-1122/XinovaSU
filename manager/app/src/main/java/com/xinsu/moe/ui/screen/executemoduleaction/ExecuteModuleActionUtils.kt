@@ -1,1 +1,113 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5leGVjdXRlbW9kdWxlYWN0aW9uCgppbXBvcnQgYW5kcm9pZC5vcy5FbnZpcm9ubWVudAppbXBvcnQgYW5kcm9pZC5vcy5IYW5kbGVyCmltcG9ydCBhbmRyb2lkLm9zLkxvb3BlcgppbXBvcnQgYW5kcm9pZC53aWRnZXQuVG9hc3QKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5Db21wb3NhYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuTGF1bmNoZWRFZmZlY3QKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkucGxhdGZvcm0uTG9jYWxDb250ZXh0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnJlcy5zdHJpbmdSZXNvdXJjZQppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLkNvcm91dGluZVNjb3BlCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuRGlzcGF0Y2hlcnMKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5sYXVuY2gKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy53aXRoQ29udGV4dAppbXBvcnQgY29tLnhpbnN1Lm1vZS5SCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeS5Nb2R1bGVSZXBvc2l0b3J5SW1wbAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLnJ1bk1vZHVsZUFjdGlvbgppbXBvcnQgamF2YS5pby5GaWxlCmltcG9ydCBqYXZhLnRleHQuU2ltcGxlRGF0ZUZvcm1hdAppbXBvcnQgamF2YS51dGlsLkRhdGUKaW1wb3J0IGphdmEudXRpbC5Mb2NhbGUKCkBDb21wb3NhYmxlCmZ1biBFeGVjdXRlTW9kdWxlQWN0aW9uRWZmZWN0KAogICAgbW9kdWxlSWQ6IFN0cmluZywKICAgIHRleHQ6IFN0cmluZywKICAgIGxvZ0NvbnRlbnQ6IFN0cmluZ0J1aWxkZXIsCiAgICBmcm9tU2hvcnRjdXQ6IEJvb2xlYW4sCiAgICBvblRleHRVcGRhdGU6IChTdHJpbmcpIC0+IFVuaXQsCiAgICBvbkNvbXBsZXRlOiAoKSAtPiBVbml0ID0ge30sCiAgICBvbkV4aXQ6ICgpIC0+IFVuaXQKKSB7CiAgICB2YWwgY29udGV4dCA9IExvY2FsQ29udGV4dC5jdXJyZW50CiAgICB2YWwgbm9Nb2R1bGUgPSBzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5ub19zdWNoX21vZHVsZSkKICAgIHZhbCBtb2R1bGVVbmF2YWlsYWJsZSA9IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLm1vZHVsZV91bmF2YWlsYWJsZSkKICAgIHZhbCBtb2R1bGVBY3Rpb25TdWNjZXNzID0gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcubW9kdWxlX2FjdGlvbl9zdWNjZXNzKQoKICAgIExhdW5jaGVkRWZmZWN0KFVuaXQpIHsKICAgICAgICBpZiAodGV4dC5pc05vdEVtcHR5KCkpIHsKICAgICAgICAgICAgcmV0dXJuQExhdW5jaGVkRWZmZWN0CiAgICAgICAgfQogICAgICAgIHZhbCByZXBvID0gTW9kdWxlUmVwb3NpdG9yeUltcGwoKQogICAgICAgIHZhbCBtb2R1bGVzID0gcmVwby5nZXRNb2R1bGVzKCkuZ2V0T3JEZWZhdWx0KGVtcHR5TGlzdCgpKQogICAgICAgIHZhbCBtb2R1bGVJbmZvID0gbW9kdWxlcy5maW5kIHsgaW5mbyAtPiBpbmZvLmlkID09IG1vZHVsZUlkIH0KICAgICAgICBpZiAobW9kdWxlSW5mbyA9PSBudWxsKSB7CiAgICAgICAgICAgIFRvYXN0Lm1ha2VUZXh0KGNvbnRleHQsIG5vTW9kdWxlLmZvcm1hdChtb2R1bGVJZCksIFRvYXN0LkxFTkdUSF9TSE9SVCkuc2hvdygpCiAgICAgICAgICAgIG9uRXhpdCgpCiAgICAgICAgICAgIHJldHVybkBMYXVuY2hlZEVmZmVjdAogICAgICAgIH0KICAgICAgICBpZiAoIW1vZHVsZUluZm8uaGFzQWN0aW9uU2NyaXB0KSB7CiAgICAgICAgICAgIG9uRXhpdCgpCiAgICAgICAgICAgIHJldHVybkBMYXVuY2hlZEVmZmVjdAogICAgICAgIH0KICAgICAgICBpZiAoIW1vZHVsZUluZm8uZW5hYmxlZCB8fCBtb2R1bGVJbmZvLnVwZGF0ZSB8fCBtb2R1bGVJbmZvLnJlbW92ZSkgewogICAgICAgICAgICBUb2FzdC5tYWtlVGV4dChjb250ZXh0LCBtb2R1bGVVbmF2YWlsYWJsZS5mb3JtYXQobW9kdWxlSW5mby5uYW1lKSwgVG9hc3QuTEVOR1RIX1NIT1JUKS5zaG93KCkKICAgICAgICAgICAgb25FeGl0KCkKICAgICAgICAgICAgcmV0dXJuQExhdW5jaGVkRWZmZWN0CiAgICAgICAgfQogICAgICAgIHZhciBhY3Rpb25SZXN1bHQ6IEJvb2xlYW4KICAgICAgICB2YXIgY3VycmVudFRleHQgPSB0ZXh0CiAgICAgICAgdmFsIG1haW5IYW5kbGVyID0gSGFuZGxlcihMb29wZXIuZ2V0TWFpbkxvb3BlcigpKQogICAgICAgIHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgICAgIHJ1bk1vZHVsZUFjdGlvbigKICAgICAgICAgICAgICAgIG1vZHVsZUlkID0gbW9kdWxlSWQsCiAgICAgICAgICAgICAgICBvblN0ZG91dCA9IHsKICAgICAgICAgICAgICAgICAgICB2YWwgdGVtcFRleHQgPSAiJGl0XG4iCiAgICAgICAgICAgICAgICAgICAgaWYgKHRlbXBUZXh0LnN0YXJ0c1dpdGgoIhtbSBtbSiIpKSB7IC8vIGNsZWFyIGNvbW1hbmQKICAgICAgICAgICAgICAgICAgICAgICAgY3VycmVudFRleHQgPSB0ZW1wVGV4dC5zdWJzdHJpbmcoNikKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICBjdXJyZW50VGV4dCArPSB0ZW1wVGV4dAogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBtYWluSGFuZGxlci5wb3N0IHsKICAgICAgICAgICAgICAgICAgICAgICAgb25UZXh0VXBkYXRlKGN1cnJlbnRUZXh0KQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBsb2dDb250ZW50LmFwcGVuZChpdCkuYXBwZW5kKCJcbiIpCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgb25TdGRlcnIgPSB7CiAgICAgICAgICAgICAgICAgICAgbG9nQ29udGVudC5hcHBlbmQoaXQpLmFwcGVuZCgiXG4iKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICApLmxldCB7CiAgICAgICAgICAgICAgICBhY3Rpb25SZXN1bHQgPSBpdAogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIGlmIChhY3Rpb25SZXN1bHQgJiYgZnJvbVNob3J0Y3V0KSB7CiAgICAgICAgICAgIFRvYXN0Lm1ha2VUZXh0KAogICAgICAgICAgICAgICAgY29udGV4dCwKICAgICAgICAgICAgICAgIG1vZHVsZUFjdGlvblN1Y2Nlc3MsCiAgICAgICAgICAgICAgICBUb2FzdC5MRU5HVEhfU0hPUlQKICAgICAgICAgICAgKS5zaG93KCkKICAgICAgICB9CiAgICAgICAgb25Db21wbGV0ZSgpCiAgICB9Cn0KCmZ1biBzYXZlTG9nKAogICAgbG9nQ29udGVudDogU3RyaW5nQnVpbGRlciwKICAgIHNjb3BlOiBDb3JvdXRpbmVTY29wZSwKICAgIGZpbGVOYW1lUHJlZml4OiBTdHJpbmcgPSAiWGlub3ZhU1VfbW9kdWxlX2FjdGlvbl9sb2ciLAogICAgc2hvd01lc3NhZ2U6IChTdHJpbmcpIC0+IFVuaXQKKTogKCkgLT4gVW5pdCB7CiAgICByZXR1cm4gewogICAgICAgIHNjb3BlLmxhdW5jaCB7CiAgICAgICAgICAgIHZhbCBmb3JtYXQgPSBTaW1wbGVEYXRlRm9ybWF0KCJ5eXl5LU1NLWRkLUhILW1tLXNzIiwgTG9jYWxlLmdldERlZmF1bHQoKSkKICAgICAgICAgICAgdmFsIGRhdGUgPSBmb3JtYXQuZm9ybWF0KERhdGUoKSkKICAgICAgICAgICAgdmFsIGZpbGUgPSBGaWxlKAogICAgICAgICAgICAgICAgRW52aXJvbm1lbnQuZ2V0RXh0ZXJuYWxTdG9yYWdlUHVibGljRGlyZWN0b3J5KEVudmlyb25tZW50LkRJUkVDVE9SWV9ET1dOTE9BRFMpLAogICAgICAgICAgICAgICAgIiR7ZmlsZU5hbWVQcmVmaXh9XyR7ZGF0ZX0ubG9nIgogICAgICAgICAgICApCiAgICAgICAgICAgIGZpbGUud3JpdGVUZXh0KGxvZ0NvbnRlbnQudG9TdHJpbmcoKSkKICAgICAgICAgICAgc2hvd01lc3NhZ2UoIkxvZyBzYXZlZCB0byAke2ZpbGUuYWJzb2x1dGVQYXRofSIpCiAgICAgICAgfQogICAgfQp9Cg==
+package com.xinsu.moe.ui.screen.executemoduleaction
+
+import android.os.Environment
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import com.xinsu.moe.R
+import com.xinsu.moe.data.repository.ModuleRepositoryImpl
+import com.xinsu.moe.ui.util.runModuleAction
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+
+@Composable
+fun ExecuteModuleActionEffect(
+    moduleId: String,
+    text: String,
+    logContent: StringBuilder,
+    fromShortcut: Boolean,
+    onTextUpdate: (String) -> Unit,
+    onComplete: () -> Unit = {},
+    onExit: () -> Unit
+) {
+    val context = LocalContext.current
+    val noModule = stringResource(R.string.no_such_module)
+    val moduleUnavailable = stringResource(R.string.module_unavailable)
+    val moduleActionSuccess = stringResource(R.string.module_action_success)
+
+    LaunchedEffect(Unit) {
+        if (text.isNotEmpty()) {
+            return@LaunchedEffect
+        }
+        val repo = ModuleRepositoryImpl()
+        val modules = repo.getModules().getOrDefault(emptyList())
+        val moduleInfo = modules.find { info -> info.id == moduleId }
+        if (moduleInfo == null) {
+            Toast.makeText(context, noModule.format(moduleId), Toast.LENGTH_SHORT).show()
+            onExit()
+            return@LaunchedEffect
+        }
+        if (!moduleInfo.hasActionScript) {
+            onExit()
+            return@LaunchedEffect
+        }
+        if (!moduleInfo.enabled || moduleInfo.update || moduleInfo.remove) {
+            Toast.makeText(context, moduleUnavailable.format(moduleInfo.name), Toast.LENGTH_SHORT).show()
+            onExit()
+            return@LaunchedEffect
+        }
+        var actionResult: Boolean
+        var currentText = text
+        val mainHandler = Handler(Looper.getMainLooper())
+        withContext(Dispatchers.IO) {
+            runModuleAction(
+                moduleId = moduleId,
+                onStdout = {
+                    val tempText = "$it\n"
+                    if (tempText.startsWith("[H[J")) { // clear command
+                        currentText = tempText.substring(6)
+                    } else {
+                        currentText += tempText
+                    }
+                    mainHandler.post {
+                        onTextUpdate(currentText)
+                    }
+                    logContent.append(it).append("\n")
+                },
+                onStderr = {
+                    logContent.append(it).append("\n")
+                }
+            ).let {
+                actionResult = it
+            }
+        }
+        if (actionResult && fromShortcut) {
+            Toast.makeText(
+                context,
+                moduleActionSuccess,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        onComplete()
+    }
+}
+
+fun saveLog(
+    logContent: StringBuilder,
+    scope: CoroutineScope,
+    fileNamePrefix: String = "XinovaSU_module_action_log",
+    showMessage: (String) -> Unit
+): () -> Unit {
+    return {
+        scope.launch {
+            val format = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.getDefault())
+            val date = format.format(Date())
+            val file = File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                "${fileNamePrefix}_${date}.log"
+            )
+            file.writeText(logContent.toString())
+            showMessage("Log saved to ${file.absolutePath}")
+        }
+    }
+}

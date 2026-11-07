@@ -1,1 +1,374 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLmNvbXBvbmVudC5kaWFsb2cKCmltcG9ydCBhbmRyb2lkLm9zLlBhcmNlbGFibGUKaW1wb3J0IGFuZHJvaWQudXRpbC5Mb2cKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5Db21wb3NhYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuTXV0YWJsZVN0YXRlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuZ2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5tdXRhYmxlU3RhdGVPZgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnJlbWVtYmVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUucmVtZW1iZXJDb3JvdXRpbmVTY29wZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnJlbWVtYmVyVXBkYXRlZFN0YXRlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2F2ZWFibGUuU2F2ZXIKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5zYXZlYWJsZS5yZW1lbWJlclNhdmVhYmxlCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuQ2FuY2VsbGFibGVDb250aW51YXRpb24KaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5Db3JvdXRpbmVTY29wZQppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmFzeW5jCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuY2hhbm5lbHMuQ2hhbm5lbAppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmNoYW5uZWxzLlJlY2VpdmVDaGFubmVsCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5GbG93Q29sbGVjdG9yCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5jb25zdW1lQXNGbG93CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5vbkVhY2gKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5sYXVuY2gKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5zdXNwZW5kQ2FuY2VsbGFibGVDb3JvdXRpbmUKaW1wb3J0IGtvdGxpbngucGFyY2VsaXplLlBhcmNlbGl6ZQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5Mb2NhbFVpTW9kZQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5VaU1vZGUKaW1wb3J0IGtvdGxpbi5jb3JvdXRpbmVzLnJlc3VtZQoKcHJpdmF0ZSBjb25zdCB2YWwgVEFHID0gIkRpYWxvZ0NvbXBvbmVudCIKCmludGVyZmFjZSBDb25maXJtRGlhbG9nVmlzdWFscyA6IFBhcmNlbGFibGUgewogICAgdmFsIHRpdGxlOiBTdHJpbmcKICAgIHZhbCBjb250ZW50OiBTdHJpbmc/CiAgICB2YWwgaXNNYXJrZG93bjogQm9vbGVhbgogICAgdmFsIGlzSHRtbDogQm9vbGVhbgogICAgdmFsIGNvbmZpcm06IFN0cmluZz8KICAgIHZhbCBkaXNtaXNzOiBTdHJpbmc/CgogICAgLyoqIFJlZ2lzdHJ5LWhvc3RlZCBjb250ZW50OiByZW5kZXJlZCB3aXRoIEphdmFTY3JpcHQgb2ZmIGFuZCBuZXR3b3JrIGxvY2tlZCB0byB0aGUgcmVnaXN0cnkuICovCiAgICB2YWwgaXNSZXN0cmljdGVkOiBCb29sZWFuIGdldCgpID0gZmFsc2UKfQoKQFBhcmNlbGl6ZQpwcml2YXRlIGRhdGEgY2xhc3MgQ29uZmlybURpYWxvZ1Zpc3VhbHNJbXBsKAogICAgb3ZlcnJpZGUgdmFsIHRpdGxlOiBTdHJpbmcsCiAgICBvdmVycmlkZSB2YWwgY29udGVudDogU3RyaW5nPywKICAgIG92ZXJyaWRlIHZhbCBpc01hcmtkb3duOiBCb29sZWFuLAogICAgb3ZlcnJpZGUgdmFsIGlzSHRtbDogQm9vbGVhbiwKICAgIG92ZXJyaWRlIHZhbCBjb25maXJtOiBTdHJpbmc/LAogICAgb3ZlcnJpZGUgdmFsIGRpc21pc3M6IFN0cmluZz8sCiAgICBvdmVycmlkZSB2YWwgaXNSZXN0cmljdGVkOiBCb29sZWFuID0gZmFsc2UsCikgOiBDb25maXJtRGlhbG9nVmlzdWFscyB7CiAgICBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICB2YWwgRW1wdHk6IENvbmZpcm1EaWFsb2dWaXN1YWxzID0gQ29uZmlybURpYWxvZ1Zpc3VhbHNJbXBsKCIiLCAiIiwgaXNNYXJrZG93biA9IGZhbHNlLCBpc0h0bWwgPSBmYWxzZSwgY29uZmlybSA9IG51bGwsIGRpc21pc3MgPSBudWxsKQogICAgfQp9CgppbnRlcmZhY2UgRGlhbG9nSGFuZGxlIHsKICAgIHZhbCBpc1Nob3duOiBCb29sZWFuCiAgICB2YWwgZGlhbG9nVHlwZTogU3RyaW5nCiAgICBmdW4gc2hvdygpCiAgICBmdW4gaGlkZSgpCn0KCmludGVyZmFjZSBMb2FkaW5nRGlhbG9nSGFuZGxlIDogRGlhbG9nSGFuZGxlIHsKICAgIHN1c3BlbmQgZnVuIDxSPiB3aXRoTG9hZGluZyhibG9jazogc3VzcGVuZCAoKSAtPiBSKTogUgogICAgZnVuIHNob3dMb2FkaW5nKCkKfQoKc2VhbGVkIGludGVyZmFjZSBDb25maXJtUmVzdWx0IHsKICAgIG9iamVjdCBDb25maXJtZWQgOiBDb25maXJtUmVzdWx0CiAgICBvYmplY3QgQ2FuY2VsZWQgOiBDb25maXJtUmVzdWx0Cn0KCmludGVyZmFjZSBDb25maXJtRGlhbG9nSGFuZGxlIDogRGlhbG9nSGFuZGxlIHsKICAgIHZhbCB2aXN1YWxzOiBDb25maXJtRGlhbG9nVmlzdWFscwoKICAgIGZ1biBzaG93Q29uZmlybSgKICAgICAgICB0aXRsZTogU3RyaW5nLAogICAgICAgIGNvbnRlbnQ6IFN0cmluZz8gPSBudWxsLAogICAgICAgIG1hcmtkb3duOiBCb29sZWFuID0gZmFsc2UsCiAgICAgICAgaHRtbDogQm9vbGVhbiA9IGZhbHNlLAogICAgICAgIGNvbmZpcm06IFN0cmluZz8gPSBudWxsLAogICAgICAgIGRpc21pc3M6IFN0cmluZz8gPSBudWxsLAogICAgICAgIHJlc3RyaWN0ZWQ6IEJvb2xlYW4gPSBmYWxzZSwKICAgICkKCiAgICBzdXNwZW5kIGZ1biBhd2FpdENvbmZpcm0oCiAgICAgICAgdGl0bGU6IFN0cmluZywKICAgICAgICBjb250ZW50OiBTdHJpbmc/ID0gbnVsbCwKICAgICAgICBtYXJrZG93bjogQm9vbGVhbiA9IGZhbHNlLAogICAgICAgIGh0bWw6IEJvb2xlYW4gPSBmYWxzZSwKICAgICAgICBjb25maXJtOiBTdHJpbmc/ID0gbnVsbCwKICAgICAgICBkaXNtaXNzOiBTdHJpbmc/ID0gbnVsbCwKICAgICAgICByZXN0cmljdGVkOiBCb29sZWFuID0gZmFsc2UsCiAgICApOiBDb25maXJtUmVzdWx0Cn0KCnByaXZhdGUgYWJzdHJhY3QgY2xhc3MgRGlhbG9nSGFuZGxlQmFzZSgKICAgIHZhbCB2aXNpYmxlOiBNdXRhYmxlU3RhdGU8Qm9vbGVhbj4sCiAgICB2YWwgY29yb3V0aW5lU2NvcGU6IENvcm91dGluZVNjb3BlCikgOiBEaWFsb2dIYW5kbGUgewogICAgb3ZlcnJpZGUgdmFsIGlzU2hvd246IEJvb2xlYW4KICAgICAgICBnZXQoKSA9IHZpc2libGUudmFsdWUKCiAgICBvdmVycmlkZSBmdW4gc2hvdygpIHsKICAgICAgICBjb3JvdXRpbmVTY29wZS5sYXVuY2ggewogICAgICAgICAgICB2aXNpYmxlLnZhbHVlID0gdHJ1ZQogICAgICAgIH0KICAgIH0KCiAgICBmaW5hbCBvdmVycmlkZSBmdW4gaGlkZSgpIHsKICAgICAgICBjb3JvdXRpbmVTY29wZS5sYXVuY2ggewogICAgICAgICAgICB2aXNpYmxlLnZhbHVlID0gZmFsc2UKICAgICAgICB9CiAgICB9CgogICAgb3ZlcnJpZGUgZnVuIHRvU3RyaW5nKCk6IFN0cmluZyB7CiAgICAgICAgcmV0dXJuIGRpYWxvZ1R5cGUKICAgIH0KfQoKcHJpdmF0ZSBjbGFzcyBMb2FkaW5nRGlhbG9nSGFuZGxlSW1wbCgKICAgIHZpc2libGU6IE11dGFibGVTdGF0ZTxCb29sZWFuPiwKICAgIGNvcm91dGluZVNjb3BlOiBDb3JvdXRpbmVTY29wZQopIDogTG9hZGluZ0RpYWxvZ0hhbmRsZSwgRGlhbG9nSGFuZGxlQmFzZSh2aXNpYmxlLCBjb3JvdXRpbmVTY29wZSkgewogICAgb3ZlcnJpZGUgc3VzcGVuZCBmdW4gPFI+IHdpdGhMb2FkaW5nKGJsb2NrOiBzdXNwZW5kICgpIC0+IFIpOiBSIHsKICAgICAgICByZXR1cm4gY29yb3V0aW5lU2NvcGUuYXN5bmMgewogICAgICAgICAgICB0cnkgewogICAgICAgICAgICAgICAgdmlzaWJsZS52YWx1ZSA9IHRydWUKICAgICAgICAgICAgICAgIGJsb2NrKCkKICAgICAgICAgICAgfSBmaW5hbGx5IHsKICAgICAgICAgICAgICAgIHZpc2libGUudmFsdWUgPSBmYWxzZQogICAgICAgICAgICB9CiAgICAgICAgfS5hd2FpdCgpCiAgICB9CgogICAgb3ZlcnJpZGUgZnVuIHNob3dMb2FkaW5nKCkgewogICAgICAgIHNob3coKQogICAgfQoKICAgIG92ZXJyaWRlIHZhbCBkaWFsb2dUeXBlOiBTdHJpbmcgZ2V0KCkgPSAiTG9hZGluZ0RpYWxvZyIKfQoKdHlwZWFsaWFzIE51bGxhYmxlQ2FsbGJhY2sgPSAoKCkgLT4gVW5pdCk/CgppbnRlcmZhY2UgQ29uZmlybUNhbGxiYWNrIHsKCiAgICB2YWwgb25Db25maXJtOiBOdWxsYWJsZUNhbGxiYWNrCgogICAgdmFsIG9uRGlzbWlzczogTnVsbGFibGVDYWxsYmFjawoKICAgIHZhbCBpc0VtcHR5OiBCb29sZWFuIGdldCgpID0gb25Db25maXJtID09IG51bGwgJiYgb25EaXNtaXNzID09IG51bGwKCiAgICBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICBvcGVyYXRvciBmdW4gaW52b2tlKAogICAgICAgICAgICBvbkNvbmZpcm1Qcm92aWRlcjogKCkgLT4gTnVsbGFibGVDYWxsYmFjaywKICAgICAgICAgICAgb25EaXNtaXNzUHJvdmlkZXI6ICgpIC0+IE51bGxhYmxlQ2FsbGJhY2sKICAgICAgICApOiBDb25maXJtQ2FsbGJhY2sgewogICAgICAgICAgICByZXR1cm4gb2JqZWN0IDogQ29uZmlybUNhbGxiYWNrIHsKICAgICAgICAgICAgICAgIG92ZXJyaWRlIHZhbCBvbkNvbmZpcm06IE51bGxhYmxlQ2FsbGJhY2sKICAgICAgICAgICAgICAgICAgICBnZXQoKSA9IG9uQ29uZmlybVByb3ZpZGVyKCkKICAgICAgICAgICAgICAgIG92ZXJyaWRlIHZhbCBvbkRpc21pc3M6IE51bGxhYmxlQ2FsbGJhY2sKICAgICAgICAgICAgICAgICAgICBnZXQoKSA9IG9uRGlzbWlzc1Byb3ZpZGVyKCkKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KfQoKcHJpdmF0ZSBjbGFzcyBDb25maXJtRGlhbG9nSGFuZGxlSW1wbCgKICAgIHZpc2libGU6IE11dGFibGVTdGF0ZTxCb29sZWFuPiwKICAgIGNvcm91dGluZVNjb3BlOiBDb3JvdXRpbmVTY29wZSwKICAgIGNhbGxiYWNrOiBDb25maXJtQ2FsbGJhY2ssCiAgICBpbml0aWFsVmlzdWFsczogQ29uZmlybURpYWxvZ1Zpc3VhbHMgPSBDb25maXJtRGlhbG9nVmlzdWFsc0ltcGwuRW1wdHksCiAgICBwcml2YXRlIHZhbCByZXN1bHRGbG93OiBSZWNlaXZlQ2hhbm5lbDxDb25maXJtUmVzdWx0PgopIDogQ29uZmlybURpYWxvZ0hhbmRsZSwgRGlhbG9nSGFuZGxlQmFzZSh2aXNpYmxlLCBjb3JvdXRpbmVTY29wZSkgewogICAgcHJpdmF0ZSB2YWwgdmlzdWFsc1N0YXRlID0gbXV0YWJsZVN0YXRlT2YoaW5pdGlhbFZpc3VhbHMpCiAgICBvdmVycmlkZSB2YWwgdmlzdWFsczogQ29uZmlybURpYWxvZ1Zpc3VhbHMgZ2V0KCkgPSB2aXN1YWxzU3RhdGUudmFsdWUKCiAgICBwcml2YXRlIGNsYXNzIFJlc3VsdENvbGxlY3RvcigKICAgICAgICBwcml2YXRlIHZhbCBjYWxsYmFjazogQ29uZmlybUNhbGxiYWNrCiAgICApIDogRmxvd0NvbGxlY3RvcjxDb25maXJtUmVzdWx0PiB7CiAgICAgICAgZnVuIGhhbmRsZVJlc3VsdChyZXN1bHQ6IENvbmZpcm1SZXN1bHQpIHsKICAgICAgICAgICAgTG9nLmQoVEFHLCAiaGFuZGxlUmVzdWx0OiAke3Jlc3VsdC5qYXZhQ2xhc3Muc2ltcGxlTmFtZX0iKQogICAgICAgICAgICB3aGVuIChyZXN1bHQpIHsKICAgICAgICAgICAgICAgIENvbmZpcm1SZXN1bHQuQ29uZmlybWVkIC0+IG9uQ29uZmlybSgpCiAgICAgICAgICAgICAgICBDb25maXJtUmVzdWx0LkNhbmNlbGVkIC0+IG9uRGlzbWlzcygpCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIGZ1biBvbkNvbmZpcm0oKSB7CiAgICAgICAgICAgIGNhbGxiYWNrLm9uQ29uZmlybT8uaW52b2tlKCkKICAgICAgICB9CgogICAgICAgIGZ1biBvbkRpc21pc3MoKSB7CiAgICAgICAgICAgIGNhbGxiYWNrLm9uRGlzbWlzcz8uaW52b2tlKCkKICAgICAgICB9CgogICAgICAgIG92ZXJyaWRlIHN1c3BlbmQgZnVuIGVtaXQodmFsdWU6IENvbmZpcm1SZXN1bHQpIHsKICAgICAgICAgICAgaGFuZGxlUmVzdWx0KHZhbHVlKQogICAgICAgIH0KICAgIH0KCiAgICBwcml2YXRlIHZhbCByZXN1bHRDb2xsZWN0b3IgPSBSZXN1bHRDb2xsZWN0b3IoY2FsbGJhY2spCgogICAgcHJpdmF0ZSB2YXIgYXdhaXRDb250aW51YXRpb246IENhbmNlbGxhYmxlQ29udGludWF0aW9uPENvbmZpcm1SZXN1bHQ+PyA9IG51bGwKCiAgICBwcml2YXRlIHZhbCBpc0NhbGxiYWNrRW1wdHkgPSBjYWxsYmFjay5pc0VtcHR5CgogICAgaW5pdCB7CiAgICAgICAgY29yb3V0aW5lU2NvcGUubGF1bmNoIHsKICAgICAgICAgICAgcmVzdWx0RmxvdwogICAgICAgICAgICAgICAgLmNvbnN1bWVBc0Zsb3coKQogICAgICAgICAgICAgICAgLm9uRWFjaCB7IHJlc3VsdCAtPgogICAgICAgICAgICAgICAgICAgIGF3YWl0Q29udGludWF0aW9uPy5sZXQgewogICAgICAgICAgICAgICAgICAgICAgICBhd2FpdENvbnRpbnVhdGlvbiA9IG51bGwKICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGl0LmlzQWN0aXZlKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpdC5yZXN1bWUocmVzdWx0KQogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgLm9uRWFjaCB7IGhpZGUoKSB9CiAgICAgICAgICAgICAgICAuY29sbGVjdChyZXN1bHRDb2xsZWN0b3IpCiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgc3VzcGVuZCBmdW4gYXdhaXRSZXN1bHQoKTogQ29uZmlybVJlc3VsdCB7CiAgICAgICAgcmV0dXJuIHN1c3BlbmRDYW5jZWxsYWJsZUNvcm91dGluZSB7CiAgICAgICAgICAgIGF3YWl0Q29udGludWF0aW9uID0gaXQuYXBwbHkgewogICAgICAgICAgICAgICAgaWYgKGlzQ2FsbGJhY2tFbXB0eSkgewogICAgICAgICAgICAgICAgICAgIGludm9rZU9uQ2FuY2VsbGF0aW9uIHsKICAgICAgICAgICAgICAgICAgICAgICAgdmlzaWJsZS52YWx1ZSA9IGZhbHNlCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIGZ1biB1cGRhdGVWaXN1YWxzKHZpc3VhbHM6IENvbmZpcm1EaWFsb2dWaXN1YWxzKSB7CiAgICAgICAgdmlzdWFsc1N0YXRlLnZhbHVlID0gdmlzdWFscwogICAgfQoKICAgIG92ZXJyaWRlIGZ1biBzaG93KCkgewogICAgICAgIGlmICh2aXN1YWxzICE9PSBDb25maXJtRGlhbG9nVmlzdWFsc0ltcGwuRW1wdHkpIHsKICAgICAgICAgICAgc3VwZXIuc2hvdygpCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgdGhyb3cgVW5zdXBwb3J0ZWRPcGVyYXRpb25FeGNlcHRpb24oImNhbid0IHNob3cgY29uZmlybSBkaWFsb2cgd2l0aCB0aGUgRW1wdHkgdmlzdWFscyIpCiAgICAgICAgfQogICAgfQoKICAgIG92ZXJyaWRlIGZ1biBzaG93Q29uZmlybSgKICAgICAgICB0aXRsZTogU3RyaW5nLAogICAgICAgIGNvbnRlbnQ6IFN0cmluZz8sCiAgICAgICAgbWFya2Rvd246IEJvb2xlYW4sCiAgICAgICAgaHRtbDogQm9vbGVhbiwKICAgICAgICBjb25maXJtOiBTdHJpbmc/LAogICAgICAgIGRpc21pc3M6IFN0cmluZz8sCiAgICAgICAgcmVzdHJpY3RlZDogQm9vbGVhbiwKICAgICkgewogICAgICAgIGNvcm91dGluZVNjb3BlLmxhdW5jaCB7CiAgICAgICAgICAgIHVwZGF0ZVZpc3VhbHMoQ29uZmlybURpYWxvZ1Zpc3VhbHNJbXBsKHRpdGxlLCBjb250ZW50LCBtYXJrZG93biwgaHRtbCwgY29uZmlybSwgZGlzbWlzcywgcmVzdHJpY3RlZCkpCiAgICAgICAgICAgIHNob3coKQogICAgICAgIH0KICAgIH0KCiAgICBvdmVycmlkZSBzdXNwZW5kIGZ1biBhd2FpdENvbmZpcm0oCiAgICAgICAgdGl0bGU6IFN0cmluZywKICAgICAgICBjb250ZW50OiBTdHJpbmc/LAogICAgICAgIG1hcmtkb3duOiBCb29sZWFuLAogICAgICAgIGh0bWw6IEJvb2xlYW4sCiAgICAgICAgY29uZmlybTogU3RyaW5nPywKICAgICAgICBkaXNtaXNzOiBTdHJpbmc/LAogICAgICAgIHJlc3RyaWN0ZWQ6IEJvb2xlYW4sCiAgICApOiBDb25maXJtUmVzdWx0IHsKICAgICAgICBjb3JvdXRpbmVTY29wZS5sYXVuY2ggewogICAgICAgICAgICB1cGRhdGVWaXN1YWxzKENvbmZpcm1EaWFsb2dWaXN1YWxzSW1wbCh0aXRsZSwgY29udGVudCwgbWFya2Rvd24sIGh0bWwsIGNvbmZpcm0sIGRpc21pc3MsIHJlc3RyaWN0ZWQpKQogICAgICAgICAgICBzaG93KCkKICAgICAgICB9CiAgICAgICAgcmV0dXJuIGF3YWl0UmVzdWx0KCkKICAgIH0KCiAgICBvdmVycmlkZSB2YWwgZGlhbG9nVHlwZTogU3RyaW5nIGdldCgpID0gIkNvbmZpcm1EaWFsb2ciCgogICAgb3ZlcnJpZGUgZnVuIHRvU3RyaW5nKCk6IFN0cmluZyB7CiAgICAgICAgcmV0dXJuICIke3N1cGVyLnRvU3RyaW5nKCl9KHZpc3VhbHM6ICR2aXN1YWxzKSIKICAgIH0KCiAgICBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICBmdW4gU2F2ZXIoCiAgICAgICAgICAgIHZpc2libGU6IE11dGFibGVTdGF0ZTxCb29sZWFuPiwKICAgICAgICAgICAgY29yb3V0aW5lU2NvcGU6IENvcm91dGluZVNjb3BlLAogICAgICAgICAgICBjYWxsYmFjazogQ29uZmlybUNhbGxiYWNrLAogICAgICAgICAgICByZXN1bHRDaGFubmVsOiBSZWNlaXZlQ2hhbm5lbDxDb25maXJtUmVzdWx0PgogICAgICAgICkgPSBTYXZlcjxDb25maXJtRGlhbG9nSGFuZGxlLCBDb25maXJtRGlhbG9nVmlzdWFscz4oCiAgICAgICAgICAgIHNhdmUgPSB7CiAgICAgICAgICAgICAgICBpdC52aXN1YWxzCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHJlc3RvcmUgPSB7CiAgICAgICAgICAgICAgICBMb2cuZChUQUcsICJDb25maXJtRGlhbG9nIHJlc3RvcmUsIHZpc3VhbHM6ICRpdCIpCiAgICAgICAgICAgICAgICBDb25maXJtRGlhbG9nSGFuZGxlSW1wbCh2aXNpYmxlLCBjb3JvdXRpbmVTY29wZSwgY2FsbGJhY2ssIGl0LCByZXN1bHRDaGFubmVsKQogICAgICAgICAgICB9CiAgICAgICAgKQogICAgfQp9CgpAQ29tcG9zYWJsZQpmdW4gcmVtZW1iZXJMb2FkaW5nRGlhbG9nKCk6IExvYWRpbmdEaWFsb2dIYW5kbGUgewogICAgdmFsIHZpc2libGUgPSByZW1lbWJlciB7IG11dGFibGVTdGF0ZU9mKGZhbHNlKSB9CiAgICB2YWwgY29yb3V0aW5lU2NvcGUgPSByZW1lbWJlckNvcm91dGluZVNjb3BlKCkKCiAgICB3aGVuIChMb2NhbFVpTW9kZS5jdXJyZW50KSB7CiAgICAgICAgVWlNb2RlLk1pdWl4IC0+IExvYWRpbmdEaWFsb2dNaXVpeCh2aXNpYmxlKQogICAgICAgIFVpTW9kZS5NYXRlcmlhbCAtPiBMb2FkaW5nRGlhbG9nTWF0ZXJpYWwodmlzaWJsZSkKICAgIH0KCiAgICByZXR1cm4gcmVtZW1iZXIgewogICAgICAgIExvYWRpbmdEaWFsb2dIYW5kbGVJbXBsKHZpc2libGUsIGNvcm91dGluZVNjb3BlKQogICAgfQp9CgpAQ29tcG9zYWJsZQpwcml2YXRlIGZ1biByZW1lbWJlckNvbmZpcm1EaWFsb2codmlzdWFsczogQ29uZmlybURpYWxvZ1Zpc3VhbHMsIGNhbGxiYWNrOiBDb25maXJtQ2FsbGJhY2spOiBDb25maXJtRGlhbG9nSGFuZGxlIHsKICAgIHZhbCB2aXNpYmxlID0gcmVtZW1iZXJTYXZlYWJsZSB7CiAgICAgICAgbXV0YWJsZVN0YXRlT2YoZmFsc2UpCiAgICB9CiAgICB2YWwgY29yb3V0aW5lU2NvcGUgPSByZW1lbWJlckNvcm91dGluZVNjb3BlKCkKICAgIHZhbCByZXN1bHRDaGFubmVsID0gcmVtZW1iZXIgewogICAgICAgIENoYW5uZWw8Q29uZmlybVJlc3VsdD4oKQogICAgfQoKICAgIHZhbCBoYW5kbGUgPSByZW1lbWJlclNhdmVhYmxlKAogICAgICAgIHNhdmVyID0gQ29uZmlybURpYWxvZ0hhbmRsZUltcGwuU2F2ZXIodmlzaWJsZSwgY29yb3V0aW5lU2NvcGUsIGNhbGxiYWNrLCByZXN1bHRDaGFubmVsKSwKICAgICAgICBpbml0ID0gewogICAgICAgICAgICBDb25maXJtRGlhbG9nSGFuZGxlSW1wbCh2aXNpYmxlLCBjb3JvdXRpbmVTY29wZSwgY2FsbGJhY2ssIHZpc3VhbHMsIHJlc3VsdENoYW5uZWwpCiAgICAgICAgfQogICAgKQoKICAgIHdoZW4gKExvY2FsVWlNb2RlLmN1cnJlbnQpIHsKICAgICAgICBVaU1vZGUuTWl1aXggLT4gQ29uZmlybURpYWxvZ01pdWl4KAogICAgICAgICAgICBoYW5kbGUudmlzdWFscywKICAgICAgICAgICAgY29uZmlybSA9IHsgY29yb3V0aW5lU2NvcGUubGF1bmNoIHsgcmVzdWx0Q2hhbm5lbC5zZW5kKENvbmZpcm1SZXN1bHQuQ29uZmlybWVkKSB9IH0sCiAgICAgICAgICAgIGRpc21pc3MgPSB7IGNvcm91dGluZVNjb3BlLmxhdW5jaCB7IHJlc3VsdENoYW5uZWwuc2VuZChDb25maXJtUmVzdWx0LkNhbmNlbGVkKSB9IH0sCiAgICAgICAgICAgIHNob3dEaWFsb2cgPSB2aXNpYmxlCiAgICAgICAgKQoKICAgICAgICBVaU1vZGUuTWF0ZXJpYWwgLT4gQ29uZmlybURpYWxvZ01hdGVyaWFsKAogICAgICAgICAgICBoYW5kbGUudmlzdWFscywKICAgICAgICAgICAgY29uZmlybSA9IHsgY29yb3V0aW5lU2NvcGUubGF1bmNoIHsgcmVzdWx0Q2hhbm5lbC5zZW5kKENvbmZpcm1SZXN1bHQuQ29uZmlybWVkKSB9IH0sCiAgICAgICAgICAgIGRpc21pc3MgPSB7IGNvcm91dGluZVNjb3BlLmxhdW5jaCB7IHJlc3VsdENoYW5uZWwuc2VuZChDb25maXJtUmVzdWx0LkNhbmNlbGVkKSB9IH0sCiAgICAgICAgICAgIHNob3dEaWFsb2cgPSB2aXNpYmxlCiAgICAgICAgKQogICAgfQoKICAgIHJldHVybiBoYW5kbGUKfQoKQENvbXBvc2FibGUKZnVuIHJlbWVtYmVyQ29uZmlybUNhbGxiYWNrKG9uQ29uZmlybTogTnVsbGFibGVDYWxsYmFjaywgb25EaXNtaXNzOiBOdWxsYWJsZUNhbGxiYWNrKTogQ29uZmlybUNhbGxiYWNrIHsKICAgIHZhbCBjdXJyZW50T25Db25maXJtIGJ5IHJlbWVtYmVyVXBkYXRlZFN0YXRlKG5ld1ZhbHVlID0gb25Db25maXJtKQogICAgdmFsIGN1cnJlbnRPbkRpc21pc3MgYnkgcmVtZW1iZXJVcGRhdGVkU3RhdGUobmV3VmFsdWUgPSBvbkRpc21pc3MpCiAgICByZXR1cm4gcmVtZW1iZXIgewogICAgICAgIENvbmZpcm1DYWxsYmFjayh7IGN1cnJlbnRPbkNvbmZpcm0gfSwgeyBjdXJyZW50T25EaXNtaXNzIH0pCiAgICB9Cn0KCkBDb21wb3NhYmxlCmZ1biByZW1lbWJlckNvbmZpcm1EaWFsb2cob25Db25maXJtOiBOdWxsYWJsZUNhbGxiYWNrID0gbnVsbCwgb25EaXNtaXNzOiBOdWxsYWJsZUNhbGxiYWNrID0gbnVsbCk6IENvbmZpcm1EaWFsb2dIYW5kbGUgewogICAgcmV0dXJuIHJlbWVtYmVyQ29uZmlybURpYWxvZyhyZW1lbWJlckNvbmZpcm1DYWxsYmFjayhvbkNvbmZpcm0sIG9uRGlzbWlzcykpCn0KCkBDb21wb3NhYmxlCmZ1biByZW1lbWJlckNvbmZpcm1EaWFsb2coY2FsbGJhY2s6IENvbmZpcm1DYWxsYmFjayk6IENvbmZpcm1EaWFsb2dIYW5kbGUgewogICAgcmV0dXJuIHJlbWVtYmVyQ29uZmlybURpYWxvZyhDb25maXJtRGlhbG9nVmlzdWFsc0ltcGwuRW1wdHksIGNhbGxiYWNrKQp9Cg==
+package com.xinsu.moe.ui.component.dialog
+
+import android.os.Parcelable
+import android.util.Log
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.Saver
+import androidx.compose.runtime.saveable.rememberSaveable
+import kotlinx.coroutines.CancellableContinuation
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.flow.FlowCollector
+import kotlinx.coroutines.flow.consumeAsFlow
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.parcelize.Parcelize
+import com.xinsu.moe.ui.LocalUiMode
+import com.xinsu.moe.ui.UiMode
+import kotlin.coroutines.resume
+
+private const val TAG = "DialogComponent"
+
+interface ConfirmDialogVisuals : Parcelable {
+    val title: String
+    val content: String?
+    val isMarkdown: Boolean
+    val isHtml: Boolean
+    val confirm: String?
+    val dismiss: String?
+
+    /** Registry-hosted content: rendered with JavaScript off and network locked to the registry. */
+    val isRestricted: Boolean get() = false
+}
+
+@Parcelize
+private data class ConfirmDialogVisualsImpl(
+    override val title: String,
+    override val content: String?,
+    override val isMarkdown: Boolean,
+    override val isHtml: Boolean,
+    override val confirm: String?,
+    override val dismiss: String?,
+    override val isRestricted: Boolean = false,
+) : ConfirmDialogVisuals {
+    companion object {
+        val Empty: ConfirmDialogVisuals = ConfirmDialogVisualsImpl("", "", isMarkdown = false, isHtml = false, confirm = null, dismiss = null)
+    }
+}
+
+interface DialogHandle {
+    val isShown: Boolean
+    val dialogType: String
+    fun show()
+    fun hide()
+}
+
+interface LoadingDialogHandle : DialogHandle {
+    suspend fun <R> withLoading(block: suspend () -> R): R
+    fun showLoading()
+}
+
+sealed interface ConfirmResult {
+    object Confirmed : ConfirmResult
+    object Canceled : ConfirmResult
+}
+
+interface ConfirmDialogHandle : DialogHandle {
+    val visuals: ConfirmDialogVisuals
+
+    fun showConfirm(
+        title: String,
+        content: String? = null,
+        markdown: Boolean = false,
+        html: Boolean = false,
+        confirm: String? = null,
+        dismiss: String? = null,
+        restricted: Boolean = false,
+    )
+
+    suspend fun awaitConfirm(
+        title: String,
+        content: String? = null,
+        markdown: Boolean = false,
+        html: Boolean = false,
+        confirm: String? = null,
+        dismiss: String? = null,
+        restricted: Boolean = false,
+    ): ConfirmResult
+}
+
+private abstract class DialogHandleBase(
+    val visible: MutableState<Boolean>,
+    val coroutineScope: CoroutineScope
+) : DialogHandle {
+    override val isShown: Boolean
+        get() = visible.value
+
+    override fun show() {
+        coroutineScope.launch {
+            visible.value = true
+        }
+    }
+
+    final override fun hide() {
+        coroutineScope.launch {
+            visible.value = false
+        }
+    }
+
+    override fun toString(): String {
+        return dialogType
+    }
+}
+
+private class LoadingDialogHandleImpl(
+    visible: MutableState<Boolean>,
+    coroutineScope: CoroutineScope
+) : LoadingDialogHandle, DialogHandleBase(visible, coroutineScope) {
+    override suspend fun <R> withLoading(block: suspend () -> R): R {
+        return coroutineScope.async {
+            try {
+                visible.value = true
+                block()
+            } finally {
+                visible.value = false
+            }
+        }.await()
+    }
+
+    override fun showLoading() {
+        show()
+    }
+
+    override val dialogType: String get() = "LoadingDialog"
+}
+
+typealias NullableCallback = (() -> Unit)?
+
+interface ConfirmCallback {
+
+    val onConfirm: NullableCallback
+
+    val onDismiss: NullableCallback
+
+    val isEmpty: Boolean get() = onConfirm == null && onDismiss == null
+
+    companion object {
+        operator fun invoke(
+            onConfirmProvider: () -> NullableCallback,
+            onDismissProvider: () -> NullableCallback
+        ): ConfirmCallback {
+            return object : ConfirmCallback {
+                override val onConfirm: NullableCallback
+                    get() = onConfirmProvider()
+                override val onDismiss: NullableCallback
+                    get() = onDismissProvider()
+            }
+        }
+    }
+}
+
+private class ConfirmDialogHandleImpl(
+    visible: MutableState<Boolean>,
+    coroutineScope: CoroutineScope,
+    callback: ConfirmCallback,
+    initialVisuals: ConfirmDialogVisuals = ConfirmDialogVisualsImpl.Empty,
+    private val resultFlow: ReceiveChannel<ConfirmResult>
+) : ConfirmDialogHandle, DialogHandleBase(visible, coroutineScope) {
+    private val visualsState = mutableStateOf(initialVisuals)
+    override val visuals: ConfirmDialogVisuals get() = visualsState.value
+
+    private class ResultCollector(
+        private val callback: ConfirmCallback
+    ) : FlowCollector<ConfirmResult> {
+        fun handleResult(result: ConfirmResult) {
+            Log.d(TAG, "handleResult: ${result.javaClass.simpleName}")
+            when (result) {
+                ConfirmResult.Confirmed -> onConfirm()
+                ConfirmResult.Canceled -> onDismiss()
+            }
+        }
+
+        fun onConfirm() {
+            callback.onConfirm?.invoke()
+        }
+
+        fun onDismiss() {
+            callback.onDismiss?.invoke()
+        }
+
+        override suspend fun emit(value: ConfirmResult) {
+            handleResult(value)
+        }
+    }
+
+    private val resultCollector = ResultCollector(callback)
+
+    private var awaitContinuation: CancellableContinuation<ConfirmResult>? = null
+
+    private val isCallbackEmpty = callback.isEmpty
+
+    init {
+        coroutineScope.launch {
+            resultFlow
+                .consumeAsFlow()
+                .onEach { result ->
+                    awaitContinuation?.let {
+                        awaitContinuation = null
+                        if (it.isActive) {
+                            it.resume(result)
+                        }
+                    }
+                }
+                .onEach { hide() }
+                .collect(resultCollector)
+        }
+    }
+
+    private suspend fun awaitResult(): ConfirmResult {
+        return suspendCancellableCoroutine {
+            awaitContinuation = it.apply {
+                if (isCallbackEmpty) {
+                    invokeOnCancellation {
+                        visible.value = false
+                    }
+                }
+            }
+        }
+    }
+
+    fun updateVisuals(visuals: ConfirmDialogVisuals) {
+        visualsState.value = visuals
+    }
+
+    override fun show() {
+        if (visuals !== ConfirmDialogVisualsImpl.Empty) {
+            super.show()
+        } else {
+            throw UnsupportedOperationException("can't show confirm dialog with the Empty visuals")
+        }
+    }
+
+    override fun showConfirm(
+        title: String,
+        content: String?,
+        markdown: Boolean,
+        html: Boolean,
+        confirm: String?,
+        dismiss: String?,
+        restricted: Boolean,
+    ) {
+        coroutineScope.launch {
+            updateVisuals(ConfirmDialogVisualsImpl(title, content, markdown, html, confirm, dismiss, restricted))
+            show()
+        }
+    }
+
+    override suspend fun awaitConfirm(
+        title: String,
+        content: String?,
+        markdown: Boolean,
+        html: Boolean,
+        confirm: String?,
+        dismiss: String?,
+        restricted: Boolean,
+    ): ConfirmResult {
+        coroutineScope.launch {
+            updateVisuals(ConfirmDialogVisualsImpl(title, content, markdown, html, confirm, dismiss, restricted))
+            show()
+        }
+        return awaitResult()
+    }
+
+    override val dialogType: String get() = "ConfirmDialog"
+
+    override fun toString(): String {
+        return "${super.toString()}(visuals: $visuals)"
+    }
+
+    companion object {
+        fun Saver(
+            visible: MutableState<Boolean>,
+            coroutineScope: CoroutineScope,
+            callback: ConfirmCallback,
+            resultChannel: ReceiveChannel<ConfirmResult>
+        ) = Saver<ConfirmDialogHandle, ConfirmDialogVisuals>(
+            save = {
+                it.visuals
+            },
+            restore = {
+                Log.d(TAG, "ConfirmDialog restore, visuals: $it")
+                ConfirmDialogHandleImpl(visible, coroutineScope, callback, it, resultChannel)
+            }
+        )
+    }
+}
+
+@Composable
+fun rememberLoadingDialog(): LoadingDialogHandle {
+    val visible = remember { mutableStateOf(false) }
+    val coroutineScope = rememberCoroutineScope()
+
+    when (LocalUiMode.current) {
+        UiMode.Miuix -> LoadingDialogMiuix(visible)
+        UiMode.Material -> LoadingDialogMaterial(visible)
+    }
+
+    return remember {
+        LoadingDialogHandleImpl(visible, coroutineScope)
+    }
+}
+
+@Composable
+private fun rememberConfirmDialog(visuals: ConfirmDialogVisuals, callback: ConfirmCallback): ConfirmDialogHandle {
+    val visible = rememberSaveable {
+        mutableStateOf(false)
+    }
+    val coroutineScope = rememberCoroutineScope()
+    val resultChannel = remember {
+        Channel<ConfirmResult>()
+    }
+
+    val handle = rememberSaveable(
+        saver = ConfirmDialogHandleImpl.Saver(visible, coroutineScope, callback, resultChannel),
+        init = {
+            ConfirmDialogHandleImpl(visible, coroutineScope, callback, visuals, resultChannel)
+        }
+    )
+
+    when (LocalUiMode.current) {
+        UiMode.Miuix -> ConfirmDialogMiuix(
+            handle.visuals,
+            confirm = { coroutineScope.launch { resultChannel.send(ConfirmResult.Confirmed) } },
+            dismiss = { coroutineScope.launch { resultChannel.send(ConfirmResult.Canceled) } },
+            showDialog = visible
+        )
+
+        UiMode.Material -> ConfirmDialogMaterial(
+            handle.visuals,
+            confirm = { coroutineScope.launch { resultChannel.send(ConfirmResult.Confirmed) } },
+            dismiss = { coroutineScope.launch { resultChannel.send(ConfirmResult.Canceled) } },
+            showDialog = visible
+        )
+    }
+
+    return handle
+}
+
+@Composable
+fun rememberConfirmCallback(onConfirm: NullableCallback, onDismiss: NullableCallback): ConfirmCallback {
+    val currentOnConfirm by rememberUpdatedState(newValue = onConfirm)
+    val currentOnDismiss by rememberUpdatedState(newValue = onDismiss)
+    return remember {
+        ConfirmCallback({ currentOnConfirm }, { currentOnDismiss })
+    }
+}
+
+@Composable
+fun rememberConfirmDialog(onConfirm: NullableCallback = null, onDismiss: NullableCallback = null): ConfirmDialogHandle {
+    return rememberConfirmDialog(rememberConfirmCallback(onConfirm, onDismiss))
+}
+
+@Composable
+fun rememberConfirmDialog(callback: ConfirmCallback): ConfirmDialogHandle {
+    return rememberConfirmDialog(ConfirmDialogVisualsImpl.Empty, callback)
+}

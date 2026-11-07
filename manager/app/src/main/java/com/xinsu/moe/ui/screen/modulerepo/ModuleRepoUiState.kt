@@ -1,1 +1,150 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5tb2R1bGVyZXBvCgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkltbXV0YWJsZQppbXBvcnQgY29tLnhpbnN1Lm1vZS5SCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuUmVwb01vZHVsZQppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLm1vZGVsLlJlcG9Nb2R1bGVEZXRhaWwKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZWdpc3RyeS5VbnN1cHBvcnRlZFNjaGVtYUV4Y2VwdGlvbgppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnNjcmlwdC5TY3JpcHRSdW5SZWNvcmQKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuY29tcG9uZW50LlNlYXJjaFN0YXR1cwppbXBvcnQgamF2YS50ZXh0LkNvbGxhdG9yCmltcG9ydCBqYXZhLnV0aWwuTG9jYWxlCgplbnVtIGNsYXNzIFJlcG9Tb3J0IHsKICAgIFVQREFURUQsCiAgICBOQU1FLAogICAgU1RBUlM7CgogICAgLyoqIFJldHVybnMgW21vZHVsZXNdIGluIHRoaXMgb3JkZXI7IHRpZXMgKGFuZCB1bmtub3duIHN0YXIgY291bnRzKSBmYWxsIGJhY2sgdG8gbmV3ZXN0IHJlbGVhc2UgZmlyc3QuICovCiAgICBmdW4gc29ydChtb2R1bGVzOiBMaXN0PFJlcG9Nb2R1bGU+LCBsb2NhbGU6IExvY2FsZSA9IExvY2FsZS5nZXREZWZhdWx0KCkpOiBMaXN0PFJlcG9Nb2R1bGU+IHsKICAgICAgICBpZiAobW9kdWxlcy5pc0VtcHR5KCkpIHJldHVybiBtb2R1bGVzCiAgICAgICAgcmV0dXJuIHdoZW4gKHRoaXMpIHsKICAgICAgICAgICAgVVBEQVRFRCAtPiBtb2R1bGVzLnNvcnRlZEJ5RGVzY2VuZGluZyB7IGl0LmxhdGVzdFJlbGVhc2VFcG9jaCB9CiAgICAgICAgICAgIE5BTUUgLT4gewogICAgICAgICAgICAgICAgdmFsIGNvbGxhdG9yID0gQ29sbGF0b3IuZ2V0SW5zdGFuY2UobG9jYWxlKQogICAgICAgICAgICAgICAgbW9kdWxlcy5zb3J0ZWRXaXRoKGNvbXBhcmVCeShjb2xsYXRvcikgeyBpdC5tb2R1bGVOYW1lIH0pCiAgICAgICAgICAgIH0KICAgICAgICAgICAgLy8gVW5rbm93biBjb3VudHMgKG51bGwpIHNvcnQgYWZ0ZXIgZXZlcnkga25vd24gY291bnQsIGluY2x1ZGluZyAwLgogICAgICAgICAgICBTVEFSUyAtPiBtb2R1bGVzLnNvcnRlZFdpdGgoCiAgICAgICAgICAgICAgICBjb21wYXJlQnlEZXNjZW5kaW5nPFJlcG9Nb2R1bGU+IHsgaXQuc3RhcnMgPzogLTEgfS50aGVuQnlEZXNjZW5kaW5nIHsgaXQubGF0ZXN0UmVsZWFzZUVwb2NoIH0KICAgICAgICAgICAgKQogICAgICAgIH0KICAgIH0KCiAgICBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICAvKioKICAgICAgICAgKiBSZXN0b3JlcyB0aGUgc2F2ZWQgb3JkZXIuIE5ldyB2ZXJzaW9ucyBzdG9yZSB0aGUgZW51bSBuYW1lOyBvbGRlciBvbmVzIHN0b3JlZCB0aGUKICAgICAgICAgKiBvcmRpbmFsIG9mIGBVUERBVEVELCBDUkVBVEVELCBOQU1FLCBTVEFSU2AsIHdoaWNoIGlzIG1pZ3JhdGVkIGhlcmUgKENSRUFURUQgbm8KICAgICAgICAgKiBsb25nZXIgZXhpc3RzIGFuZCBmYWxscyBiYWNrIHRvIFVQREFURUQpLgogICAgICAgICAqLwogICAgICAgIGZ1biBmcm9tU3RvcmVkKG5hbWU6IFN0cmluZz8sIGxlZ2FjeU9yZGluYWw6IEludD8pOiBSZXBvU29ydCB7CiAgICAgICAgICAgIG5hbWU/LmxldCB7IG4gLT4gZW50cmllcy5maXJzdE9yTnVsbCB7IGl0Lm5hbWUgPT0gbiB9Py5sZXQgeyByZXR1cm4gaXQgfSB9CiAgICAgICAgICAgIHJldHVybiB3aGVuIChsZWdhY3lPcmRpbmFsKSB7CiAgICAgICAgICAgICAgICAyIC0+IE5BTUUKICAgICAgICAgICAgICAgIDMgLT4gU1RBUlMKICAgICAgICAgICAgICAgIGVsc2UgLT4gVVBEQVRFRAogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9CgpkYXRhIGNsYXNzIE1vZHVsZVJlcG9VaVN0YXRlKAogICAgdmFsIGlzUmVmcmVzaGluZzogQm9vbGVhbiA9IGZhbHNlLAogICAgLyoqIEEgbW9kdWxlIGxpc3QgKHBvc3NpYmx5IGVtcHR5KSBoYXMgYmVlbiBsb2FkZWQgYXQgbGVhc3Qgb25jZS4gKi8KICAgIHZhbCBoYXNMb2FkZWQ6IEJvb2xlYW4gPSBmYWxzZSwKICAgIHZhbCBzb3J0T3JkZXI6IFJlcG9Tb3J0ID0gUmVwb1NvcnQuVVBEQVRFRCwKICAgIHZhbCBvZmZsaW5lOiBCb29sZWFuID0gZmFsc2UsCiAgICB2YWwgbW9kdWxlczogTGlzdDxSZXBvTW9kdWxlPiA9IGVtcHR5TGlzdCgpLAogICAgdmFsIHNlYXJjaFN0YXR1czogU2VhcmNoU3RhdHVzID0gU2VhcmNoU3RhdHVzKCIiKSwKICAgIHZhbCBzZWFyY2hSZXN1bHRzOiBMaXN0PFJlcG9Nb2R1bGU+ID0gZW1wdHlMaXN0KCksCiAgICB2YWwgZXJyb3I6IFRocm93YWJsZT8gPSBudWxsLAogICAgLyoqIFRoZSBsaXN0IHNob3duIGlzIHRoZSBsYXN0IGdvb2QgY2FjaGVkIGNvcHkgKG5ldHdvcmsgb3IgcGFyc2luZyBmYWlsZWQpLiAqLwogICAgdmFsIHN0YWxlOiBCb29sZWFuID0gZmFsc2UsCiAgICAvKiogSW5zdGFsbGVkIG1vZHVsZSBpZCAtPiB2ZXJzaW9uQ29kZSwgZm9yICJpbnN0YWxsZWQiIC8gInVwZGF0ZSIgYmFkZ2VzLiAqLwogICAgdmFsIGluc3RhbGxlZFZlcnNpb25zOiBNYXA8U3RyaW5nLCBJbnQ+ID0gZW1wdHlNYXAoKSwKKSB7CiAgICAvKiogTWVzc2FnZSB0byBzaG93IGluc3RlYWQgb2YgdGhlIGxpc3Qgd2hlbiBpdCBpcyBlbXB0eSBvciBjb3VsZCBub3QgYmUgbG9hZGVkLCBvciBudWxsIHdoaWxlIGxvYWRpbmcuICovCiAgICB2YWwgZW1wdHlTdGF0ZU1lc3NhZ2U6IEludD8KICAgICAgICBnZXQoKSA9IHdoZW4gewogICAgICAgICAgICBtb2R1bGVzLmlzTm90RW1wdHkoKSB8fCBpc1JlZnJlc2hpbmcgJiYgIW9mZmxpbmUgLT4gbnVsbAogICAgICAgICAgICBlcnJvciBpcyBVbnN1cHBvcnRlZFNjaGVtYUV4Y2VwdGlvbiAtPiBSLnN0cmluZy5tb2R1bGVfcmVwb191bnN1cHBvcnRlZF9zY2hlbWEKICAgICAgICAgICAgb2ZmbGluZSAtPiBSLnN0cmluZy5uZXR3b3JrX29mZmxpbmUKICAgICAgICAgICAgZXJyb3IgIT0gbnVsbCAtPiBSLnN0cmluZy5tb2R1bGVfcmVwb19sb2FkX2ZhaWxlZAogICAgICAgICAgICBoYXNMb2FkZWQgLT4gUi5zdHJpbmcubW9kdWxlX3JlcG9fZW1wdHkKICAgICAgICAgICAgZWxzZSAtPiBudWxsCiAgICAgICAgfQp9CgovKioKICogQ29tcGFjdCBzdGFyIGNvdW50IGZvciBsaXN0IHJvd3M6ICI5OTkiLCAiMS4yayIsICIxMi4zayIsICIxMjNrIiwgIjEuMk0iLiBJbnRlZ2VyIGFyaXRobWV0aWMKICogKHJvdW5kZWQgZG93bikga2VlcHMgaXQgaW5kZXBlbmRlbnQgb2YgdGhlIGRldmljZSBsb2NhbGUsIGxpa2UgR2l0SHViJ3Mgb3duIGNvdW50ZXJzLgogKi8KZnVuIGZvcm1hdFN0YXJDb3VudChjb3VudDogSW50KTogU3RyaW5nIHsKICAgIGZ1biBjb21wYWN0KHZhbHVlOiBJbnQsIHVuaXQ6IEludCwgc3VmZml4OiBTdHJpbmcpOiBTdHJpbmcgewogICAgICAgIGlmICh2YWx1ZSA+PSB1bml0ICogMTAwKSByZXR1cm4gIiR7dmFsdWUgLyB1bml0fSRzdWZmaXgiCiAgICAgICAgdmFsIHRlbnRocyA9IHZhbHVlIC8gKHVuaXQgLyAxMCkKICAgICAgICByZXR1cm4gaWYgKHRlbnRocyAlIDEwID09IDApICIke3RlbnRocyAvIDEwfSRzdWZmaXgiIGVsc2UgIiR7dGVudGhzIC8gMTB9LiR7dGVudGhzICUgMTB9JHN1ZmZpeCIKICAgIH0KICAgIHJldHVybiB3aGVuIHsKICAgICAgICBjb3VudCA8IDFfMDAwIC0+IGNvdW50LnRvU3RyaW5nKCkKICAgICAgICBjb3VudCA8IDFfMDAwXzAwMCAtPiBjb21wYWN0KGNvdW50LCAxXzAwMCwgImsiKQogICAgICAgIGVsc2UgLT4gY29tcGFjdChjb3VudCwgMV8wMDBfMDAwLCAiTSIpCiAgICB9Cn0KCi8qKiBHaXRIdWIgc3RhcmdhemVycyBwYWdlIG9mIGFuICJvd25lci9uYW1lIiByZXBvc2l0b3J5ICh2YWxpZGF0ZWQgYnkgdGhlIHJlZ2lzdHJ5IHBhcnNlcikuICovCmZ1biBzdGFyc1VybChzdGFyc1JlcG9zaXRvcnk6IFN0cmluZz8pOiBTdHJpbmc/ID0KICAgIHN0YXJzUmVwb3NpdG9yeT8ubGV0IHsgImh0dHBzOi8vZ2l0aHViLmNvbS8kaXQvc3RhcmdhemVycyIgfQoKLyoqIEluc3RhbGxlZCBzdGF0ZSBvZiBhIHJlZ2lzdHJ5IG1vZHVsZTsgdXBkYXRlcyBhcmUgZGV0ZWN0ZWQgYnkgdmVyc2lvbkNvZGUgb25seS4gKi8KZW51bSBjbGFzcyBSZXBvSW5zdGFsbFN0YXRlIHsgTk9ORSwgSU5TVEFMTEVELCBVUERBVEFCTEUgfQoKLyoqIFNjcmlwdHMgYXJlIG5ldmVyIGluc3RhbGxlZCwgc28gdGhleSBoYXZlIG5vIGluc3RhbGxlZCAvIHVwZGF0ZSBzdGF0ZS4gKi8KZnVuIHJlcG9JbnN0YWxsU3RhdGVPZihtb2R1bGU6IFJlcG9Nb2R1bGUsIGluc3RhbGxlZFZlcnNpb25zOiBNYXA8U3RyaW5nLCBJbnQ+KTogUmVwb0luc3RhbGxTdGF0ZSA9CiAgICBpZiAobW9kdWxlLmlzU2NyaXB0KSBSZXBvSW5zdGFsbFN0YXRlLk5PTkUgZWxzZSByZXBvSW5zdGFsbFN0YXRlKGluc3RhbGxlZFZlcnNpb25zW21vZHVsZS5tb2R1bGVJZF0sIG1vZHVsZS5sYXRlc3RWZXJzaW9uQ29kZSkKCmZ1biByZXBvSW5zdGFsbFN0YXRlKGluc3RhbGxlZFZlcnNpb25Db2RlOiBJbnQ/LCBsYXRlc3RWZXJzaW9uQ29kZTogSW50KTogUmVwb0luc3RhbGxTdGF0ZSA9IHdoZW4gewogICAgaW5zdGFsbGVkVmVyc2lvbkNvZGUgPT0gbnVsbCAtPiBSZXBvSW5zdGFsbFN0YXRlLk5PTkUKICAgIGxhdGVzdFZlcnNpb25Db2RlID4gaW5zdGFsbGVkVmVyc2lvbkNvZGUgLT4gUmVwb0luc3RhbGxTdGF0ZS5VUERBVEFCTEUKICAgIGVsc2UgLT4gUmVwb0luc3RhbGxTdGF0ZS5JTlNUQUxMRUQKfQoKQEltbXV0YWJsZQpkYXRhIGNsYXNzIE1vZHVsZVJlcG9BY3Rpb25zKAogICAgdmFsIG9uQmFjazogKCkgLT4gVW5pdCwKICAgIHZhbCBvblJlZnJlc2g6ICgpIC0+IFVuaXQsCiAgICB2YWwgb25TZWFyY2hUZXh0Q2hhbmdlOiAoU3RyaW5nKSAtPiBVbml0LAogICAgdmFsIG9uQ2xlYXJTZWFyY2g6ICgpIC0+IFVuaXQsCiAgICB2YWwgb25TZWFyY2hTdGF0dXNDaGFuZ2U6IChTZWFyY2hTdGF0dXMpIC0+IFVuaXQsCiAgICB2YWwgb25TZXRTb3J0T3JkZXI6IChSZXBvU29ydCkgLT4gVW5pdCwKICAgIHZhbCBvbk9wZW5SZXBvRGV0YWlsOiAoUmVwb01vZHVsZSkgLT4gVW5pdCwKKQoKQEltbXV0YWJsZQpkYXRhIGNsYXNzIE1vZHVsZVJlcG9EZXRhaWxVaVN0YXRlKAogICAgdmFsIG1vZHVsZTogUmVwb01vZHVsZUFyZywKICAgIHZhbCBkZXRhaWw6IFJlcG9Nb2R1bGVEZXRhaWw/LAogICAgdmFsIGxvYWRlZDogQm9vbGVhbiwKICAgIC8qKiBUaGUgbW9kdWxlIGlzIG5vdCBpbiB0aGUgY3VycmVudCBpbmRleCAoZS5nLiBzdXNwZW5kZWQpOiBubyBpbnN0YWxsIGVudHJ5IGlzIG9mZmVyZWQuICovCiAgICB2YWwgbm90SW5JbmRleDogQm9vbGVhbiwKICAgIHZhbCBsb2FkRmFpbGVkOiBCb29sZWFuLAogICAgdmFsIGluc3RhbGxlZFZlcnNpb25Db2RlOiBJbnQ/LAogICAgLyoqIExhc3QgbG9jYWwgcnVuLCBmb3Igc2NyaXB0cy4gKi8KICAgIHZhbCBsYXN0UnVuOiBTY3JpcHRSdW5SZWNvcmQ/ID0gbnVsbCwKKSB7CiAgICB2YWwgd2ViVXJsOiBTdHJpbmcgZ2V0KCkgPSBkZXRhaWw/LndlYlVybC5vckVtcHR5KCkKCiAgICAvKiogT25lLXNob3Qgc2NyaXB0OiByZWxlYXNlcyBhcmUgcnVuLCBub3QgaW5zdGFsbGVkLiAqLwogICAgdmFsIGlzU2NyaXB0OiBCb29sZWFuIGdldCgpID0gZGV0YWlsPy5tb2R1bGU/LmlzU2NyaXB0ID86IG1vZHVsZS5zY3JpcHQKICAgIHZhbCBjYW5JbnN0YWxsOiBCb29sZWFuIGdldCgpID0gZGV0YWlsICE9IG51bGwgJiYgIW5vdEluSW5kZXgKfQoKQEltbXV0YWJsZQpkYXRhIGNsYXNzIE1vZHVsZVJlcG9EZXRhaWxBY3Rpb25zKAogICAgdmFsIG9uQmFjazogKCkgLT4gVW5pdCwKICAgIHZhbCBvbk9wZW5XZWJVcmw6ICgpIC0+IFVuaXQsCiAgICB2YWwgb25PcGVuVXJsOiAoU3RyaW5nKSAtPiBVbml0LAogICAgLyoqIEluc3RhbGxzIGEgZG93bmxvYWRlZCBtb2R1bGUgWklQLCBvciBvcGVucyB0aGUgcnVuIHBhZ2UgZm9yIGEgc2NyaXB0LiAqLwogICAgdmFsIG9uSW5zdGFsbE1vZHVsZTogKGFuZHJvaWQubmV0LlVyaSkgLT4gVW5pdCwKICAgIHZhbCBvblJldHJ5OiAoKSAtPiBVbml0LAopCg==
+package com.xinsu.moe.ui.screen.modulerepo
+
+import androidx.compose.runtime.Immutable
+import com.xinsu.moe.R
+import com.xinsu.moe.data.model.RepoModule
+import com.xinsu.moe.data.model.RepoModuleDetail
+import com.xinsu.moe.data.registry.UnsupportedSchemaException
+import com.xinsu.moe.data.script.ScriptRunRecord
+import com.xinsu.moe.ui.component.SearchStatus
+import java.text.Collator
+import java.util.Locale
+
+enum class RepoSort {
+    UPDATED,
+    NAME,
+    STARS;
+
+    /** Returns [modules] in this order; ties (and unknown star counts) fall back to newest release first. */
+    fun sort(modules: List<RepoModule>, locale: Locale = Locale.getDefault()): List<RepoModule> {
+        if (modules.isEmpty()) return modules
+        return when (this) {
+            UPDATED -> modules.sortedByDescending { it.latestReleaseEpoch }
+            NAME -> {
+                val collator = Collator.getInstance(locale)
+                modules.sortedWith(compareBy(collator) { it.moduleName })
+            }
+            // Unknown counts (null) sort after every known count, including 0.
+            STARS -> modules.sortedWith(
+                compareByDescending<RepoModule> { it.stars ?: -1 }.thenByDescending { it.latestReleaseEpoch }
+            )
+        }
+    }
+
+    companion object {
+        /**
+         * Restores the saved order. New versions store the enum name; older ones stored the
+         * ordinal of `UPDATED, CREATED, NAME, STARS`, which is migrated here (CREATED no
+         * longer exists and falls back to UPDATED).
+         */
+        fun fromStored(name: String?, legacyOrdinal: Int?): RepoSort {
+            name?.let { n -> entries.firstOrNull { it.name == n }?.let { return it } }
+            return when (legacyOrdinal) {
+                2 -> NAME
+                3 -> STARS
+                else -> UPDATED
+            }
+        }
+    }
+}
+
+data class ModuleRepoUiState(
+    val isRefreshing: Boolean = false,
+    /** A module list (possibly empty) has been loaded at least once. */
+    val hasLoaded: Boolean = false,
+    val sortOrder: RepoSort = RepoSort.UPDATED,
+    val offline: Boolean = false,
+    val modules: List<RepoModule> = emptyList(),
+    val searchStatus: SearchStatus = SearchStatus(""),
+    val searchResults: List<RepoModule> = emptyList(),
+    val error: Throwable? = null,
+    /** The list shown is the last good cached copy (network or parsing failed). */
+    val stale: Boolean = false,
+    /** Installed module id -> versionCode, for "installed" / "update" badges. */
+    val installedVersions: Map<String, Int> = emptyMap(),
+) {
+    /** Message to show instead of the list when it is empty or could not be loaded, or null while loading. */
+    val emptyStateMessage: Int?
+        get() = when {
+            modules.isNotEmpty() || isRefreshing && !offline -> null
+            error is UnsupportedSchemaException -> R.string.module_repo_unsupported_schema
+            offline -> R.string.network_offline
+            error != null -> R.string.module_repo_load_failed
+            hasLoaded -> R.string.module_repo_empty
+            else -> null
+        }
+}
+
+/**
+ * Compact star count for list rows: "999", "1.2k", "12.3k", "123k", "1.2M". Integer arithmetic
+ * (rounded down) keeps it independent of the device locale, like GitHub's own counters.
+ */
+fun formatStarCount(count: Int): String {
+    fun compact(value: Int, unit: Int, suffix: String): String {
+        if (value >= unit * 100) return "${value / unit}$suffix"
+        val tenths = value / (unit / 10)
+        return if (tenths % 10 == 0) "${tenths / 10}$suffix" else "${tenths / 10}.${tenths % 10}$suffix"
+    }
+    return when {
+        count < 1_000 -> count.toString()
+        count < 1_000_000 -> compact(count, 1_000, "k")
+        else -> compact(count, 1_000_000, "M")
+    }
+}
+
+/** GitHub stargazers page of an "owner/name" repository (validated by the registry parser). */
+fun starsUrl(starsRepository: String?): String? =
+    starsRepository?.let { "https://github.com/$it/stargazers" }
+
+/** Installed state of a registry module; updates are detected by versionCode only. */
+enum class RepoInstallState { NONE, INSTALLED, UPDATABLE }
+
+/** Scripts are never installed, so they have no installed / update state. */
+fun repoInstallStateOf(module: RepoModule, installedVersions: Map<String, Int>): RepoInstallState =
+    if (module.isScript) RepoInstallState.NONE else repoInstallState(installedVersions[module.moduleId], module.latestVersionCode)
+
+fun repoInstallState(installedVersionCode: Int?, latestVersionCode: Int): RepoInstallState = when {
+    installedVersionCode == null -> RepoInstallState.NONE
+    latestVersionCode > installedVersionCode -> RepoInstallState.UPDATABLE
+    else -> RepoInstallState.INSTALLED
+}
+
+@Immutable
+data class ModuleRepoActions(
+    val onBack: () -> Unit,
+    val onRefresh: () -> Unit,
+    val onSearchTextChange: (String) -> Unit,
+    val onClearSearch: () -> Unit,
+    val onSearchStatusChange: (SearchStatus) -> Unit,
+    val onSetSortOrder: (RepoSort) -> Unit,
+    val onOpenRepoDetail: (RepoModule) -> Unit,
+)
+
+@Immutable
+data class ModuleRepoDetailUiState(
+    val module: RepoModuleArg,
+    val detail: RepoModuleDetail?,
+    val loaded: Boolean,
+    /** The module is not in the current index (e.g. suspended): no install entry is offered. */
+    val notInIndex: Boolean,
+    val loadFailed: Boolean,
+    val installedVersionCode: Int?,
+    /** Last local run, for scripts. */
+    val lastRun: ScriptRunRecord? = null,
+) {
+    val webUrl: String get() = detail?.webUrl.orEmpty()
+
+    /** One-shot script: releases are run, not installed. */
+    val isScript: Boolean get() = detail?.module?.isScript ?: module.script
+    val canInstall: Boolean get() = detail != null && !notInIndex
+}
+
+@Immutable
+data class ModuleRepoDetailActions(
+    val onBack: () -> Unit,
+    val onOpenWebUrl: () -> Unit,
+    val onOpenUrl: (String) -> Unit,
+    /** Installs a downloaded module ZIP, or opens the run page for a script. */
+    val onInstallModule: (android.net.Uri) -> Unit,
+    val onRetry: () -> Unit,
+)

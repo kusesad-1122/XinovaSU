@@ -1,1 +1,82 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpLnBtCgppbXBvcnQgYW5kcm9pZC5jb250ZW50LnBtLkFwcGxpY2F0aW9uSW5mbwppbXBvcnQgYW5kcm9pZC53ZWJraXQuSmF2YXNjcmlwdEludGVyZmFjZQppbXBvcnQgYW5kcm9pZHguY29yZS5jb250ZW50LnBtLlBhY2thZ2VJbmZvQ29tcGF0CmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuQXBwSW5mbwppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS53ZWJ1aS53ZWJVSUFwcHMKaW1wb3J0IG9yZy5qc29uLkpTT05BcnJheQppbXBvcnQgb3JnLmpzb24uSlNPTk9iamVjdAoKb2JqZWN0IEtzdVBtIHsKICAgIHByaXZhdGUgY29uc3QgdmFsIEtTVV9QTV9WRVJTSU9OID0gMQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gdmVyc2lvbigpOiBJbnQgPSBLU1VfUE1fVkVSU0lPTgoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gbGlzdFBhY2thZ2VzKHR5cGU6IFN0cmluZyk6IFN0cmluZyB7CiAgICAgICAgdmFsIHBhY2thZ2VOYW1lcyA9IHdlYlVJQXBwcygpCiAgICAgICAgICAgIC5maWx0ZXIgeyBhcHBJbmZvIC0+CiAgICAgICAgICAgICAgICAvLyBGb3JrIGFkYXB0aW9uIG9mIHVwc3RyZWFtJ3MgcHNldWRvLWFwcCBleGNsdXNpb246IHRoZSBmb3JrIEFwcEluZm8KICAgICAgICAgICAgICAgIC8vIG1vZGVsIGhhcyBubyBzdWNoIGZsYWcgYW5kIGdldEFwcExpc3QoKSBtYXBzIG9ubHkgcmVhbCBQYWNrYWdlSW5mbwogICAgICAgICAgICAgICAgLy8gcmVjb3Jkcywgc28gcmVqZWN0IGFueSBtYWxmb3JtZWQvcHNldWRvIHJlY29yZCBkZWZlbnNpdmVseS4KICAgICAgICAgICAgICAgIGlmIChhcHBJbmZvLnBhY2thZ2VJbmZvLmFwcGxpY2F0aW9uSW5mbyA9PSBudWxsKSByZXR1cm5AZmlsdGVyIGZhbHNlCiAgICAgICAgICAgICAgICB2YWwgZmxhZ3MgPSBhcHBJbmZvLnBhY2thZ2VJbmZvLmFwcGxpY2F0aW9uSW5mbz8uZmxhZ3MgPzogMAogICAgICAgICAgICAgICAgd2hlbiAodHlwZS5sb3dlcmNhc2UoKSkgewogICAgICAgICAgICAgICAgICAgICJzeXN0ZW0iIC0+IChmbGFncyBhbmQgQXBwbGljYXRpb25JbmZvLkZMQUdfU1lTVEVNKSAhPSAwCiAgICAgICAgICAgICAgICAgICAgInVzZXIiIC0+IChmbGFncyBhbmQgQXBwbGljYXRpb25JbmZvLkZMQUdfU1lTVEVNKSA9PSAwCiAgICAgICAgICAgICAgICAgICAgZWxzZSAtPiB0cnVlCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgLm1hcCB7IGl0LnBhY2thZ2VOYW1lIH0KICAgICAgICAgICAgLmRpc3RpbmN0KCkKICAgICAgICAgICAgLnNvcnRlZCgpCgogICAgICAgIHZhbCBqc29uQXJyYXkgPSBKU09OQXJyYXkoKQogICAgICAgIGZvciAocGtnTmFtZSBpbiBwYWNrYWdlTmFtZXMpIHsKICAgICAgICAgICAganNvbkFycmF5LnB1dChwa2dOYW1lKQogICAgICAgIH0KICAgICAgICByZXR1cm4ganNvbkFycmF5LnRvU3RyaW5nKCkKICAgIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGdldFBhY2thZ2VzSW5mbyhwYWNrYWdlTmFtZXNKc29uOiBTdHJpbmcpOiBTdHJpbmcgewogICAgICAgIHZhbCBwYWNrYWdlTmFtZXMgPSBKU09OQXJyYXkocGFja2FnZU5hbWVzSnNvbikKICAgICAgICB2YWwgYXBwc0J5UGFja2FnZSA9IHdlYlVJQXBwcygpCiAgICAgICAgICAgIC8vIEZvcmsgYWRhcHRpb24gb2YgdXBzdHJlYW0ncyBwc2V1ZG8tYXBwIGV4Y2x1c2lvbiAobWlzc2luZ19kZXBzKToKICAgICAgICAgICAgLy8gcmVqZWN0IG1hbGZvcm1lZCByZWNvcmRzIHRoYXQgbGFjayBhIHJlYWwgQXBwbGljYXRpb25JbmZvLgogICAgICAgICAgICAuZmlsdGVyIHsgaXQucGFja2FnZUluZm8uYXBwbGljYXRpb25JbmZvICE9IG51bGwgfQogICAgICAgICAgICAuZ3JvdXBCeSB7IGl0LnBhY2thZ2VOYW1lIH0KICAgICAgICB2YWwganNvbkFycmF5ID0gSlNPTkFycmF5KCkKICAgICAgICBmb3IgKGkgaW4gMCB1bnRpbCBwYWNrYWdlTmFtZXMubGVuZ3RoKCkpIHsKICAgICAgICAgICAgdmFsIHBrZ05hbWUgPSBwYWNrYWdlTmFtZXMuZ2V0U3RyaW5nKGkpCiAgICAgICAgICAgIHZhbCBtYXRjaGVzID0gYXBwc0J5UGFja2FnZVtwa2dOYW1lXQogICAgICAgICAgICBpZiAobWF0Y2hlcy5pc051bGxPckVtcHR5KCkpIHsKICAgICAgICAgICAgICAgIHZhbCBlcnJvciA9IEpTT05PYmplY3QoKQogICAgICAgICAgICAgICAgZXJyb3IucHV0KCJwYWNrYWdlTmFtZSIsIHBrZ05hbWUpCiAgICAgICAgICAgICAgICBlcnJvci5wdXQoImVycm9yIiwgIlBhY2thZ2Ugbm90IGZvdW5kIG9yIGluYWNjZXNzaWJsZSIpCiAgICAgICAgICAgICAgICBqc29uQXJyYXkucHV0KGVycm9yKQogICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgfQogICAgICAgICAgICBmb3IgKGFwcEluZm8gaW4gbWF0Y2hlcy5zb3J0ZWRCeSB7IGl0LnVpZCB9KSB7CiAgICAgICAgICAgICAgICBqc29uQXJyYXkucHV0KGJ1aWxkSW5mbyhhcHBJbmZvKSkKICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICByZXR1cm4ganNvbkFycmF5LnRvU3RyaW5nKCkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBidWlsZEluZm8oYXBwSW5mbzogQXBwSW5mbyk6IEpTT05PYmplY3QgewogICAgICAgIHZhbCBwa2cgPSBhcHBJbmZvLnBhY2thZ2VJbmZvCiAgICAgICAgdmFsIGFwcCA9IHBrZy5hcHBsaWNhdGlvbkluZm8KICAgICAgICByZXR1cm4gSlNPTk9iamVjdCgpLmFwcGx5IHsKICAgICAgICAgICAgcHV0KCJwYWNrYWdlTmFtZSIsIHBrZy5wYWNrYWdlTmFtZSkKICAgICAgICAgICAgcHV0KCJ2ZXJzaW9uTmFtZSIsIHBrZy52ZXJzaW9uTmFtZSA/OiAiIikKICAgICAgICAgICAgcHV0KCJ2ZXJzaW9uQ29kZSIsIFBhY2thZ2VJbmZvQ29tcGF0LmdldExvbmdWZXJzaW9uQ29kZShwa2cpKQogICAgICAgICAgICBwdXQoImFwcExhYmVsIiwgYXBwSW5mby5sYWJlbCkKICAgICAgICAgICAgcHV0KCJpc1N5c3RlbSIsIGFwcD8ubGV0IHsgKGl0LmZsYWdzIGFuZCBBcHBsaWNhdGlvbkluZm8uRkxBR19TWVNURU0pICE9IDAgfSA/OiBKU09OT2JqZWN0Lk5VTEwpCiAgICAgICAgICAgIHB1dCgidWlkIiwgYXBwPy51aWQgPzogSlNPTk9iamVjdC5OVUxMKQogICAgICAgICAgICBwdXQoInVzZXJJZCIsIGFwcD8ubGV0IHsgaXQudWlkIC8gMTAwMDAwIH0gPzogSlNPTk9iamVjdC5OVUxMKQogICAgICAgIH0KICAgIH0KfQo=
+package com.xinsu.moe.ui.webui.pm
+
+import android.content.pm.ApplicationInfo
+import android.webkit.JavascriptInterface
+import androidx.core.content.pm.PackageInfoCompat
+import com.xinsu.moe.data.model.AppInfo
+import com.xinsu.moe.ui.webui.webUIApps
+import org.json.JSONArray
+import org.json.JSONObject
+
+object KsuPm {
+    private const val KSU_PM_VERSION = 1
+
+    @JavascriptInterface
+    fun version(): Int = KSU_PM_VERSION
+
+    @JavascriptInterface
+    fun listPackages(type: String): String {
+        val packageNames = webUIApps()
+            .filter { appInfo ->
+                // Fork adaption of upstream's pseudo-app exclusion: the fork AppInfo
+                // model has no such flag and getAppList() maps only real PackageInfo
+                // records, so reject any malformed/pseudo record defensively.
+                if (appInfo.packageInfo.applicationInfo == null) return@filter false
+                val flags = appInfo.packageInfo.applicationInfo?.flags ?: 0
+                when (type.lowercase()) {
+                    "system" -> (flags and ApplicationInfo.FLAG_SYSTEM) != 0
+                    "user" -> (flags and ApplicationInfo.FLAG_SYSTEM) == 0
+                    else -> true
+                }
+            }
+            .map { it.packageName }
+            .distinct()
+            .sorted()
+
+        val jsonArray = JSONArray()
+        for (pkgName in packageNames) {
+            jsonArray.put(pkgName)
+        }
+        return jsonArray.toString()
+    }
+
+    @JavascriptInterface
+    fun getPackagesInfo(packageNamesJson: String): String {
+        val packageNames = JSONArray(packageNamesJson)
+        val appsByPackage = webUIApps()
+            // Fork adaption of upstream's pseudo-app exclusion (missing_deps):
+            // reject malformed records that lack a real ApplicationInfo.
+            .filter { it.packageInfo.applicationInfo != null }
+            .groupBy { it.packageName }
+        val jsonArray = JSONArray()
+        for (i in 0 until packageNames.length()) {
+            val pkgName = packageNames.getString(i)
+            val matches = appsByPackage[pkgName]
+            if (matches.isNullOrEmpty()) {
+                val error = JSONObject()
+                error.put("packageName", pkgName)
+                error.put("error", "Package not found or inaccessible")
+                jsonArray.put(error)
+                continue
+            }
+            for (appInfo in matches.sortedBy { it.uid }) {
+                jsonArray.put(buildInfo(appInfo))
+            }
+        }
+        return jsonArray.toString()
+    }
+
+    private fun buildInfo(appInfo: AppInfo): JSONObject {
+        val pkg = appInfo.packageInfo
+        val app = pkg.applicationInfo
+        return JSONObject().apply {
+            put("packageName", pkg.packageName)
+            put("versionName", pkg.versionName ?: "")
+            put("versionCode", PackageInfoCompat.getLongVersionCode(pkg))
+            put("appLabel", appInfo.label)
+            put("isSystem", app?.let { (it.flags and ApplicationInfo.FLAG_SYSTEM) != 0 } ?: JSONObject.NULL)
+            put("uid", app?.uid ?: JSONObject.NULL)
+            put("userId", app?.let { it.uid / 100000 } ?: JSONObject.NULL)
+        }
+    }
+}

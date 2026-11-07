@@ -1,1 +1,313 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0CgppbXBvcnQgb3JnLmFwYWNoZS5jb21tb25zLmNvbXByZXNzLmFyY2hpdmVycy56aXAuWmlwQXJjaGl2ZUVudHJ5CmltcG9ydCBvcmcuYXBhY2hlLmNvbW1vbnMuY29tcHJlc3MuYXJjaGl2ZXJzLnppcC5aaXBGaWxlCmltcG9ydCBqYXZhLmlvLkJ5dGVBcnJheU91dHB1dFN0cmVhbQppbXBvcnQgamF2YS5pby5GaWxlCmltcG9ydCBqYXZhLmlvLkZpbGVPdXRwdXRTdHJlYW0KaW1wb3J0IGphdmEuaW8uRmlsdGVySW5wdXRTdHJlYW0KaW1wb3J0IGphdmEuaW8uSU9FeGNlcHRpb24KaW1wb3J0IGphdmEuaW8uSW5wdXRTdHJlYW0KaW1wb3J0IGphdmEuaW8uU3RyaW5nUmVhZGVyCmltcG9ydCBqYXZhLnV0aWwuUHJvcGVydGllcwppbXBvcnQgamF2YS51dGlsLlVVSUQKaW1wb3J0IGphdmEudXRpbC56aXAuWmlwSW5wdXRTdHJlYW0KCmNsYXNzIFNjcmlwdFBhY2thZ2VFeGNlcHRpb24odmFsIHJlYXNvbjogUmVhc29uLCBtZXNzYWdlOiBTdHJpbmcsIGNhdXNlOiBUaHJvd2FibGU/ID0gbnVsbCkgOiBJT0V4Y2VwdGlvbihtZXNzYWdlLCBjYXVzZSkgewogICAgZW51bSBjbGFzcyBSZWFzb24gewogICAgICAgIC8qKiBOb3QgYSByZWFkYWJsZSBaSVAgKG9yIGFuIHVuc3VwcG9ydGVkIGNvbXByZXNzaW9uIC8gZW5jcnlwdGlvbikuICovCiAgICAgICAgQ09SUlVQVCwKCiAgICAgICAgLyoqIEFic29sdXRlIHBhdGgsIGAuLmAsIHN5bWxpbmssIHNwZWNpYWwgZmlsZSBvciBkdXBsaWNhdGUgZW50cnkuICovCiAgICAgICAgVU5TQUZFX0VOVFJZLAogICAgICAgIFRPT19MQVJHRSwKICAgICAgICBNSVNTSU5HX01PRFVMRV9QUk9QLAogICAgICAgIE5PVF9PTkVTSE9ULAogICAgICAgIElOVkFMSURfSUQsCiAgICAgICAgSURfTUlTTUFUQ0gsCiAgICAgICAgTUlTU0lOR19BQ1RJT04sCiAgICAgICAgSU5WQUxJRF9QQVJBTVMsCiAgICB9Cn0KCi8qKiBtb2R1bGUucHJvcCBvZiBhIG9uZS1zaG90IHNjcmlwdC4gKi8KZGF0YSBjbGFzcyBTY3JpcHRNYW5pZmVzdCgKICAgIHZhbCBpZDogU3RyaW5nLAogICAgdmFsIG5hbWU6IFN0cmluZywKICAgIHZhbCB2ZXJzaW9uOiBTdHJpbmcsCiAgICB2YWwgdmVyc2lvbkNvZGU6IEludD8sCiAgICB2YWwgYXV0aG9yOiBTdHJpbmcsCiAgICB2YWwgZGVzY3JpcHRpb246IFN0cmluZywKKQoKLyoqCiAqIFZhbGlkYXRpb24gYW5kIGV4dHJhY3Rpb24gb2Ygb25lLXNob3Qgc2NyaXB0IFpJUHMuIE9ubHkgdGhlIGNlbnRyYWwgZGlyZWN0b3J5IGlzIHRydXN0ZWQ7CiAqIGVudHJpZXMgbXVzdCBiZSBwbGFpbiBmaWxlcyBvciBkaXJlY3RvcmllcyBiZWxvdyB0aGUgcm9vdCwgYW5kIGV2ZXJ5dGhpbmcgd3JpdHRlbiBpcwogKiBjb3VudGVkIGFnYWluc3QgW01BWF9UT1RBTF9CWVRFU10gd2hpbGUgZGVjb21wcmVzc2luZyAoZGVjbGFyZWQgc2l6ZXMgYXJlIG5vdCB0cnVzdGVkKS4KICovCm9iamVjdCBTY3JpcHRQYWNrYWdlIHsKICAgIGNvbnN0IHZhbCBNT0RVTEVfUFJPUCA9ICJtb2R1bGUucHJvcCIKICAgIGNvbnN0IHZhbCBBQ1RJT04gPSBTY3JpcHRDb21tYW5kLkVOVFJZCiAgICBjb25zdCB2YWwgUEFSQU1TID0gInBhcmFtcy5qc29uIgoKICAgIGNvbnN0IHZhbCBNQVhfVE9UQUxfQllURVMgPSA2NEwgKiAxMDI0ICogMTAyNAoKICAgIC8qKiBDYXAgb24gdGhlIFpJUCBpdHNlbGYgKGNvbnRlbnRzICsgaGVhZGVycykgZm9yIHNvdXJjZXMgdGhhdCBhcmUgbm90IHNpemUtdmVyaWZpZWQuICovCiAgICBjb25zdCB2YWwgTUFYX1pJUF9CWVRFUyA9IE1BWF9UT1RBTF9CWVRFUyArIDE2TCAqIDEwMjQgKiAxMDI0CiAgICBjb25zdCB2YWwgTUFYX0VOVFJJRVMgPSA0MDk2CiAgICBjb25zdCB2YWwgTUFYX1BST1BfQllURVMgPSA2NCAqIDEwMjQKICAgIGNvbnN0IHZhbCBNQVhfUEFSQU1TX0JZVEVTID0gNjQgKiAxMDI0CgogICAgcHJpdmF0ZSB2YWwgTU9EVUxFX0lEID0gUmVnZXgoIl5bYS16QS1aXVthLXpBLVowLTkuXy1dKyQiKQogICAgcHJpdmF0ZSBjb25zdCB2YWwgU19JRk1UID0gMHhGMDAwCiAgICBwcml2YXRlIGNvbnN0IHZhbCBTX0lGUkVHID0gMHg4MDAwCiAgICBwcml2YXRlIGNvbnN0IHZhbCBTX0lGRElSID0gMHg0MDAwCiAgICBwcml2YXRlIGNvbnN0IHZhbCBTX0lYVVNSID0gMHg0MAoKICAgIC8qKiBTYW1lIHJ1bGUgYXMga3N1ZCdzIGBtZXRhbW9kdWxlYDogdHJpbW1lZCB2YWx1ZSBpcyAiMSIgb3IgQVNDSUkgY2FzZS1pbnNlbnNpdGl2ZSAidHJ1ZSIuICovCiAgICBmdW4gaXNPbmVzaG90KHZhbHVlOiBTdHJpbmc/KTogQm9vbGVhbiB7CiAgICAgICAgdmFsIHYgPSB2YWx1ZT8udHJpbSgpID86IHJldHVybiBmYWxzZQogICAgICAgIHJldHVybiB2ID09ICIxIiB8fCB2LmVxdWFscygidHJ1ZSIsIGlnbm9yZUNhc2UgPSB0cnVlKQogICAgfQoKICAgIGZ1biBpc1ZhbGlkTW9kdWxlSWQoaWQ6IFN0cmluZyk6IEJvb2xlYW4gPSBpZC5sZW5ndGggaW4gMi4uNjQgJiYgTU9EVUxFX0lELm1hdGNoZXMoaWQpCgogICAgLyoqCiAgICAgKiBKYXZhIHByb3BlcnRpZXMsIGxpa2Uga3N1ZCAoamF2YS1wcm9wZXJ0aWVzIGNyYXRlKSBhbmQgdGhlIHJlZ2lzdHJ5IHZhbGlkYXRvciByZWFkCiAgICAgKiBtb2R1bGUucHJvcDogYD1gLCBgOmAgb3Igd2hpdGVzcGFjZSBzZXBhcmF0b3JzLCBlc2NhcGVzLCBjb250aW51YXRpb24gbGluZXMsIHRoZSBsYXN0CiAgICAgKiBkdXBsaWNhdGUgd2lucy4gQSBVVEYtOCBCT00gaXMgZHJvcHBlZC4KICAgICAqLwogICAgZnVuIHBhcnNlTW9kdWxlUHJvcCh0ZXh0OiBTdHJpbmcpOiBNYXA8U3RyaW5nLCBTdHJpbmc+IHsKICAgICAgICB2YWwgcHJvcHMgPSBQcm9wZXJ0aWVzKCkKICAgICAgICBwcm9wcy5sb2FkKFN0cmluZ1JlYWRlcih0ZXh0LnJlbW92ZVByZWZpeCgiXHVGRUZGIikpKQogICAgICAgIHJldHVybiBwcm9wcy5zdHJpbmdQcm9wZXJ0eU5hbWVzKCkuYXNzb2NpYXRlV2l0aCB7IHByb3BzLmdldFByb3BlcnR5KGl0KSB9CiAgICB9CgogICAgZnVuIG1hbmlmZXN0T2YocHJvcHM6IE1hcDxTdHJpbmcsIFN0cmluZz4pOiBTY3JpcHRNYW5pZmVzdCB7CiAgICAgICAgdmFsIGlkID0gcHJvcHNbImlkIl0ub3JFbXB0eSgpLnRyaW0oKQogICAgICAgIHJldHVybiBTY3JpcHRNYW5pZmVzdCgKICAgICAgICAgICAgaWQgPSBpZCwKICAgICAgICAgICAgbmFtZSA9IHByb3BzWyJuYW1lIl0ub3JFbXB0eSgpLnRyaW0oKS5pZkJsYW5rIHsgaWQgfSwKICAgICAgICAgICAgdmVyc2lvbiA9IHByb3BzWyJ2ZXJzaW9uIl0ub3JFbXB0eSgpLnRyaW0oKSwKICAgICAgICAgICAgdmVyc2lvbkNvZGUgPSBwcm9wc1sidmVyc2lvbkNvZGUiXT8udHJpbSgpPy50b0ludE9yTnVsbCgpLAogICAgICAgICAgICBhdXRob3IgPSBwcm9wc1siYXV0aG9yIl0ub3JFbXB0eSgpLnRyaW0oKSwKICAgICAgICAgICAgZGVzY3JpcHRpb24gPSBwcm9wc1siZGVzY3JpcHRpb24iXS5vckVtcHR5KCkudHJpbSgpLAogICAgICAgICkKICAgIH0KCiAgICAvKioKICAgICAqIFRoZSBwYXRoIFtuYW1lXSBleHRyYWN0cyB0bywgbm9ybWFsaXplZCBsaWtlIGtzdWQncyB6aXAgY3JhdGUgYW5kIHRoZSByZWdpc3RyeSB2YWxpZGF0b3I6CiAgICAgKiBlbXB0eSBhbmQgYC5gIHNlZ21lbnRzIGFyZSBkcm9wcGVkIChgLi9hLy9iYCAtPiBgYS9iYCwgYC4vYCAtPiBgIiJgLCB0aGUgcm9vdCkuIFRocm93cyBmb3IKICAgICAqIGFuIGFic29sdXRlIHBhdGgsIGEgYC4uYCBzZWdtZW50LCBhIGJhY2tzbGFzaCBvciBhIGNvbnRyb2wgY2hhcmFjdGVyLgogICAgICovCiAgICBmdW4gbm9ybWFsaXplRW50cnlOYW1lKG5hbWU6IFN0cmluZyk6IFN0cmluZyB7CiAgICAgICAgZnVuIHVuc2FmZSgpOiBOb3RoaW5nID0gdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5VTlNBRkVfRU5UUlksICJVbnNhZmUgZW50cnk6ICRuYW1lIikKICAgICAgICBpZiAobmFtZS5pc0VtcHR5KCkgfHwgbmFtZS5zdGFydHNXaXRoKCIvIikgfHwgJ1xcJyBpbiBuYW1lIHx8IG5hbWUuYW55IHsgaXQgPCAnICcgfHwgaXQgPT0gJ1x1MDA3ZicgfSkgdW5zYWZlKCkKICAgICAgICB2YWwgc2VnbWVudHMgPSBuYW1lLnNwbGl0KCcvJykuZmlsdGVyIHsgaXQuaXNOb3RFbXB0eSgpICYmIGl0ICE9ICIuIiB9CiAgICAgICAgaWYgKHNlZ21lbnRzLmFueSB7IGl0ID09ICIuLiIgfSkgdW5zYWZlKCkKICAgICAgICByZXR1cm4gc2VnbWVudHMuam9pblRvU3RyaW5nKCIvIikKICAgIH0KCiAgICAvKiogW2lucHV0XSBjYXBwZWQgYXQgW2xpbWl0XSBieXRlczogcmVhZGluZyBtb3JlIGZhaWxzIHdpdGggW1NjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLlRPT19MQVJHRV0uICovCiAgICBmdW4gYm91bmRlZChpbnB1dDogSW5wdXRTdHJlYW0sIGxpbWl0OiBMb25nKTogSW5wdXRTdHJlYW0gPSBvYmplY3QgOiBGaWx0ZXJJbnB1dFN0cmVhbShpbnB1dCkgewogICAgICAgIHByaXZhdGUgdmFyIGNvdW50ID0gMEwKCiAgICAgICAgcHJpdmF0ZSBmdW4gY291bnRlZChuOiBJbnQpOiBJbnQgewogICAgICAgICAgICBpZiAobiA+IDApIHsKICAgICAgICAgICAgICAgIGNvdW50ICs9IG4KICAgICAgICAgICAgICAgIGlmIChjb3VudCA+IGxpbWl0KSB0aHJvdyBTY3JpcHRQYWNrYWdlRXhjZXB0aW9uKFNjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLlRPT19MQVJHRSwgIklucHV0IGV4Y2VlZHMgJGxpbWl0IGJ5dGVzIikKICAgICAgICAgICAgfQogICAgICAgICAgICByZXR1cm4gbgogICAgICAgIH0KCiAgICAgICAgb3ZlcnJpZGUgZnVuIHJlYWQoKTogSW50ID0gc3VwZXIucmVhZCgpLmFsc28geyBpZiAoaXQgPj0gMCkgY291bnRlZCgxKSB9CiAgICAgICAgb3ZlcnJpZGUgZnVuIHJlYWQoYjogQnl0ZUFycmF5LCBvZmY6IEludCwgbGVuOiBJbnQpOiBJbnQgPSBjb3VudGVkKHN1cGVyLnJlYWQoYiwgb2ZmLCBsZW4pKQogICAgICAgIG92ZXJyaWRlIGZ1biBza2lwKG46IExvbmcpOiBMb25nID0gc3VwZXIuc2tpcChuKS5hbHNvIHsgaWYgKGl0ID4gMCkgY291bnRlZChpdC50b0ludCgpKSB9CiAgICB9CgogICAgLyoqCiAgICAgKiBSZWFkcyBtb2R1bGUucHJvcCBmcm9tIGEgWklQIHN0cmVhbSB0byB0ZWxsIHdoZXRoZXIgaXQgaXMgYSBvbmUtc2hvdCBzY3JpcHQ7IG51bGwgaWYgaXQKICAgICAqIGlzIG5vdCwgb3IgY2Fubm90IGJlIHJlYWQuIE9ubHkgYSBoaW50OiBbdmFsaWRhdGVdIGlzIHdoYXQgZGVjaWRlcyBiZWZvcmUgcnVubmluZy4KICAgICAqLwogICAgZnVuIHJlYWRPbmVzaG90TWFuaWZlc3QoaW5wdXQ6IElucHV0U3RyZWFtKTogU2NyaXB0TWFuaWZlc3Q/ID0gdHJ5IHsKICAgICAgICAvLyBUaGUgY29tcHJlc3NlZCBzdHJlYW0gaXMgY2FwcGVkIHRvbzogZW5kbGVzcyBlbXB0eSBkZWZsYXRlIGJsb2NrcyBpbmZsYXRlIHRvIG5vdGhpbmcuCiAgICAgICAgWmlwSW5wdXRTdHJlYW0oYm91bmRlZChpbnB1dCwgTUFYX1pJUF9CWVRFUykpLnVzZSB7IHppcCAtPgogICAgICAgICAgICB2YXIgbWFuaWZlc3Q6IFNjcmlwdE1hbmlmZXN0PyA9IG51bGwKICAgICAgICAgICAgLy8gbmV4dEVudHJ5KCkgd291bGQgaW5mbGF0ZSBhIHNraXBwZWQgZW50cnkgaW4gZnVsbDogZHJhaW4gaXQgaGVyZSwgd2l0aGluIHRoZSBzYW1lCiAgICAgICAgICAgIC8vIGJ1ZGdldCBleHRyYWN0aW9uIGhhcywgc28gZW50cmllcyBiZWZvcmUgbW9kdWxlLnByb3AgY2Fubm90IGJlIGEgWklQIGJvbWIuCiAgICAgICAgICAgIHZhciBza2lwcGVkID0gMEwKICAgICAgICAgICAgdmFsIGJ1ZiA9IEJ5dGVBcnJheSg4MTkyKQogICAgICAgICAgICBmb3IgKGkgaW4gMCB1bnRpbCBNQVhfRU5UUklFUykgewogICAgICAgICAgICAgICAgdmFsIGVudHJ5ID0gemlwLm5leHRFbnRyeSA/OiBicmVhawogICAgICAgICAgICAgICAgaWYgKG5vcm1hbGl6ZUVudHJ5TmFtZShlbnRyeS5uYW1lKSA9PSBNT0RVTEVfUFJPUCAmJiAhZW50cnkuaXNEaXJlY3RvcnkpIHsKICAgICAgICAgICAgICAgICAgICB2YWwgcHJvcHMgPSBwYXJzZU1vZHVsZVByb3AocmVhZExpbWl0ZWQoemlwLCBNQVhfUFJPUF9CWVRFUykudG9TdHJpbmcoQ2hhcnNldHMuVVRGXzgpKQogICAgICAgICAgICAgICAgICAgIGlmIChpc09uZXNob3QocHJvcHNbIm9uZXNob3QiXSkpIG1hbmlmZXN0ID0gbWFuaWZlc3RPZihwcm9wcykKICAgICAgICAgICAgICAgICAgICBicmVhawogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgd2hpbGUgKHRydWUpIHsKICAgICAgICAgICAgICAgICAgICB2YWwgbiA9IHppcC5yZWFkKGJ1ZikKICAgICAgICAgICAgICAgICAgICBpZiAobiA9PSAtMSkgYnJlYWsKICAgICAgICAgICAgICAgICAgICBza2lwcGVkICs9IG4KICAgICAgICAgICAgICAgICAgICBpZiAoc2tpcHBlZCA+IE1BWF9UT1RBTF9CWVRFUykgcmV0dXJuQHVzZSBudWxsCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgbWFuaWZlc3QKICAgICAgICB9CiAgICB9IGNhdGNoIChlOiBJT0V4Y2VwdGlvbikgewogICAgICAgIG51bGwKICAgIH0gY2F0Y2ggKGU6IElsbGVnYWxBcmd1bWVudEV4Y2VwdGlvbikgewogICAgICAgIG51bGwKICAgIH0KCiAgICBwcml2YXRlIGZ1biByZWFkTGltaXRlZChpbnB1dDogSW5wdXRTdHJlYW0sIGxpbWl0OiBJbnQpOiBCeXRlQXJyYXkgewogICAgICAgIHZhbCBvdXQgPSBCeXRlQXJyYXlPdXRwdXRTdHJlYW0oKQogICAgICAgIHZhbCBidWYgPSBCeXRlQXJyYXkoODE5MikKICAgICAgICB3aGlsZSAodHJ1ZSkgewogICAgICAgICAgICB2YWwgbiA9IGlucHV0LnJlYWQoYnVmKQogICAgICAgICAgICBpZiAobiA9PSAtMSkgYnJlYWsKICAgICAgICAgICAgb3V0LndyaXRlKGJ1ZiwgMCwgbikKICAgICAgICAgICAgaWYgKG91dC5zaXplKCkgPiBsaW1pdCkgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5UT09fTEFSR0UsICJFbnRyeSBleGNlZWRzICRsaW1pdCBieXRlcyIpCiAgICAgICAgfQogICAgICAgIHJldHVybiBvdXQudG9CeXRlQXJyYXkoKQogICAgfQoKICAgIHByaXZhdGUgZnVuIG9wZW4oemlwOiBGaWxlKTogWmlwRmlsZSA9IHRyeSB7CiAgICAgICAgWmlwRmlsZS5idWlsZGVyKCkuc2V0RmlsZSh6aXApLmdldCgpCiAgICB9IGNhdGNoIChlOiBJT0V4Y2VwdGlvbikgewogICAgICAgIHRocm93IFNjcmlwdFBhY2thZ2VFeGNlcHRpb24oU2NyaXB0UGFja2FnZUV4Y2VwdGlvbi5SZWFzb24uQ09SUlVQVCwgIk5vdCBhIHZhbGlkIFpJUDogJHtlLm1lc3NhZ2V9IiwgZSkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBpc0RpcmVjdG9yeShlbnRyeTogWmlwQXJjaGl2ZUVudHJ5KTogQm9vbGVhbiA9IGVudHJ5Lm5hbWUuZW5kc1dpdGgoIi8iKQoKICAgIC8qKiBDaGVja3MgZXZlcnkgZW50cnkgb2YgdGhlIGNlbnRyYWwgZGlyZWN0b3J5OyByZXR1cm5zIHRoZSBlbnRyaWVzIGJ5IG5vcm1hbGl6ZWQgcGF0aC4gKi8KICAgIHByaXZhdGUgZnVuIGNoZWNrRW50cmllcyhmaWxlOiBaaXBGaWxlKTogTWFwPFN0cmluZywgWmlwQXJjaGl2ZUVudHJ5PiB7CiAgICAgICAgdmFsIGJ5TmFtZSA9IExpbmtlZEhhc2hNYXA8U3RyaW5nLCBaaXBBcmNoaXZlRW50cnk+KCkKICAgICAgICB2YXIgZGVjbGFyZWQgPSAwTAogICAgICAgIHZhciBjb3VudCA9IDAKICAgICAgICBmb3IgKGVudHJ5IGluIGZpbGUuZW50cmllcykgewogICAgICAgICAgICAvLyBDb3VudHMgZXZlcnkgcmVjb3JkLCBpbmNsdWRpbmcgdGhlIHNraXBwZWQgIi4vIiBvbmVzLgogICAgICAgICAgICBpZiAoKytjb3VudCA+IE1BWF9FTlRSSUVTKSB7CiAgICAgICAgICAgICAgICB0aHJvdyBTY3JpcHRQYWNrYWdlRXhjZXB0aW9uKFNjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLlRPT19MQVJHRSwgIk1vcmUgdGhhbiAkTUFYX0VOVFJJRVMgZW50cmllcyIpCiAgICAgICAgICAgIH0KICAgICAgICAgICAgdmFsIGtleSA9IG5vcm1hbGl6ZUVudHJ5TmFtZShlbnRyeS5uYW1lKQogICAgICAgICAgICBpZiAoZW50cnkuaXNVbml4U3ltbGluaykgewogICAgICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5VTlNBRkVfRU5UUlksICJTeW1saW5rIGVudHJ5OiAke2VudHJ5Lm5hbWV9IikKICAgICAgICAgICAgfQogICAgICAgICAgICBpZiAoZW50cnkucGxhdGZvcm0gPT0gWmlwQXJjaGl2ZUVudHJ5LlBMQVRGT1JNX1VOSVgpIHsKICAgICAgICAgICAgICAgIHZhbCB0eXBlID0gZW50cnkudW5peE1vZGUgYW5kIFNfSUZNVAogICAgICAgICAgICAgICAgdmFsIGV4cGVjdGVkID0gaWYgKGlzRGlyZWN0b3J5KGVudHJ5KSkgU19JRkRJUiBlbHNlIFNfSUZSRUcKICAgICAgICAgICAgICAgIGlmICh0eXBlICE9IDAgJiYgdHlwZSAhPSBleHBlY3RlZCkgewogICAgICAgICAgICAgICAgICAgIHRocm93IFNjcmlwdFBhY2thZ2VFeGNlcHRpb24oU2NyaXB0UGFja2FnZUV4Y2VwdGlvbi5SZWFzb24uVU5TQUZFX0VOVFJZLCAiU3BlY2lhbCBmaWxlIGVudHJ5OiAke2VudHJ5Lm5hbWV9IikKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBpZiAoa2V5LmlzRW1wdHkoKSkgewogICAgICAgICAgICAgICAgLy8gIi4vIiBpcyB0aGUgZXh0cmFjdGlvbiByb290IGl0c2VsZjsgYSBmaWxlIGNhbm5vdCBiZS4KICAgICAgICAgICAgICAgIGlmIChpc0RpcmVjdG9yeShlbnRyeSkpIGNvbnRpbnVlCiAgICAgICAgICAgICAgICB0aHJvdyBTY3JpcHRQYWNrYWdlRXhjZXB0aW9uKFNjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLlVOU0FGRV9FTlRSWSwgIlVuc2FmZSBlbnRyeTogJHtlbnRyeS5uYW1lfSIpCiAgICAgICAgICAgIH0KICAgICAgICAgICAgaWYgKGJ5TmFtZS5wdXQoa2V5LCBlbnRyeSkgIT0gbnVsbCkgewogICAgICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5VTlNBRkVfRU5UUlksICJEdXBsaWNhdGUgZW50cnk6ICR7ZW50cnkubmFtZX0iKQogICAgICAgICAgICB9CiAgICAgICAgICAgIGlmICghaXNEaXJlY3RvcnkoZW50cnkpKSB7CiAgICAgICAgICAgICAgICBpZiAoIWZpbGUuY2FuUmVhZEVudHJ5RGF0YShlbnRyeSkpIHsKICAgICAgICAgICAgICAgICAgICB0aHJvdyBTY3JpcHRQYWNrYWdlRXhjZXB0aW9uKFNjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLkNPUlJVUFQsICJVbnN1cHBvcnRlZCBlbnRyeTogJHtlbnRyeS5uYW1lfSIpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBpZiAoZW50cnkuc2l6ZSA+IDApIGRlY2xhcmVkICs9IGVudHJ5LnNpemUKICAgICAgICAgICAgICAgIGlmIChkZWNsYXJlZCA+IE1BWF9UT1RBTF9CWVRFUykgewogICAgICAgICAgICAgICAgICAgIHRocm93IFNjcmlwdFBhY2thZ2VFeGNlcHRpb24oU2NyaXB0UGFja2FnZUV4Y2VwdGlvbi5SZWFzb24uVE9PX0xBUkdFLCAiQ29udGVudHMgZXhjZWVkICRNQVhfVE9UQUxfQllURVMgYnl0ZXMiKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIHJldHVybiBieU5hbWUKICAgIH0KCiAgICBwcml2YXRlIGZ1biByZWFkRW50cnkoZmlsZTogWmlwRmlsZSwgZW50cnk6IFppcEFyY2hpdmVFbnRyeSwgbGltaXQ6IEludCk6IFN0cmluZyA9CiAgICAgICAgZmlsZS5nZXRJbnB1dFN0cmVhbShlbnRyeSkudXNlIHsgcmVhZExpbWl0ZWQoaXQsIGxpbWl0KSB9LnRvU3RyaW5nKENoYXJzZXRzLlVURl84KQoKICAgIC8qKgogICAgICogVmFsaWRhdGVzIGEgc2NyaXB0IFpJUDogc2FmZSBlbnRyaWVzLCBtb2R1bGUucHJvcCB3aXRoIGBvbmVzaG90YCwgYSB2YWxpZCBgaWRgIChlcXVhbCB0bwogICAgICogW2V4cGVjdGVkSWRdIHdoZW4gZ2l2ZW4pLCBhIHJvb3QgYWN0aW9uLnNoIGFuZCwgaWYgcHJlc2VudCwgYSB2YWxpZCBwYXJhbXMuanNvbi4KICAgICAqLwogICAgZnVuIHZhbGlkYXRlKHppcDogRmlsZSwgZXhwZWN0ZWRJZDogU3RyaW5nPyA9IG51bGwpOiBTY3JpcHRNYW5pZmVzdCA9IG9wZW4oemlwKS51c2UgeyBmaWxlIC0+CiAgICAgICAgdmFsIGVudHJpZXMgPSBjaGVja0VudHJpZXMoZmlsZSkKICAgICAgICB2YWwgcHJvcEVudHJ5ID0gZW50cmllc1tNT0RVTEVfUFJPUF0/LnRha2VJZiB7ICFpc0RpcmVjdG9yeShpdCkgfQogICAgICAgICAgICA/OiB0aHJvdyBTY3JpcHRQYWNrYWdlRXhjZXB0aW9uKFNjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLk1JU1NJTkdfTU9EVUxFX1BST1AsICJtb2R1bGUucHJvcCBub3QgZm91bmQiKQogICAgICAgIHZhbCBwcm9wcyA9IHBhcnNlTW9kdWxlUHJvcChyZWFkRW50cnkoZmlsZSwgcHJvcEVudHJ5LCBNQVhfUFJPUF9CWVRFUykpCiAgICAgICAgaWYgKCFpc09uZXNob3QocHJvcHNbIm9uZXNob3QiXSkpIHsKICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5OT1RfT05FU0hPVCwgIm1vZHVsZS5wcm9wIGRvZXMgbm90IGRlY2xhcmUgb25lc2hvdD10cnVlIikKICAgICAgICB9CiAgICAgICAgdmFsIG1hbmlmZXN0ID0gbWFuaWZlc3RPZihwcm9wcykKICAgICAgICBpZiAoIWlzVmFsaWRNb2R1bGVJZChtYW5pZmVzdC5pZCkpIHsKICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5JTlZBTElEX0lELCAiSW52YWxpZCBpZDogJHttYW5pZmVzdC5pZH0iKQogICAgICAgIH0KICAgICAgICBpZiAoZXhwZWN0ZWRJZCAhPSBudWxsICYmIG1hbmlmZXN0LmlkICE9IGV4cGVjdGVkSWQpIHsKICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5JRF9NSVNNQVRDSCwgImlkICR7bWFuaWZlc3QuaWR9IGRvZXMgbm90IG1hdGNoICRleHBlY3RlZElkIikKICAgICAgICB9CiAgICAgICAgaWYgKGVudHJpZXNbQUNUSU9OXT8udGFrZUlmIHsgIWlzRGlyZWN0b3J5KGl0KSB9ID09IG51bGwpIHsKICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5NSVNTSU5HX0FDVElPTiwgImFjdGlvbi5zaCBub3QgZm91bmQiKQogICAgICAgIH0KICAgICAgICBlbnRyaWVzW1BBUkFNU10/LnRha2VJZiB7ICFpc0RpcmVjdG9yeShpdCkgfT8ubGV0IHsgcGFyc2VQYXJhbXMocmVhZEVudHJ5KGZpbGUsIGl0LCBNQVhfUEFSQU1TX0JZVEVTKSkgfQogICAgICAgIG1hbmlmZXN0CiAgICB9CgogICAgZnVuIHBhcnNlUGFyYW1zKHRleHQ6IFN0cmluZyk6IFNjcmlwdFBhcmFtcyA9IHRyeSB7CiAgICAgICAgU2NyaXB0UGFyYW1zUGFyc2VyLnBhcnNlKHRleHQpCiAgICB9IGNhdGNoIChlOiBTY3JpcHRQYXJhbXNFeGNlcHRpb24pIHsKICAgICAgICB0aHJvdyBTY3JpcHRQYWNrYWdlRXhjZXB0aW9uKFNjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLklOVkFMSURfUEFSQU1TLCAiSW52YWxpZCBwYXJhbXMuanNvbjogJHtlLm1lc3NhZ2V9IiwgZSkKICAgIH0KCiAgICAvKioKICAgICAqIEV4dHJhY3RzIFt6aXBdIHRvIFtkZXN0XSAocmVwbGFjaW5nIGl0KS4gRmlsZXMgYXJlIHdyaXR0ZW4gdG8gYSBzaWJsaW5nIHRlbXBvcmFyeQogICAgICogZGlyZWN0b3J5IGZpcnN0LCBzbyBbZGVzdF0gb25seSBldmVyIGhvbGRzIGEgY29tcGxldGUgZXh0cmFjdGlvbi4KICAgICAqLwogICAgZnVuIGV4dHJhY3QoemlwOiBGaWxlLCBkZXN0OiBGaWxlKSB7CiAgICAgICAgdmFsIHBhcmVudCA9IGRlc3QuYWJzb2x1dGVGaWxlLnBhcmVudEZpbGUgPzogdGhyb3cgSU9FeGNlcHRpb24oIk5vIHBhcmVudCBmb3IgJGRlc3QiKQogICAgICAgIGlmICghcGFyZW50LmlzRGlyZWN0b3J5ICYmICFwYXJlbnQubWtkaXJzKCkpIHRocm93IElPRXhjZXB0aW9uKCJDYW5ub3QgY3JlYXRlICRwYXJlbnQiKQogICAgICAgIHZhbCB0bXAgPSBGaWxlKHBhcmVudCwgIi50bXAtJHtVVUlELnJhbmRvbVVVSUQoKX0iKQogICAgICAgIHRyeSB7CiAgICAgICAgICAgIG9wZW4oemlwKS51c2UgeyBmaWxlIC0+CiAgICAgICAgICAgICAgICB2YWwgZW50cmllcyA9IGNoZWNrRW50cmllcyhmaWxlKQogICAgICAgICAgICAgICAgaWYgKCF0bXAubWtkaXIoKSkgdGhyb3cgSU9FeGNlcHRpb24oIkNhbm5vdCBjcmVhdGUgJHRtcCIpCiAgICAgICAgICAgICAgICB2YWwgcm9vdCA9IHRtcC5jYW5vbmljYWxGaWxlCiAgICAgICAgICAgICAgICB2YXIgdG90YWwgPSAwTAogICAgICAgICAgICAgICAgdmFsIGJ1ZiA9IEJ5dGVBcnJheSg2NCAqIDEwMjQpCiAgICAgICAgICAgICAgICBmb3IgKChwYXRoLCBlbnRyeSkgaW4gZW50cmllcykgewogICAgICAgICAgICAgICAgICAgIHZhbCB0YXJnZXQgPSBGaWxlKHJvb3QsIHBhdGgpCiAgICAgICAgICAgICAgICAgICAgLy8gRGVmZW5jZSBpbiBkZXB0aCBvbiB0b3Agb2Ygbm9ybWFsaXplRW50cnlOYW1lLgogICAgICAgICAgICAgICAgICAgIGlmICghdGFyZ2V0LmNhbm9uaWNhbFBhdGguc3RhcnRzV2l0aChyb290LnBhdGggKyBGaWxlLnNlcGFyYXRvcikpIHsKICAgICAgICAgICAgICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbihTY3JpcHRQYWNrYWdlRXhjZXB0aW9uLlJlYXNvbi5VTlNBRkVfRU5UUlksICJVbnNhZmUgZW50cnk6ICR7ZW50cnkubmFtZX0iKQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBpZiAoaXNEaXJlY3RvcnkoZW50cnkpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmICghdGFyZ2V0LmlzRGlyZWN0b3J5ICYmICF0YXJnZXQubWtkaXJzKCkpIHRocm93IElPRXhjZXB0aW9uKCJDYW5ub3QgY3JlYXRlICR7ZW50cnkubmFtZX0iKQogICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB0YXJnZXQucGFyZW50RmlsZT8ubGV0IHsgaWYgKCFpdC5pc0RpcmVjdG9yeSAmJiAhaXQubWtkaXJzKCkpIHRocm93IElPRXhjZXB0aW9uKCJDYW5ub3QgY3JlYXRlICR7ZW50cnkubmFtZX0iKSB9CiAgICAgICAgICAgICAgICAgICAgZmlsZS5nZXRJbnB1dFN0cmVhbShlbnRyeSkudXNlIHsgaW5wdXQgLT4KICAgICAgICAgICAgICAgICAgICAgICAgRmlsZU91dHB1dFN0cmVhbSh0YXJnZXQpLnVzZSB7IG91dCAtPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2hpbGUgKHRydWUpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWwgbiA9IGlucHV0LnJlYWQoYnVmKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChuID09IC0xKSBicmVhawogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRvdGFsICs9IG4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiAodG90YWwgPiBNQVhfVE9UQUxfQllURVMpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGhyb3cgU2NyaXB0UGFja2FnZUV4Y2VwdGlvbigKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNjcmlwdFBhY2thZ2VFeGNlcHRpb24uUmVhc29uLlRPT19MQVJHRSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJDb250ZW50cyBleGNlZWQgJE1BWF9UT1RBTF9CWVRFUyBieXRlcyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdXQud3JpdGUoYnVmLCAwLCBuKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIC8vIEtlZXAgaGVscGVycyB0aGUgc2NyaXB0IHJ1bnMgZGlyZWN0bHkgZXhlY3V0YWJsZTsgc2V0dWlkIC8gc2V0Z2lkIGFyZSBuZXZlciByZXN0b3JlZC4KICAgICAgICAgICAgICAgICAgICBpZiAoZW50cnkucGxhdGZvcm0gPT0gWmlwQXJjaGl2ZUVudHJ5LlBMQVRGT1JNX1VOSVggJiYgKGVudHJ5LnVuaXhNb2RlIGFuZCBTX0lYVVNSKSAhPSAwKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmICghdGFyZ2V0LnNldEV4ZWN1dGFibGUodHJ1ZSwgdHJ1ZSkpIHRocm93IElPRXhjZXB0aW9uKCJDYW5ub3QgbWFrZSAke2VudHJ5Lm5hbWV9IGV4ZWN1dGFibGUiKQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBpZiAoZGVzdC5leGlzdHMoKSAmJiAhZGVzdC5kZWxldGVSZWN1cnNpdmVseSgpKSB0aHJvdyBJT0V4Y2VwdGlvbigiQ2Fubm90IHJlcGxhY2UgJGRlc3QiKQogICAgICAgICAgICBpZiAoIXRtcC5yZW5hbWVUbyhkZXN0KSkgdGhyb3cgSU9FeGNlcHRpb24oIkNhbm5vdCBtb3ZlIGV4dHJhY3Rpb24gdG8gJGRlc3QiKQogICAgICAgIH0gZmluYWxseSB7CiAgICAgICAgICAgIGlmICh0bXAuZXhpc3RzKCkpIHRtcC5kZWxldGVSZWN1cnNpdmVseSgpCiAgICAgICAgfQogICAgfQp9Cg==
+package com.xinsu.moe.data.script
+
+import org.apache.commons.compress.archivers.zip.ZipArchiveEntry
+import org.apache.commons.compress.archivers.zip.ZipFile
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
+import java.io.FilterInputStream
+import java.io.IOException
+import java.io.InputStream
+import java.io.StringReader
+import java.util.Properties
+import java.util.UUID
+import java.util.zip.ZipInputStream
+
+class ScriptPackageException(val reason: Reason, message: String, cause: Throwable? = null) : IOException(message, cause) {
+    enum class Reason {
+        /** Not a readable ZIP (or an unsupported compression / encryption). */
+        CORRUPT,
+
+        /** Absolute path, `..`, symlink, special file or duplicate entry. */
+        UNSAFE_ENTRY,
+        TOO_LARGE,
+        MISSING_MODULE_PROP,
+        NOT_ONESHOT,
+        INVALID_ID,
+        ID_MISMATCH,
+        MISSING_ACTION,
+        INVALID_PARAMS,
+    }
+}
+
+/** module.prop of a one-shot script. */
+data class ScriptManifest(
+    val id: String,
+    val name: String,
+    val version: String,
+    val versionCode: Int?,
+    val author: String,
+    val description: String,
+)
+
+/**
+ * Validation and extraction of one-shot script ZIPs. Only the central directory is trusted;
+ * entries must be plain files or directories below the root, and everything written is
+ * counted against [MAX_TOTAL_BYTES] while decompressing (declared sizes are not trusted).
+ */
+object ScriptPackage {
+    const val MODULE_PROP = "module.prop"
+    const val ACTION = ScriptCommand.ENTRY
+    const val PARAMS = "params.json"
+
+    const val MAX_TOTAL_BYTES = 64L * 1024 * 1024
+
+    /** Cap on the ZIP itself (contents + headers) for sources that are not size-verified. */
+    const val MAX_ZIP_BYTES = MAX_TOTAL_BYTES + 16L * 1024 * 1024
+    const val MAX_ENTRIES = 4096
+    const val MAX_PROP_BYTES = 64 * 1024
+    const val MAX_PARAMS_BYTES = 64 * 1024
+
+    private val MODULE_ID = Regex("^[a-zA-Z][a-zA-Z0-9._-]+$")
+    private const val S_IFMT = 0xF000
+    private const val S_IFREG = 0x8000
+    private const val S_IFDIR = 0x4000
+    private const val S_IXUSR = 0x40
+
+    /** Same rule as ksud's `metamodule`: trimmed value is "1" or ASCII case-insensitive "true". */
+    fun isOneshot(value: String?): Boolean {
+        val v = value?.trim() ?: return false
+        return v == "1" || v.equals("true", ignoreCase = true)
+    }
+
+    fun isValidModuleId(id: String): Boolean = id.length in 2..64 && MODULE_ID.matches(id)
+
+    /**
+     * Java properties, like ksud (java-properties crate) and the registry validator read
+     * module.prop: `=`, `:` or whitespace separators, escapes, continuation lines, the last
+     * duplicate wins. A UTF-8 BOM is dropped.
+     */
+    fun parseModuleProp(text: String): Map<String, String> {
+        val props = Properties()
+        props.load(StringReader(text.removePrefix("\uFEFF")))
+        return props.stringPropertyNames().associateWith { props.getProperty(it) }
+    }
+
+    fun manifestOf(props: Map<String, String>): ScriptManifest {
+        val id = props["id"].orEmpty().trim()
+        return ScriptManifest(
+            id = id,
+            name = props["name"].orEmpty().trim().ifBlank { id },
+            version = props["version"].orEmpty().trim(),
+            versionCode = props["versionCode"]?.trim()?.toIntOrNull(),
+            author = props["author"].orEmpty().trim(),
+            description = props["description"].orEmpty().trim(),
+        )
+    }
+
+    /**
+     * The path [name] extracts to, normalized like ksud's zip crate and the registry validator:
+     * empty and `.` segments are dropped (`./a//b` -> `a/b`, `./` -> `""`, the root). Throws for
+     * an absolute path, a `..` segment, a backslash or a control character.
+     */
+    fun normalizeEntryName(name: String): String {
+        fun unsafe(): Nothing = throw ScriptPackageException(ScriptPackageException.Reason.UNSAFE_ENTRY, "Unsafe entry: $name")
+        if (name.isEmpty() || name.startsWith("/") || '\\' in name || name.any { it < ' ' || it == '\u007f' }) unsafe()
+        val segments = name.split('/').filter { it.isNotEmpty() && it != "." }
+        if (segments.any { it == ".." }) unsafe()
+        return segments.joinToString("/")
+    }
+
+    /** [input] capped at [limit] bytes: reading more fails with [ScriptPackageException.Reason.TOO_LARGE]. */
+    fun bounded(input: InputStream, limit: Long): InputStream = object : FilterInputStream(input) {
+        private var count = 0L
+
+        private fun counted(n: Int): Int {
+            if (n > 0) {
+                count += n
+                if (count > limit) throw ScriptPackageException(ScriptPackageException.Reason.TOO_LARGE, "Input exceeds $limit bytes")
+            }
+            return n
+        }
+
+        override fun read(): Int = super.read().also { if (it >= 0) counted(1) }
+        override fun read(b: ByteArray, off: Int, len: Int): Int = counted(super.read(b, off, len))
+        override fun skip(n: Long): Long = super.skip(n).also { if (it > 0) counted(it.toInt()) }
+    }
+
+    /**
+     * Reads module.prop from a ZIP stream to tell whether it is a one-shot script; null if it
+     * is not, or cannot be read. Only a hint: [validate] is what decides before running.
+     */
+    fun readOneshotManifest(input: InputStream): ScriptManifest? = try {
+        // The compressed stream is capped too: endless empty deflate blocks inflate to nothing.
+        ZipInputStream(bounded(input, MAX_ZIP_BYTES)).use { zip ->
+            var manifest: ScriptManifest? = null
+            // nextEntry() would inflate a skipped entry in full: drain it here, within the same
+            // budget extraction has, so entries before module.prop cannot be a ZIP bomb.
+            var skipped = 0L
+            val buf = ByteArray(8192)
+            for (i in 0 until MAX_ENTRIES) {
+                val entry = zip.nextEntry ?: break
+                if (normalizeEntryName(entry.name) == MODULE_PROP && !entry.isDirectory) {
+                    val props = parseModuleProp(readLimited(zip, MAX_PROP_BYTES).toString(Charsets.UTF_8))
+                    if (isOneshot(props["oneshot"])) manifest = manifestOf(props)
+                    break
+                }
+                while (true) {
+                    val n = zip.read(buf)
+                    if (n == -1) break
+                    skipped += n
+                    if (skipped > MAX_TOTAL_BYTES) return@use null
+                }
+            }
+            manifest
+        }
+    } catch (e: IOException) {
+        null
+    } catch (e: IllegalArgumentException) {
+        null
+    }
+
+    private fun readLimited(input: InputStream, limit: Int): ByteArray {
+        val out = ByteArrayOutputStream()
+        val buf = ByteArray(8192)
+        while (true) {
+            val n = input.read(buf)
+            if (n == -1) break
+            out.write(buf, 0, n)
+            if (out.size() > limit) throw ScriptPackageException(ScriptPackageException.Reason.TOO_LARGE, "Entry exceeds $limit bytes")
+        }
+        return out.toByteArray()
+    }
+
+    private fun open(zip: File): ZipFile = try {
+        ZipFile.builder().setFile(zip).get()
+    } catch (e: IOException) {
+        throw ScriptPackageException(ScriptPackageException.Reason.CORRUPT, "Not a valid ZIP: ${e.message}", e)
+    }
+
+    private fun isDirectory(entry: ZipArchiveEntry): Boolean = entry.name.endsWith("/")
+
+    /** Checks every entry of the central directory; returns the entries by normalized path. */
+    private fun checkEntries(file: ZipFile): Map<String, ZipArchiveEntry> {
+        val byName = LinkedHashMap<String, ZipArchiveEntry>()
+        var declared = 0L
+        var count = 0
+        for (entry in file.entries) {
+            // Counts every record, including the skipped "./" ones.
+            if (++count > MAX_ENTRIES) {
+                throw ScriptPackageException(ScriptPackageException.Reason.TOO_LARGE, "More than $MAX_ENTRIES entries")
+            }
+            val key = normalizeEntryName(entry.name)
+            if (entry.isUnixSymlink) {
+                throw ScriptPackageException(ScriptPackageException.Reason.UNSAFE_ENTRY, "Symlink entry: ${entry.name}")
+            }
+            if (entry.platform == ZipArchiveEntry.PLATFORM_UNIX) {
+                val type = entry.unixMode and S_IFMT
+                val expected = if (isDirectory(entry)) S_IFDIR else S_IFREG
+                if (type != 0 && type != expected) {
+                    throw ScriptPackageException(ScriptPackageException.Reason.UNSAFE_ENTRY, "Special file entry: ${entry.name}")
+                }
+            }
+            if (key.isEmpty()) {
+                // "./" is the extraction root itself; a file cannot be.
+                if (isDirectory(entry)) continue
+                throw ScriptPackageException(ScriptPackageException.Reason.UNSAFE_ENTRY, "Unsafe entry: ${entry.name}")
+            }
+            if (byName.put(key, entry) != null) {
+                throw ScriptPackageException(ScriptPackageException.Reason.UNSAFE_ENTRY, "Duplicate entry: ${entry.name}")
+            }
+            if (!isDirectory(entry)) {
+                if (!file.canReadEntryData(entry)) {
+                    throw ScriptPackageException(ScriptPackageException.Reason.CORRUPT, "Unsupported entry: ${entry.name}")
+                }
+                if (entry.size > 0) declared += entry.size
+                if (declared > MAX_TOTAL_BYTES) {
+                    throw ScriptPackageException(ScriptPackageException.Reason.TOO_LARGE, "Contents exceed $MAX_TOTAL_BYTES bytes")
+                }
+            }
+        }
+        return byName
+    }
+
+    private fun readEntry(file: ZipFile, entry: ZipArchiveEntry, limit: Int): String =
+        file.getInputStream(entry).use { readLimited(it, limit) }.toString(Charsets.UTF_8)
+
+    /**
+     * Validates a script ZIP: safe entries, module.prop with `oneshot`, a valid `id` (equal to
+     * [expectedId] when given), a root action.sh and, if present, a valid params.json.
+     */
+    fun validate(zip: File, expectedId: String? = null): ScriptManifest = open(zip).use { file ->
+        val entries = checkEntries(file)
+        val propEntry = entries[MODULE_PROP]?.takeIf { !isDirectory(it) }
+            ?: throw ScriptPackageException(ScriptPackageException.Reason.MISSING_MODULE_PROP, "module.prop not found")
+        val props = parseModuleProp(readEntry(file, propEntry, MAX_PROP_BYTES))
+        if (!isOneshot(props["oneshot"])) {
+            throw ScriptPackageException(ScriptPackageException.Reason.NOT_ONESHOT, "module.prop does not declare oneshot=true")
+        }
+        val manifest = manifestOf(props)
+        if (!isValidModuleId(manifest.id)) {
+            throw ScriptPackageException(ScriptPackageException.Reason.INVALID_ID, "Invalid id: ${manifest.id}")
+        }
+        if (expectedId != null && manifest.id != expectedId) {
+            throw ScriptPackageException(ScriptPackageException.Reason.ID_MISMATCH, "id ${manifest.id} does not match $expectedId")
+        }
+        if (entries[ACTION]?.takeIf { !isDirectory(it) } == null) {
+            throw ScriptPackageException(ScriptPackageException.Reason.MISSING_ACTION, "action.sh not found")
+        }
+        entries[PARAMS]?.takeIf { !isDirectory(it) }?.let { parseParams(readEntry(file, it, MAX_PARAMS_BYTES)) }
+        manifest
+    }
+
+    fun parseParams(text: String): ScriptParams = try {
+        ScriptParamsParser.parse(text)
+    } catch (e: ScriptParamsException) {
+        throw ScriptPackageException(ScriptPackageException.Reason.INVALID_PARAMS, "Invalid params.json: ${e.message}", e)
+    }
+
+    /**
+     * Extracts [zip] to [dest] (replacing it). Files are written to a sibling temporary
+     * directory first, so [dest] only ever holds a complete extraction.
+     */
+    fun extract(zip: File, dest: File) {
+        val parent = dest.absoluteFile.parentFile ?: throw IOException("No parent for $dest")
+        if (!parent.isDirectory && !parent.mkdirs()) throw IOException("Cannot create $parent")
+        val tmp = File(parent, ".tmp-${UUID.randomUUID()}")
+        try {
+            open(zip).use { file ->
+                val entries = checkEntries(file)
+                if (!tmp.mkdir()) throw IOException("Cannot create $tmp")
+                val root = tmp.canonicalFile
+                var total = 0L
+                val buf = ByteArray(64 * 1024)
+                for ((path, entry) in entries) {
+                    val target = File(root, path)
+                    // Defence in depth on top of normalizeEntryName.
+                    if (!target.canonicalPath.startsWith(root.path + File.separator)) {
+                        throw ScriptPackageException(ScriptPackageException.Reason.UNSAFE_ENTRY, "Unsafe entry: ${entry.name}")
+                    }
+                    if (isDirectory(entry)) {
+                        if (!target.isDirectory && !target.mkdirs()) throw IOException("Cannot create ${entry.name}")
+                        continue
+                    }
+                    target.parentFile?.let { if (!it.isDirectory && !it.mkdirs()) throw IOException("Cannot create ${entry.name}") }
+                    file.getInputStream(entry).use { input ->
+                        FileOutputStream(target).use { out ->
+                            while (true) {
+                                val n = input.read(buf)
+                                if (n == -1) break
+                                total += n
+                                if (total > MAX_TOTAL_BYTES) {
+                                    throw ScriptPackageException(
+                                        ScriptPackageException.Reason.TOO_LARGE,
+                                        "Contents exceed $MAX_TOTAL_BYTES bytes"
+                                    )
+                                }
+                                out.write(buf, 0, n)
+                            }
+                        }
+                    }
+                    // Keep helpers the script runs directly executable; setuid / setgid are never restored.
+                    if (entry.platform == ZipArchiveEntry.PLATFORM_UNIX && (entry.unixMode and S_IXUSR) != 0) {
+                        if (!target.setExecutable(true, true)) throw IOException("Cannot make ${entry.name} executable")
+                    }
+                }
+            }
+            if (dest.exists() && !dest.deleteRecursively()) throw IOException("Cannot replace $dest")
+            if (!tmp.renameTo(dest)) throw IOException("Cannot move extraction to $dest")
+        } finally {
+            if (tmp.exists()) tmp.deleteRecursively()
+        }
+    }
+}

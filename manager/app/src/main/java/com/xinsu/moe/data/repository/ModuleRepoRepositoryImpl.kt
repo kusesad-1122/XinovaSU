@@ -1,1 +1,239 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeQoKaW1wb3J0IGFuZHJvaWQudXRpbC5Mb2cKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5EaXNwYXRjaGVycwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLndpdGhDb250ZXh0CmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuQXV0aG9yCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuUmVwb01vZHVsZQppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLm1vZGVsLlJlcG9Nb2R1bGVEZXRhaWwKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5tb2RlbC5SZXBvTW9kdWxlTGlzdAppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLm1vZGVsLlJlcG9SZWxlYXNlCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuQXBpQXV0aG9yCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuQXBpTW9kdWxlRGV0YWlsCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuQXBpTW9kdWxlU3VtbWFyeQppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlZ2lzdHJ5LkFwaVZlcnNpb25SZWYKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZWdpc3RyeS5GaWxlUmVnaXN0cnlDYWNoZQppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlZ2lzdHJ5LlJlZ2lzdHJ5Q2xpZW50CmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuUmVnaXN0cnlGZXRjaGVyCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuUmVnaXN0cnlLaW5kCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuUmVnaXN0cnlMb2NhbGUKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZWdpc3RyeS5SZWdpc3RyeVVwZGF0ZVBvbGljeQppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlZ2lzdHJ5LlJlZ2lzdHJ5VXJscwppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlZ2lzdHJ5LlVwZGF0ZVZlcmlmaWNhdGlvbgppbXBvcnQgY29tLnhpbnN1Lm1vZS5rc3VBcHAKaW1wb3J0IG9raHR0cDMuQ2FjaGVDb250cm9sCmltcG9ydCBva2h0dHAzLlJlcXVlc3QKaW1wb3J0IGphdmEuaW8uRmlsZQppbXBvcnQgamF2YS5pby5JT0V4Y2VwdGlvbgppbXBvcnQgamF2YS50aW1lLk9mZnNldERhdGVUaW1lCmltcG9ydCBqYXZhLnRpbWUuWm9uZUlkCmltcG9ydCBqYXZhLnRpbWUuZm9ybWF0LkRhdGVUaW1lRm9ybWF0dGVyCmltcG9ydCBqYXZhLnRpbWUuZm9ybWF0LkZvcm1hdFN0eWxlCmltcG9ydCBqYXZhLnV0aWwuTG9jYWxlCgpjbGFzcyBNb2R1bGVSZXBvUmVwb3NpdG9yeUltcGwgOiBNb2R1bGVSZXBvUmVwb3NpdG9yeSB7CgogICAgY29tcGFuaW9uIG9iamVjdCB7CiAgICAgICAgcHJpdmF0ZSBjb25zdCB2YWwgVEFHID0gIk1vZHVsZVJlcG9SZXBvc2l0b3J5IgoKICAgICAgICAvKiogU2l0ZSByb290IG9mIEtlcm5lbFNVIE1vZHVsZXM7IGV2ZXJ5IEFQSSBwYXRoIGlzIHJlc29sdmVkIGFnYWluc3QgaXQuICovCiAgICAgICAgY29uc3QgdmFsIFJFR0lTVFJZX0JBU0VfVVJMID0gUmVnaXN0cnlVcmxzLkRFRkFVTFRfQkFTRV9VUkwKCiAgICAgICAgLyoqIFVwcGVyIGJvdW5kIGZvciBhIHNpbmdsZSBKU09OIC8gSFRNTCBkb2N1bWVudC4gKi8KICAgICAgICBwcml2YXRlIGNvbnN0IHZhbCBNQVhfRE9DVU1FTlRfQllURVMgPSAzMkwgKiAxMDI0ICogMTAyNAoKICAgICAgICAvLyBPbmUgY2xpZW50IHBlciBwcm9jZXNzIHNvIHRoZSBsaXN0IGFuZCBkZXRhaWwgc2NyZWVucyBzaGFyZSB0aGUgc2FtZSBjYXRhbG9nLgogICAgICAgIHByaXZhdGUgdmFsIGNsaWVudDogUmVnaXN0cnlDbGllbnQgYnkgbGF6eSB7CiAgICAgICAgICAgIFJlZ2lzdHJ5Q2xpZW50KAogICAgICAgICAgICAgICAgYmFzZVVybCA9IFJFR0lTVFJZX0JBU0VfVVJMLAogICAgICAgICAgICAgICAgZmV0Y2hlciA9IE9rSHR0cFJlZ2lzdHJ5RmV0Y2hlciwKICAgICAgICAgICAgICAgIGNhY2hlID0gRmlsZVJlZ2lzdHJ5Q2FjaGUoRmlsZShrc3VBcHAuZmlsZXNEaXIsICJtb2R1bGVfcmVnaXN0cnkiKSksCiAgICAgICAgICAgICkKICAgICAgICB9CgogICAgICAgIHByaXZhdGUgZnVuIHJlcXVlc3RlZExvY2FsZSgpOiBTdHJpbmcgPSBMb2NhbGUuZ2V0RGVmYXVsdCgpLnRvTGFuZ3VhZ2VUYWcoKQogICAgfQoKICAgIHByaXZhdGUgb2JqZWN0IE9rSHR0cFJlZ2lzdHJ5RmV0Y2hlciA6IFJlZ2lzdHJ5RmV0Y2hlciB7CiAgICAgICAgb3ZlcnJpZGUgZnVuIGZldGNoKHVybDogU3RyaW5nKTogU3RyaW5nIHsKICAgICAgICAgICAgdmFsIHJlcXVlc3QgPSBSZXF1ZXN0LkJ1aWxkZXIoKQogICAgICAgICAgICAgICAgLnVybCh1cmwpCiAgICAgICAgICAgICAgICAvLyBSZXZhbGlkYXRlIHNvIGluZGV4LCBsaXN0IGFuZCBkZXRhaWwgYXJlIG5ldmVyIHNlcnZlZCBmcm9tIGRpZmZlcmVudCBjYWNoZSBhZ2VzLgogICAgICAgICAgICAgICAgLmNhY2hlQ29udHJvbChDYWNoZUNvbnRyb2wuQnVpbGRlcigpLm5vQ2FjaGUoKS5idWlsZCgpKQogICAgICAgICAgICAgICAgLmJ1aWxkKCkKICAgICAgICAgICAga3N1QXBwLm9raHR0cENsaWVudC5uZXdDYWxsKHJlcXVlc3QpLmV4ZWN1dGUoKS51c2UgeyByZXNwb25zZSAtPgogICAgICAgICAgICAgICAgaWYgKCFyZXNwb25zZS5pc1N1Y2Nlc3NmdWwpIHRocm93IElPRXhjZXB0aW9uKCJIVFRQICR7cmVzcG9uc2UuY29kZX0gZm9yICR1cmwiKQogICAgICAgICAgICAgICAgdmFsIGJvZHkgPSByZXNwb25zZS5ib2R5CiAgICAgICAgICAgICAgICBpZiAoYm9keS5jb250ZW50TGVuZ3RoKCkgPiBNQVhfRE9DVU1FTlRfQllURVMpIHRocm93IElPRXhjZXB0aW9uKCJEb2N1bWVudCB0b28gbGFyZ2U6ICR1cmwiKQogICAgICAgICAgICAgICAgdmFsIHNvdXJjZSA9IGJvZHkuc291cmNlKCkKICAgICAgICAgICAgICAgIGlmIChzb3VyY2UucmVxdWVzdChNQVhfRE9DVU1FTlRfQllURVMgKyAxKSkgdGhyb3cgSU9FeGNlcHRpb24oIkRvY3VtZW50IHRvbyBsYXJnZTogJHVybCIpCiAgICAgICAgICAgICAgICByZXR1cm4gc291cmNlLnJlYWRVdGY4KCkKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KCiAgICBvdmVycmlkZSBzdXNwZW5kIGZ1biBmZXRjaE1vZHVsZXMoKTogUmVzdWx0PFJlcG9Nb2R1bGVMaXN0PiA9IHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgcnVuQ2F0Y2hpbmcgewogICAgICAgICAgICB2YWwgbG9hZCA9IGNsaWVudC5sb2FkQ2F0YWxvZygpCiAgICAgICAgICAgIGxvYWQuZXJyb3I/LmxldCB7IExvZy53KFRBRywgInJlZ2lzdHJ5IGZldGNoIGZhaWxlZCwgdXNpbmcgbGFzdCBnb29kIGNvcHkiLCBpdCkgfQogICAgICAgICAgICBSZXBvTW9kdWxlTGlzdCgKICAgICAgICAgICAgICAgIG1vZHVsZXMgPSBsb2FkLmNhdGFsb2cubW9kdWxlcy5tYXAgeyBpdC50b1JlcG9Nb2R1bGUoKSB9LAogICAgICAgICAgICAgICAgYnVpbGRJZCA9IGxvYWQuY2F0YWxvZy5idWlsZElkLAogICAgICAgICAgICAgICAgc3RhbGUgPSBsb2FkLmVycm9yICE9IG51bGwgfHwgbG9hZC5jYXRhbG9nLmZyb21DYWNoZSwKICAgICAgICAgICAgICAgIGVycm9yID0gbG9hZC5lcnJvciwKICAgICAgICAgICAgKQogICAgICAgIH0KICAgIH0KCiAgICBvdmVycmlkZSBzdXNwZW5kIGZ1biBmZXRjaERldGFpbChtb2R1bGVJZDogU3RyaW5nKTogUmVzdWx0PFJlcG9Nb2R1bGVEZXRhaWw+ID0gd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgIHZhbCBsb2FkID0gY2xpZW50LmxvYWREZXRhaWwobW9kdWxlSWQpCiAgICAgICAgICAgIGxvYWQuZXJyb3I/LmxldCB7IExvZy53KFRBRywgImRldGFpbCBmZXRjaCBmYWlsZWQsIHVzaW5nIGxhc3QgZ29vZCBjb3B5IiwgaXQpIH0KICAgICAgICAgICAgdmFsIHJlYWRtZVJlc3VsdCA9IHJ1bkNhdGNoaW5nIHsgY2xpZW50LmxvYWRSZWFkbWUobG9hZC5kZXRhaWwpIH0KICAgICAgICAgICAgICAgIC5vbkZhaWx1cmUgeyBMb2cudyhUQUcsICJyZWFkbWUgZmV0Y2ggZmFpbGVkIiwgaXQpIH0KICAgICAgICAgICAgdmFsIHJlYWRtZSA9IHJlYWRtZVJlc3VsdC5nZXRPck51bGwoKQogICAgICAgICAgICBsb2FkLmRldGFpbC50b1JlcG9Nb2R1bGVEZXRhaWwoCiAgICAgICAgICAgICAgICBzaXRlTG9jYWxlID0gUmVnaXN0cnlMb2NhbGUuc2l0ZUxvY2FsZShyZXF1ZXN0ZWRMb2NhbGUoKSksCiAgICAgICAgICAgICAgICByZWFkbWVIdG1sID0gcmVhZG1lPy5odG1sLAogICAgICAgICAgICAgICAgcmVhZG1lRmFpbGVkID0gcmVhZG1lUmVzdWx0LmlzRmFpbHVyZSwKICAgICAgICAgICAgICAgIGZyb21DYWNoZSA9IGxvYWQuZnJvbUNhY2hlLAogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQoKICAgIG92ZXJyaWRlIHN1c3BlbmQgZnVuIGZldGNoQ2hhbmdlbG9nSHRtbChtb2R1bGVJZDogU3RyaW5nLCB0YWc6IFN0cmluZz8pOiBTdHJpbmc/ID0gd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgIHZhbCBkZXRhaWwgPSBjbGllbnQubG9hZERldGFpbChtb2R1bGVJZCkuZGV0YWlsCiAgICAgICAgICAgIHZhbCByZWxlYXNlcyA9IGRldGFpbC5yZWxlYXNlcy5maWx0ZXIgeyAhaXQucHJlcmVsZWFzZSB9CiAgICAgICAgICAgIHZhbCByZWxlYXNlID0gaWYgKHRhZyAhPSBudWxsKSB7CiAgICAgICAgICAgICAgICByZWxlYXNlcy5maXJzdE9yTnVsbCB7IGl0LnRhZyA9PSB0YWcgfHwgaXQudmVyc2lvbiA9PSB0YWcgfQogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgcmVsZWFzZXMuZmlyc3RPck51bGwgeyBpdC52ZXJzaW9uQ29kZSA9PSBkZXRhaWwuc3RhYmxlLnZlcnNpb25Db2RlIH0gPzogcmVsZWFzZXMuZmlyc3RPck51bGwoKQogICAgICAgICAgICB9CiAgICAgICAgICAgIHJlbGVhc2U/LmNoYW5nZWxvZ0h0bWw/LnRha2VJZiB7IGl0LmlzTm90QmxhbmsoKSB9CiAgICAgICAgfS5nZXRPck51bGwoKQogICAgfQoKICAgIG92ZXJyaWRlIHN1c3BlbmQgZnVuIHJlc29sdmVVcGRhdGUoCiAgICAgICAgbW9kdWxlSWQ6IFN0cmluZywKICAgICAgICB1cGRhdGVKc29uVXJsOiBTdHJpbmcsCiAgICAgICAgemlwVXJsOiBTdHJpbmcsCiAgICAgICAgdmVyc2lvbkNvZGU6IEludCwKICAgICk6IFVwZGF0ZVZlcmlmaWNhdGlvbiA9IHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgaWYgKFJlZ2lzdHJ5VXBkYXRlUG9saWN5LmlzVW5yZWxhdGVkVG9SZWdpc3RyeShjbGllbnQuYmFzZVVybCwgdXBkYXRlSnNvblVybCwgemlwVXJsKSkgewogICAgICAgICAgICByZXR1cm5Ad2l0aENvbnRleHQgVXBkYXRlVmVyaWZpY2F0aW9uLkxlZ2FjeQogICAgICAgIH0KICAgICAgICAvLyBVc2UgdGhlIGluZGV4IGluIG1lbW9yeSBhcyBpczsgb25seSBsb2FkIG9uZSAobmV0d29yaywgdGhlbiBjYWNoZSkgd2hlbiB0aGVyZSBpcyBub25lLgogICAgICAgIHZhbCBjYXRhbG9nID0gcnVuQ2F0Y2hpbmcgeyBjbGllbnQuY2F0YWxvZygpIH0KICAgICAgICAgICAgLm9uRmFpbHVyZSB7IExvZy53KFRBRywgInJlZ2lzdHJ5IGluZGV4IHVuYXZhaWxhYmxlIGZvciB1cGRhdGUgY2hlY2siLCBpdCkgfQogICAgICAgICAgICAuZ2V0T3JOdWxsKCkKICAgICAgICB2YWwgaW5JbmRleCA9IGNhdGFsb2c/LmxldCB7IGl0LmZpbmQobW9kdWxlSWQpICE9IG51bGwgfQogICAgICAgIHZhbCBkZXRhaWwgPSBpZiAoaW5JbmRleCA9PSB0cnVlKSB7CiAgICAgICAgICAgIHJ1bkNhdGNoaW5nIHsgY2xpZW50LmxvYWREZXRhaWwobW9kdWxlSWQpLmRldGFpbCB9CiAgICAgICAgICAgICAgICAub25GYWlsdXJlIHsgTG9nLncoVEFHLCAicmVnaXN0cnkgZGV0YWlsIHVuYXZhaWxhYmxlIGZvciB1cGRhdGUgY2hlY2siLCBpdCkgfQogICAgICAgICAgICAgICAgLmdldE9yTnVsbCgpCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgbnVsbAogICAgICAgIH0KICAgICAgICBSZWdpc3RyeVVwZGF0ZVBvbGljeS5kZWNpZGUoY2xpZW50LmJhc2VVcmwsIHVwZGF0ZUpzb25VcmwsIHppcFVybCwgdmVyc2lvbkNvZGUsIGluSW5kZXgsIGRldGFpbCkKICAgIH0KCiAgICBvdmVycmlkZSBmdW4gaXNSZWdpc3RyeVVybCh1cmw6IFN0cmluZyk6IEJvb2xlYW4gPSBSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKHVybCwgY2xpZW50LmJhc2VVcmwpCgogICAgb3ZlcnJpZGUgc3VzcGVuZCBmdW4gZmV0Y2hSZWdpc3RyeVRleHQodXJsOiBTdHJpbmcpOiBTdHJpbmc/ID0gd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICBpZiAoIWlzUmVnaXN0cnlVcmwodXJsKSB8fCAhUmVnaXN0cnlVcmxzLmlzSHR0cHNVcmwodXJsKSkgcmV0dXJuQHdpdGhDb250ZXh0IG51bGwKICAgICAgICBydW5DYXRjaGluZyB7IE9rSHR0cFJlZ2lzdHJ5RmV0Y2hlci5mZXRjaCh1cmwpIH0KICAgICAgICAgICAgLm9uRmFpbHVyZSB7IExvZy53KFRBRywgInJlZ2lzdHJ5IGRvY3VtZW50IGZldGNoIGZhaWxlZDogJHVybCIsIGl0KSB9CiAgICAgICAgICAgIC5nZXRPck51bGwoKQogICAgfQoKICAgIHByaXZhdGUgZnVuIGZvcm1hdERhdGUoaXNvOiBTdHJpbmcpOiBQYWlyPFN0cmluZywgTG9uZz4gPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHRpbWUgPSBPZmZzZXREYXRlVGltZS5wYXJzZShpc28pCiAgICAgICAgdmFsIHRleHQgPSB0aW1lLmF0Wm9uZVNhbWVJbnN0YW50KFpvbmVJZC5zeXN0ZW1EZWZhdWx0KCkpCiAgICAgICAgICAgIC5mb3JtYXQoRGF0ZVRpbWVGb3JtYXR0ZXIub2ZMb2NhbGl6ZWREYXRlKEZvcm1hdFN0eWxlLk1FRElVTSkpCiAgICAgICAgdGV4dCB0byB0aW1lLnRvSW5zdGFudCgpLnRvRXBvY2hNaWxsaSgpCiAgICB9LmdldE9yRGVmYXVsdChpc28gdG8gMEwpCgogICAgcHJpdmF0ZSBmdW4gQXBpTW9kdWxlU3VtbWFyeS50b1JlcG9Nb2R1bGUoKTogUmVwb01vZHVsZSA9CiAgICAgICAgYnVpbGRSZXBvTW9kdWxlKGlkLCBuYW1lLCBzdW1tYXJ5LCBhdXRob3JzLCB0YWdzLCBtZXRhbW9kdWxlLCBraW5kLCBpY29uLCBzdGFibGUsIHN0YXJzLCBzdGFyc1JlcG9zaXRvcnkpCgogICAgcHJpdmF0ZSBmdW4gYnVpbGRSZXBvTW9kdWxlKAogICAgICAgIGlkOiBTdHJpbmcsCiAgICAgICAgbmFtZTogU3RyaW5nLAogICAgICAgIHN1bW1hcnk6IFN0cmluZywKICAgICAgICBhdXRob3JzOiBMaXN0PEFwaUF1dGhvcj4sCiAgICAgICAgdGFnczogTGlzdDxTdHJpbmc+LAogICAgICAgIG1ldGFtb2R1bGU6IEJvb2xlYW4sCiAgICAgICAga2luZDogU3RyaW5nLAogICAgICAgIGljb246IFN0cmluZz8sCiAgICAgICAgc3RhYmxlOiBBcGlWZXJzaW9uUmVmLAogICAgICAgIHN0YXJzOiBJbnQ/LAogICAgICAgIHN0YXJzUmVwb3NpdG9yeTogU3RyaW5nPywKICAgICk6IFJlcG9Nb2R1bGUgewogICAgICAgIHZhbCBhdXRob3JMaXN0ID0gYXV0aG9ycwogICAgICAgICAgICAuZmlsdGVyIHsgaXQubmFtZS5pc05vdEJsYW5rKCkgfQogICAgICAgICAgICAubWFwIHsgQXV0aG9yKG5hbWUgPSBpdC5uYW1lLnRyaW0oKSwgbGluayA9IGl0LnVybC5vckVtcHR5KCkpIH0KICAgICAgICB2YWwgKGRhdGUsIGVwb2NoKSA9IGZvcm1hdERhdGUoc3RhYmxlLnB1Ymxpc2hlZEF0KQogICAgICAgIHJldHVybiBSZXBvTW9kdWxlKAogICAgICAgICAgICBtb2R1bGVJZCA9IGlkLAogICAgICAgICAgICBtb2R1bGVOYW1lID0gbmFtZS50cmltKCkuaWZFbXB0eSB7IGlkIH0sCiAgICAgICAgICAgIGF1dGhvcnMgPSBhdXRob3JMaXN0LmpvaW5Ub1N0cmluZygiLCAiKSB7IGl0Lm5hbWUgfSwKICAgICAgICAgICAgYXV0aG9yTGlzdCA9IGF1dGhvckxpc3QsCiAgICAgICAgICAgIHN1bW1hcnkgPSBzdW1tYXJ5LnRyaW0oKSwKICAgICAgICAgICAgdGFncyA9IHRhZ3MsCiAgICAgICAgICAgIG1ldGFtb2R1bGUgPSBtZXRhbW9kdWxlLAogICAgICAgICAgICBpc1NjcmlwdCA9IGtpbmQgPT0gUmVnaXN0cnlLaW5kLlNDUklQVCwKICAgICAgICAgICAgaWNvblVybCA9IGljb24/LmxldCB7IGNsaWVudC5yZXNvbHZlKGl0KSB9LAogICAgICAgICAgICBsYXRlc3RWZXJzaW9uID0gc3RhYmxlLnZlcnNpb24sCiAgICAgICAgICAgIGxhdGVzdFZlcnNpb25Db2RlID0gc3RhYmxlLnZlcnNpb25Db2RlLAogICAgICAgICAgICBsYXRlc3RSZWxlYXNlVGltZSA9IGRhdGUsCiAgICAgICAgICAgIGxhdGVzdFJlbGVhc2VFcG9jaCA9IGVwb2NoLAogICAgICAgICAgICBzdGFycyA9IHN0YXJzLAogICAgICAgICAgICBzdGFyc1JlcG9zaXRvcnkgPSBzdGFyc1JlcG9zaXRvcnksCiAgICAgICAgKQogICAgfQoKICAgIHByaXZhdGUgZnVuIEFwaU1vZHVsZURldGFpbC50b1JlcG9Nb2R1bGVEZXRhaWwoCiAgICAgICAgc2l0ZUxvY2FsZTogU3RyaW5nLAogICAgICAgIHJlYWRtZUh0bWw6IFN0cmluZz8sCiAgICAgICAgcmVhZG1lRmFpbGVkOiBCb29sZWFuLAogICAgICAgIGZyb21DYWNoZTogQm9vbGVhbiwKICAgICk6IFJlcG9Nb2R1bGVEZXRhaWwgewogICAgICAgIHZhbCBtb2R1bGUgPSBidWlsZFJlcG9Nb2R1bGUoaWQsIG5hbWUsIHN1bW1hcnksIGF1dGhvcnMsIHRhZ3MsIG1ldGFtb2R1bGUsIGtpbmQsIGljb24sIHN0YWJsZSwgc3RhcnMsIHN0YXJzUmVwb3NpdG9yeSkKICAgICAgICByZXR1cm4gUmVwb01vZHVsZURldGFpbCgKICAgICAgICAgICAgbW9kdWxlID0gbW9kdWxlLAogICAgICAgICAgICBsaWNlbnNlID0gbGljZW5zZSwKICAgICAgICAgICAgaG9tZXBhZ2UgPSBob21lcGFnZSwKICAgICAgICAgICAgc3VwcG9ydCA9IHN1cHBvcnQsCiAgICAgICAgICAgIHNvdXJjZUZ1bGxOYW1lID0gc291cmNlLmZ1bGxOYW1lLAogICAgICAgICAgICBzb3VyY2VVcmwgPSBzb3VyY2UudXJsLAogICAgICAgICAgICBzb3VyY2VDb21taXQgPSBzb3VyY2UuY29tbWl0LAogICAgICAgICAgICByZWFkbWVIdG1sID0gcmVhZG1lSHRtbCwKICAgICAgICAgICAgcmVhZG1lRmFpbGVkID0gcmVhZG1lRmFpbGVkLAogICAgICAgICAgICByZWFkbWVCYXNlVXJsID0gY2xpZW50LmJhc2VVcmwsCiAgICAgICAgICAgIC8vIFByZXJlbGVhc2VzIGFyZSByZWNvcmRlZCBieSB0aGUgcmVnaXN0cnkgYnV0IG5ldmVyIG9mZmVyZWQgZm9yIGluc3RhbGxhdGlvbi4KICAgICAgICAgICAgcmVsZWFzZXMgPSByZWxlYXNlcy5maWx0ZXIgeyAhaXQucHJlcmVsZWFzZSB9Lm1hcCB7IHIgLT4KICAgICAgICAgICAgICAgIFJlcG9SZWxlYXNlKAogICAgICAgICAgICAgICAgICAgIHRhZyA9IHIudGFnLAogICAgICAgICAgICAgICAgICAgIG5hbWUgPSByLm5hbWU/LnRha2VJZiB7IGl0LmlzTm90QmxhbmsoKSB9ID86IHIudGFnLAogICAgICAgICAgICAgICAgICAgIHZlcnNpb24gPSByLnZlcnNpb24sCiAgICAgICAgICAgICAgICAgICAgdmVyc2lvbkNvZGUgPSByLnZlcnNpb25Db2RlLAogICAgICAgICAgICAgICAgICAgIHB1Ymxpc2hlZEF0ID0gZm9ybWF0RGF0ZShyLnB1Ymxpc2hlZEF0KS5maXJzdCwKICAgICAgICAgICAgICAgICAgICBjaGFuZ2Vsb2dIdG1sID0gci5jaGFuZ2Vsb2dIdG1sPy50YWtlSWYgeyBpdC5pc05vdEJsYW5rKCkgfSwKICAgICAgICAgICAgICAgICAgICB6aXBVcmwgPSByLnppcC51cmwsCiAgICAgICAgICAgICAgICAgICAgemlwTmFtZSA9IHIuemlwLm5hbWUuc3Vic3RyaW5nQWZ0ZXJMYXN0KCcvJykuaWZCbGFuayB7ICIkaWQtJHtyLnZlcnNpb25Db2RlfS56aXAiIH0sCiAgICAgICAgICAgICAgICAgICAgemlwU2l6ZSA9IHIuemlwLnNpemUsCiAgICAgICAgICAgICAgICAgICAgc2hhMjU2ID0gci56aXAuc2hhMjU2LAogICAgICAgICAgICAgICAgICAgIHRhZ0NvbW1pdCA9IHIudGFnQ29tbWl0LAogICAgICAgICAgICAgICAgICAgIHJlbGVhc2VVcmwgPSByLnJlbGVhc2VVcmwsCiAgICAgICAgICAgICAgICAgICAgYXR0ZXN0YXRpb25VcmwgPSByLmF0dGVzdGF0aW9uVXJsLAogICAgICAgICAgICAgICAgICAgIGltbXV0YWJsZSA9IHIuaW1tdXRhYmxlLAogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9LAogICAgICAgICAgICBoZWFsdGhTdGFsZSA9IGhlYWx0aD8uc3RhdHVzID09ICJzdGFsZSIsCiAgICAgICAgICAgIC8vIFRoZSBwdWJsaWMgc2l0ZSBvbmx5IGhhcyBVSSBsb2NhbGVzLCBub3QgdGhlIG1vZHVsZSdzIGNvbnRlbnQgbG9jYWxlcy4KICAgICAgICAgICAgd2ViVXJsID0gIiR7Y2xpZW50LmJhc2VVcmx9JHNpdGVMb2NhbGUvbW9kdWxlcy8kaWQvIiwKICAgICAgICAgICAgZnJvbUNhY2hlID0gZnJvbUNhY2hlLAogICAgICAgICkKICAgIH0KfQo=
+package com.xinsu.moe.data.repository
+
+import android.util.Log
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import com.xinsu.moe.data.model.Author
+import com.xinsu.moe.data.model.RepoModule
+import com.xinsu.moe.data.model.RepoModuleDetail
+import com.xinsu.moe.data.model.RepoModuleList
+import com.xinsu.moe.data.model.RepoRelease
+import com.xinsu.moe.data.registry.ApiAuthor
+import com.xinsu.moe.data.registry.ApiModuleDetail
+import com.xinsu.moe.data.registry.ApiModuleSummary
+import com.xinsu.moe.data.registry.ApiVersionRef
+import com.xinsu.moe.data.registry.FileRegistryCache
+import com.xinsu.moe.data.registry.RegistryClient
+import com.xinsu.moe.data.registry.RegistryFetcher
+import com.xinsu.moe.data.registry.RegistryKind
+import com.xinsu.moe.data.registry.RegistryLocale
+import com.xinsu.moe.data.registry.RegistryUpdatePolicy
+import com.xinsu.moe.data.registry.RegistryUrls
+import com.xinsu.moe.data.registry.UpdateVerification
+import com.xinsu.moe.ksuApp
+import okhttp3.CacheControl
+import okhttp3.Request
+import java.io.File
+import java.io.IOException
+import java.time.OffsetDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import java.util.Locale
+
+class ModuleRepoRepositoryImpl : ModuleRepoRepository {
+
+    companion object {
+        private const val TAG = "ModuleRepoRepository"
+
+        /** Site root of KernelSU Modules; every API path is resolved against it. */
+        const val REGISTRY_BASE_URL = RegistryUrls.DEFAULT_BASE_URL
+
+        /** Upper bound for a single JSON / HTML document. */
+        private const val MAX_DOCUMENT_BYTES = 32L * 1024 * 1024
+
+        // One client per process so the list and detail screens share the same catalog.
+        private val client: RegistryClient by lazy {
+            RegistryClient(
+                baseUrl = REGISTRY_BASE_URL,
+                fetcher = OkHttpRegistryFetcher,
+                cache = FileRegistryCache(File(ksuApp.filesDir, "module_registry")),
+            )
+        }
+
+        private fun requestedLocale(): String = Locale.getDefault().toLanguageTag()
+    }
+
+    private object OkHttpRegistryFetcher : RegistryFetcher {
+        override fun fetch(url: String): String {
+            val request = Request.Builder()
+                .url(url)
+                // Revalidate so index, list and detail are never served from different cache ages.
+                .cacheControl(CacheControl.Builder().noCache().build())
+                .build()
+            ksuApp.okhttpClient.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) throw IOException("HTTP ${response.code} for $url")
+                val body = response.body
+                if (body.contentLength() > MAX_DOCUMENT_BYTES) throw IOException("Document too large: $url")
+                val source = body.source()
+                if (source.request(MAX_DOCUMENT_BYTES + 1)) throw IOException("Document too large: $url")
+                return source.readUtf8()
+            }
+        }
+    }
+
+    override suspend fun fetchModules(): Result<RepoModuleList> = withContext(Dispatchers.IO) {
+        runCatching {
+            val load = client.loadCatalog()
+            load.error?.let { Log.w(TAG, "registry fetch failed, using last good copy", it) }
+            RepoModuleList(
+                modules = load.catalog.modules.map { it.toRepoModule() },
+                buildId = load.catalog.buildId,
+                stale = load.error != null || load.catalog.fromCache,
+                error = load.error,
+            )
+        }
+    }
+
+    override suspend fun fetchDetail(moduleId: String): Result<RepoModuleDetail> = withContext(Dispatchers.IO) {
+        runCatching {
+            val load = client.loadDetail(moduleId)
+            load.error?.let { Log.w(TAG, "detail fetch failed, using last good copy", it) }
+            val readmeResult = runCatching { client.loadReadme(load.detail) }
+                .onFailure { Log.w(TAG, "readme fetch failed", it) }
+            val readme = readmeResult.getOrNull()
+            load.detail.toRepoModuleDetail(
+                siteLocale = RegistryLocale.siteLocale(requestedLocale()),
+                readmeHtml = readme?.html,
+                readmeFailed = readmeResult.isFailure,
+                fromCache = load.fromCache,
+            )
+        }
+    }
+
+    override suspend fun fetchChangelogHtml(moduleId: String, tag: String?): String? = withContext(Dispatchers.IO) {
+        runCatching {
+            val detail = client.loadDetail(moduleId).detail
+            val releases = detail.releases.filter { !it.prerelease }
+            val release = if (tag != null) {
+                releases.firstOrNull { it.tag == tag || it.version == tag }
+            } else {
+                releases.firstOrNull { it.versionCode == detail.stable.versionCode } ?: releases.firstOrNull()
+            }
+            release?.changelogHtml?.takeIf { it.isNotBlank() }
+        }.getOrNull()
+    }
+
+    override suspend fun resolveUpdate(
+        moduleId: String,
+        updateJsonUrl: String,
+        zipUrl: String,
+        versionCode: Int,
+    ): UpdateVerification = withContext(Dispatchers.IO) {
+        if (RegistryUpdatePolicy.isUnrelatedToRegistry(client.baseUrl, updateJsonUrl, zipUrl)) {
+            return@withContext UpdateVerification.Legacy
+        }
+        // Use the index in memory as is; only load one (network, then cache) when there is none.
+        val catalog = runCatching { client.catalog() }
+            .onFailure { Log.w(TAG, "registry index unavailable for update check", it) }
+            .getOrNull()
+        val inIndex = catalog?.let { it.find(moduleId) != null }
+        val detail = if (inIndex == true) {
+            runCatching { client.loadDetail(moduleId).detail }
+                .onFailure { Log.w(TAG, "registry detail unavailable for update check", it) }
+                .getOrNull()
+        } else {
+            null
+        }
+        RegistryUpdatePolicy.decide(client.baseUrl, updateJsonUrl, zipUrl, versionCode, inIndex, detail)
+    }
+
+    override fun isRegistryUrl(url: String): Boolean = RegistryUrls.isSameOrigin(url, client.baseUrl)
+
+    override suspend fun fetchRegistryText(url: String): String? = withContext(Dispatchers.IO) {
+        if (!isRegistryUrl(url) || !RegistryUrls.isHttpsUrl(url)) return@withContext null
+        runCatching { OkHttpRegistryFetcher.fetch(url) }
+            .onFailure { Log.w(TAG, "registry document fetch failed: $url", it) }
+            .getOrNull()
+    }
+
+    private fun formatDate(iso: String): Pair<String, Long> = runCatching {
+        val time = OffsetDateTime.parse(iso)
+        val text = time.atZoneSameInstant(ZoneId.systemDefault())
+            .format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM))
+        text to time.toInstant().toEpochMilli()
+    }.getOrDefault(iso to 0L)
+
+    private fun ApiModuleSummary.toRepoModule(): RepoModule =
+        buildRepoModule(id, name, summary, authors, tags, metamodule, kind, icon, stable, stars, starsRepository)
+
+    private fun buildRepoModule(
+        id: String,
+        name: String,
+        summary: String,
+        authors: List<ApiAuthor>,
+        tags: List<String>,
+        metamodule: Boolean,
+        kind: String,
+        icon: String?,
+        stable: ApiVersionRef,
+        stars: Int?,
+        starsRepository: String?,
+    ): RepoModule {
+        val authorList = authors
+            .filter { it.name.isNotBlank() }
+            .map { Author(name = it.name.trim(), link = it.url.orEmpty()) }
+        val (date, epoch) = formatDate(stable.publishedAt)
+        return RepoModule(
+            moduleId = id,
+            moduleName = name.trim().ifEmpty { id },
+            authors = authorList.joinToString(", ") { it.name },
+            authorList = authorList,
+            summary = summary.trim(),
+            tags = tags,
+            metamodule = metamodule,
+            isScript = kind == RegistryKind.SCRIPT,
+            iconUrl = icon?.let { client.resolve(it) },
+            latestVersion = stable.version,
+            latestVersionCode = stable.versionCode,
+            latestReleaseTime = date,
+            latestReleaseEpoch = epoch,
+            stars = stars,
+            starsRepository = starsRepository,
+        )
+    }
+
+    private fun ApiModuleDetail.toRepoModuleDetail(
+        siteLocale: String,
+        readmeHtml: String?,
+        readmeFailed: Boolean,
+        fromCache: Boolean,
+    ): RepoModuleDetail {
+        val module = buildRepoModule(id, name, summary, authors, tags, metamodule, kind, icon, stable, stars, starsRepository)
+        return RepoModuleDetail(
+            module = module,
+            license = license,
+            homepage = homepage,
+            support = support,
+            sourceFullName = source.fullName,
+            sourceUrl = source.url,
+            sourceCommit = source.commit,
+            readmeHtml = readmeHtml,
+            readmeFailed = readmeFailed,
+            readmeBaseUrl = client.baseUrl,
+            // Prereleases are recorded by the registry but never offered for installation.
+            releases = releases.filter { !it.prerelease }.map { r ->
+                RepoRelease(
+                    tag = r.tag,
+                    name = r.name?.takeIf { it.isNotBlank() } ?: r.tag,
+                    version = r.version,
+                    versionCode = r.versionCode,
+                    publishedAt = formatDate(r.publishedAt).first,
+                    changelogHtml = r.changelogHtml?.takeIf { it.isNotBlank() },
+                    zipUrl = r.zip.url,
+                    zipName = r.zip.name.substringAfterLast('/').ifBlank { "$id-${r.versionCode}.zip" },
+                    zipSize = r.zip.size,
+                    sha256 = r.zip.sha256,
+                    tagCommit = r.tagCommit,
+                    releaseUrl = r.releaseUrl,
+                    attestationUrl = r.attestationUrl,
+                    immutable = r.immutable,
+                )
+            },
+            healthStale = health?.status == "stale",
+            // The public site only has UI locales, not the module's content locales.
+            webUrl = "${client.baseUrl}$siteLocale/modules/$id/",
+            fromCache = fromCache,
+        )
+    }
+}

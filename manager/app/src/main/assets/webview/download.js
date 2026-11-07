@@ -1,1 +1,127 @@
-KGZ1bmN0aW9uKCkgewogICAgaWYgKHdpbmRvdy5rc3VfZG93bmxvYWRfZW5hYmxlZCkgcmV0dXJuOwogICAgd2luZG93LmtzdV9kb3dubG9hZF9lbmFibGVkID0gdHJ1ZTsKCiAgICBjb25zdCBDSFVOS19TSVpFID0gNTEyICogMTAyNDsKICAgIGNvbnN0IFNJWkVfVEhSRVNIT0xEID0gMTAgKiAxMDI0ICogMTAyNDsKICAgIGNvbnN0IElOVEVSTkFMX0JMT0JfSE9TVCA9ICdibG9iLWRvd25sb2FkLmtlcm5lbHN1LmludGVybmFsJzsKCiAgICBjb25zdCBibG9iTWFwID0gbmV3IE1hcCgpOwogICAgY29uc3Qgb3JpZ2luYWxDcmVhdGVPYmplY3RVUkwgPSBVUkwuY3JlYXRlT2JqZWN0VVJMOwogICAgVVJMLmNyZWF0ZU9iamVjdFVSTCA9IChvYmopID0+IHsKICAgICAgICBjb25zdCB1cmwgPSBvcmlnaW5hbENyZWF0ZU9iamVjdFVSTChvYmopOwogICAgICAgIGlmIChvYmogaW5zdGFuY2VvZiBCbG9iKSBibG9iTWFwLnNldCh1cmwsIG9iaik7CiAgICAgICAgcmV0dXJuIHVybDsKICAgIH07CgogICAgY29uc3Qgb3JpZ2luYWxSZXZva2VPYmplY3RVUkwgPSBVUkwucmV2b2tlT2JqZWN0VVJMOwogICAgVVJMLnJldm9rZU9iamVjdFVSTCA9ICh1cmwpID0+IHsKICAgICAgICBzZXRUaW1lb3V0KCgpID0+IGJsb2JNYXAuZGVsZXRlKHVybCksIDEwMDAwKTsKICAgICAgICByZXR1cm4gb3JpZ2luYWxSZXZva2VPYmplY3RVUkwodXJsKTsKICAgIH07CgogICAgY29uc3QgcmVhZENodW5rID0gKGJsb2IsIHN0YXJ0LCBlbmQpID0+IHsKICAgICAgICByZXR1cm4gbmV3IFByb21pc2UoKHJlc29sdmUsIHJlamVjdCkgPT4gewogICAgICAgICAgICBjb25zdCBjaHVuayA9IGJsb2Iuc2xpY2Uoc3RhcnQsIGVuZCk7CiAgICAgICAgICAgIGNvbnN0IHJlYWRlciA9IG5ldyBGaWxlUmVhZGVyKCk7CiAgICAgICAgICAgIHJlYWRlci5vbmxvYWQgPSAoKSA9PiByZXNvbHZlKHJlYWRlci5yZXN1bHQuc3BsaXQoJywnKVsxXSB8fCAnJyk7CiAgICAgICAgICAgIHJlYWRlci5vbmVycm9yID0gKCkgPT4gcmVqZWN0KHJlYWRlci5lcnJvciB8fCBuZXcgRXJyb3IoJ0ZhaWxlZCB0byByZWFkIGNodW5rJykpOwogICAgICAgICAgICByZWFkZXIucmVhZEFzRGF0YVVSTChjaHVuayk7CiAgICAgICAgfSk7CiAgICB9OwoKICAgIGNvbnN0IGRvd25sb2FkQ2h1bmtlZCA9IGFzeW5jIChibG9iLCBmaWxlTmFtZSkgPT4gewogICAgICAgIGNvbnN0IG1pbWVUeXBlID0gYmxvYi50eXBlIHx8ICdhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0nOwogICAgICAgIGNvbnN0IGRvd25sb2FkSWQgPSBrc3VfZG93bmxvYWQuc3RhcnRDaHVua2VkRG93bmxvYWQoZmlsZU5hbWUsIG1pbWVUeXBlKTsKCiAgICAgICAgaWYgKCFkb3dubG9hZElkKSB7CiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcignRmFpbGVkIHRvIHN0YXJ0IGNodW5rZWQgZG93bmxvYWQnKTsKICAgICAgICB9CgogICAgICAgIHRyeSB7CiAgICAgICAgICAgIGxldCBvZmZzZXQgPSAwOwogICAgICAgICAgICBjb25zdCBzaXplID0gYmxvYi5zaXplOwoKICAgICAgICAgICAgd2hpbGUgKG9mZnNldCA8IHNpemUpIHsKICAgICAgICAgICAgICAgIGNvbnN0IGVuZCA9IE1hdGgubWluKG9mZnNldCArIENIVU5LX1NJWkUsIHNpemUpOwogICAgICAgICAgICAgICAgY29uc3QgYmFzZTY0Q2h1bmsgPSBhd2FpdCByZWFkQ2h1bmsoYmxvYiwgb2Zmc2V0LCBlbmQpOwoKICAgICAgICAgICAgICAgIGlmICgha3N1X2Rvd25sb2FkLndyaXRlRG93bmxvYWRDaHVuayhkb3dubG9hZElkLCBiYXNlNjRDaHVuaykpIHsKICAgICAgICAgICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoJ0ZhaWxlZCB0byB3cml0ZSBjaHVuaycpOwogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIG9mZnNldCA9IGVuZDsKICAgICAgICAgICAgfQoKICAgICAgICAgICAgaWYgKCFrc3VfZG93bmxvYWQuY29tcGxldGVDaHVua2VkRG93bmxvYWQoZG93bmxvYWRJZCkpIHsKICAgICAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcignRmFpbGVkIHRvIGNvbXBsZXRlIGRvd25sb2FkJyk7CiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGNvbnN0IGEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdhJyk7CiAgICAgICAgICAgIGEuaHJlZiA9IGRvd25sb2FkSWQ7CiAgICAgICAgICAgIGEuZG93bmxvYWQgPSBmaWxlTmFtZTsKICAgICAgICAgICAgYS5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwogICAgICAgICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGEpOwogICAgICAgICAgICBhLmNsaWNrKCk7CiAgICAgICAgICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQoYSk7CiAgICAgICAgfSBjYXRjaCAoZXJyb3IpIHsKICAgICAgICAgICAga3N1X2Rvd25sb2FkLmNhbmNlbENodW5rZWREb3dubG9hZChkb3dubG9hZElkKTsKICAgICAgICAgICAgdGhyb3cgZXJyb3I7CiAgICAgICAgfQogICAgfTsKCiAgICBjb25zdCBkb3dubG9hZExlZ2FjeSA9IGFzeW5jIChibG9iLCBmaWxlTmFtZSkgPT4gewogICAgICAgIGNvbnN0IGJhc2U2NCA9IGF3YWl0IG5ldyBQcm9taXNlKChyZXNvbHZlLCByZWplY3QpID0+IHsKICAgICAgICAgICAgY29uc3QgcmVhZGVyID0gbmV3IEZpbGVSZWFkZXIoKTsKICAgICAgICAgICAgcmVhZGVyLm9ubG9hZCA9ICgpID0+IHJlc29sdmUocmVhZGVyLnJlc3VsdC5zcGxpdCgnLCcpWzFdIHx8ICcnKTsKICAgICAgICAgICAgcmVhZGVyLm9uZXJyb3IgPSAoKSA9PiByZWplY3QocmVhZGVyLmVycm9yIHx8IG5ldyBFcnJvcignRmFpbGVkIHRvIHJlYWQgYmxvYicpKTsKICAgICAgICAgICAgcmVhZGVyLnJlYWRBc0RhdGFVUkwoYmxvYik7CiAgICAgICAgfSk7CiAgICAgICAga3N1X2Rvd25sb2FkLnNhdmUoYmFzZTY0LCBmaWxlTmFtZSk7CiAgICB9OwoKICAgIGNvbnN0IGhhbmRsZURvd25sb2FkID0gYXN5bmMgKGFuY2hvcikgPT4gewogICAgICAgIGNvbnN0IHVybCA9IG5ldyBVUkwoYW5jaG9yLmhyZWYsIGxvY2F0aW9uLmhyZWYpOwogICAgICAgIGNvbnN0IGZpbGVOYW1lID0gYW5jaG9yLmRvd25sb2FkIHx8IHVybC5wYXRobmFtZS5zcGxpdCgiLyIpLnBvcCgpLnNwbGl0KCI/IilbMF0gfHwgImRvd25sb2FkLmJpbiI7CiAgICAgICAgY29uc3QgaXNJbnRlcm5hbCA9IHVybC5ob3N0bmFtZSA9PT0gJ211aS54aW5vdmFzdS5vcmcnOwoKICAgICAgICBpZiAodXJsLmhvc3RuYW1lID09PSBJTlRFUk5BTF9CTE9CX0hPU1QpIHsKICAgICAgICAgICAgcmV0dXJuIG9yaWdpbmFsQ2xpY2suY2FsbChhbmNob3IpOwogICAgICAgIH0KCiAgICAgICAgaWYgKHVybC5wcm90b2NvbCA9PT0gJ2Jsb2I6JyB8fCB1cmwucHJvdG9jb2wgPT09ICdkYXRhOicgfHwgaXNJbnRlcm5hbCkgewogICAgICAgICAgICBjb25zdCBibG9iID0gKHVybC5wcm90b2NvbCA9PT0gJ2Jsb2I6JyAmJiBibG9iTWFwLmhhcyh1cmwuaHJlZikpCiAgICAgICAgICAgICAgICA/IGJsb2JNYXAuZ2V0KHVybC5ocmVmKQogICAgICAgICAgICAgICAgOiBhd2FpdCAoYXdhaXQgZmV0Y2godXJsLmhyZWYsIHsgY3JlZGVudGlhbHM6ICdpbmNsdWRlJyB9KSkuYmxvYigpOwoKICAgICAgICAgICAgaWYgKGJsb2Iuc2l6ZSA+IFNJWkVfVEhSRVNIT0xEKSB7CiAgICAgICAgICAgICAgICBhd2FpdCBkb3dubG9hZENodW5rZWQoYmxvYiwgZmlsZU5hbWUpOwogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgYXdhaXQgZG93bmxvYWRMZWdhY3koYmxvYiwgZmlsZU5hbWUpOwogICAgICAgICAgICB9CiAgICAgICAgICAgIHJldHVybjsKICAgICAgICB9CgogICAgICAgIGtzdV9kb3dubG9hZC5vcGVuRXh0ZXJuYWwodXJsLmhyZWYpOwogICAgfTsKCiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIChldmVudCkgPT4gewogICAgICAgIGNvbnN0IGFuY2hvciA9IGV2ZW50LnRhcmdldC5jbG9zZXN0KCdhW2Rvd25sb2FkXScpOwogICAgICAgIGlmICghYW5jaG9yIHx8ICFhbmNob3IuaHJlZikgcmV0dXJuOwogICAgICAgIGlmIChuZXcgVVJMKGFuY2hvci5ocmVmLCBsb2NhdGlvbi5ocmVmKS5ob3N0bmFtZSA9PT0gSU5URVJOQUxfQkxPQl9IT1NUKSByZXR1cm47CiAgICAgICAgZXZlbnQucHJldmVudERlZmF1bHQoKTsKICAgICAgICBoYW5kbGVEb3dubG9hZChhbmNob3IpLmNhdGNoKChlcnJvcikgPT4gY29uc29sZS5lcnJvcignS2VybmVsU1UgZG93bmxvYWQgZmFpbGVkJywgZXJyb3IpKTsKICAgIH0sIHRydWUpOwoKICAgIGNvbnN0IG9yaWdpbmFsQ2xpY2sgPSBIVE1MQW5jaG9yRWxlbWVudC5wcm90b3R5cGUuY2xpY2s7CiAgICBIVE1MQW5jaG9yRWxlbWVudC5wcm90b3R5cGUuY2xpY2sgPSBmdW5jdGlvbigpIHsKICAgICAgICBpZiAodGhpcy5oYXNBdHRyaWJ1dGUoJ2Rvd25sb2FkJykgJiYgdGhpcy5ocmVmKSB7CiAgICAgICAgICAgIGlmIChuZXcgVVJMKHRoaXMuaHJlZiwgbG9jYXRpb24uaHJlZikuaG9zdG5hbWUgPT09IElOVEVSTkFMX0JMT0JfSE9TVCkgewogICAgICAgICAgICAgICAgcmV0dXJuIG9yaWdpbmFsQ2xpY2suYXBwbHkodGhpcywgYXJndW1lbnRzKTsKICAgICAgICAgICAgfQogICAgICAgICAgICBoYW5kbGVEb3dubG9hZCh0aGlzKS5jYXRjaCgoZXJyb3IpID0+IGNvbnNvbGUuZXJyb3IoJ0tlcm5lbFNVIGRvd25sb2FkIGZhaWxlZCcsIGVycm9yKSk7CiAgICAgICAgICAgIHJldHVybjsKICAgICAgICB9CiAgICAgICAgcmV0dXJuIG9yaWdpbmFsQ2xpY2suYXBwbHkodGhpcywgYXJndW1lbnRzKTsKICAgIH07Cn0pKCk7Cg==
+(function() {
+    if (window.ksu_download_enabled) return;
+    window.ksu_download_enabled = true;
+
+    const CHUNK_SIZE = 512 * 1024;
+    const SIZE_THRESHOLD = 10 * 1024 * 1024;
+    const INTERNAL_BLOB_HOST = 'blob-download.kernelsu.internal';
+
+    const blobMap = new Map();
+    const originalCreateObjectURL = URL.createObjectURL;
+    URL.createObjectURL = (obj) => {
+        const url = originalCreateObjectURL(obj);
+        if (obj instanceof Blob) blobMap.set(url, obj);
+        return url;
+    };
+
+    const originalRevokeObjectURL = URL.revokeObjectURL;
+    URL.revokeObjectURL = (url) => {
+        setTimeout(() => blobMap.delete(url), 10000);
+        return originalRevokeObjectURL(url);
+    };
+
+    const readChunk = (blob, start, end) => {
+        return new Promise((resolve, reject) => {
+            const chunk = blob.slice(start, end);
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result.split(',')[1] || '');
+            reader.onerror = () => reject(reader.error || new Error('Failed to read chunk'));
+            reader.readAsDataURL(chunk);
+        });
+    };
+
+    const downloadChunked = async (blob, fileName) => {
+        const mimeType = blob.type || 'application/octet-stream';
+        const downloadId = ksu_download.startChunkedDownload(fileName, mimeType);
+
+        if (!downloadId) {
+            throw new Error('Failed to start chunked download');
+        }
+
+        try {
+            let offset = 0;
+            const size = blob.size;
+
+            while (offset < size) {
+                const end = Math.min(offset + CHUNK_SIZE, size);
+                const base64Chunk = await readChunk(blob, offset, end);
+
+                if (!ksu_download.writeDownloadChunk(downloadId, base64Chunk)) {
+                    throw new Error('Failed to write chunk');
+                }
+
+                offset = end;
+            }
+
+            if (!ksu_download.completeChunkedDownload(downloadId)) {
+                throw new Error('Failed to complete download');
+            }
+
+            const a = document.createElement('a');
+            a.href = downloadId;
+            a.download = fileName;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } catch (error) {
+            ksu_download.cancelChunkedDownload(downloadId);
+            throw error;
+        }
+    };
+
+    const downloadLegacy = async (blob, fileName) => {
+        const base64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result.split(',')[1] || '');
+            reader.onerror = () => reject(reader.error || new Error('Failed to read blob'));
+            reader.readAsDataURL(blob);
+        });
+        ksu_download.save(base64, fileName);
+    };
+
+    const handleDownload = async (anchor) => {
+        const url = new URL(anchor.href, location.href);
+        const fileName = anchor.download || url.pathname.split("/").pop().split("?")[0] || "download.bin";
+        const isInternal = url.hostname === 'mui.xinovasu.org';
+
+        if (url.hostname === INTERNAL_BLOB_HOST) {
+            return originalClick.call(anchor);
+        }
+
+        if (url.protocol === 'blob:' || url.protocol === 'data:' || isInternal) {
+            const blob = (url.protocol === 'blob:' && blobMap.has(url.href))
+                ? blobMap.get(url.href)
+                : await (await fetch(url.href, { credentials: 'include' })).blob();
+
+            if (blob.size > SIZE_THRESHOLD) {
+                await downloadChunked(blob, fileName);
+            } else {
+                await downloadLegacy(blob, fileName);
+            }
+            return;
+        }
+
+        ksu_download.openExternal(url.href);
+    };
+
+    document.addEventListener('click', (event) => {
+        const anchor = event.target.closest('a[download]');
+        if (!anchor || !anchor.href) return;
+        if (new URL(anchor.href, location.href).hostname === INTERNAL_BLOB_HOST) return;
+        event.preventDefault();
+        handleDownload(anchor).catch((error) => console.error('KernelSU download failed', error));
+    }, true);
+
+    const originalClick = HTMLAnchorElement.prototype.click;
+    HTMLAnchorElement.prototype.click = function() {
+        if (this.hasAttribute('download') && this.href) {
+            if (new URL(this.href, location.href).hostname === INTERNAL_BLOB_HOST) {
+                return originalClick.apply(this, arguments);
+            }
+            handleDownload(this).catch((error) => console.error('KernelSU download failed', error));
+            return;
+        }
+        return originalClick.apply(this, arguments);
+    };
+})();

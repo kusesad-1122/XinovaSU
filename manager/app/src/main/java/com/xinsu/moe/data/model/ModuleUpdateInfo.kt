@@ -1,1 +1,15 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEubW9kZWwKCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuSW1tdXRhYmxlCgpASW1tdXRhYmxlCmRhdGEgY2xhc3MgTW9kdWxlVXBkYXRlSW5mbygKICAgIHZhbCBkb3dubG9hZFVybDogU3RyaW5nLAogICAgdmFsIHZlcnNpb246IFN0cmluZywKICAgIHZhbCBjaGFuZ2Vsb2c6IFN0cmluZywKICAgIHZhbCB2ZXJzaW9uQ29kZTogSW50ID0gMCwKKSB7CiAgICBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICB2YWwgRW1wdHkgPSBNb2R1bGVVcGRhdGVJbmZvKCIiLCAiIiwgIiIpCiAgICB9Cn0K
+package com.xinsu.moe.data.model
+
+import androidx.compose.runtime.Immutable
+
+@Immutable
+data class ModuleUpdateInfo(
+    val downloadUrl: String,
+    val version: String,
+    val changelog: String,
+    val versionCode: Int = 0,
+) {
+    companion object {
+        val Empty = ModuleUpdateInfo("", "", "")
+    }
+}

@@ -1,1 +1,163 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5tb2R1bGUKCmltcG9ydCBhbmRyb2lkLmNvbnRlbnQuQ29udGV4dAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5hbmltYXRpb24uY29yZS5BbmltYXRhYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmFuaW1hdGlvbi5jb3JlLkVhc2VJbk91dEN1YmljCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmFuaW1hdGlvbi5jb3JlLkZhc3RPdXRTbG93SW5FYXNpbmcKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuYW5pbWF0aW9uLmNvcmUudHdlZW4KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLkxvY2FsVGV4dFN0eWxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsMy5UZXh0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuQ29tcG9zYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkxhdW5jaGVkRWZmZWN0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuZ2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5tdXRhYmxlU3RhdGVPZgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnJlbWVtYmVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuTW9kaWZpZXIKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuZHJhdy5jbGlwVG9Cb3VuZHMKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuZ3JhcGhpY3MuQ29sb3IKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkubGF5b3V0LlN1YmNvbXBvc2VMYXlvdXQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudGV4dC5UZXh0U3R5bGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudGV4dC5zdHlsZS5UZXh0RGVjb3JhdGlvbgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS50ZXh0LnN0eWxlLlRleHRPdmVyZmxvdwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS51bml0LlRleHRVbml0CmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwubW9kdWxlLlNob3J0Y3V0CmltcG9ydCBrb3RsaW4ubWF0aC5yb3VuZFRvSW50CgplbnVtIGNsYXNzIFNob3J0Y3V0VHlwZSB7CiAgICBBY3Rpb24sCiAgICBXZWJVSQp9CgpmdW4gaGFzTW9kdWxlU2hvcnRjdXQoY29udGV4dDogQ29udGV4dCwgbW9kdWxlSWQ6IFN0cmluZywgdHlwZTogU2hvcnRjdXRUeXBlKTogQm9vbGVhbiB7CiAgICByZXR1cm4gd2hlbiAodHlwZSkgewogICAgICAgIFNob3J0Y3V0VHlwZS5BY3Rpb24gLT4gU2hvcnRjdXQuaGFzTW9kdWxlQWN0aW9uU2hvcnRjdXQoY29udGV4dCwgbW9kdWxlSWQpCiAgICAgICAgU2hvcnRjdXRUeXBlLldlYlVJIC0+IFNob3J0Y3V0Lmhhc01vZHVsZVdlYlVpU2hvcnRjdXQoY29udGV4dCwgbW9kdWxlSWQpCiAgICB9Cn0KCmZ1biBkZWxldGVNb2R1bGVTaG9ydGN1dChjb250ZXh0OiBDb250ZXh0LCBtb2R1bGVJZDogU3RyaW5nLCB0eXBlOiBTaG9ydGN1dFR5cGUpIHsKICAgIHdoZW4gKHR5cGUpIHsKICAgICAgICBTaG9ydGN1dFR5cGUuQWN0aW9uIC0+IFNob3J0Y3V0LmRlbGV0ZU1vZHVsZUFjdGlvblNob3J0Y3V0KGNvbnRleHQsIG1vZHVsZUlkKQogICAgICAgIFNob3J0Y3V0VHlwZS5XZWJVSSAtPiBTaG9ydGN1dC5kZWxldGVNb2R1bGVXZWJVaVNob3J0Y3V0KGNvbnRleHQsIG1vZHVsZUlkKQogICAgfQp9CgpmdW4gY3JlYXRlTW9kdWxlU2hvcnRjdXQoCiAgICBjb250ZXh0OiBDb250ZXh0LAogICAgbW9kdWxlSWQ6IFN0cmluZywKICAgIG5hbWU6IFN0cmluZywKICAgIGljb25Vcmk6IFN0cmluZz8sCiAgICB0eXBlOiBTaG9ydGN1dFR5cGUKKSB7CiAgICB3aGVuICh0eXBlKSB7CiAgICAgICAgU2hvcnRjdXRUeXBlLkFjdGlvbiAtPiB7CiAgICAgICAgICAgIFNob3J0Y3V0LmNyZWF0ZU1vZHVsZUFjdGlvblNob3J0Y3V0KAogICAgICAgICAgICAgICAgY29udGV4dCA9IGNvbnRleHQsCiAgICAgICAgICAgICAgICBtb2R1bGVJZCA9IG1vZHVsZUlkLAogICAgICAgICAgICAgICAgbmFtZSA9IG5hbWUsCiAgICAgICAgICAgICAgICBpY29uVXJpID0gaWNvblVyaQogICAgICAgICAgICApCiAgICAgICAgfQoKICAgICAgICBTaG9ydGN1dFR5cGUuV2ViVUkgLT4gewogICAgICAgICAgICBTaG9ydGN1dC5jcmVhdGVNb2R1bGVXZWJVaVNob3J0Y3V0KAogICAgICAgICAgICAgICAgY29udGV4dCA9IGNvbnRleHQsCiAgICAgICAgICAgICAgICBtb2R1bGVJZCA9IG1vZHVsZUlkLAogICAgICAgICAgICAgICAgbmFtZSA9IG5hbWUsCiAgICAgICAgICAgICAgICBpY29uVXJpID0gaWNvblVyaQogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQp9Cgpwcml2YXRlIGVudW0gY2xhc3MgRGVzY3JpcHRpb25TbG90IHsKICAgIENvbGxhcHNlZCwKICAgIEV4cGFuZGVkCn0KCkBDb21wb3NhYmxlCmZ1biBFeHBhbmRhYmxlRGVzY3JpcHRpb25UZXh0KAogICAgdGV4dDogU3RyaW5nLAogICAgZXhwYW5kZWQ6IEJvb2xlYW4sCiAgICBtYXhMaW5lc0xpbWl0OiBJbnQsCiAgICBtb2RpZmllcjogTW9kaWZpZXIgPSBNb2RpZmllciwKICAgIGNvbG9yOiBDb2xvciA9IENvbG9yLlVuc3BlY2lmaWVkLAogICAgc3R5bGU6IFRleHRTdHlsZSA9IExvY2FsVGV4dFN0eWxlLmN1cnJlbnQsCiAgICBmb250U2l6ZTogVGV4dFVuaXQgPSBUZXh0VW5pdC5VbnNwZWNpZmllZCwKICAgIHRleHREZWNvcmF0aW9uOiBUZXh0RGVjb3JhdGlvbj8gPSBudWxsLAogICAgb25DYW5FeHBhbmRDaGFuZ2U6IChCb29sZWFuKSAtPiBVbml0ID0ge30sCikgewogICAgdmFsIHByb2dyZXNzID0gcmVtZW1iZXIodGV4dCkgeyBBbmltYXRhYmxlKGlmIChleHBhbmRlZCkgMWYgZWxzZSAwZikgfQogICAgdmFyIGNhbkV4cGFuZCBieSByZW1lbWJlciB7IG11dGFibGVTdGF0ZU9mKHRydWUpIH0KCiAgICBMYXVuY2hlZEVmZmVjdChleHBhbmRlZCkgewogICAgICAgIHZhbCB0YXJnZXQgPSBpZiAoZXhwYW5kZWQpIDFmIGVsc2UgMGYKICAgICAgICBpZiAocHJvZ3Jlc3MudGFyZ2V0VmFsdWUgIT0gdGFyZ2V0KSB7CiAgICAgICAgICAgIHZhbCBzcGVjID0gaWYgKGV4cGFuZGVkKSB7CiAgICAgICAgICAgICAgICB0d2VlbjxGbG9hdD4oZHVyYXRpb25NaWxsaXMgPSAyODAsIGVhc2luZyA9IEZhc3RPdXRTbG93SW5FYXNpbmcpCiAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICB0d2VlbjxGbG9hdD4oZHVyYXRpb25NaWxsaXMgPSAzMjAsIGVhc2luZyA9IEVhc2VJbk91dEN1YmljKQogICAgICAgICAgICB9CiAgICAgICAgICAgIHByb2dyZXNzLmFuaW1hdGVUbyh0YXJnZXQsIGFuaW1hdGlvblNwZWMgPSBzcGVjKQogICAgICAgIH0KICAgIH0KCiAgICBMYXVuY2hlZEVmZmVjdChjYW5FeHBhbmQsIG9uQ2FuRXhwYW5kQ2hhbmdlKSB7CiAgICAgICAgb25DYW5FeHBhbmRDaGFuZ2UoY2FuRXhwYW5kKQogICAgfQoKICAgIFN1YmNvbXBvc2VMYXlvdXQoCiAgICAgICAgbW9kaWZpZXIgPSBtb2RpZmllci5jbGlwVG9Cb3VuZHMoKQogICAgKSB7IGNvbnN0cmFpbnRzIC0+CiAgICAgICAgdmFsIGNvbGxhcHNlZFBsYWNlYWJsZSA9IHN1YmNvbXBvc2UoRGVzY3JpcHRpb25TbG90LkNvbGxhcHNlZCkgewogICAgICAgICAgICBUZXh0KAogICAgICAgICAgICAgICAgdGV4dCA9IHRleHQsCiAgICAgICAgICAgICAgICBjb2xvciA9IGNvbG9yLAogICAgICAgICAgICAgICAgc3R5bGUgPSBzdHlsZSwKICAgICAgICAgICAgICAgIGZvbnRTaXplID0gZm9udFNpemUsCiAgICAgICAgICAgICAgICB0ZXh0RGVjb3JhdGlvbiA9IHRleHREZWNvcmF0aW9uLAogICAgICAgICAgICAgICAgbWF4TGluZXMgPSBtYXhMaW5lc0xpbWl0LAogICAgICAgICAgICAgICAgb3ZlcmZsb3cgPSBUZXh0T3ZlcmZsb3cuRWxsaXBzaXMKICAgICAgICAgICAgKQogICAgICAgIH0uZmlyc3QoKS5tZWFzdXJlKGNvbnN0cmFpbnRzKQoKICAgICAgICB2YWwgZXhwYW5kZWRQbGFjZWFibGUgPSBzdWJjb21wb3NlKERlc2NyaXB0aW9uU2xvdC5FeHBhbmRlZCkgewogICAgICAgICAgICBUZXh0KAogICAgICAgICAgICAgICAgdGV4dCA9IHRleHQsCiAgICAgICAgICAgICAgICBjb2xvciA9IGNvbG9yLAogICAgICAgICAgICAgICAgc3R5bGUgPSBzdHlsZSwKICAgICAgICAgICAgICAgIGZvbnRTaXplID0gZm9udFNpemUsCiAgICAgICAgICAgICAgICB0ZXh0RGVjb3JhdGlvbiA9IHRleHREZWNvcmF0aW9uLAogICAgICAgICAgICAgICAgbWF4TGluZXMgPSBJbnQuTUFYX1ZBTFVFLAogICAgICAgICAgICAgICAgb3ZlcmZsb3cgPSBUZXh0T3ZlcmZsb3cuQ2xpcAogICAgICAgICAgICApCiAgICAgICAgfS5maXJzdCgpLm1lYXN1cmUoY29uc3RyYWludHMpCgogICAgICAgIHZhbCBjb2xsYXBzZWRIZWlnaHQgPSBjb2xsYXBzZWRQbGFjZWFibGUuaGVpZ2h0CiAgICAgICAgdmFsIGV4cGFuZGVkSGVpZ2h0ID0gZXhwYW5kZWRQbGFjZWFibGUuaGVpZ2h0CiAgICAgICAgdmFsIGNhbkV4cGFuZE5vdyA9IGV4cGFuZGVkSGVpZ2h0ID4gY29sbGFwc2VkSGVpZ2h0CiAgICAgICAgaWYgKGNhbkV4cGFuZCAhPSBjYW5FeHBhbmROb3cpIHsKICAgICAgICAgICAgY2FuRXhwYW5kID0gY2FuRXhwYW5kTm93CiAgICAgICAgfQoKICAgICAgICBpZiAoIWNhbkV4cGFuZE5vdykgewogICAgICAgICAgICB2YWwgd2lkdGggPSBjb2xsYXBzZWRQbGFjZWFibGUud2lkdGguY29lcmNlSW4oY29uc3RyYWludHMubWluV2lkdGgsIGNvbnN0cmFpbnRzLm1heFdpZHRoKQogICAgICAgICAgICB2YWwgaGVpZ2h0ID0gY29sbGFwc2VkSGVpZ2h0LmNvZXJjZUluKGNvbnN0cmFpbnRzLm1pbkhlaWdodCwgY29uc3RyYWludHMubWF4SGVpZ2h0KQogICAgICAgICAgICBsYXlvdXQod2lkdGgsIGhlaWdodCkgewogICAgICAgICAgICAgICAgY29sbGFwc2VkUGxhY2VhYmxlLnBsYWNlKDAsIDApCiAgICAgICAgICAgIH0KICAgICAgICB9IGVsc2UgewogICAgICAgICAgICB2YWwgY3VycmVudFByb2dyZXNzID0gcHJvZ3Jlc3MudmFsdWUKICAgICAgICAgICAgdmFsIGN1cnJlbnRIZWlnaHQgPSAoY29sbGFwc2VkSGVpZ2h0ICsgKGV4cGFuZGVkSGVpZ2h0IC0gY29sbGFwc2VkSGVpZ2h0KSAqIGN1cnJlbnRQcm9ncmVzcykKICAgICAgICAgICAgICAgIC5yb3VuZFRvSW50KCkKICAgICAgICAgICAgICAgIC5jb2VyY2VJbihjb25zdHJhaW50cy5taW5IZWlnaHQsIGNvbnN0cmFpbnRzLm1heEhlaWdodCkKICAgICAgICAgICAgdmFsIHBsYWNlYWJsZVRvVXNlID0gaWYgKGN1cnJlbnRQcm9ncmVzcyA9PSAwZikgY29sbGFwc2VkUGxhY2VhYmxlIGVsc2UgZXhwYW5kZWRQbGFjZWFibGUKICAgICAgICAgICAgdmFsIHdpZHRoID0gcGxhY2VhYmxlVG9Vc2Uud2lkdGguY29lcmNlSW4oY29uc3RyYWludHMubWluV2lkdGgsIGNvbnN0cmFpbnRzLm1heFdpZHRoKQoKICAgICAgICAgICAgbGF5b3V0KHdpZHRoLCBjdXJyZW50SGVpZ2h0KSB7CiAgICAgICAgICAgICAgICBwbGFjZWFibGVUb1VzZS5wbGFjZSgwLCAwKQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9Cg==
+package com.xinsu.moe.ui.screen.module
+
+import android.content.Context
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.EaseInOutCubic
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.SubcomposeLayout
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.TextUnit
+import com.xinsu.moe.ui.util.module.Shortcut
+import kotlin.math.roundToInt
+
+enum class ShortcutType {
+    Action,
+    WebUI
+}
+
+fun hasModuleShortcut(context: Context, moduleId: String, type: ShortcutType): Boolean {
+    return when (type) {
+        ShortcutType.Action -> Shortcut.hasModuleActionShortcut(context, moduleId)
+        ShortcutType.WebUI -> Shortcut.hasModuleWebUiShortcut(context, moduleId)
+    }
+}
+
+fun deleteModuleShortcut(context: Context, moduleId: String, type: ShortcutType) {
+    when (type) {
+        ShortcutType.Action -> Shortcut.deleteModuleActionShortcut(context, moduleId)
+        ShortcutType.WebUI -> Shortcut.deleteModuleWebUiShortcut(context, moduleId)
+    }
+}
+
+fun createModuleShortcut(
+    context: Context,
+    moduleId: String,
+    name: String,
+    iconUri: String?,
+    type: ShortcutType
+) {
+    when (type) {
+        ShortcutType.Action -> {
+            Shortcut.createModuleActionShortcut(
+                context = context,
+                moduleId = moduleId,
+                name = name,
+                iconUri = iconUri
+            )
+        }
+
+        ShortcutType.WebUI -> {
+            Shortcut.createModuleWebUiShortcut(
+                context = context,
+                moduleId = moduleId,
+                name = name,
+                iconUri = iconUri
+            )
+        }
+    }
+}
+
+private enum class DescriptionSlot {
+    Collapsed,
+    Expanded
+}
+
+@Composable
+fun ExpandableDescriptionText(
+    text: String,
+    expanded: Boolean,
+    maxLinesLimit: Int,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    style: TextStyle = LocalTextStyle.current,
+    fontSize: TextUnit = TextUnit.Unspecified,
+    textDecoration: TextDecoration? = null,
+    onCanExpandChange: (Boolean) -> Unit = {},
+) {
+    val progress = remember(text) { Animatable(if (expanded) 1f else 0f) }
+    var canExpand by remember { mutableStateOf(true) }
+
+    LaunchedEffect(expanded) {
+        val target = if (expanded) 1f else 0f
+        if (progress.targetValue != target) {
+            val spec = if (expanded) {
+                tween<Float>(durationMillis = 280, easing = FastOutSlowInEasing)
+            } else {
+                tween<Float>(durationMillis = 320, easing = EaseInOutCubic)
+            }
+            progress.animateTo(target, animationSpec = spec)
+        }
+    }
+
+    LaunchedEffect(canExpand, onCanExpandChange) {
+        onCanExpandChange(canExpand)
+    }
+
+    SubcomposeLayout(
+        modifier = modifier.clipToBounds()
+    ) { constraints ->
+        val collapsedPlaceable = subcompose(DescriptionSlot.Collapsed) {
+            Text(
+                text = text,
+                color = color,
+                style = style,
+                fontSize = fontSize,
+                textDecoration = textDecoration,
+                maxLines = maxLinesLimit,
+                overflow = TextOverflow.Ellipsis
+            )
+        }.first().measure(constraints)
+
+        val expandedPlaceable = subcompose(DescriptionSlot.Expanded) {
+            Text(
+                text = text,
+                color = color,
+                style = style,
+                fontSize = fontSize,
+                textDecoration = textDecoration,
+                maxLines = Int.MAX_VALUE,
+                overflow = TextOverflow.Clip
+            )
+        }.first().measure(constraints)
+
+        val collapsedHeight = collapsedPlaceable.height
+        val expandedHeight = expandedPlaceable.height
+        val canExpandNow = expandedHeight > collapsedHeight
+        if (canExpand != canExpandNow) {
+            canExpand = canExpandNow
+        }
+
+        if (!canExpandNow) {
+            val width = collapsedPlaceable.width.coerceIn(constraints.minWidth, constraints.maxWidth)
+            val height = collapsedHeight.coerceIn(constraints.minHeight, constraints.maxHeight)
+            layout(width, height) {
+                collapsedPlaceable.place(0, 0)
+            }
+        } else {
+            val currentProgress = progress.value
+            val currentHeight = (collapsedHeight + (expandedHeight - collapsedHeight) * currentProgress)
+                .roundToInt()
+                .coerceIn(constraints.minHeight, constraints.maxHeight)
+            val placeableToUse = if (currentProgress == 0f) collapsedPlaceable else expandedPlaceable
+            val width = placeableToUse.width.coerceIn(constraints.minWidth, constraints.maxWidth)
+
+            layout(width, currentHeight) {
+                placeableToUse.place(0, 0)
+            }
+        }
+    }
+}

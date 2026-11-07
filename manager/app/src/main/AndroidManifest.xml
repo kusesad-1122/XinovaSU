@@ -1,1 +1,95 @@
-PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPG1hbmlmZXN0IHhtbG5zOmFuZHJvaWQ9Imh0dHA6Ly9zY2hlbWFzLmFuZHJvaWQuY29tL2Fway9yZXMvYW5kcm9pZCIKICAgIHhtbG5zOnRvb2xzPSJodHRwOi8vc2NoZW1hcy5hbmRyb2lkLmNvbS90b29scyI+CgogICAgPHVzZXMtcGVybWlzc2lvbiBhbmRyb2lkOm5hbWU9ImFuZHJvaWQucGVybWlzc2lvbi5JTlRFUk5FVCIgLz4KICAgIDx1c2VzLXBlcm1pc3Npb24gYW5kcm9pZDpuYW1lPSJhbmRyb2lkLnBlcm1pc3Npb24uQUNDRVNTX05FVFdPUktfU1RBVEUiIC8+CiAgICA8dXNlcy1wZXJtaXNzaW9uIGFuZHJvaWQ6bmFtZT0iYW5kcm9pZC5wZXJtaXNzaW9uLlJFQ0VJVkVfQk9PVF9DT01QTEVURUQiIC8+CiAgICA8dXNlcy1wZXJtaXNzaW9uIGFuZHJvaWQ6bmFtZT0iYW5kcm9pZC5wZXJtaXNzaW9uLlBPU1RfTk9USUZJQ0FUSU9OUyIgLz4KICAgIDx1c2VzLXBlcm1pc3Npb24gYW5kcm9pZDpuYW1lPSJhbmRyb2lkLnBlcm1pc3Npb24uRk9SRUdST1VORF9TRVJWSUNFIiAvPgogICAgPHVzZXMtcGVybWlzc2lvbiBhbmRyb2lkOm5hbWU9ImFuZHJvaWQucGVybWlzc2lvbi5GT1JFR1JPVU5EX1NFUlZJQ0VfREFUQV9TWU5DIiAvPgoKICAgIDx1c2VzLXNkayB0b29sczpvdmVycmlkZUxpYnJhcnk9InRvcC55dWtvbmdhLm1pdWl4LmttcC5ibHVyIiAvPgoKICAgIDxhcHBsaWNhdGlvbgogICAgICAgIGFuZHJvaWQ6bmFtZT0iLlhpbm92YVNVQXBwbGljYXRpb24iCiAgICAgICAgYW5kcm9pZDphbGxvd0JhY2t1cD0idHJ1ZSIKICAgICAgICBhbmRyb2lkOmRhdGFFeHRyYWN0aW9uUnVsZXM9IkB4bWwvZGF0YV9leHRyYWN0aW9uX3J1bGVzIgogICAgICAgIGFuZHJvaWQ6ZGlyZWN0Qm9vdEF3YXJlPSJ0cnVlIgogICAgICAgIGFuZHJvaWQ6ZnVsbEJhY2t1cENvbnRlbnQ9IkB4bWwvYmFja3VwX3J1bGVzIgogICAgICAgIGFuZHJvaWQ6aGFzRnJhZ2lsZVVzZXJEYXRhPSJ0cnVlIgogICAgICAgIGFuZHJvaWQ6aWNvbj0iQG1pcG1hcC9pY19sYXVuY2hlciIKICAgICAgICBhbmRyb2lkOmxhYmVsPSJAc3RyaW5nL2FwcF9uYW1lIgogICAgICAgIGFuZHJvaWQ6bmV0d29ya1NlY3VyaXR5Q29uZmlnPSJAeG1sL25ldHdvcmtfc2VjdXJpdHlfY29uZmlnIgogICAgICAgIGFuZHJvaWQ6c3VwcG9ydHNSdGw9InRydWUiCiAgICAgICAgYW5kcm9pZDp0aGVtZT0iQHN0eWxlL1RoZW1lLlhpbm92YVNVIgogICAgICAgIGFuZHJvaWQ6enlnb3RlUHJlbG9hZE5hbWU9ImNvbS54aW5zdS5tb2UubWFnaWNhLkFwcFp5Z290ZVByZWxvYWQiPgogICAgICAgIDxhY3Rpdml0eQogICAgICAgICAgICBhbmRyb2lkOm5hbWU9Ii51aS5NYWluQWN0aXZpdHkiCiAgICAgICAgICAgIGFuZHJvaWQ6ZXhwb3J0ZWQ9InRydWUiCiAgICAgICAgICAgIGFuZHJvaWQ6dGhlbWU9IkBzdHlsZS9UaGVtZS5YaW5vdmFTVSIKICAgICAgICAgICAgYW5kcm9pZDp3aW5kb3dTb2Z0SW5wdXRNb2RlPSJhZGp1c3RSZXNpemUiPgogICAgICAgICAgICA8aW50ZW50LWZpbHRlcj4KICAgICAgICAgICAgICAgIDxhY3Rpb24gYW5kcm9pZDpuYW1lPSJhbmRyb2lkLmludGVudC5hY3Rpb24uTUFJTiIgLz4KICAgICAgICAgICAgICAgIDxjYXRlZ29yeSBhbmRyb2lkOm5hbWU9ImFuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkxBVU5DSEVSIiAvPgogICAgICAgICAgICA8L2ludGVudC1maWx0ZXI+CiAgICAgICAgICAgIDxpbnRlbnQtZmlsdGVyPgogICAgICAgICAgICAgICAgPGFjdGlvbiBhbmRyb2lkOm5hbWU9ImFuZHJvaWQuaW50ZW50LmFjdGlvbi5WSUVXIiAvPgoKICAgICAgICAgICAgICAgIDxjYXRlZ29yeSBhbmRyb2lkOm5hbWU9ImFuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFQiIC8+CiAgICAgICAgICAgICAgICA8Y2F0ZWdvcnkgYW5kcm9pZDpuYW1lPSJhbmRyb2lkLmludGVudC5jYXRlZ29yeS5CUk9XU0FCTEUiIC8+CgogICAgICAgICAgICAgICAgPGRhdGEgYW5kcm9pZDpzY2hlbWU9ImNvbnRlbnQiIC8+CiAgICAgICAgICAgICAgICA8ZGF0YSBhbmRyb2lkOm1pbWVUeXBlPSJhcHBsaWNhdGlvbi96aXAiIC8+CiAgICAgICAgICAgICAgICA8ZGF0YSBhbmRyb2lkOm1pbWVUeXBlPSJhcHBsaWNhdGlvbi94LXppcC1jb21wcmVzc2VkIiAvPgogICAgICAgICAgICAgICAgPGRhdGEgYW5kcm9pZDptaW1lVHlwZT0iYXBwbGljYXRpb24veC16aXAiIC8+CiAgICAgICAgICAgIDwvaW50ZW50LWZpbHRlcj4KICAgICAgICA8L2FjdGl2aXR5PgoKICAgICAgICA8YWN0aXZpdHkKICAgICAgICAgICAgYW5kcm9pZDpuYW1lPSIudWkud2VidWkuV2ViVUlBY3Rpdml0eSIKICAgICAgICAgICAgYW5kcm9pZDphdXRvUmVtb3ZlRnJvbVJlY2VudHM9InRydWUiCiAgICAgICAgICAgIGFuZHJvaWQ6Y29uZmlnQ2hhbmdlcz0iZGVuc2l0eXxvcmllbnRhdGlvbnxzY3JlZW5TaXplfHNjcmVlbkxheW91dHxzbWFsbGVzdFNjcmVlblNpemV8dWlNb2RlfGxvY2FsZXxsYXlvdXREaXJlY3Rpb258Zm9udFNjYWxlfGtleWJvYXJkfGtleWJvYXJkSGlkZGVuIgogICAgICAgICAgICBhbmRyb2lkOmRvY3VtZW50TGF1bmNoTW9kZT0iaW50b0V4aXN0aW5nIgogICAgICAgICAgICBhbmRyb2lkOmV4cG9ydGVkPSJmYWxzZSIKICAgICAgICAgICAgYW5kcm9pZDp0YXNrQWZmaW5pdHk9IiR7YXBwbGljYXRpb25JZH0ud2VidWkiCiAgICAgICAgICAgIGFuZHJvaWQ6dGhlbWU9IkBzdHlsZS9UaGVtZS5YaW5vdmFTVS5XZWJVSSIgLz4KCiAgICAgICAgPHByb3ZpZGVyCiAgICAgICAgICAgIGFuZHJvaWQ6bmFtZT0iYW5kcm9pZHguY29yZS5jb250ZW50LkZpbGVQcm92aWRlciIKICAgICAgICAgICAgYW5kcm9pZDphdXRob3JpdGllcz0iJHthcHBsaWNhdGlvbklkfS5maWxlcHJvdmlkZXIiCiAgICAgICAgICAgIGFuZHJvaWQ6ZXhwb3J0ZWQ9ImZhbHNlIgogICAgICAgICAgICBhbmRyb2lkOmdyYW50VXJpUGVybWlzc2lvbnM9InRydWUiPgogICAgICAgICAgICA8bWV0YS1kYXRhCiAgICAgICAgICAgICAgICBhbmRyb2lkOm5hbWU9ImFuZHJvaWQuc3VwcG9ydC5GSUxFX1BST1ZJREVSX1BBVEhTIgogICAgICAgICAgICAgICAgYW5kcm9pZDpyZXNvdXJjZT0iQHhtbC9maWxlcGF0aHMiIC8+CiAgICAgICAgPC9wcm92aWRlcj4KCiAgICAgICAgPHNlcnZpY2UKICAgICAgICAgICAgYW5kcm9pZDpuYW1lPSIubWFnaWNhLk1hZ2ljYVNlcnZpY2UiCiAgICAgICAgICAgIGFuZHJvaWQ6ZGlyZWN0Qm9vdEF3YXJlPSJ0cnVlIgogICAgICAgICAgICBhbmRyb2lkOmV4cG9ydGVkPSJmYWxzZSIKICAgICAgICAgICAgYW5kcm9pZDppc29sYXRlZFByb2Nlc3M9InRydWUiCiAgICAgICAgICAgIGFuZHJvaWQ6dXNlQXBwWnlnb3RlPSJ0cnVlIiAvPgoKICAgICAgICA8c2VydmljZQogICAgICAgICAgICBhbmRyb2lkOm5hbWU9Ii51aS51dGlsLkRvd25sb2FkU2VydmljZSIKICAgICAgICAgICAgYW5kcm9pZDpleHBvcnRlZD0iZmFsc2UiCiAgICAgICAgICAgIGFuZHJvaWQ6Zm9yZWdyb3VuZFNlcnZpY2VUeXBlPSJkYXRhU3luYyIgLz4KCiAgICAgICAgPHJlY2VpdmVyCiAgICAgICAgICAgIGFuZHJvaWQ6bmFtZT0iLm1hZ2ljYS5Cb290Q29tcGxldGVkUmVjZWl2ZXIiCiAgICAgICAgICAgIGFuZHJvaWQ6ZGlyZWN0Qm9vdEF3YXJlPSJ0cnVlIgogICAgICAgICAgICBhbmRyb2lkOmVuYWJsZWQ9ImZhbHNlIgogICAgICAgICAgICBhbmRyb2lkOmV4cG9ydGVkPSJ0cnVlIj4KICAgICAgICAgICAgPGludGVudC1maWx0ZXI+CiAgICAgICAgICAgICAgICA8YWN0aW9uIGFuZHJvaWQ6bmFtZT0iYW5kcm9pZC5pbnRlbnQuYWN0aW9uLkxPQ0tFRF9CT09UX0NPTVBMRVRFRCIgLz4KICAgICAgICAgICAgICAgIDxhY3Rpb24gYW5kcm9pZDpuYW1lPSJhbmRyb2lkLmludGVudC5hY3Rpb24uQk9PVF9DT01QTEVURUQiIC8+CiAgICAgICAgICAgIDwvaW50ZW50LWZpbHRlcj4KICAgICAgICAgICAgPGludGVudC1maWx0ZXI+CiAgICAgICAgICAgICAgICA8YWN0aW9uIGFuZHJvaWQ6bmFtZT0iY29tLnhpbnN1Lm1vZS5tYWdpY2EuTEFVTkNIIiAvPgogICAgICAgICAgICA8L2ludGVudC1maWx0ZXI+CiAgICAgICAgPC9yZWNlaXZlcj4KICAgIDwvYXBwbGljYXRpb24+Cgo8L21hbmlmZXN0Pgo=
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
+    <uses-sdk tools:overrideLibrary="top.yukonga.miuix.kmp.blur" />
+
+    <application
+        android:name=".XinovaSUApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:directBootAware="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hasFragileUserData="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.XinovaSU"
+        android:zygotePreloadName="com.xinsu.moe.magica.AppZygotePreload">
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.XinovaSU"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="application/x-zip-compressed" />
+                <data android:mimeType="application/x-zip" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.webui.WebUIActivity"
+            android:autoRemoveFromRecents="true"
+            android:configChanges="density|orientation|screenSize|screenLayout|smallestScreenSize|uiMode|locale|layoutDirection|fontScale|keyboard|keyboardHidden"
+            android:documentLaunchMode="intoExisting"
+            android:exported="false"
+            android:taskAffinity="${applicationId}.webui"
+            android:theme="@style/Theme.XinovaSU.WebUI" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <service
+            android:name=".magica.MagicaService"
+            android:directBootAware="true"
+            android:exported="false"
+            android:isolatedProcess="true"
+            android:useAppZygote="true" />
+
+        <service
+            android:name=".ui.util.DownloadService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <receiver
+            android:name=".magica.BootCompletedReceiver"
+            android:directBootAware="true"
+            android:enabled="false"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xinsu.moe.magica.LAUNCH" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

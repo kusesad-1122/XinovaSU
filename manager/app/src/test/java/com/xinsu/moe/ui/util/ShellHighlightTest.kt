@@ -1,1 +1,61 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnV0aWwKCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwuU2hlbGxUb2tlbktpbmQuQ09NTUVOVAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLlNoZWxsVG9rZW5LaW5kLktFWVdPUkQKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5TaGVsbFRva2VuS2luZC5TVFJJTkcKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5TaGVsbFRva2VuS2luZC5WQVJJQUJMRQppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRFcXVhbHMKaW1wb3J0IG9yZy5qdW5pdC5UZXN0CgpjbGFzcyBTaGVsbEhpZ2hsaWdodFRlc3QgewoKICAgIHByaXZhdGUgZnVuIGxleChzcmM6IFN0cmluZyk6IExpc3Q8UGFpcjxTaGVsbFRva2VuS2luZCwgU3RyaW5nPj4gPQogICAgICAgIHNoZWxsVG9rZW5zKHNyYykubWFwIHsgaXQua2luZCB0byBzcmMuc3Vic3RyaW5nKGl0LnN0YXJ0LCBpdC5lbmQpIH0KCiAgICBAVGVzdAogICAgZnVuIGNvbW1lbnRzT25seVN0YXJ0QVdvcmQoKSB7CiAgICAgICAgYXNzZXJ0RXF1YWxzKAogICAgICAgICAgICBsaXN0T2YoQ09NTUVOVCB0byAiIyEvc3lzdGVtL2Jpbi9zaCIsIENPTU1FTlQgdG8gIiMgbm90ZSIpLAogICAgICAgICAgICBsZXgoIiMhL3N5c3RlbS9iaW4vc2hcbmVjaG8gYSNiICMgbm90ZSIpLAogICAgICAgICkKICAgICAgICBhc3NlcnRFcXVhbHMobGlzdE9mKFZBUklBQkxFIHRvICIkIyIpLCBsZXgoImVjaG8gJCMiKSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHN0cmluZ3NBbmRFeHBhbnNpb25zKCkgewogICAgICAgIGFzc2VydEVxdWFscyhsaXN0T2YoU1RSSU5HIHRvICInYSBcJHgnIiksIGxleCgiZWNobyAnYSBcJHgnIikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKAogICAgICAgICAgICBsaXN0T2YoU1RSSU5HIHRvICJcImEgIiwgVkFSSUFCTEUgdG8gIlwke0I6LWN9IiwgU1RSSU5HIHRvICIgXFxcIiIsIFZBUklBQkxFIHRvICJcJDEiLCBTVFJJTkcgdG8gIlwiIiksCiAgICAgICAgICAgIGxleCgiZWNobyBcImEgXCR7QjotY30gXFxcIlwkMVwiIiksCiAgICAgICAgKQogICAgICAgIGFzc2VydEVxdWFscygKICAgICAgICAgICAgbGlzdE9mKFZBUklBQkxFIHRvICJcJCgiLCBLRVlXT1JEIHRvICJpZiIpLAogICAgICAgICAgICBsZXgoInggXCQoaWYiKSwKICAgICAgICApCiAgICAgICAgYXNzZXJ0RXF1YWxzKGxpc3RPZihWQVJJQUJMRSB0byAiXCRIT01FIiwgVkFSSUFCTEUgdG8gIlwkPyIpLCBsZXgoImNkIFwkSE9NRTsgZWNobyBcJD8iKSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIGtleXdvcmRzT25seUluQ29tbWFuZFBvc2l0aW9uKCkgewogICAgICAgIGFzc2VydEVxdWFscygKICAgICAgICAgICAgbGlzdE9mKEtFWVdPUkQgdG8gImlmIiwgS0VZV09SRCB0byAidGhlbiIsIEtFWVdPUkQgdG8gImZpIiksCiAgICAgICAgICAgIGxleCgiaWYgWyAtZiB4IF07IHRoZW4gZWNobyBkb25lIGlmOyBmaSIpLAogICAgICAgICkKICAgICAgICBhc3NlcnRFcXVhbHMoCiAgICAgICAgICAgIGxpc3RPZihLRVlXT1JEIHRvICJmb3IiLCBLRVlXT1JEIHRvICJpbiIsIEtFWVdPUkQgdG8gImRvIiwgVkFSSUFCTEUgdG8gIlwkZiIsIEtFWVdPUkQgdG8gImRvbmUiKSwKICAgICAgICAgICAgbGV4KCJmb3IgZiBpbiBhIGI7IGRvIGVjaG8gXCRmOyBkb25lIiksCiAgICAgICAgKQogICAgICAgIGFzc2VydEVxdWFscygKICAgICAgICAgICAgbGlzdE9mKEtFWVdPUkQgdG8gImNhc2UiLCBTVFJJTkcgdG8gIlwiIiwgVkFSSUFCTEUgdG8gIlwkeCIsIFNUUklORyB0byAiXCIiLCBLRVlXT1JEIHRvICJpbiIsIEtFWVdPUkQgdG8gImVzYWMiKSwKICAgICAgICAgICAgbGV4KCJjYXNlIFwiXCR4XCIgaW4gYSkgZWNobyBpbiA7OyBlc2FjIiksCiAgICAgICAgKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gYXNzaWdubWVudHNJbkNvbW1hbmRQb3NpdGlvbigpIHsKICAgICAgICBhc3NlcnRFcXVhbHMoCiAgICAgICAgICAgIGxpc3RPZihWQVJJQUJMRSB0byAiQSIsIFZBUklBQkxFIHRvICJCIiwgVkFSSUFCTEUgdG8gIlwkQSIpLAogICAgICAgICAgICBsZXgoIkE9MSBCPXggZWNobyBDPVwkQSIpLAogICAgICAgICkKICAgIH0KfQo=
+package com.xinsu.moe.ui.util
+
+import com.xinsu.moe.ui.util.ShellTokenKind.COMMENT
+import com.xinsu.moe.ui.util.ShellTokenKind.KEYWORD
+import com.xinsu.moe.ui.util.ShellTokenKind.STRING
+import com.xinsu.moe.ui.util.ShellTokenKind.VARIABLE
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+class ShellHighlightTest {
+
+    private fun lex(src: String): List<Pair<ShellTokenKind, String>> =
+        shellTokens(src).map { it.kind to src.substring(it.start, it.end) }
+
+    @Test
+    fun commentsOnlyStartAWord() {
+        assertEquals(
+            listOf(COMMENT to "#!/system/bin/sh", COMMENT to "# note"),
+            lex("#!/system/bin/sh\necho a#b # note"),
+        )
+        assertEquals(listOf(VARIABLE to "$#"), lex("echo $#"))
+    }
+
+    @Test
+    fun stringsAndExpansions() {
+        assertEquals(listOf(STRING to "'a \$x'"), lex("echo 'a \$x'"))
+        assertEquals(
+            listOf(STRING to "\"a ", VARIABLE to "\${B:-c}", STRING to " \\\"", VARIABLE to "\$1", STRING to "\""),
+            lex("echo \"a \${B:-c} \\\"\$1\""),
+        )
+        assertEquals(
+            listOf(VARIABLE to "\$(", KEYWORD to "if"),
+            lex("x \$(if"),
+        )
+        assertEquals(listOf(VARIABLE to "\$HOME", VARIABLE to "\$?"), lex("cd \$HOME; echo \$?"))
+    }
+
+    @Test
+    fun keywordsOnlyInCommandPosition() {
+        assertEquals(
+            listOf(KEYWORD to "if", KEYWORD to "then", KEYWORD to "fi"),
+            lex("if [ -f x ]; then echo done if; fi"),
+        )
+        assertEquals(
+            listOf(KEYWORD to "for", KEYWORD to "in", KEYWORD to "do", VARIABLE to "\$f", KEYWORD to "done"),
+            lex("for f in a b; do echo \$f; done"),
+        )
+        assertEquals(
+            listOf(KEYWORD to "case", STRING to "\"", VARIABLE to "\$x", STRING to "\"", KEYWORD to "in", KEYWORD to "esac"),
+            lex("case \"\$x\" in a) echo in ;; esac"),
+        )
+    }
+
+    @Test
+    fun assignmentsInCommandPosition() {
+        assertEquals(
+            listOf(VARIABLE to "A", VARIABLE to "B", VARIABLE to "\$A"),
+            lex("A=1 B=x echo C=\$A"),
+        )
+    }
+}

@@ -1,1 +1,317 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5zY3JpcHRydW4KCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24uaG9yaXpvbnRhbFNjcm9sbAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5Cb3gKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuQ29sdW1uCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LlNwYWNlcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5XaW5kb3dJbnNldHMKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuV2luZG93SW5zZXRzU2lkZXMKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuYWRkCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LmFzUGFkZGluZ1ZhbHVlcwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5jYXB0aW9uQmFyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LmRpc3BsYXlDdXRvdXQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuZmlsbE1heEhlaWdodAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5maWxsTWF4U2l6ZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5maWxsTWF4V2lkdGgKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuaGVpZ2h0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LmltZVBhZGRpbmcKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQubmF2aWdhdGlvbkJhcnMKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQub25seQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5wYWRkaW5nCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LnNpemUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuc3lzdGVtQmFycwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxhenkuTGF6eUNvbHVtbgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLnJlbWVtYmVyU2Nyb2xsU3RhdGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi50ZXh0LktleWJvYXJkT3B0aW9ucwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLnRleHQuc2VsZWN0aW9uLlNlbGVjdGlvbkNvbnRhaW5lcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkNvbXBvc2FibGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5nZXRWYWx1ZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLm11dGFibGVTdGF0ZU9mCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2F2ZWFibGUucmVtZW1iZXJTYXZlYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnNldFZhbHVlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLkFsaWdubWVudAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5Nb2RpZmllcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5ncmFwaGljcy5Db2xvcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5ncmFwaGljcy5ncmFwaGljc0xheWVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLmlucHV0Lm5lc3RlZHNjcm9sbC5uZXN0ZWRTY3JvbGwKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkucGxhdGZvcm0uTG9jYWxDb250ZXh0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnBsYXRmb3JtLkxvY2FsTGF5b3V0RGlyZWN0aW9uCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnJlcy5zdHJpbmdSZXNvdXJjZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS50ZXh0LmZvbnQuRm9udEZhbWlseQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS50ZXh0LmlucHV0LktleWJvYXJkVHlwZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS51bml0LkxheW91dERpcmVjdGlvbgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS51bml0LmRwCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnVuaXQuc3AKaW1wb3J0IGNvbS54aW5zdS5tb2UuUgppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnNjcmlwdC5QcmVwYXJlZFNjcmlwdAppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnNjcmlwdC5TY3JpcHRQYXJhbQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5jb21wb25lbnQubWl1aXguRWRpdFRleHQKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudGhlbWUuTG9jYWxFbmFibGVCbHVyCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwuQmx1cnJlZEJhcgppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLlNoZWxsSGlnaGxpZ2h0Q29sb3JzCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwucmVtZW1iZXJCbHVyQmFja2Ryb3AKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5yZW1lbWJlclNoZWxsSGlnaGxpZ2h0CmltcG9ydCB0b3AueXVrb25nYS5taXVpeC5rbXAuYmFzaWMuQmFzaWNDb21wb25lbnQKaW1wb3J0IHRvcC55dWtvbmdhLm1pdWl4LmttcC5iYXNpYy5CdXR0b25EZWZhdWx0cwppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmJhc2ljLkNhcmQKaW1wb3J0IHRvcC55dWtvbmdhLm1pdWl4LmttcC5iYXNpYy5JY29uCmltcG9ydCB0b3AueXVrb25nYS5taXVpeC5rbXAuYmFzaWMuSWNvbkJ1dHRvbgppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmJhc2ljLkluZmluaXRlUHJvZ3Jlc3NJbmRpY2F0b3IKaW1wb3J0IHRvcC55dWtvbmdhLm1pdWl4LmttcC5iYXNpYy5NaXVpeFNjcm9sbEJlaGF2aW9yCmltcG9ydCB0b3AueXVrb25nYS5taXVpeC5rbXAuYmFzaWMuU2NhZmZvbGQKaW1wb3J0IHRvcC55dWtvbmdhLm1pdWl4LmttcC5iYXNpYy5TY3JvbGxCZWhhdmlvcgppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmJhc2ljLlNtYWxsVGl0bGUKaW1wb3J0IHRvcC55dWtvbmdhLm1pdWl4LmttcC5iYXNpYy5UZXh0CmltcG9ydCB0b3AueXVrb25nYS5taXVpeC5rbXAuYmFzaWMuVGV4dEJ1dHRvbgppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmJhc2ljLlRvcEFwcEJhcgppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmJsdXIuTGF5ZXJCYWNrZHJvcAppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmJsdXIubGF5ZXJCYWNrZHJvcAppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmljb24uTWl1aXhJY29ucwppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmljb24uZXh0ZW5kZWQuQmFjawppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmljb24uZXh0ZW5kZWQuRXhwYW5kTGVzcwppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLmljb24uZXh0ZW5kZWQuRXhwYW5kTW9yZQppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLnByZWZlcmVuY2UuT3ZlcmxheURyb3Bkb3duUHJlZmVyZW5jZQppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLnByZWZlcmVuY2UuU3dpdGNoUHJlZmVyZW5jZQppbXBvcnQgdG9wLnl1a29uZ2EubWl1aXgua21wLnRoZW1lLk1pdWl4VGhlbWUuY29sb3JTY2hlbWUKaW1wb3J0IHRvcC55dWtvbmdhLm1pdWl4LmttcC51dGlscy5vdmVyU2Nyb2xsVmVydGljYWwKaW1wb3J0IHRvcC55dWtvbmdhLm1pdWl4LmttcC51dGlscy5zY3JvbGxFbmRIYXB0aWMKCkBDb21wb3NhYmxlCmludGVybmFsIGZ1biBTY3JpcHRSdW5TY3JlZW5NaXVpeCgKICAgIHN0YXRlOiBTY3JpcHRSdW5VaVN0YXRlLAogICAgYWN0aW9uczogU2NyaXB0UnVuQWN0aW9ucywKKSB7CiAgICB2YWwgZW5hYmxlQmx1ciA9IExvY2FsRW5hYmxlQmx1ci5jdXJyZW50CiAgICB2YWwgc2Nyb2xsQmVoYXZpb3IgPSBNaXVpeFNjcm9sbEJlaGF2aW9yKCkKICAgIHZhbCBiYWNrZHJvcCA9IHJlbWVtYmVyQmx1ckJhY2tkcm9wKGVuYWJsZUJsdXIpCiAgICB2YWwgYmFyQ29sb3IgPSBpZiAoYmFja2Ryb3AgIT0gbnVsbCkgQ29sb3IuVHJhbnNwYXJlbnQgZWxzZSBjb2xvclNjaGVtZS5zdXJmYWNlCgogICAgU2NhZmZvbGQoCiAgICAgICAgdG9wQmFyID0gewogICAgICAgICAgICBUb3BCYXIoCiAgICAgICAgICAgICAgICBvbkJhY2sgPSBhY3Rpb25zLm9uQmFjaywKICAgICAgICAgICAgICAgIHNjcm9sbEJlaGF2aW9yID0gc2Nyb2xsQmVoYXZpb3IsCiAgICAgICAgICAgICAgICBiYWNrZHJvcCA9IGJhY2tkcm9wLAogICAgICAgICAgICAgICAgYmFyQ29sb3IgPSBiYXJDb2xvciwKICAgICAgICAgICAgKQogICAgICAgIH0sCiAgICAgICAgcG9wdXBIb3N0ID0geyB9LAogICAgICAgIGNvbnRlbnRXaW5kb3dJbnNldHMgPSBXaW5kb3dJbnNldHMuc3lzdGVtQmFycy5hZGQoV2luZG93SW5zZXRzLmRpc3BsYXlDdXRvdXQpLm9ubHkoV2luZG93SW5zZXRzU2lkZXMuSG9yaXpvbnRhbCkKICAgICkgeyBpbm5lclBhZGRpbmcgLT4KICAgICAgICB2YWwgcHJlcGFyZWQgPSBzdGF0ZS5wcmVwYXJlZAogICAgICAgIEJveChtb2RpZmllciA9IGlmIChiYWNrZHJvcCAhPSBudWxsKSBNb2RpZmllci5sYXllckJhY2tkcm9wKGJhY2tkcm9wKSBlbHNlIE1vZGlmaWVyKSB7CiAgICAgICAgICAgIGlmIChwcmVwYXJlZCA9PSBudWxsICYmIHN0YXRlLnBoYXNlICE9IFNjcmlwdFJ1blBoYXNlLkZBSUxFRCkgewogICAgICAgICAgICAgICAgQm94KG1vZGlmaWVyID0gTW9kaWZpZXIuZmlsbE1heFNpemUoKSwgY29udGVudEFsaWdubWVudCA9IEFsaWdubWVudC5DZW50ZXIpIHsKICAgICAgICAgICAgICAgICAgICBDb2x1bW4oaG9yaXpvbnRhbEFsaWdubWVudCA9IEFsaWdubWVudC5DZW50ZXJIb3Jpem9udGFsbHkpIHsKICAgICAgICAgICAgICAgICAgICAgICAgSW5maW5pdGVQcm9ncmVzc0luZGljYXRvcigpCiAgICAgICAgICAgICAgICAgICAgICAgIFRleHQoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X3ByZXBhcmluZyksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvciA9IGNvbG9yU2NoZW1lLm9uU3VyZmFjZVZhcmlhbnRTdW1tYXJ5LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllci5wYWRkaW5nKHRvcCA9IDguZHApLAogICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgcmV0dXJuQEJveAogICAgICAgICAgICB9CiAgICAgICAgICAgIExhenlDb2x1bW4oCiAgICAgICAgICAgICAgICBtb2RpZmllciA9IE1vZGlmaWVyCiAgICAgICAgICAgICAgICAgICAgLmZpbGxNYXhIZWlnaHQoKQogICAgICAgICAgICAgICAgICAgIC5pbWVQYWRkaW5nKCkKICAgICAgICAgICAgICAgICAgICAuc2Nyb2xsRW5kSGFwdGljKCkKICAgICAgICAgICAgICAgICAgICAub3ZlclNjcm9sbFZlcnRpY2FsKCkKICAgICAgICAgICAgICAgICAgICAubmVzdGVkU2Nyb2xsKHNjcm9sbEJlaGF2aW9yLm5lc3RlZFNjcm9sbENvbm5lY3Rpb24pCiAgICAgICAgICAgICAgICAgICAgLnBhZGRpbmcodG9wID0gMTIuZHApCiAgICAgICAgICAgICAgICAgICAgLnBhZGRpbmcoaG9yaXpvbnRhbCA9IDE2LmRwKSwKICAgICAgICAgICAgICAgIGNvbnRlbnRQYWRkaW5nID0gaW5uZXJQYWRkaW5nLAogICAgICAgICAgICAgICAgb3ZlcnNjcm9sbEVmZmVjdCA9IG51bGwsCiAgICAgICAgICAgICkgewogICAgICAgICAgICAgICAgaXRlbSB7CiAgICAgICAgICAgICAgICAgICAgaWYgKHByZXBhcmVkID09IG51bGwpIHsKICAgICAgICAgICAgICAgICAgICAgICAgQ2FyZChtb2RpZmllciA9IE1vZGlmaWVyLmZpbGxNYXhXaWR0aCgpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBCYXNpY0NvbXBvbmVudCgKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aXRsZSA9IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9lcnJvcl90aXRsZSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3VtbWFyeSA9IHN0YXRlLmVycm9yLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIGlmIChzdGF0ZS5vZmZlckluc3RhbGwpIEluc3RhbGxBbnl3YXlDYXJkTWl1aXgoYWN0aW9ucykKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICBTY3JpcHRJbmZvTWl1aXgoc3RhdGUsIHByZXBhcmVkLCBhY3Rpb25zKQogICAgICAgICAgICAgICAgICAgICAgICBQYXJhbXNGb3JtTWl1aXgoc3RhdGUsIHByZXBhcmVkLCBhY3Rpb25zKQogICAgICAgICAgICAgICAgICAgICAgICBTb3VyY2VTZWN0aW9uTWl1aXgocHJlcGFyZWQpCiAgICAgICAgICAgICAgICAgICAgICAgIFRleHRCdXR0b24oCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtb2RpZmllciA9IE1vZGlmaWVyCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLmZpbGxNYXhXaWR0aCgpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLnBhZGRpbmcodG9wID0gMTIuZHApLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgdGV4dCA9IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9ydW4pLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZCA9IHN0YXRlLmNhblJ1biwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9ycyA9IEJ1dHRvbkRlZmF1bHRzLnRleHRCdXR0b25Db2xvcnNQcmltYXJ5KCksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrID0gYWN0aW9ucy5vblJ1biwKICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBTcGFjZXIoCiAgICAgICAgICAgICAgICAgICAgICAgIE1vZGlmaWVyLmhlaWdodCgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEyLmRwICsgV2luZG93SW5zZXRzLm5hdmlnYXRpb25CYXJzLmFzUGFkZGluZ1ZhbHVlcygpLmNhbGN1bGF0ZUJvdHRvbVBhZGRpbmcoKSArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFdpbmRvd0luc2V0cy5jYXB0aW9uQmFyLmFzUGFkZGluZ1ZhbHVlcygpLmNhbGN1bGF0ZUJvdHRvbVBhZGRpbmcoKQogICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9CgpAQ29tcG9zYWJsZQpwcml2YXRlIGZ1biBTY3JpcHRJbmZvTWl1aXgoc3RhdGU6IFNjcmlwdFJ1blVpU3RhdGUsIHByZXBhcmVkOiBQcmVwYXJlZFNjcmlwdCwgYWN0aW9uczogU2NyaXB0UnVuQWN0aW9ucykgewogICAgdmFsIGNvbnRleHQgPSBMb2NhbENvbnRleHQuY3VycmVudAogICAgdmFsIG1hbmlmZXN0ID0gcHJlcGFyZWQubWFuaWZlc3QKICAgIENhcmQobW9kaWZpZXIgPSBNb2RpZmllci5maWxsTWF4V2lkdGgoKSkgewogICAgICAgIEJhc2ljQ29tcG9uZW50KAogICAgICAgICAgICB0aXRsZSA9IG1hbmlmZXN0Lm5hbWUsCiAgICAgICAgICAgIHN1bW1hcnkgPSBidWlsZFN0cmluZyB7CiAgICAgICAgICAgICAgICBhcHBlbmQoc2NyaXB0U3VidGl0bGUobWFuaWZlc3QuaWQsIG1hbmlmZXN0LnZlcnNpb24sIG1hbmlmZXN0LnZlcnNpb25Db2RlKSkKICAgICAgICAgICAgICAgIGlmIChtYW5pZmVzdC5hdXRob3IuaXNOb3RCbGFuaygpKSB7CiAgICAgICAgICAgICAgICAgICAgYXBwZW5kKCdcbicpLmFwcGVuZChzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5tb2R1bGVfYXV0aG9yKSkuYXBwZW5kKCI6ICIpLmFwcGVuZChtYW5pZmVzdC5hdXRob3IpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBpZiAobWFuaWZlc3QuZGVzY3JpcHRpb24uaXNOb3RCbGFuaygpKSBhcHBlbmQoJ1xuJykuYXBwZW5kKG1hbmlmZXN0LmRlc2NyaXB0aW9uKQogICAgICAgICAgICB9LAogICAgICAgICkKICAgICAgICBCYXNpY0NvbXBvbmVudCgKICAgICAgICAgICAgdGl0bGUgPSBzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5zY3JpcHRfbm90aWNlKSwKICAgICAgICAgICAgc3VtbWFyeSA9IGxhc3RSdW5UZXh0KGNvbnRleHQsIHN0YXRlLmxhc3RSdW4pLAogICAgICAgICkKICAgIH0KICAgIGlmIChzdGF0ZS5vZmZlckluc3RhbGwpIEluc3RhbGxBbnl3YXlDYXJkTWl1aXgoYWN0aW9ucykKfQoKLyoqIEEgbG9jYWwgWklQIGNhbiBzdGlsbCBiZSBpbnN0YWxsZWQgYXMgYSBtb2R1bGUsIGFsc28gd2hlbiBpdCBjYW5ub3QgYmUgcnVuIGFzIGEgc2NyaXB0LiAqLwpAQ29tcG9zYWJsZQpwcml2YXRlIGZ1biBJbnN0YWxsQW55d2F5Q2FyZE1pdWl4KGFjdGlvbnM6IFNjcmlwdFJ1bkFjdGlvbnMpIHsKICAgIENhcmQoCiAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllcgogICAgICAgICAgICAucGFkZGluZyh0b3AgPSAxMi5kcCkKICAgICAgICAgICAgLmZpbGxNYXhXaWR0aCgpCiAgICApIHsKICAgICAgICBCYXNpY0NvbXBvbmVudChzdW1tYXJ5ID0gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X2xvY2FsX25vdGljZSkpCiAgICAgICAgVGV4dEJ1dHRvbigKICAgICAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllcgogICAgICAgICAgICAgICAgLmZpbGxNYXhXaWR0aCgpCiAgICAgICAgICAgICAgICAucGFkZGluZyhzdGFydCA9IDE2LmRwLCBlbmQgPSAxNi5kcCwgYm90dG9tID0gMTYuZHApLAogICAgICAgICAgICB0ZXh0ID0gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X2luc3RhbGxfYW55d2F5KSwKICAgICAgICAgICAgb25DbGljayA9IGFjdGlvbnMub25JbnN0YWxsQXNNb2R1bGUsCiAgICAgICAgKQogICAgfQp9CgpAQ29tcG9zYWJsZQpwcml2YXRlIGZ1biBQYXJhbXNGb3JtTWl1aXgoc3RhdGU6IFNjcmlwdFJ1blVpU3RhdGUsIHByZXBhcmVkOiBQcmVwYXJlZFNjcmlwdCwgYWN0aW9uczogU2NyaXB0UnVuQWN0aW9ucykgewogICAgdmFsIHBhcmFtcyA9IHByZXBhcmVkLnBhcmFtcy5wYXJhbXMKICAgIGlmIChwYXJhbXMuaXNFbXB0eSgpKSByZXR1cm4KICAgIFNtYWxsVGl0bGUodGV4dCA9IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9wYXJhbXMpLCBtb2RpZmllciA9IE1vZGlmaWVyLnBhZGRpbmcodG9wID0gNi5kcCkpCiAgICBDYXJkKG1vZGlmaWVyID0gTW9kaWZpZXIuZmlsbE1heFdpZHRoKCkpIHsKICAgICAgICBwYXJhbXMuZm9yRWFjaCB7IHBhcmFtIC0+CiAgICAgICAgICAgIHZhbCB2YWx1ZSA9IHN0YXRlLnZhbHVlc1twYXJhbS5rZXldID86IHBhcmFtLmRlZmF1bHRWYWx1ZQogICAgICAgICAgICB2YWwgZXJyb3IgPSBzdGF0ZS5lcnJvcnNbcGFyYW0ua2V5XQogICAgICAgICAgICB3aGVuIChwYXJhbSkgewogICAgICAgICAgICAgICAgaXMgU2NyaXB0UGFyYW0uQm9vbCAtPiBTd2l0Y2hQcmVmZXJlbmNlKAogICAgICAgICAgICAgICAgICAgIHRpdGxlID0gcGFyYW0ubGFiZWwsCiAgICAgICAgICAgICAgICAgICAgc3VtbWFyeSA9IHBhcmFtLmRlc2NyaXB0aW9uLAogICAgICAgICAgICAgICAgICAgIGNoZWNrZWQgPSB2YWx1ZSA9PSAidHJ1ZSIsCiAgICAgICAgICAgICAgICAgICAgb25DaGVja2VkQ2hhbmdlID0geyBhY3Rpb25zLm9uVmFsdWVDaGFuZ2UocGFyYW0ua2V5LCBpdC50b1N0cmluZygpKSB9LAogICAgICAgICAgICAgICAgKQoKICAgICAgICAgICAgICAgIGlzIFNjcmlwdFBhcmFtLkNob2ljZSAtPiBPdmVybGF5RHJvcGRvd25QcmVmZXJlbmNlKAogICAgICAgICAgICAgICAgICAgIGl0ZW1zID0gcGFyYW0ub3B0aW9ucy5tYXAgeyBpdC5sYWJlbCA/OiBpdC52YWx1ZSB9LAogICAgICAgICAgICAgICAgICAgIHNlbGVjdGVkSW5kZXggPSBwYXJhbS5vcHRpb25zLmluZGV4T2ZGaXJzdCB7IGl0LnZhbHVlID09IHZhbHVlIH0uY29lcmNlQXRMZWFzdCgwKSwKICAgICAgICAgICAgICAgICAgICB0aXRsZSA9IHBhcmFtLmxhYmVsLAogICAgICAgICAgICAgICAgICAgIHN1bW1hcnkgPSBwYXJhbS5kZXNjcmlwdGlvbiwKICAgICAgICAgICAgICAgICAgICBvblNlbGVjdGVkSW5kZXhDaGFuZ2UgPSB7IGluZGV4IC0+IGFjdGlvbnMub25WYWx1ZUNoYW5nZShwYXJhbS5rZXksIHBhcmFtLm9wdGlvbnNbaW5kZXhdLnZhbHVlKSB9LAogICAgICAgICAgICAgICAgKQoKICAgICAgICAgICAgICAgIGlzIFNjcmlwdFBhcmFtLlRleHQsIGlzIFNjcmlwdFBhcmFtLkludGVnZXIgLT4gewogICAgICAgICAgICAgICAgICAgIEVkaXRUZXh0KAogICAgICAgICAgICAgICAgICAgICAgICB0aXRsZSA9IHBhcmFtLmxhYmVsLAogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZSA9IHZhbHVlLAogICAgICAgICAgICAgICAgICAgICAgICBvblZhbHVlQ2hhbmdlID0geyBhY3Rpb25zLm9uVmFsdWVDaGFuZ2UocGFyYW0ua2V5LCBpdCkgfSwKICAgICAgICAgICAgICAgICAgICAgICAgc3VtbWFyeSA9IGVycm9yPy5sZXQgeyBwYXJhbUVycm9yVGV4dChwYXJhbSwgaXQpIH0gPzogcGFyYW0uZGVzY3JpcHRpb24sCiAgICAgICAgICAgICAgICAgICAgICAgIGtleWJvYXJkT3B0aW9ucyA9IGlmIChwYXJhbSBpcyBTY3JpcHRQYXJhbS5JbnRlZ2VyKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBLZXlib2FyZE9wdGlvbnMoa2V5Ym9hcmRUeXBlID0gaW50ZWdlcktleWJvYXJkVHlwZShwYXJhbSkpCiAgICAgICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBLZXlib2FyZE9wdGlvbnMuRGVmYXVsdAogICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgICAgICBpc0Vycm9yID0gZXJyb3IgIT0gbnVsbCwKICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0KCkBDb21wb3NhYmxlCnByaXZhdGUgZnVuIFNvdXJjZVNlY3Rpb25NaXVpeChwcmVwYXJlZDogUHJlcGFyZWRTY3JpcHQpIHsKICAgIHZhciBleHBhbmRlZCBieSByZW1lbWJlclNhdmVhYmxlIHsgbXV0YWJsZVN0YXRlT2YoZmFsc2UpIH0KICAgIENhcmQoCiAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllcgogICAgICAgICAgICAucGFkZGluZyh0b3AgPSAxMi5kcCkKICAgICAgICAgICAgLmZpbGxNYXhXaWR0aCgpCiAgICApIHsKICAgICAgICBCYXNpY0NvbXBvbmVudCgKICAgICAgICAgICAgdGl0bGUgPSBzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5zY3JpcHRfc291cmNlKSwKICAgICAgICAgICAgc3VtbWFyeSA9IGlmIChwcmVwYXJlZC5hY3Rpb25Tb3VyY2VUcnVuY2F0ZWQpIHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9zb3VyY2VfdHJ1bmNhdGVkKSBlbHNlIG51bGwsCiAgICAgICAgICAgIG9uQ2xpY2sgPSB7IGV4cGFuZGVkID0gIWV4cGFuZGVkIH0sCiAgICAgICAgICAgIGVuZEFjdGlvbnMgPSB7CiAgICAgICAgICAgICAgICBJY29uKAogICAgICAgICAgICAgICAgICAgIGlmIChleHBhbmRlZCkgTWl1aXhJY29ucy5FeHBhbmRMZXNzIGVsc2UgTWl1aXhJY29ucy5FeHBhbmRNb3JlLAogICAgICAgICAgICAgICAgICAgIG1vZGlmaWVyID0gTW9kaWZpZXIuc2l6ZSgxNi5kcCksCiAgICAgICAgICAgICAgICAgICAgdGludCA9IGNvbG9yU2NoZW1lLm9uU3VyZmFjZVZhcmlhbnRBY3Rpb25zLAogICAgICAgICAgICAgICAgICAgIGNvbnRlbnREZXNjcmlwdGlvbiA9IG51bGwsCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgIH0KICAgICAgICApCiAgICAgICAgaWYgKGV4cGFuZGVkKSB7CiAgICAgICAgICAgIHZhbCBzb3VyY2UgPSByZW1lbWJlclNoZWxsSGlnaGxpZ2h0KAogICAgICAgICAgICAgICAgcHJlcGFyZWQuYWN0aW9uU291cmNlLAogICAgICAgICAgICAgICAgU2hlbGxIaWdobGlnaHRDb2xvcnMuZm9yQmFja2dyb3VuZChjb2xvclNjaGVtZS5zdXJmYWNlQ29udGFpbmVyKSwKICAgICAgICAgICAgKQogICAgICAgICAgICBTZWxlY3Rpb25Db250YWluZXIgewogICAgICAgICAgICAgICAgVGV4dCgKICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gc291cmNlLAogICAgICAgICAgICAgICAgICAgIGZvbnRGYW1pbHkgPSBGb250RmFtaWx5Lk1vbm9zcGFjZSwKICAgICAgICAgICAgICAgICAgICBmb250U2l6ZSA9IDEyLnNwLAogICAgICAgICAgICAgICAgICAgIHNvZnRXcmFwID0gZmFsc2UsCiAgICAgICAgICAgICAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllcgogICAgICAgICAgICAgICAgICAgICAgICAuaG9yaXpvbnRhbFNjcm9sbChyZW1lbWJlclNjcm9sbFN0YXRlKCkpCiAgICAgICAgICAgICAgICAgICAgICAgIC5wYWRkaW5nKHN0YXJ0ID0gMTYuZHAsIGVuZCA9IDE2LmRwLCBib3R0b20gPSAxNi5kcCksCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0KCkBDb21wb3NhYmxlCnByaXZhdGUgZnVuIFRvcEJhcigKICAgIG9uQmFjazogKCkgLT4gVW5pdCwKICAgIHNjcm9sbEJlaGF2aW9yOiBTY3JvbGxCZWhhdmlvciwKICAgIGJhY2tkcm9wOiBMYXllckJhY2tkcm9wPywKICAgIGJhckNvbG9yOiBDb2xvciwKKSB7CiAgICBCbHVycmVkQmFyKGJhY2tkcm9wKSB7CiAgICAgICAgVG9wQXBwQmFyKAogICAgICAgICAgICBjb2xvciA9IGJhckNvbG9yLAogICAgICAgICAgICB0aXRsZSA9IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9ydW5fdGl0bGUpLAogICAgICAgICAgICBuYXZpZ2F0aW9uSWNvbiA9IHsKICAgICAgICAgICAgICAgIEljb25CdXR0b24ob25DbGljayA9IG9uQmFjaykgewogICAgICAgICAgICAgICAgICAgIHZhbCBsYXlvdXREaXJlY3Rpb24gPSBMb2NhbExheW91dERpcmVjdGlvbi5jdXJyZW50CiAgICAgICAgICAgICAgICAgICAgSWNvbigKICAgICAgICAgICAgICAgICAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllci5ncmFwaGljc0xheWVyIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChsYXlvdXREaXJlY3Rpb24gPT0gTGF5b3V0RGlyZWN0aW9uLlJ0bCkgc2NhbGVYID0gLTFmCiAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIGltYWdlVmVjdG9yID0gTWl1aXhJY29ucy5CYWNrLAogICAgICAgICAgICAgICAgICAgICAgICB0aW50ID0gY29sb3JTY2hlbWUub25TdXJmYWNlLAogICAgICAgICAgICAgICAgICAgICAgICBjb250ZW50RGVzY3JpcHRpb24gPSBudWxsLAogICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgc2Nyb2xsQmVoYXZpb3IgPSBzY3JvbGxCZWhhdmlvcgogICAgICAgICkKICAgIH0KfQo=
+package com.xinsu.moe.ui.screen.scriptrun
+
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.add
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.captionBar
+import androidx.compose.foundation.layout.displayCutout
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.xinsu.moe.R
+import com.xinsu.moe.data.script.PreparedScript
+import com.xinsu.moe.data.script.ScriptParam
+import com.xinsu.moe.ui.component.miuix.EditText
+import com.xinsu.moe.ui.theme.LocalEnableBlur
+import com.xinsu.moe.ui.util.BlurredBar
+import com.xinsu.moe.ui.util.ShellHighlightColors
+import com.xinsu.moe.ui.util.rememberBlurBackdrop
+import com.xinsu.moe.ui.util.rememberShellHighlight
+import top.yukonga.miuix.kmp.basic.BasicComponent
+import top.yukonga.miuix.kmp.basic.ButtonDefaults
+import top.yukonga.miuix.kmp.basic.Card
+import top.yukonga.miuix.kmp.basic.Icon
+import top.yukonga.miuix.kmp.basic.IconButton
+import top.yukonga.miuix.kmp.basic.InfiniteProgressIndicator
+import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
+import top.yukonga.miuix.kmp.basic.Scaffold
+import top.yukonga.miuix.kmp.basic.ScrollBehavior
+import top.yukonga.miuix.kmp.basic.SmallTitle
+import top.yukonga.miuix.kmp.basic.Text
+import top.yukonga.miuix.kmp.basic.TextButton
+import top.yukonga.miuix.kmp.basic.TopAppBar
+import top.yukonga.miuix.kmp.blur.LayerBackdrop
+import top.yukonga.miuix.kmp.blur.layerBackdrop
+import top.yukonga.miuix.kmp.icon.MiuixIcons
+import top.yukonga.miuix.kmp.icon.extended.Back
+import top.yukonga.miuix.kmp.icon.extended.ExpandLess
+import top.yukonga.miuix.kmp.icon.extended.ExpandMore
+import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
+import top.yukonga.miuix.kmp.preference.SwitchPreference
+import top.yukonga.miuix.kmp.theme.MiuixTheme.colorScheme
+import top.yukonga.miuix.kmp.utils.overScrollVertical
+import top.yukonga.miuix.kmp.utils.scrollEndHaptic
+
+@Composable
+internal fun ScriptRunScreenMiuix(
+    state: ScriptRunUiState,
+    actions: ScriptRunActions,
+) {
+    val enableBlur = LocalEnableBlur.current
+    val scrollBehavior = MiuixScrollBehavior()
+    val backdrop = rememberBlurBackdrop(enableBlur)
+    val barColor = if (backdrop != null) Color.Transparent else colorScheme.surface
+
+    Scaffold(
+        topBar = {
+            TopBar(
+                onBack = actions.onBack,
+                scrollBehavior = scrollBehavior,
+                backdrop = backdrop,
+                barColor = barColor,
+            )
+        },
+        popupHost = { },
+        contentWindowInsets = WindowInsets.systemBars.add(WindowInsets.displayCutout).only(WindowInsetsSides.Horizontal)
+    ) { innerPadding ->
+        val prepared = state.prepared
+        Box(modifier = if (backdrop != null) Modifier.layerBackdrop(backdrop) else Modifier) {
+            if (prepared == null && state.phase != ScriptRunPhase.FAILED) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        InfiniteProgressIndicator()
+                        Text(
+                            text = stringResource(R.string.script_preparing),
+                            color = colorScheme.onSurfaceVariantSummary,
+                            modifier = Modifier.padding(top = 8.dp),
+                        )
+                    }
+                }
+                return@Box
+            }
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .imePadding()
+                    .scrollEndHaptic()
+                    .overScrollVertical()
+                    .nestedScroll(scrollBehavior.nestedScrollConnection)
+                    .padding(top = 12.dp)
+                    .padding(horizontal = 16.dp),
+                contentPadding = innerPadding,
+                overscrollEffect = null,
+            ) {
+                item {
+                    if (prepared == null) {
+                        Card(modifier = Modifier.fillMaxWidth()) {
+                            BasicComponent(
+                                title = stringResource(R.string.script_error_title),
+                                summary = state.error,
+                            )
+                        }
+                        if (state.offerInstall) InstallAnywayCardMiuix(actions)
+                    } else {
+                        ScriptInfoMiuix(state, prepared, actions)
+                        ParamsFormMiuix(state, prepared, actions)
+                        SourceSectionMiuix(prepared)
+                        TextButton(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 12.dp),
+                            text = stringResource(R.string.script_run),
+                            enabled = state.canRun,
+                            colors = ButtonDefaults.textButtonColorsPrimary(),
+                            onClick = actions.onRun,
+                        )
+                    }
+                    Spacer(
+                        Modifier.height(
+                            12.dp + WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding() +
+                                    WindowInsets.captionBar.asPaddingValues().calculateBottomPadding()
+                        )
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ScriptInfoMiuix(state: ScriptRunUiState, prepared: PreparedScript, actions: ScriptRunActions) {
+    val context = LocalContext.current
+    val manifest = prepared.manifest
+    Card(modifier = Modifier.fillMaxWidth()) {
+        BasicComponent(
+            title = manifest.name,
+            summary = buildString {
+                append(scriptSubtitle(manifest.id, manifest.version, manifest.versionCode))
+                if (manifest.author.isNotBlank()) {
+                    append('\n').append(stringResource(R.string.module_author)).append(": ").append(manifest.author)
+                }
+                if (manifest.description.isNotBlank()) append('\n').append(manifest.description)
+            },
+        )
+        BasicComponent(
+            title = stringResource(R.string.script_notice),
+            summary = lastRunText(context, state.lastRun),
+        )
+    }
+    if (state.offerInstall) InstallAnywayCardMiuix(actions)
+}
+
+/** A local ZIP can still be installed as a module, also when it cannot be run as a script. */
+@Composable
+private fun InstallAnywayCardMiuix(actions: ScriptRunActions) {
+    Card(
+        modifier = Modifier
+            .padding(top = 12.dp)
+            .fillMaxWidth()
+    ) {
+        BasicComponent(summary = stringResource(R.string.script_local_notice))
+        TextButton(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
+            text = stringResource(R.string.script_install_anyway),
+            onClick = actions.onInstallAsModule,
+        )
+    }
+}
+
+@Composable
+private fun ParamsFormMiuix(state: ScriptRunUiState, prepared: PreparedScript, actions: ScriptRunActions) {
+    val params = prepared.params.params
+    if (params.isEmpty()) return
+    SmallTitle(text = stringResource(R.string.script_params), modifier = Modifier.padding(top = 6.dp))
+    Card(modifier = Modifier.fillMaxWidth()) {
+        params.forEach { param ->
+            val value = state.values[param.key] ?: param.defaultValue
+            val error = state.errors[param.key]
+            when (param) {
+                is ScriptParam.Bool -> SwitchPreference(
+                    title = param.label,
+                    summary = param.description,
+                    checked = value == "true",
+                    onCheckedChange = { actions.onValueChange(param.key, it.toString()) },
+                )
+
+                is ScriptParam.Choice -> OverlayDropdownPreference(
+                    items = param.options.map { it.label ?: it.value },
+                    selectedIndex = param.options.indexOfFirst { it.value == value }.coerceAtLeast(0),
+                    title = param.label,
+                    summary = param.description,
+                    onSelectedIndexChange = { index -> actions.onValueChange(param.key, param.options[index].value) },
+                )
+
+                is ScriptParam.Text, is ScriptParam.Integer -> {
+                    EditText(
+                        title = param.label,
+                        value = value,
+                        onValueChange = { actions.onValueChange(param.key, it) },
+                        summary = error?.let { paramErrorText(param, it) } ?: param.description,
+                        keyboardOptions = if (param is ScriptParam.Integer) {
+                            KeyboardOptions(keyboardType = integerKeyboardType(param))
+                        } else {
+                            KeyboardOptions.Default
+                        },
+                        isError = error != null,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SourceSectionMiuix(prepared: PreparedScript) {
+    var expanded by rememberSaveable { mutableStateOf(false) }
+    Card(
+        modifier = Modifier
+            .padding(top = 12.dp)
+            .fillMaxWidth()
+    ) {
+        BasicComponent(
+            title = stringResource(R.string.script_source),
+            summary = if (prepared.actionSourceTruncated) stringResource(R.string.script_source_truncated) else null,
+            onClick = { expanded = !expanded },
+            endActions = {
+                Icon(
+                    if (expanded) MiuixIcons.ExpandLess else MiuixIcons.ExpandMore,
+                    modifier = Modifier.size(16.dp),
+                    tint = colorScheme.onSurfaceVariantActions,
+                    contentDescription = null,
+                )
+            }
+        )
+        if (expanded) {
+            val source = rememberShellHighlight(
+                prepared.actionSource,
+                ShellHighlightColors.forBackground(colorScheme.surfaceContainer),
+            )
+            SelectionContainer {
+                Text(
+                    text = source,
+                    fontFamily = FontFamily.Monospace,
+                    fontSize = 12.sp,
+                    softWrap = false,
+                    modifier = Modifier
+                        .horizontalScroll(rememberScrollState())
+                        .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun TopBar(
+    onBack: () -> Unit,
+    scrollBehavior: ScrollBehavior,
+    backdrop: LayerBackdrop?,
+    barColor: Color,
+) {
+    BlurredBar(backdrop) {
+        TopAppBar(
+            color = barColor,
+            title = stringResource(R.string.script_run_title),
+            navigationIcon = {
+                IconButton(onClick = onBack) {
+                    val layoutDirection = LocalLayoutDirection.current
+                    Icon(
+                        modifier = Modifier.graphicsLayer {
+                            if (layoutDirection == LayoutDirection.Rtl) scaleX = -1f
+                        },
+                        imageVector = MiuixIcons.Back,
+                        tint = colorScheme.onSurface,
+                        contentDescription = null,
+                    )
+                }
+            },
+            scrollBehavior = scrollBehavior
+        )
+    }
+}

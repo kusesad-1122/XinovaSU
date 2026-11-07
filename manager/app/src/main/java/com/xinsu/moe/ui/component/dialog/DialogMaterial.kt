@@ -1,1 +1,94 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLmNvbXBvbmVudC5kaWFsb2cKCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LkJveAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5zaXplCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24uc2hhcGUuUm91bmRlZENvcm5lclNoYXBlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsMy5BbGVydERpYWxvZwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuRXhwZXJpbWVudGFsTWF0ZXJpYWwzRXhwcmVzc2l2ZUFwaQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuTG9hZGluZ0luZGljYXRvcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuU3VyZmFjZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuVGV4dAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuVGV4dEJ1dHRvbgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkNvbXBvc2FibGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5NdXRhYmxlU3RhdGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuQWxpZ25tZW50CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLk1vZGlmaWVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnJlcy5zdHJpbmdSZXNvdXJjZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS51bml0LmRwCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLndpbmRvdy5EaWFsb2cKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkud2luZG93LkRpYWxvZ1Byb3BlcnRpZXMKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZWdpc3RyeS5SZWdpc3RyeVVybHMKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuY29tcG9uZW50Lm1hcmtkb3duLk1hcmtkb3duQ29udGVudAoKQE9wdEluKEV4cGVyaW1lbnRhbE1hdGVyaWFsM0V4cHJlc3NpdmVBcGk6OmNsYXNzKQpAQ29tcG9zYWJsZQpmdW4gTG9hZGluZ0RpYWxvZ01hdGVyaWFsKHNob3dEaWFsb2c6IE11dGFibGVTdGF0ZTxCb29sZWFuPikgewogICAgaWYgKHNob3dEaWFsb2cudmFsdWUpIHsKICAgICAgICBEaWFsb2coCiAgICAgICAgICAgIG9uRGlzbWlzc1JlcXVlc3QgPSB7fSwKICAgICAgICAgICAgcHJvcGVydGllcyA9IERpYWxvZ1Byb3BlcnRpZXMoZGlzbWlzc09uQ2xpY2tPdXRzaWRlID0gZmFsc2UsIGRpc21pc3NPbkJhY2tQcmVzcyA9IGZhbHNlKQogICAgICAgICkgewogICAgICAgICAgICBTdXJmYWNlKAogICAgICAgICAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllci5zaXplKDEwMC5kcCksIHNoYXBlID0gUm91bmRlZENvcm5lclNoYXBlKDguZHApCiAgICAgICAgICAgICkgewogICAgICAgICAgICAgICAgQm94KAogICAgICAgICAgICAgICAgICAgIGNvbnRlbnRBbGlnbm1lbnQgPSBBbGlnbm1lbnQuQ2VudGVyLAogICAgICAgICAgICAgICAgKSB7CiAgICAgICAgICAgICAgICAgICAgTG9hZGluZ0luZGljYXRvcigpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0KCkBDb21wb3NhYmxlCmZ1biBDb25maXJtRGlhbG9nTWF0ZXJpYWwoCiAgICB2aXN1YWxzOiBDb25maXJtRGlhbG9nVmlzdWFscywKICAgIGNvbmZpcm06ICgpIC0+IFVuaXQsCiAgICBkaXNtaXNzOiAoKSAtPiBVbml0LAogICAgc2hvd0RpYWxvZzogTXV0YWJsZVN0YXRlPEJvb2xlYW4+CikgewogICAgaWYgKHNob3dEaWFsb2cudmFsdWUpIHsKICAgICAgICBBbGVydERpYWxvZygKICAgICAgICAgICAgb25EaXNtaXNzUmVxdWVzdCA9IHsKICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgc2hvd0RpYWxvZy52YWx1ZSA9IGZhbHNlCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHRpdGxlID0geyBUZXh0KHZpc3VhbHMudGl0bGUpIH0sCiAgICAgICAgICAgIHRleHQgPSB7CiAgICAgICAgICAgICAgICB2aXN1YWxzLmNvbnRlbnQ/LmxldCB7IGNvbnRlbnQgLT4KICAgICAgICAgICAgICAgICAgICB3aGVuIHsKICAgICAgICAgICAgICAgICAgICAgICAgLy8gUmVnaXN0cnkgY29udGVudCAoYW5kIGFueSBIVE1MLCB3aGljaCBvbmx5IGNvbWVzIGZyb20gdGhlIHJlZ2lzdHJ5KSBpcyByZW5kZXJlZCBsb2NrZWQgZG93bi4KICAgICAgICAgICAgICAgICAgICB2aXN1YWxzLmlzUmVzdHJpY3RlZCB8fCB2aXN1YWxzLmlzSHRtbCAtPiBNYXJrZG93bkNvbnRlbnQoCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRlbnQgPSBjb250ZW50LAogICAgICAgICAgICAgICAgICAgICAgICBpc01hcmtkb3duID0gIXZpc3VhbHMuaXNIdG1sLAogICAgICAgICAgICAgICAgICAgICAgICByZXN0cmljdGVkQmFzZVVybCA9IFJlZ2lzdHJ5VXJscy5ERUZBVUxUX0JBU0VfVVJMLAogICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICB2aXN1YWxzLmlzTWFya2Rvd24gLT4gTWFya2Rvd25Db250ZW50KGNvbnRlbnQgPSBjb250ZW50LCBpc01hcmtkb3duID0gdHJ1ZSkKICAgICAgICAgICAgICAgICAgICBlbHNlIC0+IFRleHQodGV4dCA9IGNvbnRlbnQpCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICBjb25maXJtQnV0dG9uID0gewogICAgICAgICAgICAgICAgVGV4dEJ1dHRvbigKICAgICAgICAgICAgICAgICAgICBvbkNsaWNrID0gewogICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtKCkKICAgICAgICAgICAgICAgICAgICAgICAgc2hvd0RpYWxvZy52YWx1ZSA9IGZhbHNlCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgKSB7CiAgICAgICAgICAgICAgICAgICAgVGV4dCh2aXN1YWxzLmNvbmZpcm0gPzogc3RyaW5nUmVzb3VyY2UoaWQgPSBhbmRyb2lkLlIuc3RyaW5nLm9rKSkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgZGlzbWlzc0J1dHRvbiA9IHsKICAgICAgICAgICAgICAgIFRleHRCdXR0b24oCiAgICAgICAgICAgICAgICAgICAgb25DbGljayA9IHsKICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgIHNob3dEaWFsb2cudmFsdWUgPSBmYWxzZQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICkgewogICAgICAgICAgICAgICAgICAgIFRleHQodmlzdWFscy5kaXNtaXNzID86IHN0cmluZ1Jlc291cmNlKGlkID0gYW5kcm9pZC5SLnN0cmluZy5jYW5jZWwpKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgKQogICAgfQp9Cg==
+package com.xinsu.moe.ui.component.dialog
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.LoadingIndicator
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
+import com.xinsu.moe.data.registry.RegistryUrls
+import com.xinsu.moe.ui.component.markdown.MarkdownContent
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+fun LoadingDialogMaterial(showDialog: MutableState<Boolean>) {
+    if (showDialog.value) {
+        Dialog(
+            onDismissRequest = {},
+            properties = DialogProperties(dismissOnClickOutside = false, dismissOnBackPress = false)
+        ) {
+            Surface(
+                modifier = Modifier.size(100.dp), shape = RoundedCornerShape(8.dp)
+            ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                ) {
+                    LoadingIndicator()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ConfirmDialogMaterial(
+    visuals: ConfirmDialogVisuals,
+    confirm: () -> Unit,
+    dismiss: () -> Unit,
+    showDialog: MutableState<Boolean>
+) {
+    if (showDialog.value) {
+        AlertDialog(
+            onDismissRequest = {
+                dismiss()
+                showDialog.value = false
+            },
+            title = { Text(visuals.title) },
+            text = {
+                visuals.content?.let { content ->
+                    when {
+                        // Registry content (and any HTML, which only comes from the registry) is rendered locked down.
+                    visuals.isRestricted || visuals.isHtml -> MarkdownContent(
+                        content = content,
+                        isMarkdown = !visuals.isHtml,
+                        restrictedBaseUrl = RegistryUrls.DEFAULT_BASE_URL,
+                    )
+                    visuals.isMarkdown -> MarkdownContent(content = content, isMarkdown = true)
+                    else -> Text(text = content)
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        confirm()
+                        showDialog.value = false
+                    }
+                ) {
+                    Text(visuals.confirm ?: stringResource(id = android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        dismiss()
+                        showDialog.value = false
+                    }
+                ) {
+                    Text(visuals.dismiss ?: stringResource(id = android.R.string.cancel))
+                }
+            }
+        )
+    }
+}

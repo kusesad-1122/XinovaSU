@@ -1,1 +1,122 @@
-W3ZlcnNpb25zXQphZ3AgPSAiOS4yLjEiCmtvdGxpbiA9ICIyLjMuMjEiCmNvbXBvc2UtYm9tID0gIjIwMjYuMDUuMDAiCmxpZmVjeWNsZSA9ICIyLjEwLjAiCmFjdGl2aXR5LWNvbXBvc2UgPSAiMS4xMy4wIgprb3RsaW54LWNvcm91dGluZXMgPSAiMS4xMS4wIgpuYXZpZ2F0aW9uMyA9ICIxLjEuMSIKa290bGlueC1zZXJpYWxpemF0aW9uID0gIjEuMTEuMCIKanVuaXQgPSAiNC4xMy4yIgpuYXZpZ2F0aW9uZXZlbnQgPSAiMS4xLjEiCmNvbW1vbm1hcmsgPSAiMC4yOC4wIgp3ZWJraXQgPSAiMS4xNi4wIgpwYXJjZWxhYmxlbGlzdCA9ICIyLjAuMSIKbWF0ZXJpYWwzID0gIjEuNS4wLWFscGhhMTkiCm1hdGVyaWFsS29sb3IgPSAiNC4xLjEiCm5kayA9ICIyOS4wLjE0MjA2ODY1IgpsaWJzdSA9ICI2LjAuMCIKYXBrc2lnbiA9ICIxLjQiCiMgMC45LjPvvIgyMDI2LTA3LTA077yJ44CC6L+Z5pivIDAuOS40IOS5i+WJjeeahOacgOWQjuS4gOS4queos+WumueJiO+8mjAuOS40LXJjMDEg56e76Zmk5LqGCiMgbWl1aXgtbmF2aWdhdGlvbjMtdWnvvIzogIzmnKzpobnnm67ku43lnKjnlKjlroPmoaXmjqUgYW5kcm9pZHgubmF2aWdhdGlvbjMudWkg55qECiMgTmF2RGlzcGxheSAvIExvY2FsTmF2QW5pbWF0ZWRDb250ZW50U2NvcGXvvIjor6bop4EgZG9jcy9NSVVJWF9VUEdSQURFX1BMQU4ubWTvvInjgIIKIyDopoHkuIogMC45LjQg6ZyA5YWI5oyJ6K+l5paH5qGj55qE44CM6Lev57q/IEHjgI3op6PpmaTmoaXmjqXkvp3otZbjgIIKIwojIOWNh+e6p+WJjeW3sueUqOS6jOi/m+WItuavlOWvueaguOmqjO+8iC53b3JrYnVkZHkvdmVyaWZ5X21pdWl4X3VwZ3JhZGUucHnvvInvvJoKIyAgIOmhueebruS9v+eUqOeahCAxMTEg5LiqIG1pdWl4IOespuWPt+WcqCAwLjkuMyDlhajpg6jkv53nlZnvvIzml6DkuIDmtojlpLHjgIIKIyDlj6bmoLjlr7nkuobmnKzpobnnm67lrp7pmYXosIPnlKjnmoTpq5jpo47pmannu4Tku7bnrb7lkI3vvJoKIyAgIFNuYWNrYmFyIC8gU25hY2tiYXJIb3N0ICAgICAgICAgIOetvuWQjeacquWPmAojICAgTmF2aWdhdGlvblJhaWwgICAgICAgICAgICAgICAgICAgbW9kZSAtPiBzdGF0Ze+8iOmhueebruacqueUqCBtb2Rl77yM5YW85a6577yJCiMgICBOYXZpZ2F0aW9uUmFpbEl0ZW0gICAgICAgICAgICAgICDmnKvlsL7ov73liqAgYmFkZ2XvvIjlhbflkI3osIPnlKjkuI3lj5flvbHlk43vvIkKbWl1aXggPSAiMC45LjMiCgojIEt5YW50MCDnmoTmtrLmgIHnjrvnkoPlupPvvIjku5PlupPlkI0gQW5kcm9pZExpcXVpZEdsYXNz77yMMi54IOi1t+aUueensCBCYWNrZHJvcO+8ieOAggojIOWPkeW4g+WcqCBNYXZlbiBDZW50cmFs77yaaW8uZ2l0aHViLmt5YW50MDpiYWNrZHJvcO+8jOW4piBHcmFkbGUgbWV0YWRhdGHvvIwKIyBBbmRyb2lkIOWPmOS9k+eUsSBHcmFkbGUg6Ieq5Yqo6YCJ5oup77yIYmFja2Ryb3AtYW5kcm9pZO+8ieOAggojIEFBUiDlhoUgbWluU2RrVmVyc2lvbj0yMe+8jOS4juacrOmhueebriBtaW5TZGsgMzEg5YW85a6544CCCiMg5rOo5oSP77ya5qih57OKKEJsdXJFZmZlY3Qp6ZyAIEFQSSAzMSvvvIzmipjlsIQv6Imy5pWjKEFHU0wgUnVudGltZVNoYWRlcinpnIAgQVBJIDMzK++8jAojICAgICAg5bqT5YaF6YOo55SoIGlzUmVuZGVyRWZmZWN0U3VwcG9ydGVkKCkvaXNSdW50aW1lU2hhZGVyU3VwcG9ydGVkKCkg6Ieq6KGM6ZmN57qn44CCCiMKIyDmnKzpobnnm67lkIzml7bkv53nlZnkuoYgbWl1aXgtYmx1ciDkvqfnmoTlkIzmupDlrp7njrDvvIh1aS9jb21wb25lbnQvbGlxdWlkLyDkuIvnmoQKIyBsZW5zL0lubmVyU2hhZG93L3ZpYnJhbmN577yM5paH5Lu25aS05qCH5rOoIEFkYXB0ZWQgZnJvbSBLeWFudDAvQW5kcm9pZExpcXVpZEdsYXNz77yJ44CCCiMg5LqM6ICF5YWx55So5ZCM5LiA5aWX6KeG6KeJ6KeE5qC877yITGlxdWlkR2xhc3NTcGVj77yJ77yM5ZCM5LiA5pe25Yi75Y+q5ZCv55So5LiA5Liq5byV5pOO77yMCiMg6YG/5YWN6YeN5aSN5Zu+5bGC5o2V6I635a+86Ie05rua5Yqo5o6J5bin44CCCmt5YW50QmFja2Ryb3AgPSAiMi4wLjEiCgpva2h0dHAgPSAiNS4zLjIiCmhpZGRlbmFwaWJ5cGFzcyA9ICI2LjEiCmFwcGljb25sb2FkZXIgPSAiMS41LjAiCgojIFBhcGFyYXp6ae+8muWcqCBKVk0g5LiK55SoIExheW91dExpYiDmuLLmn5MgQ29tcG9zZSDkuLogUE5H77yM5peg6ZyA6K6+5aSHL+aooeaLn+WZqOOAggojIDIuMC4wLWFscGhhMDUuMSDmmK/pppbkuKrmlK/mjIEgQUdQIDkueCDnmoTniYjmnKzvvIjmnKzpobnnm64gQUdQIDkuMi4x77yJ44CCCiMg5LuF55So5LqOIHRlc3Qg5rqQ6ZuG55qE5oiq5Zu+77yM5LiN6L+bIEFQS+OAggpwYXBhcmF6emkgPSAiMi4wLjAtYWxwaGEwNS4xIgpbcGx1Z2luc10KYWdwLWFwcCA9IHsgaWQgPSAiY29tLmFuZHJvaWQuYXBwbGljYXRpb24iLCB2ZXJzaW9uLnJlZiA9ICJhZ3AiIH0KCmtvdGxpbiA9IHsgaWQgPSAib3JnLmpldGJyYWlucy5rb3RsaW4uYW5kcm9pZCIsIHZlcnNpb24ucmVmID0gImtvdGxpbiIgfQpjb21wb3NlLWNvbXBpbGVyID0geyBpZCA9ICJvcmcuamV0YnJhaW5zLmtvdGxpbi5wbHVnaW4uY29tcG9zZSIsIHZlcnNpb24ucmVmID0gImtvdGxpbiIgfQprb3RsaW4tc2VyaWFsaXphdGlvbiA9IHsgaWQgPSAib3JnLmpldGJyYWlucy5rb3RsaW4ucGx1Z2luLnNlcmlhbGl6YXRpb24iLCB2ZXJzaW9uLnJlZiA9ICJrb3RsaW4iIH0KCmxzcGx1Z2luLWFwa3NpZ24gPSB7IGlkID0gIm9yZy5sc3Bvc2VkLmxzcGx1Z2luLmFwa3NpZ24iLCB2ZXJzaW9uLnJlZiA9ICJhcGtzaWduIiB9CgpwYXBhcmF6emkgPSB7IGlkID0gImFwcC5jYXNoLnBhcGFyYXp6aSIsIHZlcnNpb24ucmVmID0gInBhcGFyYXp6aSIgfQoKW2xpYnJhcmllc10KYW5kcm9pZHgtYWN0aXZpdHktY29tcG9zZSA9IHsgZ3JvdXAgPSAiYW5kcm9pZHguYWN0aXZpdHkiLCBuYW1lID0gImFjdGl2aXR5LWNvbXBvc2UiLCB2ZXJzaW9uLnJlZiA9ICJhY3Rpdml0eS1jb21wb3NlIiB9CgphbmRyb2lkeC1jb21wb3NlLWJvbSA9IHsgZ3JvdXAgPSAiYW5kcm9pZHguY29tcG9zZSIsIG5hbWUgPSAiY29tcG9zZS1ib20iLCB2ZXJzaW9uLnJlZiA9ICJjb21wb3NlLWJvbSIgfQphbmRyb2lkeC1jb21wb3NlLW1hdGVyaWFsLWljb25zLWV4dGVuZGVkID0geyBncm91cCA9ICJhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsIiwgbmFtZSA9ICJtYXRlcmlhbC1pY29ucy1leHRlbmRlZCIgfQphbmRyb2lkeC1jb21wb3NlLW1hdGVyaWFsMyA9IHsgZ3JvdXAgPSAiYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMiLCBuYW1lID0gIm1hdGVyaWFsMyIsIHZlcnNpb24ucmVmID0gIm1hdGVyaWFsMyIgfQphbmRyb2lkeC1jb21wb3NlLXVpID0geyBncm91cCA9ICJhbmRyb2lkeC5jb21wb3NlLnVpIiwgbmFtZSA9ICJ1aSIgfQphbmRyb2lkeC1jb21wb3NlLXVpLXRlc3QtbWFuaWZlc3QgPSB7IGdyb3VwID0gImFuZHJvaWR4LmNvbXBvc2UudWkiLCBuYW1lID0gInVpLXRlc3QtbWFuaWZlc3QiIH0KYW5kcm9pZHgtY29tcG9zZS11aS10b29saW5nID0geyBncm91cCA9ICJhbmRyb2lkeC5jb21wb3NlLnVpIiwgbmFtZSA9ICJ1aS10b29saW5nIiB9CmFuZHJvaWR4LWNvbXBvc2UtdWktdG9vbGluZy1wcmV2aWV3ID0geyBncm91cCA9ICJhbmRyb2lkeC5jb21wb3NlLnVpIiwgbmFtZSA9ICJ1aS10b29saW5nLXByZXZpZXciIH0KCmFuZHJvaWR4LWxpZmVjeWNsZS1ydW50aW1lLWt0eCA9IHsgZ3JvdXAgPSAiYW5kcm9pZHgubGlmZWN5Y2xlIiwgbmFtZSA9ICJsaWZlY3ljbGUtcnVudGltZS1rdHgiLCB2ZXJzaW9uLnJlZiA9ICJsaWZlY3ljbGUiIH0KYW5kcm9pZHgtbGlmZWN5Y2xlLXJ1bnRpbWUtY29tcG9zZSA9IHsgZ3JvdXAgPSAiYW5kcm9pZHgubGlmZWN5Y2xlIiwgbmFtZSA9ICJsaWZlY3ljbGUtcnVudGltZS1jb21wb3NlIiwgdmVyc2lvbi5yZWYgPSAibGlmZWN5Y2xlIiB9CmFuZHJvaWR4LWxpZmVjeWNsZS12aWV3bW9kZWwtY29tcG9zZSA9IHsgZ3JvdXAgPSAiYW5kcm9pZHgubGlmZWN5Y2xlIiwgbmFtZSA9ICJsaWZlY3ljbGUtdmlld21vZGVsLWNvbXBvc2UiLCB2ZXJzaW9uLnJlZiA9ICJsaWZlY3ljbGUiIH0KYW5kcm9pZHgtbGlmZWN5Y2xlLXZpZXdtb2RlbC1uYXZpZ2F0aW9uMyA9IHsgbW9kdWxlID0gImFuZHJvaWR4LmxpZmVjeWNsZTpsaWZlY3ljbGUtdmlld21vZGVsLW5hdmlnYXRpb24zIiwgdmVyc2lvbi5yZWYgPSAibGlmZWN5Y2xlIiB9CgphbmRyb2lkeC13ZWJraXQgPSB7IG1vZHVsZSA9ICJhbmRyb2lkeC53ZWJraXQ6d2Via2l0IiwgdmVyc2lvbi5yZWYgPSAid2Via2l0IiB9Cgpjb20tZ2l0aHViLXRvcGpvaG53dS1saWJzdS1jb3JlID0geyBncm91cCA9ICJjb20uZ2l0aHViLnRvcGpvaG53dS5saWJzdSIsIG5hbWUgPSAiY29yZSIsIHZlcnNpb24ucmVmID0gImxpYnN1IiB9CmNvbS1naXRodWItdG9wam9obnd1LWxpYnN1LXNlcnZpY2UgPSB7IGdyb3VwID0gImNvbS5naXRodWIudG9wam9obnd1LmxpYnN1IiwgbmFtZSA9ICJzZXJ2aWNlIiwgdmVyc2lvbi5yZWYgPSAibGlic3UiIH0KY29tLWdpdGh1Yi10b3Bqb2hud3UtbGlic3UtaW8gPSB7IGdyb3VwID0gImNvbS5naXRodWIudG9wam9obnd1LmxpYnN1IiwgbmFtZSA9ICJpbyIsIHZlcnNpb24ucmVmID0gImxpYnN1IiB9CgpkZXYtcmlra2Etcmlra2F4LXBhcmNlbGFibGVsaXN0ID0geyBtb2R1bGUgPSAiZGV2LnJpa2thLnJpa2theC5wYXJjZWxhYmxlbGlzdDpwYXJjZWxhYmxlbGlzdCIsIHZlcnNpb24ucmVmID0gInBhcmNlbGFibGVsaXN0IiB9Cgprb3RsaW54LWNvcm91dGluZXMtY29yZSA9IHsgbW9kdWxlID0gIm9yZy5qZXRicmFpbnMua290bGlueDprb3RsaW54LWNvcm91dGluZXMtY29yZSIsIHZlcnNpb24ucmVmID0gImtvdGxpbngtY29yb3V0aW5lcyIgfQprb3RsaW54LXNlcmlhbGl6YXRpb24tanNvbiA9IHsgbW9kdWxlID0gIm9yZy5qZXRicmFpbnMua290bGlueDprb3RsaW54LXNlcmlhbGl6YXRpb24tanNvbiIsIHZlcnNpb24ucmVmID0gImtvdGxpbngtc2VyaWFsaXphdGlvbiIgfQoKanVuaXQgPSB7IG1vZHVsZSA9ICJqdW5pdDpqdW5pdCIsIHZlcnNpb24ucmVmID0gImp1bml0IiB9CgphbmRyb2lkeC1uYXZpZ2F0aW9uMy1ydW50aW1lID0geyBtb2R1bGUgPSAiYW5kcm9pZHgubmF2aWdhdGlvbjM6bmF2aWdhdGlvbjMtcnVudGltZSIsIHZlcnNpb24ucmVmID0gIm5hdmlnYXRpb24zIiB9CmFuZHJvaWR4LW5hdmlnYXRpb25ldmVudC1jb21wb3NlID0geyBtb2R1bGUgPSAiYW5kcm9pZHgubmF2aWdhdGlvbmV2ZW50Om5hdmlnYXRpb25ldmVudC1jb21wb3NlIiwgdmVyc2lvbi5yZWYgPSAibmF2aWdhdGlvbmV2ZW50IiB9Cgpjb21tb25tYXJrID0geyBtb2R1bGUgPSAib3JnLmNvbW1vbm1hcms6Y29tbW9ubWFyayIsIHZlcnNpb24ucmVmID0gImNvbW1vbm1hcmsiIH0KY29tbW9ubWFyay1leHQtZ2ZtLXRhYmxlcyA9IHsgbW9kdWxlID0gIm9yZy5jb21tb25tYXJrOmNvbW1vbm1hcmstZXh0LWdmbS10YWJsZXMiLCB2ZXJzaW9uLnJlZiA9ICJjb21tb25tYXJrIiB9CmNvbW1vbm1hcmstZXh0LWdmbS1zdHJpa2V0aHJvdWdoID0geyBtb2R1bGUgPSAib3JnLmNvbW1vbm1hcms6Y29tbW9ubWFyay1leHQtZ2ZtLXN0cmlrZXRocm91Z2giLCB2ZXJzaW9uLnJlZiA9ICJjb21tb25tYXJrIiB9CmNvbW1vbm1hcmstZXh0LWF1dG9saW5rID0geyBtb2R1bGUgPSAib3JnLmNvbW1vbm1hcms6Y29tbW9ubWFyay1leHQtYXV0b2xpbmsiLCB2ZXJzaW9uLnJlZiA9ICJjb21tb25tYXJrIiB9CmNvbW1vbm1hcmstZXh0LXRhc2stbGlzdC1pdGVtcyA9IHsgbW9kdWxlID0gIm9yZy5jb21tb25tYXJrOmNvbW1vbm1hcmstZXh0LXRhc2stbGlzdC1pdGVtcyIsIHZlcnNpb24ucmVmID0gImNvbW1vbm1hcmsiIH0KCmxzcG9zZWQtY3h4ID0geyBtb2R1bGUgPSAib3JnLmxzcG9zZWQubGliY3h4OmxpYmN4eCIsIHZlcnNpb24ucmVmID0gIm5kayIgfQoKbWl1aXgtdWkgPSB7IG1vZHVsZSA9ICJ0b3AueXVrb25nYS5taXVpeC5rbXA6bWl1aXgtdWktYW5kcm9pZCIsIHZlcnNpb24ucmVmID0gIm1pdWl4IiB9Cm1pdWl4LWljb25zID0geyBtb2R1bGUgPSAidG9wLnl1a29uZ2EubWl1aXgua21wOm1pdWl4LWljb25zLWFuZHJvaWQiLCB2ZXJzaW9uLnJlZiA9ICJtaXVpeCIgfQptaXVpeC1uYXZpZ2F0aW9uMy11aSA9IHsgbW9kdWxlID0gInRvcC55dWtvbmdhLm1pdWl4LmttcDptaXVpeC1uYXZpZ2F0aW9uMy11aS1hbmRyb2lkIiwgdmVyc2lvbi5yZWYgPSAibWl1aXgiIH0KbWl1aXgtcHJlZmVyZW5jZSA9IHsgbW9kdWxlID0gInRvcC55dWtvbmdhLm1pdWl4LmttcDptaXVpeC1wcmVmZXJlbmNlLWFuZHJvaWQiLCB2ZXJzaW9uLnJlZiA9ICJtaXVpeCIgfQptaXVpeC1ibHVyID0geyBtb2R1bGUgPSAidG9wLnl1a29uZ2EubWl1aXgua21wOm1pdWl4LWJsdXItYW5kcm9pZCIsIHZlcnNpb24ucmVmID0gIm1pdWl4IiB9CgpreWFudC1iYWNrZHJvcCA9IHsgbW9kdWxlID0gImlvLmdpdGh1Yi5reWFudDA6YmFja2Ryb3AiLCB2ZXJzaW9uLnJlZiA9ICJreWFudEJhY2tkcm9wIiB9Cgpva2h0dHAgPSB7IG1vZHVsZSA9ICJjb20uc3F1YXJldXAub2todHRwMzpva2h0dHAiIH0Kb2todHRwLWJvbSA9IHsgbW9kdWxlID0gImNvbS5zcXVhcmV1cC5va2h0dHAzOm9raHR0cC1ib20iLCB2ZXJzaW9uLnJlZiA9ICJva2h0dHAiIH0KCmhpZGRlbmFwaWJ5cGFzcyA9IHsgbW9kdWxlID0gIm9yZy5sc3Bvc2VkLmhpZGRlbmFwaWJ5cGFzczpoaWRkZW5hcGlieXBhc3MiLCB2ZXJzaW9uLnJlZiA9ICJoaWRkZW5hcGlieXBhc3MiIH0KCm1hdGVyaWFsLWtvbG9yID0geyBncm91cCA9ICJjb20ubWF0ZXJpYWxrb2xvciIsIG5hbWUgPSAibWF0ZXJpYWwta29sb3IiLCB2ZXJzaW9uLnJlZiA9ICJtYXRlcmlhbEtvbG9yIiB9CgphcHBpY29ubG9hZGVyID0geyBtb2R1bGUgPSAibWUuemhhbmdoYWkuYW5kcm9pZC5hcHBpY29ubG9hZGVyOmFwcGljb25sb2FkZXIiLCB2ZXJzaW9uLnJlZiA9ICJhcHBpY29ubG9hZGVyIiB9CgpwYXBhcmF6emkgPSB7IG1vZHVsZSA9ICJhcHAuY2FzaC5wYXBhcmF6emk6cGFwYXJhenppIiwgdmVyc2lvbi5yZWYgPSAicGFwYXJhenppIiB9Cg==
+[versions]
+agp = "9.2.1"
+kotlin = "2.3.21"
+compose-bom = "2026.05.00"
+lifecycle = "2.10.0"
+activity-compose = "1.13.0"
+kotlinx-coroutines = "1.11.0"
+navigation3 = "1.1.1"
+kotlinx-serialization = "1.11.0"
+junit = "4.13.2"
+navigationevent = "1.1.1"
+commonmark = "0.28.0"
+webkit = "1.16.0"
+parcelablelist = "2.0.1"
+material3 = "1.5.0-alpha19"
+materialKolor = "4.1.1"
+ndk = "29.0.14206865"
+libsu = "6.0.0"
+apksign = "1.4"
+# 0.9.3（2026-07-04）。这是 0.9.4 之前的最后一个稳定版：0.9.4-rc01 移除了
+# miuix-navigation3-ui，而本项目仍在用它桥接 androidx.navigation3.ui 的
+# NavDisplay / LocalNavAnimatedContentScope（详见 docs/MIUIX_UPGRADE_PLAN.md）。
+# 要上 0.9.4 需先按该文档的「路线 A」解除桥接依赖。
+#
+# 升级前已用二进制比对核验（.workbuddy/verify_miuix_upgrade.py）：
+#   项目使用的 111 个 miuix 符号在 0.9.3 全部保留，无一消失。
+# 另核对了本项目实际调用的高风险组件签名：
+#   Snackbar / SnackbarHost          签名未变
+#   NavigationRail                   mode -> state（项目未用 mode，兼容）
+#   NavigationRailItem               末尾追加 badge（具名调用不受影响）
+miuix = "0.9.3"
+
+# Kyant0 的液态玻璃库（仓库名 AndroidLiquidGlass，2.x 起改称 Backdrop）。
+# 发布在 Maven Central：io.github.kyant0:backdrop，带 Gradle metadata，
+# Android 变体由 Gradle 自动选择（backdrop-android）。
+# AAR 内 minSdkVersion=21，与本项目 minSdk 31 兼容。
+# 注意：模糊(BlurEffect)需 API 31+，折射/色散(AGSL RuntimeShader)需 API 33+，
+#      库内部用 isRenderEffectSupported()/isRuntimeShaderSupported() 自行降级。
+#
+# 本项目同时保留了 miuix-blur 侧的同源实现（ui/component/liquid/ 下的
+# lens/InnerShadow/vibrancy，文件头标注 Adapted from Kyant0/AndroidLiquidGlass）。
+# 二者共用同一套视觉规格（LiquidGlassSpec），同一时刻只启用一个引擎，
+# 避免重复图层捕获导致滚动掉帧。
+kyantBackdrop = "2.0.1"
+
+okhttp = "5.3.2"
+hiddenapibypass = "6.1"
+appiconloader = "1.5.0"
+
+# Paparazzi：在 JVM 上用 LayoutLib 渲染 Compose 为 PNG，无需设备/模拟器。
+# 2.0.0-alpha05.1 是首个支持 AGP 9.x 的版本（本项目 AGP 9.2.1）。
+# 仅用于 test 源集的截图，不进 APK。
+paparazzi = "2.0.0-alpha05.1"
+[plugins]
+agp-app = { id = "com.android.application", version.ref = "agp" }
+
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+lsplugin-apksign = { id = "org.lsposed.lsplugin.apksign", version.ref = "apksign" }
+
+paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
+
+[libraries]
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycle" }
+
+androidx-webkit = { module = "androidx.webkit:webkit", version.ref = "webkit" }
+
+com-github-topjohnwu-libsu-core = { group = "com.github.topjohnwu.libsu", name = "core", version.ref = "libsu" }
+com-github-topjohnwu-libsu-service = { group = "com.github.topjohnwu.libsu", name = "service", version.ref = "libsu" }
+com-github-topjohnwu-libsu-io = { group = "com.github.topjohnwu.libsu", name = "io", version.ref = "libsu" }
+
+dev-rikka-rikkax-parcelablelist = { module = "dev.rikka.rikkax.parcelablelist:parcelablelist", version.ref = "parcelablelist" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+
+androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "navigation3" }
+androidx-navigationevent-compose = { module = "androidx.navigationevent:navigationevent-compose", version.ref = "navigationevent" }
+
+commonmark = { module = "org.commonmark:commonmark", version.ref = "commonmark" }
+commonmark-ext-gfm-tables = { module = "org.commonmark:commonmark-ext-gfm-tables", version.ref = "commonmark" }
+commonmark-ext-gfm-strikethrough = { module = "org.commonmark:commonmark-ext-gfm-strikethrough", version.ref = "commonmark" }
+commonmark-ext-autolink = { module = "org.commonmark:commonmark-ext-autolink", version.ref = "commonmark" }
+commonmark-ext-task-list-items = { module = "org.commonmark:commonmark-ext-task-list-items", version.ref = "commonmark" }
+
+lsposed-cxx = { module = "org.lsposed.libcxx:libcxx", version.ref = "ndk" }
+
+miuix-ui = { module = "top.yukonga.miuix.kmp:miuix-ui-android", version.ref = "miuix" }
+miuix-icons = { module = "top.yukonga.miuix.kmp:miuix-icons-android", version.ref = "miuix" }
+miuix-navigation3-ui = { module = "top.yukonga.miuix.kmp:miuix-navigation3-ui-android", version.ref = "miuix" }
+miuix-preference = { module = "top.yukonga.miuix.kmp:miuix-preference-android", version.ref = "miuix" }
+miuix-blur = { module = "top.yukonga.miuix.kmp:miuix-blur-android", version.ref = "miuix" }
+
+kyant-backdrop = { module = "io.github.kyant0:backdrop", version.ref = "kyantBackdrop" }
+
+okhttp = { module = "com.squareup.okhttp3:okhttp" }
+okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttp" }
+
+hiddenapibypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hiddenapibypass" }
+
+material-kolor = { group = "com.materialkolor", name = "material-kolor", version.ref = "materialKolor" }
+
+appiconloader = { module = "me.zhanghai.android.appiconloader:appiconloader", version.ref = "appiconloader" }
+
+paparazzi = { module = "app.cash.paparazzi:paparazzi", version.ref = "paparazzi" }

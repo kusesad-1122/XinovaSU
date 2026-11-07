@@ -1,1 +1,178 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5zY3JpcHRydW4KCmltcG9ydCBhbmRyb2lkLmNvbnRlbnQuQ29udGV4dAppbXBvcnQgYW5kcm9pZC53aWRnZXQuVG9hc3QKaW1wb3J0IGFuZHJvaWR4LmFjdGl2aXR5LmNvbXBvc2UuTG9jYWxBY3Rpdml0eQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuU25hY2tiYXJIb3N0U3RhdGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5Db21wb3NhYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuRGlzcG9zYWJsZUVmZmVjdAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkxhdW5jaGVkRWZmZWN0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuU2lkZUVmZmVjdAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLmdldFZhbHVlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUucmVtZW1iZXIKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5yZW1lbWJlckNvcm91dGluZVNjb3BlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2F2ZWFibGUucmVtZW1iZXJTYXZlYWJsZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5wbGF0Zm9ybS5Mb2NhbENvbnRleHQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkucmVzLnN0cmluZ1Jlc291cmNlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnRleHQuaW5wdXQuS2V5Ym9hcmRUeXBlCmltcG9ydCBhbmRyb2lkeC5saWZlY3ljbGUuY29tcG9zZS5jb2xsZWN0QXNTdGF0ZVdpdGhMaWZlY3ljbGUKaW1wb3J0IGFuZHJvaWR4LmxpZmVjeWNsZS5jb21wb3NlLmRyb3BVbmxlc3NSZXN1bWVkCmltcG9ydCBhbmRyb2lkeC5saWZlY3ljbGUudmlld21vZGVsLmNvbXBvc2Uudmlld01vZGVsCmltcG9ydCBhbmRyb2lkeC5uYXZpZ2F0aW9uZXZlbnQuTmF2aWdhdGlvbkV2ZW50SW5mbwppbXBvcnQgYW5kcm9pZHgubmF2aWdhdGlvbmV2ZW50LmNvbXBvc2UuTmF2aWdhdGlvbkJhY2tIYW5kbGVyCmltcG9ydCBhbmRyb2lkeC5uYXZpZ2F0aW9uZXZlbnQuY29tcG9zZS5yZW1lbWJlck5hdmlnYXRpb25FdmVudFN0YXRlCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMubGF1bmNoCmltcG9ydCBjb20ueGluc3UubW9lLlIKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5zY3JpcHQuUGFyYW1FcnJvcgppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnNjcmlwdC5TY3JpcHRPdXRjb21lCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0LlNjcmlwdFBhcmFtCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0LlNjcmlwdFJ1blJlY29yZAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5Mb2NhbFVpTW9kZQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5VaU1vZGUKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuY29tcG9uZW50LmRpYWxvZy5yZW1lbWJlckNvbmZpcm1EaWFsb2cKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkubmF2aWdhdGlvbjMuTG9jYWxOYXZpZ2F0b3IKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkubmF2aWdhdGlvbjMuUm91dGUKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuc2NyZWVuLmV4ZWN1dGVtb2R1bGVhY3Rpb24uQWN0aW9uUmVzdWx0S2luZAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5zY3JlZW4uZXhlY3V0ZW1vZHVsZWFjdGlvbi5BY3Rpb25SZXN1bHROb3RpY2UKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuc2NyZWVuLmV4ZWN1dGVtb2R1bGVhY3Rpb24uRXhlY3V0ZU1vZHVsZUFjdGlvblNjcmVlbkFjdGlvbnMKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuc2NyZWVuLmV4ZWN1dGVtb2R1bGVhY3Rpb24uRXhlY3V0ZU1vZHVsZUFjdGlvblNjcmVlbk1hdGVyaWFsCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5leGVjdXRlbW9kdWxlYWN0aW9uLkV4ZWN1dGVNb2R1bGVBY3Rpb25TY3JlZW5NaXVpeAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5zY3JlZW4uZXhlY3V0ZW1vZHVsZWFjdGlvbi5FeGVjdXRlTW9kdWxlQWN0aW9uVWlTdGF0ZQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5zY3JlZW4uZXhlY3V0ZW1vZHVsZWFjdGlvbi5zYXZlTG9nCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5mbGFzaC5GbGFzaEl0CmltcG9ydCBjb20ueGluc3UubW9lLnVpLnZpZXdtb2RlbC5TY3JpcHRSdW5WaWV3TW9kZWwKaW1wb3J0IGphdmEudGV4dC5EYXRlRm9ybWF0CmltcG9ydCBqYXZhLnV0aWwuRGF0ZQppbXBvcnQgamF2YS51dGlsLlVVSUQKCi8qKgogKiBSdW4gcGFnZSBvZiBhIG9uZS1zaG90IHNjcmlwdDogdmVyaWZ5ICsgZXh0cmFjdCwgcGFyYW1ldGVyIGZvcm0gYW5kIHNvdXJjZSwgdGhlbiB0aGUKICogb3V0cHV0IChzaGFyZWQgd2l0aCBtb2R1bGUgYWN0aW9ucykgb25jZSBpdCBydW5zLgogKi8KQENvbXBvc2FibGUKZnVuIFNjcmlwdFJ1blNjcmVlbihhcmc6IFNjcmlwdFJ1bkFyZywgb25CYWNrRW5hYmxlZENoYW5nZTogKEJvb2xlYW4pIC0+IFVuaXQpIHsKICAgIHZhbCBuYXZpZ2F0b3IgPSBMb2NhbE5hdmlnYXRvci5jdXJyZW50CiAgICB2YWwgY29udGV4dCA9IExvY2FsQ29udGV4dC5jdXJyZW50CiAgICB2YWwgdWlNb2RlID0gTG9jYWxVaU1vZGUuY3VycmVudAogICAgdmFsIHNjb3BlID0gcmVtZW1iZXJDb3JvdXRpbmVTY29wZSgpCiAgICB2YWwgdmlld01vZGVsID0gdmlld01vZGVsPFNjcmlwdFJ1blZpZXdNb2RlbD4oa2V5ID0gInNjcmlwdC1ydW4tJHthcmcudXJpfS0ke2FyZy5yZWdpc3RyeUlkfSIpCiAgICB2YWwgc3RhdGUgYnkgdmlld01vZGVsLnN0YXRlLmNvbGxlY3RBc1N0YXRlV2l0aExpZmVjeWNsZSgpCgogICAgdmFsIHZpc2l0ID0gcmVtZW1iZXJTYXZlYWJsZSB7IFVVSUQucmFuZG9tVVVJRCgpLnRvU3RyaW5nKCkgfQogICAgTGF1bmNoZWRFZmZlY3QoYXJnLCB2aXNpdCkgeyB2aWV3TW9kZWwubG9hZChhcmcsIHZpc2l0KSB9CiAgICAvLyBUaGUgc2NyaXB0IGNhbm5vdCBiZSBzdG9wcGVkOiBubyBiYWNrIChnZXN0dXJlIGluY2x1ZGVkKSBhbmQgbm8gc3dpcGUtZGlzbWlzcyB3aGlsZSBpdCBydW5zLgogICAgdmFsIHJ1bm5pbmcgPSBzdGF0ZS5waGFzZSA9PSBTY3JpcHRSdW5QaGFzZS5SVU5OSU5HCiAgICBTaWRlRWZmZWN0IHsgb25CYWNrRW5hYmxlZENoYW5nZSghcnVubmluZykgfQogICAgTmF2aWdhdGlvbkJhY2tIYW5kbGVyKAogICAgICAgIHN0YXRlID0gcmVtZW1iZXJOYXZpZ2F0aW9uRXZlbnRTdGF0ZShOYXZpZ2F0aW9uRXZlbnRJbmZvLk5vbmUpLAogICAgICAgIGlzQmFja0VuYWJsZWQgPSBydW5uaW5nLAogICAgICAgIG9uQmFja0NvbXBsZXRlZCA9IHt9LAogICAgKQogICAgLy8gVmlld01vZGVscyBoZXJlIGxpdmUgYXMgbG9uZyBhcyB0aGUgYWN0aXZpdHk6IGZyZWUgdGhlIGV4dHJhY3Rpb24gd2hlbiB0aGUgcGFnZSBnb2VzIGF3YXkuCiAgICB2YWwgYWN0aXZpdHkgPSBMb2NhbEFjdGl2aXR5LmN1cnJlbnQKICAgIERpc3Bvc2FibGVFZmZlY3Qodmlld01vZGVsKSB7CiAgICAgICAgb25EaXNwb3NlIHsgaWYgKGFjdGl2aXR5Py5pc0NoYW5naW5nQ29uZmlndXJhdGlvbnMgIT0gdHJ1ZSkgdmlld01vZGVsLmxlYXZlKCkgfQogICAgfQoKICAgIGlmIChzdGF0ZS5waGFzZSA9PSBTY3JpcHRSdW5QaGFzZS5SVU5OSU5HIHx8IHN0YXRlLnBoYXNlID09IFNjcmlwdFJ1blBoYXNlLkZJTklTSEVEKSB7CiAgICAgICAgdmFsIHNuYWNrYmFySG9zdCA9IHJlbWVtYmVyIHsgU25hY2tiYXJIb3N0U3RhdGUoKSB9CiAgICAgICAgdmFsIHNob3dNZXNzYWdlOiAoU3RyaW5nKSAtPiBVbml0ID0geyBtZXNzYWdlIC0+CiAgICAgICAgICAgIHNjb3BlLmxhdW5jaCB7CiAgICAgICAgICAgICAgICBpZiAodWlNb2RlID09IFVpTW9kZS5NYXRlcmlhbCkgewogICAgICAgICAgICAgICAgICAgIHNuYWNrYmFySG9zdC5zaG93U25hY2tiYXIobWVzc2FnZSkKICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgVG9hc3QubWFrZVRleHQoY29udGV4dCwgbWVzc2FnZSwgVG9hc3QuTEVOR1RIX1NIT1JUKS5zaG93KCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICB2YWwgZmluaXNoZWQgPSBzdGF0ZS5waGFzZSA9PSBTY3JpcHRSdW5QaGFzZS5GSU5JU0hFRAogICAgICAgIHZhbCBleGl0Q29kZSA9IHN0YXRlLmV4aXRDb2RlCiAgICAgICAgdmFsIG5vdGljZSA9IGlmIChmaW5pc2hlZCAmJiBleGl0Q29kZSAhPSBudWxsKSB7CiAgICAgICAgICAgIHdoZW4gKFNjcmlwdE91dGNvbWUub2YoZXhpdENvZGUpKSB7CiAgICAgICAgICAgICAgICBTY3JpcHRPdXRjb21lLlNVQ0NFU1MgLT4gQWN0aW9uUmVzdWx0Tm90aWNlKEFjdGlvblJlc3VsdEtpbmQuU1VDQ0VTUywgc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X3Jlc3VsdF9zdWNjZXNzKSkKICAgICAgICAgICAgICAgIFNjcmlwdE91dGNvbWUuTk9UX0FQUExJQ0FCTEUgLT4gQWN0aW9uUmVzdWx0Tm90aWNlKAogICAgICAgICAgICAgICAgICAgIEFjdGlvblJlc3VsdEtpbmQuTk9UX0FQUExJQ0FCTEUsCiAgICAgICAgICAgICAgICAgICAgc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X3Jlc3VsdF9ub3RfYXBwbGljYWJsZSkKICAgICAgICAgICAgICAgICkKCiAgICAgICAgICAgICAgICBTY3JpcHRPdXRjb21lLkZBSUxVUkUgLT4gQWN0aW9uUmVzdWx0Tm90aWNlKAogICAgICAgICAgICAgICAgICAgIEFjdGlvblJlc3VsdEtpbmQuRkFJTFVSRSwKICAgICAgICAgICAgICAgICAgICBzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5zY3JpcHRfcmVzdWx0X2ZhaWxlZCwgZXhpdENvZGUpCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgIH0KICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBudWxsCiAgICAgICAgfQogICAgICAgIHZhbCBvdXRwdXRTdGF0ZSA9IEV4ZWN1dGVNb2R1bGVBY3Rpb25VaVN0YXRlKAogICAgICAgICAgICB0ZXh0ID0gc3RhdGUub3V0cHV0LAogICAgICAgICAgICBpc0NvbXBsZXRlID0gZmluaXNoZWQsCiAgICAgICAgICAgIHRpdGxlID0gc3RhdGUucHJlcGFyZWQ/Lm1hbmlmZXN0Py5uYW1lID86IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9ydW5fdGl0bGUpLAogICAgICAgICAgICByZXN1bHROb3RpY2UgPSBub3RpY2UsCiAgICAgICAgKQogICAgICAgIHZhbCBvdXRwdXRBY3Rpb25zID0gRXhlY3V0ZU1vZHVsZUFjdGlvblNjcmVlbkFjdGlvbnMoCiAgICAgICAgICAgIC8vIFRoZSBzY3JpcHQgY2Fubm90IGJlIHN0b3BwZWQ7IHN0YXkgb24gdGhlIG91dHB1dCB1bnRpbCBpdCBlbmRzLgogICAgICAgICAgICBvbkJhY2sgPSBkcm9wVW5sZXNzUmVzdW1lZCB7IGlmIChmaW5pc2hlZCkgbmF2aWdhdG9yLnBvcCgpIH0sCiAgICAgICAgICAgIG9uU2F2ZUxvZyA9IHNhdmVMb2codmlld01vZGVsLmxvZ0NvbnRlbnQsIHNjb3BlLCAiS2VybmVsU1Vfc2NyaXB0X2xvZyIpIHsgc2hvd01lc3NhZ2UoaXQpIH0sCiAgICAgICAgICAgIG9uQ2xvc2UgPSB7IG5hdmlnYXRvci5wb3AoKSB9LAogICAgICAgICkKICAgICAgICB3aGVuICh1aU1vZGUpIHsKICAgICAgICAgICAgVWlNb2RlLk1pdWl4IC0+IEV4ZWN1dGVNb2R1bGVBY3Rpb25TY3JlZW5NaXVpeChvdXRwdXRTdGF0ZSwgb3V0cHV0QWN0aW9ucykKICAgICAgICAgICAgVWlNb2RlLk1hdGVyaWFsIC0+IEV4ZWN1dGVNb2R1bGVBY3Rpb25TY3JlZW5NYXRlcmlhbChvdXRwdXRTdGF0ZSwgb3V0cHV0QWN0aW9ucywgc25hY2tiYXJIb3N0KQogICAgICAgIH0KICAgICAgICByZXR1cm4KICAgIH0KCiAgICB2YWwgY29uZmlybURpYWxvZyA9IHJlbWVtYmVyQ29uZmlybURpYWxvZyhvbkNvbmZpcm0gPSB7IHZpZXdNb2RlbC5ydW4oKSB9KQogICAgdmFsIGNvbmZpcm1UaXRsZSA9IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9ydW5fdGl0bGUpCiAgICB2YWwgY29uZmlybUNvbnRlbnQgPSBzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5zY3JpcHRfcnVuX2NvbmZpcm0sIHN0YXRlLnByZXBhcmVkPy5tYW5pZmVzdD8ubmFtZS5vckVtcHR5KCkpCiAgICB2YWwgY29uZmlybUJ1dHRvbiA9IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9ydW4pCiAgICB2YWwgYWN0aW9ucyA9IFNjcmlwdFJ1bkFjdGlvbnMoCiAgICAgICAgb25CYWNrID0gZHJvcFVubGVzc1Jlc3VtZWQgeyBuYXZpZ2F0b3IucG9wKCkgfSwKICAgICAgICBvblZhbHVlQ2hhbmdlID0gdmlld01vZGVsOjpzZXRWYWx1ZSwKICAgICAgICBvblJ1biA9IHsKICAgICAgICAgICAgaWYgKHN0YXRlLmNhblJ1bikgewogICAgICAgICAgICAgICAgY29uZmlybURpYWxvZy5zaG93Q29uZmlybSh0aXRsZSA9IGNvbmZpcm1UaXRsZSwgY29udGVudCA9IGNvbmZpcm1Db250ZW50LCBjb25maXJtID0gY29uZmlybUJ1dHRvbikKICAgICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgb25JbnN0YWxsQXNNb2R1bGUgPSB7CiAgICAgICAgICAgIGlmIChhcmcub2ZmZXJJbnN0YWxsKSBuYXZpZ2F0b3IucmVwbGFjZShSb3V0ZS5GbGFzaChGbGFzaEl0LkZsYXNoTW9kdWxlcyhsaXN0T2YoYXJnLnVyaSkpKSkKICAgICAgICB9LAogICAgKQoKICAgIHdoZW4gKHVpTW9kZSkgewogICAgICAgIFVpTW9kZS5NaXVpeCAtPiBTY3JpcHRSdW5TY3JlZW5NaXVpeChzdGF0ZSwgYWN0aW9ucykKICAgICAgICBVaU1vZGUuTWF0ZXJpYWwgLT4gU2NyaXB0UnVuU2NyZWVuTWF0ZXJpYWwoc3RhdGUsIGFjdGlvbnMpCiAgICB9Cn0KCkBDb21wb3NhYmxlCmludGVybmFsIGZ1biBwYXJhbUVycm9yVGV4dChwYXJhbTogU2NyaXB0UGFyYW0sIGVycm9yOiBQYXJhbUVycm9yKTogU3RyaW5nID0gd2hlbiAoZXJyb3IpIHsKICAgIFBhcmFtRXJyb3IuUkVRVUlSRUQgLT4gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X3BhcmFtX3JlcXVpcmVkKQogICAgUGFyYW1FcnJvci5UT09fTE9ORyAtPiBzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5zY3JpcHRfcGFyYW1fdG9vX2xvbmcsIChwYXJhbSBhcz8gU2NyaXB0UGFyYW0uVGV4dCk/Lm1heExlbmd0aCA/OiAwKQogICAgUGFyYW1FcnJvci5JTlZBTElEX0NIQVJBQ1RFUlMgLT4gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X3BhcmFtX2ludmFsaWRfY2hhcmFjdGVycykKICAgIFBhcmFtRXJyb3IuTk9UX0FOX0lOVEVHRVIgLT4gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X3BhcmFtX25vdF9pbnRlZ2VyKQogICAgUGFyYW1FcnJvci5CRUxPV19NSU4gLT4gc3RyaW5nUmVzb3VyY2UoUi5zdHJpbmcuc2NyaXB0X3BhcmFtX2JlbG93X21pbiwgKHBhcmFtIGFzPyBTY3JpcHRQYXJhbS5JbnRlZ2VyKT8ubWluID86IDApCiAgICBQYXJhbUVycm9yLkFCT1ZFX01BWCAtPiBzdHJpbmdSZXNvdXJjZShSLnN0cmluZy5zY3JpcHRfcGFyYW1fYWJvdmVfbWF4LCAocGFyYW0gYXM/IFNjcmlwdFBhcmFtLkludGVnZXIpPy5tYXggPzogMCkKICAgIFBhcmFtRXJyb3IuSU5WQUxJRF9PUFRJT04sIFBhcmFtRXJyb3IuSU5WQUxJRF9CT09MRUFOIC0+IHN0cmluZ1Jlc291cmNlKFIuc3RyaW5nLnNjcmlwdF9wYXJhbV9pbnZhbGlkKQp9CgppbnRlcm5hbCBmdW4gbGFzdFJ1blRleHQoY29udGV4dDogQ29udGV4dCwgcmVjb3JkOiBTY3JpcHRSdW5SZWNvcmQ/KTogU3RyaW5nIHsKICAgIGlmIChyZWNvcmQgPT0gbnVsbCkgcmV0dXJuIGNvbnRleHQuZ2V0U3RyaW5nKFIuc3RyaW5nLnNjcmlwdF9uZXZlcl9ydW4pCiAgICB2YWwgdGltZSA9IERhdGVGb3JtYXQuZ2V0RGF0ZVRpbWVJbnN0YW5jZShEYXRlRm9ybWF0Lk1FRElVTSwgRGF0ZUZvcm1hdC5TSE9SVCkuZm9ybWF0KERhdGUocmVjb3JkLnRpbWUpKQogICAgcmV0dXJuIGlmIChyZWNvcmQudmVyc2lvbkNvZGUgIT0gbnVsbCkgewogICAgICAgIGNvbnRleHQuZ2V0U3RyaW5nKFIuc3RyaW5nLnNjcmlwdF9sYXN0X3J1bl92ZXJzaW9uLCB0aW1lLCByZWNvcmQudmVyc2lvbkNvZGUsIHJlY29yZC5leGl0Q29kZSkKICAgIH0gZWxzZSB7CiAgICAgICAgY29udGV4dC5nZXRTdHJpbmcoUi5zdHJpbmcuc2NyaXB0X2xhc3RfcnVuLCB0aW1lLCByZWNvcmQuZXhpdENvZGUpCiAgICB9Cn0KCi8qKiAiSUQ6IGZvbyDCtyB2MS4wICgxMDApIiAqLwppbnRlcm5hbCBmdW4gc2NyaXB0U3VidGl0bGUoaWQ6IFN0cmluZywgdmVyc2lvbjogU3RyaW5nLCB2ZXJzaW9uQ29kZTogSW50Pyk6IFN0cmluZyA9IGJ1aWxkU3RyaW5nIHsKICAgIGFwcGVuZCgiSUQ6ICIpLmFwcGVuZChpZCkKICAgIGlmICh2ZXJzaW9uLmlzTm90QmxhbmsoKSkgYXBwZW5kKCIgwrcgIikuYXBwZW5kKHZlcnNpb24pCiAgICBpZiAodmVyc2lvbkNvZGUgIT0gbnVsbCkgYXBwZW5kKCIgKCIpLmFwcGVuZCh2ZXJzaW9uQ29kZSkuYXBwZW5kKCcpJykKfQoKLyoqIFRoZSBwbGFpbiBudW1iZXIga2V5cGFkIG9mIG1vc3QgSU1FcyBoYXMgbm8gIi0iOiB1c2UgYSB0ZXh0IGtleWJvYXJkIHdoZW4gbmVnYXRpdmVzIGFyZSBhbGxvd2VkLiAqLwppbnRlcm5hbCBmdW4gaW50ZWdlcktleWJvYXJkVHlwZShwYXJhbTogU2NyaXB0UGFyYW0uSW50ZWdlcik6IEtleWJvYXJkVHlwZSA9CiAgICBpZiAoKHBhcmFtLm1pbiA/OiBJbnQuTUlOX1ZBTFVFKSA8IDApIEtleWJvYXJkVHlwZS5Bc2NpaSBlbHNlIEtleWJvYXJkVHlwZS5OdW1iZXIK
+package com.xinsu.moe.ui.screen.scriptrun
+
+import android.content.Context
+import android.widget.Toast
+import androidx.activity.compose.LocalActivity
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.compose.dropUnlessResumed
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigationevent.NavigationEventInfo
+import androidx.navigationevent.compose.NavigationBackHandler
+import androidx.navigationevent.compose.rememberNavigationEventState
+import kotlinx.coroutines.launch
+import com.xinsu.moe.R
+import com.xinsu.moe.data.script.ParamError
+import com.xinsu.moe.data.script.ScriptOutcome
+import com.xinsu.moe.data.script.ScriptParam
+import com.xinsu.moe.data.script.ScriptRunRecord
+import com.xinsu.moe.ui.LocalUiMode
+import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.component.dialog.rememberConfirmDialog
+import com.xinsu.moe.ui.navigation3.LocalNavigator
+import com.xinsu.moe.ui.navigation3.Route
+import com.xinsu.moe.ui.screen.executemoduleaction.ActionResultKind
+import com.xinsu.moe.ui.screen.executemoduleaction.ActionResultNotice
+import com.xinsu.moe.ui.screen.executemoduleaction.ExecuteModuleActionScreenActions
+import com.xinsu.moe.ui.screen.executemoduleaction.ExecuteModuleActionScreenMaterial
+import com.xinsu.moe.ui.screen.executemoduleaction.ExecuteModuleActionScreenMiuix
+import com.xinsu.moe.ui.screen.executemoduleaction.ExecuteModuleActionUiState
+import com.xinsu.moe.ui.screen.executemoduleaction.saveLog
+import com.xinsu.moe.ui.screen.flash.FlashIt
+import com.xinsu.moe.ui.viewmodel.ScriptRunViewModel
+import java.text.DateFormat
+import java.util.Date
+import java.util.UUID
+
+/**
+ * Run page of a one-shot script: verify + extract, parameter form and source, then the
+ * output (shared with module actions) once it runs.
+ */
+@Composable
+fun ScriptRunScreen(arg: ScriptRunArg, onBackEnabledChange: (Boolean) -> Unit) {
+    val navigator = LocalNavigator.current
+    val context = LocalContext.current
+    val uiMode = LocalUiMode.current
+    val scope = rememberCoroutineScope()
+    val viewModel = viewModel<ScriptRunViewModel>(key = "script-run-${arg.uri}-${arg.registryId}")
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    val visit = rememberSaveable { UUID.randomUUID().toString() }
+    LaunchedEffect(arg, visit) { viewModel.load(arg, visit) }
+    // The script cannot be stopped: no back (gesture included) and no swipe-dismiss while it runs.
+    val running = state.phase == ScriptRunPhase.RUNNING
+    SideEffect { onBackEnabledChange(!running) }
+    NavigationBackHandler(
+        state = rememberNavigationEventState(NavigationEventInfo.None),
+        isBackEnabled = running,
+        onBackCompleted = {},
+    )
+    // ViewModels here live as long as the activity: free the extraction when the page goes away.
+    val activity = LocalActivity.current
+    DisposableEffect(viewModel) {
+        onDispose { if (activity?.isChangingConfigurations != true) viewModel.leave() }
+    }
+
+    if (state.phase == ScriptRunPhase.RUNNING || state.phase == ScriptRunPhase.FINISHED) {
+        val snackbarHost = remember { SnackbarHostState() }
+        val showMessage: (String) -> Unit = { message ->
+            scope.launch {
+                if (uiMode == UiMode.Material) {
+                    snackbarHost.showSnackbar(message)
+                } else {
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        val finished = state.phase == ScriptRunPhase.FINISHED
+        val exitCode = state.exitCode
+        val notice = if (finished && exitCode != null) {
+            when (ScriptOutcome.of(exitCode)) {
+                ScriptOutcome.SUCCESS -> ActionResultNotice(ActionResultKind.SUCCESS, stringResource(R.string.script_result_success))
+                ScriptOutcome.NOT_APPLICABLE -> ActionResultNotice(
+                    ActionResultKind.NOT_APPLICABLE,
+                    stringResource(R.string.script_result_not_applicable)
+                )
+
+                ScriptOutcome.FAILURE -> ActionResultNotice(
+                    ActionResultKind.FAILURE,
+                    stringResource(R.string.script_result_failed, exitCode)
+                )
+            }
+        } else {
+            null
+        }
+        val outputState = ExecuteModuleActionUiState(
+            text = state.output,
+            isComplete = finished,
+            title = state.prepared?.manifest?.name ?: stringResource(R.string.script_run_title),
+            resultNotice = notice,
+        )
+        val outputActions = ExecuteModuleActionScreenActions(
+            // The script cannot be stopped; stay on the output until it ends.
+            onBack = dropUnlessResumed { if (finished) navigator.pop() },
+            onSaveLog = saveLog(viewModel.logContent, scope, "KernelSU_script_log") { showMessage(it) },
+            onClose = { navigator.pop() },
+        )
+        when (uiMode) {
+            UiMode.Miuix -> ExecuteModuleActionScreenMiuix(outputState, outputActions)
+            UiMode.Material -> ExecuteModuleActionScreenMaterial(outputState, outputActions, snackbarHost)
+        }
+        return
+    }
+
+    val confirmDialog = rememberConfirmDialog(onConfirm = { viewModel.run() })
+    val confirmTitle = stringResource(R.string.script_run_title)
+    val confirmContent = stringResource(R.string.script_run_confirm, state.prepared?.manifest?.name.orEmpty())
+    val confirmButton = stringResource(R.string.script_run)
+    val actions = ScriptRunActions(
+        onBack = dropUnlessResumed { navigator.pop() },
+        onValueChange = viewModel::setValue,
+        onRun = {
+            if (state.canRun) {
+                confirmDialog.showConfirm(title = confirmTitle, content = confirmContent, confirm = confirmButton)
+            }
+        },
+        onInstallAsModule = {
+            if (arg.offerInstall) navigator.replace(Route.Flash(FlashIt.FlashModules(listOf(arg.uri))))
+        },
+    )
+
+    when (uiMode) {
+        UiMode.Miuix -> ScriptRunScreenMiuix(state, actions)
+        UiMode.Material -> ScriptRunScreenMaterial(state, actions)
+    }
+}
+
+@Composable
+internal fun paramErrorText(param: ScriptParam, error: ParamError): String = when (error) {
+    ParamError.REQUIRED -> stringResource(R.string.script_param_required)
+    ParamError.TOO_LONG -> stringResource(R.string.script_param_too_long, (param as? ScriptParam.Text)?.maxLength ?: 0)
+    ParamError.INVALID_CHARACTERS -> stringResource(R.string.script_param_invalid_characters)
+    ParamError.NOT_AN_INTEGER -> stringResource(R.string.script_param_not_integer)
+    ParamError.BELOW_MIN -> stringResource(R.string.script_param_below_min, (param as? ScriptParam.Integer)?.min ?: 0)
+    ParamError.ABOVE_MAX -> stringResource(R.string.script_param_above_max, (param as? ScriptParam.Integer)?.max ?: 0)
+    ParamError.INVALID_OPTION, ParamError.INVALID_BOOLEAN -> stringResource(R.string.script_param_invalid)
+}
+
+internal fun lastRunText(context: Context, record: ScriptRunRecord?): String {
+    if (record == null) return context.getString(R.string.script_never_run)
+    val time = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(record.time))
+    return if (record.versionCode != null) {
+        context.getString(R.string.script_last_run_version, time, record.versionCode, record.exitCode)
+    } else {
+        context.getString(R.string.script_last_run, time, record.exitCode)
+    }
+}
+
+/** "ID: foo · v1.0 (100)" */
+internal fun scriptSubtitle(id: String, version: String, versionCode: Int?): String = buildString {
+    append("ID: ").append(id)
+    if (version.isNotBlank()) append(" · ").append(version)
+    if (versionCode != null) append(" (").append(versionCode).append(')')
+}
+
+/** The plain number keypad of most IMEs has no "-": use a text keyboard when negatives are allowed. */
+internal fun integerKeyboardType(param: ScriptParam.Integer): KeyboardType =
+    if ((param.min ?: Int.MIN_VALUE) < 0) KeyboardType.Ascii else KeyboardType.Number

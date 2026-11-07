@@ -1,1 +1,165 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpCgppbXBvcnQgYW5kcm9pZC5hcHAuQWN0aXZpdHkKaW1wb3J0IGFuZHJvaWQuY29udGVudC5JbnRlbnQKaW1wb3J0IGFuZHJvaWQubmV0LlVyaQppbXBvcnQgYW5kcm9pZC52aWV3LlZpZXcKaW1wb3J0IGFuZHJvaWQudmlldy5WaWV3R3JvdXAKaW1wb3J0IGFuZHJvaWQud2Via2l0LldlYlZpZXcKaW1wb3J0IGFuZHJvaWR4LmFjdGl2aXR5LmNvbXBvc2UuQmFja0hhbmRsZXIKaW1wb3J0IGFuZHJvaWR4LmFjdGl2aXR5LmNvbXBvc2UucmVtZW1iZXJMYXVuY2hlckZvckFjdGl2aXR5UmVzdWx0CmltcG9ydCBhbmRyb2lkeC5hY3Rpdml0eS5yZXN1bHQuQWN0aXZpdHlSZXN1bHRMYXVuY2hlcgppbXBvcnQgYW5kcm9pZHguYWN0aXZpdHkucmVzdWx0LmNvbnRyYWN0LkFjdGl2aXR5UmVzdWx0Q29udHJhY3RzCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LkJveAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5XaW5kb3dJbnNldHMKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuYXNQYWRkaW5nVmFsdWVzCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LmRpc3BsYXlDdXRvdXQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuZmlsbE1heFNpemUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuaW1lCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LnBhZGRpbmcKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuc2FmZURyYXdpbmcKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuc3lzdGVtQmFycwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC51bmlvbgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkNvbXBvc2FibGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5EaXNwb3NhYmxlRWZmZWN0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuTGF1bmNoZWRFZmZlY3QKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5zbmFwc2hvdEZsb3cKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuTW9kaWZpZXIKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkucGxhdGZvcm0uTG9jYWxDb25maWd1cmF0aW9uCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnBsYXRmb3JtLkxvY2FsRGVuc2l0eQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5wbGF0Zm9ybS5Mb2NhbExheW91dERpcmVjdGlvbgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS52aWV3aW50ZXJvcC5BbmRyb2lkVmlldwppbXBvcnQgYW5kcm9pZHgubGlmZWN5Y2xlLkxpZmVjeWNsZQppbXBvcnQgYW5kcm9pZHgubGlmZWN5Y2xlLkxpZmVjeWNsZUV2ZW50T2JzZXJ2ZXIKaW1wb3J0IGFuZHJvaWR4LmxpZmVjeWNsZS5jb21wb3NlLkxvY2FsTGlmZWN5Y2xlT3duZXIKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuTG9jYWxVaU1vZGUKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuVWlNb2RlCgpAQ29tcG9zYWJsZQpmdW4gcmVtZW1iZXJGaWxlTGF1bmNoZXIod2ViVUlTdGF0ZTogV2ViVUlTdGF0ZSk6IEFjdGl2aXR5UmVzdWx0TGF1bmNoZXI8SW50ZW50PiB7CiAgICByZXR1cm4gcmVtZW1iZXJMYXVuY2hlckZvckFjdGl2aXR5UmVzdWx0KAogICAgICAgIGNvbnRyYWN0ID0gQWN0aXZpdHlSZXN1bHRDb250cmFjdHMuU3RhcnRBY3Rpdml0eUZvclJlc3VsdCgpCiAgICApIHsgcmVzdWx0IC0+CiAgICAgICAgdmFsIHVyaXM6IEFycmF5PFVyaT4/ID0gaWYgKHJlc3VsdC5yZXN1bHRDb2RlID09IEFjdGl2aXR5LlJFU1VMVF9PSykgewogICAgICAgICAgICByZXN1bHQuZGF0YT8ubGV0IHsgZGF0YSAtPgogICAgICAgICAgICAgICAgZGF0YS5jbGlwRGF0YT8ubGV0IHsgY2xpcERhdGEgLT4KICAgICAgICAgICAgICAgICAgICBBcnJheShjbGlwRGF0YS5pdGVtQ291bnQpIHsgaSAtPiBjbGlwRGF0YS5nZXRJdGVtQXQoaSkudXJpIH0KICAgICAgICAgICAgICAgIH0gPzogZGF0YS5kYXRhPy5sZXQgeyBhcnJheU9mKGl0KSB9CiAgICAgICAgICAgIH0KICAgICAgICB9IGVsc2UgbnVsbAogICAgICAgIHdlYlVJU3RhdGUub25GaWxlQ2hvb3NlclJlc3VsdCh1cmlzKQogICAgfQp9CgpAQ29tcG9zYWJsZQpmdW4gV2ViVUlTY3JlZW4od2ViVUlTdGF0ZTogV2ViVUlTdGF0ZSkgewogICAgdmFsIGRlbnNpdHkgPSBMb2NhbERlbnNpdHkuY3VycmVudAogICAgdmFsIGxheW91dERpcmVjdGlvbiA9IExvY2FsTGF5b3V0RGlyZWN0aW9uLmN1cnJlbnQKICAgIHZhbCBkcmF3aW5nSW5zZXRzID0gV2luZG93SW5zZXRzLnNhZmVEcmF3aW5nCiAgICB2YWwgZGV2aWNlSW5zZXRzID0gV2luZG93SW5zZXRzLnN5c3RlbUJhcnMudW5pb24oV2luZG93SW5zZXRzLmRpc3BsYXlDdXRvdXQpCiAgICB2YWwgaW1lSW5zZXRzID0gV2luZG93SW5zZXRzLmltZQogICAgdmFsIGlubmVyUGFkZGluZyA9IGlmICh3ZWJVSVN0YXRlLmlzSW5zZXRzRW5hYmxlZCkgaW1lSW5zZXRzLmFzUGFkZGluZ1ZhbHVlcygpIGVsc2UgZHJhd2luZ0luc2V0cy5hc1BhZGRpbmdWYWx1ZXMoKQogICAgdmFsIGZpbGVMYXVuY2hlciA9IHJlbWVtYmVyRmlsZUxhdW5jaGVyKHdlYlVJU3RhdGUpCgogICAgTGF1bmNoZWRFZmZlY3QoZGVuc2l0eSwgbGF5b3V0RGlyZWN0aW9uLCBkZXZpY2VJbnNldHMsIHdlYlVJU3RhdGUuaXNJbnNldHNFbmFibGVkKSB7CiAgICAgICAgaWYgKCF3ZWJVSVN0YXRlLmlzSW5zZXRzRW5hYmxlZCkgewogICAgICAgICAgICByZXR1cm5ATGF1bmNoZWRFZmZlY3QKICAgICAgICB9CiAgICAgICAgc25hcHNob3RGbG93IHsKICAgICAgICAgICAgSW5zZXRzKAogICAgICAgICAgICAgICAgdG9wID0gKGRldmljZUluc2V0cy5nZXRUb3AoZGVuc2l0eSkgLyBkZW5zaXR5LmRlbnNpdHkpLnRvSW50KCksCiAgICAgICAgICAgICAgICBib3R0b20gPSAoZGV2aWNlSW5zZXRzLmdldEJvdHRvbShkZW5zaXR5KSAvIGRlbnNpdHkuZGVuc2l0eSkudG9JbnQoKSwKICAgICAgICAgICAgICAgIGxlZnQgPSAoZGV2aWNlSW5zZXRzLmdldExlZnQoZGVuc2l0eSwgbGF5b3V0RGlyZWN0aW9uKSAvIGRlbnNpdHkuZGVuc2l0eSkudG9JbnQoKSwKICAgICAgICAgICAgICAgIHJpZ2h0ID0gKGRldmljZUluc2V0cy5nZXRSaWdodChkZW5zaXR5LCBsYXlvdXREaXJlY3Rpb24pIC8gZGVuc2l0eS5kZW5zaXR5KS50b0ludCgpCiAgICAgICAgICAgICkKICAgICAgICB9LmNvbGxlY3QgeyBuZXdJbnNldHMgLT4KICAgICAgICAgICAgaWYgKHdlYlVJU3RhdGUuY3VycmVudEluc2V0cyAhPSBuZXdJbnNldHMpIHsKICAgICAgICAgICAgICAgIHdlYlVJU3RhdGUuY3VycmVudEluc2V0cyA9IG5ld0luc2V0cwogICAgICAgICAgICAgICAgd2ViVUlTdGF0ZS53ZWJWaWV3Py5ldmFsdWF0ZUphdmFzY3JpcHQobmV3SW5zZXRzLmpzLCBudWxsKQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIEJhY2tIYW5kbGVyKGVuYWJsZWQgPSB3ZWJVSVN0YXRlLndlYkNhbkdvQmFjaykgewogICAgICAgIHdlYlVJU3RhdGUud2ViVmlldz8uZ29CYWNrKCkKICAgIH0KCiAgICBCb3goCiAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllcgogICAgICAgICAgICAuZmlsbE1heFNpemUoKQogICAgICAgICAgICAucGFkZGluZyhpbm5lclBhZGRpbmcpCiAgICApIHsKICAgICAgICB3ZWJVSVN0YXRlLndlYlZpZXc/LmxldCB7IHdlYlZpZXcgLT4KICAgICAgICAgICAgQW5kcm9pZFZpZXcoCiAgICAgICAgICAgICAgICBtb2RpZmllciA9IE1vZGlmaWVyLmZpbGxNYXhTaXplKCksCiAgICAgICAgICAgICAgICBmYWN0b3J5ID0geyBfIC0+CiAgICAgICAgICAgICAgICAgICAgd2ViVmlldy5hcHBseSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGxheW91dFBhcmFtcyA9IFZpZXdHcm91cC5MYXlvdXRQYXJhbXMoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBWaWV3R3JvdXAuTGF5b3V0UGFyYW1zLk1BVENIX1BBUkVOVCwgVmlld0dyb3VwLkxheW91dFBhcmFtcy5NQVRDSF9QQVJFTlQKICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgICAgICBpZiAoIXdlYlVJU3RhdGUuaXNVcmxMb2FkZWQpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBob21lUGFnZSA9ICJodHRwczovL211aS54aW5vdmFzdS5vcmcvaW5kZXguaHRtbCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmICh3aWR0aCA+IDAgJiYgaGVpZ2h0ID4gMCkgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxvYWRVcmwoaG9tZVBhZ2UpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2ViVUlTdGF0ZS5pc1VybExvYWRlZCA9IHRydWUKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsIGxpc3RlbmVyID0gb2JqZWN0IDogVmlldy5PbkxheW91dENoYW5nZUxpc3RlbmVyIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb3ZlcnJpZGUgZnVuIG9uTGF5b3V0Q2hhbmdlKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdjogVmlldywgbGVmdDogSW50LCB0b3A6IEludCwgcmlnaHQ6IEludCwgYm90dG9tOiBJbnQsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbGRMZWZ0OiBJbnQsIG9sZFRvcDogSW50LCBvbGRSaWdodDogSW50LCBvbGRCb3R0b206IEludAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmICh2LndpZHRoID4gMCAmJiB2LmhlaWdodCA+IDApIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAodiBhcyBXZWJWaWV3KS5sb2FkVXJsKGhvbWVQYWdlKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdlYlVJU3RhdGUuaXNVcmxMb2FkZWQgPSB0cnVlCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdi5yZW1vdmVPbkxheW91dENoYW5nZUxpc3RlbmVyKHRoaXMpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYWRkT25MYXlvdXRDaGFuZ2VMaXN0ZW5lcihsaXN0ZW5lcikKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB1cGRhdGUgPSB7IHZpZXcgLT4KICAgICAgICAgICAgICAgICAgICB2aWV3LnJlcXVlc3RMYXlvdXQoKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQoKICAgIHdoZW4gKExvY2FsVWlNb2RlLmN1cnJlbnQpIHsKICAgICAgICBVaU1vZGUuTWl1aXggLT4gSGFuZGxlV2ViVUlFdmVudE1pdWl4KHdlYlVJU3RhdGUsIGZpbGVMYXVuY2hlcikKICAgICAgICBVaU1vZGUuTWF0ZXJpYWwgLT4gSGFuZGxlV2ViVUlFdmVudE1hdGVyaWFsKHdlYlVJU3RhdGUsIGZpbGVMYXVuY2hlcikKICAgIH0KCiAgICBIYW5kbGVXZWJWaWV3TGlmZWN5Y2xlKHdlYlVJU3RhdGUpCiAgICBIYW5kbGVDb25maWd1cmF0aW9uQ2hhbmdlcyh3ZWJVSVN0YXRlKQp9CgpAQ29tcG9zYWJsZQpwcml2YXRlIGZ1biBIYW5kbGVXZWJWaWV3TGlmZWN5Y2xlKHdlYlVJU3RhdGU6IFdlYlVJU3RhdGUpIHsKICAgIHZhbCBsaWZlY3ljbGVPd25lciA9IExvY2FsTGlmZWN5Y2xlT3duZXIuY3VycmVudAoKICAgIERpc3Bvc2FibGVFZmZlY3QobGlmZWN5Y2xlT3duZXIsIHdlYlVJU3RhdGUpIHsKICAgICAgICB2YWwgb2JzZXJ2ZXIgPSBMaWZlY3ljbGVFdmVudE9ic2VydmVyIHsgXywgZXZlbnQgLT4KICAgICAgICAgICAgd2hlbiAoZXZlbnQpIHsKICAgICAgICAgICAgICAgIExpZmVjeWNsZS5FdmVudC5PTl9SRVNVTUUgLT4gd2ViVUlTdGF0ZS53ZWJWaWV3Py5vblJlc3VtZSgpCiAgICAgICAgICAgICAgICBMaWZlY3ljbGUuRXZlbnQuT05fUEFVU0UgLT4gd2ViVUlTdGF0ZS53ZWJWaWV3Py5vblBhdXNlKCkKICAgICAgICAgICAgICAgIGVsc2UgLT4ge30KICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICBsaWZlY3ljbGVPd25lci5saWZlY3ljbGUuYWRkT2JzZXJ2ZXIob2JzZXJ2ZXIpCgogICAgICAgIG9uRGlzcG9zZSB7CiAgICAgICAgICAgIGxpZmVjeWNsZU93bmVyLmxpZmVjeWNsZS5yZW1vdmVPYnNlcnZlcihvYnNlcnZlcikKICAgICAgICB9CiAgICB9Cn0KCkBDb21wb3NhYmxlCnByaXZhdGUgZnVuIEhhbmRsZUNvbmZpZ3VyYXRpb25DaGFuZ2VzKHdlYlVJU3RhdGU6IFdlYlVJU3RhdGUpIHsKICAgIHZhbCBjb25maWd1cmF0aW9uID0gTG9jYWxDb25maWd1cmF0aW9uLmN1cnJlbnQKICAgIExhdW5jaGVkRWZmZWN0KGNvbmZpZ3VyYXRpb24uZm9udFNjYWxlLCB3ZWJVSVN0YXRlLndlYlZpZXcpIHsKICAgICAgICB3ZWJVSVN0YXRlLndlYlZpZXc/LnNldHRpbmdzPy50ZXh0Wm9vbSA9IChjb25maWd1cmF0aW9uLmZvbnRTY2FsZSAqIDEwMCkudG9JbnQoKQogICAgfQp9Cg==
+package com.xinsu.moe.ui.webui
+
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.view.View
+import android.view.ViewGroup
+import android.webkit.WebView
+import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.displayCutout
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.union
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import com.xinsu.moe.ui.LocalUiMode
+import com.xinsu.moe.ui.UiMode
+
+@Composable
+fun rememberFileLauncher(webUIState: WebUIState): ActivityResultLauncher<Intent> {
+    return rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        val uris: Array<Uri>? = if (result.resultCode == Activity.RESULT_OK) {
+            result.data?.let { data ->
+                data.clipData?.let { clipData ->
+                    Array(clipData.itemCount) { i -> clipData.getItemAt(i).uri }
+                } ?: data.data?.let { arrayOf(it) }
+            }
+        } else null
+        webUIState.onFileChooserResult(uris)
+    }
+}
+
+@Composable
+fun WebUIScreen(webUIState: WebUIState) {
+    val density = LocalDensity.current
+    val layoutDirection = LocalLayoutDirection.current
+    val drawingInsets = WindowInsets.safeDrawing
+    val deviceInsets = WindowInsets.systemBars.union(WindowInsets.displayCutout)
+    val imeInsets = WindowInsets.ime
+    val innerPadding = if (webUIState.isInsetsEnabled) imeInsets.asPaddingValues() else drawingInsets.asPaddingValues()
+    val fileLauncher = rememberFileLauncher(webUIState)
+
+    LaunchedEffect(density, layoutDirection, deviceInsets, webUIState.isInsetsEnabled) {
+        if (!webUIState.isInsetsEnabled) {
+            return@LaunchedEffect
+        }
+        snapshotFlow {
+            Insets(
+                top = (deviceInsets.getTop(density) / density.density).toInt(),
+                bottom = (deviceInsets.getBottom(density) / density.density).toInt(),
+                left = (deviceInsets.getLeft(density, layoutDirection) / density.density).toInt(),
+                right = (deviceInsets.getRight(density, layoutDirection) / density.density).toInt()
+            )
+        }.collect { newInsets ->
+            if (webUIState.currentInsets != newInsets) {
+                webUIState.currentInsets = newInsets
+                webUIState.webView?.evaluateJavascript(newInsets.js, null)
+            }
+        }
+    }
+
+    BackHandler(enabled = webUIState.webCanGoBack) {
+        webUIState.webView?.goBack()
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPadding)
+    ) {
+        webUIState.webView?.let { webView ->
+            AndroidView(
+                modifier = Modifier.fillMaxSize(),
+                factory = { _ ->
+                    webView.apply {
+                        layoutParams = ViewGroup.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
+                        )
+                        if (!webUIState.isUrlLoaded) {
+                            val homePage = "https://mui.xinovasu.org/index.html"
+                            if (width > 0 && height > 0) {
+                                loadUrl(homePage)
+                                webUIState.isUrlLoaded = true
+                            } else {
+                                val listener = object : View.OnLayoutChangeListener {
+                                    override fun onLayoutChange(
+                                        v: View, left: Int, top: Int, right: Int, bottom: Int,
+                                        oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int
+                                    ) {
+                                        if (v.width > 0 && v.height > 0) {
+                                            (v as WebView).loadUrl(homePage)
+                                            webUIState.isUrlLoaded = true
+                                            v.removeOnLayoutChangeListener(this)
+                                        }
+                                    }
+                                }
+                                addOnLayoutChangeListener(listener)
+                            }
+                        }
+                    }
+                },
+                update = { view ->
+                    view.requestLayout()
+                }
+            )
+        }
+    }
+
+    when (LocalUiMode.current) {
+        UiMode.Miuix -> HandleWebUIEventMiuix(webUIState, fileLauncher)
+        UiMode.Material -> HandleWebUIEventMaterial(webUIState, fileLauncher)
+    }
+
+    HandleWebViewLifecycle(webUIState)
+    HandleConfigurationChanges(webUIState)
+}
+
+@Composable
+private fun HandleWebViewLifecycle(webUIState: WebUIState) {
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    DisposableEffect(lifecycleOwner, webUIState) {
+        val observer = LifecycleEventObserver { _, event ->
+            when (event) {
+                Lifecycle.Event.ON_RESUME -> webUIState.webView?.onResume()
+                Lifecycle.Event.ON_PAUSE -> webUIState.webView?.onPause()
+                else -> {}
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
+}
+
+@Composable
+private fun HandleConfigurationChanges(webUIState: WebUIState) {
+    val configuration = LocalConfiguration.current
+    LaunchedEffect(configuration.fontScale, webUIState.webView) {
+        webUIState.webView?.settings?.textZoom = (configuration.fontScale * 100).toInt()
+    }
+}

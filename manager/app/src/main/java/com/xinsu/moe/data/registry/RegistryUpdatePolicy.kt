@@ -1,1 +1,90 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCi8qKiBIb3cgYW4gYHVwZGF0ZUpzb25gIHVwZGF0ZSBvZiBhbiBpbnN0YWxsZWQgbW9kdWxlIGlzIGRvd25sb2FkZWQgYW5kIHZlcmlmaWVkLiAqLwpzZWFsZWQgaW50ZXJmYWNlIFVwZGF0ZVZlcmlmaWNhdGlvbiB7CiAgICAvKiogTm90IGEgcmVnaXN0cnkgdXBkYXRlOiBkb3dubG9hZCBhcyBiZWZvcmUsIHdpdGhvdXQgcmVnaXN0cnkgY2hlY2tzLiAqLwogICAgZGF0YSBvYmplY3QgTGVnYWN5IDogVXBkYXRlVmVyaWZpY2F0aW9uCgogICAgLyoqIFRoZSB1cGRhdGUgaXMgYSByZWdpc3RyeSByZWxlYXNlOiBlbmZvcmNlIGl0cyBVUkwgYWxsb3dsaXN0LCBzaXplIGFuZCBTSEEtMjU2LiAqLwogICAgZGF0YSBjbGFzcyBSZWdpc3RyeSgKICAgICAgICB2YWwgemlwVXJsOiBTdHJpbmcsCiAgICAgICAgdmFsIGV4cGVjdGVkOiBFeHBlY3RlZEZpbGUsCiAgICAgICAgdmFsIHJlbGVhc2U6IEFwaVJlbGVhc2UsCiAgICApIDogVXBkYXRlVmVyaWZpY2F0aW9uCgogICAgLyoqIEl0IGNsYWltcyB0byBjb21lIGZyb20gdGhlIHJlZ2lzdHJ5IGJ1dCBjYW5ub3QgYmUgbWF0Y2hlZCB0byBhIHJlZ2lzdHJ5IHJlbGVhc2UuICovCiAgICBkYXRhIGNsYXNzIFJlamVjdGVkKHZhbCByZWFzb246IFN0cmluZykgOiBVcGRhdGVWZXJpZmljYXRpb24KfQoKLyoqCiAqIERlY2lkZXMgd2hldGhlciBhIG1vZHVsZSB1cGRhdGUgb2ZmZXJlZCBieSBgdXBkYXRlSnNvbmAgbXVzdCBiZSB2ZXJpZmllZCBhZ2FpbnN0IHRoZQogKiByZWdpc3RyeS4KICoKICogLSBUaGUgbW9kdWxlJ3MgaWQgaXMgbm90IGluIHRoZSByZWdpc3RyeSBpbmRleCAtPiBbVXBkYXRlVmVyaWZpY2F0aW9uLkxlZ2FjeV0gKFJlamVjdGVkIGlmCiAqICAgdXBkYXRlSnNvbiBpcyBzZXJ2ZWQgYnkgdGhlIHJlZ2lzdHJ5KS4gSW5kZXggdW5hdmFpbGFibGU6IHRyZWF0ZWQgbGlrZSAiaW4gdGhlIGluZGV4LAogKiAgIGRldGFpbCB1bmF2YWlsYWJsZSIuCiAqIC0gYHppcFVybGAgaXMgdGhlIFpJUCBvZiBhIHJlZ2lzdHJ5IHJlbGVhc2Ugb2YgdGhhdCBtb2R1bGUgd2l0aCB0aGUgb2ZmZXJlZCB2ZXJzaW9uQ29kZSAtPgogKiAgIFtVcGRhdGVWZXJpZmljYXRpb24uUmVnaXN0cnldLiBJZiBpdCBpcyBhIHJlZ2lzdHJ5IHJlbGVhc2UgWklQIGJ1dCBubyByZWxlYXNlIHdpdGggdGhhdAogKiAgIFVSTCBoYXMgdGhlIG9mZmVyZWQgdmVyc2lvbkNvZGUgLT4gW1VwZGF0ZVZlcmlmaWNhdGlvbi5SZWplY3RlZF0gKG5vIGRvd25ncmFkZSB0aHJvdWdoIGEKICogICBtaXNsYWJlbGxlZCBaSVApLCB3aGVyZXZlciB1cGRhdGVKc29uIGlzIGhvc3RlZC4KICogLSBgdXBkYXRlSnNvbmAgaXRzZWxmIGlzIHNlcnZlZCBieSB0aGUgcmVnaXN0cnkgc2l0ZSBidXQgbm90aGluZyBtYXRjaGVzIChvciB0aGUgZGV0YWlsCiAqICAgY291bGQgbm90IGJlIGxvYWRlZCkgLT4gW1VwZGF0ZVZlcmlmaWNhdGlvbi5SZWplY3RlZF07IHJlZ2lzdHJ5IG1ldGFkYXRhIGlzIG5ldmVyCiAqICAgZG93bmxvYWRlZCB1bnZlcmlmaWVkLgogKiAtIE90aGVyd2lzZSAoZS5nLiBhbiBhdXRob3ItaG9zdGVkIHVwZGF0ZUpzb24gcG9pbnRpbmcgZWxzZXdoZXJlKSAtPiBMZWdhY3ksIHVuY2hhbmdlZC4KICovCm9iamVjdCBSZWdpc3RyeVVwZGF0ZVBvbGljeSB7CgogICAgZnVuIGRlY2lkZSgKICAgICAgICByZWdpc3RyeUJhc2VVcmw6IFN0cmluZywKICAgICAgICB1cGRhdGVKc29uVXJsOiBTdHJpbmcsCiAgICAgICAgemlwVXJsOiBTdHJpbmcsCiAgICAgICAgdmVyc2lvbkNvZGU6IEludCwKICAgICAgICAvKiogbnVsbCB3aGVuIHRoZSBpbmRleCBjb3VsZCBub3QgYmUgbG9hZGVkIGF0IGFsbC4gKi8KICAgICAgICBpbkluZGV4OiBCb29sZWFuPywKICAgICAgICBkZXRhaWw6IEFwaU1vZHVsZURldGFpbD8sCiAgICApOiBVcGRhdGVWZXJpZmljYXRpb24gewogICAgICAgIHZhbCBmcm9tUmVnaXN0cnkgPSBSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKHVwZGF0ZUpzb25VcmwsIHJlZ2lzdHJ5QmFzZVVybCkKICAgICAgICBpZiAoaW5JbmRleCA9PSBmYWxzZSkgewogICAgICAgICAgICByZXR1cm4gaWYgKGZyb21SZWdpc3RyeSkgVXBkYXRlVmVyaWZpY2F0aW9uLlJlamVjdGVkKCJtb2R1bGUgaXMgbm90IGluIHRoZSByZWdpc3RyeSBpbmRleCIpIGVsc2UgVXBkYXRlVmVyaWZpY2F0aW9uLkxlZ2FjeQogICAgICAgIH0KICAgICAgICAvLyBSZWxlYXNlIFVSTHMgYXJlIGZpeGVkIHdoZW4gYSByZWxlYXNlIGlzIGxpc3RlZCBhbmQga2VlcCB0aGUgb2xkIG93bmVyL3JlcG8gYWZ0ZXIgYQogICAgICAgIC8vIHJlbmFtZSBvciB0cmFuc2ZlcjsgdGhlIGRvd25sb2FkIGl0c2VsZiBpcyBwaW5uZWQgYnkgc2l6ZSArIFNIQS0yNTYuCiAgICAgICAgdmFsIGNhbmRpZGF0ZXMgPSBkZXRhaWw/LnJlbGVhc2VzLm9yRW1wdHkoKQogICAgICAgICAgICAuZmlsdGVyIHsgc2FtZVVybChpdC56aXAudXJsLCB6aXBVcmwpICYmIFJlZ2lzdHJ5VXJscy5pc0FsbG93ZWRSZWxlYXNlRG93bmxvYWRVcmwoaXQuemlwLnVybCkgfQogICAgICAgIGlmIChjYW5kaWRhdGVzLmlzTm90RW1wdHkoKSkgewogICAgICAgICAgICB2YWwgcmVsZWFzZSA9IGNhbmRpZGF0ZXMuZmlyc3RPck51bGwgeyBpdC52ZXJzaW9uQ29kZSA9PSB2ZXJzaW9uQ29kZSB9CiAgICAgICAgICAgICAgICA/OiByZXR1cm4gVXBkYXRlVmVyaWZpY2F0aW9uLlJlamVjdGVkKCJ2ZXJzaW9uQ29kZSBkb2VzIG5vdCBtYXRjaCB0aGUgcmVnaXN0cnkgcmVsZWFzZSIpCiAgICAgICAgICAgIHJldHVybiBVcGRhdGVWZXJpZmljYXRpb24uUmVnaXN0cnkoCiAgICAgICAgICAgICAgICB6aXBVcmwgPSByZWxlYXNlLnppcC51cmwsCiAgICAgICAgICAgICAgICBleHBlY3RlZCA9IEV4cGVjdGVkRmlsZShyZWxlYXNlLnppcC5zaXplLCByZWxlYXNlLnppcC5zaGEyNTYpLAogICAgICAgICAgICAgICAgcmVsZWFzZSA9IHJlbGVhc2UsCiAgICAgICAgICAgICkKICAgICAgICB9CiAgICAgICAgcmV0dXJuIGlmIChmcm9tUmVnaXN0cnkpIHsKICAgICAgICAgICAgVXBkYXRlVmVyaWZpY2F0aW9uLlJlamVjdGVkKAogICAgICAgICAgICAgICAgaWYgKGRldGFpbCA9PSBudWxsKSAicmVnaXN0cnkgZGV0YWlsIHVuYXZhaWxhYmxlIiBlbHNlICJ6aXBVcmwgZG9lcyBub3QgbWF0Y2ggYSByZWdpc3RyeSByZWxlYXNlIgogICAgICAgICAgICApCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgVXBkYXRlVmVyaWZpY2F0aW9uLkxlZ2FjeQogICAgICAgIH0KICAgIH0KCiAgICAvKioKICAgICAqIFRydWUgd2hlbiBbZGVjaWRlXSByZXR1cm5zIFtVcGRhdGVWZXJpZmljYXRpb24uTGVnYWN5XSB3aGF0ZXZlciB0aGUgaW5kZXggYW5kIGRldGFpbCBzYXk6CiAgICAgKiB1cGRhdGVKc29uIGlzIG5vdCBzZXJ2ZWQgYnkgdGhlIHJlZ2lzdHJ5IGFuZCB6aXBVcmwgaXMgbm90IG9uIGdpdGh1Yi5jb20sIHdoZXJlIGV2ZXJ5CiAgICAgKiByZWdpc3RyeSByZWxlYXNlIFpJUCBsaXZlcyAoc2VlIFtzYW1lVXJsXSkuCiAgICAgKi8KICAgIGZ1biBpc1VucmVsYXRlZFRvUmVnaXN0cnkocmVnaXN0cnlCYXNlVXJsOiBTdHJpbmcsIHVwZGF0ZUpzb25Vcmw6IFN0cmluZywgemlwVXJsOiBTdHJpbmcpOiBCb29sZWFuID0KICAgICAgICAhUmVnaXN0cnlVcmxzLmlzU2FtZU9yaWdpbih1cGRhdGVKc29uVXJsLCByZWdpc3RyeUJhc2VVcmwpICYmIFJlZ2lzdHJ5VXJscy5ob3N0T2YoemlwVXJsLnRyaW0oKSkgIT0gImdpdGh1Yi5jb20iCgogICAgLyoqIFVSTCBlcXVhbGl0eSB3aXRoIGEgY2FzZS1pbnNlbnNpdGl2ZSBzY2hlbWUvaG9zdDsgcGF0aCBhbmQgcXVlcnkgbXVzdCBtYXRjaCBleGFjdGx5LiAqLwogICAgZnVuIHNhbWVVcmwoYTogU3RyaW5nLCBiOiBTdHJpbmcpOiBCb29sZWFuIHsKICAgICAgICBpZiAoYSA9PSBiKSByZXR1cm4gdHJ1ZQogICAgICAgIHZhbCB1YSA9IHJ1bkNhdGNoaW5nIHsgamF2YS5uZXQuVVJJKGEudHJpbSgpKSB9LmdldE9yTnVsbCgpID86IHJldHVybiBmYWxzZQogICAgICAgIHZhbCB1YiA9IHJ1bkNhdGNoaW5nIHsgamF2YS5uZXQuVVJJKGIudHJpbSgpKSB9LmdldE9yTnVsbCgpID86IHJldHVybiBmYWxzZQogICAgICAgIHJldHVybiB1YS5zY2hlbWUuZXF1YWxzKHViLnNjaGVtZSwgaWdub3JlQ2FzZSA9IHRydWUpICYmCiAgICAgICAgICAgIHVhLmhvc3QgIT0gbnVsbCAmJiB1YS5ob3N0LmVxdWFscyh1Yi5ob3N0LCBpZ25vcmVDYXNlID0gdHJ1ZSkgJiYKICAgICAgICAgICAgUmVnaXN0cnlVcmxzLmVmZmVjdGl2ZVBvcnQodWEpID09IFJlZ2lzdHJ5VXJscy5lZmZlY3RpdmVQb3J0KHViKSAmJgogICAgICAgICAgICB1YS5yYXdQYXRoID09IHViLnJhd1BhdGggJiYgdWEucmF3UXVlcnkgPT0gdWIucmF3UXVlcnkgJiYgdWEucmF3VXNlckluZm8gPT0gdWIucmF3VXNlckluZm8KICAgIH0KfQo=
+package com.xinsu.moe.data.registry
+
+/** How an `updateJson` update of an installed module is downloaded and verified. */
+sealed interface UpdateVerification {
+    /** Not a registry update: download as before, without registry checks. */
+    data object Legacy : UpdateVerification
+
+    /** The update is a registry release: enforce its URL allowlist, size and SHA-256. */
+    data class Registry(
+        val zipUrl: String,
+        val expected: ExpectedFile,
+        val release: ApiRelease,
+    ) : UpdateVerification
+
+    /** It claims to come from the registry but cannot be matched to a registry release. */
+    data class Rejected(val reason: String) : UpdateVerification
+}
+
+/**
+ * Decides whether a module update offered by `updateJson` must be verified against the
+ * registry.
+ *
+ * - The module's id is not in the registry index -> [UpdateVerification.Legacy] (Rejected if
+ *   updateJson is served by the registry). Index unavailable: treated like "in the index,
+ *   detail unavailable".
+ * - `zipUrl` is the ZIP of a registry release of that module with the offered versionCode ->
+ *   [UpdateVerification.Registry]. If it is a registry release ZIP but no release with that
+ *   URL has the offered versionCode -> [UpdateVerification.Rejected] (no downgrade through a
+ *   mislabelled ZIP), wherever updateJson is hosted.
+ * - `updateJson` itself is served by the registry site but nothing matches (or the detail
+ *   could not be loaded) -> [UpdateVerification.Rejected]; registry metadata is never
+ *   downloaded unverified.
+ * - Otherwise (e.g. an author-hosted updateJson pointing elsewhere) -> Legacy, unchanged.
+ */
+object RegistryUpdatePolicy {
+
+    fun decide(
+        registryBaseUrl: String,
+        updateJsonUrl: String,
+        zipUrl: String,
+        versionCode: Int,
+        /** null when the index could not be loaded at all. */
+        inIndex: Boolean?,
+        detail: ApiModuleDetail?,
+    ): UpdateVerification {
+        val fromRegistry = RegistryUrls.isSameOrigin(updateJsonUrl, registryBaseUrl)
+        if (inIndex == false) {
+            return if (fromRegistry) UpdateVerification.Rejected("module is not in the registry index") else UpdateVerification.Legacy
+        }
+        // Release URLs are fixed when a release is listed and keep the old owner/repo after a
+        // rename or transfer; the download itself is pinned by size + SHA-256.
+        val candidates = detail?.releases.orEmpty()
+            .filter { sameUrl(it.zip.url, zipUrl) && RegistryUrls.isAllowedReleaseDownloadUrl(it.zip.url) }
+        if (candidates.isNotEmpty()) {
+            val release = candidates.firstOrNull { it.versionCode == versionCode }
+                ?: return UpdateVerification.Rejected("versionCode does not match the registry release")
+            return UpdateVerification.Registry(
+                zipUrl = release.zip.url,
+                expected = ExpectedFile(release.zip.size, release.zip.sha256),
+                release = release,
+            )
+        }
+        return if (fromRegistry) {
+            UpdateVerification.Rejected(
+                if (detail == null) "registry detail unavailable" else "zipUrl does not match a registry release"
+            )
+        } else {
+            UpdateVerification.Legacy
+        }
+    }
+
+    /**
+     * True when [decide] returns [UpdateVerification.Legacy] whatever the index and detail say:
+     * updateJson is not served by the registry and zipUrl is not on github.com, where every
+     * registry release ZIP lives (see [sameUrl]).
+     */
+    fun isUnrelatedToRegistry(registryBaseUrl: String, updateJsonUrl: String, zipUrl: String): Boolean =
+        !RegistryUrls.isSameOrigin(updateJsonUrl, registryBaseUrl) && RegistryUrls.hostOf(zipUrl.trim()) != "github.com"
+
+    /** URL equality with a case-insensitive scheme/host; path and query must match exactly. */
+    fun sameUrl(a: String, b: String): Boolean {
+        if (a == b) return true
+        val ua = runCatching { java.net.URI(a.trim()) }.getOrNull() ?: return false
+        val ub = runCatching { java.net.URI(b.trim()) }.getOrNull() ?: return false
+        return ua.scheme.equals(ub.scheme, ignoreCase = true) &&
+            ua.host != null && ua.host.equals(ub.host, ignoreCase = true) &&
+            RegistryUrls.effectivePort(ua) == RegistryUrls.effectivePort(ub) &&
+            ua.rawPath == ub.rawPath && ua.rawQuery == ub.rawQuery && ua.rawUserInfo == ub.rawUserInfo
+    }
+}

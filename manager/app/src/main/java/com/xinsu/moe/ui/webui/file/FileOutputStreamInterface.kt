@@ -1,1 +1,72 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpLmZpbGUKCmltcG9ydCBhbmRyb2lkLnV0aWwuQmFzZTY0CmltcG9ydCBhbmRyb2lkLnV0aWwuTG9nCmltcG9ydCBhbmRyb2lkLndlYmtpdC5KYXZhc2NyaXB0SW50ZXJmYWNlCmltcG9ydCBjb20udG9wam9obnd1LnN1cGVydXNlci5pby5TdUZpbGVPdXRwdXRTdHJlYW0KaW1wb3J0IGphdmEuaW8uQnVmZmVyZWRPdXRwdXRTdHJlYW0KaW1wb3J0IGphdmEudXRpbC5VVUlECgpjbGFzcyBGaWxlT3V0cHV0U3RyZWFtSW50ZXJmYWNlIHsKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gb3BlbihwYXRoOiBTdHJpbmcsIGFwcGVuZDogQm9vbGVhbik6IFN0cmluZyA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICBpZiAoIUtzdUlPLmNhbk9wZW5TdHJlYW0oKSkgewogICAgICAgICAgICBMb2cudyhUQUcsICJGaWxlT3V0cHV0U3RyZWFtIG9wZW4gcmVqZWN0ZWQ6IHRvbyBtYW55IG9wZW4gc3RyZWFtcyIpCiAgICAgICAgICAgIHJldHVybiAiIgogICAgICAgIH0KICAgICAgICB2YWwgZmlsZSA9IGNvbS50b3Bqb2hud3Uuc3VwZXJ1c2VyLmlvLlN1RmlsZShwYXRoKQogICAgICAgIHZhbCBmb3MgPSBTdUZpbGVPdXRwdXRTdHJlYW0ub3BlbihmaWxlLCBhcHBlbmQpCiAgICAgICAgdmFsIGJvcyA9IEJ1ZmZlcmVkT3V0cHV0U3RyZWFtKGZvcywgNjQgKiAxMDI0KQogICAgICAgIHZhbCBpZCA9IFVVSUQucmFuZG9tVVVJRCgpLnRvU3RyaW5nKCkKICAgICAgICBLc3VJTy5vcGVuT3V0cHV0U3RyZWFtc1tpZF0gPSBib3MKICAgICAgICBpZAogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJGaWxlT3V0cHV0U3RyZWFtIG9wZW4gZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgIiIgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gb3BlbihwYXRoOiBTdHJpbmcpOiBTdHJpbmcgPSBvcGVuKHBhdGgsIGZhbHNlKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gd3JpdGVCeXRlKGlkOiBTdHJpbmcsIGI6IEludCk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIGJvcyA9IEtzdUlPLm9wZW5PdXRwdXRTdHJlYW1zW2lkXSA/OiByZXR1cm4gZmFsc2UKICAgICAgICBzeW5jaHJvbml6ZWQoYm9zKSB7IGJvcy53cml0ZShiKSB9CiAgICAgICAgdHJ1ZQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJ3cml0ZUJ5dGUgZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgZmFsc2UgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gd3JpdGUoaWQ6IFN0cmluZywgYmFzZTY0OiBTdHJpbmcpOiBCb29sZWFuID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCBib3MgPSBLc3VJTy5vcGVuT3V0cHV0U3RyZWFtc1tpZF0gPzogcmV0dXJuIGZhbHNlCiAgICAgICAgdmFsIGRhdGEgPSBCYXNlNjQuZGVjb2RlKGJhc2U2NCwgQmFzZTY0Lk5PX1dSQVApCiAgICAgICAgc3luY2hyb25pemVkKGJvcykgeyBib3Mud3JpdGUoZGF0YSkgfQogICAgICAgIHRydWUKICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAid3JpdGUgZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgZmFsc2UgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gZmx1c2goaWQ6IFN0cmluZyk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIGJvcyA9IEtzdUlPLm9wZW5PdXRwdXRTdHJlYW1zW2lkXSA/OiByZXR1cm4gZmFsc2UKICAgICAgICBzeW5jaHJvbml6ZWQoYm9zKSB7IGJvcy5mbHVzaCgpIH0KICAgICAgICB0cnVlCiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgImZsdXNoIGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7IGZhbHNlIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGNsb3NlKGlkOiBTdHJpbmcpOiBCb29sZWFuIHsKICAgICAgICB2YWwgYm9zID0gS3N1SU8ub3Blbk91dHB1dFN0cmVhbXMucmVtb3ZlKGlkKSA/OiByZXR1cm4gZmFsc2UKICAgICAgICByZXR1cm4gcnVuQ2F0Y2hpbmcgewogICAgICAgICAgICBzeW5jaHJvbml6ZWQoYm9zKSB7IGJvcy5jbG9zZSgpIH0KICAgICAgICAgICAgdHJ1ZQogICAgICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiY2xvc2UgZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgZmFsc2UgfQogICAgfQoKICAgIGZ1biBjbG9zZUFsbCgpIHsKICAgICAgICB3aGlsZSAodHJ1ZSkgewogICAgICAgICAgICB2YWwgZW50cnkgPSBLc3VJTy5vcGVuT3V0cHV0U3RyZWFtcy5lbnRyaWVzLmZpcnN0T3JOdWxsKCkgPzogYnJlYWsKICAgICAgICAgICAgdmFsIGlkID0gZW50cnkua2V5CiAgICAgICAgICAgIHZhbCBib3MgPSBlbnRyeS52YWx1ZQogICAgICAgICAgICBpZiAoIUtzdUlPLm9wZW5PdXRwdXRTdHJlYW1zLnJlbW92ZShpZCwgYm9zKSkgewogICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgfQogICAgICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgICAgICBzeW5jaHJvbml6ZWQoYm9zKSB7IGJvcy5jbG9zZSgpIH0KICAgICAgICAgICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJjbG9zZUFsbCBmYWlsZWQgZm9yICRpZCIsIGl0KSB9CiAgICAgICAgfQogICAgfQp9Cg==
+package com.xinsu.moe.ui.webui.file
+
+import android.util.Base64
+import android.util.Log
+import android.webkit.JavascriptInterface
+import com.topjohnwu.superuser.io.SuFileOutputStream
+import java.io.BufferedOutputStream
+import java.util.UUID
+
+class FileOutputStreamInterface {
+    @JavascriptInterface
+    fun open(path: String, append: Boolean): String = runCatching {
+        if (!KsuIO.canOpenStream()) {
+            Log.w(TAG, "FileOutputStream open rejected: too many open streams")
+            return ""
+        }
+        val file = com.topjohnwu.superuser.io.SuFile(path)
+        val fos = SuFileOutputStream.open(file, append)
+        val bos = BufferedOutputStream(fos, 64 * 1024)
+        val id = UUID.randomUUID().toString()
+        KsuIO.openOutputStreams[id] = bos
+        id
+    }.onFailure { Log.e(TAG, "FileOutputStream open failed", it) }.getOrElse { "" }
+
+    @JavascriptInterface
+    fun open(path: String): String = open(path, false)
+
+    @JavascriptInterface
+    fun writeByte(id: String, b: Int): Boolean = runCatching {
+        val bos = KsuIO.openOutputStreams[id] ?: return false
+        synchronized(bos) { bos.write(b) }
+        true
+    }.onFailure { Log.e(TAG, "writeByte failed", it) }.getOrElse { false }
+
+    @JavascriptInterface
+    fun write(id: String, base64: String): Boolean = runCatching {
+        val bos = KsuIO.openOutputStreams[id] ?: return false
+        val data = Base64.decode(base64, Base64.NO_WRAP)
+        synchronized(bos) { bos.write(data) }
+        true
+    }.onFailure { Log.e(TAG, "write failed", it) }.getOrElse { false }
+
+    @JavascriptInterface
+    fun flush(id: String): Boolean = runCatching {
+        val bos = KsuIO.openOutputStreams[id] ?: return false
+        synchronized(bos) { bos.flush() }
+        true
+    }.onFailure { Log.e(TAG, "flush failed", it) }.getOrElse { false }
+
+    @JavascriptInterface
+    fun close(id: String): Boolean {
+        val bos = KsuIO.openOutputStreams.remove(id) ?: return false
+        return runCatching {
+            synchronized(bos) { bos.close() }
+            true
+        }.onFailure { Log.e(TAG, "close failed", it) }.getOrElse { false }
+    }
+
+    fun closeAll() {
+        while (true) {
+            val entry = KsuIO.openOutputStreams.entries.firstOrNull() ?: break
+            val id = entry.key
+            val bos = entry.value
+            if (!KsuIO.openOutputStreams.remove(id, bos)) {
+                continue
+            }
+            runCatching {
+                synchronized(bos) { bos.close() }
+            }.onFailure { Log.e(TAG, "closeAll failed for $id", it) }
+        }
+    }
+}

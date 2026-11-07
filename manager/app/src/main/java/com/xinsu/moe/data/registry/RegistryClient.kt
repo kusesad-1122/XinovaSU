@@ -1,1 +1,202 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBrb3RsaW54LnNlcmlhbGl6YXRpb24uU2VyaWFsaXphYmxlCmltcG9ydCBqYXZhLmlvLklPRXhjZXB0aW9uCgovKiogRmV0Y2hlcyBhIGRvY3VtZW50OyB0aHJvd3MgW0lPRXhjZXB0aW9uXSBvbiBuZXR3b3JrIC8gSFRUUCBlcnJvcnMuICovCmZ1biBpbnRlcmZhY2UgUmVnaXN0cnlGZXRjaGVyIHsKICAgIEBUaHJvd3MoSU9FeGNlcHRpb246OmNsYXNzKQogICAgZnVuIGZldGNoKHVybDogU3RyaW5nKTogU3RyaW5nCn0KCi8qKiBTbWFsbCBrZXkvdmFsdWUgc3RvcmUgZm9yIHRoZSBsYXN0IGNvbXBsZXRlIGdvb2QgY29waWVzLiBLZXlzIGFyZSBmaWxlLW5hbWUgc2FmZS4gKi8KaW50ZXJmYWNlIFJlZ2lzdHJ5Q2FjaGUgewogICAgZnVuIHJlYWQoa2V5OiBTdHJpbmcpOiBTdHJpbmc/CiAgICBmdW4gd3JpdGUoa2V5OiBTdHJpbmcsIHZhbHVlOiBTdHJpbmcpCn0KCi8qKgogKiBSZWdpc3RyeSBwcm90b2NvbCBjbGllbnQ6IGluZGV4IC0+IG1vZHVsZSBsaXN0IC0+IGRldGFpbCBvbiBkZW1hbmQuCiAqCiAqIC0gRG9jdW1lbnRzIGZyb20gZGlmZmVyZW50IGJ1aWxkcyBhcmUgbmV2ZXIgY29tYmluZWQ6IHdoZW4gYSBkZXRhaWwncyBidWlsZElkIGRpZmZlcnMgZnJvbQogKiAgIHRoZSBsaXN0J3MsIHRoZSBpbmRleCBhbmQgbGlzdCBhcmUgcmUtcmVhZCBvbmNlOyBpZiB0aGV5IHN0aWxsIGRpc2FncmVlIHRoZSBsb2FkIGZhaWxzLgogKiAtIFRoZSBsYXN0IGNvbXBsZXRlLCBjb25zaXN0ZW50IGNvcHkgaXMga2VwdCBpbiBbY2FjaGVdIGFuZCB1c2VkIHdoZW4gdGhlIG5ldHdvcmsgb3IKICogICBwYXJzaW5nIGZhaWxzLgogKgogKiBCbG9ja2luZzsgY2FsbCBmcm9tIGEgYmFja2dyb3VuZCB0aHJlYWQuCiAqLwpjbGFzcyBSZWdpc3RyeUNsaWVudCgKICAgIGJhc2VVcmw6IFN0cmluZyA9IFJlZ2lzdHJ5VXJscy5ERUZBVUxUX0JBU0VfVVJMLAogICAgcHJpdmF0ZSB2YWwgZmV0Y2hlcjogUmVnaXN0cnlGZXRjaGVyLAogICAgcHJpdmF0ZSB2YWwgY2FjaGU6IFJlZ2lzdHJ5Q2FjaGUsCiAgICBwcml2YXRlIHZhbCBwYXJzZXI6IFJlZ2lzdHJ5UGFyc2VyID0gUmVnaXN0cnlQYXJzZXIoKSwKKSB7CiAgICB2YWwgYmFzZVVybDogU3RyaW5nID0gUmVnaXN0cnlVcmxzLm5vcm1hbGl6ZUJhc2VVcmwoYmFzZVVybCkKCiAgICBAVm9sYXRpbGUKICAgIHByaXZhdGUgdmFyIGN1cnJlbnQ6IFJlZ2lzdHJ5Q2F0YWxvZz8gPSBudWxsCiAgICBwcml2YXRlIHZhbCBsb2NrID0gQW55KCkKCiAgICBkYXRhIGNsYXNzIENhdGFsb2dMb2FkKAogICAgICAgIHZhbCBjYXRhbG9nOiBSZWdpc3RyeUNhdGFsb2csCiAgICAgICAgLyoqIE5vbi1udWxsIHdoZW4gdGhlIG5ldHdvcmsgY29weSBjb3VsZCBub3QgYmUgdXNlZCBhbmQgYSBjYWNoZWQgY29weSB3YXMgcmV0dXJuZWQuICovCiAgICAgICAgdmFsIGVycm9yOiBUaHJvd2FibGU/ID0gbnVsbCwKICAgICkKCiAgICBkYXRhIGNsYXNzIERldGFpbExvYWQoCiAgICAgICAgLyoqIENhdGFsb2cgdGhlIGRldGFpbCBiZWxvbmdzIHRvOyBtYXkgYmUgbmV3ZXIgdGhhbiB0aGUgb25lIHRoZSBjYWxsZXIgaGVsZC4gKi8KICAgICAgICB2YWwgY2F0YWxvZzogUmVnaXN0cnlDYXRhbG9nLAogICAgICAgIHZhbCBkZXRhaWw6IEFwaU1vZHVsZURldGFpbCwKICAgICAgICB2YWwgZnJvbUNhY2hlOiBCb29sZWFuID0gZmFsc2UsCiAgICAgICAgdmFsIGVycm9yOiBUaHJvd2FibGU/ID0gbnVsbCwKICAgICkKCiAgICBkYXRhIGNsYXNzIFJlYWRtZSh2YWwgaHRtbDogU3RyaW5nKQoKICAgIEBTZXJpYWxpemFibGUKICAgIHByaXZhdGUgZGF0YSBjbGFzcyBDYWNoZWRDYXRhbG9nKHZhbCBpbmRleDogU3RyaW5nLCB2YWwgbW9kdWxlczogU3RyaW5nKQoKICAgIGZ1biByZXNvbHZlKHBhdGg6IFN0cmluZyk6IFN0cmluZyA9IFJlZ2lzdHJ5VXJscy5yZXNvbHZlKGJhc2VVcmwsIHBhdGgpCgogICAgZnVuIGN1cnJlbnRDYXRhbG9nKCk6IFJlZ2lzdHJ5Q2F0YWxvZz8gPSBjdXJyZW50CgogICAgLyoqIFJlYWRzIGluZGV4ICsgbGlzdCBmcm9tIHRoZSBuZXR3b3JrLCBmYWxsaW5nIGJhY2sgdG8gdGhlIGxhc3QgY29tcGxldGUgZ29vZCBjb3B5LiAqLwogICAgZnVuIGxvYWRDYXRhbG9nKCk6IENhdGFsb2dMb2FkID0gc3luY2hyb25pemVkKGxvY2spIHsKICAgICAgICB0cnkgewogICAgICAgICAgICBDYXRhbG9nTG9hZChmZXRjaENhdGFsb2coKSkKICAgICAgICB9IGNhdGNoIChlOiBFeGNlcHRpb24pIHsKICAgICAgICAgICAgdmFsIGZhbGxiYWNrID0gY3VycmVudCA/OiByZWFkQ2FjaGVkQ2F0YWxvZygpCiAgICAgICAgICAgIGlmIChmYWxsYmFjayAhPSBudWxsKSB7CiAgICAgICAgICAgICAgICBjdXJyZW50ID0gZmFsbGJhY2sKICAgICAgICAgICAgICAgIENhdGFsb2dMb2FkKGZhbGxiYWNrLCBlKQogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgdGhyb3cgZQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIC8qKiBSZXR1cm5zIHRoZSBjYXRhbG9nIGluIG1lbW9yeSwgb3IgbG9hZHMgb25lIChuZXR3b3JrLCB0aGVuIGNhY2hlKS4gKi8KICAgIGZ1biBjYXRhbG9nKCk6IFJlZ2lzdHJ5Q2F0YWxvZyA9IGN1cnJlbnQgPzogbG9hZENhdGFsb2coKS5jYXRhbG9nCgogICAgcHJpdmF0ZSBmdW4gZmV0Y2hDYXRhbG9nKCk6IFJlZ2lzdHJ5Q2F0YWxvZyB7CiAgICAgICAgdmFyIGxhc3RFcnJvcjogRXhjZXB0aW9uPyA9IG51bGwKICAgICAgICByZXBlYXQoMikgewogICAgICAgICAgICB2YWwgaW5kZXhUZXh0ID0gZmV0Y2hlci5mZXRjaChyZXNvbHZlKFJlZ2lzdHJ5VXJscy5JTkRFWF9QQVRIKSkKICAgICAgICAgICAgdmFsIGluZGV4ID0gcGFyc2VyLnBhcnNlSW5kZXgoaW5kZXhUZXh0KQogICAgICAgICAgICB2YWwgbW9kdWxlc1RleHQgPSBmZXRjaGVyLmZldGNoKHJlc29sdmUoaW5kZXgubW9kdWxlcykpCiAgICAgICAgICAgIHZhbCBtb2R1bGVzID0gcGFyc2VyLnBhcnNlTW9kdWxlcyhtb2R1bGVzVGV4dCkKICAgICAgICAgICAgaWYgKG1vZHVsZXMuYnVpbGRJZCA9PSBpbmRleC5idWlsZElkKSB7CiAgICAgICAgICAgICAgICB2YWwgY2F0YWxvZyA9IFJlZ2lzdHJ5Q2F0YWxvZyhpbmRleCwgbW9kdWxlcy5tb2R1bGVzLCBmcm9tQ2FjaGUgPSBmYWxzZSkKICAgICAgICAgICAgICAgIGN1cnJlbnQgPSBjYXRhbG9nCiAgICAgICAgICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgICAgICAgICAgY2FjaGUud3JpdGUoCiAgICAgICAgICAgICAgICAgICAgICAgIENBVEFMT0dfS0VZLAogICAgICAgICAgICAgICAgICAgICAgICBSZWdpc3RyeVBhcnNlci5ERUZBVUxUX0pTT04uZW5jb2RlVG9TdHJpbmcoQ2FjaGVkQ2F0YWxvZy5zZXJpYWxpemVyKCksIENhY2hlZENhdGFsb2coaW5kZXhUZXh0LCBtb2R1bGVzVGV4dCkpCiAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgcmV0dXJuIGNhdGFsb2cKICAgICAgICAgICAgfQogICAgICAgICAgICBsYXN0RXJyb3IgPSBCdWlsZE1pc21hdGNoRXhjZXB0aW9uKCJpbmRleCAke2luZGV4LmJ1aWxkSWR9ICE9IG1vZHVsZXMgJHttb2R1bGVzLmJ1aWxkSWR9IikKICAgICAgICB9CiAgICAgICAgdGhyb3cgbGFzdEVycm9yISEKICAgIH0KCiAgICBwcml2YXRlIGZ1biByZWFkQ2FjaGVkQ2F0YWxvZygpOiBSZWdpc3RyeUNhdGFsb2c/ID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCB0ZXh0ID0gY2FjaGUucmVhZChDQVRBTE9HX0tFWSkgPzogcmV0dXJuIG51bGwKICAgICAgICB2YWwgY2FjaGVkID0gUmVnaXN0cnlQYXJzZXIuREVGQVVMVF9KU09OLmRlY29kZUZyb21TdHJpbmcoQ2FjaGVkQ2F0YWxvZy5zZXJpYWxpemVyKCksIHRleHQpCiAgICAgICAgdmFsIGluZGV4ID0gcGFyc2VyLnBhcnNlSW5kZXgoY2FjaGVkLmluZGV4KQogICAgICAgIHZhbCBtb2R1bGVzID0gcGFyc2VyLnBhcnNlTW9kdWxlcyhjYWNoZWQubW9kdWxlcykKICAgICAgICBpZiAobW9kdWxlcy5idWlsZElkICE9IGluZGV4LmJ1aWxkSWQpIHJldHVybiBudWxsCiAgICAgICAgUmVnaXN0cnlDYXRhbG9nKGluZGV4LCBtb2R1bGVzLm1vZHVsZXMsIGZyb21DYWNoZSA9IHRydWUpCiAgICB9LmdldE9yTnVsbCgpCgogICAgcHJpdmF0ZSBmdW4gZmV0Y2hEZXRhaWwoc3VtbWFyeTogQXBpTW9kdWxlU3VtbWFyeSk6IFBhaXI8U3RyaW5nLCBBcGlNb2R1bGVEZXRhaWw+IHsKICAgICAgICB2YWwgdGV4dCA9IGZldGNoZXIuZmV0Y2gocmVzb2x2ZShzdW1tYXJ5LmRldGFpbCkpCiAgICAgICAgdmFsIGRldGFpbCA9IHBhcnNlci5wYXJzZURldGFpbCh0ZXh0KQogICAgICAgIGlmIChkZXRhaWwuaWQgIT0gc3VtbWFyeS5pZCkgdGhyb3cgUmVnaXN0cnlGb3JtYXRFeGNlcHRpb24oIkRldGFpbCBpZCAke2RldGFpbC5pZH0gIT0gJHtzdW1tYXJ5LmlkfSIpCiAgICAgICAgcmV0dXJuIHRleHQgdG8gZGV0YWlsCiAgICB9CgogICAgLyoqCiAgICAgKiBMb2FkcyBhIG1vZHVsZSBkZXRhaWwgY29uc2lzdGVudCB3aXRoIHRoZSBjYXRhbG9nLiBUaHJvd3MgW01vZHVsZU5vdEluSW5kZXhFeGNlcHRpb25dCiAgICAgKiB3aGVuIHRoZSBtb2R1bGUgaXMgbm90IHBhcnQgb2YgdGhlIGN1cnJlbnQgaW5kZXguCiAgICAgKi8KICAgIGZ1biBsb2FkRGV0YWlsKGlkOiBTdHJpbmcpOiBEZXRhaWxMb2FkIHsKICAgICAgICAvLyBBIGNhdGFsb2cgbG9hZGVkIHJpZ2h0IGhlcmUgaXMgYXMgZnJlc2ggYXMgYSByZS1yZWFkIHdvdWxkIGJlLgogICAgICAgIHZhciByZWZyZXNoZWQgPSBjdXJyZW50ID09IG51bGwKICAgICAgICB2YWwgY2F0YWxvZyA9IGNhdGFsb2coKQogICAgICAgIHZhbCBzdW1tYXJ5ID0gY2F0YWxvZy5maW5kKGlkKSA/OiB0aHJvdyBNb2R1bGVOb3RJbkluZGV4RXhjZXB0aW9uKGlkKQogICAgICAgIHRyeSB7CiAgICAgICAgICAgIHZhbCAodGV4dCwgZGV0YWlsKSA9IGZldGNoRGV0YWlsKHN1bW1hcnkpCiAgICAgICAgICAgIGlmIChkZXRhaWwuYnVpbGRJZCA9PSBjYXRhbG9nLmJ1aWxkSWQpIHsKICAgICAgICAgICAgICAgIHdyaXRlRGV0YWlsKGlkLCB0ZXh0KQogICAgICAgICAgICAgICAgcmV0dXJuIERldGFpbExvYWQoY2F0YWxvZywgZGV0YWlsKQogICAgICAgICAgICB9CiAgICAgICAgICAgIC8vIFRoZSBzaXRlIHdhcyByZWRlcGxveWVkIGluIGJldHdlZW46IHJlLXJlYWQgaW5kZXggKyBsaXN0IG9uY2UsIG5ldmVyIG1peCBidWlsZHMuCiAgICAgICAgICAgIHJlZnJlc2hlZCA9IHRydWUKICAgICAgICAgICAgdmFsIGZyZXNoID0gc3luY2hyb25pemVkKGxvY2spIHsgZmV0Y2hDYXRhbG9nKCkgfQogICAgICAgICAgICB2YWwgZnJlc2hTdW1tYXJ5ID0gZnJlc2guZmluZChpZCkgPzogdGhyb3cgTW9kdWxlTm90SW5JbmRleEV4Y2VwdGlvbihpZCkKICAgICAgICAgICAgdmFsIChmcmVzaFRleHQsIGZyZXNoRGV0YWlsKSA9CiAgICAgICAgICAgICAgICBpZiAoZGV0YWlsLmJ1aWxkSWQgPT0gZnJlc2guYnVpbGRJZCkgdGV4dCB0byBkZXRhaWwgZWxzZSBmZXRjaERldGFpbChmcmVzaFN1bW1hcnkpCiAgICAgICAgICAgIGlmIChmcmVzaERldGFpbC5idWlsZElkICE9IGZyZXNoLmJ1aWxkSWQpIHsKICAgICAgICAgICAgICAgIHRocm93IEJ1aWxkTWlzbWF0Y2hFeGNlcHRpb24oImRldGFpbCAke2ZyZXNoRGV0YWlsLmJ1aWxkSWR9ICE9IG1vZHVsZXMgJHtmcmVzaC5idWlsZElkfSIpCiAgICAgICAgICAgIH0KICAgICAgICAgICAgd3JpdGVEZXRhaWwoaWQsIGZyZXNoVGV4dCkKICAgICAgICAgICAgcmV0dXJuIERldGFpbExvYWQoZnJlc2gsIGZyZXNoRGV0YWlsKQogICAgICAgIH0gY2F0Y2ggKGU6IE1vZHVsZU5vdEluSW5kZXhFeGNlcHRpb24pIHsKICAgICAgICAgICAgdGhyb3cgZQogICAgICAgIH0gY2F0Y2ggKGU6IEV4Y2VwdGlvbikgewogICAgICAgICAgICAvLyBUaGUgZGV0YWlsIG1heSBiZSBnb25lIGJlY2F1c2UgdGhlIG1vZHVsZSB3YXMgcmVtb3ZlZCBpbiBhIG5ld2VyIGJ1aWxkOiByZS1yZWFkCiAgICAgICAgICAgIC8vIGluZGV4ICsgbGlzdCBvbmNlLiBPZmZsaW5lLCB0aGUgY2FjaGVkIGZhbGxiYWNrIGJlbG93IHN0aWxsIGFwcGxpZXMuCiAgICAgICAgICAgIGlmICghcmVmcmVzaGVkKSB7CiAgICAgICAgICAgICAgICB2YWwgZnJlc2ggPSBydW5DYXRjaGluZyB7IHN5bmNocm9uaXplZChsb2NrKSB7IGZldGNoQ2F0YWxvZygpIH0gfS5nZXRPck51bGwoKQogICAgICAgICAgICAgICAgaWYgKGZyZXNoICE9IG51bGwpIHsKICAgICAgICAgICAgICAgICAgICB2YWwgZnJlc2hTdW1tYXJ5ID0gZnJlc2guZmluZChpZCkgPzogdGhyb3cgTW9kdWxlTm90SW5JbmRleEV4Y2VwdGlvbihpZCkKICAgICAgICAgICAgICAgICAgICBpZiAoZnJlc2guYnVpbGRJZCAhPSBjYXRhbG9nLmJ1aWxkSWQpIHsKICAgICAgICAgICAgICAgICAgICAgICAgcnVuQ2F0Y2hpbmcgeyBmZXRjaERldGFpbChmcmVzaFN1bW1hcnkpIH0uZ2V0T3JOdWxsKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgID8udGFrZUlmIHsgKF8sIGRldGFpbCkgLT4gZGV0YWlsLmJ1aWxkSWQgPT0gZnJlc2guYnVpbGRJZCB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA/LmxldCB7ICh0ZXh0LCBkZXRhaWwpIC0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd3JpdGVEZXRhaWwoaWQsIHRleHQpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIERldGFpbExvYWQoZnJlc2gsIGRldGFpbCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgLy8gQSByZWZyZXNoIGFib3ZlIG1heSBhbHJlYWR5IGhhdmUgYWR2YW5jZWQgdGhlIGNhdGFsb2c6IG9ubHkgZmFsbCBiYWNrIHRvIGEgY2FjaGVkCiAgICAgICAgICAgIC8vIGRldGFpbCBvZiB0aGUgYnVpbGQgdGhlIGNsaWVudCBpcyBvbiBub3csIGZvciBhIG1vZHVsZSB0aGF0IGlzIHN0aWxsIGxpc3RlZCB0aGVyZS4KICAgICAgICAgICAgdmFsIGxhdGVzdCA9IGN1cnJlbnQgPzogY2F0YWxvZwogICAgICAgICAgICBpZiAobGF0ZXN0LmZpbmQoaWQpID09IG51bGwpIHRocm93IGUKICAgICAgICAgICAgdmFsIGNhY2hlZCA9IHJlYWRDYWNoZWREZXRhaWwoaWQpPy50YWtlSWYgeyBpdC5idWlsZElkID09IGxhdGVzdC5idWlsZElkICYmIGl0LmlkID09IGlkIH0KICAgICAgICAgICAgICAgID86IHRocm93IGUKICAgICAgICAgICAgcmV0dXJuIERldGFpbExvYWQobGF0ZXN0LCBjYWNoZWQsIGZyb21DYWNoZSA9IHRydWUsIGVycm9yID0gZSkKICAgICAgICB9CiAgICB9CgogICAgLyoqIExvYWRzIHRoZSBSRUFETUUgSFRNTCwgb3IgbnVsbCBpZiB0aGUgbW9kdWxlIGhhcyBub25lLiBGYWxscyBiYWNrIHRvIGEgY2FjaGVkIGNvcHkgb2YgdGhlIHNhbWUgYnVpbGQuICovCiAgICBmdW4gbG9hZFJlYWRtZShkZXRhaWw6IEFwaU1vZHVsZURldGFpbCk6IFJlYWRtZT8gewogICAgICAgIHZhbCBwYXRoID0gZGV0YWlsLnJlYWRtZSA/OiByZXR1cm4gbnVsbAogICAgICAgIHZhbCBrZXkgPSAicmVhZG1lLSR7ZGV0YWlsLmlkfSIKICAgICAgICByZXR1cm4gdHJ5IHsKICAgICAgICAgICAgdmFsIGh0bWwgPSBmZXRjaGVyLmZldGNoKHJlc29sdmUocGF0aCkpCiAgICAgICAgICAgIHJ1bkNhdGNoaW5nIHsgY2FjaGUud3JpdGUoa2V5LCBkZXRhaWwuYnVpbGRJZCArICJcbiIgKyBodG1sKSB9CiAgICAgICAgICAgIFJlYWRtZShodG1sKQogICAgICAgIH0gY2F0Y2ggKGU6IEV4Y2VwdGlvbikgewogICAgICAgICAgICB2YWwgY2FjaGVkID0gcnVuQ2F0Y2hpbmcgeyBjYWNoZS5yZWFkKGtleSkgfS5nZXRPck51bGwoKSA/OiB0aHJvdyBlCiAgICAgICAgICAgIHZhbCBidWlsZElkID0gY2FjaGVkLnN1YnN0cmluZ0JlZm9yZSgnXG4nKQogICAgICAgICAgICBpZiAoYnVpbGRJZCAhPSBkZXRhaWwuYnVpbGRJZCkgdGhyb3cgZQogICAgICAgICAgICBSZWFkbWUoY2FjaGVkLnN1YnN0cmluZ0FmdGVyKCdcbicpKQogICAgICAgIH0KICAgIH0KCiAgICBwcml2YXRlIGZ1biB3cml0ZURldGFpbChpZDogU3RyaW5nLCB0ZXh0OiBTdHJpbmcpIHsKICAgICAgICBydW5DYXRjaGluZyB7IGNhY2hlLndyaXRlKCJkZXRhaWwtJGlkIiwgdGV4dCkgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIHJlYWRDYWNoZWREZXRhaWwoaWQ6IFN0cmluZyk6IEFwaU1vZHVsZURldGFpbD8gPSBydW5DYXRjaGluZyB7CiAgICAgICAgY2FjaGUucmVhZCgiZGV0YWlsLSRpZCIpPy5sZXQocGFyc2VyOjpwYXJzZURldGFpbCkKICAgIH0uZ2V0T3JOdWxsKCkKCiAgICBwcml2YXRlIGNvbXBhbmlvbiBvYmplY3QgewogICAgICAgIGNvbnN0IHZhbCBDQVRBTE9HX0tFWSA9ICJjYXRhbG9nIgogICAgfQp9Cg==
+package com.xinsu.moe.data.registry
+
+import kotlinx.serialization.Serializable
+import java.io.IOException
+
+/** Fetches a document; throws [IOException] on network / HTTP errors. */
+fun interface RegistryFetcher {
+    @Throws(IOException::class)
+    fun fetch(url: String): String
+}
+
+/** Small key/value store for the last complete good copies. Keys are file-name safe. */
+interface RegistryCache {
+    fun read(key: String): String?
+    fun write(key: String, value: String)
+}
+
+/**
+ * Registry protocol client: index -> module list -> detail on demand.
+ *
+ * - Documents from different builds are never combined: when a detail's buildId differs from
+ *   the list's, the index and list are re-read once; if they still disagree the load fails.
+ * - The last complete, consistent copy is kept in [cache] and used when the network or
+ *   parsing fails.
+ *
+ * Blocking; call from a background thread.
+ */
+class RegistryClient(
+    baseUrl: String = RegistryUrls.DEFAULT_BASE_URL,
+    private val fetcher: RegistryFetcher,
+    private val cache: RegistryCache,
+    private val parser: RegistryParser = RegistryParser(),
+) {
+    val baseUrl: String = RegistryUrls.normalizeBaseUrl(baseUrl)
+
+    @Volatile
+    private var current: RegistryCatalog? = null
+    private val lock = Any()
+
+    data class CatalogLoad(
+        val catalog: RegistryCatalog,
+        /** Non-null when the network copy could not be used and a cached copy was returned. */
+        val error: Throwable? = null,
+    )
+
+    data class DetailLoad(
+        /** Catalog the detail belongs to; may be newer than the one the caller held. */
+        val catalog: RegistryCatalog,
+        val detail: ApiModuleDetail,
+        val fromCache: Boolean = false,
+        val error: Throwable? = null,
+    )
+
+    data class Readme(val html: String)
+
+    @Serializable
+    private data class CachedCatalog(val index: String, val modules: String)
+
+    fun resolve(path: String): String = RegistryUrls.resolve(baseUrl, path)
+
+    fun currentCatalog(): RegistryCatalog? = current
+
+    /** Reads index + list from the network, falling back to the last complete good copy. */
+    fun loadCatalog(): CatalogLoad = synchronized(lock) {
+        try {
+            CatalogLoad(fetchCatalog())
+        } catch (e: Exception) {
+            val fallback = current ?: readCachedCatalog()
+            if (fallback != null) {
+                current = fallback
+                CatalogLoad(fallback, e)
+            } else {
+                throw e
+            }
+        }
+    }
+
+    /** Returns the catalog in memory, or loads one (network, then cache). */
+    fun catalog(): RegistryCatalog = current ?: loadCatalog().catalog
+
+    private fun fetchCatalog(): RegistryCatalog {
+        var lastError: Exception? = null
+        repeat(2) {
+            val indexText = fetcher.fetch(resolve(RegistryUrls.INDEX_PATH))
+            val index = parser.parseIndex(indexText)
+            val modulesText = fetcher.fetch(resolve(index.modules))
+            val modules = parser.parseModules(modulesText)
+            if (modules.buildId == index.buildId) {
+                val catalog = RegistryCatalog(index, modules.modules, fromCache = false)
+                current = catalog
+                runCatching {
+                    cache.write(
+                        CATALOG_KEY,
+                        RegistryParser.DEFAULT_JSON.encodeToString(CachedCatalog.serializer(), CachedCatalog(indexText, modulesText))
+                    )
+                }
+                return catalog
+            }
+            lastError = BuildMismatchException("index ${index.buildId} != modules ${modules.buildId}")
+        }
+        throw lastError!!
+    }
+
+    private fun readCachedCatalog(): RegistryCatalog? = runCatching {
+        val text = cache.read(CATALOG_KEY) ?: return null
+        val cached = RegistryParser.DEFAULT_JSON.decodeFromString(CachedCatalog.serializer(), text)
+        val index = parser.parseIndex(cached.index)
+        val modules = parser.parseModules(cached.modules)
+        if (modules.buildId != index.buildId) return null
+        RegistryCatalog(index, modules.modules, fromCache = true)
+    }.getOrNull()
+
+    private fun fetchDetail(summary: ApiModuleSummary): Pair<String, ApiModuleDetail> {
+        val text = fetcher.fetch(resolve(summary.detail))
+        val detail = parser.parseDetail(text)
+        if (detail.id != summary.id) throw RegistryFormatException("Detail id ${detail.id} != ${summary.id}")
+        return text to detail
+    }
+
+    /**
+     * Loads a module detail consistent with the catalog. Throws [ModuleNotInIndexException]
+     * when the module is not part of the current index.
+     */
+    fun loadDetail(id: String): DetailLoad {
+        // A catalog loaded right here is as fresh as a re-read would be.
+        var refreshed = current == null
+        val catalog = catalog()
+        val summary = catalog.find(id) ?: throw ModuleNotInIndexException(id)
+        try {
+            val (text, detail) = fetchDetail(summary)
+            if (detail.buildId == catalog.buildId) {
+                writeDetail(id, text)
+                return DetailLoad(catalog, detail)
+            }
+            // The site was redeployed in between: re-read index + list once, never mix builds.
+            refreshed = true
+            val fresh = synchronized(lock) { fetchCatalog() }
+            val freshSummary = fresh.find(id) ?: throw ModuleNotInIndexException(id)
+            val (freshText, freshDetail) =
+                if (detail.buildId == fresh.buildId) text to detail else fetchDetail(freshSummary)
+            if (freshDetail.buildId != fresh.buildId) {
+                throw BuildMismatchException("detail ${freshDetail.buildId} != modules ${fresh.buildId}")
+            }
+            writeDetail(id, freshText)
+            return DetailLoad(fresh, freshDetail)
+        } catch (e: ModuleNotInIndexException) {
+            throw e
+        } catch (e: Exception) {
+            // The detail may be gone because the module was removed in a newer build: re-read
+            // index + list once. Offline, the cached fallback below still applies.
+            if (!refreshed) {
+                val fresh = runCatching { synchronized(lock) { fetchCatalog() } }.getOrNull()
+                if (fresh != null) {
+                    val freshSummary = fresh.find(id) ?: throw ModuleNotInIndexException(id)
+                    if (fresh.buildId != catalog.buildId) {
+                        runCatching { fetchDetail(freshSummary) }.getOrNull()
+                            ?.takeIf { (_, detail) -> detail.buildId == fresh.buildId }
+                            ?.let { (text, detail) ->
+                                writeDetail(id, text)
+                                return DetailLoad(fresh, detail)
+                            }
+                    }
+                }
+            }
+            // A refresh above may already have advanced the catalog: only fall back to a cached
+            // detail of the build the client is on now, for a module that is still listed there.
+            val latest = current ?: catalog
+            if (latest.find(id) == null) throw e
+            val cached = readCachedDetail(id)?.takeIf { it.buildId == latest.buildId && it.id == id }
+                ?: throw e
+            return DetailLoad(latest, cached, fromCache = true, error = e)
+        }
+    }
+
+    /** Loads the README HTML, or null if the module has none. Falls back to a cached copy of the same build. */
+    fun loadReadme(detail: ApiModuleDetail): Readme? {
+        val path = detail.readme ?: return null
+        val key = "readme-${detail.id}"
+        return try {
+            val html = fetcher.fetch(resolve(path))
+            runCatching { cache.write(key, detail.buildId + "\n" + html) }
+            Readme(html)
+        } catch (e: Exception) {
+            val cached = runCatching { cache.read(key) }.getOrNull() ?: throw e
+            val buildId = cached.substringBefore('\n')
+            if (buildId != detail.buildId) throw e
+            Readme(cached.substringAfter('\n'))
+        }
+    }
+
+    private fun writeDetail(id: String, text: String) {
+        runCatching { cache.write("detail-$id", text) }
+    }
+
+    private fun readCachedDetail(id: String): ApiModuleDetail? = runCatching {
+        cache.read("detail-$id")?.let(parser::parseDetail)
+    }.getOrNull()
+
+    private companion object {
+        const val CATALOG_KEY = "catalog"
+    }
+}

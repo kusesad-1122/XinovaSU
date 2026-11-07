@@ -1,1 +1,30 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBvcmcuanVuaXQuQXNzZXJ0LmFzc2VydEVxdWFscwppbXBvcnQgb3JnLmp1bml0LlRlc3QKCmNsYXNzIFJlZ2lzdHJ5TG9jYWxlVGVzdCB7CgogICAgcHJpdmF0ZSBmdW4gc2l0ZSh0YWc6IFN0cmluZykgPSBSZWdpc3RyeUxvY2FsZS5zaXRlTG9jYWxlKHRhZykKCiAgICBAVGVzdAogICAgZnVuIHNpbXBsaWZpZWRDaGluZXNlTWFwc1RvWmhDbigpIHsKICAgICAgICBmb3IgKHRhZyBpbiBsaXN0T2YoCiAgICAgICAgICAgICJ6aCIsICJ6aC1DTiIsICJ6aF9DTiIsICJ6aC1IYW5zIiwgInpoLUhhbnMtQ04iLCAiemgtSGFucy1ISyIsICJ6aC1IYW5zLVRXIiwgInpoLVNHIiwgInpoLU1ZIiwKICAgICAgICAgICAgIlpILWNuIiwgInpoLUNOLXUtZnctbW9uLW11LWNlbHNpdXMiLCAiemgtSGFucy1DTi11LW51LWhhbmlkZWMiLCAiemgtdS1jYS1jaGluZXNlIiwKICAgICAgICApKSB7CiAgICAgICAgICAgIGFzc2VydEVxdWFscyh0YWcsICJ6aC1DTiIsIHNpdGUodGFnKSkKICAgICAgICB9CiAgICB9CgogICAgQFRlc3QKICAgIGZ1biB0cmFkaXRpb25hbENoaW5lc2VBbmRPdGhlckxhbmd1YWdlc01hcFRvRW4oKSB7CiAgICAgICAgZm9yICh0YWcgaW4gbGlzdE9mKAogICAgICAgICAgICAiemgtVFciLCAiemgtSEsiLCAiemgtTU8iLCAiemgtSGFudCIsICJ6aC1IYW50LVRXIiwgInpoLUhhbnQtQ04iLCAiemgtSEstdS1tdS1jZWxzaXVzIiwKICAgICAgICAgICAgImVuIiwgImVuLVVTIiwgImVuLVVTLXUtZnctbW9uLW11LWNlbHNpdXMiLCAiaW4tSUQiLCAiaWQtSUQiLCAiaW4iLCAicHQtQlIiLCAicHRfQlIiLCAiamEtSlAiLAogICAgICAgICAgICAidW5kIiwgIiIsICIgICIsICJ4LXByaXZhdGUiLCAiemh4LUNOIiwKICAgICAgICApKSB7CiAgICAgICAgICAgIGFzc2VydEVxdWFscyh0YWcsICJlbiIsIHNpdGUodGFnKSkKICAgICAgICB9CiAgICB9Cn0K
+package com.xinsu.moe.data.registry
+
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+class RegistryLocaleTest {
+
+    private fun site(tag: String) = RegistryLocale.siteLocale(tag)
+
+    @Test
+    fun simplifiedChineseMapsToZhCn() {
+        for (tag in listOf(
+            "zh", "zh-CN", "zh_CN", "zh-Hans", "zh-Hans-CN", "zh-Hans-HK", "zh-Hans-TW", "zh-SG", "zh-MY",
+            "ZH-cn", "zh-CN-u-fw-mon-mu-celsius", "zh-Hans-CN-u-nu-hanidec", "zh-u-ca-chinese",
+        )) {
+            assertEquals(tag, "zh-CN", site(tag))
+        }
+    }
+
+    @Test
+    fun traditionalChineseAndOtherLanguagesMapToEn() {
+        for (tag in listOf(
+            "zh-TW", "zh-HK", "zh-MO", "zh-Hant", "zh-Hant-TW", "zh-Hant-CN", "zh-HK-u-mu-celsius",
+            "en", "en-US", "en-US-u-fw-mon-mu-celsius", "in-ID", "id-ID", "in", "pt-BR", "pt_BR", "ja-JP",
+            "und", "", "  ", "x-private", "zhx-CN",
+        )) {
+            assertEquals(tag, "en", site(tag))
+        }
+    }
+}

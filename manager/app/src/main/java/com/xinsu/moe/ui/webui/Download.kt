@@ -1,1 +1,63 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpCgppbXBvcnQgamF2YS5pby5GaWxlCmltcG9ydCBqYXZhLmlvLkZpbGVPdXRwdXRTdHJlYW0KaW1wb3J0IGphdmEuaW8uSW5wdXRTdHJlYW0KaW1wb3J0IGphdmEuaW8uT3V0cHV0U3RyZWFtCgpwcml2YXRlIGNvbnN0IHZhbCBERUZBVUxUX1dFQlVJX0RPV05MT0FEX05BTUUgPSAiZG93bmxvYWQuYmluIgoKaW50ZXJuYWwgZnVuIHJlc29sdmVXZWJVSURvd25sb2FkRmlsZShkb3dubG9hZHNEaXI6IEZpbGUsIHJlcXVlc3RlZEZpbGVOYW1lOiBTdHJpbmc/KTogRmlsZSB7CiAgICB2YWwgZmlsZU5hbWUgPSBzYW5pdGl6ZVdlYlVJRG93bmxvYWRGaWxlTmFtZShyZXF1ZXN0ZWRGaWxlTmFtZSkKICAgIHJldHVybiBGaWxlKGRvd25sb2Fkc0RpciwgZmlsZU5hbWUpCn0KCmludGVybmFsIGZ1biBzYW5pdGl6ZVdlYlVJRG93bmxvYWRGaWxlTmFtZShyZXF1ZXN0ZWRGaWxlTmFtZTogU3RyaW5nPyk6IFN0cmluZyB7CiAgICB2YWwgdHJpbW1lZCA9IHJlcXVlc3RlZEZpbGVOYW1lPy50cmltKCkub3JFbXB0eSgpCiAgICBpZiAodHJpbW1lZC5pc0VtcHR5KCkpIHJldHVybiBERUZBVUxUX1dFQlVJX0RPV05MT0FEX05BTUUKCiAgICB2YWwgY2FuZGlkYXRlID0gdHJpbW1lZAogICAgICAgIC5zdWJzdHJpbmdBZnRlckxhc3QoJy8nKQogICAgICAgIC5zdWJzdHJpbmdBZnRlckxhc3QoJ1xcJykKICAgICAgICAudHJpbSgpCgogICAgaWYgKGNhbmRpZGF0ZS5pc0VtcHR5KCkgfHwgY2FuZGlkYXRlID09ICIuIiB8fCBjYW5kaWRhdGUgPT0gIi4uIikgewogICAgICAgIHJldHVybiBERUZBVUxUX1dFQlVJX0RPV05MT0FEX05BTUUKICAgIH0KCiAgICByZXR1cm4gY2FuZGlkYXRlCn0KCmludGVybmFsIGZ1biB3cml0ZVdlYlVJRG93bmxvYWQoCiAgICB0YXJnZXQ6IEZpbGUsCiAgICBzb3VyY2U6IElucHV0U3RyZWFtLAogICAgb3V0cHV0U3RyZWFtRmFjdG9yeTogKEZpbGUpIC0+IE91dHB1dFN0cmVhbSA9IDo6RmlsZU91dHB1dFN0cmVhbSwKICAgIG9uQnl0ZXNXcml0dGVuOiAoTG9uZykgLT4gVW5pdCA9IHt9LAopOiBMb25nIHsKICAgIHRhcmdldC5wYXJlbnRGaWxlPy5ta2RpcnMoKQogICAgcmV0dXJuIG91dHB1dFN0cmVhbUZhY3RvcnkodGFyZ2V0KS51c2UgeyBvdXRwdXQgLT4KICAgICAgICB3cml0ZVdlYlVJRG93bmxvYWQoc291cmNlLCBvdXRwdXQsIG9uQnl0ZXNXcml0dGVuKQogICAgfQp9CgppbnRlcm5hbCBmdW4gd3JpdGVXZWJVSURvd25sb2FkKAogICAgc291cmNlOiBJbnB1dFN0cmVhbSwKICAgIG91dHB1dDogT3V0cHV0U3RyZWFtLAogICAgb25CeXRlc1dyaXR0ZW46IChMb25nKSAtPiBVbml0ID0ge30sCik6IExvbmcgewogICAgb3V0cHV0LmJ1ZmZlcmVkKDY0ICogMTAyNCkudXNlIHsgYnVmZmVyZWRPdXRwdXQgLT4KICAgICAgICB2YWwgYnVmZmVyID0gQnl0ZUFycmF5KDggKiAxMDI0KQogICAgICAgIHZhciB0b3RhbCA9IDBMCiAgICAgICAgd2hpbGUgKHRydWUpIHsKICAgICAgICAgICAgdmFsIHJlYWQgPSBzb3VyY2UucmVhZChidWZmZXIpCiAgICAgICAgICAgIGlmIChyZWFkID09IC0xKSB7CiAgICAgICAgICAgICAgICBicmVhawogICAgICAgICAgICB9CiAgICAgICAgICAgIGJ1ZmZlcmVkT3V0cHV0LndyaXRlKGJ1ZmZlciwgMCwgcmVhZCkKICAgICAgICAgICAgdG90YWwgKz0gcmVhZAogICAgICAgICAgICBvbkJ5dGVzV3JpdHRlbih0b3RhbCkKICAgICAgICB9CiAgICAgICAgYnVmZmVyZWRPdXRwdXQuZmx1c2goKQogICAgICAgIHJldHVybiB0b3RhbAogICAgfQp9Cg==
+package com.xinsu.moe.ui.webui
+
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
+
+private const val DEFAULT_WEBUI_DOWNLOAD_NAME = "download.bin"
+
+internal fun resolveWebUIDownloadFile(downloadsDir: File, requestedFileName: String?): File {
+    val fileName = sanitizeWebUIDownloadFileName(requestedFileName)
+    return File(downloadsDir, fileName)
+}
+
+internal fun sanitizeWebUIDownloadFileName(requestedFileName: String?): String {
+    val trimmed = requestedFileName?.trim().orEmpty()
+    if (trimmed.isEmpty()) return DEFAULT_WEBUI_DOWNLOAD_NAME
+
+    val candidate = trimmed
+        .substringAfterLast('/')
+        .substringAfterLast('\\')
+        .trim()
+
+    if (candidate.isEmpty() || candidate == "." || candidate == "..") {
+        return DEFAULT_WEBUI_DOWNLOAD_NAME
+    }
+
+    return candidate
+}
+
+internal fun writeWebUIDownload(
+    target: File,
+    source: InputStream,
+    outputStreamFactory: (File) -> OutputStream = ::FileOutputStream,
+    onBytesWritten: (Long) -> Unit = {},
+): Long {
+    target.parentFile?.mkdirs()
+    return outputStreamFactory(target).use { output ->
+        writeWebUIDownload(source, output, onBytesWritten)
+    }
+}
+
+internal fun writeWebUIDownload(
+    source: InputStream,
+    output: OutputStream,
+    onBytesWritten: (Long) -> Unit = {},
+): Long {
+    output.buffered(64 * 1024).use { bufferedOutput ->
+        val buffer = ByteArray(8 * 1024)
+        var total = 0L
+        while (true) {
+            val read = source.read(buffer)
+            if (read == -1) {
+                break
+            }
+            bufferedOutput.write(buffer, 0, read)
+            total += read
+            onBytesWritten(total)
+        }
+        bufferedOutput.flush()
+        return total
+    }
+}

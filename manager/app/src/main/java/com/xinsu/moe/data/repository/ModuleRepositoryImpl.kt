@@ -1,1 +1,88 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeQoKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5EaXNwYXRjaGVycwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLndpdGhDb250ZXh0CmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuTW9kdWxlCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuTW9kdWxlVXBkYXRlSW5mbwppbXBvcnQgY29tLnhpbnN1Lm1vZS5rc3VBcHAKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5pc05ldHdvcmtBdmFpbGFibGUKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5saXN0TW9kdWxlcwppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLm1vZHVsZS5zYW5pdGl6ZVZlcnNpb25TdHJpbmcKaW1wb3J0IG9raHR0cDMuUmVxdWVzdAppbXBvcnQgb3JnLmpzb24uSlNPTkFycmF5CmltcG9ydCBvcmcuanNvbi5KU09OT2JqZWN0CgpjbGFzcyBNb2R1bGVSZXBvc2l0b3J5SW1wbCA6IE1vZHVsZVJlcG9zaXRvcnkgewoKICAgIGNvbXBhbmlvbiBvYmplY3QgewogICAgICAgIHByaXZhdGUgY29uc3QgdmFsIFRBRyA9ICJNb2R1bGVSZXBvc2l0b3J5IgogICAgfQoKICAgIG92ZXJyaWRlIHN1c3BlbmQgZnVuIGdldE1vZHVsZXMoKTogUmVzdWx0PExpc3Q8TW9kdWxlPj4gPSB3aXRoQ29udGV4dChEaXNwYXRjaGVycy5JTykgewogICAgICAgIHJ1bkNhdGNoaW5nIHsKICAgICAgICAgICAgdmFsIHJlc3VsdCA9IGxpc3RNb2R1bGVzKCkKICAgICAgICAgICAgdmFsIGFycmF5ID0gSlNPTkFycmF5KHJlc3VsdCkKICAgICAgICAgICAgKDAgdW50aWwgYXJyYXkubGVuZ3RoKCkpCiAgICAgICAgICAgICAgICAuYXNTZXF1ZW5jZSgpCiAgICAgICAgICAgICAgICAubWFwIHsgYXJyYXkuZ2V0SlNPTk9iamVjdChpdCkgfQogICAgICAgICAgICAgICAgLm1hcCB7IG9iaiAtPgogICAgICAgICAgICAgICAgICAgIE1vZHVsZSgKICAgICAgICAgICAgICAgICAgICAgICAgaWQgPSBvYmouZ2V0U3RyaW5nKCJpZCIpLAogICAgICAgICAgICAgICAgICAgICAgICBuYW1lID0gb2JqLm9wdFN0cmluZygibmFtZSIpLAogICAgICAgICAgICAgICAgICAgICAgICBhdXRob3IgPSBvYmoub3B0U3RyaW5nKCJhdXRob3IiLCAiVW5rbm93biIpLAogICAgICAgICAgICAgICAgICAgICAgICB2ZXJzaW9uID0gb2JqLm9wdFN0cmluZygidmVyc2lvbiIsICJVbmtub3duIiksCiAgICAgICAgICAgICAgICAgICAgICAgIHZlcnNpb25Db2RlID0gb2JqLm9wdEludCgidmVyc2lvbkNvZGUiLCAwKSwKICAgICAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gPSBvYmoub3B0U3RyaW5nKCJkZXNjcmlwdGlvbiIpLAogICAgICAgICAgICAgICAgICAgICAgICBlbmFibGVkID0gb2JqLmdldEJvb2xlYW4oImVuYWJsZWQiKSwKICAgICAgICAgICAgICAgICAgICAgICAgdXBkYXRlID0gb2JqLm9wdEJvb2xlYW4oInVwZGF0ZSIpLAogICAgICAgICAgICAgICAgICAgICAgICByZW1vdmUgPSBvYmouZ2V0Qm9vbGVhbigicmVtb3ZlIiksCiAgICAgICAgICAgICAgICAgICAgICAgIHVwZGF0ZUpzb24gPSBvYmoub3B0U3RyaW5nKCJ1cGRhdGVKc29uIiksCiAgICAgICAgICAgICAgICAgICAgICAgIGhhc1dlYlVpID0gb2JqLm9wdEJvb2xlYW4oIndlYiIpLAogICAgICAgICAgICAgICAgICAgICAgICBoYXNBY3Rpb25TY3JpcHQgPSBvYmoub3B0Qm9vbGVhbigiYWN0aW9uIiksCiAgICAgICAgICAgICAgICAgICAgICAgIG1ldGFtb2R1bGUgPSAob2JqLm9wdEludCgibWV0YW1vZHVsZSIpICE9IDApIHx8IG9iai5vcHRCb29sZWFuKCJtZXRhbW9kdWxlIiksCiAgICAgICAgICAgICAgICAgICAgICAgIGFjdGlvbkljb25QYXRoID0gb2JqLm9wdFN0cmluZygiYWN0aW9uSWNvbiIpLnRha2VJZiB7IGl0LmlzTm90QmxhbmsoKSB9LAogICAgICAgICAgICAgICAgICAgICAgICB3ZWJVaUljb25QYXRoID0gb2JqLm9wdFN0cmluZygid2VidWlJY29uIikudGFrZUlmIHsgaXQuaXNOb3RCbGFuaygpIH0KICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICB9LnRvTGlzdCgpCiAgICAgICAgfQogICAgfQoKICAgIG92ZXJyaWRlIHN1c3BlbmQgZnVuIGNoZWNrVXBkYXRlKG1vZHVsZTogTW9kdWxlKTogUmVzdWx0PE1vZHVsZVVwZGF0ZUluZm8+ID0gd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgIGlmICghaXNOZXR3b3JrQXZhaWxhYmxlKGtzdUFwcCkpIHsKICAgICAgICAgICAgICAgIHJldHVybkBydW5DYXRjaGluZyBNb2R1bGVVcGRhdGVJbmZvLkVtcHR5CiAgICAgICAgICAgIH0KICAgICAgICAgICAgaWYgKG1vZHVsZS51cGRhdGVKc29uLmlzRW1wdHkoKSB8fCBtb2R1bGUucmVtb3ZlIHx8IG1vZHVsZS51cGRhdGUgfHwgIW1vZHVsZS5lbmFibGVkKSB7CiAgICAgICAgICAgICAgICByZXR1cm5AcnVuQ2F0Y2hpbmcgTW9kdWxlVXBkYXRlSW5mby5FbXB0eQogICAgICAgICAgICB9CgogICAgICAgICAgICB2YWwgdXJsID0gbW9kdWxlLnVwZGF0ZUpzb24KICAgICAgICAgICAgdmFsIHJlc3BvbnNlID0ga3N1QXBwLm9raHR0cENsaWVudC5uZXdDYWxsKAogICAgICAgICAgICAgICAgUmVxdWVzdC5CdWlsZGVyKCkudXJsKHVybCkuYnVpbGQoKQogICAgICAgICAgICApLmV4ZWN1dGUoKQoKICAgICAgICAgICAgdmFsIHJlc3VsdCA9IGlmIChyZXNwb25zZS5pc1N1Y2Nlc3NmdWwpIHsKICAgICAgICAgICAgICAgIHJlc3BvbnNlLmJvZHkuc3RyaW5nKCkKICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICIiCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGlmIChyZXN1bHQuaXNFbXB0eSgpKSB7CiAgICAgICAgICAgICAgICByZXR1cm5AcnVuQ2F0Y2hpbmcgTW9kdWxlVXBkYXRlSW5mby5FbXB0eQogICAgICAgICAgICB9CgogICAgICAgICAgICB2YWwgdXBkYXRlSnNvbiA9IEpTT05PYmplY3QocmVzdWx0KQogICAgICAgICAgICB2YXIgdmVyc2lvbiA9IHVwZGF0ZUpzb24ub3B0U3RyaW5nKCJ2ZXJzaW9uIiwgIiIpCiAgICAgICAgICAgIHZlcnNpb24gPSBzYW5pdGl6ZVZlcnNpb25TdHJpbmcodmVyc2lvbikKICAgICAgICAgICAgdmFsIHZlcnNpb25Db2RlID0gdXBkYXRlSnNvbi5vcHRJbnQoInZlcnNpb25Db2RlIiwgMCkKICAgICAgICAgICAgdmFsIHppcFVybCA9IHVwZGF0ZUpzb24ub3B0U3RyaW5nKCJ6aXBVcmwiLCAiIikKICAgICAgICAgICAgdmFsIGNoYW5nZWxvZyA9IHVwZGF0ZUpzb24ub3B0U3RyaW5nKCJjaGFuZ2Vsb2ciLCAiIikKCiAgICAgICAgICAgIGlmICh2ZXJzaW9uQ29kZSA8PSBtb2R1bGUudmVyc2lvbkNvZGUgfHwgemlwVXJsLmlzRW1wdHkoKSkgewogICAgICAgICAgICAgICAgTW9kdWxlVXBkYXRlSW5mby5FbXB0eQogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgTW9kdWxlVXBkYXRlSW5mbyh6aXBVcmwsIHZlcnNpb24sIGNoYW5nZWxvZywgdmVyc2lvbkNvZGUpCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0K
+package com.xinsu.moe.data.repository
+
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import com.xinsu.moe.data.model.Module
+import com.xinsu.moe.data.model.ModuleUpdateInfo
+import com.xinsu.moe.ksuApp
+import com.xinsu.moe.ui.util.isNetworkAvailable
+import com.xinsu.moe.ui.util.listModules
+import com.xinsu.moe.ui.util.module.sanitizeVersionString
+import okhttp3.Request
+import org.json.JSONArray
+import org.json.JSONObject
+
+class ModuleRepositoryImpl : ModuleRepository {
+
+    companion object {
+        private const val TAG = "ModuleRepository"
+    }
+
+    override suspend fun getModules(): Result<List<Module>> = withContext(Dispatchers.IO) {
+        runCatching {
+            val result = listModules()
+            val array = JSONArray(result)
+            (0 until array.length())
+                .asSequence()
+                .map { array.getJSONObject(it) }
+                .map { obj ->
+                    Module(
+                        id = obj.getString("id"),
+                        name = obj.optString("name"),
+                        author = obj.optString("author", "Unknown"),
+                        version = obj.optString("version", "Unknown"),
+                        versionCode = obj.optInt("versionCode", 0),
+                        description = obj.optString("description"),
+                        enabled = obj.getBoolean("enabled"),
+                        update = obj.optBoolean("update"),
+                        remove = obj.getBoolean("remove"),
+                        updateJson = obj.optString("updateJson"),
+                        hasWebUi = obj.optBoolean("web"),
+                        hasActionScript = obj.optBoolean("action"),
+                        metamodule = (obj.optInt("metamodule") != 0) || obj.optBoolean("metamodule"),
+                        actionIconPath = obj.optString("actionIcon").takeIf { it.isNotBlank() },
+                        webUiIconPath = obj.optString("webuiIcon").takeIf { it.isNotBlank() }
+                    )
+                }.toList()
+        }
+    }
+
+    override suspend fun checkUpdate(module: Module): Result<ModuleUpdateInfo> = withContext(Dispatchers.IO) {
+        runCatching {
+            if (!isNetworkAvailable(ksuApp)) {
+                return@runCatching ModuleUpdateInfo.Empty
+            }
+            if (module.updateJson.isEmpty() || module.remove || module.update || !module.enabled) {
+                return@runCatching ModuleUpdateInfo.Empty
+            }
+
+            val url = module.updateJson
+            val response = ksuApp.okhttpClient.newCall(
+                Request.Builder().url(url).build()
+            ).execute()
+
+            val result = if (response.isSuccessful) {
+                response.body.string()
+            } else {
+                ""
+            }
+
+            if (result.isEmpty()) {
+                return@runCatching ModuleUpdateInfo.Empty
+            }
+
+            val updateJson = JSONObject(result)
+            var version = updateJson.optString("version", "")
+            version = sanitizeVersionString(version)
+            val versionCode = updateJson.optInt("versionCode", 0)
+            val zipUrl = updateJson.optString("zipUrl", "")
+            val changelog = updateJson.optString("changelog", "")
+
+            if (versionCode <= module.versionCode || zipUrl.isEmpty()) {
+                ModuleUpdateInfo.Empty
+            } else {
+                ModuleUpdateInfo(zipUrl, version, changelog, versionCode)
+            }
+        }
+    }
+}

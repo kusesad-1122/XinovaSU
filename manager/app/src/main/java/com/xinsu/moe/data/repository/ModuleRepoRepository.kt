@@ -1,1 +1,31 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeQoKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5tb2RlbC5SZXBvTW9kdWxlRGV0YWlsCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEubW9kZWwuUmVwb01vZHVsZUxpc3QKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZWdpc3RyeS5VcGRhdGVWZXJpZmljYXRpb24KCmludGVyZmFjZSBNb2R1bGVSZXBvUmVwb3NpdG9yeSB7CiAgICAvKiogSW5kZXggKyBtb2R1bGUgbGlzdDsgZmFsbHMgYmFjayB0byB0aGUgbGFzdCBjb21wbGV0ZSBjYWNoZWQgY29weSBvbiBmYWlsdXJlLiAqLwogICAgc3VzcGVuZCBmdW4gZmV0Y2hNb2R1bGVzKCk6IFJlc3VsdDxSZXBvTW9kdWxlTGlzdD4KCiAgICAvKioKICAgICAqIERldGFpbCAoYW5kIHJlYWRtZSkgb2YgYSBtb2R1bGUgaW4gdGhlIGN1cnJlbnQgaW5kZXguIEZhaWxzIHdpdGgKICAgICAqIFtjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuTW9kdWxlTm90SW5JbmRleEV4Y2VwdGlvbl0gaWYgaXQgaXMgbm90IGxpc3RlZC4KICAgICAqLwogICAgc3VzcGVuZCBmdW4gZmV0Y2hEZXRhaWwobW9kdWxlSWQ6IFN0cmluZyk6IFJlc3VsdDxSZXBvTW9kdWxlRGV0YWlsPgoKICAgIC8qKiBTYW5pdGl6ZWQgY2hhbmdlbG9nIEhUTUwgb2YgYSByZWxlYXNlIChieSB0YWcsIG9yIHRoZSBzdGFibGUgcmVsZWFzZSksIG9yIG51bGwuICovCiAgICBzdXNwZW5kIGZ1biBmZXRjaENoYW5nZWxvZ0h0bWwobW9kdWxlSWQ6IFN0cmluZywgdGFnOiBTdHJpbmc/KTogU3RyaW5nPwoKICAgIC8qKgogICAgICogSG93IGFuIGB1cGRhdGVKc29uYCB1cGRhdGUgb2YgYW4gaW5zdGFsbGVkIG1vZHVsZSBtdXN0IGJlIHZlcmlmaWVkOiBhZ2FpbnN0IHRoZSBtYXRjaGluZwogICAgICogcmVnaXN0cnkgcmVsZWFzZSwgcmVqZWN0ZWQsIG9yIGxlZ2FjeSAobm90IGEgcmVnaXN0cnkgdXBkYXRlKS4KICAgICAqLwogICAgc3VzcGVuZCBmdW4gcmVzb2x2ZVVwZGF0ZShtb2R1bGVJZDogU3RyaW5nLCB1cGRhdGVKc29uVXJsOiBTdHJpbmcsIHppcFVybDogU3RyaW5nLCB2ZXJzaW9uQ29kZTogSW50KTogVXBkYXRlVmVyaWZpY2F0aW9uCgogICAgLyoqIFJhdyBNYXJrZG93biBvZiBhIHJlZ2lzdHJ5LWhvc3RlZCBkb2N1bWVudCAoZS5nLiBgY2hhbmdlbG9nLm1kYCksIG9yIG51bGwgaWYgbm90IHJlZ2lzdHJ5LWhvc3RlZC4gKi8KICAgIHN1c3BlbmQgZnVuIGZldGNoUmVnaXN0cnlUZXh0KHVybDogU3RyaW5nKTogU3RyaW5nPwoKICAgIC8qKiBXaGV0aGVyIFt1cmxdIGlzIHNlcnZlZCBieSB0aGUgcmVnaXN0cnkgc2l0ZSAoaXRzIGNvbnRlbnQgbXVzdCB1c2UgdGhlIHJlc3RyaWN0ZWQgcmVuZGVyZXIpLiAqLwogICAgZnVuIGlzUmVnaXN0cnlVcmwodXJsOiBTdHJpbmcpOiBCb29sZWFuCn0K
+package com.xinsu.moe.data.repository
+
+import com.xinsu.moe.data.model.RepoModuleDetail
+import com.xinsu.moe.data.model.RepoModuleList
+import com.xinsu.moe.data.registry.UpdateVerification
+
+interface ModuleRepoRepository {
+    /** Index + module list; falls back to the last complete cached copy on failure. */
+    suspend fun fetchModules(): Result<RepoModuleList>
+
+    /**
+     * Detail (and readme) of a module in the current index. Fails with
+     * [com.xinsu.moe.data.registry.ModuleNotInIndexException] if it is not listed.
+     */
+    suspend fun fetchDetail(moduleId: String): Result<RepoModuleDetail>
+
+    /** Sanitized changelog HTML of a release (by tag, or the stable release), or null. */
+    suspend fun fetchChangelogHtml(moduleId: String, tag: String?): String?
+
+    /**
+     * How an `updateJson` update of an installed module must be verified: against the matching
+     * registry release, rejected, or legacy (not a registry update).
+     */
+    suspend fun resolveUpdate(moduleId: String, updateJsonUrl: String, zipUrl: String, versionCode: Int): UpdateVerification
+
+    /** Raw Markdown of a registry-hosted document (e.g. `changelog.md`), or null if not registry-hosted. */
+    suspend fun fetchRegistryText(url: String): String?
+
+    /** Whether [url] is served by the registry site (its content must use the restricted renderer). */
+    fun isRegistryUrl(url: String): Boolean
+}

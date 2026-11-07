@@ -1,1 +1,160 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpCgppbXBvcnQgYW5kcm9pZC51dGlsLkJhc2U2NAppbXBvcnQgYW5kcm9pZC51dGlsLkxvZwppbXBvcnQgYW5kcm9pZC53ZWJraXQuV2ViUmVzb3VyY2VSZXF1ZXN0CmltcG9ydCBhbmRyb2lkLndlYmtpdC5XZWJSZXNvdXJjZVJlc3BvbnNlCmltcG9ydCBqYXZhLmlvLkJ5dGVBcnJheUlucHV0U3RyZWFtCmltcG9ydCBqYXZhLmlvLkZpbGUKaW1wb3J0IGphdmEuaW8uRmlsZUlucHV0U3RyZWFtCmltcG9ydCBqYXZhLmlvLkZpbHRlcklucHV0U3RyZWFtCmltcG9ydCBqYXZhLmlvLklucHV0U3RyZWFtCmltcG9ydCBqYXZhLmlvLk91dHB1dFN0cmVhbQppbXBvcnQgamF2YS51dGlsLlVVSUQKaW1wb3J0IGphdmEudXRpbC5jb25jdXJyZW50LkNvbmN1cnJlbnRIYXNoTWFwCmltcG9ydCBqYXZhLnV0aWwuY29uY3VycmVudC5UaW1lVW5pdAoKLyoqCiAqIEhhbmRsZXMgYmxvYiBkb3dubG9hZHMgYnkgc3Bvb2xpbmcgY2h1bmtzIHRvIGEgdGVtcG9yYXJ5IGZpbGUgYmVmb3JlIFdlYlZpZXcKICogcmVxdWVzdHMgdGhlIGdlbmVyYXRlZCBpbnRlcm5hbCBVUkwuCiAqLwpvYmplY3QgQmxvYkRvd25sb2FkSGFuZGxlciB7CiAgICBwcml2YXRlIGNvbnN0IHZhbCBCTE9CX0RPV05MT0FEX0hPU1QgPSAiYmxvYi1kb3dubG9hZC5rZXJuZWxzdS5pbnRlcm5hbCIKICAgIHByaXZhdGUgY29uc3QgdmFsIFNUQUxFX1RIUkVTSE9MRF9NUyA9IDUgKiA2MCAqIDEwMDBMCgogICAgcHJpdmF0ZSB2YWwgcGVuZGluZ0Rvd25sb2FkcyA9IENvbmN1cnJlbnRIYXNoTWFwPFN0cmluZywgUGVuZGluZ0Rvd25sb2FkPigpCiAgICBAVm9sYXRpbGUKICAgIHByaXZhdGUgdmFyIGxhc3RDbGVhbnVwVGltZSA9IFN5c3RlbS5jdXJyZW50VGltZU1pbGxpcygpCgogICAgcHJpdmF0ZSBkYXRhIGNsYXNzIFBlbmRpbmdEb3dubG9hZCgKICAgICAgICB2YWwgZmlsZU5hbWU6IFN0cmluZywKICAgICAgICB2YWwgbWltZVR5cGU6IFN0cmluZz8sCiAgICAgICAgdmFsIHRlbXBGaWxlOiBGaWxlLAogICAgICAgIHZhbCBvdXRwdXRTdHJlYW06IE91dHB1dFN0cmVhbSwKICAgICAgICB2YWwgY3JlYXRlZEF0OiBMb25nID0gU3lzdGVtLmN1cnJlbnRUaW1lTWlsbGlzKCksCiAgICAgICAgQFZvbGF0aWxlIHZhciBjb21wbGV0ZWQ6IEJvb2xlYW4gPSBmYWxzZSwKICAgICkKCiAgICAvKiogUmVnaXN0ZXIgYSBuZXcgYmxvYiBkb3dubG9hZCBzZXNzaW9uIGFuZCByZXR1cm4gaXRzIGludGVybmFsIFVSTC4gKi8KICAgIGZ1biByZWdpc3RlckJsb2JEb3dubG9hZChmaWxlTmFtZTogU3RyaW5nLCBtaW1lVHlwZTogU3RyaW5nPywgY2FjaGVEaXI6IEZpbGUpOiBTdHJpbmcgewogICAgICAgIHZhbCBkb3dubG9hZElkID0gVVVJRC5yYW5kb21VVUlEKCkudG9TdHJpbmcoKQogICAgICAgIHZhbCB0ZW1wRmlsZSA9IEZpbGUuY3JlYXRlVGVtcEZpbGUoImtzdS1ibG9iLSIsICIuZG93bmxvYWQiLCBjYWNoZURpcikKICAgICAgICBwZW5kaW5nRG93bmxvYWRzW2Rvd25sb2FkSWRdID0gUGVuZGluZ0Rvd25sb2FkKAogICAgICAgICAgICBmaWxlTmFtZSA9IGZpbGVOYW1lLAogICAgICAgICAgICBtaW1lVHlwZSA9IG1pbWVUeXBlLAogICAgICAgICAgICB0ZW1wRmlsZSA9IHRlbXBGaWxlLAogICAgICAgICAgICBvdXRwdXRTdHJlYW0gPSB0ZW1wRmlsZS5vdXRwdXRTdHJlYW0oKS5idWZmZXJlZCg2NCAqIDEwMjQpLAogICAgICAgICkKCiAgICAgICAgdmFsIG5vdyA9IFN5c3RlbS5jdXJyZW50VGltZU1pbGxpcygpCiAgICAgICAgaWYgKG5vdyAtIGxhc3RDbGVhbnVwVGltZSA+IFNUQUxFX1RIUkVTSE9MRF9NUykgewogICAgICAgICAgICBsYXN0Q2xlYW51cFRpbWUgPSBub3cKICAgICAgICAgICAgY2xlYW51cFN0YWxlRG93bmxvYWRzKCkKICAgICAgICB9CgogICAgICAgIHJldHVybiAiaHR0cHM6Ly8kQkxPQl9ET1dOTE9BRF9IT1NULyRkb3dubG9hZElkIgogICAgfQoKICAgIC8qKiBXcml0ZSBvbmUgYmFzZTY0IGVuY29kZWQgY2h1bmsgdG8gdGhlIHNlc3Npb24uICovCiAgICBmdW4gd3JpdGVDaHVuayhkb3dubG9hZElkOiBTdHJpbmcsIGJhc2U2NENodW5rOiBTdHJpbmcpOiBCb29sZWFuIHsKICAgICAgICB2YWwgZG93bmxvYWQgPSBwZW5kaW5nRG93bmxvYWRzW2Rvd25sb2FkSWRdID86IHJldHVybiBmYWxzZQogICAgICAgIHJldHVybiB0cnkgewogICAgICAgICAgICBzeW5jaHJvbml6ZWQoZG93bmxvYWQpIHsKICAgICAgICAgICAgICAgIGlmIChkb3dubG9hZC5jb21wbGV0ZWQpIHJldHVybiBmYWxzZQogICAgICAgICAgICAgICAgZG93bmxvYWQub3V0cHV0U3RyZWFtLndyaXRlKEJhc2U2NC5kZWNvZGUoYmFzZTY0Q2h1bmssIEJhc2U2NC5ERUZBVUxUKSkKICAgICAgICAgICAgfQogICAgICAgICAgICB0cnVlCiAgICAgICAgfSBjYXRjaCAoZTogRXhjZXB0aW9uKSB7CiAgICAgICAgICAgIExvZy5lKCJCbG9iRG93bmxvYWRIYW5kbGVyIiwgIkZhaWxlZCB0byB3cml0ZSBjaHVuayBmb3IgJGRvd25sb2FkSWQiLCBlKQogICAgICAgICAgICBjbG9zZURvd25sb2FkKGRvd25sb2FkSWQpCiAgICAgICAgICAgIGZhbHNlCiAgICAgICAgfQogICAgfQoKICAgIC8qKiBNYXJrIHRoZSBkb3dubG9hZCBjb21wbGV0ZSBhbmQgbWFrZSB0aGUgc3Bvb2xlZCBmaWxlIGF2YWlsYWJsZSB0byBXZWJWaWV3LiAqLwogICAgZnVuIGNvbXBsZXRlRG93bmxvYWQoZG93bmxvYWRJZDogU3RyaW5nKTogQm9vbGVhbiB7CiAgICAgICAgdmFsIGRvd25sb2FkID0gcGVuZGluZ0Rvd25sb2Fkc1tkb3dubG9hZElkXSA/OiByZXR1cm4gZmFsc2UKICAgICAgICByZXR1cm4gdHJ5IHsKICAgICAgICAgICAgc3luY2hyb25pemVkKGRvd25sb2FkKSB7CiAgICAgICAgICAgICAgICBpZiAoZG93bmxvYWQuY29tcGxldGVkKSByZXR1cm4gZmFsc2UKICAgICAgICAgICAgICAgIGRvd25sb2FkLm91dHB1dFN0cmVhbS5mbHVzaCgpCiAgICAgICAgICAgICAgICBkb3dubG9hZC5vdXRwdXRTdHJlYW0uY2xvc2UoKQogICAgICAgICAgICAgICAgZG93bmxvYWQuY29tcGxldGVkID0gdHJ1ZQogICAgICAgICAgICB9CiAgICAgICAgICAgIHRydWUKICAgICAgICB9IGNhdGNoIChlOiBFeGNlcHRpb24pIHsKICAgICAgICAgICAgTG9nLmUoIkJsb2JEb3dubG9hZEhhbmRsZXIiLCAiRmFpbGVkIHRvIGNvbXBsZXRlIGRvd25sb2FkICRkb3dubG9hZElkIiwgZSkKICAgICAgICAgICAgY2xvc2VEb3dubG9hZChkb3dubG9hZElkKQogICAgICAgICAgICBmYWxzZQogICAgICAgIH0KICAgIH0KCiAgICBmdW4gY2FuY2VsRG93bmxvYWQoZG93bmxvYWRJZDogU3RyaW5nKSA9IGNsb3NlRG93bmxvYWQoZG93bmxvYWRJZCkKCiAgICAvKiogSW50ZXJjZXB0IHJlcXVlc3RzIHRvIHRoZSBpbnRlcm5hbCBibG9iIFVSTCBhbmQgc2VydmUgdGhlIGNvbXBsZXRlZCBmaWxlLiAqLwogICAgZnVuIHNob3VsZEludGVyY2VwdFJlcXVlc3QocmVxdWVzdDogV2ViUmVzb3VyY2VSZXF1ZXN0KTogV2ViUmVzb3VyY2VSZXNwb25zZT8gewogICAgICAgIHZhbCB1cmwgPSByZXF1ZXN0LnVybAogICAgICAgIGlmICh1cmwuc2NoZW1lICE9ICJodHRwcyIgfHwgdXJsLmhvc3QgIT0gQkxPQl9ET1dOTE9BRF9IT1NUKSByZXR1cm4gbnVsbAoKICAgICAgICB2YWwgZG93bmxvYWRJZCA9IHVybC5wYXRoPy5zdWJzdHJpbmcoMSk/LnRha2VJZiB7IGl0LmlzTm90RW1wdHkoKSB9CiAgICAgICAgICAgID86IHJldHVybiBjcmVhdGVFcnJvclJlc3BvbnNlKCJJbnZhbGlkIGRvd25sb2FkIElEIikKICAgICAgICB2YWwgZG93bmxvYWQgPSBwZW5kaW5nRG93bmxvYWRzW2Rvd25sb2FkSWRdCiAgICAgICAgICAgID86IHJldHVybiBjcmVhdGVFcnJvclJlc3BvbnNlKCJEb3dubG9hZCBub3QgZm91bmQiKQoKICAgICAgICBpZiAoIWRvd25sb2FkLmNvbXBsZXRlZCkgcmV0dXJuIGNyZWF0ZUVycm9yUmVzcG9uc2UoIkRvd25sb2FkIGlzIG5vdCByZWFkeSIpCiAgICAgICAgdmFsIGlucHV0ID0gcnVuQ2F0Y2hpbmcgeyBGaWxlSW5wdXRTdHJlYW0oZG93bmxvYWQudGVtcEZpbGUpIH0uZ2V0T3JFbHNlIHsKICAgICAgICAgICAgY2xvc2VEb3dubG9hZChkb3dubG9hZElkKQogICAgICAgICAgICByZXR1cm4gY3JlYXRlRXJyb3JSZXNwb25zZSgiRG93bmxvYWQgbm90IGZvdW5kIikKICAgICAgICB9CgogICAgICAgIHJldHVybiBXZWJSZXNvdXJjZVJlc3BvbnNlKAogICAgICAgICAgICBkb3dubG9hZC5taW1lVHlwZSA/OiAiYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIiwKICAgICAgICAgICAgbnVsbCwKICAgICAgICAgICAgQ2xlYW51cElucHV0U3RyZWFtKGlucHV0KSB7IGNsb3NlRG93bmxvYWQoZG93bmxvYWRJZCkgfSwKICAgICAgICApLmFwcGx5IHsKICAgICAgICAgICAgcmVzcG9uc2VIZWFkZXJzID0gbWFwT2YoCiAgICAgICAgICAgICAgICAiQ29udGVudC1EaXNwb3NpdGlvbiIgdG8gImF0dGFjaG1lbnQ7IGZpbGVuYW1lPVwiJHtkb3dubG9hZC5maWxlTmFtZX1cIiIsCiAgICAgICAgICAgICAgICAiQWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2luIiB0byAiKiIsCiAgICAgICAgICAgICkKICAgICAgICB9CiAgICB9CgogICAgcHJpdmF0ZSBmdW4gY2xvc2VEb3dubG9hZChkb3dubG9hZElkOiBTdHJpbmcpIHsKICAgICAgICBwZW5kaW5nRG93bmxvYWRzLnJlbW92ZShkb3dubG9hZElkKT8ubGV0IHsgZG93bmxvYWQgLT4KICAgICAgICAgICAgcnVuQ2F0Y2hpbmcgeyBkb3dubG9hZC5vdXRwdXRTdHJlYW0uY2xvc2UoKSB9CiAgICAgICAgICAgIHJ1bkNhdGNoaW5nIHsgZG93bmxvYWQudGVtcEZpbGUuZGVsZXRlKCkgfQogICAgICAgIH0KICAgIH0KCiAgICBwcml2YXRlIGZ1biBjcmVhdGVFcnJvclJlc3BvbnNlKG1lc3NhZ2U6IFN0cmluZykgPSBXZWJSZXNvdXJjZVJlc3BvbnNlKAogICAgICAgICJ0ZXh0L3BsYWluIiwKICAgICAgICAidXRmLTgiLAogICAgICAgIDQwNCwKICAgICAgICAiTm90IEZvdW5kIiwKICAgICAgICBlbXB0eU1hcCgpLAogICAgICAgIEJ5dGVBcnJheUlucHV0U3RyZWFtKG1lc3NhZ2UudG9CeXRlQXJyYXkoQ2hhcnNldHMuVVRGXzgpKSwKICAgICkKCiAgICBwcml2YXRlIGZ1biBjbGVhbnVwU3RhbGVEb3dubG9hZHMoKSB7CiAgICAgICAgdmFsIG5vdyA9IFN5c3RlbS5jdXJyZW50VGltZU1pbGxpcygpCiAgICAgICAgdmFsIHN0YWxlSWRzID0gcGVuZGluZ0Rvd25sb2Fkcy5lbnRyaWVzCiAgICAgICAgICAgIC5maWx0ZXIgeyBub3cgLSBpdC52YWx1ZS5jcmVhdGVkQXQgPiBUaW1lVW5pdC5NSU5VVEVTLnRvTWlsbGlzKDUpIH0KICAgICAgICAgICAgLm1hcCB7IGl0LmtleSB9CiAgICAgICAgc3RhbGVJZHMuZm9yRWFjaCB7IGRvd25sb2FkSWQgLT4KICAgICAgICAgICAgTG9nLncoIkJsb2JEb3dubG9hZEhhbmRsZXIiLCAiQ2xlYW5pbmcgdXAgc3RhbGUgZG93bmxvYWQ6ICRkb3dubG9hZElkIikKICAgICAgICAgICAgY2xvc2VEb3dubG9hZChkb3dubG9hZElkKQogICAgICAgIH0KICAgIH0KCiAgICBmdW4gY2xlYW51cCgpID0gcGVuZGluZ0Rvd25sb2Fkcy5rZXlzLnRvTGlzdCgpLmZvckVhY2goOjpjbG9zZURvd25sb2FkKQoKICAgIHByaXZhdGUgY2xhc3MgQ2xlYW51cElucHV0U3RyZWFtKAogICAgICAgIGlucHV0OiBJbnB1dFN0cmVhbSwKICAgICAgICBwcml2YXRlIHZhbCBvbkNsb3NlOiAoKSAtPiBVbml0LAogICAgKSA6IEZpbHRlcklucHV0U3RyZWFtKGlucHV0KSB7CiAgICAgICAgb3ZlcnJpZGUgZnVuIGNsb3NlKCkgewogICAgICAgICAgICBydW5DYXRjaGluZyB7IHN1cGVyLmNsb3NlKCkgfQogICAgICAgICAgICBvbkNsb3NlKCkKICAgICAgICB9CiAgICB9Cn0K
+package com.xinsu.moe.ui.webui
+
+import android.util.Base64
+import android.util.Log
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
+import java.io.ByteArrayInputStream
+import java.io.File
+import java.io.FileInputStream
+import java.io.FilterInputStream
+import java.io.InputStream
+import java.io.OutputStream
+import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.TimeUnit
+
+/**
+ * Handles blob downloads by spooling chunks to a temporary file before WebView
+ * requests the generated internal URL.
+ */
+object BlobDownloadHandler {
+    private const val BLOB_DOWNLOAD_HOST = "blob-download.kernelsu.internal"
+    private const val STALE_THRESHOLD_MS = 5 * 60 * 1000L
+
+    private val pendingDownloads = ConcurrentHashMap<String, PendingDownload>()
+    @Volatile
+    private var lastCleanupTime = System.currentTimeMillis()
+
+    private data class PendingDownload(
+        val fileName: String,
+        val mimeType: String?,
+        val tempFile: File,
+        val outputStream: OutputStream,
+        val createdAt: Long = System.currentTimeMillis(),
+        @Volatile var completed: Boolean = false,
+    )
+
+    /** Register a new blob download session and return its internal URL. */
+    fun registerBlobDownload(fileName: String, mimeType: String?, cacheDir: File): String {
+        val downloadId = UUID.randomUUID().toString()
+        val tempFile = File.createTempFile("ksu-blob-", ".download", cacheDir)
+        pendingDownloads[downloadId] = PendingDownload(
+            fileName = fileName,
+            mimeType = mimeType,
+            tempFile = tempFile,
+            outputStream = tempFile.outputStream().buffered(64 * 1024),
+        )
+
+        val now = System.currentTimeMillis()
+        if (now - lastCleanupTime > STALE_THRESHOLD_MS) {
+            lastCleanupTime = now
+            cleanupStaleDownloads()
+        }
+
+        return "https://$BLOB_DOWNLOAD_HOST/$downloadId"
+    }
+
+    /** Write one base64 encoded chunk to the session. */
+    fun writeChunk(downloadId: String, base64Chunk: String): Boolean {
+        val download = pendingDownloads[downloadId] ?: return false
+        return try {
+            synchronized(download) {
+                if (download.completed) return false
+                download.outputStream.write(Base64.decode(base64Chunk, Base64.DEFAULT))
+            }
+            true
+        } catch (e: Exception) {
+            Log.e("BlobDownloadHandler", "Failed to write chunk for $downloadId", e)
+            closeDownload(downloadId)
+            false
+        }
+    }
+
+    /** Mark the download complete and make the spooled file available to WebView. */
+    fun completeDownload(downloadId: String): Boolean {
+        val download = pendingDownloads[downloadId] ?: return false
+        return try {
+            synchronized(download) {
+                if (download.completed) return false
+                download.outputStream.flush()
+                download.outputStream.close()
+                download.completed = true
+            }
+            true
+        } catch (e: Exception) {
+            Log.e("BlobDownloadHandler", "Failed to complete download $downloadId", e)
+            closeDownload(downloadId)
+            false
+        }
+    }
+
+    fun cancelDownload(downloadId: String) = closeDownload(downloadId)
+
+    /** Intercept requests to the internal blob URL and serve the completed file. */
+    fun shouldInterceptRequest(request: WebResourceRequest): WebResourceResponse? {
+        val url = request.url
+        if (url.scheme != "https" || url.host != BLOB_DOWNLOAD_HOST) return null
+
+        val downloadId = url.path?.substring(1)?.takeIf { it.isNotEmpty() }
+            ?: return createErrorResponse("Invalid download ID")
+        val download = pendingDownloads[downloadId]
+            ?: return createErrorResponse("Download not found")
+
+        if (!download.completed) return createErrorResponse("Download is not ready")
+        val input = runCatching { FileInputStream(download.tempFile) }.getOrElse {
+            closeDownload(downloadId)
+            return createErrorResponse("Download not found")
+        }
+
+        return WebResourceResponse(
+            download.mimeType ?: "application/octet-stream",
+            null,
+            CleanupInputStream(input) { closeDownload(downloadId) },
+        ).apply {
+            responseHeaders = mapOf(
+                "Content-Disposition" to "attachment; filename=\"${download.fileName}\"",
+                "Access-Control-Allow-Origin" to "*",
+            )
+        }
+    }
+
+    private fun closeDownload(downloadId: String) {
+        pendingDownloads.remove(downloadId)?.let { download ->
+            runCatching { download.outputStream.close() }
+            runCatching { download.tempFile.delete() }
+        }
+    }
+
+    private fun createErrorResponse(message: String) = WebResourceResponse(
+        "text/plain",
+        "utf-8",
+        404,
+        "Not Found",
+        emptyMap(),
+        ByteArrayInputStream(message.toByteArray(Charsets.UTF_8)),
+    )
+
+    private fun cleanupStaleDownloads() {
+        val now = System.currentTimeMillis()
+        val staleIds = pendingDownloads.entries
+            .filter { now - it.value.createdAt > TimeUnit.MINUTES.toMillis(5) }
+            .map { it.key }
+        staleIds.forEach { downloadId ->
+            Log.w("BlobDownloadHandler", "Cleaning up stale download: $downloadId")
+            closeDownload(downloadId)
+        }
+    }
+
+    fun cleanup() = pendingDownloads.keys.toList().forEach(::closeDownload)
+
+    private class CleanupInputStream(
+        input: InputStream,
+        private val onClose: () -> Unit,
+    ) : FilterInputStream(input) {
+        override fun close() {
+            runCatching { super.close() }
+            onClose()
+        }
+    }
+}

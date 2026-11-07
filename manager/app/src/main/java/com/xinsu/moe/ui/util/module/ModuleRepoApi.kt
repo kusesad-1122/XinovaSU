@@ -1,1 +1,5 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnV0aWwubW9kdWxlCgpmdW4gc2FuaXRpemVWZXJzaW9uU3RyaW5nKHZlcnNpb246IFN0cmluZyk6IFN0cmluZyB7CiAgICByZXR1cm4gdmVyc2lvbi5yZXBsYWNlKFJlZ2V4KCJbXmEtekEtWjAtOS5cXC1fXSIpLCAiXyIpCn0K
+package com.xinsu.moe.ui.util.module
+
+fun sanitizeVersionString(version: String): String {
+    return version.replace(Regex("[^a-zA-Z0-9.\\-_]"), "_")
+}

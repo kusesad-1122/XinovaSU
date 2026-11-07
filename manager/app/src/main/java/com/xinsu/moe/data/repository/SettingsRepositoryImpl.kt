@@ -1,1 +1,244 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeQoKaW1wb3J0IGFuZHJvaWQuY29udGVudC5Db21wb25lbnROYW1lCmltcG9ydCBhbmRyb2lkLmNvbnRlbnQuQ29udGV4dAppbXBvcnQgYW5kcm9pZC5jb250ZW50LnBtLlBhY2thZ2VNYW5hZ2VyCmltcG9ydCBhbmRyb2lkLnV0aWwuTG9nCmltcG9ydCBhbmRyb2lkeC5jb3JlLmNvbnRlbnQuZWRpdAppbXBvcnQgY29tLm1hdGVyaWFsa29sb3IuUGFsZXR0ZVN0eWxlCmltcG9ydCBjb20ubWF0ZXJpYWxrb2xvci5keW5hbWljY29sb3IuQ29sb3JTcGVjCmltcG9ydCBjb20udG9wam9obnd1LnN1cGVydXNlci5TaGVsbFV0aWxzCmltcG9ydCBjb20ueGluc3UubW9lLk5hdGl2ZXMKaW1wb3J0IGNvbS54aW5zdS5tb2Uua3N1QXBwCmltcG9ydCBjb20ueGluc3UubW9lLm1hZ2ljYS5Cb290Q29tcGxldGVkUmVjZWl2ZXIKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuVWlNb2RlCmltcG9ydCBjb20ueGluc3UubW9lLnVpLmNvbXBvbmVudC5saXF1aWQuTGlxdWlkR2xhc3NTcGVjCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnRoZW1lLkJhY2tncm91bmRTdHlsZQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS50aGVtZS5LYXdhaWlQYWxldHRlCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwuZXhlY0tzdWQKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkudXRpbC5nZXRGZWF0dXJlUGVyc2lzdFZhbHVlCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwuZ2V0RmVhdHVyZVN0YXR1cwppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5zY3JlZW4ubW9kdWxlcmVwby5SZXBvU29ydAoKY2xhc3MgU2V0dGluZ3NSZXBvc2l0b3J5SW1wbCA6IFNldHRpbmdzUmVwb3NpdG9yeSB7CgogICAgcHJpdmF0ZSB2YWwgcHJlZnMgYnkgbGF6eSB7CiAgICAgICAga3N1QXBwLmdldFNoYXJlZFByZWZlcmVuY2VzKCJzZXR0aW5ncyIsIENvbnRleHQuTU9ERV9QUklWQVRFKQogICAgfQoKICAgIG92ZXJyaWRlIHZhciB1aU1vZGU6IFN0cmluZwogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0U3RyaW5nKCJ1aV9tb2RlIiwgVWlNb2RlLkRFRkFVTFRfVkFMVUUpID86IFVpTW9kZS5ERUZBVUxUX1ZBTFVFCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRTdHJpbmcoInVpX21vZGUiLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBjaGVja1VwZGF0ZTogQm9vbGVhbgogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0Qm9vbGVhbigiY2hlY2tfdXBkYXRlIiwgdHJ1ZSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oImNoZWNrX3VwZGF0ZSIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIGNoZWNrTW9kdWxlVXBkYXRlOiBCb29sZWFuCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRCb29sZWFuKCJtb2R1bGVfY2hlY2tfdXBkYXRlIiwgdHJ1ZSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oIm1vZHVsZV9jaGVja191cGRhdGUiLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciB0aGVtZU1vZGU6IEludAogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0SW50KCJjb2xvcl9tb2RlIiwgMCkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEludCgiY29sb3JfbW9kZSIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIG1pdWl4TW9uZXQ6IEJvb2xlYW4KICAgICAgICBnZXQoKSA9IHByZWZzLmdldEJvb2xlYW4oIm1pdWl4X21vbmV0IiwgZmFsc2UpCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRCb29sZWFuKCJtaXVpeF9tb25ldCIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIGtleUNvbG9yOiBJbnQKICAgICAgICBnZXQoKSA9IHByZWZzLmdldEludCgia2V5X2NvbG9yIiwgMCkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEludCgia2V5X2NvbG9yIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgY29sb3JTdHlsZTogU3RyaW5nCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRTdHJpbmcoImNvbG9yX3N0eWxlIiwgUGFsZXR0ZVN0eWxlLlRvbmFsU3BvdC5uYW1lKSA/OiBQYWxldHRlU3R5bGUuVG9uYWxTcG90Lm5hbWUKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dFN0cmluZygiY29sb3Jfc3R5bGUiLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBjb2xvclNwZWM6IFN0cmluZwogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0U3RyaW5nKCJjb2xvcl9zcGVjIiwgQ29sb3JTcGVjLlNwZWNWZXJzaW9uLkRlZmF1bHQubmFtZSkgPzogQ29sb3JTcGVjLlNwZWNWZXJzaW9uLkRlZmF1bHQubmFtZQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0U3RyaW5nKCJjb2xvcl9zcGVjIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgdGhlbWVQcmVzZXQ6IFN0cmluZwogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0U3RyaW5nKCJ0aGVtZV9wcmVzZXQiLCBLYXdhaWlQYWxldHRlLk5vbmUubmFtZSkgPzogS2F3YWlpUGFsZXR0ZS5Ob25lLm5hbWUKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dFN0cmluZygidGhlbWVfcHJlc2V0IiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgYmFja2dyb3VuZFN0eWxlOiBTdHJpbmcKICAgICAgICBnZXQoKSA9IHByZWZzLmdldFN0cmluZygiYmFja2dyb3VuZF9zdHlsZSIsIEJhY2tncm91bmRTdHlsZS5Ob25lLm5hbWUpID86IEJhY2tncm91bmRTdHlsZS5Ob25lLm5hbWUKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dFN0cmluZygiYmFja2dyb3VuZF9zdHlsZSIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIGJhY2tncm91bmRJbWFnZVVyaTogU3RyaW5nCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRTdHJpbmcoImJhY2tncm91bmRfaW1hZ2VfdXJpIiwgIiIpID86ICIiCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRTdHJpbmcoImJhY2tncm91bmRfaW1hZ2VfdXJpIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgYmFja2dyb3VuZEltYWdlQWxwaGE6IEludAogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0SW50KCJiYWNrZ3JvdW5kX2ltYWdlX2FscGhhIiwgMTAwKQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0SW50KCJiYWNrZ3JvdW5kX2ltYWdlX2FscGhhIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgYmFja2dyb3VuZEltYWdlQWxpZ246IEludAogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0SW50KCJiYWNrZ3JvdW5kX2ltYWdlX2FsaWduIiwgMSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEludCgiYmFja2dyb3VuZF9pbWFnZV9hbGlnbiIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIGNhcmRJbWFnZVVyaTogU3RyaW5nCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRTdHJpbmcoImNhcmRfaW1hZ2VfdXJpIiwgIiIpID86ICIiCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRTdHJpbmcoImNhcmRfaW1hZ2VfdXJpIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgY2FyZEltYWdlQWxwaGE6IEludAogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0SW50KCJjYXJkX2ltYWdlX2FscGhhIiwgMTAwKQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0SW50KCJjYXJkX2ltYWdlX2FscGhhIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgY2FyZEltYWdlQWxpZ246IEludAogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0SW50KCJjYXJkX2ltYWdlX2FsaWduIiwgMSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEludCgiY2FyZF9pbWFnZV9hbGlnbiIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIGNhcmRPcGFjaXR5OiBJbnQKICAgICAgICBnZXQoKSA9IHByZWZzLmdldEludCgiY2FyZF9vcGFjaXR5IiwgMTAwKQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0SW50KCJjYXJkX29wYWNpdHkiLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBob21lQ2FyZE9yZGVyOiBTdHJpbmcKICAgICAgICBnZXQoKSA9IHByZWZzLmdldFN0cmluZygiaG9tZV9jYXJkX29yZGVyIiwgIiIpID86ICIiCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRTdHJpbmcoImhvbWVfY2FyZF9vcmRlciIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIGhvbWVDYXJkU2hhcGVzOiBTdHJpbmcKICAgICAgICBnZXQoKSA9IHByZWZzLmdldFN0cmluZygiaG9tZV9jYXJkX3NoYXBlcyIsICIiKSA/OiAiIgogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0U3RyaW5nKCJob21lX2NhcmRfc2hhcGVzIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgY2FyZHNHbGFzczogQm9vbGVhbgogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0Qm9vbGVhbigiY2FyZHNfZ2xhc3MiLCBmYWxzZSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oImNhcmRzX2dsYXNzIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgZW5hYmxlUHJlZGljdGl2ZUJhY2s6IEJvb2xlYW4KICAgICAgICBnZXQoKSA9IHByZWZzLmdldEJvb2xlYW4oImVuYWJsZV9wcmVkaWN0aXZlX2JhY2siLCBmYWxzZSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oImVuYWJsZV9wcmVkaWN0aXZlX2JhY2siLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBlbmFibGVCbHVyOiBCb29sZWFuCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRCb29sZWFuKCJlbmFibGVfYmx1ciIsIGZhbHNlKQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0Qm9vbGVhbigiZW5hYmxlX2JsdXIiLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBlbmFibGVGbG9hdGluZ0JvdHRvbUJhcjogQm9vbGVhbgogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0Qm9vbGVhbigiZW5hYmxlX2Zsb2F0aW5nX2JvdHRvbV9iYXIiLCBmYWxzZSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oImVuYWJsZV9mbG9hdGluZ19ib3R0b21fYmFyIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgZW5hYmxlRmxvYXRpbmdCb3R0b21CYXJCbHVyOiBCb29sZWFuCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRCb29sZWFuKCJlbmFibGVfZmxvYXRpbmdfYm90dG9tX2Jhcl9ibHVyIiwgZmFsc2UpCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRCb29sZWFuKCJlbmFibGVfZmxvYXRpbmdfYm90dG9tX2Jhcl9ibHVyIiwgdmFsdWUpIH0KCiAgICAvLyDpobbmoI/mtrLmgIHnjrvnkoPvvJrni6znq4vlvIDlhbPvvIzpgb/lhY3pobbmoI/kuI7kuIvmlrnmu5rliqjnmoTljaHniYfph4fmoLflkIzkuIAgYmFja2Ryb3Ag5pe25Ye6546w5Y+g57OK5o6l57yd44CCCiAgICBvdmVycmlkZSB2YXIgZW5hYmxlVG9wQmFyR2xhc3M6IEJvb2xlYW4KICAgICAgICBnZXQoKSA9IHByZWZzLmdldEJvb2xlYW4oImVuYWJsZV90b3BfYmFyX2dsYXNzIiwgZmFsc2UpCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRCb29sZWFuKCJlbmFibGVfdG9wX2Jhcl9nbGFzcyIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIHBhZ2VTY2FsZTogRmxvYXQKICAgICAgICBnZXQoKSA9IHByZWZzLmdldEZsb2F0KCJwYWdlX3NjYWxlIiwgMS4wZikKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEZsb2F0KCJwYWdlX3NjYWxlIiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgZ2xhc3NCbHVyUmFkaXVzOiBGbG9hdAogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0RmxvYXQoImdsYXNzX2JsdXJfcmFkaXVzIiwgTGlxdWlkR2xhc3NTcGVjLkJsdXJSYWRpdXMudmFsdWUpCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRGbG9hdCgiZ2xhc3NfYmx1cl9yYWRpdXMiLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBlbmFibGVXZWJEZWJ1Z2dpbmc6IEJvb2xlYW4KICAgICAgICBnZXQoKSA9IHByZWZzLmdldEJvb2xlYW4oImVuYWJsZV93ZWJfZGVidWdnaW5nIiwgZmFsc2UpCiAgICAgICAgc2V0KHZhbHVlKSA9IHByZWZzLmVkaXQgeyBwdXRCb29sZWFuKCJlbmFibGVfd2ViX2RlYnVnZ2luZyIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIG1vZHVsZVNvcnRFbmFibGVkRmlyc3Q6IEJvb2xlYW4KICAgICAgICBnZXQoKSA9IHByZWZzLmdldEJvb2xlYW4oIm1vZHVsZV9zb3J0X2VuYWJsZWRfZmlyc3QiLCBmYWxzZSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oIm1vZHVsZV9zb3J0X2VuYWJsZWRfZmlyc3QiLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBtb2R1bGVTb3J0QWN0aW9uRmlyc3Q6IEJvb2xlYW4KICAgICAgICBnZXQoKSA9IHByZWZzLmdldEJvb2xlYW4oIm1vZHVsZV9zb3J0X2FjdGlvbl9maXJzdCIsIGZhbHNlKQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0Qm9vbGVhbigibW9kdWxlX3NvcnRfYWN0aW9uX2ZpcnN0IiwgdmFsdWUpIH0KCiAgICBvdmVycmlkZSB2YXIgbW9kdWxlUmVwb1NvcnRPcmRlcjogU3RyaW5nCiAgICAgICAgZ2V0KCkgPSBSZXBvU29ydC5mcm9tU3RvcmVkKAogICAgICAgICAgICBuYW1lID0gcHJlZnMuZ2V0U3RyaW5nKCJtb2R1bGVfcmVwb19zb3J0IiwgbnVsbCksCiAgICAgICAgICAgIGxlZ2FjeU9yZGluYWwgPSBpZiAocHJlZnMuY29udGFpbnMoIm1vZHVsZV9yZXBvX3NvcnRfb3JkZXIiKSkgcHJlZnMuZ2V0SW50KCJtb2R1bGVfcmVwb19zb3J0X29yZGVyIiwgMCkgZWxzZSBudWxsLAogICAgICAgICkubmFtZQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsKICAgICAgICAgICAgcHV0U3RyaW5nKCJtb2R1bGVfcmVwb19zb3J0IiwgdmFsdWUpCiAgICAgICAgICAgIHJlbW92ZSgibW9kdWxlX3JlcG9fc29ydF9vcmRlciIpCiAgICAgICAgfQoKICAgIG92ZXJyaWRlIHZhciBzdXBlcnVzZXJTaG93U3lzdGVtQXBwczogQm9vbGVhbgogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0Qm9vbGVhbigic2hvd19zeXN0ZW1fYXBwcyIsIGZhbHNlKQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0Qm9vbGVhbigic2hvd19zeXN0ZW1fYXBwcyIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIHN1cGVydXNlclNob3dPbmx5UHJpbWFyeVVzZXJBcHBzOiBCb29sZWFuCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRCb29sZWFuKCJzaG93X29ubHlfcHJpbWFyeV91c2VyX2FwcHMiLCBmYWxzZSkKICAgICAgICBzZXQodmFsdWUpID0gcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oInNob3dfb25seV9wcmltYXJ5X3VzZXJfYXBwcyIsIHZhbHVlKSB9CgogICAgb3ZlcnJpZGUgdmFyIHN1cGVydXNlclNvcnRPcHRpb246IEludAogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0SW50KCJzdXBlcnVzZXJfc29ydF9vcHRpb24iLCAwKQogICAgICAgIHNldCh2YWx1ZSkgPSBwcmVmcy5lZGl0IHsgcHV0SW50KCJzdXBlcnVzZXJfc29ydF9vcHRpb24iLCB2YWx1ZSkgfQoKICAgIG92ZXJyaWRlIHZhciBzdUxvZ0ZpbHRlcnM6IFNldDxTdHJpbmc+PwogICAgICAgIGdldCgpID0gcHJlZnMuZ2V0U3RyaW5nU2V0KCJzdWxvZ19maWx0ZXJzIiwgbnVsbCk/LnRvU2V0KCkKICAgICAgICBzZXQoZmlsdGVycykgPSBwcmVmcy5lZGl0IHsgcHV0U3RyaW5nU2V0KCJzdWxvZ19maWx0ZXJzIiwgZmlsdGVycykgfQoKICAgIG92ZXJyaWRlIHZhciBhdXRvSmFpbGJyZWFrOiBCb29sZWFuCiAgICAgICAgZ2V0KCkgPSBwcmVmcy5nZXRCb29sZWFuKCJhdXRvX2phaWxicmVhayIsIGZhbHNlKQogICAgICAgIHNldCh2YWx1ZSkgewogICAgICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgICAgICBrc3VBcHAucGFja2FnZU1hbmFnZXIuc2V0Q29tcG9uZW50RW5hYmxlZFNldHRpbmcoCiAgICAgICAgICAgICAgICAgICAgQ29tcG9uZW50TmFtZShrc3VBcHAsIEJvb3RDb21wbGV0ZWRSZWNlaXZlcjo6Y2xhc3MuamF2YSksCiAgICAgICAgICAgICAgICAgICAgaWYgKHZhbHVlKSBQYWNrYWdlTWFuYWdlci5DT01QT05FTlRfRU5BQkxFRF9TVEFURV9FTkFCTEVEIGVsc2UgUGFja2FnZU1hbmFnZXIuQ09NUE9ORU5UX0VOQUJMRURfU1RBVEVfRElTQUJMRUQsCiAgICAgICAgICAgICAgICAgICAgUGFja2FnZU1hbmFnZXIuRE9OVF9LSUxMX0FQUAogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9Lm9uRmFpbHVyZSB7CiAgICAgICAgICAgICAgICBMb2cuZSgiU2V0dGluZ3MiLCAiZmFpbGVkIHRvIGNoYW5nZSBib290IHJlY2VpdmVyIHN0YXRlIHRvICR2YWx1ZSIsIGl0KQogICAgICAgICAgICB9CiAgICAgICAgICAgIHByZWZzLmVkaXQgewogICAgICAgICAgICAgICAgcHV0Qm9vbGVhbigiYXV0b19qYWlsYnJlYWsiLCB2YWx1ZSkKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICBvdmVycmlkZSBzdXNwZW5kIGZ1biBnZXRTdUNvbXBhdFN0YXR1cygpOiBTdHJpbmcgPSBnZXRGZWF0dXJlU3RhdHVzKCJzdV9jb21wYXQiKQoKICAgIG92ZXJyaWRlIHN1c3BlbmQgZnVuIGdldFN1Q29tcGF0UGVyc2lzdFZhbHVlKCk6IExvbmc/ID0gZ2V0RmVhdHVyZVBlcnNpc3RWYWx1ZSgic3VfY29tcGF0IikKCiAgICBvdmVycmlkZSBmdW4gaXNTdUVuYWJsZWQoKTogQm9vbGVhbiA9IE5hdGl2ZXMuaXNTdUVuYWJsZWQoKQoKICAgIG92ZXJyaWRlIGZ1biBzZXRTdUVuYWJsZWQoZW5hYmxlZDogQm9vbGVhbik6IEJvb2xlYW4gPSBOYXRpdmVzLnNldFN1RW5hYmxlZChlbmFibGVkKQoKICAgIG92ZXJyaWRlIGZ1biBzZXRTdUNvbXBhdE1vZGVQcmVmKG1vZGU6IEludCkgPSBwcmVmcy5lZGl0IHsgcHV0SW50KCJzdV9jb21wYXRfbW9kZSIsIG1vZGUpIH0KCiAgICBvdmVycmlkZSBmdW4gZ2V0U3VDb21wYXRNb2RlUHJlZigpOiBJbnQgPSBwcmVmcy5nZXRJbnQoInN1X2NvbXBhdF9tb2RlIiwgMCkKCiAgICBvdmVycmlkZSBzdXNwZW5kIGZ1biBnZXRLZXJuZWxVbW91bnRTdGF0dXMoKTogU3RyaW5nID0gZ2V0RmVhdHVyZVN0YXR1cygia2VybmVsX3Vtb3VudCIpCgogICAgb3ZlcnJpZGUgZnVuIGlzS2VybmVsVW1vdW50RW5hYmxlZCgpOiBCb29sZWFuID0gTmF0aXZlcy5pc0tlcm5lbFVtb3VudEVuYWJsZWQoKQoKICAgIG92ZXJyaWRlIGZ1biBzZXRLZXJuZWxVbW91bnRFbmFibGVkKGVuYWJsZWQ6IEJvb2xlYW4pOiBCb29sZWFuID0gTmF0aXZlcy5zZXRLZXJuZWxVbW91bnRFbmFibGVkKGVuYWJsZWQpCgogICAgb3ZlcnJpZGUgc3VzcGVuZCBmdW4gZ2V0U2VsaW51eEhpZGVTdGF0dXMoKTogU3RyaW5nID0gZ2V0RmVhdHVyZVN0YXR1cygic2VsaW51eF9oaWRlIikKCiAgICBvdmVycmlkZSBmdW4gaXNTZWxpbnV4SGlkZUVuYWJsZWQoKTogQm9vbGVhbiA9IE5hdGl2ZXMuaXNTZWxpbnV4SGlkZUVuYWJsZWQoKQoKICAgIG92ZXJyaWRlIGZ1biBzZXRTZWxpbnV4SGlkZUVuYWJsZWQoZW5hYmxlZDogQm9vbGVhbik6IEludCA9IE5hdGl2ZXMuc2V0U2VsaW51eEhpZGVFbmFibGVkKGVuYWJsZWQpCgogICAgb3ZlcnJpZGUgc3VzcGVuZCBmdW4gZ2V0U3Vsb2dTdGF0dXMoKTogU3RyaW5nID0gZ2V0RmVhdHVyZVN0YXR1cygic3Vsb2ciKQoKICAgIG92ZXJyaWRlIHN1c3BlbmQgZnVuIGdldFN1bG9nUGVyc2lzdFZhbHVlKCk6IExvbmc/ID0gZ2V0RmVhdHVyZVBlcnNpc3RWYWx1ZSgic3Vsb2ciKQoKICAgIG92ZXJyaWRlIGZ1biBzZXRTdWxvZ0VuYWJsZWQoZW5hYmxlZDogQm9vbGVhbik6IEJvb2xlYW4gPSBleGVjS3N1ZCgiZmVhdHVyZSBzZXQgc3Vsb2cgJHtpZiAoZW5hYmxlZCkgMSBlbHNlIDB9IiwgdHJ1ZSkKCiAgICBvdmVycmlkZSBzdXNwZW5kIGZ1biBnZXRBZGJSb290U3RhdHVzKCk6IFN0cmluZyA9IGdldEZlYXR1cmVTdGF0dXMoImFkYl9yb290IikKCiAgICBvdmVycmlkZSBzdXNwZW5kIGZ1biBnZXRBZGJSb290UGVyc2lzdFZhbHVlKCk6IExvbmc/ID0gZ2V0RmVhdHVyZVBlcnNpc3RWYWx1ZSgiYWRiX3Jvb3QiKQoKICAgIG92ZXJyaWRlIGZ1biBzZXRBZGJSb290RW5hYmxlZChlbmFibGVkOiBCb29sZWFuKTogQm9vbGVhbiA9CiAgICAgICAgaWYgKGV4ZWNLc3VkKCJmZWF0dXJlIHNldCBhZGJfcm9vdCAke2lmIChlbmFibGVkKSAxIGVsc2UgMH0iLCB0cnVlKSkgewogICAgICAgICAgICBTaGVsbFV0aWxzLmZhc3RDbWQoInNldHByb3AgY3RsLnJlc3RhcnQgYWRiZCIpCiAgICAgICAgICAgIHRydWUKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBmYWxzZQogICAgICAgIH0KCiAgICBvdmVycmlkZSBmdW4gaXNEZWZhdWx0VW1vdW50TW9kdWxlcygpOiBCb29sZWFuID0gTmF0aXZlcy5pc0RlZmF1bHRVbW91bnRNb2R1bGVzKCkKCiAgICBvdmVycmlkZSBmdW4gc2V0RGVmYXVsdFVtb3VudE1vZHVsZXMoZW5hYmxlZDogQm9vbGVhbik6IEJvb2xlYW4gPSBOYXRpdmVzLnNldERlZmF1bHRVbW91bnRNb2R1bGVzKGVuYWJsZWQpCgogICAgb3ZlcnJpZGUgZnVuIGlzTGttTW9kZSgpOiBCb29sZWFuID0gTmF0aXZlcy5pc0xrbU1vZGUKCiAgICBvdmVycmlkZSBmdW4gZXhlY0tzdWRGZWF0dXJlU2F2ZSgpIHsKICAgICAgICBleGVjS3N1ZCgiZmVhdHVyZSBzYXZlIiwgdHJ1ZSkKICAgIH0KfQo=
+package com.xinsu.moe.data.repository
+
+import android.content.ComponentName
+import android.content.Context
+import android.content.pm.PackageManager
+import android.util.Log
+import androidx.core.content.edit
+import com.materialkolor.PaletteStyle
+import com.materialkolor.dynamiccolor.ColorSpec
+import com.topjohnwu.superuser.ShellUtils
+import com.xinsu.moe.Natives
+import com.xinsu.moe.ksuApp
+import com.xinsu.moe.magica.BootCompletedReceiver
+import com.xinsu.moe.ui.UiMode
+import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
+import com.xinsu.moe.ui.theme.BackgroundStyle
+import com.xinsu.moe.ui.theme.KawaiiPalette
+import com.xinsu.moe.ui.util.execKsud
+import com.xinsu.moe.ui.util.getFeaturePersistValue
+import com.xinsu.moe.ui.util.getFeatureStatus
+import com.xinsu.moe.ui.screen.modulerepo.RepoSort
+
+class SettingsRepositoryImpl : SettingsRepository {
+
+    private val prefs by lazy {
+        ksuApp.getSharedPreferences("settings", Context.MODE_PRIVATE)
+    }
+
+    override var uiMode: String
+        get() = prefs.getString("ui_mode", UiMode.DEFAULT_VALUE) ?: UiMode.DEFAULT_VALUE
+        set(value) = prefs.edit { putString("ui_mode", value) }
+
+    override var checkUpdate: Boolean
+        get() = prefs.getBoolean("check_update", true)
+        set(value) = prefs.edit { putBoolean("check_update", value) }
+
+    override var checkModuleUpdate: Boolean
+        get() = prefs.getBoolean("module_check_update", true)
+        set(value) = prefs.edit { putBoolean("module_check_update", value) }
+
+    override var themeMode: Int
+        get() = prefs.getInt("color_mode", 0)
+        set(value) = prefs.edit { putInt("color_mode", value) }
+
+    override var miuixMonet: Boolean
+        get() = prefs.getBoolean("miuix_monet", false)
+        set(value) = prefs.edit { putBoolean("miuix_monet", value) }
+
+    override var keyColor: Int
+        get() = prefs.getInt("key_color", 0)
+        set(value) = prefs.edit { putInt("key_color", value) }
+
+    override var colorStyle: String
+        get() = prefs.getString("color_style", PaletteStyle.TonalSpot.name) ?: PaletteStyle.TonalSpot.name
+        set(value) = prefs.edit { putString("color_style", value) }
+
+    override var colorSpec: String
+        get() = prefs.getString("color_spec", ColorSpec.SpecVersion.Default.name) ?: ColorSpec.SpecVersion.Default.name
+        set(value) = prefs.edit { putString("color_spec", value) }
+
+    override var themePreset: String
+        get() = prefs.getString("theme_preset", KawaiiPalette.None.name) ?: KawaiiPalette.None.name
+        set(value) = prefs.edit { putString("theme_preset", value) }
+
+    override var backgroundStyle: String
+        get() = prefs.getString("background_style", BackgroundStyle.None.name) ?: BackgroundStyle.None.name
+        set(value) = prefs.edit { putString("background_style", value) }
+
+    override var backgroundImageUri: String
+        get() = prefs.getString("background_image_uri", "") ?: ""
+        set(value) = prefs.edit { putString("background_image_uri", value) }
+
+    override var backgroundImageAlpha: Int
+        get() = prefs.getInt("background_image_alpha", 100)
+        set(value) = prefs.edit { putInt("background_image_alpha", value) }
+
+    override var backgroundImageAlign: Int
+        get() = prefs.getInt("background_image_align", 1)
+        set(value) = prefs.edit { putInt("background_image_align", value) }
+
+    override var cardImageUri: String
+        get() = prefs.getString("card_image_uri", "") ?: ""
+        set(value) = prefs.edit { putString("card_image_uri", value) }
+
+    override var cardImageAlpha: Int
+        get() = prefs.getInt("card_image_alpha", 100)
+        set(value) = prefs.edit { putInt("card_image_alpha", value) }
+
+    override var cardImageAlign: Int
+        get() = prefs.getInt("card_image_align", 1)
+        set(value) = prefs.edit { putInt("card_image_align", value) }
+
+    override var cardOpacity: Int
+        get() = prefs.getInt("card_opacity", 100)
+        set(value) = prefs.edit { putInt("card_opacity", value) }
+
+    override var homeCardOrder: String
+        get() = prefs.getString("home_card_order", "") ?: ""
+        set(value) = prefs.edit { putString("home_card_order", value) }
+
+    override var homeCardShapes: String
+        get() = prefs.getString("home_card_shapes", "") ?: ""
+        set(value) = prefs.edit { putString("home_card_shapes", value) }
+
+    override var cardsGlass: Boolean
+        get() = prefs.getBoolean("cards_glass", false)
+        set(value) = prefs.edit { putBoolean("cards_glass", value) }
+
+    override var enablePredictiveBack: Boolean
+        get() = prefs.getBoolean("enable_predictive_back", false)
+        set(value) = prefs.edit { putBoolean("enable_predictive_back", value) }
+
+    override var enableBlur: Boolean
+        get() = prefs.getBoolean("enable_blur", false)
+        set(value) = prefs.edit { putBoolean("enable_blur", value) }
+
+    override var enableFloatingBottomBar: Boolean
+        get() = prefs.getBoolean("enable_floating_bottom_bar", false)
+        set(value) = prefs.edit { putBoolean("enable_floating_bottom_bar", value) }
+
+    override var enableFloatingBottomBarBlur: Boolean
+        get() = prefs.getBoolean("enable_floating_bottom_bar_blur", false)
+        set(value) = prefs.edit { putBoolean("enable_floating_bottom_bar_blur", value) }
+
+    // 顶栏液态玻璃：独立开关，避免顶栏与下方滚动的卡片采样同一 backdrop 时出现叠糊接缝。
+    override var enableTopBarGlass: Boolean
+        get() = prefs.getBoolean("enable_top_bar_glass", false)
+        set(value) = prefs.edit { putBoolean("enable_top_bar_glass", value) }
+
+    override var pageScale: Float
+        get() = prefs.getFloat("page_scale", 1.0f)
+        set(value) = prefs.edit { putFloat("page_scale", value) }
+
+    override var glassBlurRadius: Float
+        get() = prefs.getFloat("glass_blur_radius", LiquidGlassSpec.BlurRadius.value)
+        set(value) = prefs.edit { putFloat("glass_blur_radius", value) }
+
+    override var enableWebDebugging: Boolean
+        get() = prefs.getBoolean("enable_web_debugging", false)
+        set(value) = prefs.edit { putBoolean("enable_web_debugging", value) }
+
+    override var moduleSortEnabledFirst: Boolean
+        get() = prefs.getBoolean("module_sort_enabled_first", false)
+        set(value) = prefs.edit { putBoolean("module_sort_enabled_first", value) }
+
+    override var moduleSortActionFirst: Boolean
+        get() = prefs.getBoolean("module_sort_action_first", false)
+        set(value) = prefs.edit { putBoolean("module_sort_action_first", value) }
+
+    override var moduleRepoSortOrder: String
+        get() = RepoSort.fromStored(
+            name = prefs.getString("module_repo_sort", null),
+            legacyOrdinal = if (prefs.contains("module_repo_sort_order")) prefs.getInt("module_repo_sort_order", 0) else null,
+        ).name
+        set(value) = prefs.edit {
+            putString("module_repo_sort", value)
+            remove("module_repo_sort_order")
+        }
+
+    override var superuserShowSystemApps: Boolean
+        get() = prefs.getBoolean("show_system_apps", false)
+        set(value) = prefs.edit { putBoolean("show_system_apps", value) }
+
+    override var superuserShowOnlyPrimaryUserApps: Boolean
+        get() = prefs.getBoolean("show_only_primary_user_apps", false)
+        set(value) = prefs.edit { putBoolean("show_only_primary_user_apps", value) }
+
+    override var superuserSortOption: Int
+        get() = prefs.getInt("superuser_sort_option", 0)
+        set(value) = prefs.edit { putInt("superuser_sort_option", value) }
+
+    override var suLogFilters: Set<String>?
+        get() = prefs.getStringSet("sulog_filters", null)?.toSet()
+        set(filters) = prefs.edit { putStringSet("sulog_filters", filters) }
+
+    override var autoJailbreak: Boolean
+        get() = prefs.getBoolean("auto_jailbreak", false)
+        set(value) {
+            runCatching {
+                ksuApp.packageManager.setComponentEnabledSetting(
+                    ComponentName(ksuApp, BootCompletedReceiver::class.java),
+                    if (value) PackageManager.COMPONENT_ENABLED_STATE_ENABLED else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP
+                )
+            }.onFailure {
+                Log.e("Settings", "failed to change boot receiver state to $value", it)
+            }
+            prefs.edit {
+                putBoolean("auto_jailbreak", value)
+            }
+        }
+
+    override suspend fun getSuCompatStatus(): String = getFeatureStatus("su_compat")
+
+    override suspend fun getSuCompatPersistValue(): Long? = getFeaturePersistValue("su_compat")
+
+    override fun isSuEnabled(): Boolean = Natives.isSuEnabled()
+
+    override fun setSuEnabled(enabled: Boolean): Boolean = Natives.setSuEnabled(enabled)
+
+    override fun setSuCompatModePref(mode: Int) = prefs.edit { putInt("su_compat_mode", mode) }
+
+    override fun getSuCompatModePref(): Int = prefs.getInt("su_compat_mode", 0)
+
+    override suspend fun getKernelUmountStatus(): String = getFeatureStatus("kernel_umount")
+
+    override fun isKernelUmountEnabled(): Boolean = Natives.isKernelUmountEnabled()
+
+    override fun setKernelUmountEnabled(enabled: Boolean): Boolean = Natives.setKernelUmountEnabled(enabled)
+
+    override suspend fun getSelinuxHideStatus(): String = getFeatureStatus("selinux_hide")
+
+    override fun isSelinuxHideEnabled(): Boolean = Natives.isSelinuxHideEnabled()
+
+    override fun setSelinuxHideEnabled(enabled: Boolean): Int = Natives.setSelinuxHideEnabled(enabled)
+
+    override suspend fun getSulogStatus(): String = getFeatureStatus("sulog")
+
+    override suspend fun getSulogPersistValue(): Long? = getFeaturePersistValue("sulog")
+
+    override fun setSulogEnabled(enabled: Boolean): Boolean = execKsud("feature set sulog ${if (enabled) 1 else 0}", true)
+
+    override suspend fun getAdbRootStatus(): String = getFeatureStatus("adb_root")
+
+    override suspend fun getAdbRootPersistValue(): Long? = getFeaturePersistValue("adb_root")
+
+    override fun setAdbRootEnabled(enabled: Boolean): Boolean =
+        if (execKsud("feature set adb_root ${if (enabled) 1 else 0}", true)) {
+            ShellUtils.fastCmd("setprop ctl.restart adbd")
+            true
+        } else {
+            false
+        }
+
+    override fun isDefaultUmountModules(): Boolean = Natives.isDefaultUmountModules()
+
+    override fun setDefaultUmountModules(enabled: Boolean): Boolean = Natives.setDefaultUmountModules(enabled)
+
+    override fun isLkmMode(): Boolean = Natives.isLkmMode
+
+    override fun execKsudFeatureSave() {
+        execKsud("feature save", true)
+    }
+}

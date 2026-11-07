@@ -1,1 +1,405 @@
-IyBMaWJyYXJ5IGZvciBYaW5vdmFTVSdzIG1vZHVsZSBXZWJVSQoKIyMgSW5zdGFsbAoKYGBgc2gKeWFybiBhZGQgeGlub3Zhc3UKYGBgCgojIyBBUEkKCiMjIyBleGVjCgpTcGF3bnMgYSAqKnJvb3QqKiBzaGVsbCBhbmQgcnVucyBhIGNvbW1hbmQgd2l0aGluIHRoYXQgc2hlbGwsIHJldHVybmluZyBhIFByb21pc2UgdGhhdCByZXNvbHZlcyB3aXRoIHRoZSBgc3Rkb3V0YCBhbmQgYHN0ZGVycmAgb3V0cHV0cyB1cG9uIGNvbXBsZXRpb24uCgotIGBjb21tYW5kYCBgPHN0cmluZz5gIFRoZSBjb21tYW5kIHRvIHJ1biwgd2l0aCBzcGFjZS1zZXBhcmF0ZWQgYXJndW1lbnRzLgotIGBvcHRpb25zYCBgPE9iamVjdD5gCiAgLSBgY3dkYCAtIEN1cnJlbnQgd29ya2luZyBkaXJlY3Rvcnkgb2YgdGhlIGNoaWxkIHByb2Nlc3MuCiAgLSBgZW52YCAtIEVudmlyb25tZW50IGtleS12YWx1ZSBwYWlycy4KCmBgYGphdmFzY3JpcHQKaW1wb3J0IHsgZXhlYyB9IGZyb20gJ3hpbm92YXN1JzsKCmNvbnN0IHsgZXJybm8sIHN0ZG91dCwgc3RkZXJyIH0gPSBhd2FpdCBleGVjKCdscyAtbCcsIHsgY3dkOiAnL3RtcCcgfSk7CmlmIChlcnJubyA9PT0gMCkgewogICAgLy8gc3VjY2VzcwogICAgY29uc29sZS5sb2coc3Rkb3V0KTsKfQpgYGAKCiMjIyBzcGF3bgoKU3Bhd25zIGEgbmV3IHByb2Nlc3MgdXNpbmcgdGhlIGdpdmVuIGBjb21tYW5kYCBpbiAqKnJvb3QqKiBzaGVsbCwgd2l0aCBjb21tYW5kLWxpbmUgYXJndW1lbnRzIGluIGBhcmdzYC4gSWYgb21pdHRlZCwgYGFyZ3NgIGRlZmF1bHRzIHRvIGFuIGVtcHR5IGFycmF5LgoKUmV0dXJucyBhIGBDaGlsZFByb2Nlc3NgIGluc3RhbmNlLiBJbnN0YW5jZXMgb2YgYENoaWxkUHJvY2Vzc2AgcmVwcmVzZW50IHNwYXduZWQgY2hpbGQgcHJvY2Vzc2VzLgoKLSBgY29tbWFuZGAgYDxzdHJpbmc+YCBUaGUgY29tbWFuZCB0byBydW4uCi0gYGFyZ3NgIGA8c3RyaW5nW10+YCBMaXN0IG9mIHN0cmluZyBhcmd1bWVudHMuCi0gYG9wdGlvbnNgIGA8T2JqZWN0PmA6CiAgLSBgY3dkYCBgPHN0cmluZz5gIC0gQ3VycmVudCB3b3JraW5nIGRpcmVjdG9yeSBvZiB0aGUgY2hpbGQgcHJvY2Vzcy4KICAtIGBlbnZgIGA8T2JqZWN0PmAgLSBFbnZpcm9ubWVudCBrZXktdmFsdWUgcGFpcnMuCgpFeGFtcGxlIG9mIHJ1bm5pbmcgYGxzIC1saCAvZGF0YWAsIGNhcHR1cmluZyBgc3Rkb3V0YCwgYHN0ZGVycmAsIGFuZCB0aGUgZXhpdCBjb2RlOgoKYGBgamF2YXNjcmlwdAppbXBvcnQgeyBzcGF3biB9IGZyb20gJ3hpbm92YXN1JzsKCmNvbnN0IGxzID0gc3Bhd24oJ2xzJywgWyctbGgnLCAnL2RhdGEnXSk7Cgpscy5zdGRvdXQub24oJ2RhdGEnLCAoZGF0YSkgPT4gewogIGNvbnNvbGUubG9nKGBzdGRvdXQ6ICR7ZGF0YX1gKTsKfSk7Cgpscy5zdGRlcnIub24oJ2RhdGEnLCAoZGF0YSkgPT4gewogIGNvbnNvbGUubG9nKGBzdGRlcnI6ICR7ZGF0YX1gKTsKfSk7Cgpscy5vbignZXhpdCcsIChjb2RlKSA9PiB7CiAgY29uc29sZS5sb2coYGNoaWxkIHByb2Nlc3MgZXhpdGVkIHdpdGggY29kZSAke2NvZGV9YCk7Cn0pOwpgYGAKCiMjIyMgQ2hpbGRQcm9jZXNzCgojIyMjIyBFdmVudCAnZXhpdCcKCi0gYGNvZGVgIGA8bnVtYmVyPmAgVGhlIGV4aXQgY29kZSBpZiB0aGUgY2hpbGQgcHJvY2VzcyBleGl0ZWQgb24gaXRzIG93bi4KClRoZSBgJ2V4aXQnYCBldmVudCBpcyBlbWl0dGVkIHdoZW4gdGhlIGNoaWxkIHByb2Nlc3MgZW5kcy4gSWYgdGhlIHByb2Nlc3MgZXhpdHMsIGBjb2RlYCBjb250YWlucyB0aGUgZmluYWwgZXhpdCBjb2RlOyBvdGhlcndpc2UsIGl0IGlzIG51bGwuCgojIyMjIyBFdmVudCAnZXJyb3InCgotIGBlcnJgIGA8RXJyb3I+YCBUaGUgZXJyb3IuCgpUaGUgYCdlcnJvcidgIGV2ZW50IGlzIGVtaXR0ZWQgd2hlbmV2ZXI6CgotIFRoZSBwcm9jZXNzIGNvdWxkIG5vdCBiZSBzcGF3bmVkLgotIFRoZSBwcm9jZXNzIGNvdWxkIG5vdCBiZSBraWxsZWQuCgojIyMjIyBgc3Rkb3V0YAoKQSBgUmVhZGFibGUgU3RyZWFtYCB0aGF0IHJlcHJlc2VudHMgdGhlIGNoaWxkIHByb2Nlc3MncyBgc3Rkb3V0YC4KCmBgYGphdmFzY3JpcHQKY29uc3Qgc3VicHJvY2VzcyA9IHNwYXduKCdscycpOwoKc3VicHJvY2Vzcy5zdGRvdXQub24oJ2RhdGEnLCAoZGF0YSkgPT4gewogIGNvbnNvbGUubG9nKGBSZWNlaXZlZCBjaHVuayAke2RhdGF9YCk7Cn0pOwpgYGAKCiMjIyMgYHN0ZGVycmAKCkEgYFJlYWRhYmxlIFN0cmVhbWAgdGhhdCByZXByZXNlbnRzIHRoZSBjaGlsZCBwcm9jZXNzJ3MgYHN0ZGVycmAuCgojIyMgZnVsbFNjcmVlbgoKUmVxdWVzdCB0aGUgV2ViVmlldyBlbnRlci9leGl0IGZ1bGwgc2NyZWVuLgoKYGBgamF2YXNjcmlwdAppbXBvcnQgeyBmdWxsU2NyZWVuIH0gZnJvbSAneGlub3Zhc3UnOwpmdWxsU2NyZWVuKHRydWUpOwpgYGAKCiMjIyBlbmFibGVFZGdlVG9FZGdlCgpSZXF1ZXN0IHRoZSBXZWJWaWV3IHRvIHNldCBwYWRkaW5nIHRvIDAgb3Igc2FmZURyYXdpbmcgaW5zZXRzCgotIHRpcHM6IHRoaXMgaXMgZGlzYWJsZWQgYnkgZGVmYXVsdCBidXQgaWYgeW91IHJlcXVlc3QgcmVzb3VyY2UgZnJvbSBgaW50ZXJuYWwvaW5zZXRzLmNzc2AsIHRoaXMgd2lsbCBiZSBlbmFibGVkIGF1dG9tYXRpY2FsbHkuCi0gVG8gZ2V0IGluc2V0cyB2YWx1ZSBhbmQgZW5hYmxlIHRoaXMgYXV0b21hdGljYWxseSwgeW91IGNhbgogIC0gYWRkIGBAaW1wb3J0ICJodHRwczovL211aS54aW5vdmFzdS5vcmcvaW50ZXJuYWwvaW5zZXRzLmNzcyI7YCBpbiBjc3MgT1IKICAtIGFkZCBgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgaHJlZj0iL2ludGVybmFsL2luc2V0cy5jc3MiIC8+YCBpbiBodG1sLgoKYGBgamF2YXNjcmlwdAppbXBvcnQgeyBlbmFibGVFZGdlVG9FZGdlIH0gZnJvbSAneGlub3Zhc3UnOwplbmFibGVFZGdlVG9FZGdlKHRydWUpOwpgYGAKCiMjIyB0b2FzdAoKU2hvdyBhIHRvYXN0IG1lc3NhZ2UuCgpgYGBqYXZhc2NyaXB0CmltcG9ydCB7IHRvYXN0IH0gZnJvbSAneGlub3Zhc3UnOwp0b2FzdCgnSGVsbG8sIHdvcmxkIScpOwpgYGAKCiMjIyBtb2R1bGVJbmZvCgpHZXQgbW9kdWxlIGluZm8uCgpgYGBqYXZhc2NyaXB0CmltcG9ydCB7IG1vZHVsZUluZm8gfSBmcm9tICd4aW5vdmFzdSc7Ci8vIHByaW50IG1vZHVsZUlkIGluIGNvbnNvbGUKY29uc29sZS5sb2cobW9kdWxlSW5mbygpKTsKYGBgCgojIyMgcG0KClBhY2thZ2UtbWFuYWdlciBoZWxwZXJzLCBtdWx0aS11c2VyIGF3YXJlLiBBIHBhY2thZ2UgaW5zdGFsbGVkIGZvciBzZXZlcmFsIHVzZXJzIChlLmcuIGBjb20uYW5kcm9pZC5ibHVldG9vdGhgIHdpdGggdWlkIGAxMDAyYCBmb3IgdXNlciAwIGFuZCBgMTAwMTAwMmAgZm9yIHVzZXIgMTApIGlzIGxpc3RlZCBvbmNlIGJ5IGBwbS5saXN0UGFja2FnZXNgLCBhbmQgeWllbGRzIG9uZSBpbmZvIGVudHJ5IHBlciB1aWQgZnJvbSBgcG0uZ2V0UGFja2FnZXNJbmZvYC4KCmBgYGphdmFzY3JpcHQKaW1wb3J0IHsgcG0gfSBmcm9tICd4aW5vdmFzdSc7Cgpjb25zdCBwYWNrYWdlcyA9IHBtLmxpc3RQYWNrYWdlcygndXNlcicpOwpjb25zdCBpbmZvcyA9IHBtLmdldFBhY2thZ2VzSW5mbyhbJ2NvbS5hbmRyb2lkLnNldHRpbmdzJywgJ2NvbS5hbmRyb2lkLnNoZWxsJ10pOwpgYGAKCiMjIyMgcG0uc3VwcG9ydAoKYGJvb2xlYW5gIOKAlCB3aGV0aGVyIHRoZSBtdWx0aS11c2VyIHBtIGludGVyZmFjZSBpcyBhdmFpbGFibGUgaW4gdGhlIGN1cnJlbnQgZW52aXJvbm1lbnQuIEV2YWx1YXRlZCBvbmNlIHdoZW4gdGhlIG1vZHVsZSBsb2Fkcy4KCiMjIyMgcG0udmVyc2lvbgoKYG51bWJlcmAg4oCUIHRoZSBwbSBBUEkgdmVyc2lvbiBwcm92aWRlZCBieSB0aGUgbWFuYWdlciAoS290bGluIHNpZGUpIHRocm91Z2ggdGhlIGBrc3UucG1gIGJyaWRnZS4gYDBgIHdoZW4gdGhlIGJyaWRnZSBpcyB1bmF2YWlsYWJsZS4KCiMjIyMgcG0ubGlzdFBhY2thZ2VzCgpMaXN0IGluc3RhbGxlZCBwYWNrYWdlIG5hbWVzLCBkZWR1cGxpY2F0ZWQgYWNyb3NzIHVzZXJzLgoKUmV0dXJucyBhbiBhcnJheSBvZiB1bmlxdWUgcGFja2FnZSBuYW1lcy4KCi0gYHR5cGVgIGA8c3RyaW5nPmAgVGhlIHR5cGUgb2YgcGFja2FnZXMgdG8gbGlzdDogInVzZXIiLCAic3lzdGVtIiwgb3IgImFsbCIuCgpgYGBqYXZhc2NyaXB0CmltcG9ydCB7IHBtIH0gZnJvbSAneGlub3Zhc3UnOwovLyBsaXN0IHVzZXIgcGFja2FnZXMKY29uc3QgcGFja2FnZXMgPSBwbS5saXN0UGFja2FnZXMoInVzZXIiKTsKYGBgCgotIHRpcHM6IHdoZW4gYHBtLmxpc3RQYWNrYWdlc2AgYXBpIGlzIGF2YWlsYWJsZSwgeW91IGNhbiB1c2Uga3N1Oi8vaWNvbi97cGFja2FnZU5hbWV9IHRvIGdldCBhcHAgaWNvbi4KCmBgYCBqYXZhc2NyaXB0CmltZy5zcmMgPSAia3N1Oi8vaWNvbi8iICsgcGFja2FnZU5hbWU7CmBgYAoKIyMjIyBwbS5nZXRQYWNrYWdlc0luZm8KCkdldCBpbmZvcm1hdGlvbiBmb3IgYSBsaXN0IG9mIHBhY2thZ2VzLCBvbmUgZW50cnkgcGVyIHVpZC4KClJldHVybnMgYSBmbGF0IGFycmF5OiBvbmUgZW50cnkgcGVyIHVpZCBmb3IgZWFjaCByZXNvbHZlZCBwYWNrYWdlLCBmb2xsb3dpbmcgdGhlIGlucHV0IHBhY2thZ2Ugb3JkZXIsIHdpdGggdWlkcyBhc2NlbmRpbmcgd2l0aGluIGEgcGFja2FnZS4gSWYgYSBwYWNrYWdlIGlzIG1pc3Npbmcgb3IgaW5hY2Nlc3NpYmxlLCB0aGUgY29ycmVzcG9uZGluZyBlbnRyeSBjb250YWlucyBgcGFja2FnZU5hbWVgIGFuZCBgZXJyb3JgIGluc3RlYWQuCgotIGBwYWNrYWdlc2AgYDxzdHJpbmdbXT5gIFRoZSBsaXN0IG9mIHBhY2thZ2UgbmFtZXMuCgojIyMjIFBhY2thZ2VJbmZvUGVyVWlkCgpBbiBvYmplY3QgY29udGFpbnM6CgotIGBwYWNrYWdlTmFtZWAgYDxzdHJpbmc+YCBQYWNrYWdlIG5hbWUgb2YgdGhlIGFwcGxpY2F0aW9uLgotIGB2ZXJzaW9uTmFtZWAgYDxzdHJpbmc+YCBWZXJzaW9uIG9mIHRoZSBhcHBsaWNhdGlvbi4gRW1wdHkgc3RyaW5nIGlmIHVuYXZhaWxhYmxlLgotIGB2ZXJzaW9uQ29kZWAgYDxudW1iZXI+YCBWZXJzaW9uIGNvZGUgb2YgdGhlIGFwcGxpY2F0aW9uLgotIGBhcHBMYWJlbGAgYDxzdHJpbmc+YCBEaXNwbGF5IG5hbWUgb2YgdGhlIGFwcGxpY2F0aW9uLgotIGBpc1N5c3RlbWAgYDxib29sZWFuIHwgbnVsbD5gIFdoZXRoZXIgdGhlIGFwcGxpY2F0aW9uIGlzIGEgc3lzdGVtIGFwcC4gYG51bGxgIGlmIGFwcGxpY2F0aW9uIGluZm8gaXMgdW5hdmFpbGFibGUuCi0gYHVpZGAgYDxudW1iZXIgfCBudWxsPmAgVUlEIG9mIHRoZSBhcHBsaWNhdGlvbiBmb3Igb25lIHVzZXIsIGUuZy4gYDEwMDJgIG9yIGAxMDAxMDAyYC4gYG51bGxgIGlmIGFwcGxpY2F0aW9uIGluZm8gaXMgdW5hdmFpbGFibGUuCi0gYHVzZXJJZGAgYDxudW1iZXIgfCBudWxsPmAgVXNlciBpZCB0aGUgdWlkIGJlbG9uZ3MgdG8sIGkuZS4gYHVpZCAvIDEwMDAwMGAuIGBudWxsYCBpZiBhcHBsaWNhdGlvbiBpbmZvIGlzIHVuYXZhaWxhYmxlLgoKSWYgYSBwYWNrYWdlIGNvdWxkIG5vdCBiZSByZXNvbHZlZCwgdGhlIHJldHVybmVkIG9iamVjdCBjb250YWluczoKCi0gYHBhY2thZ2VOYW1lYCBgPHN0cmluZz5gIFRoZSByZXF1ZXN0ZWQgcGFja2FnZSBuYW1lLgotIGBlcnJvcmAgYDxzdHJpbmc+YCBSZWFzb24gdGhlIHBhY2thZ2UgaW5mb3JtYXRpb24gY291bGQgbm90IGJlIHJldHVybmVkLgoKIyMjIGV4aXQKCkV4aXQgdGhlIGN1cnJlbnQgV2ViVUkgYWN0aXZpdHkuCgpgYGBqYXZhc2NyaXB0CmltcG9ydCB7IGV4aXQgfSBmcm9tICd4aW5vdmFzdSc7CmV4aXQoKTsKYGBgCgojIyMgaW8KClRoZSBleHBvcnRlZCBgaW9gIG9iamVjdCBwcm92aWRlcyBmaWxlIHN5c3RlbSBvcGVyYXRpb25zIHdpdGggcm9vdCBhY2Nlc3MuIEl0IGFjdHMgYXMgYSBzbWFsbCBmYWNhZGUgb3ZlciB0aGUgV2ViVUkgZmlsZSBBUElzLCBleHBvc2luZyBKYXZhLUlPLXN0eWxlIGZhY3RvcnkgbWV0aG9kcyBzdWNoIGFzIGBpby5GaWxlKClgLCBgaW8uRmlsZUlucHV0U3RyZWFtKClgLCBgaW8uRmlsZU91dHB1dFN0cmVhbSgpYCwgYW5kIGBpby5SYW5kb21BY2Nlc3NGaWxlKClgLgoKYGBgamF2YXNjcmlwdAppbXBvcnQgeyBpbyB9IGZyb20gJ3hpbm92YXN1JzsKYGBgCgojIyMjIGlvLnN1cHBvcnQKCmBib29sZWFuYCDigJQgd2hldGhlciB0aGUgYWR2YW5jZWQgZmlsZSBpbnRlcmZhY2UgaXMgYXZhaWxhYmxlIGluIHRoZSBjdXJyZW50IGVudmlyb25tZW50LiBFdmFsdWF0ZWQgb25jZSB3aGVuIHRoZSBtb2R1bGUgbG9hZHMuCgojIyMjIGlvLnZlcnNpb24KCmBudW1iZXJgIOKAlCB0aGUgaW8gQVBJIHZlcnNpb24gcHJvdmlkZWQgYnkgdGhlIG1hbmFnZXIgKEtvdGxpbiBzaWRlKSB0aHJvdWdoIHRoZSBga3N1LmlvYCBicmlkZ2UuIGAwYCB3aGVuIHRoZSBicmlkZ2UgaXMgdW5hdmFpbGFibGUuCgpgYGBqYXZhc2NyaXB0CmltcG9ydCB7IGlvLCB0b2FzdCB9IGZyb20gJ3hpbm92YXN1JzsKCmlmICghaW8uc3VwcG9ydCkgewogICAgdG9hc3QoJ0N1cnJlbnQgZW52aXJvbm1lbnQgZG9lcyBub3Qgc3VwcG9ydCB0aGUgYWR2YW5jZWQgZmlsZSBpbnRlcmZhY2UuIFBsZWFzZSB1cGRhdGUgS2VybmVsU1UgTWFuYWdlci4nKTsKICAgIHJldHVybjsKfQpjb25zdCB3cml0ZXIgPSBpby5GaWxlT3V0cHV0U3RyZWFtKCk7CmBgYAoKIyMjIyBpby5GaWxlCgpSZXByZXNlbnRzIGEgZmlsZSBvciBkaXJlY3RvcnkgcGF0aC4gQWxsIG9wZXJhdGlvbnMgZXhlY3V0ZSB2aWEgcm9vdCBzaGVsbC4KCioqRXJyb3IgaGFuZGxpbmcqKjogTWV0aG9kcyByZXR1cm4gZGVmYXVsdCB2YWx1ZXMgKGZhbHNlLCBlbXB0eSBhcnJheXMsIC0xLCBldGMuKSBvbiBlcnJvci4KQ2hlY2sgcmV0dXJuIHZhbHVlcyBjYXJlZnVsbHkuIEZvciBleGFtcGxlLCBgZXhpc3RzKClgIHJldHVybnMgZmFsc2UgYm90aCB3aGVuIGEgZmlsZSBkb2Vzbid0CmV4aXN0IGFuZCB3aGVuIHBlcm1pc3Npb24gaXMgZGVuaWVkLiBVc2UgbXVsdGlwbGUgY2hlY2tzIHRvIGRpc2FtYmlndWF0ZSAoZS5nLiwgY2hlY2sgcGFyZW50CmRpcmVjdG9yeSBwZXJtaXNzaW9ucyBpZiBhIGZpbGUgb3BlcmF0aW9uIGZhaWxzKS4KCmBgYGphdmFzY3JpcHQKY29uc3QgZmlsZSA9IGlvLkZpbGUoJy9kYXRhL2FkYi9tb2R1bGVzJyk7CgppZiAoZmlsZS5leGlzdHMoKSkgewogICAgY29uc29sZS5sb2coZmlsZS5saXN0RmlsZXMoKSk7Cn0KYGBgCgojIyMjIyBNZXRob2RzCgotIGBleGlzdHMoKTogYm9vbGVhbmAg4oCUIENoZWNrIGlmIHBhdGggZXhpc3RzCi0gYGlzRmlsZSgpOiBib29sZWFuYCDigJQgQ2hlY2sgaWYgcGF0aCBpcyBhIHJlZ3VsYXIgZmlsZQotIGBpc0RpcmVjdG9yeSgpOiBib29sZWFuYCDigJQgQ2hlY2sgaWYgcGF0aCBpcyBhIGRpcmVjdG9yeQotIGBjYW5SZWFkKCk6IGJvb2xlYW5gIOKAlCBDaGVjayByZWFkIHBlcm1pc3Npb24KLSBgY2FuV3JpdGUoKTogYm9vbGVhbmAg4oCUIENoZWNrIHdyaXRlIHBlcm1pc3Npb24KLSBgY2FuRXhlY3V0ZSgpOiBib29sZWFuYCDigJQgQ2hlY2sgZXhlY3V0ZSBwZXJtaXNzaW9uCi0gYGNyZWF0ZU5ld0ZpbGUoKTogYm9vbGVhbmAg4oCUIENyZWF0ZSBhIG5ldyBlbXB0eSBmaWxlCi0gYGRlbGV0ZSgpOiBib29sZWFuYCDigJQgRGVsZXRlIGZpbGUgb3IgZW1wdHkgZGlyZWN0b3J5Ci0gYGRlbGV0ZVJlY3Vyc2l2ZSgpOiBib29sZWFuYCDigJQgUmVjdXJzaXZlbHkgZGVsZXRlIGRpcmVjdG9yeQotIGBta2RpcigpOiBib29sZWFuYCDigJQgQ3JlYXRlIGRpcmVjdG9yeQotIGBta2RpcnMoKTogYm9vbGVhbmAg4oCUIENyZWF0ZSBkaXJlY3RvcnkgYW5kIGFsbCBwYXJlbnQgZGlyZWN0b3JpZXMKLSBgcmVuYW1lVG8oZGVzdFBhdGg6IHN0cmluZyk6IGJvb2xlYW5gIOKAlCBSZW5hbWUgb3IgbW92ZSBmaWxlCi0gYGxpc3QoKTogc3RyaW5nW11gIOKAlCBMaXN0IGZpbGVuYW1lcyBpbiBkaXJlY3RvcnkKLSBgbGlzdEZpbGVzKCk6IHN0cmluZ1tdYCDigJQgTGlzdCBmdWxsIHBhdGhzIG9mIGZpbGVzIGluIGRpcmVjdG9yeQotIGBsZW5ndGgoKTogbnVtYmVyYCDigJQgRmlsZSBzaXplIGluIGJ5dGVzCi0gYGxhc3RNb2RpZmllZCgpOiBudW1iZXJgIOKAlCBMYXN0IG1vZGlmaWVkIHRpbWVzdGFtcCAobXMpCi0gYHNldExhc3RNb2RpZmllZCh0aW1lOiBudW1iZXIpOiBib29sZWFuYCDigJQgU2V0IGxhc3QgbW9kaWZpZWQgdGltZQotIGBnZXRBYnNvbHV0ZVBhdGgoKTogc3RyaW5nYCDigJQgQWJzb2x1dGUgcGF0aAotIGBnZXRDYW5vbmljYWxQYXRoKCk6IHN0cmluZ2Ag4oCUIENhbm9uaWNhbCBwYXRoIChyZXNvbHZlcyBzeW1saW5rcykKLSBgZ2V0UGFyZW50KCk6IHN0cmluZyB8IG51bGxgIOKAlCBQYXJlbnQgZGlyZWN0b3J5IHBhdGgKLSBgZ2V0UGF0aCgpOiBzdHJpbmdgIOKAlCBQYXRoIHN0cmluZwotIGBnZXROYW1lKCk6IHN0cmluZ2Ag4oCUIEZpbGUvZGlyZWN0b3J5IG5hbWUKLSBgaXNIaWRkZW4oKTogYm9vbGVhbmAg4oCUIENoZWNrIGlmIGhpZGRlbgotIGBpc0Jsb2NrKCk6IGJvb2xlYW5gIOKAlCBDaGVjayBpZiBibG9jayBkZXZpY2UKLSBgaXNDaGFyYWN0ZXIoKTogYm9vbGVhbmAg4oCUIENoZWNrIGlmIGNoYXJhY3RlciBkZXZpY2UKLSBgaXNTeW1saW5rKCk6IGJvb2xlYW5gIOKAlCBDaGVjayBpZiBzeW1ib2xpYyBsaW5rCi0gYGNyZWF0ZU5ld1N5bWxpbmsodGFyZ2V0OiBzdHJpbmcpOiBib29sZWFuYCDigJQgQ3JlYXRlIHN5bWJvbGljIGxpbmsKLSBgY3JlYXRlTmV3TGluayhleGlzdGluZzogc3RyaW5nKTogYm9vbGVhbmAg4oCUIENyZWF0ZSBoYXJkIGxpbmsKLSBgY2xlYXIoKTogYm9vbGVhbmAg4oCUIFRydW5jYXRlIGZpbGUgdG8gemVybyBsZW5ndGgKLSBgc2V0UmVhZE9ubHkoKTogYm9vbGVhbmAg4oCUIFNldCByZWFkLW9ubHkKLSBgc2V0UmVhZGFibGUocmVhZGFibGU6IGJvb2xlYW4sIG93bmVyT25seTogYm9vbGVhbik6IGJvb2xlYW5gIOKAlCBTZXQgcmVhZCBwZXJtaXNzaW9uCi0gYHNldFdyaXRhYmxlKHdyaXRhYmxlOiBib29sZWFuLCBvd25lck9ubHk6IGJvb2xlYW4pOiBib29sZWFuYCDigJQgU2V0IHdyaXRlIHBlcm1pc3Npb24KLSBgc2V0RXhlY3V0YWJsZShleGVjdXRhYmxlOiBib29sZWFuLCBvd25lck9ubHk6IGJvb2xlYW4pOiBib29sZWFuYCDigJQgU2V0IGV4ZWN1dGUgcGVybWlzc2lvbgotIGBnZXRGcmVlU3BhY2UoKTogbnVtYmVyYCDigJQgRnJlZSBzcGFjZSBvbiBwYXJ0aXRpb24KLSBgZ2V0VG90YWxTcGFjZSgpOiBudW1iZXJgIOKAlCBUb3RhbCBzcGFjZSBvbiBwYXJ0aXRpb24KLSBgZ2V0VXNhYmxlU3BhY2UoKTogbnVtYmVyYCDigJQgVXNhYmxlIHNwYWNlIG9uIHBhcnRpdGlvbgotIGBuZXdJbnB1dFN0cmVhbSgpOiBzdHJpbmdgIOKAlCBPcGVuIGlucHV0IHN0cmVhbSwgcmV0dXJucyBzdHJlYW0gSUQKLSBgbmV3T3V0cHV0U3RyZWFtKGFwcGVuZD86IGJvb2xlYW4pOiBzdHJpbmdgIOKAlCBPcGVuIG91dHB1dCBzdHJlYW0sIHJldHVybnMgc3RyZWFtIElECgojIyMjIGlvLkZpbGVJbnB1dFN0cmVhbQoKUmVhZCBmaWxlIGNvbnRlbnRzIGFzIGJhc2U2NC1lbmNvZGVkIGNodW5rcy4KCioqRXJyb3IgaGFuZGxpbmcqKjogTWV0aG9kcyByZXR1cm4gZW1wdHkgc3RyaW5nIG9yIDAgb24gZXJyb3IuIEFsd2F5cyBjaGVjayBgb3BlbigpYCByZXR1cm4KdmFsdWUgYmVmb3JlIHVzaW5nIHRoZSBzdHJlYW0gSUQuIENsb3NlIHN0cmVhbXMgd2hlbiBkb25lIHRvIGF2b2lkIHJlc291cmNlIGxlYWtzLgoKYGBgamF2YXNjcmlwdApjb25zdCByZWFkZXIgPSBpby5GaWxlSW5wdXRTdHJlYW0oKTsKY29uc3QgaWQgPSByZWFkZXIub3BlbignL2RhdGEvYWRiL2tzdS5sb2cnKTsKCmlmICghaWQpIHsKICAgIGNvbnNvbGUuZXJyb3IoJ0ZhaWxlZCB0byBvcGVuIGZpbGUnKTsKfSBlbHNlIHsKICAgIGxldCBjaHVuazsKICAgIHdoaWxlICgoY2h1bmsgPSByZWFkZXIucmVhZChpZCkpICE9PSAnJykgewogICAgICAgIGNvbnNvbGUubG9nKGF0b2IoY2h1bmspKTsKICAgIH0KICAgIHJlYWRlci5jbG9zZShpZCk7Cn0KYGBgCgojIyMjIyBNZXRob2RzCgotIGBvcGVuKHBhdGg6IHN0cmluZyk6IHN0cmluZ2Ag4oCUIE9wZW4gZmlsZSBmb3IgcmVhZGluZywgcmV0dXJucyBzdHJlYW0gSUQKLSBgcmVhZChpZDogc3RyaW5nKTogc3RyaW5nYCDigJQgUmVhZCBjaHVuayAodXAgdG8gOEtCKSwgcmV0dXJucyBiYXNlNjQgc3RyaW5nIChlbXB0eSBvbiBFT0YpCi0gYHJlYWQoaWQ6IHN0cmluZywgbWF4Qnl0ZXM6IG51bWJlcik6IHN0cmluZ2Ag4oCUIFJlYWQgdXAgdG8gbWF4Qnl0ZXMsIHJldHVybnMgYmFzZTY0IHN0cmluZwotIGBhdmFpbGFibGUoaWQ6IHN0cmluZyk6IG51bWJlcmAg4oCUIEVzdGltYXRlZCBieXRlcyBhdmFpbGFibGUKLSBgY2xvc2UoaWQ6IHN0cmluZyk6IGJvb2xlYW5gIOKAlCBDbG9zZSBzdHJlYW0KCiMjIyMgaW8uRmlsZU91dHB1dFN0cmVhbQoKV3JpdGUgZmlsZSBjb250ZW50cyBmcm9tIGJhc2U2NC1lbmNvZGVkIGRhdGEuCgoqKkVycm9yIGhhbmRsaW5nKio6IE1ldGhvZHMgcmV0dXJuIGZhbHNlIG9uIGVycm9yLiBBbHdheXMgY2hlY2sgYG9wZW4oKWAgYW5kIGB3cml0ZSgpYCByZXR1cm4KdmFsdWVzLiBDbG9zZSBzdHJlYW1zIHdoZW4gZG9uZSB0byBhdm9pZCByZXNvdXJjZSBsZWFrcy4KCmBgYGphdmFzY3JpcHQKY29uc3Qgd3JpdGVyID0gaW8uRmlsZU91dHB1dFN0cmVhbSgpOwpjb25zdCBpZCA9IHdyaXRlci5vcGVuKCcvZGF0YS9hZGIvb3V0cHV0LnR4dCcpOwoKaWYgKCFpZCkgewogICAgY29uc29sZS5lcnJvcignRmFpbGVkIHRvIG9wZW4gZmlsZSBmb3Igd3JpdGluZycpOwp9IGVsc2UgewogICAgaWYgKCF3cml0ZXIud3JpdGUoaWQsIGJ0b2EoJ0hlbGxvLCBXb3JsZCEnKSkpIHsKICAgICAgICBjb25zb2xlLmVycm9yKCdXcml0ZSBmYWlsZWQnKTsKICAgIH0KICAgIHdyaXRlci5jbG9zZShpZCk7Cn0KYGBgCgojIyMjIyBNZXRob2RzCgotIGBvcGVuKHBhdGg6IHN0cmluZywgYXBwZW5kPzogYm9vbGVhbik6IHN0cmluZ2Ag4oCUIE9wZW4gZmlsZSBmb3Igd3JpdGluZywgcmV0dXJucyBzdHJlYW0gSUQKLSBgd3JpdGUoaWQ6IHN0cmluZywgYmFzZTY0OiBzdHJpbmcpOiBib29sZWFuYCDigJQgV3JpdGUgYmFzZTY0IGRhdGEuIEZvciBsYXJnZSBzZXF1ZW50aWFsIHdyaXRlcywgcHJlZmVyIGxhcmdlIGNodW5rcyAoZm9yIGV4YW1wbGUgMS0yIE1pQikgdG8gcmVkdWNlIFdlYlZpZXcgYnJpZGdlIG92ZXJoZWFkLgotIGB3cml0ZUJ5dGUoaWQ6IHN0cmluZywgYjogbnVtYmVyKTogYm9vbGVhbmAg4oCUIFdyaXRlIHNpbmdsZSBieXRlCi0gYGZsdXNoKGlkOiBzdHJpbmcpOiBib29sZWFuYCDigJQgRmx1c2ggYnVmZmVyCi0gYGNsb3NlKGlkOiBzdHJpbmcpOiBib29sZWFuYCDigJQgQ2xvc2Ugc3RyZWFtCgojIyMjIGlvLlJhbmRvbUFjY2Vzc0ZpbGUKClJhbmRvbSBhY2Nlc3MgZmlsZSBJL08gd2l0aCBzZWVrIHN1cHBvcnQuIFVzZXMgYGRkYCB1bmRlciB0aGUgaG9vZCwgc28gZWFjaCBvcGVyYXRpb24gaGFzIG92ZXJoZWFkLiBQcmVmZXIgYEZpbGVJbnB1dFN0cmVhbWAvYEZpbGVPdXRwdXRTdHJlYW1gIGZvciBzZXF1ZW50aWFsIGFjY2Vzcy4KCioqRXJyb3IgaGFuZGxpbmcqKjogTWV0aG9kcyByZXR1cm4gZGVmYXVsdCB2YWx1ZXMgb24gZXJyb3IgKDAsIC0xLCBmYWxzZSwgZW1wdHkgc3RyaW5nLCBudWxsKS4KQWx3YXlzIGNoZWNrIGBvcGVuKClgIHJldHVybiB2YWx1ZSBiZWZvcmUgdXNpbmcgdGhlIGZpbGUgSUQuIENsb3NlIGZpbGVzIHdoZW4gZG9uZSB0byBhdm9pZApyZXNvdXJjZSBsZWFrcy4KCmBgYGphdmFzY3JpcHQKY29uc3QgcmFmID0gaW8uUmFuZG9tQWNjZXNzRmlsZSgpOwpjb25zdCBpZCA9IHJhZi5vcGVuKCcvZGF0YS9hZGIvZGF0YS5iaW4nLCAncncnKTsKCmlmICghaWQpIHsKICAgIGNvbnNvbGUuZXJyb3IoJ0ZhaWxlZCB0byBvcGVuIGZpbGUnKTsKfSBlbHNlIHsKICAgIHJhZi5zZWVrKGlkLCAxMDI0KTsKICAgIHJhZi53cml0ZUludChpZCwgNDIpOwogICAgcmFmLnNlZWsoaWQsIDEwMjQpOwogICAgY29uc29sZS5sb2cocmFmLnJlYWRJbnQoaWQpKTsKICAgIAogICAgcmFmLmNsb3NlKGlkKTsKfQpgYGAKCiMjIyMjIE1ldGhvZHMKCi0gYG9wZW4ocGF0aDogc3RyaW5nLCBtb2RlOiBzdHJpbmcpOiBzdHJpbmdgIOKAlCBPcGVuIGZpbGUgd2l0aCBtb2RlIChgInIiYCwgYCJydyJgLCBldGMuKSwgcmV0dXJucyBmaWxlIElECi0gYHJlYWQoaWQ6IHN0cmluZyk6IG51bWJlcmAg4oCUIFJlYWQgc2luZ2xlIGJ5dGUgKDAtMjU1LCBvciAtMSBvbiBFT0YpCi0gYHJlYWRCeXRlcyhpZDogc3RyaW5nLCBsZW46IG51bWJlcik6IHN0cmluZ2Ag4oCUIFJlYWQgYnl0ZXMsIHJldHVybnMgYmFzZTY0IHN0cmluZwotIGByZWFkQm9vbGVhbihpZDogc3RyaW5nKTogYm9vbGVhbmAg4oCUIFJlYWQgYm9vbGVhbgotIGByZWFkQnl0ZShpZDogc3RyaW5nKTogbnVtYmVyYCDigJQgUmVhZCBzaWduZWQgYnl0ZQotIGByZWFkSW50KGlkOiBzdHJpbmcpOiBudW1iZXJgIOKAlCBSZWFkIDMyLWJpdCBpbnRlZ2VyCi0gYHJlYWRMb25nKGlkOiBzdHJpbmcpOiBudW1iZXJgIOKAlCBSZWFkIDY0LWJpdCBpbnRlZ2VyCi0gYHJlYWRTaG9ydChpZDogc3RyaW5nKTogbnVtYmVyYCDigJQgUmVhZCAxNi1iaXQgc2hvcnQKLSBgcmVhZEZsb2F0KGlkOiBzdHJpbmcpOiBudW1iZXJgIOKAlCBSZWFkIDMyLWJpdCBmbG9hdAotIGByZWFkRG91YmxlKGlkOiBzdHJpbmcpOiBudW1iZXJgIOKAlCBSZWFkIDY0LWJpdCBkb3VibGUKLSBgcmVhZFVURihpZDogc3RyaW5nKTogc3RyaW5nYCDigJQgUmVhZCBVVEYgc3RyaW5nCi0gYHJlYWRMaW5lKGlkOiBzdHJpbmcpOiBzdHJpbmcgfCBudWxsYCDigJQgUmVhZCBsaW5lCi0gYHdyaXRlKGlkOiBzdHJpbmcsIGI6IG51bWJlcik6IHZvaWRgIOKAlCBXcml0ZSBzaW5nbGUgYnl0ZQotIGB3cml0ZUJhc2U2NChpZDogc3RyaW5nLCBkYXRhOiBzdHJpbmcpOiB2b2lkYCDigJQgV3JpdGUgYmFzZTY0IGRhdGEKLSBgd3JpdGVCb29sZWFuKGlkOiBzdHJpbmcsIHY6IGJvb2xlYW4pOiB2b2lkYCDigJQgV3JpdGUgYm9vbGVhbgotIGB3cml0ZUJ5dGUoaWQ6IHN0cmluZywgdjogbnVtYmVyKTogdm9pZGAg4oCUIFdyaXRlIGJ5dGUKLSBgd3JpdGVJbnQoaWQ6IHN0cmluZywgdjogbnVtYmVyKTogdm9pZGAg4oCUIFdyaXRlIDMyLWJpdCBpbnRlZ2VyCi0gYHdyaXRlTG9uZyhpZDogc3RyaW5nLCB2OiBudW1iZXIpOiB2b2lkYCDigJQgV3JpdGUgNjQtYml0IGludGVnZXIKLSBgd3JpdGVTaG9ydChpZDogc3RyaW5nLCB2OiBudW1iZXIpOiB2b2lkYCDigJQgV3JpdGUgMTYtYml0IHNob3J0Ci0gYHdyaXRlRmxvYXQoaWQ6IHN0cmluZywgdjogbnVtYmVyKTogdm9pZGAg4oCUIFdyaXRlIDMyLWJpdCBmbG9hdAotIGB3cml0ZURvdWJsZShpZDogc3RyaW5nLCB2OiBudW1iZXIpOiB2b2lkYCDigJQgV3JpdGUgNjQtYml0IGRvdWJsZQotIGB3cml0ZVVURihpZDogc3RyaW5nLCBzdHI6IHN0cmluZyk6IHZvaWRgIOKAlCBXcml0ZSBVVEYgc3RyaW5nCi0gYHNlZWsoaWQ6IHN0cmluZywgcG9zOiBudW1iZXIpOiBib29sZWFuYCDigJQgU2V0IGZpbGUgcG9pbnRlciBwb3NpdGlvbgotIGBnZXRGaWxlUG9pbnRlcihpZDogc3RyaW5nKTogbnVtYmVyYCDigJQgR2V0IGN1cnJlbnQgZmlsZSBwb2ludGVyIHBvc2l0aW9uCi0gYGxlbmd0aChpZDogc3RyaW5nKTogbnVtYmVyYCDigJQgR2V0IGZpbGUgbGVuZ3RoCi0gYHNldExlbmd0aChpZDogc3RyaW5nLCBuZXdMZW5ndGg6IG51bWJlcik6IGJvb2xlYW5gIOKAlCBUcnVuY2F0ZSBvciBleHRlbmQgZmlsZQotIGBjbG9zZShpZDogc3RyaW5nKTogYm9vbGVhbmAg4oCUIENsb3NlIGZpbGUK
+# Library for XinovaSU's module WebUI
+
+## Install
+
+```sh
+yarn add xinovasu
+```
+
+## API
+
+### exec
+
+Spawns a **root** shell and runs a command within that shell, returning a Promise that resolves with the `stdout` and `stderr` outputs upon completion.
+
+- `command` `<string>` The command to run, with space-separated arguments.
+- `options` `<Object>`
+  - `cwd` - Current working directory of the child process.
+  - `env` - Environment key-value pairs.
+
+```javascript
+import { exec } from 'xinovasu';
+
+const { errno, stdout, stderr } = await exec('ls -l', { cwd: '/tmp' });
+if (errno === 0) {
+    // success
+    console.log(stdout);
+}
+```
+
+### spawn
+
+Spawns a new process using the given `command` in **root** shell, with command-line arguments in `args`. If omitted, `args` defaults to an empty array.
+
+Returns a `ChildProcess` instance. Instances of `ChildProcess` represent spawned child processes.
+
+- `command` `<string>` The command to run.
+- `args` `<string[]>` List of string arguments.
+- `options` `<Object>`:
+  - `cwd` `<string>` - Current working directory of the child process.
+  - `env` `<Object>` - Environment key-value pairs.
+
+Example of running `ls -lh /data`, capturing `stdout`, `stderr`, and the exit code:
+
+```javascript
+import { spawn } from 'xinovasu';
+
+const ls = spawn('ls', ['-lh', '/data']);
+
+ls.stdout.on('data', (data) => {
+  console.log(`stdout: ${data}`);
+});
+
+ls.stderr.on('data', (data) => {
+  console.log(`stderr: ${data}`);
+});
+
+ls.on('exit', (code) => {
+  console.log(`child process exited with code ${code}`);
+});
+```
+
+#### ChildProcess
+
+##### Event 'exit'
+
+- `code` `<number>` The exit code if the child process exited on its own.
+
+The `'exit'` event is emitted when the child process ends. If the process exits, `code` contains the final exit code; otherwise, it is null.
+
+##### Event 'error'
+
+- `err` `<Error>` The error.
+
+The `'error'` event is emitted whenever:
+
+- The process could not be spawned.
+- The process could not be killed.
+
+##### `stdout`
+
+A `Readable Stream` that represents the child process's `stdout`.
+
+```javascript
+const subprocess = spawn('ls');
+
+subprocess.stdout.on('data', (data) => {
+  console.log(`Received chunk ${data}`);
+});
+```
+
+#### `stderr`
+
+A `Readable Stream` that represents the child process's `stderr`.
+
+### fullScreen
+
+Request the WebView enter/exit full screen.
+
+```javascript
+import { fullScreen } from 'xinovasu';
+fullScreen(true);
+```
+
+### enableEdgeToEdge
+
+Request the WebView to set padding to 0 or safeDrawing insets
+
+- tips: this is disabled by default but if you request resource from `internal/insets.css`, this will be enabled automatically.
+- To get insets value and enable this automatically, you can
+  - add `@import "https://mui.xinovasu.org/internal/insets.css";` in css OR
+  - add `<link rel="stylesheet" type="text/css" href="/internal/insets.css" />` in html.
+
+```javascript
+import { enableEdgeToEdge } from 'xinovasu';
+enableEdgeToEdge(true);
+```
+
+### toast
+
+Show a toast message.
+
+```javascript
+import { toast } from 'xinovasu';
+toast('Hello, world!');
+```
+
+### moduleInfo
+
+Get module info.
+
+```javascript
+import { moduleInfo } from 'xinovasu';
+// print moduleId in console
+console.log(moduleInfo());
+```
+
+### pm
+
+Package-manager helpers, multi-user aware. A package installed for several users (e.g. `com.android.bluetooth` with uid `1002` for user 0 and `1001002` for user 10) is listed once by `pm.listPackages`, and yields one info entry per uid from `pm.getPackagesInfo`.
+
+```javascript
+import { pm } from 'xinovasu';
+
+const packages = pm.listPackages('user');
+const infos = pm.getPackagesInfo(['com.android.settings', 'com.android.shell']);
+```
+
+#### pm.support
+
+`boolean` — whether the multi-user pm interface is available in the current environment. Evaluated once when the module loads.
+
+#### pm.version
+
+`number` — the pm API version provided by the manager (Kotlin side) through the `ksu.pm` bridge. `0` when the bridge is unavailable.
+
+#### pm.listPackages
+
+List installed package names, deduplicated across users.
+
+Returns an array of unique package names.
+
+- `type` `<string>` The type of packages to list: "user", "system", or "all".
+
+```javascript
+import { pm } from 'xinovasu';
+// list user packages
+const packages = pm.listPackages("user");
+```
+
+- tips: when `pm.listPackages` api is available, you can use ksu://icon/{packageName} to get app icon.
+
+``` javascript
+img.src = "ksu://icon/" + packageName;
+```
+
+#### pm.getPackagesInfo
+
+Get information for a list of packages, one entry per uid.
+
+Returns a flat array: one entry per uid for each resolved package, following the input package order, with uids ascending within a package. If a package is missing or inaccessible, the corresponding entry contains `packageName` and `error` instead.
+
+- `packages` `<string[]>` The list of package names.
+
+#### PackageInfoPerUid
+
+An object contains:
+
+- `packageName` `<string>` Package name of the application.
+- `versionName` `<string>` Version of the application. Empty string if unavailable.
+- `versionCode` `<number>` Version code of the application.
+- `appLabel` `<string>` Display name of the application.
+- `isSystem` `<boolean | null>` Whether the application is a system app. `null` if application info is unavailable.
+- `uid` `<number | null>` UID of the application for one user, e.g. `1002` or `1001002`. `null` if application info is unavailable.
+- `userId` `<number | null>` User id the uid belongs to, i.e. `uid / 100000`. `null` if application info is unavailable.
+
+If a package could not be resolved, the returned object contains:
+
+- `packageName` `<string>` The requested package name.
+- `error` `<string>` Reason the package information could not be returned.
+
+### exit
+
+Exit the current WebUI activity.
+
+```javascript
+import { exit } from 'xinovasu';
+exit();
+```
+
+### io
+
+The exported `io` object provides file system operations with root access. It acts as a small facade over the WebUI file APIs, exposing Java-IO-style factory methods such as `io.File()`, `io.FileInputStream()`, `io.FileOutputStream()`, and `io.RandomAccessFile()`.
+
+```javascript
+import { io } from 'xinovasu';
+```
+
+#### io.support
+
+`boolean` — whether the advanced file interface is available in the current environment. Evaluated once when the module loads.
+
+#### io.version
+
+`number` — the io API version provided by the manager (Kotlin side) through the `ksu.io` bridge. `0` when the bridge is unavailable.
+
+```javascript
+import { io, toast } from 'xinovasu';
+
+if (!io.support) {
+    toast('Current environment does not support the advanced file interface. Please update KernelSU Manager.');
+    return;
+}
+const writer = io.FileOutputStream();
+```
+
+#### io.File
+
+Represents a file or directory path. All operations execute via root shell.
+
+**Error handling**: Methods return default values (false, empty arrays, -1, etc.) on error.
+Check return values carefully. For example, `exists()` returns false both when a file doesn't
+exist and when permission is denied. Use multiple checks to disambiguate (e.g., check parent
+directory permissions if a file operation fails).
+
+```javascript
+const file = io.File('/data/adb/modules');
+
+if (file.exists()) {
+    console.log(file.listFiles());
+}
+```
+
+##### Methods
+
+- `exists(): boolean` — Check if path exists
+- `isFile(): boolean` — Check if path is a regular file
+- `isDirectory(): boolean` — Check if path is a directory
+- `canRead(): boolean` — Check read permission
+- `canWrite(): boolean` — Check write permission
+- `canExecute(): boolean` — Check execute permission
+- `createNewFile(): boolean` — Create a new empty file
+- `delete(): boolean` — Delete file or empty directory
+- `deleteRecursive(): boolean` — Recursively delete directory
+- `mkdir(): boolean` — Create directory
+- `mkdirs(): boolean` — Create directory and all parent directories
+- `renameTo(destPath: string): boolean` — Rename or move file
+- `list(): string[]` — List filenames in directory
+- `listFiles(): string[]` — List full paths of files in directory
+- `length(): number` — File size in bytes
+- `lastModified(): number` — Last modified timestamp (ms)
+- `setLastModified(time: number): boolean` — Set last modified time
+- `getAbsolutePath(): string` — Absolute path
+- `getCanonicalPath(): string` — Canonical path (resolves symlinks)
+- `getParent(): string | null` — Parent directory path
+- `getPath(): string` — Path string
+- `getName(): string` — File/directory name
+- `isHidden(): boolean` — Check if hidden
+- `isBlock(): boolean` — Check if block device
+- `isCharacter(): boolean` — Check if character device
+- `isSymlink(): boolean` — Check if symbolic link
+- `createNewSymlink(target: string): boolean` — Create symbolic link
+- `createNewLink(existing: string): boolean` — Create hard link
+- `clear(): boolean` — Truncate file to zero length
+- `setReadOnly(): boolean` — Set read-only
+- `setReadable(readable: boolean, ownerOnly: boolean): boolean` — Set read permission
+- `setWritable(writable: boolean, ownerOnly: boolean): boolean` — Set write permission
+- `setExecutable(executable: boolean, ownerOnly: boolean): boolean` — Set execute permission
+- `getFreeSpace(): number` — Free space on partition
+- `getTotalSpace(): number` — Total space on partition
+- `getUsableSpace(): number` — Usable space on partition
+- `newInputStream(): string` — Open input stream, returns stream ID
+- `newOutputStream(append?: boolean): string` — Open output stream, returns stream ID
+
+#### io.FileInputStream
+
+Read file contents as base64-encoded chunks.
+
+**Error handling**: Methods return empty string or 0 on error. Always check `open()` return
+value before using the stream ID. Close streams when done to avoid resource leaks.
+
+```javascript
+const reader = io.FileInputStream();
+const id = reader.open('/data/adb/ksu.log');
+
+if (!id) {
+    console.error('Failed to open file');
+} else {
+    let chunk;
+    while ((chunk = reader.read(id)) !== '') {
+        console.log(atob(chunk));
+    }
+    reader.close(id);
+}
+```
+
+##### Methods
+
+- `open(path: string): string` — Open file for reading, returns stream ID
+- `read(id: string): string` — Read chunk (up to 8KB), returns base64 string (empty on EOF)
+- `read(id: string, maxBytes: number): string` — Read up to maxBytes, returns base64 string
+- `available(id: string): number` — Estimated bytes available
+- `close(id: string): boolean` — Close stream
+
+#### io.FileOutputStream
+
+Write file contents from base64-encoded data.
+
+**Error handling**: Methods return false on error. Always check `open()` and `write()` return
+values. Close streams when done to avoid resource leaks.
+
+```javascript
+const writer = io.FileOutputStream();
+const id = writer.open('/data/adb/output.txt');
+
+if (!id) {
+    console.error('Failed to open file for writing');
+} else {
+    if (!writer.write(id, btoa('Hello, World!'))) {
+        console.error('Write failed');
+    }
+    writer.close(id);
+}
+```
+
+##### Methods
+
+- `open(path: string, append?: boolean): string` — Open file for writing, returns stream ID
+- `write(id: string, base64: string): boolean` — Write base64 data. For large sequential writes, prefer large chunks (for example 1-2 MiB) to reduce WebView bridge overhead.
+- `writeByte(id: string, b: number): boolean` — Write single byte
+- `flush(id: string): boolean` — Flush buffer
+- `close(id: string): boolean` — Close stream
+
+#### io.RandomAccessFile
+
+Random access file I/O with seek support. Uses `dd` under the hood, so each operation has overhead. Prefer `FileInputStream`/`FileOutputStream` for sequential access.
+
+**Error handling**: Methods return default values on error (0, -1, false, empty string, null).
+Always check `open()` return value before using the file ID. Close files when done to avoid
+resource leaks.
+
+```javascript
+const raf = io.RandomAccessFile();
+const id = raf.open('/data/adb/data.bin', 'rw');
+
+if (!id) {
+    console.error('Failed to open file');
+} else {
+    raf.seek(id, 1024);
+    raf.writeInt(id, 42);
+    raf.seek(id, 1024);
+    console.log(raf.readInt(id));
+    
+    raf.close(id);
+}
+```
+
+##### Methods
+
+- `open(path: string, mode: string): string` — Open file with mode (`"r"`, `"rw"`, etc.), returns file ID
+- `read(id: string): number` — Read single byte (0-255, or -1 on EOF)
+- `readBytes(id: string, len: number): string` — Read bytes, returns base64 string
+- `readBoolean(id: string): boolean` — Read boolean
+- `readByte(id: string): number` — Read signed byte
+- `readInt(id: string): number` — Read 32-bit integer
+- `readLong(id: string): number` — Read 64-bit integer
+- `readShort(id: string): number` — Read 16-bit short
+- `readFloat(id: string): number` — Read 32-bit float
+- `readDouble(id: string): number` — Read 64-bit double
+- `readUTF(id: string): string` — Read UTF string
+- `readLine(id: string): string | null` — Read line
+- `write(id: string, b: number): void` — Write single byte
+- `writeBase64(id: string, data: string): void` — Write base64 data
+- `writeBoolean(id: string, v: boolean): void` — Write boolean
+- `writeByte(id: string, v: number): void` — Write byte
+- `writeInt(id: string, v: number): void` — Write 32-bit integer
+- `writeLong(id: string, v: number): void` — Write 64-bit integer
+- `writeShort(id: string, v: number): void` — Write 16-bit short
+- `writeFloat(id: string, v: number): void` — Write 32-bit float
+- `writeDouble(id: string, v: number): void` — Write 64-bit double
+- `writeUTF(id: string, str: string): void` — Write UTF string
+- `seek(id: string, pos: number): boolean` — Set file pointer position
+- `getFilePointer(id: string): number` — Get current file pointer position
+- `length(id: string): number` — Get file length
+- `setLength(id: string, newLength: number): boolean` — Truncate or extend file
+- `close(id: string): boolean` — Close file

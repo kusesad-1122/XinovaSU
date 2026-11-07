@@ -1,1 +1,199 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBvcmcuanVuaXQuQXNzZXJ0LmFzc2VydEFycmF5RXF1YWxzCmltcG9ydCBvcmcuanVuaXQuQXNzZXJ0LmFzc2VydEVxdWFscwppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRGYWxzZQppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnROdWxsCmltcG9ydCBvcmcuanVuaXQuQXNzZXJ0LmFzc2VydFRocm93cwppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRUcnVlCmltcG9ydCBvcmcuanVuaXQuUnVsZQppbXBvcnQgb3JnLmp1bml0LlRlc3QKaW1wb3J0IG9yZy5qdW5pdC5ydWxlcy5UZW1wb3JhcnlGb2xkZXIKaW1wb3J0IGphdmEuaW8uQnl0ZUFycmF5SW5wdXRTdHJlYW0KaW1wb3J0IGphdmEuaW8uRmlsZQppbXBvcnQgamF2YS5pby5JT0V4Y2VwdGlvbgppbXBvcnQgamF2YS5pby5JbnB1dFN0cmVhbQppbXBvcnQgamF2YS5zZWN1cml0eS5NZXNzYWdlRGlnZXN0CgpjbGFzcyBEb3dubG9hZFN0b3JlVGVzdCB7CgogICAgQGdldDpSdWxlCiAgICB2YWwgdG1wID0gVGVtcG9yYXJ5Rm9sZGVyKCkKCiAgICBwcml2YXRlIHZhbCBkYXRhID0gQnl0ZUFycmF5KDUwXzAwMCkgeyAoaXQgKiAzMSAlIDI1MykudG9CeXRlKCkgfQogICAgcHJpdmF0ZSB2YWwgc2hhID0gTWVzc2FnZURpZ2VzdC5nZXRJbnN0YW5jZSgiU0hBLTI1NiIpLmRpZ2VzdChkYXRhKS5qb2luVG9TdHJpbmcoIiIpIHsgIiUwMngiLmZvcm1hdChpdCkgfQogICAgcHJpdmF0ZSB2YWwgZXhwZWN0ZWQgPSBFeHBlY3RlZEZpbGUoZGF0YS5zaXplLnRvTG9uZygpLCBzaGEpCgogICAgcHJpdmF0ZSBmdW4gcm9vdCgpID0gdG1wLm5ld0ZvbGRlcigicmVnaXN0cnlfZG93bmxvYWRzIikKCiAgICAvKiogRXZlcnl0aGluZyB1bmRlciBbZGlyXSwgcmVjdXJzaXZlbHksIGFzIHJlbGF0aXZlIHBhdGhzLiAqLwogICAgcHJpdmF0ZSBmdW4gbGlzdGluZyhkaXI6IEZpbGUpOiBMaXN0PFN0cmluZz4gPQogICAgICAgIGRpci53YWxrVG9wRG93bigpLmZpbHRlciB7IGl0LmlzRmlsZSB9Lm1hcCB7IGl0LnJlbGF0aXZlVG8oZGlyKS5wYXRoIH0uc29ydGVkKCkudG9MaXN0KCkKCiAgICBAVGVzdAogICAgZnVuIHZlcmlmaWVkRG93bmxvYWRJc1N0b3JlZFVuZGVySXRzRXhwZWN0YXRpb24oKSB7CiAgICAgICAgdmFsIHJvb3QgPSByb290KCkKICAgICAgICB2YXIgcHJvZ3Jlc3MgPSAwTAogICAgICAgIHZhbCBmaWxlID0gUmVnaXN0cnlEb3dubG9hZFN0b3JlLmRvd25sb2FkKEJ5dGVBcnJheUlucHV0U3RyZWFtKGRhdGEpLCByb290LCBleHBlY3RlZCwgIk15IE1vZHVsZSAodjEpLnppcCIsIHsgcHJvZ3Jlc3MgPSBpdCB9KQogICAgICAgIGFzc2VydEVxdWFscyhkYXRhLnNpemUudG9Mb25nKCksIHByb2dyZXNzKQogICAgICAgIGFzc2VydEFycmF5RXF1YWxzKGRhdGEsIGZpbGUucmVhZEJ5dGVzKCkpCiAgICAgICAgYXNzZXJ0RXF1YWxzKCJNeV9Nb2R1bGVfX3YxXy56aXAiLCBmaWxlLm5hbWUpCiAgICAgICAgYXNzZXJ0RXF1YWxzKFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5kaXJOYW1lRm9yKGV4cGVjdGVkKSwgZmlsZS5wYXJlbnRGaWxlISEubmFtZSkKICAgICAgICBhc3NlcnRFcXVhbHMoZXhwZWN0ZWQsIFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5leHBlY3RlZEZvcihyb290LCBmaWxlKSkKICAgICAgICBhc3NlcnRFcXVhbHMobGlzdE9mKCIke1JlZ2lzdHJ5RG93bmxvYWRTdG9yZS5kaXJOYW1lRm9yKGV4cGVjdGVkKX0vTXlfTW9kdWxlX192MV8uemlwIiksIGxpc3Rpbmcocm9vdCkpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biBoYXNoTWlzbWF0Y2hEZWxldGVzRXZlcnl0aGluZygpIHsKICAgICAgICB2YWwgcm9vdCA9IHJvb3QoKQogICAgICAgIHZhbCB0YW1wZXJlZCA9IGRhdGEuY29weU9mKCkuYWxzbyB7IGl0WzEwMF0gPSAoaXRbMTAwXSArIDEpLnRvQnl0ZSgpIH0KICAgICAgICB2YWwgZSA9IGFzc2VydFRocm93cyhEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgewogICAgICAgICAgICBSZWdpc3RyeURvd25sb2FkU3RvcmUuZG93bmxvYWQoQnl0ZUFycmF5SW5wdXRTdHJlYW0odGFtcGVyZWQpLCByb290LCBleHBlY3RlZCwgIm0uemlwIikKICAgICAgICB9CiAgICAgICAgYXNzZXJ0RXF1YWxzKERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uLlJlYXNvbi5TSEEyNTZfTUlTTUFUQ0gsIGUucmVhc29uKQogICAgICAgIGFzc2VydEVxdWFscyhlbXB0eUxpc3Q8U3RyaW5nPigpLCBsaXN0aW5nKHJvb3QpKQogICAgICAgIGFzc2VydEVxdWFscygwLCByb290Lmxpc3QoKSEhLnNpemUpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biBvdmVyc2l6ZWRBbmRUcnVuY2F0ZWREb3dubG9hZHNBcmVEZWxldGVkKCkgewogICAgICAgIHZhbCByb290ID0gcm9vdCgpCiAgICAgICAgdmFsIGJpZyA9IGFzc2VydFRocm93cyhEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgewogICAgICAgICAgICBSZWdpc3RyeURvd25sb2FkU3RvcmUuZG93bmxvYWQoQnl0ZUFycmF5SW5wdXRTdHJlYW0oZGF0YSArIGJ5dGVBcnJheU9mKDEpKSwgcm9vdCwgZXhwZWN0ZWQsICJtLnppcCIpCiAgICAgICAgfQogICAgICAgIGFzc2VydEVxdWFscyhEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbi5SZWFzb24uU0laRV9NSVNNQVRDSCwgYmlnLnJlYXNvbikKICAgICAgICB2YWwgc21hbGwgPSBhc3NlcnRUaHJvd3MoRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb246OmNsYXNzLmphdmEpIHsKICAgICAgICAgICAgUmVnaXN0cnlEb3dubG9hZFN0b3JlLmRvd25sb2FkKEJ5dGVBcnJheUlucHV0U3RyZWFtKGRhdGEuY29weU9mKDEwKSksIHJvb3QsIGV4cGVjdGVkLCAibS56aXAiKQogICAgICAgIH0KICAgICAgICBhc3NlcnRFcXVhbHMoRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb24uUmVhc29uLlNJWkVfTUlTTUFUQ0gsIHNtYWxsLnJlYXNvbikKICAgICAgICBhc3NlcnRFcXVhbHMoZW1wdHlMaXN0PFN0cmluZz4oKSwgbGlzdGluZyhyb290KSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIG5ldHdvcmtFcnJvckFuZENhbmNlbGxhdGlvbkRlbGV0ZVBhcnRpYWxGaWxlKCkgewogICAgICAgIHZhbCByb290ID0gcm9vdCgpCiAgICAgICAgdmFsIGZhaWxpbmcgPSBvYmplY3QgOiBJbnB1dFN0cmVhbSgpIHsKICAgICAgICAgICAgdmFyIG4gPSAwCiAgICAgICAgICAgIG92ZXJyaWRlIGZ1biByZWFkKCk6IEludCA9IHRocm93IElPRXhjZXB0aW9uKCJyZXNldCIpCiAgICAgICAgICAgIG92ZXJyaWRlIGZ1biByZWFkKGI6IEJ5dGVBcnJheSwgb2ZmOiBJbnQsIGxlbjogSW50KTogSW50IHsKICAgICAgICAgICAgICAgIGlmIChuKysgPiAyKSB0aHJvdyBJT0V4Y2VwdGlvbigiY29ubmVjdGlvbiByZXNldCIpCiAgICAgICAgICAgICAgICBiW29mZl0gPSBkYXRhW25dCiAgICAgICAgICAgICAgICByZXR1cm4gMQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIGFzc2VydFRocm93cyhJT0V4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgeyBSZWdpc3RyeURvd25sb2FkU3RvcmUuZG93bmxvYWQoZmFpbGluZywgcm9vdCwgZXhwZWN0ZWQsICJtLnppcCIpIH0KICAgICAgICB2YXIgY2FsbHMgPSAwCiAgICAgICAgYXNzZXJ0VGhyb3dzKElsbGVnYWxTdGF0ZUV4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgewogICAgICAgICAgICBSZWdpc3RyeURvd25sb2FkU3RvcmUuZG93bmxvYWQoQnl0ZUFycmF5SW5wdXRTdHJlYW0oZGF0YSksIHJvb3QsIGV4cGVjdGVkLCAibS56aXAiLCBjaGVja0FjdGl2ZSA9IHsKICAgICAgICAgICAgICAgIGlmICgrK2NhbGxzID4gMikgdGhyb3cgSWxsZWdhbFN0YXRlRXhjZXB0aW9uKCJjYW5jZWxsZWQiKQogICAgICAgICAgICB9KQogICAgICAgIH0KICAgICAgICBhc3NlcnRFcXVhbHMoZW1wdHlMaXN0PFN0cmluZz4oKSwgbGlzdGluZyhyb290KSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHJlSGFzaEJlZm9yZUZsYXNoQWNjZXB0c0V4YWN0Qnl0ZXMoKSB7CiAgICAgICAgdmFsIHN0b3JlZCA9IFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5kb3dubG9hZChCeXRlQXJyYXlJbnB1dFN0cmVhbShkYXRhKSwgcm9vdCgpLCBleHBlY3RlZCwgIm0uemlwIikKICAgICAgICB2YWwgZGVzdCA9IHRtcC5uZXdGaWxlKCJpbnN0YWxsLnppcCIpCiAgICAgICAgc3RvcmVkLmlucHV0U3RyZWFtKCkudXNlIHsgY29weUZvckluc3RhbGwoaXQsIGRlc3QsIGV4cGVjdGVkKSB9CiAgICAgICAgYXNzZXJ0QXJyYXlFcXVhbHMoZGF0YSwgZGVzdC5yZWFkQnl0ZXMoKSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHJlSGFzaEJlZm9yZUZsYXNoUmVqZWN0c01vZGlmaWVkRmlsZUFuZERlbGV0ZXNDb3B5KCkgewogICAgICAgIHZhbCByb290ID0gcm9vdCgpCiAgICAgICAgdmFsIHN0b3JlZCA9IFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5kb3dubG9hZChCeXRlQXJyYXlJbnB1dFN0cmVhbShkYXRhKSwgcm9vdCwgZXhwZWN0ZWQsICJtLnppcCIpCiAgICAgICAgLy8gU2FtZSBzaXplLCBkaWZmZXJlbnQgY29udGVudDogbW9kaWZpZWQgYWZ0ZXIgdGhlIGRvd25sb2FkIHdhcyB2ZXJpZmllZC4KICAgICAgICBzdG9yZWQud3JpdGVCeXRlcyhkYXRhLmNvcHlPZigpLmFsc28geyBpdFswXSA9IChpdFswXSArIDEpLnRvQnl0ZSgpIH0pCiAgICAgICAgdmFsIGRlc3QgPSBGaWxlKHRtcC5yb290LCAiaW5zdGFsbC56aXAiKQogICAgICAgIHZhbCBlID0gYXNzZXJ0VGhyb3dzKERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7CiAgICAgICAgICAgIHN0b3JlZC5pbnB1dFN0cmVhbSgpLnVzZSB7IGNvcHlGb3JJbnN0YWxsKGl0LCBkZXN0LCBSZWdpc3RyeURvd25sb2FkU3RvcmUuZXhwZWN0ZWRGb3Iocm9vdCwgc3RvcmVkKSkgfQogICAgICAgIH0KICAgICAgICBhc3NlcnRFcXVhbHMoRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb24uUmVhc29uLlNIQTI1Nl9NSVNNQVRDSCwgZS5yZWFzb24pCiAgICAgICAgYXNzZXJ0RmFsc2UoZGVzdC5leGlzdHMoKSkKCiAgICAgICAgc3RvcmVkLndyaXRlQnl0ZXMoZGF0YSArIGJ5dGVBcnJheU9mKDApKQogICAgICAgIHZhbCBzaXplRXJyb3IgPSBhc3NlcnRUaHJvd3MoRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb246OmNsYXNzLmphdmEpIHsgdmVyaWZ5RmlsZShzdG9yZWQsIGV4cGVjdGVkKSB9CiAgICAgICAgYXNzZXJ0RXF1YWxzKERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uLlJlYXNvbi5TSVpFX01JU01BVENILCBzaXplRXJyb3IucmVhc29uKQogICAgICAgIGFzc2VydFRydWUoUmVnaXN0cnlEb3dubG9hZFN0b3JlLmRlbGV0ZShyb290LCBzdG9yZWQpKQogICAgICAgIGFzc2VydEVxdWFscyhlbXB0eUxpc3Q8U3RyaW5nPigpLCBsaXN0aW5nKHJvb3QpKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gdW52ZXJpZmllZEluc3RhbGxKdXN0Q29waWVzKCkgewogICAgICAgIHZhbCBkZXN0ID0gRmlsZSh0bXAucm9vdCwgInBsYWluLnppcCIpCiAgICAgICAgY29weUZvckluc3RhbGwoQnl0ZUFycmF5SW5wdXRTdHJlYW0oYnl0ZUFycmF5T2YoMSwgMiwgMykpLCBkZXN0LCBudWxsKQogICAgICAgIGFzc2VydEFycmF5RXF1YWxzKGJ5dGVBcnJheU9mKDEsIDIsIDMpLCBkZXN0LnJlYWRCeXRlcygpKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gb25seUZpbGVzSW5zaWRlVGhlU3RvcmVDYXJyeUFuRXhwZWN0YXRpb24oKSB7CiAgICAgICAgdmFsIHJvb3QgPSByb290KCkKICAgICAgICB2YWwgc3RvcmVkID0gUmVnaXN0cnlEb3dubG9hZFN0b3JlLmRvd25sb2FkKEJ5dGVBcnJheUlucHV0U3RyZWFtKGRhdGEpLCByb290LCBleHBlY3RlZCwgIm0uemlwIikKICAgICAgICB2YWwgb3V0c2lkZSA9IEZpbGUodG1wLm5ld0ZvbGRlcihSZWdpc3RyeURvd25sb2FkU3RvcmUuZGlyTmFtZUZvcihleHBlY3RlZCkpLCAibS56aXAiKS5hcHBseSB7IHdyaXRlQnl0ZXMoZGF0YSkgfQogICAgICAgIGFzc2VydE51bGwoUmVnaXN0cnlEb3dubG9hZFN0b3JlLmV4cGVjdGVkRm9yKHJvb3QsIG91dHNpZGUpKQogICAgICAgIGFzc2VydE51bGwoUmVnaXN0cnlEb3dubG9hZFN0b3JlLmV4cGVjdGVkRm9yKHJvb3QsIEZpbGUocm9vdCwgIm0uemlwIikpKQogICAgICAgIGFzc2VydE51bGwoUmVnaXN0cnlEb3dubG9hZFN0b3JlLmV4cGVjdGVkRm9yKHJvb3QsIEZpbGUoRmlsZShyb290LCAibm90LWEtaGFzaCIpLCAibS56aXAiKSkpCiAgICAgICAgLy8gUGF0aCB0cmlja3MgcmVzb2x2ZSB0byB0aGUgY2Fub25pY2FsIGxvY2F0aW9uIGZpcnN0LgogICAgICAgIHZhbCBkb3R0ZWQgPSBGaWxlKHJvb3QsICIke3N0b3JlZC5wYXJlbnRGaWxlISEubmFtZX0vLi4vJHtzdG9yZWQucGFyZW50RmlsZSEhLm5hbWV9L20uemlwIikKICAgICAgICBhc3NlcnRFcXVhbHMoZXhwZWN0ZWQsIFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5leHBlY3RlZEZvcihyb290LCBkb3R0ZWQpKQogICAgICAgIGFzc2VydE51bGwoUmVnaXN0cnlEb3dubG9hZFN0b3JlLmV4cGVjdGVkRm9yKHJvb3QsIEZpbGUocm9vdCwgIiR7c3RvcmVkLnBhcmVudEZpbGUhIS5uYW1lfS8uLi8uLi94L20uemlwIikpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5kZWxldGUocm9vdCwgb3V0c2lkZSkpCiAgICAgICAgYXNzZXJ0VHJ1ZShvdXRzaWRlLmV4aXN0cygpKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gZGlyTmFtZXNSb3VuZFRyaXAoKSB7CiAgICAgICAgYXNzZXJ0RXF1YWxzKGV4cGVjdGVkLCBSZWdpc3RyeURvd25sb2FkU3RvcmUuZXhwZWN0ZWRGcm9tRGlyTmFtZShSZWdpc3RyeURvd25sb2FkU3RvcmUuZGlyTmFtZUZvcihleHBlY3RlZCkpKQogICAgICAgIGFzc2VydEVxdWFscygKICAgICAgICAgICAgUmVnaXN0cnlEb3dubG9hZFN0b3JlLmRpck5hbWVGb3IoZXhwZWN0ZWQpLAogICAgICAgICAgICBSZWdpc3RyeURvd25sb2FkU3RvcmUuZGlyTmFtZUZvcihFeHBlY3RlZEZpbGUoZXhwZWN0ZWQuc2l6ZSwgc2hhLnVwcGVyY2FzZSgpKSkKICAgICAgICApCiAgICAgICAgZm9yIChiYWQgaW4gbGlzdE9mKCIiLCAieCIsICIkc2hhLTAiLCAiJHNoYS0iLCAiJHtzaGEudXBwZXJjYXNlKCl9LTEiLCAiJHNoYS0xLTIiLCAiJHtzaGEuZHJvcExhc3QoMSl9LTEiLCAiJHNoYS05OTk5OTk5OTk5OTk5OTk5OTk5OSIpKSB7CiAgICAgICAgICAgIGFzc2VydE51bGwoYmFkLCBSZWdpc3RyeURvd25sb2FkU3RvcmUuZXhwZWN0ZWRGcm9tRGlyTmFtZShiYWQpKQogICAgICAgIH0KICAgICAgICBhc3NlcnRFcXVhbHMoIm1vZHVsZS56aXAiLCBSZWdpc3RyeURvd25sb2FkU3RvcmUuc2FuaXRpemVGaWxlTmFtZSgiLi4vLi4iKSkKICAgICAgICBhc3NlcnRFcXVhbHMoImV2aWwuemlwIiwgUmVnaXN0cnlEb3dubG9hZFN0b3JlLnNhbml0aXplRmlsZU5hbWUoImEvYi8uLi9ldmlsLnppcCIpKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gY2xlYW51cFJlbW92ZXNPbGRFbnRyaWVzQW5kU3RyYXlGaWxlcygpIHsKICAgICAgICB2YWwgcm9vdCA9IHJvb3QoKQogICAgICAgIHZhbCBzdG9yZWQgPSBSZWdpc3RyeURvd25sb2FkU3RvcmUuZG93bmxvYWQoQnl0ZUFycmF5SW5wdXRTdHJlYW0oZGF0YSksIHJvb3QsIGV4cGVjdGVkLCAibS56aXAiKQogICAgICAgIEZpbGUocm9vdCwgInN0cmF5LnR4dCIpLndyaXRlVGV4dCgieCIpCiAgICAgICAgUmVnaXN0cnlEb3dubG9hZFN0b3JlLmNsZWFudXAocm9vdCwgbWF4QWdlTWlsbGlzID0gNjBfMDAwLCBub3cgPSBzdG9yZWQubGFzdE1vZGlmaWVkKCkgKyAxXzAwMCkKICAgICAgICBhc3NlcnRFcXVhbHMobGlzdE9mKCIke3N0b3JlZC5wYXJlbnRGaWxlISEubmFtZX0vbS56aXAiLCAic3RyYXkudHh0IiksIGxpc3Rpbmcocm9vdCkpCiAgICAgICAgUmVnaXN0cnlEb3dubG9hZFN0b3JlLmNsZWFudXAocm9vdCwgbWF4QWdlTWlsbGlzID0gNjBfMDAwLCBub3cgPSBzdG9yZWQubGFzdE1vZGlmaWVkKCkgKyAxMjBfMDAwKQogICAgICAgIGFzc2VydEVxdWFscygwLCByb290Lmxpc3QoKSEhLnNpemUpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biBjbGVhbnVwS2VlcHNGcmVzaERpcmVjdG9yaWVzT2ZDb25jdXJyZW50RG93bmxvYWRzKCkgewogICAgICAgIHZhbCByb290ID0gcm9vdCgpCiAgICAgICAgLy8gSnVzdCBjcmVhdGVkIGJ5IGEgY29uY3VycmVudCBkb3dubG9hZCwgYmVmb3JlIChvciB3aGlsZSkgaXQgd3JpdGVzIGl0cyAucGFydCBmaWxlLgogICAgICAgIHZhbCBlbXB0eSA9IEZpbGUocm9vdCwgUmVnaXN0cnlEb3dubG9hZFN0b3JlLmRpck5hbWVGb3IoZXhwZWN0ZWQpKS5hcHBseSB7IG1rZGlycygpIH0KICAgICAgICB2YWwgb3RoZXIgPSBFeHBlY3RlZEZpbGUoZXhwZWN0ZWQuc2l6ZSwgImIiLnJlcGVhdCg2NCkpCiAgICAgICAgdmFsIHBhcnRpYWwgPSBGaWxlKHJvb3QsIFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5kaXJOYW1lRm9yKG90aGVyKSkuYXBwbHkgeyBta2RpcnMoKSB9CiAgICAgICAgdmFsIHBhcnQgPSBGaWxlLmNyZWF0ZVRlbXBGaWxlKCJkbC0iLCAiLnBhcnQiLCBwYXJ0aWFsKQogICAgICAgIHZhbCBub3cgPSBtYXhPZihlbXB0eS5sYXN0TW9kaWZpZWQoKSwgcGFydGlhbC5sYXN0TW9kaWZpZWQoKSwgcGFydC5sYXN0TW9kaWZpZWQoKSkKCiAgICAgICAgUmVnaXN0cnlEb3dubG9hZFN0b3JlLmNsZWFudXAocm9vdCwgbWF4QWdlTWlsbGlzID0gNjBfMDAwLCBub3cgPSBub3cgKyAxXzAwMCkKICAgICAgICBhc3NlcnRUcnVlKGVtcHR5LmlzRGlyZWN0b3J5KQogICAgICAgIGFzc2VydFRydWUocGFydC5pc0ZpbGUpCgogICAgICAgIFJlZ2lzdHJ5RG93bmxvYWRTdG9yZS5jbGVhbnVwKHJvb3QsIG1heEFnZU1pbGxpcyA9IDYwXzAwMCwgbm93ID0gbm93ICsgMTIwXzAwMCkKICAgICAgICBhc3NlcnRFcXVhbHMoMCwgcm9vdC5saXN0KCkhIS5zaXplKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gdmVyaWZpZWRBbmRVbnZlcmlmaWVkRG93bmxvYWRzQXJlTmV2ZXJTaGFyZWQoKSB7CiAgICAgICAgdmFsIHVybCA9ICJodHRwczovL2dpdGh1Yi5jb20vby9yL3JlbGVhc2VzL2Rvd25sb2FkL3YxL20uemlwIgogICAgICAgIGFzc2VydFRydWUoY2FuU2hhcmVEb3dubG9hZCh1cmwsIG51bGwsIHVybCwgbnVsbCkpCiAgICAgICAgYXNzZXJ0VHJ1ZShjYW5TaGFyZURvd25sb2FkKHVybCwgZXhwZWN0ZWQsIHVybCwgRXhwZWN0ZWRGaWxlKGV4cGVjdGVkLnNpemUsIHNoYS51cHBlcmNhc2UoKSkpKQogICAgICAgIGFzc2VydEZhbHNlKGNhblNoYXJlRG93bmxvYWQodXJsLCBleHBlY3RlZCwgdXJsLCBudWxsKSkKICAgICAgICBhc3NlcnRGYWxzZShjYW5TaGFyZURvd25sb2FkKHVybCwgbnVsbCwgdXJsLCBleHBlY3RlZCkpCiAgICAgICAgYXNzZXJ0RmFsc2UoY2FuU2hhcmVEb3dubG9hZCh1cmwsIGV4cGVjdGVkLCB1cmwsIEV4cGVjdGVkRmlsZShleHBlY3RlZC5zaXplICsgMSwgc2hhKSkpCiAgICAgICAgYXNzZXJ0RmFsc2UoY2FuU2hhcmVEb3dubG9hZCh1cmwsIGV4cGVjdGVkLCB1cmwsIEV4cGVjdGVkRmlsZShleHBlY3RlZC5zaXplLCAiYiIucmVwZWF0KDY0KSkpKQogICAgICAgIGFzc2VydEZhbHNlKGNhblNoYXJlRG93bmxvYWQodXJsLCBleHBlY3RlZCwgIiR1cmw/eCIsIGV4cGVjdGVkKSkKICAgIH0KfQo=
+package com.xinsu.moe.data.registry
+
+import org.junit.Assert.assertArrayEquals
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertThrows
+import org.junit.Assert.assertTrue
+import org.junit.Rule
+import org.junit.Test
+import org.junit.rules.TemporaryFolder
+import java.io.ByteArrayInputStream
+import java.io.File
+import java.io.IOException
+import java.io.InputStream
+import java.security.MessageDigest
+
+class DownloadStoreTest {
+
+    @get:Rule
+    val tmp = TemporaryFolder()
+
+    private val data = ByteArray(50_000) { (it * 31 % 253).toByte() }
+    private val sha = MessageDigest.getInstance("SHA-256").digest(data).joinToString("") { "%02x".format(it) }
+    private val expected = ExpectedFile(data.size.toLong(), sha)
+
+    private fun root() = tmp.newFolder("registry_downloads")
+
+    /** Everything under [dir], recursively, as relative paths. */
+    private fun listing(dir: File): List<String> =
+        dir.walkTopDown().filter { it.isFile }.map { it.relativeTo(dir).path }.sorted().toList()
+
+    @Test
+    fun verifiedDownloadIsStoredUnderItsExpectation() {
+        val root = root()
+        var progress = 0L
+        val file = RegistryDownloadStore.download(ByteArrayInputStream(data), root, expected, "My Module (v1).zip", { progress = it })
+        assertEquals(data.size.toLong(), progress)
+        assertArrayEquals(data, file.readBytes())
+        assertEquals("My_Module__v1_.zip", file.name)
+        assertEquals(RegistryDownloadStore.dirNameFor(expected), file.parentFile!!.name)
+        assertEquals(expected, RegistryDownloadStore.expectedFor(root, file))
+        assertEquals(listOf("${RegistryDownloadStore.dirNameFor(expected)}/My_Module__v1_.zip"), listing(root))
+    }
+
+    @Test
+    fun hashMismatchDeletesEverything() {
+        val root = root()
+        val tampered = data.copyOf().also { it[100] = (it[100] + 1).toByte() }
+        val e = assertThrows(DownloadVerificationException::class.java) {
+            RegistryDownloadStore.download(ByteArrayInputStream(tampered), root, expected, "m.zip")
+        }
+        assertEquals(DownloadVerificationException.Reason.SHA256_MISMATCH, e.reason)
+        assertEquals(emptyList<String>(), listing(root))
+        assertEquals(0, root.list()!!.size)
+    }
+
+    @Test
+    fun oversizedAndTruncatedDownloadsAreDeleted() {
+        val root = root()
+        val big = assertThrows(DownloadVerificationException::class.java) {
+            RegistryDownloadStore.download(ByteArrayInputStream(data + byteArrayOf(1)), root, expected, "m.zip")
+        }
+        assertEquals(DownloadVerificationException.Reason.SIZE_MISMATCH, big.reason)
+        val small = assertThrows(DownloadVerificationException::class.java) {
+            RegistryDownloadStore.download(ByteArrayInputStream(data.copyOf(10)), root, expected, "m.zip")
+        }
+        assertEquals(DownloadVerificationException.Reason.SIZE_MISMATCH, small.reason)
+        assertEquals(emptyList<String>(), listing(root))
+    }
+
+    @Test
+    fun networkErrorAndCancellationDeletePartialFile() {
+        val root = root()
+        val failing = object : InputStream() {
+            var n = 0
+            override fun read(): Int = throw IOException("reset")
+            override fun read(b: ByteArray, off: Int, len: Int): Int {
+                if (n++ > 2) throw IOException("connection reset")
+                b[off] = data[n]
+                return 1
+            }
+        }
+        assertThrows(IOException::class.java) { RegistryDownloadStore.download(failing, root, expected, "m.zip") }
+        var calls = 0
+        assertThrows(IllegalStateException::class.java) {
+            RegistryDownloadStore.download(ByteArrayInputStream(data), root, expected, "m.zip", checkActive = {
+                if (++calls > 2) throw IllegalStateException("cancelled")
+            })
+        }
+        assertEquals(emptyList<String>(), listing(root))
+    }
+
+    @Test
+    fun reHashBeforeFlashAcceptsExactBytes() {
+        val stored = RegistryDownloadStore.download(ByteArrayInputStream(data), root(), expected, "m.zip")
+        val dest = tmp.newFile("install.zip")
+        stored.inputStream().use { copyForInstall(it, dest, expected) }
+        assertArrayEquals(data, dest.readBytes())
+    }
+
+    @Test
+    fun reHashBeforeFlashRejectsModifiedFileAndDeletesCopy() {
+        val root = root()
+        val stored = RegistryDownloadStore.download(ByteArrayInputStream(data), root, expected, "m.zip")
+        // Same size, different content: modified after the download was verified.
+        stored.writeBytes(data.copyOf().also { it[0] = (it[0] + 1).toByte() })
+        val dest = File(tmp.root, "install.zip")
+        val e = assertThrows(DownloadVerificationException::class.java) {
+            stored.inputStream().use { copyForInstall(it, dest, RegistryDownloadStore.expectedFor(root, stored)) }
+        }
+        assertEquals(DownloadVerificationException.Reason.SHA256_MISMATCH, e.reason)
+        assertFalse(dest.exists())
+
+        stored.writeBytes(data + byteArrayOf(0))
+        val sizeError = assertThrows(DownloadVerificationException::class.java) { verifyFile(stored, expected) }
+        assertEquals(DownloadVerificationException.Reason.SIZE_MISMATCH, sizeError.reason)
+        assertTrue(RegistryDownloadStore.delete(root, stored))
+        assertEquals(emptyList<String>(), listing(root))
+    }
+
+    @Test
+    fun unverifiedInstallJustCopies() {
+        val dest = File(tmp.root, "plain.zip")
+        copyForInstall(ByteArrayInputStream(byteArrayOf(1, 2, 3)), dest, null)
+        assertArrayEquals(byteArrayOf(1, 2, 3), dest.readBytes())
+    }
+
+    @Test
+    fun onlyFilesInsideTheStoreCarryAnExpectation() {
+        val root = root()
+        val stored = RegistryDownloadStore.download(ByteArrayInputStream(data), root, expected, "m.zip")
+        val outside = File(tmp.newFolder(RegistryDownloadStore.dirNameFor(expected)), "m.zip").apply { writeBytes(data) }
+        assertNull(RegistryDownloadStore.expectedFor(root, outside))
+        assertNull(RegistryDownloadStore.expectedFor(root, File(root, "m.zip")))
+        assertNull(RegistryDownloadStore.expectedFor(root, File(File(root, "not-a-hash"), "m.zip")))
+        // Path tricks resolve to the canonical location first.
+        val dotted = File(root, "${stored.parentFile!!.name}/../${stored.parentFile!!.name}/m.zip")
+        assertEquals(expected, RegistryDownloadStore.expectedFor(root, dotted))
+        assertNull(RegistryDownloadStore.expectedFor(root, File(root, "${stored.parentFile!!.name}/../../x/m.zip")))
+        assertFalse(RegistryDownloadStore.delete(root, outside))
+        assertTrue(outside.exists())
+    }
+
+    @Test
+    fun dirNamesRoundTrip() {
+        assertEquals(expected, RegistryDownloadStore.expectedFromDirName(RegistryDownloadStore.dirNameFor(expected)))
+        assertEquals(
+            RegistryDownloadStore.dirNameFor(expected),
+            RegistryDownloadStore.dirNameFor(ExpectedFile(expected.size, sha.uppercase()))
+        )
+        for (bad in listOf("", "x", "$sha-0", "$sha-", "${sha.uppercase()}-1", "$sha-1-2", "${sha.dropLast(1)}-1", "$sha-99999999999999999999")) {
+            assertNull(bad, RegistryDownloadStore.expectedFromDirName(bad))
+        }
+        assertEquals("module.zip", RegistryDownloadStore.sanitizeFileName("../.."))
+        assertEquals("evil.zip", RegistryDownloadStore.sanitizeFileName("a/b/../evil.zip"))
+    }
+
+    @Test
+    fun cleanupRemovesOldEntriesAndStrayFiles() {
+        val root = root()
+        val stored = RegistryDownloadStore.download(ByteArrayInputStream(data), root, expected, "m.zip")
+        File(root, "stray.txt").writeText("x")
+        RegistryDownloadStore.cleanup(root, maxAgeMillis = 60_000, now = stored.lastModified() + 1_000)
+        assertEquals(listOf("${stored.parentFile!!.name}/m.zip", "stray.txt"), listing(root))
+        RegistryDownloadStore.cleanup(root, maxAgeMillis = 60_000, now = stored.lastModified() + 120_000)
+        assertEquals(0, root.list()!!.size)
+    }
+
+    @Test
+    fun cleanupKeepsFreshDirectoriesOfConcurrentDownloads() {
+        val root = root()
+        // Just created by a concurrent download, before (or while) it writes its .part file.
+        val empty = File(root, RegistryDownloadStore.dirNameFor(expected)).apply { mkdirs() }
+        val other = ExpectedFile(expected.size, "b".repeat(64))
+        val partial = File(root, RegistryDownloadStore.dirNameFor(other)).apply { mkdirs() }
+        val part = File.createTempFile("dl-", ".part", partial)
+        val now = maxOf(empty.lastModified(), partial.lastModified(), part.lastModified())
+
+        RegistryDownloadStore.cleanup(root, maxAgeMillis = 60_000, now = now + 1_000)
+        assertTrue(empty.isDirectory)
+        assertTrue(part.isFile)
+
+        RegistryDownloadStore.cleanup(root, maxAgeMillis = 60_000, now = now + 120_000)
+        assertEquals(0, root.list()!!.size)
+    }
+
+    @Test
+    fun verifiedAndUnverifiedDownloadsAreNeverShared() {
+        val url = "https://github.com/o/r/releases/download/v1/m.zip"
+        assertTrue(canShareDownload(url, null, url, null))
+        assertTrue(canShareDownload(url, expected, url, ExpectedFile(expected.size, sha.uppercase())))
+        assertFalse(canShareDownload(url, expected, url, null))
+        assertFalse(canShareDownload(url, null, url, expected))
+        assertFalse(canShareDownload(url, expected, url, ExpectedFile(expected.size + 1, sha)))
+        assertFalse(canShareDownload(url, expected, url, ExpectedFile(expected.size, "b".repeat(64))))
+        assertFalse(canShareDownload(url, expected, "$url?x", expected))
+    }
+}

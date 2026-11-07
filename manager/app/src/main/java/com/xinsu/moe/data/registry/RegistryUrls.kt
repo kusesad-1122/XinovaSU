@@ -1,1 +1,141 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBqYXZhLm5ldC5VUkkKaW1wb3J0IGphdmEubmV0LlVSTERlY29kZXIKCm9iamVjdCBSZWdpc3RyeVVybHMgewoKICAgIC8qKiBTaXRlIHJvb3Qgb2YgS2VybmVsU1UgTW9kdWxlcy4gQWxsIEFQSSBwYXRocyBhcmUgcmVzb2x2ZWQgYWdhaW5zdCBpdC4gKi8KICAgIGNvbnN0IHZhbCBERUZBVUxUX0JBU0VfVVJMID0gImh0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvIgoKICAgIGNvbnN0IHZhbCBJTkRFWF9QQVRIID0gImFwaS92MS9pbmRleC5qc29uIgoKICAgIC8qKiBIb3N0cyBhIHJlbGVhc2UgZG93bmxvYWQgbWF5IGJlIHNlcnZlZCBmcm9tIChnaXRodWIuY29tIHJlZGlyZWN0cyB0byB0aGVzZSkuICovCiAgICB2YWwgRE9XTkxPQURfSE9TVFM6IFNldDxTdHJpbmc+ID0gc2V0T2YoCiAgICAgICAgImdpdGh1Yi5jb20iLAogICAgICAgICJvYmplY3RzLmdpdGh1YnVzZXJjb250ZW50LmNvbSIsCiAgICAgICAgInJlbGVhc2UtYXNzZXRzLmdpdGh1YnVzZXJjb250ZW50LmNvbSIsCiAgICApCgogICAgcHJpdmF0ZSB2YWwgQVBJX1BBVEggPSBSZWdleCgiXltBLVphLXowLTkuX1xcLS9dKyQiKQogICAgcHJpdmF0ZSB2YWwgUkVQT19QQVJUID0gUmVnZXgoIl5bQS1aYS16MC05Ll8tXSskIikKCiAgICAvKiogRW5zdXJlcyBhbiBodHRwcyBiYXNlIFVSTCBlbmRpbmcgd2l0aCAnLycuICovCiAgICBmdW4gbm9ybWFsaXplQmFzZVVybChiYXNlVXJsOiBTdHJpbmcpOiBTdHJpbmcgewogICAgICAgIHZhbCB0cmltbWVkID0gYmFzZVVybC50cmltKCkKICAgICAgICB2YWwgdXJpID0gcnVuQ2F0Y2hpbmcgeyBVUkkodHJpbW1lZCkgfS5nZXRPck51bGwoKQogICAgICAgIHJlcXVpcmUodXJpICE9IG51bGwgJiYgdXJpLnNjaGVtZS5lcXVhbHMoImh0dHBzIiwgaWdub3JlQ2FzZSA9IHRydWUpICYmICF1cmkuaG9zdC5pc051bGxPckVtcHR5KCkpIHsKICAgICAgICAgICAgIlJlZ2lzdHJ5IGJhc2UgVVJMIG11c3QgYmUgYW4gaHR0cHMgVVJMOiAkYmFzZVVybCIKICAgICAgICB9CiAgICAgICAgcmV0dXJuIGlmICh0cmltbWVkLmVuZHNXaXRoKCIvIikpIHRyaW1tZWQgZWxzZSAiJHRyaW1tZWQvIgogICAgfQoKICAgIC8qKiBTYW1lIHJ1bGUgYXMgYEFwaVBhdGhgIGluIGFwaS50czogcmVsYXRpdmUsIG5vICIuLiIsIHJlc3RyaWN0ZWQgY2hhcnNldC4gKi8KICAgIGZ1biBpc1ZhbGlkQXBpUGF0aChwYXRoOiBTdHJpbmcpOiBCb29sZWFuID0KICAgICAgICBwYXRoLmlzTm90RW1wdHkoKSAmJiBBUElfUEFUSC5tYXRjaGVzKHBhdGgpICYmICFwYXRoLnN0YXJ0c1dpdGgoIi8iKSAmJiAhcGF0aC5jb250YWlucygiLi4iKQoKICAgIC8qKiBSZXNvbHZlcyBhIGRvY3VtZW50IHBhdGggYWdhaW5zdCB0aGUgc2l0ZSByb290LiBUaHJvd3Mgb24gdW5zYWZlIHBhdGhzLiAqLwogICAgZnVuIHJlc29sdmUoYmFzZVVybDogU3RyaW5nLCBwYXRoOiBTdHJpbmcpOiBTdHJpbmcgewogICAgICAgIGlmICghaXNWYWxpZEFwaVBhdGgocGF0aCkpIHRocm93IFJlZ2lzdHJ5Rm9ybWF0RXhjZXB0aW9uKCJJbnZhbGlkIHBhdGggaW4gcmVnaXN0cnkgZG9jdW1lbnQ6ICRwYXRoIikKICAgICAgICByZXR1cm4gbm9ybWFsaXplQmFzZVVybChiYXNlVXJsKSArIHBhdGgKICAgIH0KCiAgICBmdW4gaG9zdE9mKHVybDogU3RyaW5nKTogU3RyaW5nPyA9IHJ1bkNhdGNoaW5nIHsgVVJJKHVybCkuaG9zdD8ubG93ZXJjYXNlKCkgfS5nZXRPck51bGwoKQoKICAgIC8qKiBBbiBhYnNvbHV0ZSBodHRwcyBVUkwgd2l0aCBhbiBBU0NJSSBob3N0IGFuZCBubyB1c2VyIGluZm8gKHNhZmUgdG8gaGFuZCB0byBhIGJyb3dzZXIpLiAqLwogICAgZnVuIGlzSHR0cHNVcmwodXJsOiBTdHJpbmcpOiBCb29sZWFuIHsKICAgICAgICB2YWwgdXJpID0gcnVuQ2F0Y2hpbmcgeyBVUkkodXJsKSB9LmdldE9yTnVsbCgpID86IHJldHVybiBmYWxzZQogICAgICAgIHJldHVybiB1cmkuaXNBYnNvbHV0ZSAmJiAhdXJpLmlzT3BhcXVlICYmCiAgICAgICAgICAgIHVyaS5zY2hlbWUuZXF1YWxzKCJodHRwcyIsIGlnbm9yZUNhc2UgPSB0cnVlKSAmJgogICAgICAgICAgICAhdXJpLmhvc3QuaXNOdWxsT3JFbXB0eSgpICYmIHVyaS5yYXdVc2VySW5mbyA9PSBudWxsCiAgICB9CgogICAgLyoqIEFuIGFic29sdXRlIGh0dHAocykgVVJMIHdpdGggYSBob3N0IGFuZCBubyB1c2VyIGluZm8gKGhvbWVwYWdlIC8gc3VwcG9ydCBsaW5rcykuICovCiAgICBmdW4gaXNXZWJVcmwodXJsOiBTdHJpbmcpOiBCb29sZWFuIHsKICAgICAgICB2YWwgdXJpID0gcnVuQ2F0Y2hpbmcgeyBVUkkodXJsKSB9LmdldE9yTnVsbCgpID86IHJldHVybiBmYWxzZQogICAgICAgIHJldHVybiB1cmkuaXNBYnNvbHV0ZSAmJiAhdXJpLmlzT3BhcXVlICYmCiAgICAgICAgICAgICh1cmkuc2NoZW1lLmVxdWFscygiaHR0cHMiLCBpZ25vcmVDYXNlID0gdHJ1ZSkgfHwgdXJpLnNjaGVtZS5lcXVhbHMoImh0dHAiLCBpZ25vcmVDYXNlID0gdHJ1ZSkpICYmCiAgICAgICAgICAgICF1cmkuaG9zdC5pc051bGxPckVtcHR5KCkgJiYgdXJpLnJhd1VzZXJJbmZvID09IG51bGwKICAgIH0KCiAgICAvKiogQSBsaW5rIHRvIGEgYCNmcmFnbWVudGAgb2YgdGhlIGRvY3VtZW50IHRoYXQgd2FzIGxvYWRlZCB3aXRoIFtkb2N1bWVudFVybF0gYXMgaXRzIFVSTC4gKi8KICAgIGZ1biBpc0luUGFnZUFuY2hvcih1cmw6IFN0cmluZywgZG9jdW1lbnRVcmw6IFN0cmluZyk6IEJvb2xlYW4gewogICAgICAgIHZhbCBoYXNoID0gdXJsLmluZGV4T2YoJyMnKQogICAgICAgIGlmIChoYXNoIDw9IDAgfHwgaGFzaCA9PSB1cmwubGVuZ3RoIC0gMSkgcmV0dXJuIGZhbHNlCiAgICAgICAgcmV0dXJuIHVybC5zdWJzdHJpbmcoMCwgaGFzaCkgPT0gZG9jdW1lbnRVcmwKICAgIH0KCiAgICAvKiogUG9ydCB3aXRoIHRoZSBzY2hlbWUgZGVmYXVsdCBmaWxsZWQgaW4sIG9yIC0xIGZvciB1bmtub3duIHNjaGVtZXMuICovCiAgICBmdW4gZWZmZWN0aXZlUG9ydCh1cmk6IFVSSSk6IEludCA9IHdoZW4gewogICAgICAgIHVyaS5wb3J0ICE9IC0xIC0+IHVyaS5wb3J0CiAgICAgICAgdXJpLnNjaGVtZS5lcXVhbHMoImh0dHBzIiwgaWdub3JlQ2FzZSA9IHRydWUpIC0+IDQ0MwogICAgICAgIHVyaS5zY2hlbWUuZXF1YWxzKCJodHRwIiwgaWdub3JlQ2FzZSA9IHRydWUpIC0+IDgwCiAgICAgICAgZWxzZSAtPiAtMQogICAgfQoKICAgIC8qKgogICAgICogU2FtZSBvcmlnaW46IHNjaGVtZSwgaG9zdCBhbmQgKGVmZmVjdGl2ZSkgcG9ydCBhcmUgZXF1YWwuIEhvc3RzIGFyZSBjb21wYXJlZCBhcyB3cml0dGVuCiAgICAgKiBpbiBBU0NJSTsgYSBub24tQVNDSUkgKElETikgaG9zdCBkb2VzIG5vdCBwYXJzZSBhcyBhIHNlcnZlciBhdXRob3JpdHkgYW5kIG5ldmVyIG1hdGNoZXMsCiAgICAgKiBhbmQgYSBwdW55Y29kZSBob3N0IG9ubHkgbWF0Y2hlcyB0aGUgaWRlbnRpY2FsIHB1bnljb2RlIGhvc3QuCiAgICAgKi8KICAgIGZ1biBpc1NhbWVPcmlnaW4odXJsOiBTdHJpbmcsIG9yaWdpbjogU3RyaW5nKTogQm9vbGVhbiB7CiAgICAgICAgdmFsIGEgPSBydW5DYXRjaGluZyB7IFVSSSh1cmwpIH0uZ2V0T3JOdWxsKCkgPzogcmV0dXJuIGZhbHNlCiAgICAgICAgdmFsIGIgPSBydW5DYXRjaGluZyB7IFVSSShvcmlnaW4pIH0uZ2V0T3JOdWxsKCkgPzogcmV0dXJuIGZhbHNlCiAgICAgICAgdmFsIGhvc3RBID0gYS5ob3N0ID86IHJldHVybiBmYWxzZQogICAgICAgIHZhbCBob3N0QiA9IGIuaG9zdCA/OiByZXR1cm4gZmFsc2UKICAgICAgICBpZiAoYS5zY2hlbWUgPT0gbnVsbCB8fCBiLnNjaGVtZSA9PSBudWxsKSByZXR1cm4gZmFsc2UKICAgICAgICByZXR1cm4gYS5zY2hlbWUuZXF1YWxzKGIuc2NoZW1lLCBpZ25vcmVDYXNlID0gdHJ1ZSkgJiYKICAgICAgICAgICAgaG9zdEEuZXF1YWxzKGhvc3RCLCBpZ25vcmVDYXNlID0gdHJ1ZSkgJiYKICAgICAgICAgICAgZWZmZWN0aXZlUG9ydChhKSAhPSAtMSAmJgogICAgICAgICAgICBlZmZlY3RpdmVQb3J0KGEpID09IGVmZmVjdGl2ZVBvcnQoYikKICAgIH0KCiAgICAvKioKICAgICAqIFN1Yi1yZXNvdXJjZSBydWxlIG9mIHRoZSByZXN0cmljdGVkIChyZWdpc3RyeSkgcmVuZGVyZXI6IGh0dHBzIEdFVCBmcm9tIHRoZSByZWdpc3RyeQogICAgICogb3JpZ2luIG9ubHkuIEFwcGxpZWQgdG8gdGhlIHJlcXVlc3QgYW5kIHRvIGV2ZXJ5IHJlZGlyZWN0IGhvcCwgc28gYSBzYW1lLW9yaWdpbiBVUkwgY2FuCiAgICAgKiBub3QgcmVkaXJlY3QgdG8gYW5vdGhlciBob3N0LgogICAgICovCiAgICBmdW4gaXNBbGxvd2VkUmVzdHJpY3RlZFJlc291cmNlKHVybDogU3RyaW5nLCByZWdpc3RyeU9yaWdpbjogU3RyaW5nKTogQm9vbGVhbiB7CiAgICAgICAgdmFsIHVyaSA9IHJ1bkNhdGNoaW5nIHsgVVJJKHVybCkgfS5nZXRPck51bGwoKSA/OiByZXR1cm4gZmFsc2UKICAgICAgICBpZiAoIXVyaS5zY2hlbWUuZXF1YWxzKCJodHRwcyIsIGlnbm9yZUNhc2UgPSB0cnVlKSB8fCB1cmkucmF3VXNlckluZm8gIT0gbnVsbCkgcmV0dXJuIGZhbHNlCiAgICAgICAgcmV0dXJuIGlzU2FtZU9yaWdpbih1cmwsIHJlZ2lzdHJ5T3JpZ2luKQogICAgfQoKICAgIHByaXZhdGUgZnVuIGRlY29kZVNlZ21lbnQoczogU3RyaW5nKTogU3RyaW5nPyA9CiAgICAgICAgcnVuQ2F0Y2hpbmcgeyBVUkxEZWNvZGVyLmRlY29kZShzLnJlcGxhY2UoIisiLCAiJTJCIiksICJVVEYtOCIpIH0uZ2V0T3JOdWxsKCkKCiAgICAvKiogT25seSBgaHR0cHM6Ly9naXRodWIuY29tLzxvd25lcj4vPHJlcG8+L3JlbGVhc2VzL2Rvd25sb2FkLzx0YWc+LzxmaWxlPmAgaXMgYWNjZXB0ZWQuICovCiAgICBmdW4gaXNBbGxvd2VkUmVsZWFzZURvd25sb2FkVXJsKHVybDogU3RyaW5nKTogQm9vbGVhbiB7CiAgICAgICAgdmFsIHVyaSA9IHJ1bkNhdGNoaW5nIHsgVVJJKHVybCkgfS5nZXRPck51bGwoKSA/OiByZXR1cm4gZmFsc2UKICAgICAgICBpZiAoIXVyaS5pc0Fic29sdXRlIHx8IHVyaS5pc09wYXF1ZSkgcmV0dXJuIGZhbHNlCiAgICAgICAgaWYgKCF1cmkuc2NoZW1lLmVxdWFscygiaHR0cHMiLCBpZ25vcmVDYXNlID0gdHJ1ZSkpIHJldHVybiBmYWxzZQogICAgICAgIGlmICghdXJpLmhvc3QuZXF1YWxzKCJnaXRodWIuY29tIiwgaWdub3JlQ2FzZSA9IHRydWUpKSByZXR1cm4gZmFsc2UKICAgICAgICBpZiAodXJpLnBvcnQgIT0gLTEgJiYgdXJpLnBvcnQgIT0gNDQzKSByZXR1cm4gZmFsc2UKICAgICAgICBpZiAodXJpLnJhd1VzZXJJbmZvICE9IG51bGwgfHwgdXJpLnJhd1F1ZXJ5ICE9IG51bGwgfHwgdXJpLnJhd0ZyYWdtZW50ICE9IG51bGwpIHJldHVybiBmYWxzZQogICAgICAgIHZhbCByYXdQYXRoID0gdXJpLnJhd1BhdGggPzogcmV0dXJuIGZhbHNlCiAgICAgICAgaWYgKCFyYXdQYXRoLnN0YXJ0c1dpdGgoIi8iKSkgcmV0dXJuIGZhbHNlCiAgICAgICAgdmFsIHNlZ21lbnRzID0gcmF3UGF0aC5zdWJzdHJpbmcoMSkuc3BsaXQoJy8nKQogICAgICAgIGlmIChzZWdtZW50cy5zaXplIDwgNikgcmV0dXJuIGZhbHNlCiAgICAgICAgZm9yIChyYXcgaW4gc2VnbWVudHMpIHsKICAgICAgICAgICAgdmFsIGRlY29kZWQgPSBkZWNvZGVTZWdtZW50KHJhdykgPzogcmV0dXJuIGZhbHNlCiAgICAgICAgICAgIGlmIChkZWNvZGVkLmlzRW1wdHkoKSB8fCBkZWNvZGVkID09ICIuIiB8fCBkZWNvZGVkID09ICIuLiIgfHwKICAgICAgICAgICAgICAgIGRlY29kZWQuY29udGFpbnMoJy8nKSB8fCBkZWNvZGVkLmNvbnRhaW5zKCdcXCcpCiAgICAgICAgICAgICkgcmV0dXJuIGZhbHNlCiAgICAgICAgfQogICAgICAgIHZhbCBvd25lciA9IHNlZ21lbnRzWzBdCiAgICAgICAgdmFsIHJlcG8gPSBzZWdtZW50c1sxXQogICAgICAgIGlmICghUkVQT19QQVJULm1hdGNoZXMob3duZXIpIHx8ICFSRVBPX1BBUlQubWF0Y2hlcyhyZXBvKSkgcmV0dXJuIGZhbHNlCiAgICAgICAgaWYgKHNlZ21lbnRzWzJdICE9ICJyZWxlYXNlcyIgfHwgc2VnbWVudHNbM10gIT0gImRvd25sb2FkIikgcmV0dXJuIGZhbHNlCiAgICAgICAgcmV0dXJuIHRydWUKICAgIH0KCiAgICAvKiogQ2hlY2tzIG9uZSBob3Agb2YgYSBkb3dubG9hZCAodGhlIGluaXRpYWwgcmVxdWVzdCBvciBhbnkgcmVkaXJlY3QgdGFyZ2V0KS4gKi8KICAgIGZ1biBpc0FsbG93ZWREb3dubG9hZEhvcCh1cmw6IFN0cmluZyk6IEJvb2xlYW4gewogICAgICAgIHZhbCB1cmkgPSBydW5DYXRjaGluZyB7IFVSSSh1cmwpIH0uZ2V0T3JOdWxsKCkgPzogcmV0dXJuIGZhbHNlCiAgICAgICAgaWYgKCF1cmkuc2NoZW1lLmVxdWFscygiaHR0cHMiLCBpZ25vcmVDYXNlID0gdHJ1ZSkpIHJldHVybiBmYWxzZQogICAgICAgIHZhbCBob3N0ID0gdXJpLmhvc3Q/Lmxvd2VyY2FzZSgpID86IHJldHVybiBmYWxzZQogICAgICAgIGlmICh1cmkucG9ydCAhPSAtMSAmJiB1cmkucG9ydCAhPSA0NDMpIHJldHVybiBmYWxzZQogICAgICAgIGlmICh1cmkucmF3VXNlckluZm8gIT0gbnVsbCkgcmV0dXJuIGZhbHNlCiAgICAgICAgcmV0dXJuIGhvc3QgaW4gRE9XTkxPQURfSE9TVFMKICAgIH0KfQo=
+package com.xinsu.moe.data.registry
+
+import java.net.URI
+import java.net.URLDecoder
+
+object RegistryUrls {
+
+    /** Site root of KernelSU Modules. All API paths are resolved against it. */
+    const val DEFAULT_BASE_URL = "https://modules.kernelsu.org/"
+
+    const val INDEX_PATH = "api/v1/index.json"
+
+    /** Hosts a release download may be served from (github.com redirects to these). */
+    val DOWNLOAD_HOSTS: Set<String> = setOf(
+        "github.com",
+        "objects.githubusercontent.com",
+        "release-assets.githubusercontent.com",
+    )
+
+    private val API_PATH = Regex("^[A-Za-z0-9._\\-/]+$")
+    private val REPO_PART = Regex("^[A-Za-z0-9._-]+$")
+
+    /** Ensures an https base URL ending with '/'. */
+    fun normalizeBaseUrl(baseUrl: String): String {
+        val trimmed = baseUrl.trim()
+        val uri = runCatching { URI(trimmed) }.getOrNull()
+        require(uri != null && uri.scheme.equals("https", ignoreCase = true) && !uri.host.isNullOrEmpty()) {
+            "Registry base URL must be an https URL: $baseUrl"
+        }
+        return if (trimmed.endsWith("/")) trimmed else "$trimmed/"
+    }
+
+    /** Same rule as `ApiPath` in api.ts: relative, no "..", restricted charset. */
+    fun isValidApiPath(path: String): Boolean =
+        path.isNotEmpty() && API_PATH.matches(path) && !path.startsWith("/") && !path.contains("..")
+
+    /** Resolves a document path against the site root. Throws on unsafe paths. */
+    fun resolve(baseUrl: String, path: String): String {
+        if (!isValidApiPath(path)) throw RegistryFormatException("Invalid path in registry document: $path")
+        return normalizeBaseUrl(baseUrl) + path
+    }
+
+    fun hostOf(url: String): String? = runCatching { URI(url).host?.lowercase() }.getOrNull()
+
+    /** An absolute https URL with an ASCII host and no user info (safe to hand to a browser). */
+    fun isHttpsUrl(url: String): Boolean {
+        val uri = runCatching { URI(url) }.getOrNull() ?: return false
+        return uri.isAbsolute && !uri.isOpaque &&
+            uri.scheme.equals("https", ignoreCase = true) &&
+            !uri.host.isNullOrEmpty() && uri.rawUserInfo == null
+    }
+
+    /** An absolute http(s) URL with a host and no user info (homepage / support links). */
+    fun isWebUrl(url: String): Boolean {
+        val uri = runCatching { URI(url) }.getOrNull() ?: return false
+        return uri.isAbsolute && !uri.isOpaque &&
+            (uri.scheme.equals("https", ignoreCase = true) || uri.scheme.equals("http", ignoreCase = true)) &&
+            !uri.host.isNullOrEmpty() && uri.rawUserInfo == null
+    }
+
+    /** A link to a `#fragment` of the document that was loaded with [documentUrl] as its URL. */
+    fun isInPageAnchor(url: String, documentUrl: String): Boolean {
+        val hash = url.indexOf('#')
+        if (hash <= 0 || hash == url.length - 1) return false
+        return url.substring(0, hash) == documentUrl
+    }
+
+    /** Port with the scheme default filled in, or -1 for unknown schemes. */
+    fun effectivePort(uri: URI): Int = when {
+        uri.port != -1 -> uri.port
+        uri.scheme.equals("https", ignoreCase = true) -> 443
+        uri.scheme.equals("http", ignoreCase = true) -> 80
+        else -> -1
+    }
+
+    /**
+     * Same origin: scheme, host and (effective) port are equal. Hosts are compared as written
+     * in ASCII; a non-ASCII (IDN) host does not parse as a server authority and never matches,
+     * and a punycode host only matches the identical punycode host.
+     */
+    fun isSameOrigin(url: String, origin: String): Boolean {
+        val a = runCatching { URI(url) }.getOrNull() ?: return false
+        val b = runCatching { URI(origin) }.getOrNull() ?: return false
+        val hostA = a.host ?: return false
+        val hostB = b.host ?: return false
+        if (a.scheme == null || b.scheme == null) return false
+        return a.scheme.equals(b.scheme, ignoreCase = true) &&
+            hostA.equals(hostB, ignoreCase = true) &&
+            effectivePort(a) != -1 &&
+            effectivePort(a) == effectivePort(b)
+    }
+
+    /**
+     * Sub-resource rule of the restricted (registry) renderer: https GET from the registry
+     * origin only. Applied to the request and to every redirect hop, so a same-origin URL can
+     * not redirect to another host.
+     */
+    fun isAllowedRestrictedResource(url: String, registryOrigin: String): Boolean {
+        val uri = runCatching { URI(url) }.getOrNull() ?: return false
+        if (!uri.scheme.equals("https", ignoreCase = true) || uri.rawUserInfo != null) return false
+        return isSameOrigin(url, registryOrigin)
+    }
+
+    private fun decodeSegment(s: String): String? =
+        runCatching { URLDecoder.decode(s.replace("+", "%2B"), "UTF-8") }.getOrNull()
+
+    /** Only `https://github.com/<owner>/<repo>/releases/download/<tag>/<file>` is accepted. */
+    fun isAllowedReleaseDownloadUrl(url: String): Boolean {
+        val uri = runCatching { URI(url) }.getOrNull() ?: return false
+        if (!uri.isAbsolute || uri.isOpaque) return false
+        if (!uri.scheme.equals("https", ignoreCase = true)) return false
+        if (!uri.host.equals("github.com", ignoreCase = true)) return false
+        if (uri.port != -1 && uri.port != 443) return false
+        if (uri.rawUserInfo != null || uri.rawQuery != null || uri.rawFragment != null) return false
+        val rawPath = uri.rawPath ?: return false
+        if (!rawPath.startsWith("/")) return false
+        val segments = rawPath.substring(1).split('/')
+        if (segments.size < 6) return false
+        for (raw in segments) {
+            val decoded = decodeSegment(raw) ?: return false
+            if (decoded.isEmpty() || decoded == "." || decoded == ".." ||
+                decoded.contains('/') || decoded.contains('\\')
+            ) return false
+        }
+        val owner = segments[0]
+        val repo = segments[1]
+        if (!REPO_PART.matches(owner) || !REPO_PART.matches(repo)) return false
+        if (segments[2] != "releases" || segments[3] != "download") return false
+        return true
+    }
+
+    /** Checks one hop of a download (the initial request or any redirect target). */
+    fun isAllowedDownloadHop(url: String): Boolean {
+        val uri = runCatching { URI(url) }.getOrNull() ?: return false
+        if (!uri.scheme.equals("https", ignoreCase = true)) return false
+        val host = uri.host?.lowercase() ?: return false
+        if (uri.port != -1 && uri.port != 443) return false
+        if (uri.rawUserInfo != null) return false
+        return host in DOWNLOAD_HOSTS
+    }
+}

@@ -1,1 +1,84 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEubW9kZWwKCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuSW1tdXRhYmxlCgpASW1tdXRhYmxlCmRhdGEgY2xhc3MgQXV0aG9yKAogICAgdmFsIG5hbWU6IFN0cmluZywKICAgIHZhbCBsaW5rOiBTdHJpbmcsCikKCi8qKiBBIG1vZHVsZSBvZiB0aGUgcmVnaXN0cnkgaW5kZXgsIGFscmVhZHkgbG9jYWxpemVkIGZvciB0aGUgY3VycmVudCBVSSBsb2NhbGUuICovCkBJbW11dGFibGUKZGF0YSBjbGFzcyBSZXBvTW9kdWxlKAogICAgdmFsIG1vZHVsZUlkOiBTdHJpbmcsCiAgICB2YWwgbW9kdWxlTmFtZTogU3RyaW5nLAogICAgdmFsIGF1dGhvcnM6IFN0cmluZywKICAgIHZhbCBhdXRob3JMaXN0OiBMaXN0PEF1dGhvcj4sCiAgICB2YWwgc3VtbWFyeTogU3RyaW5nLAogICAgdmFsIHRhZ3M6IExpc3Q8U3RyaW5nPiwKICAgIHZhbCBtZXRhbW9kdWxlOiBCb29sZWFuLAogICAgLyoqIEEgb25lLXNob3Qgc2NyaXB0IChyZWdpc3RyeSBga2luZDogc2NyaXB0YCk6IHJ1biBieSB0aGUgbWFuYWdlciwgbmV2ZXIgaW5zdGFsbGVkLiAqLwogICAgdmFsIGlzU2NyaXB0OiBCb29sZWFuID0gZmFsc2UsCiAgICB2YWwgaWNvblVybDogU3RyaW5nPywKICAgIHZhbCBsYXRlc3RWZXJzaW9uOiBTdHJpbmcsCiAgICB2YWwgbGF0ZXN0VmVyc2lvbkNvZGU6IEludCwKICAgIC8qKiBGb3JtYXR0ZWQgcHVibGlzaCBkYXRlIG9mIHRoZSBzdGFibGUgcmVsZWFzZS4gKi8KICAgIHZhbCBsYXRlc3RSZWxlYXNlVGltZTogU3RyaW5nLAogICAgLyoqIEVwb2NoIG1pbGxpcyBvZiB0aGUgc3RhYmxlIHJlbGVhc2UsIHVzZWQgZm9yIHNvcnRpbmcuICovCiAgICB2YWwgbGF0ZXN0UmVsZWFzZUVwb2NoOiBMb25nLAogICAgLyoqIEdpdEh1YiBzdGFyZ2F6ZXIgY291bnQsIG9yIG51bGwgd2hlbiB0aGUgcmVnaXN0cnkgZG9lc24ndCBrbm93IGl0LiAqLwogICAgdmFsIHN0YXJzOiBJbnQ/ID0gbnVsbCwKICAgIC8qKiAib3duZXIvbmFtZSIgb2YgdGhlIHJlcG9zaXRvcnkgW3N0YXJzXSBiZWxvbmdzIHRvLiAqLwogICAgdmFsIHN0YXJzUmVwb3NpdG9yeTogU3RyaW5nPyA9IG51bGwsCikKCkBJbW11dGFibGUKZGF0YSBjbGFzcyBSZXBvTW9kdWxlTGlzdCgKICAgIHZhbCBtb2R1bGVzOiBMaXN0PFJlcG9Nb2R1bGU+LAogICAgdmFsIGJ1aWxkSWQ6IFN0cmluZywKICAgIC8qKiBUcnVlIHdoZW4gdGhlIGxpc3QgaXMgdGhlIGxhc3QgZ29vZCBjYWNoZWQgY29weSBiZWNhdXNlIHRoZSBuZXR3b3JrIGNvcHkgZmFpbGVkLiAqLwogICAgdmFsIHN0YWxlOiBCb29sZWFuLAogICAgdmFsIGVycm9yOiBUaHJvd2FibGU/LAopCgovKiogQSBzdGFibGUgKG5vbi1wcmVyZWxlYXNlKSwgaW1tdXRhYmxlIHJlbGVhc2U7IGl0cyBaSVAgaXMgdmVyaWZpZWQgYWZ0ZXIgZG93bmxvYWQuICovCkBJbW11dGFibGUKZGF0YSBjbGFzcyBSZXBvUmVsZWFzZSgKICAgIHZhbCB0YWc6IFN0cmluZywKICAgIHZhbCBuYW1lOiBTdHJpbmcsCiAgICB2YWwgdmVyc2lvbjogU3RyaW5nLAogICAgdmFsIHZlcnNpb25Db2RlOiBJbnQsCiAgICB2YWwgcHVibGlzaGVkQXQ6IFN0cmluZywKICAgIHZhbCBjaGFuZ2Vsb2dIdG1sOiBTdHJpbmc/LAogICAgdmFsIHppcFVybDogU3RyaW5nLAogICAgdmFsIHppcE5hbWU6IFN0cmluZywKICAgIHZhbCB6aXBTaXplOiBMb25nLAogICAgdmFsIHNoYTI1NjogU3RyaW5nLAogICAgdmFsIHRhZ0NvbW1pdDogU3RyaW5nLAogICAgLyoqIGh0dHBzIG9ubHkgKHZhbGlkYXRlZCBieSB0aGUgcGFyc2VyKS4gKi8KICAgIHZhbCByZWxlYXNlVXJsOiBTdHJpbmcsCiAgICAvKiogaHR0cHMgb25seSwgb3IgbnVsbC4gKi8KICAgIHZhbCBhdHRlc3RhdGlvblVybDogU3RyaW5nPywKICAgIHZhbCBpbW11dGFibGU6IEJvb2xlYW4sCikKCkBJbW11dGFibGUKZGF0YSBjbGFzcyBSZXBvTW9kdWxlRGV0YWlsKAogICAgdmFsIG1vZHVsZTogUmVwb01vZHVsZSwKICAgIHZhbCBsaWNlbnNlOiBTdHJpbmc/LAogICAgdmFsIGhvbWVwYWdlOiBTdHJpbmc/LAogICAgdmFsIHN1cHBvcnQ6IFN0cmluZz8sCiAgICB2YWwgc291cmNlRnVsbE5hbWU6IFN0cmluZywKICAgIHZhbCBzb3VyY2VVcmw6IFN0cmluZywKICAgIHZhbCBzb3VyY2VDb21taXQ6IFN0cmluZywKICAgIHZhbCByZWFkbWVIdG1sOiBTdHJpbmc/LAogICAgLyoqIFRoZSBtb2R1bGUgaGFzIGEgUkVBRE1FIGJ1dCBpdCBjb3VsZCBub3QgYmUgbG9hZGVkIChzaG93IGEgcmV0cnksIG5vdCAibm8gUkVBRE1FIikuICovCiAgICB2YWwgcmVhZG1lRmFpbGVkOiBCb29sZWFuLAogICAgLyoqIEJhc2UgVVJMIHJlbGF0aXZlIHJlc291cmNlcyBpbiB0aGUgcmVhZG1lIGFyZSByZXNvbHZlZCBhZ2FpbnN0ICh0aGUgc2l0ZSByb290KS4gKi8KICAgIHZhbCByZWFkbWVCYXNlVXJsOiBTdHJpbmcsCiAgICB2YWwgcmVsZWFzZXM6IExpc3Q8UmVwb1JlbGVhc2U+LAogICAgdmFsIGhlYWx0aFN0YWxlOiBCb29sZWFuLAogICAgdmFsIHdlYlVybDogU3RyaW5nLAogICAgdmFsIGZyb21DYWNoZTogQm9vbGVhbiwKKQo=
+package com.xinsu.moe.data.model
+
+import androidx.compose.runtime.Immutable
+
+@Immutable
+data class Author(
+    val name: String,
+    val link: String,
+)
+
+/** A module of the registry index, already localized for the current UI locale. */
+@Immutable
+data class RepoModule(
+    val moduleId: String,
+    val moduleName: String,
+    val authors: String,
+    val authorList: List<Author>,
+    val summary: String,
+    val tags: List<String>,
+    val metamodule: Boolean,
+    /** A one-shot script (registry `kind: script`): run by the manager, never installed. */
+    val isScript: Boolean = false,
+    val iconUrl: String?,
+    val latestVersion: String,
+    val latestVersionCode: Int,
+    /** Formatted publish date of the stable release. */
+    val latestReleaseTime: String,
+    /** Epoch millis of the stable release, used for sorting. */
+    val latestReleaseEpoch: Long,
+    /** GitHub stargazer count, or null when the registry doesn't know it. */
+    val stars: Int? = null,
+    /** "owner/name" of the repository [stars] belongs to. */
+    val starsRepository: String? = null,
+)
+
+@Immutable
+data class RepoModuleList(
+    val modules: List<RepoModule>,
+    val buildId: String,
+    /** True when the list is the last good cached copy because the network copy failed. */
+    val stale: Boolean,
+    val error: Throwable?,
+)
+
+/** A stable (non-prerelease), immutable release; its ZIP is verified after download. */
+@Immutable
+data class RepoRelease(
+    val tag: String,
+    val name: String,
+    val version: String,
+    val versionCode: Int,
+    val publishedAt: String,
+    val changelogHtml: String?,
+    val zipUrl: String,
+    val zipName: String,
+    val zipSize: Long,
+    val sha256: String,
+    val tagCommit: String,
+    /** https only (validated by the parser). */
+    val releaseUrl: String,
+    /** https only, or null. */
+    val attestationUrl: String?,
+    val immutable: Boolean,
+)
+
+@Immutable
+data class RepoModuleDetail(
+    val module: RepoModule,
+    val license: String?,
+    val homepage: String?,
+    val support: String?,
+    val sourceFullName: String,
+    val sourceUrl: String,
+    val sourceCommit: String,
+    val readmeHtml: String?,
+    /** The module has a README but it could not be loaded (show a retry, not "no README"). */
+    val readmeFailed: Boolean,
+    /** Base URL relative resources in the readme are resolved against (the site root). */
+    val readmeBaseUrl: String,
+    val releases: List<RepoRelease>,
+    val healthStale: Boolean,
+    val webUrl: String,
+    val fromCache: Boolean,
+)

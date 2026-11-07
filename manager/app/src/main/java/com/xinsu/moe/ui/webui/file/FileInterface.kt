@@ -1,1 +1,167 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpLmZpbGUKCmltcG9ydCBhbmRyb2lkLnV0aWwuTG9nCmltcG9ydCBhbmRyb2lkLndlYmtpdC5KYXZhc2NyaXB0SW50ZXJmYWNlCmltcG9ydCBjb20udG9wam9obnd1LnN1cGVydXNlci5pby5TdUZpbGUKaW1wb3J0IG9yZy5qc29uLkpTT05BcnJheQppbXBvcnQgamF2YS5pby5CdWZmZXJlZE91dHB1dFN0cmVhbQoKY2xhc3MgRmlsZUludGVyZmFjZShwcml2YXRlIHZhbCBwYXRoOiBTdHJpbmcpIHsKICAgIHByaXZhdGUgdmFsIHN1RmlsZTogU3VGaWxlID0gU3VGaWxlKHBhdGgpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBleGlzdHMoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLmV4aXN0cygpIH0uZ2V0T3JEZWZhdWx0KGZhbHNlKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gaXNGaWxlKCk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7IHN1RmlsZS5pc0ZpbGUgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBpc0RpcmVjdG9yeSgpOiBCb29sZWFuID0gcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuaXNEaXJlY3RvcnkgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBjYW5SZWFkKCk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7IHN1RmlsZS5jYW5SZWFkKCkgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBjYW5Xcml0ZSgpOiBCb29sZWFuID0gcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuY2FuV3JpdGUoKSB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGNhbkV4ZWN1dGUoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLmNhbkV4ZWN1dGUoKSB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGNyZWF0ZU5ld0ZpbGUoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLmNyZWF0ZU5ld0ZpbGUoKSB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGRlbGV0ZSgpOiBCb29sZWFuID0gcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuZGVsZXRlKCkgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBkZWxldGVSZWN1cnNpdmUoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLmRlbGV0ZVJlY3Vyc2l2ZSgpIH0uZ2V0T3JEZWZhdWx0KGZhbHNlKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gbWtkaXIoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLm1rZGlyKCkgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBta2RpcnMoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLm1rZGlycygpIH0uZ2V0T3JEZWZhdWx0KGZhbHNlKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gcmVuYW1lVG8oZGVzdFBhdGg6IFN0cmluZyk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7CiAgICAgICAgc3VGaWxlLnJlbmFtZVRvKFN1RmlsZShkZXN0UGF0aCkpCiAgICB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGxpc3QoKTogU3RyaW5nID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCBuYW1lcyA9IHN1RmlsZS5saXN0KCkgPzogZW1wdHlBcnJheSgpCiAgICAgICAgSlNPTkFycmF5KG5hbWVzLnRvTGlzdCgpKS50b1N0cmluZygpCiAgICB9LmdldE9yRWxzZSB7ICJbXSIgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gbGlzdEZpbGVzKCk6IFN0cmluZyA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcGF0aHMgPSBzdUZpbGUubGlzdEZpbGVzKCk/Lm1hcCB7IGl0LmFic29sdXRlUGF0aCB9ID86IGVtcHR5TGlzdCgpCiAgICAgICAgSlNPTkFycmF5KHBhdGhzKS50b1N0cmluZygpCiAgICB9LmdldE9yRWxzZSB7ICJbXSIgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gbGVuZ3RoKCk6IExvbmcgPSBydW5DYXRjaGluZyB7IHN1RmlsZS5sZW5ndGgoKSB9LmdldE9yRGVmYXVsdCgtMUwpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBsYXN0TW9kaWZpZWQoKTogTG9uZyA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLmxhc3RNb2RpZmllZCgpIH0uZ2V0T3JEZWZhdWx0KC0xTCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHNldExhc3RNb2RpZmllZCh0aW1lOiBMb25nKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLnNldExhc3RNb2RpZmllZCh0aW1lKSB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGdldEFic29sdXRlUGF0aCgpOiBTdHJpbmcgPSBydW5DYXRjaGluZyB7IHN1RmlsZS5hYnNvbHV0ZVBhdGggfS5nZXRPckRlZmF1bHQocGF0aCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGdldENhbm9uaWNhbFBhdGgoKTogU3RyaW5nID0gcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuY2Fub25pY2FsUGF0aCB9LmdldE9yRGVmYXVsdChwYXRoKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gZ2V0UGFyZW50KCk6IFN0cmluZz8gPSBydW5DYXRjaGluZyB7IHN1RmlsZS5wYXJlbnQgfS5nZXRPck51bGwoKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gZ2V0UGF0aCgpOiBTdHJpbmcgPSBwYXRoCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBnZXROYW1lKCk6IFN0cmluZyA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLm5hbWUgfS5nZXRPckRlZmF1bHQoIiIpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBpc0hpZGRlbigpOiBCb29sZWFuID0gcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuaXNIaWRkZW4gfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBpc0Jsb2NrKCk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7IHN1RmlsZS5pc0Jsb2NrIH0uZ2V0T3JEZWZhdWx0KGZhbHNlKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gaXNDaGFyYWN0ZXIoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLmlzQ2hhcmFjdGVyIH0uZ2V0T3JEZWZhdWx0KGZhbHNlKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gaXNTeW1saW5rKCk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7IHN1RmlsZS5pc1N5bWxpbmsgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBjcmVhdGVOZXdTeW1saW5rKHRhcmdldDogU3RyaW5nKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICBzdUZpbGUuY3JlYXRlTmV3U3ltbGluayh0YXJnZXQpCiAgICB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGNyZWF0ZU5ld0xpbmsoZXhpc3Rpbmc6IFN0cmluZyk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7CiAgICAgICAgc3VGaWxlLmNyZWF0ZU5ld0xpbmsoZXhpc3RpbmcpCiAgICB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGNsZWFyKCk6IEJvb2xlYW4gPSBydW5DYXRjaGluZyB7IHN1RmlsZS5jbGVhcigpIH0uZ2V0T3JEZWZhdWx0KGZhbHNlKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gc2V0UmVhZE9ubHkoKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLnNldFJlYWRPbmx5KCkgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBzZXRSZWFkYWJsZShyZWFkYWJsZTogQm9vbGVhbiwgb3duZXJPbmx5OiBCb29sZWFuKTogQm9vbGVhbiA9CiAgICAgICAgcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuc2V0UmVhZGFibGUocmVhZGFibGUsIG93bmVyT25seSkgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBzZXRXcml0YWJsZSh3cml0YWJsZTogQm9vbGVhbiwgb3duZXJPbmx5OiBCb29sZWFuKTogQm9vbGVhbiA9CiAgICAgICAgcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuc2V0V3JpdGFibGUod3JpdGFibGUsIG93bmVyT25seSkgfS5nZXRPckRlZmF1bHQoZmFsc2UpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBzZXRFeGVjdXRhYmxlKGV4ZWN1dGFibGU6IEJvb2xlYW4sIG93bmVyT25seTogQm9vbGVhbik6IEJvb2xlYW4gPQogICAgICAgIHJ1bkNhdGNoaW5nIHsgc3VGaWxlLnNldEV4ZWN1dGFibGUoZXhlY3V0YWJsZSwgb3duZXJPbmx5KSB9LmdldE9yRGVmYXVsdChmYWxzZSkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGdldEZyZWVTcGFjZSgpOiBMb25nID0gcnVuQ2F0Y2hpbmcgeyBzdUZpbGUuZnJlZVNwYWNlIH0uZ2V0T3JEZWZhdWx0KC0xTCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGdldFRvdGFsU3BhY2UoKTogTG9uZyA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLnRvdGFsU3BhY2UgfS5nZXRPckRlZmF1bHQoLTFMKQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gZ2V0VXNhYmxlU3BhY2UoKTogTG9uZyA9IHJ1bkNhdGNoaW5nIHsgc3VGaWxlLnVzYWJsZVNwYWNlIH0uZ2V0T3JEZWZhdWx0KC0xTCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIG5ld0lucHV0U3RyZWFtKCk6IFN0cmluZyB7CiAgICAgICAgcmV0dXJuIHJ1bkNhdGNoaW5nIHsKICAgICAgICAgICAgaWYgKCFLc3VJTy5jYW5PcGVuU3RyZWFtKCkpIHsKICAgICAgICAgICAgICAgIExvZy53KFRBRywgIm5ld0lucHV0U3RyZWFtIHJlamVjdGVkOiB0b28gbWFueSBvcGVuIHN0cmVhbXMiKQogICAgICAgICAgICAgICAgcmV0dXJuICIiCiAgICAgICAgICAgIH0KICAgICAgICAgICAgdmFsIHN0cmVhbSA9IE1hbmFnZWRJbnB1dFN0cmVhbShzdUZpbGUubmV3SW5wdXRTdHJlYW0oKSkKICAgICAgICAgICAgdmFsIGlkID0gamF2YS51dGlsLlVVSUQucmFuZG9tVVVJRCgpLnRvU3RyaW5nKCkKICAgICAgICAgICAgS3N1SU8ub3BlbklucHV0U3RyZWFtc1tpZF0gPSBzdHJlYW0KICAgICAgICAgICAgaWQKICAgICAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIm5ld0lucHV0U3RyZWFtIGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7ICIiIH0KICAgIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIG5ld091dHB1dFN0cmVhbShhcHBlbmQ6IEJvb2xlYW4pOiBTdHJpbmcgewogICAgICAgIHJldHVybiBydW5DYXRjaGluZyB7CiAgICAgICAgICAgIGlmICghS3N1SU8uY2FuT3BlblN0cmVhbSgpKSB7CiAgICAgICAgICAgICAgICBMb2cudyhUQUcsICJuZXdPdXRwdXRTdHJlYW0gcmVqZWN0ZWQ6IHRvbyBtYW55IG9wZW4gc3RyZWFtcyIpCiAgICAgICAgICAgICAgICByZXR1cm4gIiIKICAgICAgICAgICAgfQogICAgICAgICAgICB2YWwgc3RyZWFtID0gc3VGaWxlLm5ld091dHB1dFN0cmVhbShhcHBlbmQpCiAgICAgICAgICAgIHZhbCBpZCA9IGphdmEudXRpbC5VVUlELnJhbmRvbVVVSUQoKS50b1N0cmluZygpCiAgICAgICAgICAgIEtzdUlPLm9wZW5PdXRwdXRTdHJlYW1zW2lkXSA9IEJ1ZmZlcmVkT3V0cHV0U3RyZWFtKHN0cmVhbSwgTWFuYWdlZElucHV0U3RyZWFtLk1BWF9DSFVOS19TSVpFKQogICAgICAgICAgICBpZAogICAgICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAibmV3T3V0cHV0U3RyZWFtIGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7ICIiIH0KICAgIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIG5ld091dHB1dFN0cmVhbSgpOiBTdHJpbmcgPSBuZXdPdXRwdXRTdHJlYW0oZmFsc2UpCgogICAgb3ZlcnJpZGUgZnVuIHRvU3RyaW5nKCk6IFN0cmluZyA9IHBhdGgKfQo=
+package com.xinsu.moe.ui.webui.file
+
+import android.util.Log
+import android.webkit.JavascriptInterface
+import com.topjohnwu.superuser.io.SuFile
+import org.json.JSONArray
+import java.io.BufferedOutputStream
+
+class FileInterface(private val path: String) {
+    private val suFile: SuFile = SuFile(path)
+
+    @JavascriptInterface
+    fun exists(): Boolean = runCatching { suFile.exists() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun isFile(): Boolean = runCatching { suFile.isFile }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun isDirectory(): Boolean = runCatching { suFile.isDirectory }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun canRead(): Boolean = runCatching { suFile.canRead() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun canWrite(): Boolean = runCatching { suFile.canWrite() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun canExecute(): Boolean = runCatching { suFile.canExecute() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun createNewFile(): Boolean = runCatching { suFile.createNewFile() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun delete(): Boolean = runCatching { suFile.delete() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun deleteRecursive(): Boolean = runCatching { suFile.deleteRecursive() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun mkdir(): Boolean = runCatching { suFile.mkdir() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun mkdirs(): Boolean = runCatching { suFile.mkdirs() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun renameTo(destPath: String): Boolean = runCatching {
+        suFile.renameTo(SuFile(destPath))
+    }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun list(): String = runCatching {
+        val names = suFile.list() ?: emptyArray()
+        JSONArray(names.toList()).toString()
+    }.getOrElse { "[]" }
+
+    @JavascriptInterface
+    fun listFiles(): String = runCatching {
+        val paths = suFile.listFiles()?.map { it.absolutePath } ?: emptyList()
+        JSONArray(paths).toString()
+    }.getOrElse { "[]" }
+
+    @JavascriptInterface
+    fun length(): Long = runCatching { suFile.length() }.getOrDefault(-1L)
+
+    @JavascriptInterface
+    fun lastModified(): Long = runCatching { suFile.lastModified() }.getOrDefault(-1L)
+
+    @JavascriptInterface
+    fun setLastModified(time: Long): Boolean = runCatching { suFile.setLastModified(time) }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun getAbsolutePath(): String = runCatching { suFile.absolutePath }.getOrDefault(path)
+
+    @JavascriptInterface
+    fun getCanonicalPath(): String = runCatching { suFile.canonicalPath }.getOrDefault(path)
+
+    @JavascriptInterface
+    fun getParent(): String? = runCatching { suFile.parent }.getOrNull()
+
+    @JavascriptInterface
+    fun getPath(): String = path
+
+    @JavascriptInterface
+    fun getName(): String = runCatching { suFile.name }.getOrDefault("")
+
+    @JavascriptInterface
+    fun isHidden(): Boolean = runCatching { suFile.isHidden }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun isBlock(): Boolean = runCatching { suFile.isBlock }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun isCharacter(): Boolean = runCatching { suFile.isCharacter }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun isSymlink(): Boolean = runCatching { suFile.isSymlink }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun createNewSymlink(target: String): Boolean = runCatching {
+        suFile.createNewSymlink(target)
+    }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun createNewLink(existing: String): Boolean = runCatching {
+        suFile.createNewLink(existing)
+    }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun clear(): Boolean = runCatching { suFile.clear() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun setReadOnly(): Boolean = runCatching { suFile.setReadOnly() }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun setReadable(readable: Boolean, ownerOnly: Boolean): Boolean =
+        runCatching { suFile.setReadable(readable, ownerOnly) }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun setWritable(writable: Boolean, ownerOnly: Boolean): Boolean =
+        runCatching { suFile.setWritable(writable, ownerOnly) }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun setExecutable(executable: Boolean, ownerOnly: Boolean): Boolean =
+        runCatching { suFile.setExecutable(executable, ownerOnly) }.getOrDefault(false)
+
+    @JavascriptInterface
+    fun getFreeSpace(): Long = runCatching { suFile.freeSpace }.getOrDefault(-1L)
+
+    @JavascriptInterface
+    fun getTotalSpace(): Long = runCatching { suFile.totalSpace }.getOrDefault(-1L)
+
+    @JavascriptInterface
+    fun getUsableSpace(): Long = runCatching { suFile.usableSpace }.getOrDefault(-1L)
+
+    @JavascriptInterface
+    fun newInputStream(): String {
+        return runCatching {
+            if (!KsuIO.canOpenStream()) {
+                Log.w(TAG, "newInputStream rejected: too many open streams")
+                return ""
+            }
+            val stream = ManagedInputStream(suFile.newInputStream())
+            val id = java.util.UUID.randomUUID().toString()
+            KsuIO.openInputStreams[id] = stream
+            id
+        }.onFailure { Log.e(TAG, "newInputStream failed", it) }.getOrElse { "" }
+    }
+
+    @JavascriptInterface
+    fun newOutputStream(append: Boolean): String {
+        return runCatching {
+            if (!KsuIO.canOpenStream()) {
+                Log.w(TAG, "newOutputStream rejected: too many open streams")
+                return ""
+            }
+            val stream = suFile.newOutputStream(append)
+            val id = java.util.UUID.randomUUID().toString()
+            KsuIO.openOutputStreams[id] = BufferedOutputStream(stream, ManagedInputStream.MAX_CHUNK_SIZE)
+            id
+        }.onFailure { Log.e(TAG, "newOutputStream failed", it) }.getOrElse { "" }
+    }
+
+    @JavascriptInterface
+    fun newOutputStream(): String = newOutputStream(false)
+
+    override fun toString(): String = path
+}

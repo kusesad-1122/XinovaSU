@@ -1,1 +1,121 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0CgppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRFcXVhbHMKaW1wb3J0IG9yZy5qdW5pdC5Bc3NlcnQuYXNzZXJ0VGhyb3dzCmltcG9ydCBvcmcuanVuaXQuVGVzdAoKY2xhc3MgU2NyaXB0Q29tbWFuZFRlc3QgewoKICAgIHByaXZhdGUgdmFsIGhvc3QgPSBTY3JpcHRIb3N0SW5mbyhrc3VWZXJzaW9uID0gInYzLjAuMC0xLWdhYmMiLCBrc3VWZXJzaW9uQ29kZSA9IDMxMjM0LCBrZXJuZWxWZXJzaW9uQ29kZSA9IDMyNTAwLCBsYXRlTG9hZCA9IGZhbHNlKQogICAgcHJpdmF0ZSB2YWwgZGlyID0gIi9kYXRhL3VzZXIvMC9jb20ueGluc3UubW9lL2ZpbGVzL29uZXNob3QvIiArICJhIi5yZXBlYXQoNjQpCgogICAgcHJpdmF0ZSB2YWwgcGFyYW1zID0gU2NyaXB0UGFyYW1zUGFyc2VyLnBhcnNlKAogICAgICAgICIiIgogICAgICAgIHsic2NoZW1hVmVyc2lvbiI6MSwicGFyYW1zIjpbCiAgICAgICAgICB7ImtleSI6IkZMQUciLCJ0eXBlIjoiYm9vbCIsImxhYmVsIjoiZiIsImRlZmF1bHQiOnRydWV9LAogICAgICAgICAgeyJrZXkiOiJNT0RFIiwidHlwZSI6ImVudW0iLCJsYWJlbCI6Im0iLCJvcHRpb25zIjpbeyJ2YWx1ZSI6ImEifSx7InZhbHVlIjoiYiJ9XX0sCiAgICAgICAgICB7ImtleSI6Ik5BTUUiLCJ0eXBlIjoic3RyaW5nIiwibGFiZWwiOiJuIn0sCiAgICAgICAgICB7ImtleSI6IkNPVU5UIiwidHlwZSI6ImludCIsImxhYmVsIjoiYyIsIm1pbiI6MCwibWF4IjoxMH0KICAgICAgICBdfQogICAgICAgICIiIi50cmltSW5kZW50KCkKICAgICkKCiAgICBAVGVzdAogICAgZnVuIHF1b3Rlc0ZvclBvc2l4U2hlbGwoKSB7CiAgICAgICAgYXNzZXJ0RXF1YWxzKCInJyIsIFNjcmlwdENvbW1hbmQucXVvdGUoIiIpKQogICAgICAgIGFzc2VydEVxdWFscygiJ2FiYyciLCBTY3JpcHRDb21tYW5kLnF1b3RlKCJhYmMiKSkKICAgICAgICBhc3NlcnRFcXVhbHMoIidpdCdcXCcncyciLCBTY3JpcHRDb21tYW5kLnF1b3RlKCJpdCdzIikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKCInXCQoaWQpIGBpZGAgXCJ4XCIgXFwgOyZ8JyIsIFNjcmlwdENvbW1hbmQucXVvdGUoIlwkKGlkKSBgaWRgIFwieFwiIFxcIDsmfCIpKQogICAgICAgIGFzc2VydEVxdWFscygiJydcXCcnJ1xcJycnIiwgU2NyaXB0Q29tbWFuZC5xdW90ZSgiJyciKSkKICAgICAgICBhc3NlcnRUaHJvd3MoSWxsZWdhbEFyZ3VtZW50RXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7IFNjcmlwdENvbW1hbmQucXVvdGUoImFcdTAwMDBiIikgfQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gYnVpbGRzRW52aXJvbm1lbnRJbkNvbnRyYWN0T3JkZXIoKSB7CiAgICAgICAgdmFsIGVudiA9IFNjcmlwdENvbW1hbmQuZW52aXJvbm1lbnQoaG9zdCwgIm15X3NjcmlwdCIsIGRpciwgcGFyYW1zLCBtYXBPZigiTkFNRSIgdG8gIngneSIsICJDT1VOVCIgdG8gIiszIikpCiAgICAgICAgYXNzZXJ0RXF1YWxzKAogICAgICAgICAgICBsaXN0T2YoCiAgICAgICAgICAgICAgICAiQVNIX1NUQU5EQUxPTkUiIHRvICIxIiwKICAgICAgICAgICAgICAgICJLU1UiIHRvICJ0cnVlIiwKICAgICAgICAgICAgICAgICJLU1VfVkVSIiB0byAidjMuMC4wLTEtZ2FiYyIsCiAgICAgICAgICAgICAgICAiS1NVX1ZFUl9DT0RFIiB0byAiMzEyMzQiLAogICAgICAgICAgICAgICAgIktTVV9LRVJORUxfVkVSX0NPREUiIHRvICIzMjUwMCIsCiAgICAgICAgICAgICAgICAiS1NVX01PRFVMRSIgdG8gIm15X3NjcmlwdCIsCiAgICAgICAgICAgICAgICAiS1NVX09ORVNIT1QiIHRvICIxIiwKICAgICAgICAgICAgICAgICJNT0RQQVRIIiB0byBkaXIsCiAgICAgICAgICAgICAgICAiS1NVX1BBUkFNX0ZMQUciIHRvICJ0cnVlIiwKICAgICAgICAgICAgICAgICJLU1VfUEFSQU1fTU9ERSIgdG8gImEiLAogICAgICAgICAgICAgICAgIktTVV9QQVJBTV9OQU1FIiB0byAieCd5IiwKICAgICAgICAgICAgICAgICJLU1VfUEFSQU1fQ09VTlQiIHRvICIzIiwKICAgICAgICAgICAgKSwKICAgICAgICAgICAgZW52LAogICAgICAgICkKICAgICAgICB2YWwgbGF0ZSA9IFNjcmlwdENvbW1hbmQuZW52aXJvbm1lbnQoaG9zdC5jb3B5KGxhdGVMb2FkID0gdHJ1ZSksICJteV9zY3JpcHQiLCBkaXIsIFNjcmlwdFBhcmFtcy5FTVBUWSwgZW1wdHlNYXAoKSkKICAgICAgICBhc3NlcnRFcXVhbHMoIktTVV9MQVRFX0xPQUQiIHRvICIxIiwgbGF0ZVs1XSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHJlamVjdHNJbnZhbGlkVmFsdWVzKCkgewogICAgICAgIGFzc2VydFRocm93cyhJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb246OmNsYXNzLmphdmEpIHsKICAgICAgICAgICAgU2NyaXB0Q29tbWFuZC5lbnZpcm9ubWVudChob3N0LCAicyIsIGRpciwgcGFyYW1zLCBtYXBPZigiQ09VTlQiIHRvICIxMSIpKQogICAgICAgIH0KICAgICAgICBhc3NlcnRUaHJvd3MoSWxsZWdhbEFyZ3VtZW50RXhjZXB0aW9uOjpjbGFzcy5qYXZhKSB7CiAgICAgICAgICAgIFNjcmlwdENvbW1hbmQuZW52aXJvbm1lbnQoaG9zdCwgInMiLCBkaXIsIHBhcmFtcywgbWFwT2YoIk1PREUiIHRvICJjIikpCiAgICAgICAgfQogICAgICAgIGFzc2VydFRocm93cyhJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb246OmNsYXNzLmphdmEpIHsKICAgICAgICAgICAgU2NyaXB0Q29tbWFuZC5lbnZpcm9ubWVudChob3N0LCAicyIsIGRpciwgcGFyYW1zLCBtYXBPZigiTkFNRSIgdG8gImFcbmIiKSkKICAgICAgICB9CiAgICAgICAgYXNzZXJ0VGhyb3dzKElsbGVnYWxBcmd1bWVudEV4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgewogICAgICAgICAgICBTY3JpcHRDb21tYW5kLmJ1aWxkKGRpciwgbGlzdE9mKCJCQUQtTkFNRSIgdG8gIngiKSkKICAgICAgICB9CiAgICAgICAgYXNzZXJ0VGhyb3dzKElsbGVnYWxBcmd1bWVudEV4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgewogICAgICAgICAgICBTY3JpcHRDb21tYW5kLmJ1aWxkKGRpciwgbGlzdE9mKCJQQVRIIiB0byAiL3RtcCIpKQogICAgICAgIH0KICAgIH0KCiAgICBAVGVzdAogICAgZnVuIGJ1aWxkc0NvbW1hbmRXaXRoRXZlcnlWYWx1ZVF1b3RlZCgpIHsKICAgICAgICB2YWwgZW52ID0gU2NyaXB0Q29tbWFuZC5lbnZpcm9ubWVudCgKICAgICAgICAgICAgaG9zdCwgIm15X3NjcmlwdCIsIGRpciwgcGFyYW1zLAogICAgICAgICAgICBtYXBPZigiTkFNRSIgdG8gIic7IHJtIC1yZiAvICMiLCAiTU9ERSIgdG8gImIiLCAiRkxBRyIgdG8gImZhbHNlIiksCiAgICAgICAgKQogICAgICAgIHZhbCBjbWQgPSBTY3JpcHRDb21tYW5kLmJ1aWxkKGRpciwgZW52KQogICAgICAgIGFzc2VydEVxdWFscygKICAgICAgICAgICAgImNkICckZGlyJyAmJiBBU0hfU1RBTkRBTE9ORT0nMScgS1NVPSd0cnVlJyBLU1VfVkVSPSd2My4wLjAtMS1nYWJjJyBLU1VfVkVSX0NPREU9JzMxMjM0JyAiICsKICAgICAgICAgICAgICAgICJLU1VfS0VSTkVMX1ZFUl9DT0RFPSczMjUwMCcgS1NVX01PRFVMRT0nbXlfc2NyaXB0JyBLU1VfT05FU0hPVD0nMScgTU9EUEFUSD0nJGRpcicgIiArCiAgICAgICAgICAgICAgICAiS1NVX1BBUkFNX0ZMQUc9J2ZhbHNlJyBLU1VfUEFSQU1fTU9ERT0nYicgS1NVX1BBUkFNX05BTUU9JydcXCcnOyBybSAtcmYgLyAjJyBLU1VfUEFSQU1fQ09VTlQ9JzAnICIgKwogICAgICAgICAgICAgICAgIlBBVEg9XCJcJFBBVEhcIjonL2RhdGEvYWRiL2tzdS9iaW4nICcvZGF0YS9hZGIva3N1L2Jpbi9idXN5Ym94JyBzaCAuL2FjdGlvbi5zaCA8L2Rldi9udWxsIiwKICAgICAgICAgICAgY21kLAogICAgICAgICkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIGNsYXNzaWZpZXNFeGl0Q29kZXMoKSB7CiAgICAgICAgYXNzZXJ0RXF1YWxzKFNjcmlwdE91dGNvbWUuU1VDQ0VTUywgU2NyaXB0T3V0Y29tZS5vZigwKSkKICAgICAgICBhc3NlcnRFcXVhbHMoU2NyaXB0T3V0Y29tZS5OT1RfQVBQTElDQUJMRSwgU2NyaXB0T3V0Y29tZS5vZigyKSkKICAgICAgICBhc3NlcnRFcXVhbHMoU2NyaXB0T3V0Y29tZS5GQUlMVVJFLCBTY3JpcHRPdXRjb21lLm9mKDEpKQogICAgICAgIGFzc2VydEVxdWFscyhTY3JpcHRPdXRjb21lLkZBSUxVUkUsIFNjcmlwdE91dGNvbWUub2YoMTI3KSkKICAgICAgICBhc3NlcnRFcXVhbHMoU2NyaXB0T3V0Y29tZS5GQUlMVVJFLCBTY3JpcHRPdXRjb21lLm9mKC0xKSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHJ1blJlY29yZHNSb3VuZFRyaXAoKSB7CiAgICAgICAgdmFsIHN0b3JhZ2UgPSBvYmplY3QgOiBTY3JpcHRSdW5TdG9yYWdlIHsKICAgICAgICAgICAgdmFsIG1hcCA9IEhhc2hNYXA8U3RyaW5nLCBTdHJpbmc+KCkKICAgICAgICAgICAgb3ZlcnJpZGUgZnVuIHJlYWQoa2V5OiBTdHJpbmcpID0gbWFwW2tleV0KICAgICAgICAgICAgb3ZlcnJpZGUgZnVuIHdyaXRlKGtleTogU3RyaW5nLCB2YWx1ZTogU3RyaW5nKSB7CiAgICAgICAgICAgICAgICBtYXBba2V5XSA9IHZhbHVlCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgdmFsIGhpc3RvcnkgPSBTY3JpcHRSdW5IaXN0b3J5KHN0b3JhZ2UpCiAgICAgICAgYXNzZXJ0RXF1YWxzKG51bGwsIGhpc3RvcnkubGFzdCgiYSIpKQogICAgICAgIHZhbCByZWNvcmQgPSBTY3JpcHRSdW5SZWNvcmQoaWQgPSAiYSIsIHZlcnNpb25Db2RlID0gMywgdGltZSA9IDEyMzRMLCBleGl0Q29kZSA9IDIpCiAgICAgICAgaGlzdG9yeS5yZWNvcmQocmVjb3JkKQogICAgICAgIGFzc2VydEVxdWFscyhyZWNvcmQsIGhpc3RvcnkubGFzdCgiYSIpKQogICAgICAgIGFzc2VydEVxdWFscyhTY3JpcHRPdXRjb21lLk5PVF9BUFBMSUNBQkxFLCBoaXN0b3J5Lmxhc3QoImEiKSEhLm91dGNvbWUpCiAgICAgICAgYXNzZXJ0RXF1YWxzKG51bGwsIGhpc3RvcnkubGFzdCgiYiIpKQogICAgICAgIGFzc2VydEVxdWFscyhudWxsLCBTY3JpcHRSdW5SZWNvcmQuZGVjb2RlKCJnYXJiYWdlIiwgImEiKSkKICAgICAgICAvLyBBIHJlY29yZCBzdG9yZWQgdW5kZXIgYW5vdGhlciBpZCBpcyBpZ25vcmVkLgogICAgICAgIGFzc2VydEVxdWFscyhudWxsLCBTY3JpcHRSdW5SZWNvcmQuZGVjb2RlKHJlY29yZC5lbmNvZGUoKSwgImIiKSkKICAgIH0KfQo=
+package com.xinsu.moe.data.script
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThrows
+import org.junit.Test
+
+class ScriptCommandTest {
+
+    private val host = ScriptHostInfo(ksuVersion = "v3.0.0-1-gabc", ksuVersionCode = 31234, kernelVersionCode = 32500, lateLoad = false)
+    private val dir = "/data/user/0/com.xinsu.moe/files/oneshot/" + "a".repeat(64)
+
+    private val params = ScriptParamsParser.parse(
+        """
+        {"schemaVersion":1,"params":[
+          {"key":"FLAG","type":"bool","label":"f","default":true},
+          {"key":"MODE","type":"enum","label":"m","options":[{"value":"a"},{"value":"b"}]},
+          {"key":"NAME","type":"string","label":"n"},
+          {"key":"COUNT","type":"int","label":"c","min":0,"max":10}
+        ]}
+        """.trimIndent()
+    )
+
+    @Test
+    fun quotesForPosixShell() {
+        assertEquals("''", ScriptCommand.quote(""))
+        assertEquals("'abc'", ScriptCommand.quote("abc"))
+        assertEquals("'it'\\''s'", ScriptCommand.quote("it's"))
+        assertEquals("'\$(id) `id` \"x\" \\ ;&|'", ScriptCommand.quote("\$(id) `id` \"x\" \\ ;&|"))
+        assertEquals("''\\'''\\'''", ScriptCommand.quote("''"))
+        assertThrows(IllegalArgumentException::class.java) { ScriptCommand.quote("a\u0000b") }
+    }
+
+    @Test
+    fun buildsEnvironmentInContractOrder() {
+        val env = ScriptCommand.environment(host, "my_script", dir, params, mapOf("NAME" to "x'y", "COUNT" to "+3"))
+        assertEquals(
+            listOf(
+                "ASH_STANDALONE" to "1",
+                "KSU" to "true",
+                "KSU_VER" to "v3.0.0-1-gabc",
+                "KSU_VER_CODE" to "31234",
+                "KSU_KERNEL_VER_CODE" to "32500",
+                "KSU_MODULE" to "my_script",
+                "KSU_ONESHOT" to "1",
+                "MODPATH" to dir,
+                "KSU_PARAM_FLAG" to "true",
+                "KSU_PARAM_MODE" to "a",
+                "KSU_PARAM_NAME" to "x'y",
+                "KSU_PARAM_COUNT" to "3",
+            ),
+            env,
+        )
+        val late = ScriptCommand.environment(host.copy(lateLoad = true), "my_script", dir, ScriptParams.EMPTY, emptyMap())
+        assertEquals("KSU_LATE_LOAD" to "1", late[5])
+    }
+
+    @Test
+    fun rejectsInvalidValues() {
+        assertThrows(IllegalArgumentException::class.java) {
+            ScriptCommand.environment(host, "s", dir, params, mapOf("COUNT" to "11"))
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            ScriptCommand.environment(host, "s", dir, params, mapOf("MODE" to "c"))
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            ScriptCommand.environment(host, "s", dir, params, mapOf("NAME" to "a\nb"))
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            ScriptCommand.build(dir, listOf("BAD-NAME" to "x"))
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            ScriptCommand.build(dir, listOf("PATH" to "/tmp"))
+        }
+    }
+
+    @Test
+    fun buildsCommandWithEveryValueQuoted() {
+        val env = ScriptCommand.environment(
+            host, "my_script", dir, params,
+            mapOf("NAME" to "'; rm -rf / #", "MODE" to "b", "FLAG" to "false"),
+        )
+        val cmd = ScriptCommand.build(dir, env)
+        assertEquals(
+            "cd '$dir' && ASH_STANDALONE='1' KSU='true' KSU_VER='v3.0.0-1-gabc' KSU_VER_CODE='31234' " +
+                "KSU_KERNEL_VER_CODE='32500' KSU_MODULE='my_script' KSU_ONESHOT='1' MODPATH='$dir' " +
+                "KSU_PARAM_FLAG='false' KSU_PARAM_MODE='b' KSU_PARAM_NAME=''\\''; rm -rf / #' KSU_PARAM_COUNT='0' " +
+                "PATH=\"\$PATH\":'/data/adb/ksu/bin' '/data/adb/ksu/bin/busybox' sh ./action.sh </dev/null",
+            cmd,
+        )
+    }
+
+    @Test
+    fun classifiesExitCodes() {
+        assertEquals(ScriptOutcome.SUCCESS, ScriptOutcome.of(0))
+        assertEquals(ScriptOutcome.NOT_APPLICABLE, ScriptOutcome.of(2))
+        assertEquals(ScriptOutcome.FAILURE, ScriptOutcome.of(1))
+        assertEquals(ScriptOutcome.FAILURE, ScriptOutcome.of(127))
+        assertEquals(ScriptOutcome.FAILURE, ScriptOutcome.of(-1))
+    }
+
+    @Test
+    fun runRecordsRoundTrip() {
+        val storage = object : ScriptRunStorage {
+            val map = HashMap<String, String>()
+            override fun read(key: String) = map[key]
+            override fun write(key: String, value: String) {
+                map[key] = value
+            }
+        }
+        val history = ScriptRunHistory(storage)
+        assertEquals(null, history.last("a"))
+        val record = ScriptRunRecord(id = "a", versionCode = 3, time = 1234L, exitCode = 2)
+        history.record(record)
+        assertEquals(record, history.last("a"))
+        assertEquals(ScriptOutcome.NOT_APPLICABLE, history.last("a")!!.outcome)
+        assertEquals(null, history.last("b"))
+        assertEquals(null, ScriptRunRecord.decode("garbage", "a"))
+        // A record stored under another id is ignored.
+        assertEquals(null, ScriptRunRecord.decode(record.encode(), "b"))
+    }
+}

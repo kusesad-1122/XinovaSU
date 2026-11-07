@@ -1,1 +1,207 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnZpZXdtb2RlbAoKaW1wb3J0IGFuZHJvaWQudXRpbC5Mb2cKaW1wb3J0IGFuZHJvaWQud2lkZ2V0LlRvYXN0CmltcG9ydCBhbmRyb2lkeC5saWZlY3ljbGUuVmlld01vZGVsCmltcG9ydCBhbmRyb2lkeC5saWZlY3ljbGUudmlld01vZGVsU2NvcGUKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5EaXNwYXRjaGVycwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmZsb3cuTXV0YWJsZVN0YXRlRmxvdwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmZsb3cuU3RhdGVGbG93CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5hc1N0YXRlRmxvdwppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmZsb3cudXBkYXRlCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMubGF1bmNoCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuc3luYy5NdXRleAppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLnN5bmMud2l0aExvY2sKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy53aXRoQ29udGV4dAppbXBvcnQgY29tLnhpbnN1Lm1vZS5SCmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkuVW5zdXBwb3J0ZWRTY2hlbWFFeGNlcHRpb24KaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZXBvc2l0b3J5Lk1vZHVsZVJlcG9SZXBvc2l0b3J5CmltcG9ydCBjb20ueGluc3UubW9lLmRhdGEucmVwb3NpdG9yeS5Nb2R1bGVSZXBvUmVwb3NpdG9yeUltcGwKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZXBvc2l0b3J5LlNldHRpbmdzUmVwb3NpdG9yeQppbXBvcnQgY29tLnhpbnN1Lm1vZS5kYXRhLnJlcG9zaXRvcnkuU2V0dGluZ3NSZXBvc2l0b3J5SW1wbAppbXBvcnQgY29tLnhpbnN1Lm1vZS5rc3VBcHAKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuY29tcG9uZW50LlNlYXJjaFN0YXR1cwppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5zY3JlZW4ubW9kdWxlcmVwby5Nb2R1bGVSZXBvVWlTdGF0ZQppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5zY3JlZW4ubW9kdWxlcmVwby5SZXBvU29ydAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLmlzTmV0d29ya0F2YWlsYWJsZQoKY2xhc3MgTW9kdWxlUmVwb1ZpZXdNb2RlbCgKICAgIHByaXZhdGUgdmFsIHJlcG86IE1vZHVsZVJlcG9SZXBvc2l0b3J5ID0gTW9kdWxlUmVwb1JlcG9zaXRvcnlJbXBsKCksCiAgICBwcml2YXRlIHZhbCBzZXR0aW5nc1JlcG86IFNldHRpbmdzUmVwb3NpdG9yeSA9IFNldHRpbmdzUmVwb3NpdG9yeUltcGwoKQopIDogVmlld01vZGVsKCkgewoKICAgIGNvbXBhbmlvbiBvYmplY3QgewogICAgICAgIHByaXZhdGUgY29uc3QgdmFsIFRBRyA9ICJNb2R1bGVSZXBvVmlld01vZGVsIgogICAgfQoKICAgIHR5cGVhbGlhcyBSZXBvTW9kdWxlID0gY29tLnhpbnN1Lm1vZS5kYXRhLm1vZGVsLlJlcG9Nb2R1bGUKCiAgICBwcml2YXRlIHZhbCBfdWlTdGF0ZSA9IE11dGFibGVTdGF0ZUZsb3coTW9kdWxlUmVwb1VpU3RhdGUoKSkKICAgIHZhbCB1aVN0YXRlOiBTdGF0ZUZsb3c8TW9kdWxlUmVwb1VpU3RhdGU+ID0gX3VpU3RhdGUuYXNTdGF0ZUZsb3coKQoKICAgIHByaXZhdGUgdmFsIHNlYXJjaFF1ZXJ5ID0gTXV0YWJsZVN0YXRlRmxvdygiIikKCiAgICAvLyBTZXJpYWxpemVzIHRoZSBzb3J0ZWQgd3JpdGVzIG9mIG1vZHVsZXMgLyBzZWFyY2hSZXN1bHRzLCBzbyBhIHNsb3dlciBzb3J0IG5ldmVyIHJlcGxhY2VzCiAgICAvLyBhIG5ld2VyIGxpc3Qgb3Igb3JkZXIgd2l0aCBvbmUgY29tcHV0ZWQgZnJvbSBhbiBvbGRlciBzbmFwc2hvdC4KICAgIHByaXZhdGUgdmFsIGxpc3RNdXRleCA9IE11dGV4KCkKCiAgICBpbml0IHsKICAgICAgICB2YWwgaW5pdGlhbCA9IFJlcG9Tb3J0LmZyb21TdG9yZWQoc2V0dGluZ3NSZXBvLm1vZHVsZVJlcG9Tb3J0T3JkZXIsIG51bGwpCiAgICAgICAgX3VpU3RhdGUudXBkYXRlIHsKICAgICAgICAgICAgaXQuY29weSgKICAgICAgICAgICAgICAgIHNvcnRPcmRlciA9IGluaXRpYWwsCiAgICAgICAgICAgICAgICBvZmZsaW5lID0gIWlzTmV0d29ya0F2YWlsYWJsZShrc3VBcHApCiAgICAgICAgICAgICkKICAgICAgICB9CgogICAgICAgIHZpZXdNb2RlbFNjb3BlLmxhdW5jaFNlYXJjaFF1ZXJ5Q29sbGVjdG9yKHNlYXJjaFF1ZXJ5LCA6OmFwcGx5U2VhcmNoVGV4dCkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBzb3J0TW9kdWxlcyhsaXN0OiBMaXN0PFJlcG9Nb2R1bGU+LCBvcmRlcjogUmVwb1NvcnQpOiBMaXN0PFJlcG9Nb2R1bGU+ID0gb3JkZXIuc29ydChsaXN0KQoKICAgIHByaXZhdGUgZnVuIGZpbHRlck1vZHVsZXMobW9kdWxlczogTGlzdDxSZXBvTW9kdWxlPiwgdGV4dDogU3RyaW5nKTogTGlzdDxSZXBvTW9kdWxlPiB7CiAgICAgICAgaWYgKHRleHQuaXNFbXB0eSgpKSByZXR1cm4gZW1wdHlMaXN0KCkKCiAgICAgICAgcmV0dXJuIG1vZHVsZXMuZmlsdGVyIHsKICAgICAgICAgICAgaXQubW9kdWxlSWQuY29udGFpbnModGV4dCwgdHJ1ZSkgfHwKICAgICAgICAgICAgICAgICAgICBpdC5tb2R1bGVOYW1lLmNvbnRhaW5zKHRleHQsIHRydWUpIHx8CiAgICAgICAgICAgICAgICAgICAgaXQuYXV0aG9ycy5jb250YWlucyh0ZXh0LCB0cnVlKSB8fAogICAgICAgICAgICAgICAgICAgIGl0LnN1bW1hcnkuY29udGFpbnModGV4dCwgdHJ1ZSkgfHwKICAgICAgICAgICAgICAgICAgICBpdC50YWdzLmFueSB7IHRhZyAtPiB0YWcuY29udGFpbnModGV4dCwgdHJ1ZSkgfSB8fAogICAgICAgICAgICAgICAgICAgIGNvbS54aW5zdS5tb2UudWkudXRpbC5IYW56aVRvUGlueWluLmdldEluc3RhbmNlKCkudG9QaW55aW5TdHJpbmcoaXQubW9kdWxlTmFtZSkKICAgICAgICAgICAgICAgICAgICAgICAgLmNvbnRhaW5zKHRleHQsIHRydWUpCiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgc3VzcGVuZCBmdW4gYXBwbHlTZWFyY2hUZXh0KHRleHQ6IFN0cmluZykgewogICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgIGl0LmNvcHkoCiAgICAgICAgICAgICAgICBzZWFyY2hTdGF0dXMgPSBpdC5zZWFyY2hTdGF0dXMuY29weSgKICAgICAgICAgICAgICAgICAgICByZXN1bHRTdGF0dXMgPSBzZWFyY2hMb2FkaW5nU3RhdHVzRm9yKHRleHQpCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICkKICAgICAgICB9CgogICAgICAgIGlmICh0ZXh0LmlzRW1wdHkoKSkgewogICAgICAgICAgICBfdWlTdGF0ZS51cGRhdGUgeyBzdGF0ZSAtPgogICAgICAgICAgICAgICAgc3RhdGUuY29weSgKICAgICAgICAgICAgICAgICAgICBzZWFyY2hSZXN1bHRzID0gZW1wdHlMaXN0KCksCiAgICAgICAgICAgICAgICAgICAgc2VhcmNoU3RhdHVzID0gc3RhdGUuc2VhcmNoU3RhdHVzLmNvcHkocmVzdWx0U3RhdHVzID0gU2VhcmNoU3RhdHVzLlJlc3VsdFN0YXR1cy5ERUZBVUxUKQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9CiAgICAgICAgICAgIHJldHVybgogICAgICAgIH0KCiAgICAgICAgbGlzdE11dGV4LndpdGhMb2NrIHsKICAgICAgICAgICAgdmFsIHJlc3VsdCA9IHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgICAgICAgICBzb3J0TW9kdWxlcyhmaWx0ZXJNb2R1bGVzKF91aVN0YXRlLnZhbHVlLm1vZHVsZXMsIHRleHQpLCBfdWlTdGF0ZS52YWx1ZS5zb3J0T3JkZXIpCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgICAgICBpdC5jb3B5KAogICAgICAgICAgICAgICAgICAgIHNlYXJjaFJlc3VsdHMgPSByZXN1bHQsCiAgICAgICAgICAgICAgICAgICAgc2VhcmNoU3RhdHVzID0gaXQuc2VhcmNoU3RhdHVzLmNvcHkocmVzdWx0U3RhdHVzID0gc2VhcmNoUmVzdWx0U3RhdHVzRm9yKHRleHQsIHJlc3VsdC5pc0VtcHR5KCkpKQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIHJlZnJlc2hTZWFyY2hSZXN1bHRzKCkgewogICAgICAgIHZhbCBzdGF0ZSA9IF91aVN0YXRlLnZhbHVlCiAgICAgICAgdmFsIHRleHQgPSBzdGF0ZS5zZWFyY2hTdGF0dXMuc2VhcmNoVGV4dAogICAgICAgIHZhbCByZXN1bHRzID0gc29ydE1vZHVsZXMoZmlsdGVyTW9kdWxlcyhzdGF0ZS5tb2R1bGVzLCB0ZXh0KSwgc3RhdGUuc29ydE9yZGVyKQogICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgIGl0LmNvcHkoCiAgICAgICAgICAgICAgICBzZWFyY2hSZXN1bHRzID0gcmVzdWx0cywKICAgICAgICAgICAgICAgIHNlYXJjaFN0YXR1cyA9IGl0LnNlYXJjaFN0YXR1cy5jb3B5KHJlc3VsdFN0YXR1cyA9IHNlYXJjaFJlc3VsdFN0YXR1c0Zvcih0ZXh0LCByZXN1bHRzLmlzRW1wdHkoKSkpCiAgICAgICAgICAgICkKICAgICAgICB9CiAgICB9CgogICAgZnVuIHJlZnJlc2goKSB7CiAgICAgICAgaWYgKF91aVN0YXRlLnZhbHVlLmlzUmVmcmVzaGluZykgcmV0dXJuCiAgICAgICAgdmlld01vZGVsU2NvcGUubGF1bmNoIHsKICAgICAgICAgICAgX3VpU3RhdGUudXBkYXRlIHsKICAgICAgICAgICAgICAgIGl0LmNvcHkoCiAgICAgICAgICAgICAgICAgICAgaXNSZWZyZXNoaW5nID0gdHJ1ZSwKICAgICAgICAgICAgICAgICAgICBlcnJvciA9IG51bGwsCiAgICAgICAgICAgICAgICAgICAgb2ZmbGluZSA9ICFpc05ldHdvcmtBdmFpbGFibGUoa3N1QXBwKQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9CiAgICAgICAgICAgIHZhbCByZXN1bHQgPSByZXBvLmZldGNoTW9kdWxlcygpCgogICAgICAgICAgICB3aXRoQ29udGV4dChEaXNwYXRjaGVycy5NYWluKSB7CiAgICAgICAgICAgICAgICByZXN1bHQub25TdWNjZXNzIHsgbGlzdCAtPgogICAgICAgICAgICAgICAgICAgIGlmIChsaXN0LmVycm9yICE9IG51bGwpIHsKICAgICAgICAgICAgICAgICAgICAgICAgVG9hc3QubWFrZVRleHQoa3N1QXBwLCBlcnJvck1lc3NhZ2UobGlzdC5lcnJvciwgY2FjaGVkID0gdHJ1ZSksIFRvYXN0LkxFTkdUSF9TSE9SVCkuc2hvdygpCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIGxpc3RNdXRleC53aXRoTG9jayB7CiAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBvcmRlciA9IF91aVN0YXRlLnZhbHVlLnNvcnRPcmRlcgogICAgICAgICAgICAgICAgICAgICAgICB2YWwgc29ydGVkID0gd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuRGVmYXVsdCkgeyBzb3J0TW9kdWxlcyhsaXN0Lm1vZHVsZXMsIG9yZGVyKSB9CiAgICAgICAgICAgICAgICAgICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpdC5jb3B5KAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhc0xvYWRlZCA9IHRydWUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kdWxlcyA9IHNvcnRlZCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdGFsZSA9IGxpc3Quc3RhbGUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXJyb3IgPSBsaXN0LmVycm9yLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9mZmxpbmUgPSAhaXNOZXR3b3JrQXZhaWxhYmxlKGtzdUFwcCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICByZWZyZXNoU2VhcmNoUmVzdWx0cygpCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7IGl0LmNvcHkoaXNSZWZyZXNoaW5nID0gZmFsc2UpIH0KICAgICAgICAgICAgICAgIH0ub25GYWlsdXJlIHsgZSAtPgogICAgICAgICAgICAgICAgICAgIExvZy5lKFRBRywgImZldGNoIG1vZHVsZXMgZmFpbGVkIiwgZSkKICAgICAgICAgICAgICAgICAgICBUb2FzdC5tYWtlVGV4dChrc3VBcHAsIGVycm9yTWVzc2FnZShlLCBjYWNoZWQgPSBmYWxzZSksIFRvYXN0LkxFTkdUSF9TSE9SVCkuc2hvdygpCiAgICAgICAgICAgICAgICAgICAgX3VpU3RhdGUudXBkYXRlIHsKICAgICAgICAgICAgICAgICAgICAgICAgaXQuY29weSgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlzUmVmcmVzaGluZyA9IGZhbHNlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgZXJyb3IgPSBlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgb2ZmbGluZSA9ICFpc05ldHdvcmtBdmFpbGFibGUoa3N1QXBwKQogICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIGVycm9yTWVzc2FnZShlOiBUaHJvd2FibGUsIGNhY2hlZDogQm9vbGVhbik6IFN0cmluZyA9IHdoZW4gewogICAgICAgIGUgaXMgVW5zdXBwb3J0ZWRTY2hlbWFFeGNlcHRpb24gLT4ga3N1QXBwLmdldFN0cmluZyhSLnN0cmluZy5tb2R1bGVfcmVwb191bnN1cHBvcnRlZF9zY2hlbWEpCiAgICAgICAgY2FjaGVkIC0+IGtzdUFwcC5nZXRTdHJpbmcoUi5zdHJpbmcubW9kdWxlX3JlcG9fdXNpbmdfY2FjaGUpCiAgICAgICAgIWlzTmV0d29ya0F2YWlsYWJsZShrc3VBcHApIC0+IGtzdUFwcC5nZXRTdHJpbmcoUi5zdHJpbmcubmV0d29ya19vZmZsaW5lKQogICAgICAgIGVsc2UgLT4ga3N1QXBwLmdldFN0cmluZyhSLnN0cmluZy5tb2R1bGVfcmVwb19sb2FkX2ZhaWxlZCkKICAgIH0KCiAgICBmdW4gc2V0U29ydE9yZGVyKG9yZGVyOiBSZXBvU29ydCkgewogICAgICAgIHNldHRpbmdzUmVwby5tb2R1bGVSZXBvU29ydE9yZGVyID0gb3JkZXIubmFtZQogICAgICAgIHZpZXdNb2RlbFNjb3BlLmxhdW5jaCB7CiAgICAgICAgICAgIGxpc3RNdXRleC53aXRoTG9jayB7CiAgICAgICAgICAgICAgICAvLyBDaGVja2VkIHVuZGVyIHRoZSBsb2NrOiBhbiBlYXJsaWVyIGNoYW5nZSBtYXkgc3RpbGwgYmUgcGVuZGluZy4KICAgICAgICAgICAgICAgIHZhbCBzdGF0ZSA9IF91aVN0YXRlLnZhbHVlCiAgICAgICAgICAgICAgICBpZiAoc3RhdGUuc29ydE9yZGVyID09IG9yZGVyKSByZXR1cm5Ad2l0aExvY2sKICAgICAgICAgICAgICAgIHZhbCAoc29ydGVkTW9kdWxlcywgc29ydGVkU2VhcmNoKSA9IHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLkRlZmF1bHQpIHsKICAgICAgICAgICAgICAgICAgICBzb3J0TW9kdWxlcyhzdGF0ZS5tb2R1bGVzLCBvcmRlcikgdG8gc29ydE1vZHVsZXMoc3RhdGUuc2VhcmNoUmVzdWx0cywgb3JkZXIpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBfdWlTdGF0ZS51cGRhdGUgewogICAgICAgICAgICAgICAgICAgIGl0LmNvcHkoCiAgICAgICAgICAgICAgICAgICAgICAgIHNvcnRPcmRlciA9IG9yZGVyLAogICAgICAgICAgICAgICAgICAgICAgICBtb2R1bGVzID0gc29ydGVkTW9kdWxlcywKICAgICAgICAgICAgICAgICAgICAgICAgc2VhcmNoUmVzdWx0cyA9IHNvcnRlZFNlYXJjaCwKICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CgogICAgZnVuIHVwZGF0ZVNlYXJjaFN0YXR1cyhzdGF0dXM6IFNlYXJjaFN0YXR1cykgewogICAgICAgIHZhbCBwcmV2aW91cyA9IF91aVN0YXRlLnZhbHVlLnNlYXJjaFN0YXR1cwogICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7IGl0LmNvcHkoc2VhcmNoU3RhdHVzID0gc3RhdHVzKSB9CiAgICAgICAgaWYgKHByZXZpb3VzLnNlYXJjaFRleHQgIT0gc3RhdHVzLnNlYXJjaFRleHQpIHsKICAgICAgICAgICAgc2VhcmNoUXVlcnkudmFsdWUgPSBzdGF0dXMuc2VhcmNoVGV4dAogICAgICAgIH0KICAgIH0KCiAgICBmdW4gdXBkYXRlU2VhcmNoVGV4dCh0ZXh0OiBTdHJpbmcpIHsKICAgICAgICB1cGRhdGVTZWFyY2hTdGF0dXMoX3VpU3RhdGUudmFsdWUuc2VhcmNoU3RhdHVzLmNvcHkoc2VhcmNoVGV4dCA9IHRleHQpKQogICAgfQp9Cg==
+package com.xinsu.moe.ui.viewmodel
+
+import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
+import com.xinsu.moe.R
+import com.xinsu.moe.data.registry.UnsupportedSchemaException
+import com.xinsu.moe.data.repository.ModuleRepoRepository
+import com.xinsu.moe.data.repository.ModuleRepoRepositoryImpl
+import com.xinsu.moe.data.repository.SettingsRepository
+import com.xinsu.moe.data.repository.SettingsRepositoryImpl
+import com.xinsu.moe.ksuApp
+import com.xinsu.moe.ui.component.SearchStatus
+import com.xinsu.moe.ui.screen.modulerepo.ModuleRepoUiState
+import com.xinsu.moe.ui.screen.modulerepo.RepoSort
+import com.xinsu.moe.ui.util.isNetworkAvailable
+
+class ModuleRepoViewModel(
+    private val repo: ModuleRepoRepository = ModuleRepoRepositoryImpl(),
+    private val settingsRepo: SettingsRepository = SettingsRepositoryImpl()
+) : ViewModel() {
+
+    companion object {
+        private const val TAG = "ModuleRepoViewModel"
+    }
+
+    typealias RepoModule = com.xinsu.moe.data.model.RepoModule
+
+    private val _uiState = MutableStateFlow(ModuleRepoUiState())
+    val uiState: StateFlow<ModuleRepoUiState> = _uiState.asStateFlow()
+
+    private val searchQuery = MutableStateFlow("")
+
+    // Serializes the sorted writes of modules / searchResults, so a slower sort never replaces
+    // a newer list or order with one computed from an older snapshot.
+    private val listMutex = Mutex()
+
+    init {
+        val initial = RepoSort.fromStored(settingsRepo.moduleRepoSortOrder, null)
+        _uiState.update {
+            it.copy(
+                sortOrder = initial,
+                offline = !isNetworkAvailable(ksuApp)
+            )
+        }
+
+        viewModelScope.launchSearchQueryCollector(searchQuery, ::applySearchText)
+    }
+
+    private fun sortModules(list: List<RepoModule>, order: RepoSort): List<RepoModule> = order.sort(list)
+
+    private fun filterModules(modules: List<RepoModule>, text: String): List<RepoModule> {
+        if (text.isEmpty()) return emptyList()
+
+        return modules.filter {
+            it.moduleId.contains(text, true) ||
+                    it.moduleName.contains(text, true) ||
+                    it.authors.contains(text, true) ||
+                    it.summary.contains(text, true) ||
+                    it.tags.any { tag -> tag.contains(text, true) } ||
+                    com.xinsu.moe.ui.util.HanziToPinyin.getInstance().toPinyinString(it.moduleName)
+                        .contains(text, true)
+        }
+    }
+
+    private suspend fun applySearchText(text: String) {
+        _uiState.update {
+            it.copy(
+                searchStatus = it.searchStatus.copy(
+                    resultStatus = searchLoadingStatusFor(text)
+                )
+            )
+        }
+
+        if (text.isEmpty()) {
+            _uiState.update { state ->
+                state.copy(
+                    searchResults = emptyList(),
+                    searchStatus = state.searchStatus.copy(resultStatus = SearchStatus.ResultStatus.DEFAULT)
+                )
+            }
+            return
+        }
+
+        listMutex.withLock {
+            val result = withContext(Dispatchers.IO) {
+                sortModules(filterModules(_uiState.value.modules, text), _uiState.value.sortOrder)
+            }
+
+            _uiState.update {
+                it.copy(
+                    searchResults = result,
+                    searchStatus = it.searchStatus.copy(resultStatus = searchResultStatusFor(text, result.isEmpty()))
+                )
+            }
+        }
+    }
+
+    private fun refreshSearchResults() {
+        val state = _uiState.value
+        val text = state.searchStatus.searchText
+        val results = sortModules(filterModules(state.modules, text), state.sortOrder)
+        _uiState.update {
+            it.copy(
+                searchResults = results,
+                searchStatus = it.searchStatus.copy(resultStatus = searchResultStatusFor(text, results.isEmpty()))
+            )
+        }
+    }
+
+    fun refresh() {
+        if (_uiState.value.isRefreshing) return
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    isRefreshing = true,
+                    error = null,
+                    offline = !isNetworkAvailable(ksuApp)
+                )
+            }
+            val result = repo.fetchModules()
+
+            withContext(Dispatchers.Main) {
+                result.onSuccess { list ->
+                    if (list.error != null) {
+                        Toast.makeText(ksuApp, errorMessage(list.error, cached = true), Toast.LENGTH_SHORT).show()
+                    }
+                    listMutex.withLock {
+                        val order = _uiState.value.sortOrder
+                        val sorted = withContext(Dispatchers.Default) { sortModules(list.modules, order) }
+                        _uiState.update {
+                            it.copy(
+                                hasLoaded = true,
+                                modules = sorted,
+                                stale = list.stale,
+                                error = list.error,
+                                offline = !isNetworkAvailable(ksuApp)
+                            )
+                        }
+                        refreshSearchResults()
+                    }
+                    _uiState.update { it.copy(isRefreshing = false) }
+                }.onFailure { e ->
+                    Log.e(TAG, "fetch modules failed", e)
+                    Toast.makeText(ksuApp, errorMessage(e, cached = false), Toast.LENGTH_SHORT).show()
+                    _uiState.update {
+                        it.copy(
+                            isRefreshing = false,
+                            error = e,
+                            offline = !isNetworkAvailable(ksuApp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    private fun errorMessage(e: Throwable, cached: Boolean): String = when {
+        e is UnsupportedSchemaException -> ksuApp.getString(R.string.module_repo_unsupported_schema)
+        cached -> ksuApp.getString(R.string.module_repo_using_cache)
+        !isNetworkAvailable(ksuApp) -> ksuApp.getString(R.string.network_offline)
+        else -> ksuApp.getString(R.string.module_repo_load_failed)
+    }
+
+    fun setSortOrder(order: RepoSort) {
+        settingsRepo.moduleRepoSortOrder = order.name
+        viewModelScope.launch {
+            listMutex.withLock {
+                // Checked under the lock: an earlier change may still be pending.
+                val state = _uiState.value
+                if (state.sortOrder == order) return@withLock
+                val (sortedModules, sortedSearch) = withContext(Dispatchers.Default) {
+                    sortModules(state.modules, order) to sortModules(state.searchResults, order)
+                }
+                _uiState.update {
+                    it.copy(
+                        sortOrder = order,
+                        modules = sortedModules,
+                        searchResults = sortedSearch,
+                    )
+                }
+            }
+        }
+    }
+
+    fun updateSearchStatus(status: SearchStatus) {
+        val previous = _uiState.value.searchStatus
+        _uiState.update { it.copy(searchStatus = status) }
+        if (previous.searchText != status.searchText) {
+            searchQuery.value = status.searchText
+        }
+    }
+
+    fun updateSearchText(text: String) {
+        updateSearchStatus(_uiState.value.searchStatus.copy(searchText = text))
+    }
+}

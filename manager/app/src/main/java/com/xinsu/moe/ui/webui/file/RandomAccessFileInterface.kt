@@ -1,1 +1,204 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLndlYnVpLmZpbGUKCmltcG9ydCBhbmRyb2lkLnV0aWwuQmFzZTY0CmltcG9ydCBhbmRyb2lkLnV0aWwuTG9nCmltcG9ydCBhbmRyb2lkLndlYmtpdC5KYXZhc2NyaXB0SW50ZXJmYWNlCmltcG9ydCBjb20udG9wam9obnd1LnN1cGVydXNlci5pby5TdVJhbmRvbUFjY2Vzc0ZpbGUKaW1wb3J0IGphdmEudXRpbC5jb25jdXJyZW50LkNvbmN1cnJlbnRIYXNoTWFwCgpjbGFzcyBSYW5kb21BY2Nlc3NGaWxlSW50ZXJmYWNlIHsKICAgIGNvbXBhbmlvbiBvYmplY3QgewogICAgICAgIHByaXZhdGUgY29uc3QgdmFsIE1BWF9PUEVOX0ZJTEVTID0gMzAKICAgIH0KICAgIAogICAgcHJpdmF0ZSB2YWwgb3BlbkZpbGVzID0gQ29uY3VycmVudEhhc2hNYXA8U3RyaW5nLCBTdVJhbmRvbUFjY2Vzc0ZpbGU+KCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIG9wZW4ocGF0aDogU3RyaW5nLCBtb2RlOiBTdHJpbmcpOiBTdHJpbmcgPSBydW5DYXRjaGluZyB7CiAgICAgICAgaWYgKG9wZW5GaWxlcy5zaXplID49IE1BWF9PUEVOX0ZJTEVTKSB7CiAgICAgICAgICAgIExvZy53KFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgb3BlbiByZWplY3RlZDogdG9vIG1hbnkgb3BlbiBmaWxlcyIpCiAgICAgICAgICAgIHJldHVybiAiIgogICAgICAgIH0KICAgICAgICB2YWwgcmFmID0gU3VSYW5kb21BY2Nlc3NGaWxlLm9wZW4ocGF0aCwgbW9kZSkKICAgICAgICB2YWwgaWQgPSBqYXZhLnV0aWwuVVVJRC5yYW5kb21VVUlEKCkudG9TdHJpbmcoKQogICAgICAgIG9wZW5GaWxlc1tpZF0gPSByYWYKICAgICAgICBpZAogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIG9wZW4gZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgIiIgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gcmVhZChpZDogU3RyaW5nKTogSW50ID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybiAtMQogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLnJlYWQoKSB9CiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgcmVhZCgpIGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7IC0xIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHJlYWRCeXRlcyhpZDogU3RyaW5nLCBsZW46IEludCk6IFN0cmluZyA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzW2lkXSA/OiByZXR1cm4gIiIKICAgICAgICB2YWwgYnVmZmVyID0gQnl0ZUFycmF5KGxlbikKICAgICAgICB2YWwgYnl0ZXNSZWFkID0gc3luY2hyb25pemVkKHJhZikgeyByYWYucmVhZChidWZmZXIpIH0KICAgICAgICBpZiAoYnl0ZXNSZWFkID4gMCkgewogICAgICAgICAgICBCYXNlNjQuZW5jb2RlVG9TdHJpbmcoYnVmZmVyLCAwLCBieXRlc1JlYWQsIEJhc2U2NC5OT19XUkFQKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICIiCiAgICAgICAgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHJlYWRCeXRlcyBmYWlsZWQiLCBpdCkgfS5nZXRPckVsc2UgeyAiIiB9CgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biByZWFkQm9vbGVhbihpZDogU3RyaW5nKTogQm9vbGVhbiA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzW2lkXSA/OiByZXR1cm4gZmFsc2UKICAgICAgICBzeW5jaHJvbml6ZWQocmFmKSB7IHJhZi5yZWFkQm9vbGVhbigpIH0KICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiUmFuZG9tQWNjZXNzRmlsZSByZWFkQm9vbGVhbiBmYWlsZWQiLCBpdCkgfS5nZXRPckVsc2UgeyBmYWxzZSB9CgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biByZWFkQnl0ZShpZDogU3RyaW5nKTogQnl0ZSA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzW2lkXSA/OiByZXR1cm4gMAogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLnJlYWRCeXRlKCkgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHJlYWRCeXRlIGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7IDAgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gcmVhZEludChpZDogU3RyaW5nKTogSW50ID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybiAwCiAgICAgICAgc3luY2hyb25pemVkKHJhZikgeyByYWYucmVhZEludCgpIH0KICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiUmFuZG9tQWNjZXNzRmlsZSByZWFkSW50IGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7IDAgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gcmVhZExvbmcoaWQ6IFN0cmluZyk6IExvbmcgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuIDBMCiAgICAgICAgc3luY2hyb25pemVkKHJhZikgeyByYWYucmVhZExvbmcoKSB9CiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgcmVhZExvbmcgZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgMEwgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gcmVhZFNob3J0KGlkOiBTdHJpbmcpOiBTaG9ydCA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzW2lkXSA/OiByZXR1cm4gMC50b1Nob3J0KCkKICAgICAgICBzeW5jaHJvbml6ZWQocmFmKSB7IHJhZi5yZWFkU2hvcnQoKSB9CiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgcmVhZFNob3J0IGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7IDAudG9TaG9ydCgpIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHJlYWRGbG9hdChpZDogU3RyaW5nKTogRmxvYXQgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuIDBmCiAgICAgICAgc3luY2hyb25pemVkKHJhZikgeyByYWYucmVhZEZsb2F0KCkgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHJlYWRGbG9hdCBmYWlsZWQiLCBpdCkgfS5nZXRPckVsc2UgeyAwZiB9CgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biByZWFkRG91YmxlKGlkOiBTdHJpbmcpOiBEb3VibGUgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuIDAuMAogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLnJlYWREb3VibGUoKSB9CiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgcmVhZERvdWJsZSBmYWlsZWQiLCBpdCkgfS5nZXRPckVsc2UgeyAwLjAgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gcmVhZFVURihpZDogU3RyaW5nKTogU3RyaW5nID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybiAiIgogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLnJlYWRVVEYoKSB9CiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgcmVhZFVURiBmYWlsZWQiLCBpdCkgfS5nZXRPckVsc2UgeyAiIiB9CgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biByZWFkTGluZShpZDogU3RyaW5nKTogU3RyaW5nPyA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzW2lkXSA/OiByZXR1cm4gbnVsbAogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLnJlYWRMaW5lKCkgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHJlYWRMaW5lIGZhaWxlZCIsIGl0KSB9LmdldE9yTnVsbCgpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biB3cml0ZShpZDogU3RyaW5nLCBiOiBJbnQpOiBVbml0ID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybgogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLndyaXRlKGIpIH0KICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiUmFuZG9tQWNjZXNzRmlsZSB3cml0ZSBmYWlsZWQiLCBpdCkgfS5nZXRPckRlZmF1bHQoVW5pdCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHdyaXRlQmFzZTY0KGlkOiBTdHJpbmcsIGRhdGE6IFN0cmluZyk6IFVuaXQgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuCiAgICAgICAgdmFsIGJ5dGVzID0gQmFzZTY0LmRlY29kZShkYXRhLCBCYXNlNjQuTk9fV1JBUCkKICAgICAgICBzeW5jaHJvbml6ZWQocmFmKSB7IHJhZi53cml0ZShieXRlcykgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHdyaXRlQmFzZTY0IGZhaWxlZCIsIGl0KSB9LmdldE9yRGVmYXVsdChVbml0KQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gd3JpdGVCb29sZWFuKGlkOiBTdHJpbmcsIHY6IEJvb2xlYW4pOiBVbml0ID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybgogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLndyaXRlQm9vbGVhbih2KSB9CiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgd3JpdGVCb29sZWFuIGZhaWxlZCIsIGl0KSB9LmdldE9yRGVmYXVsdChVbml0KQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gd3JpdGVCeXRlKGlkOiBTdHJpbmcsIHY6IEludCk6IFVuaXQgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuCiAgICAgICAgc3luY2hyb25pemVkKHJhZikgeyByYWYud3JpdGVCeXRlKHYpIH0KICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiUmFuZG9tQWNjZXNzRmlsZSB3cml0ZUJ5dGUgZmFpbGVkIiwgaXQpIH0uZ2V0T3JEZWZhdWx0KFVuaXQpCgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biB3cml0ZUludChpZDogU3RyaW5nLCB2OiBJbnQpOiBVbml0ID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybgogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLndyaXRlSW50KHYpIH0KICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiUmFuZG9tQWNjZXNzRmlsZSB3cml0ZUludCBmYWlsZWQiLCBpdCkgfS5nZXRPckRlZmF1bHQoVW5pdCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHdyaXRlTG9uZyhpZDogU3RyaW5nLCB2OiBMb25nKTogVW5pdCA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzW2lkXSA/OiByZXR1cm4KICAgICAgICBzeW5jaHJvbml6ZWQocmFmKSB7IHJhZi53cml0ZUxvbmcodikgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHdyaXRlTG9uZyBmYWlsZWQiLCBpdCkgfS5nZXRPckRlZmF1bHQoVW5pdCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHdyaXRlU2hvcnQoaWQ6IFN0cmluZywgdjogSW50KTogVW5pdCA9IHJ1bkNhdGNoaW5nIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzW2lkXSA/OiByZXR1cm4KICAgICAgICBzeW5jaHJvbml6ZWQocmFmKSB7IHJhZi53cml0ZVNob3J0KHYpIH0KICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiUmFuZG9tQWNjZXNzRmlsZSB3cml0ZVNob3J0IGZhaWxlZCIsIGl0KSB9LmdldE9yRGVmYXVsdChVbml0KQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gd3JpdGVGbG9hdChpZDogU3RyaW5nLCB2OiBGbG9hdCk6IFVuaXQgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuCiAgICAgICAgc3luY2hyb25pemVkKHJhZikgeyByYWYud3JpdGVGbG9hdCh2KSB9CiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgd3JpdGVGbG9hdCBmYWlsZWQiLCBpdCkgfS5nZXRPckRlZmF1bHQoVW5pdCkKCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHdyaXRlRG91YmxlKGlkOiBTdHJpbmcsIHY6IERvdWJsZSk6IFVuaXQgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuCiAgICAgICAgc3luY2hyb25pemVkKHJhZikgeyByYWYud3JpdGVEb3VibGUodikgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHdyaXRlRG91YmxlIGZhaWxlZCIsIGl0KSB9LmdldE9yRGVmYXVsdChVbml0KQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gd3JpdGVVVEYoaWQ6IFN0cmluZywgc3RyOiBTdHJpbmcpOiBVbml0ID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybgogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLndyaXRlVVRGKHN0cikgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHdyaXRlVVRGIGZhaWxlZCIsIGl0KSB9LmdldE9yRGVmYXVsdChVbml0KQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gc2VlayhpZDogU3RyaW5nLCBwb3M6IExvbmcpOiBCb29sZWFuID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybiBmYWxzZQogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLnNlZWsocG9zKSB9CiAgICAgICAgdHJ1ZQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIHNlZWsgZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgZmFsc2UgfQoKICAgIEBKYXZhc2NyaXB0SW50ZXJmYWNlCiAgICBmdW4gZ2V0RmlsZVBvaW50ZXIoaWQ6IFN0cmluZyk6IExvbmcgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuIC0xTAogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLmdldEZpbGVQb2ludGVyKCkgfQogICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJSYW5kb21BY2Nlc3NGaWxlIGdldEZpbGVQb2ludGVyIGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7IC0xTCB9CgogICAgQEphdmFzY3JpcHRJbnRlcmZhY2UKICAgIGZ1biBsZW5ndGgoaWQ6IFN0cmluZyk6IExvbmcgPSBydW5DYXRjaGluZyB7CiAgICAgICAgdmFsIHJhZiA9IG9wZW5GaWxlc1tpZF0gPzogcmV0dXJuIC0xTAogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLmxlbmd0aCgpIH0KICAgIH0ub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAiUmFuZG9tQWNjZXNzRmlsZSBsZW5ndGggZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgLTFMIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIHNldExlbmd0aChpZDogU3RyaW5nLCBuZXdMZW5ndGg6IExvbmcpOiBCb29sZWFuID0gcnVuQ2F0Y2hpbmcgewogICAgICAgIHZhbCByYWYgPSBvcGVuRmlsZXNbaWRdID86IHJldHVybiBmYWxzZQogICAgICAgIHN5bmNocm9uaXplZChyYWYpIHsgcmFmLnNldExlbmd0aChuZXdMZW5ndGgpIH0KICAgICAgICB0cnVlCiAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgc2V0TGVuZ3RoIGZhaWxlZCIsIGl0KSB9LmdldE9yRWxzZSB7IGZhbHNlIH0KCiAgICBASmF2YXNjcmlwdEludGVyZmFjZQogICAgZnVuIGNsb3NlKGlkOiBTdHJpbmcpOiBCb29sZWFuIHsKICAgICAgICB2YWwgcmFmID0gb3BlbkZpbGVzLnJlbW92ZShpZCkgPzogcmV0dXJuIGZhbHNlCiAgICAgICAgcmV0dXJuIHJ1bkNhdGNoaW5nIHsKICAgICAgICAgICAgc3luY2hyb25pemVkKHJhZikgeyByYWYuY2xvc2UoKSB9CiAgICAgICAgICAgIHRydWUKICAgICAgICB9Lm9uRmFpbHVyZSB7IExvZy5lKFRBRywgIlJhbmRvbUFjY2Vzc0ZpbGUgY2xvc2UgZmFpbGVkIiwgaXQpIH0uZ2V0T3JFbHNlIHsgZmFsc2UgfQogICAgfQoKICAgIGZ1biBjbG9zZUFsbCgpIHsKICAgICAgICBvcGVuRmlsZXMuZm9yRWFjaCB7IChpZCwgcmFmKSAtPgogICAgICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgICAgICBzeW5jaHJvbml6ZWQocmFmKSB7IHJhZi5jbG9zZSgpIH0KICAgICAgICAgICAgfS5vbkZhaWx1cmUgeyBMb2cuZShUQUcsICJjbG9zZUFsbCBmYWlsZWQgZm9yICRpZCIsIGl0KSB9CiAgICAgICAgfQogICAgICAgIG9wZW5GaWxlcy5jbGVhcigpCiAgICB9Cn0K
+package com.xinsu.moe.ui.webui.file
+
+import android.util.Base64
+import android.util.Log
+import android.webkit.JavascriptInterface
+import com.topjohnwu.superuser.io.SuRandomAccessFile
+import java.util.concurrent.ConcurrentHashMap
+
+class RandomAccessFileInterface {
+    companion object {
+        private const val MAX_OPEN_FILES = 30
+    }
+    
+    private val openFiles = ConcurrentHashMap<String, SuRandomAccessFile>()
+
+    @JavascriptInterface
+    fun open(path: String, mode: String): String = runCatching {
+        if (openFiles.size >= MAX_OPEN_FILES) {
+            Log.w(TAG, "RandomAccessFile open rejected: too many open files")
+            return ""
+        }
+        val raf = SuRandomAccessFile.open(path, mode)
+        val id = java.util.UUID.randomUUID().toString()
+        openFiles[id] = raf
+        id
+    }.onFailure { Log.e(TAG, "RandomAccessFile open failed", it) }.getOrElse { "" }
+
+    @JavascriptInterface
+    fun read(id: String): Int = runCatching {
+        val raf = openFiles[id] ?: return -1
+        synchronized(raf) { raf.read() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile read() failed", it) }.getOrElse { -1 }
+
+    @JavascriptInterface
+    fun readBytes(id: String, len: Int): String = runCatching {
+        val raf = openFiles[id] ?: return ""
+        val buffer = ByteArray(len)
+        val bytesRead = synchronized(raf) { raf.read(buffer) }
+        if (bytesRead > 0) {
+            Base64.encodeToString(buffer, 0, bytesRead, Base64.NO_WRAP)
+        } else {
+            ""
+        }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readBytes failed", it) }.getOrElse { "" }
+
+    @JavascriptInterface
+    fun readBoolean(id: String): Boolean = runCatching {
+        val raf = openFiles[id] ?: return false
+        synchronized(raf) { raf.readBoolean() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readBoolean failed", it) }.getOrElse { false }
+
+    @JavascriptInterface
+    fun readByte(id: String): Byte = runCatching {
+        val raf = openFiles[id] ?: return 0
+        synchronized(raf) { raf.readByte() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readByte failed", it) }.getOrElse { 0 }
+
+    @JavascriptInterface
+    fun readInt(id: String): Int = runCatching {
+        val raf = openFiles[id] ?: return 0
+        synchronized(raf) { raf.readInt() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readInt failed", it) }.getOrElse { 0 }
+
+    @JavascriptInterface
+    fun readLong(id: String): Long = runCatching {
+        val raf = openFiles[id] ?: return 0L
+        synchronized(raf) { raf.readLong() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readLong failed", it) }.getOrElse { 0L }
+
+    @JavascriptInterface
+    fun readShort(id: String): Short = runCatching {
+        val raf = openFiles[id] ?: return 0.toShort()
+        synchronized(raf) { raf.readShort() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readShort failed", it) }.getOrElse { 0.toShort() }
+
+    @JavascriptInterface
+    fun readFloat(id: String): Float = runCatching {
+        val raf = openFiles[id] ?: return 0f
+        synchronized(raf) { raf.readFloat() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readFloat failed", it) }.getOrElse { 0f }
+
+    @JavascriptInterface
+    fun readDouble(id: String): Double = runCatching {
+        val raf = openFiles[id] ?: return 0.0
+        synchronized(raf) { raf.readDouble() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readDouble failed", it) }.getOrElse { 0.0 }
+
+    @JavascriptInterface
+    fun readUTF(id: String): String = runCatching {
+        val raf = openFiles[id] ?: return ""
+        synchronized(raf) { raf.readUTF() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readUTF failed", it) }.getOrElse { "" }
+
+    @JavascriptInterface
+    fun readLine(id: String): String? = runCatching {
+        val raf = openFiles[id] ?: return null
+        synchronized(raf) { raf.readLine() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile readLine failed", it) }.getOrNull()
+
+    @JavascriptInterface
+    fun write(id: String, b: Int): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.write(b) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile write failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeBase64(id: String, data: String): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        val bytes = Base64.decode(data, Base64.NO_WRAP)
+        synchronized(raf) { raf.write(bytes) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeBase64 failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeBoolean(id: String, v: Boolean): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeBoolean(v) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeBoolean failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeByte(id: String, v: Int): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeByte(v) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeByte failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeInt(id: String, v: Int): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeInt(v) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeInt failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeLong(id: String, v: Long): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeLong(v) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeLong failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeShort(id: String, v: Int): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeShort(v) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeShort failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeFloat(id: String, v: Float): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeFloat(v) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeFloat failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeDouble(id: String, v: Double): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeDouble(v) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeDouble failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun writeUTF(id: String, str: String): Unit = runCatching {
+        val raf = openFiles[id] ?: return
+        synchronized(raf) { raf.writeUTF(str) }
+    }.onFailure { Log.e(TAG, "RandomAccessFile writeUTF failed", it) }.getOrDefault(Unit)
+
+    @JavascriptInterface
+    fun seek(id: String, pos: Long): Boolean = runCatching {
+        val raf = openFiles[id] ?: return false
+        synchronized(raf) { raf.seek(pos) }
+        true
+    }.onFailure { Log.e(TAG, "RandomAccessFile seek failed", it) }.getOrElse { false }
+
+    @JavascriptInterface
+    fun getFilePointer(id: String): Long = runCatching {
+        val raf = openFiles[id] ?: return -1L
+        synchronized(raf) { raf.getFilePointer() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile getFilePointer failed", it) }.getOrElse { -1L }
+
+    @JavascriptInterface
+    fun length(id: String): Long = runCatching {
+        val raf = openFiles[id] ?: return -1L
+        synchronized(raf) { raf.length() }
+    }.onFailure { Log.e(TAG, "RandomAccessFile length failed", it) }.getOrElse { -1L }
+
+    @JavascriptInterface
+    fun setLength(id: String, newLength: Long): Boolean = runCatching {
+        val raf = openFiles[id] ?: return false
+        synchronized(raf) { raf.setLength(newLength) }
+        true
+    }.onFailure { Log.e(TAG, "RandomAccessFile setLength failed", it) }.getOrElse { false }
+
+    @JavascriptInterface
+    fun close(id: String): Boolean {
+        val raf = openFiles.remove(id) ?: return false
+        return runCatching {
+            synchronized(raf) { raf.close() }
+            true
+        }.onFailure { Log.e(TAG, "RandomAccessFile close failed", it) }.getOrElse { false }
+    }
+
+    fun closeAll() {
+        openFiles.forEach { (id, raf) ->
+            runCatching {
+                synchronized(raf) { raf.close() }
+            }.onFailure { Log.e(TAG, "closeAll failed for $id", it) }
+        }
+        openFiles.clear()
+    }
+}

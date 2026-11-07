@@ -1,1 +1,24 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5tb2R1bGVyZXBvCgppbXBvcnQgYW5kcm9pZC5vcy5QYXJjZWxhYmxlCmltcG9ydCBrb3RsaW54LnBhcmNlbGl6ZS5QYXJjZWxpemUKCkBQYXJjZWxpemUKZGF0YSBjbGFzcyBBdXRob3JBcmcoCiAgICB2YWwgbmFtZTogU3RyaW5nLAogICAgdmFsIGxpbms6IFN0cmluZywKKSA6IFBhcmNlbGFibGUKCi8qKiBOYXZpZ2F0aW9uIGFyZ3VtZW50OiB0aGUgbGlzdCBlbnRyeSBhIGRldGFpbCBwYWdlIHdhcyBvcGVuZWQgZnJvbS4gKi8KQFBhcmNlbGl6ZQpkYXRhIGNsYXNzIFJlcG9Nb2R1bGVBcmcoCiAgICB2YWwgbW9kdWxlSWQ6IFN0cmluZywKICAgIHZhbCBtb2R1bGVOYW1lOiBTdHJpbmcsCiAgICB2YWwgYXV0aG9yczogU3RyaW5nLAogICAgdmFsIGF1dGhvcnNMaXN0OiBMaXN0PEF1dGhvckFyZz4sCiAgICB2YWwgbGF0ZXN0VmVyc2lvbjogU3RyaW5nLAogICAgdmFsIGxhdGVzdFZlcnNpb25Db2RlOiBJbnQsCiAgICB2YWwgbGF0ZXN0UmVsZWFzZVRpbWU6IFN0cmluZywKICAgIHZhbCBtZXRhbW9kdWxlOiBCb29sZWFuLAogICAgdmFsIHNjcmlwdDogQm9vbGVhbiA9IGZhbHNlLAopIDogUGFyY2VsYWJsZQo=
+package com.xinsu.moe.ui.screen.modulerepo
+
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class AuthorArg(
+    val name: String,
+    val link: String,
+) : Parcelable
+
+/** Navigation argument: the list entry a detail page was opened from. */
+@Parcelize
+data class RepoModuleArg(
+    val moduleId: String,
+    val moduleName: String,
+    val authors: String,
+    val authorsList: List<AuthorArg>,
+    val latestVersion: String,
+    val latestVersionCode: Int,
+    val latestReleaseTime: String,
+    val metamodule: Boolean,
+    val script: Boolean = false,
+) : Parcelable

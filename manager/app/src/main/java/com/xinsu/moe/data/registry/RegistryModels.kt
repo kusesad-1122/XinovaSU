@@ -1,1 +1,163 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBrb3RsaW54LnNlcmlhbGl6YXRpb24uU2VyaWFsaXphYmxlCgovKgogKiBDbGllbnQgcHJvdG9jb2wgb2YgS2VybmVsU1UgTW9kdWxlcyAoe2Jhc2VVcmx9L2FwaS92MS8uLi4pLgogKgogKiBNaXJyb3JzIHBhY2thZ2VzL3NjaGVtYS9zcmMvYXBpLnRzIG9mIEtlcm5lbFNVLU1vZHVsZXMvdG9vbHMuIEV2ZXJ5IHBhdGggaW5zaWRlIHRoZXNlCiAqIGRvY3VtZW50cyBpcyByZWxhdGl2ZSB0byB0aGUgc2l0ZSByb290IChiYXNlVXJsKS4gVW5rbm93biBmaWVsZHMgYXJlIGlnbm9yZWQ7IGFuIHVua25vd24KICogc2NoZW1hVmVyc2lvbiBpcyByZWplY3RlZCAoc2VlIFtSZWdpc3RyeVBhcnNlcl0pLgogKi8KCmNvbnN0IHZhbCBSRUdJU1RSWV9BUElfU0NIRU1BX1ZFUlNJT04gPSAxCgovKiogYGtpbmRgIG9mIGEgcmVnaXN0cnkgZW50cnk6IGFuIGluc3RhbGxhYmxlIG1vZHVsZSBvciBhIG9uZS1zaG90IHNjcmlwdCBydW4gYnkgdGhlIG1hbmFnZXIuICovCm9iamVjdCBSZWdpc3RyeUtpbmQgewogICAgY29uc3QgdmFsIE1PRFVMRSA9ICJtb2R1bGUiCiAgICBjb25zdCB2YWwgU0NSSVBUID0gInNjcmlwdCIKCiAgICAvKiogS2luZHMgdGhpcyBjbGllbnQgdW5kZXJzdGFuZHM7IGVudHJpZXMgb2YgYW55IG90aGVyIGtpbmQgYXJlIGhpZGRlbi4gKi8KICAgIGZ1biBpc0tub3duKGtpbmQ6IFN0cmluZyk6IEJvb2xlYW4gPSBraW5kID09IE1PRFVMRSB8fCBraW5kID09IFNDUklQVAp9CgpAU2VyaWFsaXphYmxlCmRhdGEgY2xhc3MgQXBpSW5kZXgoCiAgICB2YWwgc2NoZW1hVmVyc2lvbjogSW50LAogICAgdmFsIGJ1aWxkSWQ6IFN0cmluZywKICAgIHZhbCByZXBvQ29tbWl0OiBTdHJpbmcsCiAgICB2YWwgZ2VuZXJhdGVkQXQ6IFN0cmluZywKICAgIC8qKiAiYXBpL3YxL21vZHVsZXMuanNvbiIgKi8KICAgIHZhbCBtb2R1bGVzOiBTdHJpbmcsCikKCkBTZXJpYWxpemFibGUKZGF0YSBjbGFzcyBBcGlWZXJzaW9uUmVmKAogICAgdmFsIHZlcnNpb246IFN0cmluZywKICAgIHZhbCB2ZXJzaW9uQ29kZTogSW50LAogICAgdmFsIHB1Ymxpc2hlZEF0OiBTdHJpbmcsCikKCkBTZXJpYWxpemFibGUKZGF0YSBjbGFzcyBBcGlBdXRob3IoCiAgICB2YWwgbmFtZTogU3RyaW5nLAogICAgdmFsIHVybDogU3RyaW5nPyA9IG51bGwsCikKCkBTZXJpYWxpemFibGUKZGF0YSBjbGFzcyBBcGlNb2R1bGVTdW1tYXJ5KAogICAgdmFsIGlkOiBTdHJpbmcsCiAgICAvKiogTW9kdWxlIGNvbnRlbnQgaXMgc2luZ2xlLWxhbmd1YWdlOyBubyBsb2NhbGUgZmFsbGJhY2sgaXMgYXBwbGllZC4gKi8KICAgIHZhbCBuYW1lOiBTdHJpbmcgPSAiIiwKICAgIHZhbCBzdW1tYXJ5OiBTdHJpbmcgPSAiIiwKICAgIHZhbCBhdXRob3JzOiBMaXN0PEFwaUF1dGhvcj4gPSBlbXB0eUxpc3QoKSwKICAgIHZhbCB0YWdzOiBMaXN0PFN0cmluZz4gPSBlbXB0eUxpc3QoKSwKICAgIHZhbCBtZXRhbW9kdWxlOiBCb29sZWFuID0gZmFsc2UsCiAgICAvKiogW1JlZ2lzdHJ5S2luZF07IGEgbWlzc2luZyB2YWx1ZSBtZWFucyBhIG1vZHVsZS4gKi8KICAgIHZhbCBraW5kOiBTdHJpbmcgPSBSZWdpc3RyeUtpbmQuTU9EVUxFLAogICAgLyoqIENvbnRlbnQtaGFzaGVkIGljb24sICJhc3NldHMve2hhc2h9LntleHR9Ii4gKi8KICAgIHZhbCBpY29uOiBTdHJpbmc/ID0gbnVsbCwKICAgIHZhbCBzdGFibGU6IEFwaVZlcnNpb25SZWYsCiAgICAvKiogR2l0SHViIHN0YXJnYXplciBjb3VudCBvZiBbc3RhcnNSZXBvc2l0b3J5XSwgb3IgbnVsbCB3aGVuIHVua25vd24uICovCiAgICB2YWwgc3RhcnM6IEludD8gPSBudWxsLAogICAgLyoqICJvd25lci9uYW1lIiBvZiB0aGUgcmVwb3NpdG9yeSBbc3RhcnNdIGJlbG9uZ3MgdG8gKG1heSBkaWZmZXIgZnJvbSB0aGUgc291cmNlIHJlcG9zaXRvcnkpLiAqLwogICAgdmFsIHN0YXJzUmVwb3NpdG9yeTogU3RyaW5nPyA9IG51bGwsCiAgICAvKiogImFwaS92MS9tb2R1bGVzL3tpZH0uanNvbiIgKi8KICAgIHZhbCBkZXRhaWw6IFN0cmluZywKICAgIHZhbCB1cGRhdGVkQXQ6IFN0cmluZywKKQoKQFNlcmlhbGl6YWJsZQpkYXRhIGNsYXNzIEFwaU1vZHVsZXMoCiAgICB2YWwgc2NoZW1hVmVyc2lvbjogSW50LAogICAgdmFsIGJ1aWxkSWQ6IFN0cmluZywKICAgIHZhbCBtb2R1bGVzOiBMaXN0PEFwaU1vZHVsZVN1bW1hcnk+LAopCgpAU2VyaWFsaXphYmxlCmRhdGEgY2xhc3MgQXBpWmlwKAogICAgdmFsIHVybDogU3RyaW5nLAogICAgdmFsIG5hbWU6IFN0cmluZywKICAgIHZhbCBzaXplOiBMb25nLAogICAgdmFsIHNoYTI1NjogU3RyaW5nLAopCgpAU2VyaWFsaXphYmxlCmRhdGEgY2xhc3MgQXBpUmVsZWFzZSgKICAgIHZhbCB0YWc6IFN0cmluZywKICAgIHZhbCBuYW1lOiBTdHJpbmc/ID0gbnVsbCwKICAgIHZhbCB2ZXJzaW9uOiBTdHJpbmcsCiAgICB2YWwgdmVyc2lvbkNvZGU6IEludCwKICAgIHZhbCBwcmVyZWxlYXNlOiBCb29sZWFuLAogICAgdmFsIHB1Ymxpc2hlZEF0OiBTdHJpbmcsCiAgICAvKiogU2FuaXRpemVkIEhUTUwgb2YgdGhlIHJlbGVhc2Ugbm90ZXMsIG9yIG51bGwuICovCiAgICB2YWwgY2hhbmdlbG9nSHRtbDogU3RyaW5nPyA9IG51bGwsCiAgICB2YWwgemlwOiBBcGlaaXAsCiAgICB2YWwgdGFnQ29tbWl0OiBTdHJpbmcsCiAgICB2YWwgcmVsZWFzZVVybDogU3RyaW5nLAogICAgdmFsIGF0dGVzdGF0aW9uVXJsOiBTdHJpbmc/ID0gbnVsbCwKICAgIHZhbCBpbW11dGFibGU6IEJvb2xlYW4sCikKCkBTZXJpYWxpemFibGUKZGF0YSBjbGFzcyBBcGlDb21wYXRpYmlsaXR5KAogICAgdmFsIGFuZHJvaWRNaW5BcGk6IEludD8gPSBudWxsLAogICAgdmFsIGFuZHJvaWRNYXhBcGk6IEludD8gPSBudWxsLAogICAgdmFsIGFyY2hpdGVjdHVyZXM6IExpc3Q8U3RyaW5nPj8gPSBudWxsLAopCgpAU2VyaWFsaXphYmxlCmRhdGEgY2xhc3MgQXBpU291cmNlKAogICAgdmFsIGhvc3Q6IFN0cmluZywKICAgIHZhbCBmdWxsTmFtZTogU3RyaW5nLAogICAgdmFsIHVybDogU3RyaW5nLAogICAgdmFsIGNvbW1pdDogU3RyaW5nLAopCgpAU2VyaWFsaXphYmxlCmRhdGEgY2xhc3MgQXBpSGVhbHRoKAogICAgdmFsIHN0YXR1czogU3RyaW5nLAogICAgdmFsIGxhc3RTdWNjZXNzQXQ6IFN0cmluZz8gPSBudWxsLAopCgpAU2VyaWFsaXphYmxlCmRhdGEgY2xhc3MgQXBpTW9kdWxlRGV0YWlsKAogICAgdmFsIHNjaGVtYVZlcnNpb246IEludCwKICAgIHZhbCBidWlsZElkOiBTdHJpbmcsCiAgICB2YWwgaWQ6IFN0cmluZywKICAgIHZhbCBuYW1lOiBTdHJpbmcgPSAiIiwKICAgIHZhbCBzdW1tYXJ5OiBTdHJpbmcgPSAiIiwKICAgIHZhbCBhdXRob3JzOiBMaXN0PEFwaUF1dGhvcj4gPSBlbXB0eUxpc3QoKSwKICAgIHZhbCB0YWdzOiBMaXN0PFN0cmluZz4gPSBlbXB0eUxpc3QoKSwKICAgIHZhbCBtZXRhbW9kdWxlOiBCb29sZWFuID0gZmFsc2UsCiAgICAvKiogW1JlZ2lzdHJ5S2luZF07IGEgbWlzc2luZyB2YWx1ZSBtZWFucyBhIG1vZHVsZS4gKi8KICAgIHZhbCBraW5kOiBTdHJpbmcgPSBSZWdpc3RyeUtpbmQuTU9EVUxFLAogICAgdmFsIGljb246IFN0cmluZz8gPSBudWxsLAogICAgdmFsIHN0YWJsZTogQXBpVmVyc2lvblJlZiwKICAgIHZhbCBzdGFyczogSW50PyA9IG51bGwsCiAgICB2YWwgc3RhcnNSZXBvc2l0b3J5OiBTdHJpbmc/ID0gbnVsbCwKICAgIHZhbCBkZXRhaWw6IFN0cmluZywKICAgIHZhbCB1cGRhdGVkQXQ6IFN0cmluZywKICAgIHZhbCBsaWNlbnNlOiBTdHJpbmc/ID0gbnVsbCwKICAgIHZhbCBob21lcGFnZTogU3RyaW5nPyA9IG51bGwsCiAgICB2YWwgc3VwcG9ydDogU3RyaW5nPyA9IG51bGwsCiAgICB2YWwgY29tcGF0aWJpbGl0eTogQXBpQ29tcGF0aWJpbGl0eT8gPSBudWxsLAogICAgdmFsIHNvdXJjZTogQXBpU291cmNlLAogICAgLyoqICJhcGkvdjEvbW9kdWxlcy97aWR9L3JlYWRtZSIgKGFuIEhUTUwgZnJhZ21lbnQpLCBvciBudWxsIHdoZW4gdGhlIG1vZHVsZSBoYXMgbm8gUkVBRE1FLiAqLwogICAgdmFsIHJlYWRtZTogU3RyaW5nPyA9IG51bGwsCiAgICAvKiogTmV3ZXN0IHZlcnNpb25Db2RlIGZpcnN0OyB0aGUgZmlyc3Qgbm9uLXByZXJlbGVhc2UgZW50cnkgZXF1YWxzIGBzdGFibGVgLiAqLwogICAgdmFsIHJlbGVhc2VzOiBMaXN0PEFwaVJlbGVhc2U+ID0gZW1wdHlMaXN0KCksCiAgICB2YWwgaGVhbHRoOiBBcGlIZWFsdGg/ID0gbnVsbCwKKQoKLyoqIEEgY29uc2lzdGVudCBwYWlyIG9mIGluZGV4ICsgbW9kdWxlIGxpc3QgdGFrZW4gZnJvbSB0aGUgc2FtZSBidWlsZC4gKi8KZGF0YSBjbGFzcyBSZWdpc3RyeUNhdGFsb2coCiAgICB2YWwgaW5kZXg6IEFwaUluZGV4LAogICAgdmFsIG1vZHVsZXM6IExpc3Q8QXBpTW9kdWxlU3VtbWFyeT4sCiAgICAvKiogVHJ1ZSB3aGVuIHRoaXMgY29weSBjYW1lIGZyb20gdGhlIG9uLWRpc2sgY2FjaGUgaW5zdGVhZCBvZiB0aGUgbmV0d29yay4gKi8KICAgIHZhbCBmcm9tQ2FjaGU6IEJvb2xlYW4sCikgewogICAgdmFsIGJ1aWxkSWQ6IFN0cmluZyBnZXQoKSA9IGluZGV4LmJ1aWxkSWQKICAgIHByaXZhdGUgdmFsIGJ5SWQ6IE1hcDxTdHJpbmcsIEFwaU1vZHVsZVN1bW1hcnk+IGJ5IGxhenkgeyBtb2R1bGVzLmFzc29jaWF0ZUJ5IHsgaXQuaWQgfSB9CiAgICBmdW4gZmluZChpZDogU3RyaW5nKTogQXBpTW9kdWxlU3VtbWFyeT8gPSBieUlkW2lkXQp9Cg==
+package com.xinsu.moe.data.registry
+
+import kotlinx.serialization.Serializable
+
+/*
+ * Client protocol of KernelSU Modules ({baseUrl}/api/v1/...).
+ *
+ * Mirrors packages/schema/src/api.ts of KernelSU-Modules/tools. Every path inside these
+ * documents is relative to the site root (baseUrl). Unknown fields are ignored; an unknown
+ * schemaVersion is rejected (see [RegistryParser]).
+ */
+
+const val REGISTRY_API_SCHEMA_VERSION = 1
+
+/** `kind` of a registry entry: an installable module or a one-shot script run by the manager. */
+object RegistryKind {
+    const val MODULE = "module"
+    const val SCRIPT = "script"
+
+    /** Kinds this client understands; entries of any other kind are hidden. */
+    fun isKnown(kind: String): Boolean = kind == MODULE || kind == SCRIPT
+}
+
+@Serializable
+data class ApiIndex(
+    val schemaVersion: Int,
+    val buildId: String,
+    val repoCommit: String,
+    val generatedAt: String,
+    /** "api/v1/modules.json" */
+    val modules: String,
+)
+
+@Serializable
+data class ApiVersionRef(
+    val version: String,
+    val versionCode: Int,
+    val publishedAt: String,
+)
+
+@Serializable
+data class ApiAuthor(
+    val name: String,
+    val url: String? = null,
+)
+
+@Serializable
+data class ApiModuleSummary(
+    val id: String,
+    /** Module content is single-language; no locale fallback is applied. */
+    val name: String = "",
+    val summary: String = "",
+    val authors: List<ApiAuthor> = emptyList(),
+    val tags: List<String> = emptyList(),
+    val metamodule: Boolean = false,
+    /** [RegistryKind]; a missing value means a module. */
+    val kind: String = RegistryKind.MODULE,
+    /** Content-hashed icon, "assets/{hash}.{ext}". */
+    val icon: String? = null,
+    val stable: ApiVersionRef,
+    /** GitHub stargazer count of [starsRepository], or null when unknown. */
+    val stars: Int? = null,
+    /** "owner/name" of the repository [stars] belongs to (may differ from the source repository). */
+    val starsRepository: String? = null,
+    /** "api/v1/modules/{id}.json" */
+    val detail: String,
+    val updatedAt: String,
+)
+
+@Serializable
+data class ApiModules(
+    val schemaVersion: Int,
+    val buildId: String,
+    val modules: List<ApiModuleSummary>,
+)
+
+@Serializable
+data class ApiZip(
+    val url: String,
+    val name: String,
+    val size: Long,
+    val sha256: String,
+)
+
+@Serializable
+data class ApiRelease(
+    val tag: String,
+    val name: String? = null,
+    val version: String,
+    val versionCode: Int,
+    val prerelease: Boolean,
+    val publishedAt: String,
+    /** Sanitized HTML of the release notes, or null. */
+    val changelogHtml: String? = null,
+    val zip: ApiZip,
+    val tagCommit: String,
+    val releaseUrl: String,
+    val attestationUrl: String? = null,
+    val immutable: Boolean,
+)
+
+@Serializable
+data class ApiCompatibility(
+    val androidMinApi: Int? = null,
+    val androidMaxApi: Int? = null,
+    val architectures: List<String>? = null,
+)
+
+@Serializable
+data class ApiSource(
+    val host: String,
+    val fullName: String,
+    val url: String,
+    val commit: String,
+)
+
+@Serializable
+data class ApiHealth(
+    val status: String,
+    val lastSuccessAt: String? = null,
+)
+
+@Serializable
+data class ApiModuleDetail(
+    val schemaVersion: Int,
+    val buildId: String,
+    val id: String,
+    val name: String = "",
+    val summary: String = "",
+    val authors: List<ApiAuthor> = emptyList(),
+    val tags: List<String> = emptyList(),
+    val metamodule: Boolean = false,
+    /** [RegistryKind]; a missing value means a module. */
+    val kind: String = RegistryKind.MODULE,
+    val icon: String? = null,
+    val stable: ApiVersionRef,
+    val stars: Int? = null,
+    val starsRepository: String? = null,
+    val detail: String,
+    val updatedAt: String,
+    val license: String? = null,
+    val homepage: String? = null,
+    val support: String? = null,
+    val compatibility: ApiCompatibility? = null,
+    val source: ApiSource,
+    /** "api/v1/modules/{id}/readme" (an HTML fragment), or null when the module has no README. */
+    val readme: String? = null,
+    /** Newest versionCode first; the first non-prerelease entry equals `stable`. */
+    val releases: List<ApiRelease> = emptyList(),
+    val health: ApiHealth? = null,
+)
+
+/** A consistent pair of index + module list taken from the same build. */
+data class RegistryCatalog(
+    val index: ApiIndex,
+    val modules: List<ApiModuleSummary>,
+    /** True when this copy came from the on-disk cache instead of the network. */
+    val fromCache: Boolean,
+) {
+    val buildId: String get() = index.buildId
+    private val byId: Map<String, ApiModuleSummary> by lazy { modules.associateBy { it.id } }
+    fun find(id: String): ApiModuleSummary? = byId[id]
+}

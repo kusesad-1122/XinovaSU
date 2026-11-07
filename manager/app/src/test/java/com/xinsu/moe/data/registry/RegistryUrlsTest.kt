@@ -1,1 +1,144 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBvcmcuanVuaXQuQXNzZXJ0LmFzc2VydEVxdWFscwppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRGYWxzZQppbXBvcnQgb3JnLmp1bml0LkFzc2VydC5hc3NlcnRUaHJvd3MKaW1wb3J0IG9yZy5qdW5pdC5Bc3NlcnQuYXNzZXJ0VHJ1ZQppbXBvcnQgb3JnLmp1bml0LlRlc3QKCmNsYXNzIFJlZ2lzdHJ5VXJsc1Rlc3QgewoKICAgIHByaXZhdGUgdmFsIGdvb2QgPSAiaHR0cHM6Ly9naXRodWIuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEuMC4wL21vZHVsZS56aXAiCgogICAgQFRlc3QKICAgIGZ1biBhY2NlcHRzR2l0aHViUmVsZWFzZURvd25sb2FkcygpIHsKICAgICAgICBhc3NlcnRUcnVlKFJlZ2lzdHJ5VXJscy5pc0FsbG93ZWRSZWxlYXNlRG93bmxvYWRVcmwoZ29vZCkpCiAgICAgICAgYXNzZXJ0VHJ1ZShSZWdpc3RyeVVybHMuaXNBbGxvd2VkUmVsZWFzZURvd25sb2FkVXJsKCJodHRwczovL0dpdEh1Yi5jb20vby0xL3IuZV9wL3JlbGVhc2VzL2Rvd25sb2FkL3YyL2ElMjBiLnppcCIpKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gcmVqZWN0c0V2ZXJ5dGhpbmdFbHNlKCkgewogICAgICAgIHZhbCBiYWQgPSBsaXN0T2YoCiAgICAgICAgICAgICJodHRwOi8vZ2l0aHViLmNvbS9vd25lci9yZXBvL3JlbGVhc2VzL2Rvd25sb2FkL3YxL21vZHVsZS56aXAiLAogICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tLmV2aWwuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvbW9kdWxlLnppcCIsCiAgICAgICAgICAgICJodHRwczovL2V2aWwuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvbW9kdWxlLnppcCIsCiAgICAgICAgICAgICJodHRwczovL29iamVjdHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvbW9kdWxlLnppcCIsCiAgICAgICAgICAgICJodHRwczovL2dpdGh1Yi5jb20vb3duZXIvcmVwby9hcmNoaXZlL3JlZnMvdGFncy92MS56aXAiLAogICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvbW9kdWxlLnppcCIsCiAgICAgICAgICAgICJodHRwczovL2dpdGh1Yi5jb20vb3duZXIvcmVwby9yZWxlYXNlcy9kb3dubG9hZC92MS8uLi8uLi8uLi94L21vZHVsZS56aXAiLAogICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvJTJlJTJlL21vZHVsZS56aXAiLAogICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvYSUyRmIuemlwIiwKICAgICAgICAgICAgImh0dHBzOi8vdXNlckBnaXRodWIuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvbW9kdWxlLnppcCIsCiAgICAgICAgICAgICJodHRwczovL2dpdGh1Yi5jb206ODQ0My9vd25lci9yZXBvL3JlbGVhc2VzL2Rvd25sb2FkL3YxL21vZHVsZS56aXAiLAogICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvbW9kdWxlLnppcD94PTEiLAogICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvbW9kdWxlLnppcCNmcmFnIiwKICAgICAgICAgICAgImh0dHBzOi8vZ2l0aHViLmNvbS8vcmVwby9yZWxlYXNlcy9kb3dubG9hZC92MS9tb2R1bGUuemlwIiwKICAgICAgICAgICAgImphdmFzY3JpcHQ6YWxlcnQoMSkiLAogICAgICAgICAgICAibm90IGEgdXJsIiwKICAgICAgICAgICAgIiIsCiAgICAgICAgKQogICAgICAgIGZvciAodXJsIGluIGJhZCkgYXNzZXJ0RmFsc2UodXJsLCBSZWdpc3RyeVVybHMuaXNBbGxvd2VkUmVsZWFzZURvd25sb2FkVXJsKHVybCkpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biByZWRpcmVjdEhvcHMoKSB7CiAgICAgICAgYXNzZXJ0VHJ1ZShSZWdpc3RyeVVybHMuaXNBbGxvd2VkRG93bmxvYWRIb3AoZ29vZCkpCiAgICAgICAgYXNzZXJ0VHJ1ZShSZWdpc3RyeVVybHMuaXNBbGxvd2VkRG93bmxvYWRIb3AoImh0dHBzOi8vb2JqZWN0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xP3NpZz14IikpCiAgICAgICAgYXNzZXJ0VHJ1ZShSZWdpc3RyeVVybHMuaXNBbGxvd2VkRG93bmxvYWRIb3AoImh0dHBzOi8vcmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2dpdGh1Yi1wcm9kdWN0aW9uLXJlbGVhc2UtYXNzZXQvMT9zcD1yIikpCiAgICAgICAgYXNzZXJ0RmFsc2UoUmVnaXN0cnlVcmxzLmlzQWxsb3dlZERvd25sb2FkSG9wKCJodHRwOi8vb2JqZWN0cy5naXRodWJ1c2VyY29udGVudC5jb20veCIpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc0FsbG93ZWREb3dubG9hZEhvcCgiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3giKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNBbGxvd2VkRG93bmxvYWRIb3AoImh0dHBzOi8vZXZpbC5jb20veCIpKQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gcmVzb2x2ZXNBcGlQYXRoc0FnYWluc3RTaXRlUm9vdCgpIHsKICAgICAgICBhc3NlcnRFcXVhbHMoCiAgICAgICAgICAgICJodHRwczovL21vZHVsZXMua2VybmVsc3Uub3JnL2FwaS92MS9tb2R1bGVzLmpzb24iLAogICAgICAgICAgICBSZWdpc3RyeVVybHMucmVzb2x2ZShSZWdpc3RyeVVybHMuREVGQVVMVF9CQVNFX1VSTCwgImFwaS92MS9tb2R1bGVzLmpzb24iKQogICAgICAgICkKICAgICAgICBhc3NlcnRFcXVhbHMoCiAgICAgICAgICAgICJodHRwczovL2V4YW1wbGUub3JnL21pcnJvci9hcGkvdjEvaW5kZXguanNvbiIsCiAgICAgICAgICAgIFJlZ2lzdHJ5VXJscy5yZXNvbHZlKCJodHRwczovL2V4YW1wbGUub3JnL21pcnJvciIsICJhcGkvdjEvaW5kZXguanNvbiIpCiAgICAgICAgKQogICAgICAgIGZvciAoYmFkIGluIGxpc3RPZigiL2FwaS92MS94Lmpzb24iLCAiLi4veC5qc29uIiwgImFwaS8uLi94Lmpzb24iLCAiaHR0cHM6Ly9ldmlsLmNvbS94IiwgImE/YiIsICIiKSkgewogICAgICAgICAgICBhc3NlcnRUaHJvd3MoYmFkLCBSZWdpc3RyeUZvcm1hdEV4Y2VwdGlvbjo6Y2xhc3MuamF2YSkgeyBSZWdpc3RyeVVybHMucmVzb2x2ZShSZWdpc3RyeVVybHMuREVGQVVMVF9CQVNFX1VSTCwgYmFkKSB9CiAgICAgICAgfQogICAgICAgIGFzc2VydFRocm93cyhJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb246OmNsYXNzLmphdmEpIHsgUmVnaXN0cnlVcmxzLm5vcm1hbGl6ZUJhc2VVcmwoImh0dHA6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZy8iKSB9CiAgICB9CgogICAgQFRlc3QKICAgIGZ1biBpZG5BbmRQdW55Y29kZUhvc3RzTmV2ZXJNYXRjaCgpIHsKICAgICAgICAvLyBOb24tQVNDSUkgaG9zdHMgZG8gbm90IHBhcnNlIGFzIGEgc2VydmVyIGF1dGhvcml0eTsgcHVueWNvZGUgaXMgY29tcGFyZWQgbGl0ZXJhbGx5LgogICAgICAgIGZvciAodXJsIGluIGxpc3RPZigKICAgICAgICAgICAgImh0dHBzOi8vZ8OtdGh1Yi5jb20vb3duZXIvcmVwby9yZWxlYXNlcy9kb3dubG9hZC92MS9tb2R1bGUuemlwIiwKICAgICAgICAgICAgImh0dHBzOi8veG4tLWd0aHViLXpxYS5jb20vb3duZXIvcmVwby9yZWxlYXNlcy9kb3dubG9hZC92MS9tb2R1bGUuemlwIiwKICAgICAgICAgICAgImh0dHBzOi8vZ2l0aHViLmNvbS4vb3duZXIvcmVwby9yZWxlYXNlcy9kb3dubG9hZC92MS9tb2R1bGUuemlwIiwKICAgICAgICAgICAgImh0dHBzOi8vZ2l0aHViLmNvbSUyZWV2aWwuY29tL293bmVyL3JlcG8vcmVsZWFzZXMvZG93bmxvYWQvdjEvbW9kdWxlLnppcCIsCiAgICAgICAgKSkgewogICAgICAgICAgICBhc3NlcnRGYWxzZSh1cmwsIFJlZ2lzdHJ5VXJscy5pc0FsbG93ZWRSZWxlYXNlRG93bmxvYWRVcmwodXJsKSkKICAgICAgICAgICAgYXNzZXJ0RmFsc2UodXJsLCBSZWdpc3RyeVVybHMuaXNBbGxvd2VkRG93bmxvYWRIb3AodXJsKSkKICAgICAgICB9CiAgICAgICAgdmFsIGJhc2UgPSBSZWdpc3RyeVVybHMuREVGQVVMVF9CQVNFX1VSTAogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc1NhbWVPcmlnaW4oImh0dHBzOi8vbW9kdWxlcy5rw6lybmVsc3Uub3JnL3gucG5nIiwgYmFzZSkpCiAgICAgICAgYXNzZXJ0RmFsc2UoUmVnaXN0cnlVcmxzLmlzU2FtZU9yaWdpbigiaHR0cHM6Ly94bi0tbW9kdWxlcy1rZXJuZWxzdS14eXoub3JnL3gucG5nIiwgYmFzZSkpCiAgICAgICAgYXNzZXJ0VHJ1ZShSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKCJodHRwczovL3huLS1tbmNoZW4tM3lhLmRlL2EiLCAiaHR0cHM6Ly9YTi0tTU5DSEVOLTNZQS5kZS8iKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKCJodHRwczovL3huLS1tbmNoZW4tM3lhLmRlL2EiLCAiaHR0cHM6Ly9tw7xuY2hlbi5kZS8iKSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHNhbWVPcmlnaW5Db21wYXJlc1NjaGVtZUhvc3RBbmRQb3J0KCkgewogICAgICAgIHZhbCBiYXNlID0gUmVnaXN0cnlVcmxzLkRFRkFVTFRfQkFTRV9VUkwKICAgICAgICBhc3NlcnRUcnVlKFJlZ2lzdHJ5VXJscy5pc1NhbWVPcmlnaW4oImh0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvYXNzZXRzL2EucG5nIiwgYmFzZSkpCiAgICAgICAgYXNzZXJ0VHJ1ZShSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKCJIVFRQUzovL01vZHVsZXMuS2VybmVsU1Uub3JnOjQ0My9hc3NldHMvYS5wbmciLCBiYXNlKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKCJodHRwOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvYXNzZXRzL2EucG5nIiwgYmFzZSkpCiAgICAgICAgYXNzZXJ0RmFsc2UoUmVnaXN0cnlVcmxzLmlzU2FtZU9yaWdpbigiaHR0cHM6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZzo4NDQzL2Fzc2V0cy9hLnBuZyIsIGJhc2UpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc1NhbWVPcmlnaW4oImh0dHBzOi8vZXZpbC5tb2R1bGVzLmtlcm5lbHN1Lm9yZy9hLnBuZyIsIGJhc2UpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc1NhbWVPcmlnaW4oImh0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcuZXZpbC5jb20vYS5wbmciLCBiYXNlKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKCJmdHA6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZy9hLnBuZyIsICJmdHA6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZy8iKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNTYW1lT3JpZ2luKCJub3QgYSB1cmwiLCBiYXNlKSkKICAgIH0KCiAgICBAVGVzdAogICAgZnVuIHJlc3RyaWN0ZWRSZXNvdXJjZXNBbmRSZWRpcmVjdEhvcHMoKSB7CiAgICAgICAgdmFsIGJhc2UgPSBSZWdpc3RyeVVybHMuREVGQVVMVF9CQVNFX1VSTAogICAgICAgIC8vIEV2ZXJ5IGhvcCBvZiBhIHJlZGlyZWN0IGNoYWluIGlzIGNoZWNrZWQgd2l0aCB0aGUgc2FtZSBydWxlLgogICAgICAgIHZhbCBjaGFpbiA9IGxpc3RPZigKICAgICAgICAgICAgImh0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvYXNzZXRzL2EucG5nIiB0byB0cnVlLAogICAgICAgICAgICAiaHR0cHM6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZy9hc3NldHMvYi5wbmc/dj0yIiB0byB0cnVlLAogICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tL293bmVyL3JlcG8vcmF3L21haW4vYS5wbmciIHRvIGZhbHNlLAogICAgICAgICAgICAiaHR0cHM6Ly9vYmplY3RzLmdpdGh1YnVzZXJjb250ZW50LmNvbS94IiB0byBmYWxzZSwKICAgICAgICAgICAgImh0dHA6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZy9hc3NldHMvYS5wbmciIHRvIGZhbHNlLAogICAgICAgICAgICAiaHR0cHM6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZzo0NDQvYXNzZXRzL2EucG5nIiB0byBmYWxzZSwKICAgICAgICAgICAgImh0dHBzOi8vdXNlckBtb2R1bGVzLmtlcm5lbHN1Lm9yZy9hc3NldHMvYS5wbmciIHRvIGZhbHNlLAogICAgICAgICAgICAiZGF0YTppbWFnZS9wbmc7YmFzZTY0LEFBQUEiIHRvIGZhbHNlLAogICAgICAgICAgICAiZmlsZTovLy9kYXRhL2RhdGEveCIgdG8gZmFsc2UsCiAgICAgICAgICAgICJqYXZhc2NyaXB0OmFsZXJ0KDEpIiB0byBmYWxzZSwKICAgICAgICApCiAgICAgICAgZm9yICgodXJsLCBhbGxvd2VkKSBpbiBjaGFpbikgewogICAgICAgICAgICBhc3NlcnRFcXVhbHModXJsLCBhbGxvd2VkLCBSZWdpc3RyeVVybHMuaXNBbGxvd2VkUmVzdHJpY3RlZFJlc291cmNlKHVybCwgYmFzZSkpCiAgICAgICAgfQogICAgfQoKICAgIEBUZXN0CiAgICBmdW4gaW5QYWdlQW5jaG9ycygpIHsKICAgICAgICB2YWwgYmFzZSA9IFJlZ2lzdHJ5VXJscy5ERUZBVUxUX0JBU0VfVVJMCiAgICAgICAgYXNzZXJ0VHJ1ZShSZWdpc3RyeVVybHMuaXNJblBhZ2VBbmNob3IoImh0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvI2luc3RhbGwiLCBiYXNlKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNJblBhZ2VBbmNob3IoImh0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvIyIsIGJhc2UpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc0luUGFnZUFuY2hvcigiaHR0cHM6Ly9tb2R1bGVzLmtlcm5lbHN1Lm9yZy8iLCBiYXNlKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNJblBhZ2VBbmNob3IoImh0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvZW4vI2luc3RhbGwiLCBiYXNlKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNJblBhZ2VBbmNob3IoImh0dHBzOi8vZXZpbC5jb20vI2h0dHBzOi8vbW9kdWxlcy5rZXJuZWxzdS5vcmcvIiwgYmFzZSkpCiAgICB9CgogICAgQFRlc3QKICAgIGZ1biBsaW5rU2NoZW1lcygpIHsKICAgICAgICBhc3NlcnRUcnVlKFJlZ2lzdHJ5VXJscy5pc0h0dHBzVXJsKCJodHRwczovL2dpdGh1Yi5jb20vby9yIikpCiAgICAgICAgYXNzZXJ0RmFsc2UoUmVnaXN0cnlVcmxzLmlzSHR0cHNVcmwoImh0dHA6Ly9naXRodWIuY29tL28vciIpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc0h0dHBzVXJsKCJodHRwczovL3VzZXI6cHdAZ2l0aHViLmNvbS9vL3IiKSkKICAgICAgICBhc3NlcnRGYWxzZShSZWdpc3RyeVVybHMuaXNIdHRwc1VybCgiamF2YXNjcmlwdDphbGVydCgxKSIpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc0h0dHBzVXJsKCJpbnRlbnQ6Ly94I0ludGVudDtlbmQiKSkKICAgICAgICBhc3NlcnRUcnVlKFJlZ2lzdHJ5VXJscy5pc1dlYlVybCgiaHR0cDovL2V4YW1wbGUuY29tLyIpKQogICAgICAgIGFzc2VydFRydWUoUmVnaXN0cnlVcmxzLmlzV2ViVXJsKCJodHRwczovL2V4YW1wbGUuY29tLyIpKQogICAgICAgIGFzc2VydEZhbHNlKFJlZ2lzdHJ5VXJscy5pc1dlYlVybCgiZnRwOi8vZXhhbXBsZS5jb20vIikpCiAgICAgICAgYXNzZXJ0RmFsc2UoUmVnaXN0cnlVcmxzLmlzV2ViVXJsKCJtYWlsdG86YUBiLmMiKSkKICAgIH0KfQo=
+package com.xinsu.moe.data.registry
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertThrows
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+class RegistryUrlsTest {
+
+    private val good = "https://github.com/owner/repo/releases/download/v1.0.0/module.zip"
+
+    @Test
+    fun acceptsGithubReleaseDownloads() {
+        assertTrue(RegistryUrls.isAllowedReleaseDownloadUrl(good))
+        assertTrue(RegistryUrls.isAllowedReleaseDownloadUrl("https://GitHub.com/o-1/r.e_p/releases/download/v2/a%20b.zip"))
+    }
+
+    @Test
+    fun rejectsEverythingElse() {
+        val bad = listOf(
+            "http://github.com/owner/repo/releases/download/v1/module.zip",
+            "https://github.com.evil.com/owner/repo/releases/download/v1/module.zip",
+            "https://evil.com/owner/repo/releases/download/v1/module.zip",
+            "https://objects.githubusercontent.com/owner/repo/releases/download/v1/module.zip",
+            "https://github.com/owner/repo/archive/refs/tags/v1.zip",
+            "https://github.com/owner/repo/releases/download/module.zip",
+            "https://github.com/owner/repo/releases/download/v1/../../../x/module.zip",
+            "https://github.com/owner/repo/releases/download/v1/%2e%2e/module.zip",
+            "https://github.com/owner/repo/releases/download/v1/a%2Fb.zip",
+            "https://user@github.com/owner/repo/releases/download/v1/module.zip",
+            "https://github.com:8443/owner/repo/releases/download/v1/module.zip",
+            "https://github.com/owner/repo/releases/download/v1/module.zip?x=1",
+            "https://github.com/owner/repo/releases/download/v1/module.zip#frag",
+            "https://github.com//repo/releases/download/v1/module.zip",
+            "javascript:alert(1)",
+            "not a url",
+            "",
+        )
+        for (url in bad) assertFalse(url, RegistryUrls.isAllowedReleaseDownloadUrl(url))
+    }
+
+    @Test
+    fun redirectHops() {
+        assertTrue(RegistryUrls.isAllowedDownloadHop(good))
+        assertTrue(RegistryUrls.isAllowedDownloadHop("https://objects.githubusercontent.com/github-production-release-asset/1?sig=x"))
+        assertTrue(RegistryUrls.isAllowedDownloadHop("https://release-assets.githubusercontent.com/github-production-release-asset/1?sp=r"))
+        assertFalse(RegistryUrls.isAllowedDownloadHop("http://objects.githubusercontent.com/x"))
+        assertFalse(RegistryUrls.isAllowedDownloadHop("https://raw.githubusercontent.com/x"))
+        assertFalse(RegistryUrls.isAllowedDownloadHop("https://evil.com/x"))
+    }
+
+    @Test
+    fun resolvesApiPathsAgainstSiteRoot() {
+        assertEquals(
+            "https://modules.kernelsu.org/api/v1/modules.json",
+            RegistryUrls.resolve(RegistryUrls.DEFAULT_BASE_URL, "api/v1/modules.json")
+        )
+        assertEquals(
+            "https://example.org/mirror/api/v1/index.json",
+            RegistryUrls.resolve("https://example.org/mirror", "api/v1/index.json")
+        )
+        for (bad in listOf("/api/v1/x.json", "../x.json", "api/../x.json", "https://evil.com/x", "a?b", "")) {
+            assertThrows(bad, RegistryFormatException::class.java) { RegistryUrls.resolve(RegistryUrls.DEFAULT_BASE_URL, bad) }
+        }
+        assertThrows(IllegalArgumentException::class.java) { RegistryUrls.normalizeBaseUrl("http://modules.kernelsu.org/") }
+    }
+
+    @Test
+    fun idnAndPunycodeHostsNeverMatch() {
+        // Non-ASCII hosts do not parse as a server authority; punycode is compared literally.
+        for (url in listOf(
+            "https://gíthub.com/owner/repo/releases/download/v1/module.zip",
+            "https://xn--gthub-zqa.com/owner/repo/releases/download/v1/module.zip",
+            "https://github.com./owner/repo/releases/download/v1/module.zip",
+            "https://github.com%2eevil.com/owner/repo/releases/download/v1/module.zip",
+        )) {
+            assertFalse(url, RegistryUrls.isAllowedReleaseDownloadUrl(url))
+            assertFalse(url, RegistryUrls.isAllowedDownloadHop(url))
+        }
+        val base = RegistryUrls.DEFAULT_BASE_URL
+        assertFalse(RegistryUrls.isSameOrigin("https://modules.kérnelsu.org/x.png", base))
+        assertFalse(RegistryUrls.isSameOrigin("https://xn--modules-kernelsu-xyz.org/x.png", base))
+        assertTrue(RegistryUrls.isSameOrigin("https://xn--mnchen-3ya.de/a", "https://XN--MNCHEN-3YA.de/"))
+        assertFalse(RegistryUrls.isSameOrigin("https://xn--mnchen-3ya.de/a", "https://münchen.de/"))
+    }
+
+    @Test
+    fun sameOriginComparesSchemeHostAndPort() {
+        val base = RegistryUrls.DEFAULT_BASE_URL
+        assertTrue(RegistryUrls.isSameOrigin("https://modules.kernelsu.org/assets/a.png", base))
+        assertTrue(RegistryUrls.isSameOrigin("HTTPS://Modules.KernelSU.org:443/assets/a.png", base))
+        assertFalse(RegistryUrls.isSameOrigin("http://modules.kernelsu.org/assets/a.png", base))
+        assertFalse(RegistryUrls.isSameOrigin("https://modules.kernelsu.org:8443/assets/a.png", base))
+        assertFalse(RegistryUrls.isSameOrigin("https://evil.modules.kernelsu.org/a.png", base))
+        assertFalse(RegistryUrls.isSameOrigin("https://modules.kernelsu.org.evil.com/a.png", base))
+        assertFalse(RegistryUrls.isSameOrigin("ftp://modules.kernelsu.org/a.png", "ftp://modules.kernelsu.org/"))
+        assertFalse(RegistryUrls.isSameOrigin("not a url", base))
+    }
+
+    @Test
+    fun restrictedResourcesAndRedirectHops() {
+        val base = RegistryUrls.DEFAULT_BASE_URL
+        // Every hop of a redirect chain is checked with the same rule.
+        val chain = listOf(
+            "https://modules.kernelsu.org/assets/a.png" to true,
+            "https://modules.kernelsu.org/assets/b.png?v=2" to true,
+            "https://github.com/owner/repo/raw/main/a.png" to false,
+            "https://objects.githubusercontent.com/x" to false,
+            "http://modules.kernelsu.org/assets/a.png" to false,
+            "https://modules.kernelsu.org:444/assets/a.png" to false,
+            "https://user@modules.kernelsu.org/assets/a.png" to false,
+            "data:image/png;base64,AAAA" to false,
+            "file:///data/data/x" to false,
+            "javascript:alert(1)" to false,
+        )
+        for ((url, allowed) in chain) {
+            assertEquals(url, allowed, RegistryUrls.isAllowedRestrictedResource(url, base))
+        }
+    }
+
+    @Test
+    fun inPageAnchors() {
+        val base = RegistryUrls.DEFAULT_BASE_URL
+        assertTrue(RegistryUrls.isInPageAnchor("https://modules.kernelsu.org/#install", base))
+        assertFalse(RegistryUrls.isInPageAnchor("https://modules.kernelsu.org/#", base))
+        assertFalse(RegistryUrls.isInPageAnchor("https://modules.kernelsu.org/", base))
+        assertFalse(RegistryUrls.isInPageAnchor("https://modules.kernelsu.org/en/#install", base))
+        assertFalse(RegistryUrls.isInPageAnchor("https://evil.com/#https://modules.kernelsu.org/", base))
+    }
+
+    @Test
+    fun linkSchemes() {
+        assertTrue(RegistryUrls.isHttpsUrl("https://github.com/o/r"))
+        assertFalse(RegistryUrls.isHttpsUrl("http://github.com/o/r"))
+        assertFalse(RegistryUrls.isHttpsUrl("https://user:pw@github.com/o/r"))
+        assertFalse(RegistryUrls.isHttpsUrl("javascript:alert(1)"))
+        assertFalse(RegistryUrls.isHttpsUrl("intent://x#Intent;end"))
+        assertTrue(RegistryUrls.isWebUrl("http://example.com/"))
+        assertTrue(RegistryUrls.isWebUrl("https://example.com/"))
+        assertFalse(RegistryUrls.isWebUrl("ftp://example.com/"))
+        assertFalse(RegistryUrls.isWebUrl("mailto:a@b.c"))
+    }
+}

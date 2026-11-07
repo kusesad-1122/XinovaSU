@@ -1,1 +1,42 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEuc2NyaXB0CgppbXBvcnQga290bGlueC5zZXJpYWxpemF0aW9uLlNlcmlhbGl6YWJsZQppbXBvcnQga290bGlueC5zZXJpYWxpemF0aW9uLmpzb24uSnNvbgoKLyoqIFRoZSBsYXN0IHJ1biBvZiBhIG9uZS1zaG90IHNjcmlwdDsga2VwdCBsb2NhbGx5LCBzY3JpcHRzIGhhdmUgbm8gaW5zdGFsbGVkIHN0YXRlLiAqLwpAU2VyaWFsaXphYmxlCmRhdGEgY2xhc3MgU2NyaXB0UnVuUmVjb3JkKAogICAgdmFsIGlkOiBTdHJpbmcsCiAgICB2YWwgdmVyc2lvbkNvZGU6IEludD8gPSBudWxsLAogICAgLyoqIEVwb2NoIG1pbGxpcy4gKi8KICAgIHZhbCB0aW1lOiBMb25nLAogICAgdmFsIGV4aXRDb2RlOiBJbnQsCikgewogICAgdmFsIG91dGNvbWU6IFNjcmlwdE91dGNvbWUgZ2V0KCkgPSBTY3JpcHRPdXRjb21lLm9mKGV4aXRDb2RlKQoKICAgIGZ1biBlbmNvZGUoKTogU3RyaW5nID0gSlNPTi5lbmNvZGVUb1N0cmluZyhzZXJpYWxpemVyKCksIHRoaXMpCgogICAgY29tcGFuaW9uIG9iamVjdCB7CiAgICAgICAgcHJpdmF0ZSB2YWwgSlNPTiA9IEpzb24geyBpZ25vcmVVbmtub3duS2V5cyA9IHRydWUgfQoKICAgICAgICAvKiogTnVsbCBmb3IgbWlzc2luZyBvciB1bnJlYWRhYmxlIGRhdGEsIG9yIGEgcmVjb3JkIG9mIGFub3RoZXIgaWQuICovCiAgICAgICAgZnVuIGRlY29kZSh0ZXh0OiBTdHJpbmc/LCBpZDogU3RyaW5nKTogU2NyaXB0UnVuUmVjb3JkPyA9CiAgICAgICAgICAgIHRleHQ/LmxldCB7IHJ1bkNhdGNoaW5nIHsgSlNPTi5kZWNvZGVGcm9tU3RyaW5nKHNlcmlhbGl6ZXIoKSwgaXQpIH0uZ2V0T3JOdWxsKCkgfT8udGFrZUlmIHsgaXQuaWQgPT0gaWQgfQogICAgfQp9CgovKiogS2V5LXZhbHVlIHN0b3JhZ2UgdGhlIHJ1biBoaXN0b3J5IGlzIGtlcHQgaW4gKFNoYXJlZFByZWZlcmVuY2VzIG9uIHRoZSBkZXZpY2UpLiAqLwppbnRlcmZhY2UgU2NyaXB0UnVuU3RvcmFnZSB7CiAgICBmdW4gcmVhZChrZXk6IFN0cmluZyk6IFN0cmluZz8KICAgIGZ1biB3cml0ZShrZXk6IFN0cmluZywgdmFsdWU6IFN0cmluZykKfQoKY2xhc3MgU2NyaXB0UnVuSGlzdG9yeShwcml2YXRlIHZhbCBzdG9yYWdlOiBTY3JpcHRSdW5TdG9yYWdlKSB7CiAgICBmdW4gbGFzdChpZDogU3RyaW5nKTogU2NyaXB0UnVuUmVjb3JkPyA9IFNjcmlwdFJ1blJlY29yZC5kZWNvZGUoc3RvcmFnZS5yZWFkKEtFWV9QUkVGSVggKyBpZCksIGlkKQoKICAgIGZ1biByZWNvcmQocmVjb3JkOiBTY3JpcHRSdW5SZWNvcmQpID0gc3RvcmFnZS53cml0ZShLRVlfUFJFRklYICsgcmVjb3JkLmlkLCByZWNvcmQuZW5jb2RlKCkpCgogICAgcHJpdmF0ZSBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICBjb25zdCB2YWwgS0VZX1BSRUZJWCA9ICJsYXN0X3J1bjoiCiAgICB9Cn0K
+package com.xinsu.moe.data.script
+
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+
+/** The last run of a one-shot script; kept locally, scripts have no installed state. */
+@Serializable
+data class ScriptRunRecord(
+    val id: String,
+    val versionCode: Int? = null,
+    /** Epoch millis. */
+    val time: Long,
+    val exitCode: Int,
+) {
+    val outcome: ScriptOutcome get() = ScriptOutcome.of(exitCode)
+
+    fun encode(): String = JSON.encodeToString(serializer(), this)
+
+    companion object {
+        private val JSON = Json { ignoreUnknownKeys = true }
+
+        /** Null for missing or unreadable data, or a record of another id. */
+        fun decode(text: String?, id: String): ScriptRunRecord? =
+            text?.let { runCatching { JSON.decodeFromString(serializer(), it) }.getOrNull() }?.takeIf { it.id == id }
+    }
+}
+
+/** Key-value storage the run history is kept in (SharedPreferences on the device). */
+interface ScriptRunStorage {
+    fun read(key: String): String?
+    fun write(key: String, value: String)
+}
+
+class ScriptRunHistory(private val storage: ScriptRunStorage) {
+    fun last(id: String): ScriptRunRecord? = ScriptRunRecord.decode(storage.read(KEY_PREFIX + id), id)
+
+    fun record(record: ScriptRunRecord) = storage.write(KEY_PREFIX + record.id, record.encode())
+
+    private companion object {
+        const val KEY_PREFIX = "last_run:"
+    }
+}

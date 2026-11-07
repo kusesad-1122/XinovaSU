@@ -1,1 +1,440 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLnVpLnZpZXdtb2RlbAoKaW1wb3J0IGFuZHJvaWQuY29udGVudC5Db250ZXh0CmltcG9ydCBhbmRyb2lkLmNvbnRlbnQucG0uQXBwbGljYXRpb25JbmZvCmltcG9ydCBhbmRyb2lkLmdyYXBoaWNzLmRyYXdhYmxlLkRyYXdhYmxlCmltcG9ydCBhbmRyb2lkLnV0aWwuTG9nCmltcG9ydCBhbmRyb2lkeC5jb3JlLmNvbnRlbnQuZWRpdAppbXBvcnQgYW5kcm9pZHgubGlmZWN5Y2xlLlZpZXdNb2RlbAppbXBvcnQgYW5kcm9pZHgubGlmZWN5Y2xlLnZpZXdNb2RlbFNjb3BlCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuQ29yb3V0aW5lU2NvcGUKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5EZWZlcnJlZAppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLkRpc3BhdGNoZXJzCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuSm9iCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuU3VwZXJ2aXNvckpvYgppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLmFzeW5jCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5NdXRhYmxlU3RhdGVGbG93CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy5TdGF0ZUZsb3cKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5mbG93LmFzU3RhdGVGbG93CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZmxvdy51cGRhdGUKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5sYXVuY2gKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5zeW5jLk11dGV4CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuc3luYy53aXRoTG9jawppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLndpdGhDb250ZXh0CmltcG9ydCBjb20ueGluc3UubW9lLk5hdGl2ZXMKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZXBvc2l0b3J5LlN1cGVyVXNlclJlcG9zaXRvcnkKaW1wb3J0IGNvbS54aW5zdS5tb2UuZGF0YS5yZXBvc2l0b3J5LlN1cGVyVXNlclJlcG9zaXRvcnlJbXBsCmltcG9ydCBjb20ueGluc3UubW9lLmtzdUFwcAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS5jb21wb25lbnQuU2VhcmNoU3RhdHVzCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnNjcmVlbi5zdXBlcnVzZXIuR3JvdXBlZEFwcHMKaW1wb3J0IGNvbS54aW5zdS5tb2UudWkuc2NyZWVuLnN1cGVydXNlci5TdXBlclVzZXJVaVN0YXRlCmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwuSGFuemlUb1BpbnlpbgppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLm93bmVyTmFtZUZvclVpZAppbXBvcnQgY29tLnhpbnN1Lm1vZS51aS51dGlsLnBpY2tQcmltYXJ5CmltcG9ydCBjb20ueGluc3UubW9lLnVpLnV0aWwud2l0aEN1cnJlbnRVc2VyVWlkCmltcG9ydCBqYXZhLnRleHQuQ29sbGF0b3IKaW1wb3J0IGphdmEudXRpbC5Mb2NhbGUKCmludGVybmFsIGNvbnN0IHZhbCBSRUNFTlRMWV9JTlNUQUxMRURfV0lORE9XX01JTExJUyA9IDYwICogNjAgKiAxMDAwTAoKaW50ZXJuYWwgY29uc3QgdmFsIFNPUlRfQllfTkFNRSA9IDAKaW50ZXJuYWwgY29uc3QgdmFsIFNPUlRfQllfUEFDS0FHRV9OQU1FID0gMQppbnRlcm5hbCBjb25zdCB2YWwgU09SVF9CWV9JTlNUQUxMX1RJTUUgPSAyCmludGVybmFsIGNvbnN0IHZhbCBTT1JUX0JZX1VQREFURV9USU1FID0gMwoKcHJpdmF0ZSBjb25zdCB2YWwgUFJFRlNfU09SVF9PUFRJT04gPSAic3VwZXJ1c2VyX3NvcnRfb3B0aW9uIgoKaW50ZXJuYWwgZnVuIGJ1aWxkUmVjZW50bHlJbnN0YWxsZWRHcm91cHMoCiAgICBncm91cHM6IExpc3Q8R3JvdXBlZEFwcHM+LAogICAgbm93TWlsbGlzOiBMb25nID0gU3lzdGVtLmN1cnJlbnRUaW1lTWlsbGlzKCksCik6IExpc3Q8R3JvdXBlZEFwcHM+IHsKICAgIHZhbCBjdXRvZmZNaWxsaXMgPSBub3dNaWxsaXMgLSBSRUNFTlRMWV9JTlNUQUxMRURfV0lORE9XX01JTExJUwoKICAgIHJldHVybiBncm91cHMubWFwTm90TnVsbCB7IGdyb3VwIC0+CiAgICAgICAgdmFsIGxhdGVzdEluc3RhbGxUaW1lID0gZ3JvdXAuYXBwcy5tYXhPZk9yTnVsbCB7IGl0LnBhY2thZ2VJbmZvLmZpcnN0SW5zdGFsbFRpbWUgfSA/OiByZXR1cm5AbWFwTm90TnVsbCBudWxsCiAgICAgICAgaWYgKGxhdGVzdEluc3RhbGxUaW1lIDwgY3V0b2ZmTWlsbGlzKSB7CiAgICAgICAgICAgIG51bGwKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBncm91cC5jb3B5KG1hdGNoZWRQYWNrYWdlTmFtZXMgPSBlbXB0eVNldCgpKSB0byBsYXRlc3RJbnN0YWxsVGltZQogICAgICAgIH0KICAgIH0uc29ydGVkV2l0aCgKICAgICAgICBjb21wYXJlQnlEZXNjZW5kaW5nPFBhaXI8R3JvdXBlZEFwcHMsIExvbmc+PiB7IGl0LnNlY29uZCB9CiAgICAgICAgICAgIC50aGVuQnkgeyBpdC5maXJzdC5wcmltYXJ5LmxhYmVsLmxvd2VyY2FzZSgpIH0KICAgICkubWFwIHsgaXQuZmlyc3QgfQp9CgpjbGFzcyBTdXBlclVzZXJWaWV3TW9kZWwoCiAgICBwcml2YXRlIHZhbCByZXBvOiBTdXBlclVzZXJSZXBvc2l0b3J5ID0gU3VwZXJVc2VyUmVwb3NpdG9yeUltcGwoKQopIDogVmlld01vZGVsKCkgewoKICAgIGNvbXBhbmlvbiBvYmplY3QgewogICAgICAgIHByaXZhdGUgY29uc3QgdmFsIFRBRyA9ICJTdXBlclVzZXJWaWV3TW9kZWwiCgogICAgICAgIC8vIENhY2hlIHRvIHN1cHBvcnQgZ2V0QXBwSWNvbkRyYXdhYmxlIHN0YXRpYyBtZXRob2QKICAgICAgICBwcml2YXRlIHZhbCBhcHBzTG9jayA9IEFueSgpCiAgICAgICAgcHJpdmF0ZSB2YXIgY2FjaGVkQXBwczogTGlzdDxBcHBJbmZvPiA9IGVtcHR5TGlzdCgpCiAgICAgICAgcHJpdmF0ZSB2YXIgY2FjaGVkVXNlcklkczogTGlzdDxJbnQ+ID0gZW1wdHlMaXN0KCkKICAgICAgICBwcml2YXRlIHZhciBhcHBMaXN0U2NhbjogRGVmZXJyZWQ8UmVzdWx0PFBhaXI8TGlzdDxBcHBJbmZvPiwgTGlzdDxJbnQ+Pj4+PyA9IG51bGwKICAgICAgICBwcml2YXRlIHZhbCBzY2FuU2NvcGUgPSBDb3JvdXRpbmVTY29wZShTdXBlcnZpc29ySm9iKCkgKyBEaXNwYXRjaGVycy5JTykKICAgICAgICBwcml2YXRlIHZhbCBncm91cGVkQXBwc0xvY2sgPSBBbnkoKQogICAgICAgIHByaXZhdGUgdmFyIGNhY2hlZEdyb3VwZWRBcHBzOiBMaXN0PEdyb3VwZWRBcHBzPiA9IGVtcHR5TGlzdCgpCgogICAgICAgIHZhbCBhcHBzOiBMaXN0PEFwcEluZm8+CiAgICAgICAgICAgIGdldCgpID0gc3luY2hyb25pemVkKGFwcHNMb2NrKSB7IGNhY2hlZEFwcHMgfQoKICAgICAgICAvLyBDYWxsZXJzIGpvaW4gYSBzY2FuIGluIGZsaWdodCBpbnN0ZWFkIG9mIHN0YXJ0aW5nIGEgcGFyYWxsZWwgb25lLiB1c2VDYWNoZSA9IGZhbHNlCiAgICAgICAgLy8gc3RpbGwgcmVzY2FucyB3aGVuIG5vbmUgaXMgcnVubmluZywgc28gYSBmcmVzaCBzY3JlZW4gc2VlcyBuZXdseSBpbnN0YWxsZWQgYXBwcy4KICAgICAgICBzdXNwZW5kIGZ1biBsb2FkQXBwcygKICAgICAgICAgICAgdXNlQ2FjaGU6IEJvb2xlYW4sCiAgICAgICAgICAgIHJlcG86IFN1cGVyVXNlclJlcG9zaXRvcnkgPSBTdXBlclVzZXJSZXBvc2l0b3J5SW1wbCgpLAogICAgICAgICk6IFJlc3VsdDxQYWlyPExpc3Q8QXBwSW5mbz4sIExpc3Q8SW50Pj4+IHsKICAgICAgICAgICAgdmFsIHNjYW4gPSBzeW5jaHJvbml6ZWQoYXBwc0xvY2spIHsKICAgICAgICAgICAgICAgIGlmICh1c2VDYWNoZSAmJiBjYWNoZWRBcHBzLmlzTm90RW1wdHkoKSkgcmV0dXJuIFJlc3VsdC5zdWNjZXNzKGNhY2hlZEFwcHMgdG8gY2FjaGVkVXNlcklkcykKICAgICAgICAgICAgICAgIGFwcExpc3RTY2FuPy50YWtlSWYgeyBpdC5pc0FjdGl2ZSB9ID86IHNjYW5TY29wZS5hc3luYyB7CiAgICAgICAgICAgICAgICAgICAgcmVwby5nZXRBcHBMaXN0KCkKICAgICAgICAgICAgICAgICAgICAgICAgLm9uU3VjY2VzcyB7IChhcHBzLCBpZHMpIC0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzeW5jaHJvbml6ZWQoYXBwc0xvY2spIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjYWNoZWRBcHBzID0gYXBwcwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNhY2hlZFVzZXJJZHMgPSBpZHMKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAub25GYWlsdXJlIHsgTG9nLmUoVEFHLCAibG9hZEFwcHMgZmFpbGVkIiwgaXQpIH0KICAgICAgICAgICAgICAgIH0uYWxzbyB7IGFwcExpc3RTY2FuID0gaXQgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIHJldHVybiBzY2FuLmF3YWl0KCkKICAgICAgICB9CgogICAgICAgIEBKdm1TdGF0aWMKICAgICAgICBmdW4gZ2V0R3JvdXBlZEFwcCh1aWQ6IEludCk6IEdyb3VwZWRBcHBzPyB7CiAgICAgICAgICAgIHJldHVybiBzeW5jaHJvbml6ZWQoZ3JvdXBlZEFwcHNMb2NrKSB7IGNhY2hlZEdyb3VwZWRBcHBzLmZpbmQgeyBpdC51aWQgPT0gdWlkIH0gfQogICAgICAgIH0KCiAgICAgICAgQEp2bVN0YXRpYwogICAgICAgIGZ1biBnZXRBcHBJY29uRHJhd2FibGUoY29udGV4dDogQ29udGV4dCwgcGFja2FnZU5hbWU6IFN0cmluZyk6IERyYXdhYmxlPyB7CiAgICAgICAgICAgIHZhbCBhcHBMaXN0ID0gc3luY2hyb25pemVkKGFwcHNMb2NrKSB7IGNhY2hlZEFwcHMgfQogICAgICAgICAgICB2YWwgYXBwRGV0YWlsID0gYXBwTGlzdC5maW5kIHsgaXQucGFja2FnZU5hbWUgPT0gcGFja2FnZU5hbWUgfQogICAgICAgICAgICB2YWwgYXBwSW5mbyA9IGFwcERldGFpbD8ucGFja2FnZUluZm8/LmFwcGxpY2F0aW9uSW5mbyA/OiByZXR1cm4gbnVsbAogICAgICAgICAgICByZXR1cm4gYXBwSW5mby53aXRoQ3VycmVudFVzZXJVaWQoKS5sb2FkSWNvbihjb250ZXh0LnBhY2thZ2VNYW5hZ2VyKQogICAgICAgIH0KICAgIH0KCiAgICB0eXBlYWxpYXMgQXBwSW5mbyA9IGNvbS54aW5zdS5tb2UuZGF0YS5tb2RlbC5BcHBJbmZvCgogICAgcHJpdmF0ZSB2YWwgX3VpU3RhdGUgPSBNdXRhYmxlU3RhdGVGbG93KFN1cGVyVXNlclVpU3RhdGUoKSkKICAgIHZhbCB1aVN0YXRlOiBTdGF0ZUZsb3c8U3VwZXJVc2VyVWlTdGF0ZT4gPSBfdWlTdGF0ZS5hc1N0YXRlRmxvdygpCiAgICBwcml2YXRlIHZhbCBwcmVmcyA9IGtzdUFwcC5nZXRTaGFyZWRQcmVmZXJlbmNlcygic2V0dGluZ3MiLCBDb250ZXh0Lk1PREVfUFJJVkFURSkKCiAgICBwcml2YXRlIHZhbCByZWZyZXNoTXV0ZXggPSBNdXRleCgpCiAgICBwcml2YXRlIHZhbCBzZWFyY2hRdWVyeSA9IE11dGFibGVTdGF0ZUZsb3coIiIpCiAgICB2YXIgaXNOZWVkUmVmcmVzaCA9IGZhbHNlCiAgICAgICAgcHJpdmF0ZSBzZXQKCiAgICBpbml0IHsKICAgICAgICB2aWV3TW9kZWxTY29wZS5sYXVuY2hTZWFyY2hRdWVyeUNvbGxlY3RvcihzZWFyY2hRdWVyeSwgOjphcHBseVNlYXJjaFRleHQpCiAgICB9CgogICAgZnVuIG1hcmtOZWVkUmVmcmVzaCgpIHsKICAgICAgICBpc05lZWRSZWZyZXNoID0gdHJ1ZQogICAgfQoKICAgIGZ1biBpbml0aWFsaXplUHJlZmVyZW5jZXMoKSB7CiAgICAgICAgdmFsIHNob3dTeXN0ZW1BcHBzID0gcHJlZnMuZ2V0Qm9vbGVhbigic2hvd19zeXN0ZW1fYXBwcyIsIGZhbHNlKQogICAgICAgIHZhbCBzaG93T25seVByaW1hcnlVc2VyQXBwcyA9IHByZWZzLmdldEJvb2xlYW4oInNob3dfb25seV9wcmltYXJ5X3VzZXJfYXBwcyIsIGZhbHNlKQogICAgICAgIHZhbCBzb3J0T3B0aW9uID0gcHJlZnMuZ2V0SW50KFBSRUZTX1NPUlRfT1BUSU9OLCAwKQogICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgIGl0LmNvcHkoCiAgICAgICAgICAgICAgICBzaG93U3lzdGVtQXBwcyA9IHNob3dTeXN0ZW1BcHBzLAogICAgICAgICAgICAgICAgc2hvd09ubHlQcmltYXJ5VXNlckFwcHMgPSBzaG93T25seVByaW1hcnlVc2VyQXBwcywKICAgICAgICAgICAgICAgIHNvcnRPcHRpb24gPSBzb3J0T3B0aW9uLAogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQoKICAgIGZ1biB1cGRhdGVTb3J0T3B0aW9uKG9wdGlvbjogSW50KTogSm9iIHsKICAgICAgICBwcmVmcy5lZGl0IHsgcHV0SW50KFBSRUZTX1NPUlRfT1BUSU9OLCBvcHRpb24pIH0KICAgICAgICBfdWlTdGF0ZS51cGRhdGUgeyBpdC5jb3B5KHNvcnRPcHRpb24gPSBvcHRpb24pIH0KICAgICAgICByZXR1cm4gdmlld01vZGVsU2NvcGUubGF1bmNoIHsKICAgICAgICAgICAgdmFsIGN1cnJlbnQgPSBfdWlTdGF0ZS52YWx1ZS5ncm91cGVkQXBwcwogICAgICAgICAgICBpZiAoY3VycmVudC5pc0VtcHR5KCkpIHJldHVybkBsYXVuY2gKICAgICAgICAgICAgdXBkYXRlVmlzaWJsZUFwcHMoY3VycmVudCkKICAgICAgICB9CiAgICB9CgogICAgZnVuIHRvZ2dsZVNob3dTeXN0ZW1BcHBzKCk6IEpvYiB7CiAgICAgICAgdmFsIG5ld1ZhbHVlID0gIV91aVN0YXRlLnZhbHVlLnNob3dTeXN0ZW1BcHBzCiAgICAgICAgcHJlZnMuZWRpdCB7IHB1dEJvb2xlYW4oInNob3dfc3lzdGVtX2FwcHMiLCBuZXdWYWx1ZSkgfQogICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7IGl0LmNvcHkoc2hvd1N5c3RlbUFwcHMgPSBuZXdWYWx1ZSkgfQogICAgICAgIHJldHVybiB2aWV3TW9kZWxTY29wZS5sYXVuY2ggewogICAgICAgICAgICAvLyBSZS1maWx0ZXIgd2hlbiBzZXR0aW5nIGNoYW5nZXMKICAgICAgICAgICAgdmFsIGdyb3VwZWQgPSB3aXRoQ29udGV4dChEaXNwYXRjaGVycy5JTykgewogICAgICAgICAgICAgICAgYnVpbGRHcm91cHMoZmlsdGVyQW5kU29ydChhcHBzKSkKICAgICAgICAgICAgfQogICAgICAgICAgICB1cGRhdGVWaXNpYmxlQXBwcyhncm91cGVkKQogICAgICAgIH0KICAgIH0KCiAgICBmdW4gdG9nZ2xlU2hvd09ubHlQcmltYXJ5VXNlckFwcHMoKTogSm9iIHsKICAgICAgICB2YWwgbmV3VmFsdWUgPSAhX3VpU3RhdGUudmFsdWUuc2hvd09ubHlQcmltYXJ5VXNlckFwcHMKICAgICAgICBwcmVmcy5lZGl0IHsgcHV0Qm9vbGVhbigic2hvd19vbmx5X3ByaW1hcnlfdXNlcl9hcHBzIiwgbmV3VmFsdWUpIH0KICAgICAgICBfdWlTdGF0ZS51cGRhdGUgeyBpdC5jb3B5KHNob3dPbmx5UHJpbWFyeVVzZXJBcHBzID0gbmV3VmFsdWUpIH0KICAgICAgICByZXR1cm4gdmlld01vZGVsU2NvcGUubGF1bmNoIHsKICAgICAgICAgICAgLy8gUmUtZmlsdGVyIHdoZW4gc2V0dGluZyBjaGFuZ2VzCiAgICAgICAgICAgIHZhbCBncm91cGVkID0gd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICAgICAgICAgIGJ1aWxkR3JvdXBzKGZpbHRlckFuZFNvcnQoYXBwcykpCiAgICAgICAgICAgIH0KICAgICAgICAgICAgdXBkYXRlVmlzaWJsZUFwcHMoZ3JvdXBlZCkKICAgICAgICB9CiAgICB9CgogICAgZnVuIHVwZGF0ZVNlYXJjaFN0YXR1cyhzdGF0dXM6IFNlYXJjaFN0YXR1cykgewogICAgICAgIHZhbCBwcmV2aW91cyA9IF91aVN0YXRlLnZhbHVlLnNlYXJjaFN0YXR1cwogICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7IGl0LmNvcHkoc2VhcmNoU3RhdHVzID0gc3RhdHVzKSB9CiAgICAgICAgaWYgKHByZXZpb3VzLnNlYXJjaFRleHQgIT0gc3RhdHVzLnNlYXJjaFRleHQpIHsKICAgICAgICAgICAgc2VhcmNoUXVlcnkudmFsdWUgPSBzdGF0dXMuc2VhcmNoVGV4dAogICAgICAgIH0KICAgIH0KCiAgICBmdW4gdXBkYXRlU2VhcmNoVGV4dCh0ZXh0OiBTdHJpbmcpIHsKICAgICAgICB1cGRhdGVTZWFyY2hTdGF0dXMoX3VpU3RhdGUudmFsdWUuc2VhcmNoU3RhdHVzLmNvcHkoc2VhcmNoVGV4dCA9IHRleHQpKQogICAgfQoKICAgIHByaXZhdGUgZnVuIGZpbHRlclNlYXJjaFJlc3VsdHMoZ3JvdXBzOiBMaXN0PEdyb3VwZWRBcHBzPiwgdGV4dDogU3RyaW5nKTogTGlzdDxHcm91cGVkQXBwcz4gewogICAgICAgIGlmICh0ZXh0LmlzRW1wdHkoKSkgcmV0dXJuIGVtcHR5TGlzdCgpCgogICAgICAgIHJldHVybiBncm91cHMubWFwTm90TnVsbCB7IGdyb3VwIC0+CiAgICAgICAgICAgIHZhbCBtYXRjaGVkUGFja2FnZU5hbWVzID0gZ3JvdXAuYXBwcy5maWx0ZXIgewogICAgICAgICAgICAgICAgaXQubGFiZWwuY29udGFpbnModGV4dCwgdHJ1ZSkgfHwKICAgICAgICAgICAgICAgICAgICAgICAgaXQucGFja2FnZU5hbWUuY29udGFpbnModGV4dCwgdHJ1ZSkgfHwKICAgICAgICAgICAgICAgICAgICAgICAgSGFuemlUb1Bpbnlpbi5nZXRJbnN0YW5jZSgpLnRvUGlueWluU3RyaW5nKGl0LmxhYmVsKS5jb250YWlucyh0ZXh0LCB0cnVlKQogICAgICAgICAgICB9Lm1hcFRvKGxpbmtlZFNldE9mKCkpIHsgaXQucGFja2FnZU5hbWUgfQoKICAgICAgICAgICAgaWYgKG1hdGNoZWRQYWNrYWdlTmFtZXMuaXNFbXB0eSgpKSB7CiAgICAgICAgICAgICAgICBudWxsCiAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICB2YWwgc29ydGVkQXBwcyA9IGdyb3VwLmFwcHMuc29ydGVkV2l0aCgKICAgICAgICAgICAgICAgICAgICBjb21wYXJlQnlEZXNjZW5kaW5nIHsgaXQucGFja2FnZU5hbWUgaW4gbWF0Y2hlZFBhY2thZ2VOYW1lcyB9CiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICBncm91cC5jb3B5KAogICAgICAgICAgICAgICAgICAgIGFwcHMgPSBzb3J0ZWRBcHBzLAogICAgICAgICAgICAgICAgICAgIG1hdGNoZWRQYWNrYWdlTmFtZXMgPSBtYXRjaGVkUGFja2FnZU5hbWVzLAogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgc3VzcGVuZCBmdW4gYXBwbHlTZWFyY2hUZXh0KHRleHQ6IFN0cmluZykgewogICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgIGl0LmNvcHkoCiAgICAgICAgICAgICAgICBzZWFyY2hTdGF0dXMgPSBpdC5zZWFyY2hTdGF0dXMuY29weSgKICAgICAgICAgICAgICAgICAgICByZXN1bHRTdGF0dXMgPSBzZWFyY2hMb2FkaW5nU3RhdHVzRm9yKHRleHQpCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICkKICAgICAgICB9CgogICAgICAgIGlmICh0ZXh0LmlzRW1wdHkoKSkgewogICAgICAgICAgICBfdWlTdGF0ZS51cGRhdGUgeyBzdGF0ZSAtPgogICAgICAgICAgICAgICAgc3RhdGUuY29weSgKICAgICAgICAgICAgICAgICAgICBzZWFyY2hSZXN1bHRzID0gZW1wdHlMaXN0KCksCiAgICAgICAgICAgICAgICAgICAgc2VhcmNoU3RhdHVzID0gc3RhdGUuc2VhcmNoU3RhdHVzLmNvcHkocmVzdWx0U3RhdHVzID0gU2VhcmNoU3RhdHVzLlJlc3VsdFN0YXR1cy5ERUZBVUxUKQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9CiAgICAgICAgICAgIHJldHVybgogICAgICAgIH0KCiAgICAgICAgdmFsIHJlc3VsdCA9IHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgICAgIGZpbHRlclNlYXJjaFJlc3VsdHMoX3VpU3RhdGUudmFsdWUuZ3JvdXBlZEFwcHMsIHRleHQpCiAgICAgICAgfQoKICAgICAgICBfdWlTdGF0ZS51cGRhdGUgewogICAgICAgICAgICBpdC5jb3B5KAogICAgICAgICAgICAgICAgc2VhcmNoUmVzdWx0cyA9IHJlc3VsdCwKICAgICAgICAgICAgICAgIHNlYXJjaFN0YXR1cyA9IGl0LnNlYXJjaFN0YXR1cy5jb3B5KHJlc3VsdFN0YXR1cyA9IHNlYXJjaFJlc3VsdFN0YXR1c0Zvcih0ZXh0LCByZXN1bHQuaXNFbXB0eSgpKSkKICAgICAgICAgICAgKQogICAgICAgIH0KICAgIH0KCiAgICBwcml2YXRlIGZ1biB1cGRhdGVDYWNoZWRHcm91cGVkQXBwcyhncm91cGVkOiBMaXN0PEdyb3VwZWRBcHBzPikgewogICAgICAgIHN5bmNocm9uaXplZChncm91cGVkQXBwc0xvY2spIHsKICAgICAgICAgICAgY2FjaGVkR3JvdXBlZEFwcHMgPSBncm91cGVkLm1hcCB7IGl0LmNvcHkobWF0Y2hlZFBhY2thZ2VOYW1lcyA9IGVtcHR5U2V0KCkpIH0KICAgICAgICB9CiAgICB9CgogICAgcHJpdmF0ZSBmdW4gdXBkYXRlVmlzaWJsZUFwcHMoZ3JvdXBlZDogTGlzdDxHcm91cGVkQXBwcz4pIHsKICAgICAgICB2YWwgc29ydGVkID0gc29ydEdyb3Vwcyhncm91cGVkLCBfdWlTdGF0ZS52YWx1ZS5zb3J0T3B0aW9uKQogICAgICAgIHZhbCBzZWFyY2hUZXh0ID0gX3VpU3RhdGUudmFsdWUuc2VhcmNoU3RhdHVzLnNlYXJjaFRleHQKICAgICAgICB2YWwgc2VhcmNoUmVzdWx0cyA9IGZpbHRlclNlYXJjaFJlc3VsdHMoc29ydGVkLCBzZWFyY2hUZXh0KQogICAgICAgIHZhbCByZWNlbnRseUluc3RhbGxlZFJlc3VsdHMgPSBidWlsZFJlY2VudGx5SW5zdGFsbGVkR3JvdXBzKHNvcnRlZCkKICAgICAgICBfdWlTdGF0ZS51cGRhdGUgewogICAgICAgICAgICBpdC5jb3B5KAogICAgICAgICAgICAgICAgZ3JvdXBlZEFwcHMgPSBzb3J0ZWQubWFwIHsgZ3JvdXAgLT4gZ3JvdXAuY29weShtYXRjaGVkUGFja2FnZU5hbWVzID0gZW1wdHlTZXQoKSkgfSwKICAgICAgICAgICAgICAgIHJlY2VudGx5SW5zdGFsbGVkUmVzdWx0cyA9IHJlY2VudGx5SW5zdGFsbGVkUmVzdWx0cywKICAgICAgICAgICAgICAgIHNlYXJjaFJlc3VsdHMgPSBzZWFyY2hSZXN1bHRzLAogICAgICAgICAgICAgICAgc2VhcmNoU3RhdHVzID0gaXQuc2VhcmNoU3RhdHVzLmNvcHkoCiAgICAgICAgICAgICAgICAgICAgcmVzdWx0U3RhdHVzID0gc2VhcmNoUmVzdWx0U3RhdHVzRm9yKHNlYXJjaFRleHQsIHNlYXJjaFJlc3VsdHMuaXNFbXB0eSgpKQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIGZpbHRlckFuZFNvcnQobGlzdDogTGlzdDxBcHBJbmZvPik6IExpc3Q8QXBwSW5mbz4gewogICAgICAgIHZhbCBjb21wYXJhdG9yID0gY29tcGFyZUJ5PEFwcEluZm8+IHsKICAgICAgICAgICAgd2hlbiB7CiAgICAgICAgICAgICAgICBpdC5hbGxvd1N1IC0+IDAKICAgICAgICAgICAgICAgIGl0Lmhhc0N1c3RvbVByb2ZpbGUgLT4gMQogICAgICAgICAgICAgICAgZWxzZSAtPiAyCiAgICAgICAgICAgIH0KICAgICAgICB9LnRoZW4oY29tcGFyZUJ5KENvbGxhdG9yLmdldEluc3RhbmNlKExvY2FsZS5nZXREZWZhdWx0KCkpLCBBcHBJbmZvOjpsYWJlbCkpCgogICAgICAgIHZhbCBjdXJyZW50U3RhdGUgPSBfdWlTdGF0ZS52YWx1ZQoKICAgICAgICByZXR1cm4gbGlzdC5maWx0ZXIgewogICAgICAgICAgICBpZiAoaXQucGFja2FnZU5hbWUgPT0ga3N1QXBwLnBhY2thZ2VOYW1lKSByZXR1cm5AZmlsdGVyIGZhbHNlCiAgICAgICAgICAgIGlmIChpdC5hbGxvd1N1IHx8IGl0Lmhhc0N1c3RvbVByb2ZpbGUpIHsKICAgICAgICAgICAgICAgIHJldHVybkBmaWx0ZXIgdHJ1ZQogICAgICAgICAgICB9CiAgICAgICAgICAgIHZhbCB1c2VyRmlsdGVyID0gIWN1cnJlbnRTdGF0ZS5zaG93T25seVByaW1hcnlVc2VyQXBwcyB8fCBpdC51aWQgLyAxMDAwMDAgPT0gMAogICAgICAgICAgICB2YWwgaXNTeXN0ZW1BcHAgPSBpdC5wYWNrYWdlSW5mby5hcHBsaWNhdGlvbkluZm8hIS5mbGFncy5hbmQoQXBwbGljYXRpb25JbmZvLkZMQUdfU1lTVEVNKSAhPSAwCiAgICAgICAgICAgIHZhbCB0eXBlRmlsdGVyID0gaXQudWlkID09IDIwMDAKICAgICAgICAgICAgICAgICAgICB8fCBjdXJyZW50U3RhdGUuc2hvd1N5c3RlbUFwcHMKICAgICAgICAgICAgICAgICAgICB8fCAhaXNTeXN0ZW1BcHAKICAgICAgICAgICAgdXNlckZpbHRlciAmJiB0eXBlRmlsdGVyCiAgICAgICAgfS5zb3J0ZWRXaXRoKGNvbXBhcmF0b3IpCiAgICB9CgogICAgcHJpdmF0ZSBmdW4gYnVpbGRDYWNoZWRHcm91cHMoYXBwczogTGlzdDxBcHBJbmZvPik6IExpc3Q8R3JvdXBlZEFwcHM+IHsKICAgICAgICByZXR1cm4gYnVpbGRHcm91cHMoYXBwcy5maWx0ZXIgeyBpdC5wYWNrYWdlTmFtZSAhPSBrc3VBcHAucGFja2FnZU5hbWUgfSkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBidWlsZEdyb3VwcyhhcHBzOiBMaXN0PEFwcEluZm8+KTogTGlzdDxHcm91cGVkQXBwcz4gewogICAgICAgIHZhbCBjb21wYXJhdG9yID0gY29tcGFyZUJ5PEFwcEluZm8+IHsKICAgICAgICAgICAgd2hlbiB7CiAgICAgICAgICAgICAgICBpdC5hbGxvd1N1IC0+IDAKICAgICAgICAgICAgICAgIGl0Lmhhc0N1c3RvbVByb2ZpbGUgLT4gMQogICAgICAgICAgICAgICAgZWxzZSAtPiAyCiAgICAgICAgICAgIH0KICAgICAgICB9LnRoZW5CeSB7IGl0LmxhYmVsLmxvd2VyY2FzZSgpIH0KICAgICAgICByZXR1cm4gYXBwcy5ncm91cEJ5IHsgaXQudWlkIH0ubWFwIHsgKHVpZCwgbGlzdCkgLT4KICAgICAgICAgICAgdmFsIHNvcnRlZCA9IGxpc3Quc29ydGVkV2l0aChjb21wYXJhdG9yKQogICAgICAgICAgICB2YWwgcHJpbWFyeSA9IHBpY2tQcmltYXJ5KHNvcnRlZCkKICAgICAgICAgICAgdmFsIHNob3VsZFVtb3VudCA9IE5hdGl2ZXMudWlkU2hvdWxkVW1vdW50KHVpZCkKICAgICAgICAgICAgdmFsIG93bmVyTmFtZSA9IGlmIChzb3J0ZWQuc2l6ZSA+IDEpIG93bmVyTmFtZUZvclVpZCh1aWQsIHNvcnRlZCkgZWxzZSBudWxsCgogICAgICAgICAgICBHcm91cGVkQXBwcygKICAgICAgICAgICAgICAgIHVpZCA9IHVpZCwKICAgICAgICAgICAgICAgIGFwcHMgPSBzb3J0ZWQsCiAgICAgICAgICAgICAgICBwcmltYXJ5ID0gcHJpbWFyeSwKICAgICAgICAgICAgICAgIGFueUFsbG93U3UgPSBzb3J0ZWQuYW55IHsgaXQuYWxsb3dTdSB9LAogICAgICAgICAgICAgICAgYW55Q3VzdG9tID0gc29ydGVkLmFueSB7IGl0Lmhhc0N1c3RvbVByb2ZpbGUgfSwKICAgICAgICAgICAgICAgIHNob3VsZFVtb3VudCA9IHNob3VsZFVtb3VudCwKICAgICAgICAgICAgICAgIG93bmVyTmFtZSA9IG93bmVyTmFtZQogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIGdyb3VwUmFuayhncm91cDogR3JvdXBlZEFwcHMpOiBJbnQgPSB3aGVuIHsKICAgICAgICBncm91cC5hbnlBbGxvd1N1IC0+IDAKICAgICAgICBncm91cC5hbnlDdXN0b20gLT4gMQogICAgICAgIGdyb3VwLmFwcHMuc2l6ZSA+IDEgLT4gMgogICAgICAgIGdyb3VwLnNob3VsZFVtb3VudCAtPiA0CiAgICAgICAgZWxzZSAtPiAzCiAgICB9CgogICAgcHJpdmF0ZSBmdW4gc29ydEdyb3Vwcyhncm91cHM6IExpc3Q8R3JvdXBlZEFwcHM+LCBzb3J0T3B0aW9uOiBJbnQpOiBMaXN0PEdyb3VwZWRBcHBzPiB7CiAgICAgICAgdmFsIHNvcnRUeXBlID0gc29ydE9wdGlvbiAvIDIKICAgICAgICB2YWwgcmV2ZXJzZSA9IHNvcnRPcHRpb24gJSAyICE9IDAKCiAgICAgICAgdmFsIGNvbGxhdG9yID0gQ29sbGF0b3IuZ2V0SW5zdGFuY2UoTG9jYWxlLmdldERlZmF1bHQoKSkKICAgICAgICB2YWwgYmFzZTogQ29tcGFyYXRvcjxHcm91cGVkQXBwcz4gPSB3aGVuIChzb3J0VHlwZSkgewogICAgICAgICAgICBTT1JUX0JZX1BBQ0tBR0VfTkFNRSAtPiBjb21wYXJlQnkgeyBpdC5wcmltYXJ5LnBhY2thZ2VOYW1lIH0KICAgICAgICAgICAgU09SVF9CWV9JTlNUQUxMX1RJTUUgLT4gY29tcGFyZUJ5IHsgaXQucHJpbWFyeS5wYWNrYWdlSW5mby5maXJzdEluc3RhbGxUaW1lIH0KICAgICAgICAgICAgU09SVF9CWV9VUERBVEVfVElNRSAtPiBjb21wYXJlQnkgeyBpdC5wcmltYXJ5LnBhY2thZ2VJbmZvLmxhc3RVcGRhdGVUaW1lIH0KICAgICAgICAgICAgZWxzZSAtPiBDb21wYXJhdG9yIHsgYSwgYiAtPiBjb2xsYXRvci5jb21wYXJlKGEucHJpbWFyeS5sYWJlbCwgYi5wcmltYXJ5LmxhYmVsKSB9CiAgICAgICAgfQogICAgICAgIHZhbCBzZWNvbmRhcnkgPSBpZiAocmV2ZXJzZSkgYmFzZS5yZXZlcnNlZCgpIGVsc2UgYmFzZQoKICAgICAgICByZXR1cm4gZ3JvdXBzLnNvcnRlZFdpdGgoQ29tcGFyYXRvciB7IGEsIGIgLT4KICAgICAgICAgICAgdmFsIHJhID0gZ3JvdXBSYW5rKGEpCiAgICAgICAgICAgIHZhbCByYiA9IGdyb3VwUmFuayhiKQogICAgICAgICAgICBpZiAocmEgIT0gcmIpIHJhIC0gcmIgZWxzZSBzZWNvbmRhcnkuY29tcGFyZShhLCBiKQogICAgICAgIH0pCiAgICB9CgogICAgc3VzcGVuZCBmdW4gZmV0Y2hBcHBMaXN0KCkgewogICAgICAgIHJlZnJlc2hNdXRleC53aXRoTG9jayB7CiAgICAgICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7IGl0LmNvcHkoaXNSZWZyZXNoaW5nID0gdHJ1ZSwgZXJyb3IgPSBudWxsKSB9CgogICAgICAgICAgICBsb2FkQXBwcyh1c2VDYWNoZSA9IGZhbHNlLCByZXBvID0gcmVwbykub25TdWNjZXNzIHsgKG5ld0FwcHMsIGlkcykgLT4KICAgICAgICAgICAgICAgIHZhbCAoY2FjaGVkR3JvdXBzLCBncm91cGVkKSA9IHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgICAgICAgICAgICAgYnVpbGRDYWNoZWRHcm91cHMobmV3QXBwcykgdG8gYnVpbGRHcm91cHMoZmlsdGVyQW5kU29ydChuZXdBcHBzKSkKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICB1cGRhdGVDYWNoZWRHcm91cGVkQXBwcyhjYWNoZWRHcm91cHMpCiAgICAgICAgICAgICAgICB1cGRhdGVWaXNpYmxlQXBwcyhncm91cGVkKQogICAgICAgICAgICAgICAgX3VpU3RhdGUudXBkYXRlIHsgaXQuY29weSh1c2VySWRzID0gaWRzLCBpc1JlZnJlc2hpbmcgPSBmYWxzZSwgaGFzTG9hZGVkID0gdHJ1ZSkgfQogICAgICAgICAgICB9Lm9uRmFpbHVyZSB7IGUgLT4KICAgICAgICAgICAgICAgIF91aVN0YXRlLnVwZGF0ZSB7CiAgICAgICAgICAgICAgICAgICAgaXQuY29weSgKICAgICAgICAgICAgICAgICAgICAgICAgaXNSZWZyZXNoaW5nID0gZmFsc2UsCiAgICAgICAgICAgICAgICAgICAgICAgIGhhc0xvYWRlZCA9IHRydWUsCiAgICAgICAgICAgICAgICAgICAgICAgIGVycm9yID0gZQogICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQoKICAgICAgICAgICAgaXNOZWVkUmVmcmVzaCA9IGZhbHNlCiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgc3VzcGVuZCBmdW4gcmVmcmVzaEFwcExpc3QocmVzb3J0OiBCb29sZWFuID0gdHJ1ZSkgewogICAgICAgIHJlZnJlc2hNdXRleC53aXRoTG9jayB7CiAgICAgICAgICAgIHZhbCBjdXJyZW50QXBwcyA9IHN5bmNocm9uaXplZChhcHBzTG9jaykgeyBjYWNoZWRBcHBzIH0KICAgICAgICAgICAgaWYgKGN1cnJlbnRBcHBzLmlzRW1wdHkoKSkgcmV0dXJuCgogICAgICAgICAgICByZXBvLnJlZnJlc2hQcm9maWxlcyhjdXJyZW50QXBwcykub25TdWNjZXNzIHsgdXBkYXRlZEFwcHMgLT4KICAgICAgICAgICAgICAgIC8vIFVwZGF0ZSBjYWNoZSBmb3Igc3RhdGljIG1ldGhvZAogICAgICAgICAgICAgICAgc3luY2hyb25pemVkKGFwcHNMb2NrKSB7IGNhY2hlZEFwcHMgPSB1cGRhdGVkQXBwcyB9CgogICAgICAgICAgICAgICAgdmFsIGNhY2hlZEdyb3VwcyA9IHdpdGhDb250ZXh0KERpc3BhdGNoZXJzLklPKSB7CiAgICAgICAgICAgICAgICAgICAgYnVpbGRDYWNoZWRHcm91cHModXBkYXRlZEFwcHMpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB1cGRhdGVDYWNoZWRHcm91cGVkQXBwcyhjYWNoZWRHcm91cHMpCgogICAgICAgICAgICAgICAgdmFsIGdyb3VwZWQgPSBpZiAocmVzb3J0KSB7CiAgICAgICAgICAgICAgICAgICAgd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICAgICAgICAgICAgICAgICAgYnVpbGRHcm91cHMoZmlsdGVyQW5kU29ydCh1cGRhdGVkQXBwcykpCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICB2YWwgdXBkYXRlZEdyb3VwcyA9IGJ1aWxkR3JvdXBzKGZpbHRlckFuZFNvcnQodXBkYXRlZEFwcHMpKS5hc3NvY2lhdGVCeSB7IGl0LnVpZCB9CiAgICAgICAgICAgICAgICAgICAgX3VpU3RhdGUudmFsdWUuZ3JvdXBlZEFwcHMubWFwIHsgZ3JvdXAgLT4KICAgICAgICAgICAgICAgICAgICAgICAgdmFsIG5ld0FwcHMgPSB1cGRhdGVkR3JvdXBzW2dyb3VwLnVpZF0/LmFwcHMgPzogZ3JvdXAuYXBwcwogICAgICAgICAgICAgICAgICAgICAgICB2YWwgcHJpbWFyeSA9IHBpY2tQcmltYXJ5KG5ld0FwcHMpCiAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBzaG91bGRVbW91bnQgPSBOYXRpdmVzLnVpZFNob3VsZFVtb3VudChncm91cC51aWQpCiAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBvd25lck5hbWUgPSBpZiAobmV3QXBwcy5zaXplID4gMSkgb3duZXJOYW1lRm9yVWlkKGdyb3VwLnVpZCwgbmV3QXBwcykgZWxzZSBudWxsCiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwLmNvcHkoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhcHBzID0gbmV3QXBwcywKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByaW1hcnkgPSBwcmltYXJ5LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgYW55QWxsb3dTdSA9IG5ld0FwcHMuYW55IHsgaXQuYWxsb3dTdSB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgYW55Q3VzdG9tID0gbmV3QXBwcy5hbnkgeyBpdC5oYXNDdXN0b21Qcm9maWxlIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaG91bGRVbW91bnQgPSBzaG91bGRVbW91bnQsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvd25lck5hbWUgPSBvd25lck5hbWUKICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICB1cGRhdGVWaXNpYmxlQXBwcyhncm91cGVkKQogICAgICAgICAgICAgICAgX3VpU3RhdGUudXBkYXRlIHsgaXQuY29weShpc1JlZnJlc2hpbmcgPSBmYWxzZSkgfQogICAgICAgICAgICAgICAgaXNOZWVkUmVmcmVzaCA9IGZhbHNlCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CgogICAgZnVuIGxvYWRBcHBMaXN0KGZvcmNlOiBCb29sZWFuID0gZmFsc2UsIHJlc29ydDogQm9vbGVhbiA9IHRydWUpOiBKb2IgewogICAgICAgIHJldHVybiB2aWV3TW9kZWxTY29wZS5sYXVuY2ggewogICAgICAgICAgICBpZiAoZm9yY2UgfHwgX3VpU3RhdGUudmFsdWUuZ3JvdXBlZEFwcHMuaXNFbXB0eSgpKSB7CiAgICAgICAgICAgICAgICBmZXRjaEFwcExpc3QoKQogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgcmVmcmVzaEFwcExpc3QocmVzb3J0KQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9Cg==
+package com.xinsu.moe.ui.viewmodel
+
+import android.content.Context
+import android.content.pm.ApplicationInfo
+import android.graphics.drawable.Drawable
+import android.util.Log
+import androidx.core.content.edit
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
+import com.xinsu.moe.Natives
+import com.xinsu.moe.data.repository.SuperUserRepository
+import com.xinsu.moe.data.repository.SuperUserRepositoryImpl
+import com.xinsu.moe.ksuApp
+import com.xinsu.moe.ui.component.SearchStatus
+import com.xinsu.moe.ui.screen.superuser.GroupedApps
+import com.xinsu.moe.ui.screen.superuser.SuperUserUiState
+import com.xinsu.moe.ui.util.HanziToPinyin
+import com.xinsu.moe.ui.util.ownerNameForUid
+import com.xinsu.moe.ui.util.pickPrimary
+import com.xinsu.moe.ui.util.withCurrentUserUid
+import java.text.Collator
+import java.util.Locale
+
+internal const val RECENTLY_INSTALLED_WINDOW_MILLIS = 60 * 60 * 1000L
+
+internal const val SORT_BY_NAME = 0
+internal const val SORT_BY_PACKAGE_NAME = 1
+internal const val SORT_BY_INSTALL_TIME = 2
+internal const val SORT_BY_UPDATE_TIME = 3
+
+private const val PREFS_SORT_OPTION = "superuser_sort_option"
+
+internal fun buildRecentlyInstalledGroups(
+    groups: List<GroupedApps>,
+    nowMillis: Long = System.currentTimeMillis(),
+): List<GroupedApps> {
+    val cutoffMillis = nowMillis - RECENTLY_INSTALLED_WINDOW_MILLIS
+
+    return groups.mapNotNull { group ->
+        val latestInstallTime = group.apps.maxOfOrNull { it.packageInfo.firstInstallTime } ?: return@mapNotNull null
+        if (latestInstallTime < cutoffMillis) {
+            null
+        } else {
+            group.copy(matchedPackageNames = emptySet()) to latestInstallTime
+        }
+    }.sortedWith(
+        compareByDescending<Pair<GroupedApps, Long>> { it.second }
+            .thenBy { it.first.primary.label.lowercase() }
+    ).map { it.first }
+}
+
+class SuperUserViewModel(
+    private val repo: SuperUserRepository = SuperUserRepositoryImpl()
+) : ViewModel() {
+
+    companion object {
+        private const val TAG = "SuperUserViewModel"
+
+        // Cache to support getAppIconDrawable static method
+        private val appsLock = Any()
+        private var cachedApps: List<AppInfo> = emptyList()
+        private var cachedUserIds: List<Int> = emptyList()
+        private var appListScan: Deferred<Result<Pair<List<AppInfo>, List<Int>>>>? = null
+        private val scanScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+        private val groupedAppsLock = Any()
+        private var cachedGroupedApps: List<GroupedApps> = emptyList()
+
+        val apps: List<AppInfo>
+            get() = synchronized(appsLock) { cachedApps }
+
+        // Callers join a scan in flight instead of starting a parallel one. useCache = false
+        // still rescans when none is running, so a fresh screen sees newly installed apps.
+        suspend fun loadApps(
+            useCache: Boolean,
+            repo: SuperUserRepository = SuperUserRepositoryImpl(),
+        ): Result<Pair<List<AppInfo>, List<Int>>> {
+            val scan = synchronized(appsLock) {
+                if (useCache && cachedApps.isNotEmpty()) return Result.success(cachedApps to cachedUserIds)
+                appListScan?.takeIf { it.isActive } ?: scanScope.async {
+                    repo.getAppList()
+                        .onSuccess { (apps, ids) ->
+                            synchronized(appsLock) {
+                                cachedApps = apps
+                                cachedUserIds = ids
+                            }
+                        }
+                        .onFailure { Log.e(TAG, "loadApps failed", it) }
+                }.also { appListScan = it }
+            }
+            return scan.await()
+        }
+
+        @JvmStatic
+        fun getGroupedApp(uid: Int): GroupedApps? {
+            return synchronized(groupedAppsLock) { cachedGroupedApps.find { it.uid == uid } }
+        }
+
+        @JvmStatic
+        fun getAppIconDrawable(context: Context, packageName: String): Drawable? {
+            val appList = synchronized(appsLock) { cachedApps }
+            val appDetail = appList.find { it.packageName == packageName }
+            val appInfo = appDetail?.packageInfo?.applicationInfo ?: return null
+            return appInfo.withCurrentUserUid().loadIcon(context.packageManager)
+        }
+    }
+
+    typealias AppInfo = com.xinsu.moe.data.model.AppInfo
+
+    private val _uiState = MutableStateFlow(SuperUserUiState())
+    val uiState: StateFlow<SuperUserUiState> = _uiState.asStateFlow()
+    private val prefs = ksuApp.getSharedPreferences("settings", Context.MODE_PRIVATE)
+
+    private val refreshMutex = Mutex()
+    private val searchQuery = MutableStateFlow("")
+    var isNeedRefresh = false
+        private set
+
+    init {
+        viewModelScope.launchSearchQueryCollector(searchQuery, ::applySearchText)
+    }
+
+    fun markNeedRefresh() {
+        isNeedRefresh = true
+    }
+
+    fun initializePreferences() {
+        val showSystemApps = prefs.getBoolean("show_system_apps", false)
+        val showOnlyPrimaryUserApps = prefs.getBoolean("show_only_primary_user_apps", false)
+        val sortOption = prefs.getInt(PREFS_SORT_OPTION, 0)
+        _uiState.update {
+            it.copy(
+                showSystemApps = showSystemApps,
+                showOnlyPrimaryUserApps = showOnlyPrimaryUserApps,
+                sortOption = sortOption,
+            )
+        }
+    }
+
+    fun updateSortOption(option: Int): Job {
+        prefs.edit { putInt(PREFS_SORT_OPTION, option) }
+        _uiState.update { it.copy(sortOption = option) }
+        return viewModelScope.launch {
+            val current = _uiState.value.groupedApps
+            if (current.isEmpty()) return@launch
+            updateVisibleApps(current)
+        }
+    }
+
+    fun toggleShowSystemApps(): Job {
+        val newValue = !_uiState.value.showSystemApps
+        prefs.edit { putBoolean("show_system_apps", newValue) }
+        _uiState.update { it.copy(showSystemApps = newValue) }
+        return viewModelScope.launch {
+            // Re-filter when setting changes
+            val grouped = withContext(Dispatchers.IO) {
+                buildGroups(filterAndSort(apps))
+            }
+            updateVisibleApps(grouped)
+        }
+    }
+
+    fun toggleShowOnlyPrimaryUserApps(): Job {
+        val newValue = !_uiState.value.showOnlyPrimaryUserApps
+        prefs.edit { putBoolean("show_only_primary_user_apps", newValue) }
+        _uiState.update { it.copy(showOnlyPrimaryUserApps = newValue) }
+        return viewModelScope.launch {
+            // Re-filter when setting changes
+            val grouped = withContext(Dispatchers.IO) {
+                buildGroups(filterAndSort(apps))
+            }
+            updateVisibleApps(grouped)
+        }
+    }
+
+    fun updateSearchStatus(status: SearchStatus) {
+        val previous = _uiState.value.searchStatus
+        _uiState.update { it.copy(searchStatus = status) }
+        if (previous.searchText != status.searchText) {
+            searchQuery.value = status.searchText
+        }
+    }
+
+    fun updateSearchText(text: String) {
+        updateSearchStatus(_uiState.value.searchStatus.copy(searchText = text))
+    }
+
+    private fun filterSearchResults(groups: List<GroupedApps>, text: String): List<GroupedApps> {
+        if (text.isEmpty()) return emptyList()
+
+        return groups.mapNotNull { group ->
+            val matchedPackageNames = group.apps.filter {
+                it.label.contains(text, true) ||
+                        it.packageName.contains(text, true) ||
+                        HanziToPinyin.getInstance().toPinyinString(it.label).contains(text, true)
+            }.mapTo(linkedSetOf()) { it.packageName }
+
+            if (matchedPackageNames.isEmpty()) {
+                null
+            } else {
+                val sortedApps = group.apps.sortedWith(
+                    compareByDescending { it.packageName in matchedPackageNames }
+                )
+                group.copy(
+                    apps = sortedApps,
+                    matchedPackageNames = matchedPackageNames,
+                )
+            }
+        }
+    }
+
+    private suspend fun applySearchText(text: String) {
+        _uiState.update {
+            it.copy(
+                searchStatus = it.searchStatus.copy(
+                    resultStatus = searchLoadingStatusFor(text)
+                )
+            )
+        }
+
+        if (text.isEmpty()) {
+            _uiState.update { state ->
+                state.copy(
+                    searchResults = emptyList(),
+                    searchStatus = state.searchStatus.copy(resultStatus = SearchStatus.ResultStatus.DEFAULT)
+                )
+            }
+            return
+        }
+
+        val result = withContext(Dispatchers.IO) {
+            filterSearchResults(_uiState.value.groupedApps, text)
+        }
+
+        _uiState.update {
+            it.copy(
+                searchResults = result,
+                searchStatus = it.searchStatus.copy(resultStatus = searchResultStatusFor(text, result.isEmpty()))
+            )
+        }
+    }
+
+    private fun updateCachedGroupedApps(grouped: List<GroupedApps>) {
+        synchronized(groupedAppsLock) {
+            cachedGroupedApps = grouped.map { it.copy(matchedPackageNames = emptySet()) }
+        }
+    }
+
+    private fun updateVisibleApps(grouped: List<GroupedApps>) {
+        val sorted = sortGroups(grouped, _uiState.value.sortOption)
+        val searchText = _uiState.value.searchStatus.searchText
+        val searchResults = filterSearchResults(sorted, searchText)
+        val recentlyInstalledResults = buildRecentlyInstalledGroups(sorted)
+        _uiState.update {
+            it.copy(
+                groupedApps = sorted.map { group -> group.copy(matchedPackageNames = emptySet()) },
+                recentlyInstalledResults = recentlyInstalledResults,
+                searchResults = searchResults,
+                searchStatus = it.searchStatus.copy(
+                    resultStatus = searchResultStatusFor(searchText, searchResults.isEmpty())
+                )
+            )
+        }
+    }
+
+    private fun filterAndSort(list: List<AppInfo>): List<AppInfo> {
+        val comparator = compareBy<AppInfo> {
+            when {
+                it.allowSu -> 0
+                it.hasCustomProfile -> 1
+                else -> 2
+            }
+        }.then(compareBy(Collator.getInstance(Locale.getDefault()), AppInfo::label))
+
+        val currentState = _uiState.value
+
+        return list.filter {
+            if (it.packageName == ksuApp.packageName) return@filter false
+            if (it.allowSu || it.hasCustomProfile) {
+                return@filter true
+            }
+            val userFilter = !currentState.showOnlyPrimaryUserApps || it.uid / 100000 == 0
+            val isSystemApp = it.packageInfo.applicationInfo!!.flags.and(ApplicationInfo.FLAG_SYSTEM) != 0
+            val typeFilter = it.uid == 2000
+                    || currentState.showSystemApps
+                    || !isSystemApp
+            userFilter && typeFilter
+        }.sortedWith(comparator)
+    }
+
+    private fun buildCachedGroups(apps: List<AppInfo>): List<GroupedApps> {
+        return buildGroups(apps.filter { it.packageName != ksuApp.packageName })
+    }
+
+    private fun buildGroups(apps: List<AppInfo>): List<GroupedApps> {
+        val comparator = compareBy<AppInfo> {
+            when {
+                it.allowSu -> 0
+                it.hasCustomProfile -> 1
+                else -> 2
+            }
+        }.thenBy { it.label.lowercase() }
+        return apps.groupBy { it.uid }.map { (uid, list) ->
+            val sorted = list.sortedWith(comparator)
+            val primary = pickPrimary(sorted)
+            val shouldUmount = Natives.uidShouldUmount(uid)
+            val ownerName = if (sorted.size > 1) ownerNameForUid(uid, sorted) else null
+
+            GroupedApps(
+                uid = uid,
+                apps = sorted,
+                primary = primary,
+                anyAllowSu = sorted.any { it.allowSu },
+                anyCustom = sorted.any { it.hasCustomProfile },
+                shouldUmount = shouldUmount,
+                ownerName = ownerName
+            )
+        }
+    }
+
+    private fun groupRank(group: GroupedApps): Int = when {
+        group.anyAllowSu -> 0
+        group.anyCustom -> 1
+        group.apps.size > 1 -> 2
+        group.shouldUmount -> 4
+        else -> 3
+    }
+
+    private fun sortGroups(groups: List<GroupedApps>, sortOption: Int): List<GroupedApps> {
+        val sortType = sortOption / 2
+        val reverse = sortOption % 2 != 0
+
+        val collator = Collator.getInstance(Locale.getDefault())
+        val base: Comparator<GroupedApps> = when (sortType) {
+            SORT_BY_PACKAGE_NAME -> compareBy { it.primary.packageName }
+            SORT_BY_INSTALL_TIME -> compareBy { it.primary.packageInfo.firstInstallTime }
+            SORT_BY_UPDATE_TIME -> compareBy { it.primary.packageInfo.lastUpdateTime }
+            else -> Comparator { a, b -> collator.compare(a.primary.label, b.primary.label) }
+        }
+        val secondary = if (reverse) base.reversed() else base
+
+        return groups.sortedWith(Comparator { a, b ->
+            val ra = groupRank(a)
+            val rb = groupRank(b)
+            if (ra != rb) ra - rb else secondary.compare(a, b)
+        })
+    }
+
+    suspend fun fetchAppList() {
+        refreshMutex.withLock {
+            _uiState.update { it.copy(isRefreshing = true, error = null) }
+
+            loadApps(useCache = false, repo = repo).onSuccess { (newApps, ids) ->
+                val (cachedGroups, grouped) = withContext(Dispatchers.IO) {
+                    buildCachedGroups(newApps) to buildGroups(filterAndSort(newApps))
+                }
+
+                updateCachedGroupedApps(cachedGroups)
+                updateVisibleApps(grouped)
+                _uiState.update { it.copy(userIds = ids, isRefreshing = false, hasLoaded = true) }
+            }.onFailure { e ->
+                _uiState.update {
+                    it.copy(
+                        isRefreshing = false,
+                        hasLoaded = true,
+                        error = e
+                    )
+                }
+            }
+
+            isNeedRefresh = false
+        }
+    }
+
+    private suspend fun refreshAppList(resort: Boolean = true) {
+        refreshMutex.withLock {
+            val currentApps = synchronized(appsLock) { cachedApps }
+            if (currentApps.isEmpty()) return
+
+            repo.refreshProfiles(currentApps).onSuccess { updatedApps ->
+                // Update cache for static method
+                synchronized(appsLock) { cachedApps = updatedApps }
+
+                val cachedGroups = withContext(Dispatchers.IO) {
+                    buildCachedGroups(updatedApps)
+                }
+                updateCachedGroupedApps(cachedGroups)
+
+                val grouped = if (resort) {
+                    withContext(Dispatchers.IO) {
+                        buildGroups(filterAndSort(updatedApps))
+                    }
+                } else {
+                    val updatedGroups = buildGroups(filterAndSort(updatedApps)).associateBy { it.uid }
+                    _uiState.value.groupedApps.map { group ->
+                        val newApps = updatedGroups[group.uid]?.apps ?: group.apps
+                        val primary = pickPrimary(newApps)
+                        val shouldUmount = Natives.uidShouldUmount(group.uid)
+                        val ownerName = if (newApps.size > 1) ownerNameForUid(group.uid, newApps) else null
+                        group.copy(
+                            apps = newApps,
+                            primary = primary,
+                            anyAllowSu = newApps.any { it.allowSu },
+                            anyCustom = newApps.any { it.hasCustomProfile },
+                            shouldUmount = shouldUmount,
+                            ownerName = ownerName
+                        )
+                    }
+                }
+
+                updateVisibleApps(grouped)
+                _uiState.update { it.copy(isRefreshing = false) }
+                isNeedRefresh = false
+            }
+        }
+    }
+
+    fun loadAppList(force: Boolean = false, resort: Boolean = true): Job {
+        return viewModelScope.launch {
+            if (force || _uiState.value.groupedApps.isEmpty()) {
+                fetchAppList()
+            } else {
+                refreshAppList(resort)
+            }
+        }
+    }
+}

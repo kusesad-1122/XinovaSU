@@ -1,1 +1,226 @@
-cGFja2FnZSBjb20ueGluc3UubW9lLmRhdGEucmVnaXN0cnkKCmltcG9ydCBqYXZhLmlvLkZpbGUKaW1wb3J0IGphdmEuaW8uRmlsZU91dHB1dFN0cmVhbQppbXBvcnQgamF2YS5pby5JT0V4Y2VwdGlvbgppbXBvcnQgamF2YS5pby5JbnB1dFN0cmVhbQppbXBvcnQgamF2YS5zZWN1cml0eS5NZXNzYWdlRGlnZXN0CgovKiogRXhwZWN0ZWQgcHJvcGVydGllcyBvZiBhIHJlZ2lzdHJ5IHJlbGVhc2UgWklQLiAqLwpkYXRhIGNsYXNzIEV4cGVjdGVkRmlsZSh2YWwgc2l6ZTogTG9uZywgdmFsIHNoYTI1NjogU3RyaW5nKSB7CiAgICAvKiogU2FtZSBleHBlY3RhdGlvbiByZWdhcmRsZXNzIG9mIGhhc2ggc3BlbGxpbmcuICovCiAgICBmdW4gc2FtZUFzKG90aGVyOiBFeHBlY3RlZEZpbGU/KTogQm9vbGVhbiA9CiAgICAgICAgb3RoZXIgIT0gbnVsbCAmJiBzaXplID09IG90aGVyLnNpemUgJiYgc2hhMjU2LmVxdWFscyhvdGhlci5zaGEyNTYsIGlnbm9yZUNhc2UgPSB0cnVlKQp9CgpjbGFzcyBEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbih2YWwgcmVhc29uOiBSZWFzb24sIG1lc3NhZ2U6IFN0cmluZykgOiBJT0V4Y2VwdGlvbihtZXNzYWdlKSB7CiAgICBlbnVtIGNsYXNzIFJlYXNvbiB7IFVSTF9OT1RfQUxMT1dFRCwgU0laRV9NSVNNQVRDSCwgU0hBMjU2X01JU01BVENIIH0KfQoKLyoqCiAqIFR3byByZXF1ZXN0cyBtYXkgc2hhcmUgb25lIGRvd25sb2FkIG9ubHkgd2hlbiB0aGV5IGFzayBmb3IgdGhlIHNhbWUgVVJMICphbmQqIHRoZSBzYW1lCiAqIHZlcmlmaWNhdGlvbjogYSB2ZXJpZmllZCAocmVnaXN0cnkpIHJlcXVlc3QgbXVzdCBuZXZlciByZXVzZSBhbiB1bnZlcmlmaWVkIGRvd25sb2FkLCBhbmQKICogdmljZSB2ZXJzYS4KICovCmZ1biBjYW5TaGFyZURvd25sb2FkKHVybDogU3RyaW5nLCBleHBlY3RlZDogRXhwZWN0ZWRGaWxlPywgb3RoZXJVcmw6IFN0cmluZywgb3RoZXJFeHBlY3RlZDogRXhwZWN0ZWRGaWxlPyk6IEJvb2xlYW4gewogICAgaWYgKHVybCAhPSBvdGhlclVybCkgcmV0dXJuIGZhbHNlCiAgICByZXR1cm4gaWYgKGV4cGVjdGVkID09IG51bGwpIG90aGVyRXhwZWN0ZWQgPT0gbnVsbCBlbHNlIGV4cGVjdGVkLnNhbWVBcyhvdGhlckV4cGVjdGVkKQp9CgovKioKICogU3RyZWFtaW5nIHNpemUgKyBTSEEtMjU2IGNoZWNrLiBGZWVkIGV2ZXJ5IGNodW5rIHRvIFt1cGRhdGVdIChhYm9ydHMgZWFybHkgb25jZSBtb3JlIGJ5dGVzCiAqIHRoYW4gZXhwZWN0ZWQgYXJyaXZlKSBhbmQgY2FsbCBbZmluaXNoXSBiZWZvcmUgdGhlIGZpbGUgaXMgaGFuZGVkIHRvIHRoZSBpbnN0YWxsZXIuCiAqLwpjbGFzcyBEb3dubG9hZFZlcmlmaWVyKHByaXZhdGUgdmFsIGV4cGVjdGVkOiBFeHBlY3RlZEZpbGUpIHsKICAgIHByaXZhdGUgdmFsIGRpZ2VzdCA9IE1lc3NhZ2VEaWdlc3QuZ2V0SW5zdGFuY2UoIlNIQS0yNTYiKQogICAgcHJpdmF0ZSB2YWwgZXhwZWN0ZWRIYXNoID0gZXhwZWN0ZWQuc2hhMjU2Lmxvd2VyY2FzZSgpCiAgICB2YXIgYnl0ZXNTZWVuOiBMb25nID0gMEwKICAgICAgICBwcml2YXRlIHNldAoKICAgIGluaXQgewogICAgICAgIHJlcXVpcmUoZXhwZWN0ZWQuc2l6ZSA+IDApIHsgImV4cGVjdGVkIHNpemUgbXVzdCBiZSBwb3NpdGl2ZSIgfQogICAgICAgIHJlcXVpcmUoZXhwZWN0ZWRIYXNoLmxlbmd0aCA9PSA2NCAmJiBleHBlY3RlZEhhc2guYWxsIHsgaXQgaW4gJzAnLi4nOScgfHwgaXQgaW4gJ2EnLi4nZicgfSkgewogICAgICAgICAgICAiZXhwZWN0ZWQgc2hhMjU2IG11c3QgYmUgNjQgaGV4IGNoYXJzIgogICAgICAgIH0KICAgIH0KCiAgICBAVGhyb3dzKERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uOjpjbGFzcykKICAgIGZ1biB1cGRhdGUoYnVmZmVyOiBCeXRlQXJyYXksIG9mZnNldDogSW50ID0gMCwgbGVuZ3RoOiBJbnQgPSBidWZmZXIuc2l6ZSkgewogICAgICAgIGJ5dGVzU2VlbiArPSBsZW5ndGgKICAgICAgICBpZiAoYnl0ZXNTZWVuID4gZXhwZWN0ZWQuc2l6ZSkgewogICAgICAgICAgICB0aHJvdyBEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbigKICAgICAgICAgICAgICAgIERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uLlJlYXNvbi5TSVpFX01JU01BVENILAogICAgICAgICAgICAgICAgIkRvd25sb2FkZWQgbW9yZSB0aGFuIHRoZSBleHBlY3RlZCAke2V4cGVjdGVkLnNpemV9IGJ5dGVzIgogICAgICAgICAgICApCiAgICAgICAgfQogICAgICAgIGRpZ2VzdC51cGRhdGUoYnVmZmVyLCBvZmZzZXQsIGxlbmd0aCkKICAgIH0KCiAgICBAVGhyb3dzKERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uOjpjbGFzcykKICAgIGZ1biBmaW5pc2goKSB7CiAgICAgICAgaWYgKGJ5dGVzU2VlbiAhPSBleHBlY3RlZC5zaXplKSB7CiAgICAgICAgICAgIHRocm93IERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uKAogICAgICAgICAgICAgICAgRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb24uUmVhc29uLlNJWkVfTUlTTUFUQ0gsCiAgICAgICAgICAgICAgICAiU2l6ZSBtaXNtYXRjaDogZXhwZWN0ZWQgJHtleHBlY3RlZC5zaXplfSwgZ290ICRieXRlc1NlZW4iCiAgICAgICAgICAgICkKICAgICAgICB9CiAgICAgICAgdmFsIGFjdHVhbCA9IGRpZ2VzdC5kaWdlc3QoKS5qb2luVG9TdHJpbmcoIiIpIHsgIiUwMngiLmZvcm1hdChpdCkgfQogICAgICAgIGlmICghTWVzc2FnZURpZ2VzdC5pc0VxdWFsKGFjdHVhbC50b0J5dGVBcnJheSgpLCBleHBlY3RlZEhhc2gudG9CeXRlQXJyYXkoKSkpIHsKICAgICAgICAgICAgdGhyb3cgRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb24oCiAgICAgICAgICAgICAgICBEb3dubG9hZFZlcmlmaWNhdGlvbkV4Y2VwdGlvbi5SZWFzb24uU0hBMjU2X01JU01BVENILAogICAgICAgICAgICAgICAgIlNIQS0yNTYgbWlzbWF0Y2g6IGV4cGVjdGVkICRleHBlY3RlZEhhc2gsIGdvdCAkYWN0dWFsIgogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQp9CgovKiogUmUtaGFzaGVzIFtmaWxlXSBmcm9tIGRpc2s7IHRocm93cyBbRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb25dIG9uIGFueSBtaXNtYXRjaC4gKi8KQFRocm93cyhJT0V4Y2VwdGlvbjo6Y2xhc3MpCmZ1biB2ZXJpZnlGaWxlKGZpbGU6IEZpbGUsIGV4cGVjdGVkOiBFeHBlY3RlZEZpbGUpIHsKICAgIHZhbCB2ZXJpZmllciA9IERvd25sb2FkVmVyaWZpZXIoZXhwZWN0ZWQpCiAgICBpZiAoZmlsZS5sZW5ndGgoKSAhPSBleHBlY3RlZC5zaXplKSB7CiAgICAgICAgdGhyb3cgRG93bmxvYWRWZXJpZmljYXRpb25FeGNlcHRpb24oCiAgICAgICAgICAgIERvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uLlJlYXNvbi5TSVpFX01JU01BVENILAogICAgICAgICAgICAiU2l6ZSBtaXNtYXRjaDogZXhwZWN0ZWQgJHtleHBlY3RlZC5zaXplfSwgZ290ICR7ZmlsZS5sZW5ndGgoKX0iCiAgICAgICAgKQogICAgfQogICAgZmlsZS5pbnB1dFN0cmVhbSgpLnVzZSB7IGlucHV0IC0+CiAgICAgICAgdmFsIGJ1ZiA9IEJ5dGVBcnJheSg2NCAqIDEwMjQpCiAgICAgICAgd2hpbGUgKHRydWUpIHsKICAgICAgICAgICAgdmFsIHJlYWQgPSBpbnB1dC5yZWFkKGJ1ZikKICAgICAgICAgICAgaWYgKHJlYWQgPT0gLTEpIGJyZWFrCiAgICAgICAgICAgIHZlcmlmaWVyLnVwZGF0ZShidWYsIDAsIHJlYWQpCiAgICAgICAgfQogICAgfQogICAgdmVyaWZpZXIuZmluaXNoKCkKfQoKLyoqCiAqIENvcGllcyBhIG1vZHVsZSBaSVAgdG8gW2Rlc3RdICh0aGUgZXhhY3QgZmlsZSBoYW5kZWQgdG8gYGtzdWQgbW9kdWxlIGluc3RhbGxgKSBhbmQsIHdoZW4KICogW2V4cGVjdGVkXSBpcyBzZXQsIHJlLWhhc2hlcyB0aGUgY29weSBvbiBkaXNrIHJpZ2h0IGJlZm9yZSBpbnN0YWxsaW5nLiBPbiBtaXNtYXRjaCBbZGVzdF0KICogaXMgZGVsZXRlZCBhbmQgW0Rvd25sb2FkVmVyaWZpY2F0aW9uRXhjZXB0aW9uXSBpcyB0aHJvd24uCiAqLwpAVGhyb3dzKElPRXhjZXB0aW9uOjpjbGFzcykKZnVuIGNvcHlGb3JJbnN0YWxsKGlucHV0OiBJbnB1dFN0cmVhbSwgZGVzdDogRmlsZSwgZXhwZWN0ZWQ6IEV4cGVjdGVkRmlsZT8pIHsKICAgIHRyeSB7CiAgICAgICAgRmlsZU91dHB1dFN0cmVhbShkZXN0KS51c2UgeyBvdXQgLT4KICAgICAgICAgICAgaW5wdXQuY29weVRvKG91dCkKICAgICAgICAgICAgb3V0LmZsdXNoKCkKICAgICAgICAgICAgb3V0LmZkLnN5bmMoKQogICAgICAgIH0KICAgICAgICBpZiAoZXhwZWN0ZWQgIT0gbnVsbCkgdmVyaWZ5RmlsZShkZXN0LCBleHBlY3RlZCkKICAgIH0gY2F0Y2ggKGU6IFRocm93YWJsZSkgewogICAgICAgIGRlc3QuZGVsZXRlKCkKICAgICAgICB0aHJvdyBlCiAgICB9Cn0KCi8qKgogKiBBcHAtcHJpdmF0ZSBzdG9yZSBmb3IgcmVnaXN0cnkgWklQczogYHtyb290fS97c2hhMjU2fS17c2l6ZX0ve2ZpbGVOYW1lfWAuIEZpbGVzIG5ldmVyIGxlYXZlCiAqIGFwcC1wcml2YXRlIHN0b3JhZ2UsIGFuZCB0aGUgZGlyZWN0b3J5IG5hbWUga2VlcHMgdGhlIGV4cGVjdGVkIHNpemUgKyBTSEEtMjU2IGF0dGFjaGVkIHRvCiAqIHRoZSBmaWxlIGFsbCB0aGUgd2F5IHRvIHRoZSBmbGFzaCBzdGVwLCB3aGljaCByZS12ZXJpZmllcyB0aGUgYnl0ZXMgaXQgaW5zdGFsbHMuCiAqLwpvYmplY3QgUmVnaXN0cnlEb3dubG9hZFN0b3JlIHsKICAgIGNvbnN0IHZhbCBESVJfTkFNRSA9ICJyZWdpc3RyeV9kb3dubG9hZHMiCgogICAgcHJpdmF0ZSB2YWwgRElSX1BBVFRFUk4gPSBSZWdleCgiXihbMC05YS1mXXs2NH0pLShbMS05XVswLTldezAsMTd9KSQiKQogICAgcHJpdmF0ZSB2YWwgVU5TQUZFX05BTUVfQ0hBUlMgPSBSZWdleCgiW15BLVphLXowLTkuXy1dIikKCiAgICBmdW4gZGlyTmFtZUZvcihleHBlY3RlZDogRXhwZWN0ZWRGaWxlKTogU3RyaW5nID0gIiR7ZXhwZWN0ZWQuc2hhMjU2Lmxvd2VyY2FzZSgpfS0ke2V4cGVjdGVkLnNpemV9IgoKICAgIGZ1biBleHBlY3RlZEZyb21EaXJOYW1lKG5hbWU6IFN0cmluZyk6IEV4cGVjdGVkRmlsZT8gewogICAgICAgIHZhbCBtID0gRElSX1BBVFRFUk4ubWF0Y2hFbnRpcmUobmFtZSkgPzogcmV0dXJuIG51bGwKICAgICAgICB2YWwgc2l6ZSA9IG0uZ3JvdXBWYWx1ZXNbMl0udG9Mb25nT3JOdWxsKCkgPzogcmV0dXJuIG51bGwKICAgICAgICByZXR1cm4gRXhwZWN0ZWRGaWxlKHNpemUsIG0uZ3JvdXBWYWx1ZXNbMV0pCiAgICB9CgogICAgZnVuIHNhbml0aXplRmlsZU5hbWUobmFtZTogU3RyaW5nKTogU3RyaW5nIHsKICAgICAgICB2YWwgYmFzZSA9IG5hbWUuc3Vic3RyaW5nQWZ0ZXJMYXN0KCcvJykuc3Vic3RyaW5nQWZ0ZXJMYXN0KCdcXCcpCiAgICAgICAgICAgIC5yZXBsYWNlKFVOU0FGRV9OQU1FX0NIQVJTLCAiXyIpCiAgICAgICAgICAgIC50cmltU3RhcnQoJy4nKQogICAgICAgICAgICAudGFrZSgxMjApCiAgICAgICAgcmV0dXJuIGJhc2UuaWZFbXB0eSB7ICJtb2R1bGUuemlwIiB9CiAgICB9CgogICAgLyoqIEV4cGVjdGVkIHNpemUvaGFzaCBvZiBbZmlsZV0gaWYgaXQgbGl2ZXMgaW4gdGhlIHN0b3JlIHVuZGVyIFtyb290XSwgb3RoZXJ3aXNlIG51bGwuICovCiAgICBmdW4gZXhwZWN0ZWRGb3Iocm9vdDogRmlsZSwgZmlsZTogRmlsZSk6IEV4cGVjdGVkRmlsZT8gewogICAgICAgIHZhbCBjYW5vbmljYWwgPSBydW5DYXRjaGluZyB7IGZpbGUuY2Fub25pY2FsRmlsZSB9LmdldE9yTnVsbCgpID86IHJldHVybiBudWxsCiAgICAgICAgdmFsIHBhcmVudCA9IGNhbm9uaWNhbC5wYXJlbnRGaWxlID86IHJldHVybiBudWxsCiAgICAgICAgdmFsIHN0b3JlUm9vdCA9IHJ1bkNhdGNoaW5nIHsgcm9vdC5jYW5vbmljYWxGaWxlIH0uZ2V0T3JOdWxsKCkgPzogcmV0dXJuIG51bGwKICAgICAgICBpZiAocGFyZW50LnBhcmVudEZpbGUgIT0gc3RvcmVSb290KSByZXR1cm4gbnVsbAogICAgICAgIHJldHVybiBleHBlY3RlZEZyb21EaXJOYW1lKHBhcmVudC5uYW1lKQogICAgfQoKICAgIC8qKgogICAgICogU3RyZWFtcyBbaW5wdXRdIGludG8gYSB1bmlxdWUgdGVtcG9yYXJ5IGZpbGUsIHZlcmlmeWluZyBzaXplICsgU0hBLTI1NiBvbiB0aGUgZmx5LCBmc3luY3MKICAgICAqIGl0IGFuZCBvbmx5IHRoZW4gbW92ZXMgaXQgdG8gaXRzIGZpbmFsIG5hbWUuIEFueSBmYWlsdXJlIChpbmNsdWRpbmcgYSB2ZXJpZmljYXRpb24KICAgICAqIG1pc21hdGNoKSBkZWxldGVzIHRoZSBwYXJ0aWFsIGZpbGU7IG5vdGhpbmcgdW52ZXJpZmllZCBpcyBldmVyIGxlZnQgdW5kZXIgaXRzIGZpbmFsIG5hbWUuCiAgICAgKi8KICAgIEBUaHJvd3MoSU9FeGNlcHRpb246OmNsYXNzKQogICAgZnVuIGRvd25sb2FkKAogICAgICAgIGlucHV0OiBJbnB1dFN0cmVhbSwKICAgICAgICByb290OiBGaWxlLAogICAgICAgIGV4cGVjdGVkOiBFeHBlY3RlZEZpbGUsCiAgICAgICAgZmlsZU5hbWU6IFN0cmluZywKICAgICAgICBvblByb2dyZXNzOiAoYnl0ZXM6IExvbmcpIC0+IFVuaXQgPSB7fSwKICAgICAgICBjaGVja0FjdGl2ZTogKCkgLT4gVW5pdCA9IHt9LAogICAgKTogRmlsZSB7CiAgICAgICAgdmFsIHZlcmlmaWVyID0gRG93bmxvYWRWZXJpZmllcihleHBlY3RlZCkKICAgICAgICB2YWwgZGlyID0gRmlsZShyb290LCBkaXJOYW1lRm9yKGV4cGVjdGVkKSkKICAgICAgICBpZiAoIWRpci5pc0RpcmVjdG9yeSAmJiAhZGlyLm1rZGlycygpKSB0aHJvdyBJT0V4Y2VwdGlvbigiQ2Fubm90IGNyZWF0ZSAkZGlyIikKICAgICAgICB2YWwgdGFyZ2V0ID0gRmlsZShkaXIsIHNhbml0aXplRmlsZU5hbWUoZmlsZU5hbWUpKQogICAgICAgIHZhbCBwYXJ0ID0gRmlsZS5jcmVhdGVUZW1wRmlsZSgiZGwtIiwgIi5wYXJ0IiwgZGlyKQogICAgICAgIHRyeSB7CiAgICAgICAgICAgIEZpbGVPdXRwdXRTdHJlYW0ocGFydCkudXNlIHsgb3V0IC0+CiAgICAgICAgICAgICAgICB2YWwgYnVmID0gQnl0ZUFycmF5KDggKiAxMDI0KQogICAgICAgICAgICAgICAgd2hpbGUgKHRydWUpIHsKICAgICAgICAgICAgICAgICAgICBjaGVja0FjdGl2ZSgpCiAgICAgICAgICAgICAgICAgICAgdmFsIHJlYWQgPSBpbnB1dC5yZWFkKGJ1ZikKICAgICAgICAgICAgICAgICAgICBpZiAocmVhZCA9PSAtMSkgYnJlYWsKICAgICAgICAgICAgICAgICAgICB2ZXJpZmllci51cGRhdGUoYnVmLCAwLCByZWFkKQogICAgICAgICAgICAgICAgICAgIG91dC53cml0ZShidWYsIDAsIHJlYWQpCiAgICAgICAgICAgICAgICAgICAgb25Qcm9ncmVzcyh2ZXJpZmllci5ieXRlc1NlZW4pCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBvdXQuZmx1c2goKQogICAgICAgICAgICAgICAgb3V0LmZkLnN5bmMoKQogICAgICAgICAgICB9CiAgICAgICAgICAgIHZlcmlmaWVyLmZpbmlzaCgpCiAgICAgICAgICAgIGlmICh0YXJnZXQuZXhpc3RzKCkgJiYgIXRhcmdldC5kZWxldGUoKSkgdGhyb3cgSU9FeGNlcHRpb24oIkNhbm5vdCByZXBsYWNlICR0YXJnZXQiKQogICAgICAgICAgICBpZiAoIXBhcnQucmVuYW1lVG8odGFyZ2V0KSkgdGhyb3cgSU9FeGNlcHRpb24oIkNhbm5vdCBtb3ZlIGRvd25sb2FkIHRvICR0YXJnZXQiKQogICAgICAgICAgICByZXR1cm4gdGFyZ2V0CiAgICAgICAgfSBjYXRjaCAoZTogVGhyb3dhYmxlKSB7CiAgICAgICAgICAgIHBhcnQuZGVsZXRlKCkKICAgICAgICAgICAgaWYgKGRpci5saXN0KCk/LmlzRW1wdHkoKSA9PSB0cnVlKSBkaXIuZGVsZXRlKCkKICAgICAgICAgICAgdGhyb3cgZQogICAgICAgIH0KICAgIH0KCiAgICAvKiogRGVsZXRlcyBhIHN0b3JlZCBmaWxlIChhbmQgaXRzIGRpcmVjdG9yeSB3aGVuIGVtcHR5KTsgZmFsc2UgaWYgW2ZpbGVdIGlzIG5vdCBpbiB0aGUgc3RvcmUuICovCiAgICBmdW4gZGVsZXRlKHJvb3Q6IEZpbGUsIGZpbGU6IEZpbGUpOiBCb29sZWFuIHsKICAgICAgICBpZiAoZXhwZWN0ZWRGb3Iocm9vdCwgZmlsZSkgPT0gbnVsbCkgcmV0dXJuIGZhbHNlCiAgICAgICAgdmFsIGNhbm9uaWNhbCA9IGZpbGUuY2Fub25pY2FsRmlsZQogICAgICAgIHZhbCBkZWxldGVkID0gY2Fub25pY2FsLmRlbGV0ZSgpCiAgICAgICAgdmFsIGRpciA9IGNhbm9uaWNhbC5wYXJlbnRGaWxlCiAgICAgICAgaWYgKGRpcj8ubGlzdCgpPy5pc0VtcHR5KCkgPT0gdHJ1ZSkgZGlyLmRlbGV0ZSgpCiAgICAgICAgcmV0dXJuIGRlbGV0ZWQKICAgIH0KCiAgICAvKioKICAgICAqIFJlbW92ZXMgZW50cmllcyBvbGRlciB0aGFuIFttYXhBZ2VNaWxsaXNdIChhbmQgb2xkIGxlZnRvdmVycyB0aGF0IGFyZSBub3Qgc3RvcmUgZW50cmllcykuCiAgICAgKiBSZWNlbnQgZGlyZWN0b3JpZXMgYXJlIGtlcHQgZXZlbiB3aGVuIGVtcHR5OiBhIGNvbmN1cnJlbnQgZG93bmxvYWQgbWF5IGhhdmUganVzdCBjcmVhdGVkCiAgICAgKiBpdHMgZGlyZWN0b3J5IGFuZCBub3QgeWV0IGl0cyB0ZW1wb3JhcnkgZmlsZS4KICAgICAqLwogICAgZnVuIGNsZWFudXAocm9vdDogRmlsZSwgbWF4QWdlTWlsbGlzOiBMb25nLCBub3c6IExvbmcgPSBTeXN0ZW0uY3VycmVudFRpbWVNaWxsaXMoKSkgewogICAgICAgIGZ1biBpc09sZChmOiBGaWxlKSA9IG5vdyAtIGYubGFzdE1vZGlmaWVkKCkgPiBtYXhBZ2VNaWxsaXMKICAgICAgICByb290Lmxpc3RGaWxlcygpPy5mb3JFYWNoIHsgZGlyIC0+CiAgICAgICAgICAgIC8vIENoZWNrZWQgYmVmb3JlIGRlbGV0aW5nIGFueXRoaW5nIGluc2lkZSwgd2hpY2ggYnVtcHMgdGhlIGRpcmVjdG9yeSdzIG10aW1lLgogICAgICAgICAgICB2YWwgZGlyT2xkID0gaXNPbGQoZGlyKQogICAgICAgICAgICBpZiAoIWRpci5pc0RpcmVjdG9yeSB8fCBleHBlY3RlZEZyb21EaXJOYW1lKGRpci5uYW1lKSA9PSBudWxsKSB7CiAgICAgICAgICAgICAgICBpZiAoZGlyT2xkKSBkaXIuZGVsZXRlUmVjdXJzaXZlbHkoKQogICAgICAgICAgICAgICAgcmV0dXJuQGZvckVhY2gKICAgICAgICAgICAgfQogICAgICAgICAgICBkaXIubGlzdEZpbGVzKCk/LmZvckVhY2ggeyBmIC0+IGlmIChpc09sZChmKSkgZi5kZWxldGUoKSB9CiAgICAgICAgICAgIGlmIChkaXJPbGQgJiYgZGlyLmxpc3QoKT8uaXNFbXB0eSgpID09IHRydWUpIGRpci5kZWxldGUoKQogICAgICAgIH0KICAgIH0KfQo=
+package com.xinsu.moe.data.registry
+
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.security.MessageDigest
+
+/** Expected properties of a registry release ZIP. */
+data class ExpectedFile(val size: Long, val sha256: String) {
+    /** Same expectation regardless of hash spelling. */
+    fun sameAs(other: ExpectedFile?): Boolean =
+        other != null && size == other.size && sha256.equals(other.sha256, ignoreCase = true)
+}
+
+class DownloadVerificationException(val reason: Reason, message: String) : IOException(message) {
+    enum class Reason { URL_NOT_ALLOWED, SIZE_MISMATCH, SHA256_MISMATCH }
+}
+
+/**
+ * Two requests may share one download only when they ask for the same URL *and* the same
+ * verification: a verified (registry) request must never reuse an unverified download, and
+ * vice versa.
+ */
+fun canShareDownload(url: String, expected: ExpectedFile?, otherUrl: String, otherExpected: ExpectedFile?): Boolean {
+    if (url != otherUrl) return false
+    return if (expected == null) otherExpected == null else expected.sameAs(otherExpected)
+}
+
+/**
+ * Streaming size + SHA-256 check. Feed every chunk to [update] (aborts early once more bytes
+ * than expected arrive) and call [finish] before the file is handed to the installer.
+ */
+class DownloadVerifier(private val expected: ExpectedFile) {
+    private val digest = MessageDigest.getInstance("SHA-256")
+    private val expectedHash = expected.sha256.lowercase()
+    var bytesSeen: Long = 0L
+        private set
+
+    init {
+        require(expected.size > 0) { "expected size must be positive" }
+        require(expectedHash.length == 64 && expectedHash.all { it in '0'..'9' || it in 'a'..'f' }) {
+            "expected sha256 must be 64 hex chars"
+        }
+    }
+
+    @Throws(DownloadVerificationException::class)
+    fun update(buffer: ByteArray, offset: Int = 0, length: Int = buffer.size) {
+        bytesSeen += length
+        if (bytesSeen > expected.size) {
+            throw DownloadVerificationException(
+                DownloadVerificationException.Reason.SIZE_MISMATCH,
+                "Downloaded more than the expected ${expected.size} bytes"
+            )
+        }
+        digest.update(buffer, offset, length)
+    }
+
+    @Throws(DownloadVerificationException::class)
+    fun finish() {
+        if (bytesSeen != expected.size) {
+            throw DownloadVerificationException(
+                DownloadVerificationException.Reason.SIZE_MISMATCH,
+                "Size mismatch: expected ${expected.size}, got $bytesSeen"
+            )
+        }
+        val actual = digest.digest().joinToString("") { "%02x".format(it) }
+        if (!MessageDigest.isEqual(actual.toByteArray(), expectedHash.toByteArray())) {
+            throw DownloadVerificationException(
+                DownloadVerificationException.Reason.SHA256_MISMATCH,
+                "SHA-256 mismatch: expected $expectedHash, got $actual"
+            )
+        }
+    }
+}
+
+/** Re-hashes [file] from disk; throws [DownloadVerificationException] on any mismatch. */
+@Throws(IOException::class)
+fun verifyFile(file: File, expected: ExpectedFile) {
+    val verifier = DownloadVerifier(expected)
+    if (file.length() != expected.size) {
+        throw DownloadVerificationException(
+            DownloadVerificationException.Reason.SIZE_MISMATCH,
+            "Size mismatch: expected ${expected.size}, got ${file.length()}"
+        )
+    }
+    file.inputStream().use { input ->
+        val buf = ByteArray(64 * 1024)
+        while (true) {
+            val read = input.read(buf)
+            if (read == -1) break
+            verifier.update(buf, 0, read)
+        }
+    }
+    verifier.finish()
+}
+
+/**
+ * Copies a module ZIP to [dest] (the exact file handed to `ksud module install`) and, when
+ * [expected] is set, re-hashes the copy on disk right before installing. On mismatch [dest]
+ * is deleted and [DownloadVerificationException] is thrown.
+ */
+@Throws(IOException::class)
+fun copyForInstall(input: InputStream, dest: File, expected: ExpectedFile?) {
+    try {
+        FileOutputStream(dest).use { out ->
+            input.copyTo(out)
+            out.flush()
+            out.fd.sync()
+        }
+        if (expected != null) verifyFile(dest, expected)
+    } catch (e: Throwable) {
+        dest.delete()
+        throw e
+    }
+}
+
+/**
+ * App-private store for registry ZIPs: `{root}/{sha256}-{size}/{fileName}`. Files never leave
+ * app-private storage, and the directory name keeps the expected size + SHA-256 attached to
+ * the file all the way to the flash step, which re-verifies the bytes it installs.
+ */
+object RegistryDownloadStore {
+    const val DIR_NAME = "registry_downloads"
+
+    private val DIR_PATTERN = Regex("^([0-9a-f]{64})-([1-9][0-9]{0,17})$")
+    private val UNSAFE_NAME_CHARS = Regex("[^A-Za-z0-9._-]")
+
+    fun dirNameFor(expected: ExpectedFile): String = "${expected.sha256.lowercase()}-${expected.size}"
+
+    fun expectedFromDirName(name: String): ExpectedFile? {
+        val m = DIR_PATTERN.matchEntire(name) ?: return null
+        val size = m.groupValues[2].toLongOrNull() ?: return null
+        return ExpectedFile(size, m.groupValues[1])
+    }
+
+    fun sanitizeFileName(name: String): String {
+        val base = name.substringAfterLast('/').substringAfterLast('\\')
+            .replace(UNSAFE_NAME_CHARS, "_")
+            .trimStart('.')
+            .take(120)
+        return base.ifEmpty { "module.zip" }
+    }
+
+    /** Expected size/hash of [file] if it lives in the store under [root], otherwise null. */
+    fun expectedFor(root: File, file: File): ExpectedFile? {
+        val canonical = runCatching { file.canonicalFile }.getOrNull() ?: return null
+        val parent = canonical.parentFile ?: return null
+        val storeRoot = runCatching { root.canonicalFile }.getOrNull() ?: return null
+        if (parent.parentFile != storeRoot) return null
+        return expectedFromDirName(parent.name)
+    }
+
+    /**
+     * Streams [input] into a unique temporary file, verifying size + SHA-256 on the fly, fsyncs
+     * it and only then moves it to its final name. Any failure (including a verification
+     * mismatch) deletes the partial file; nothing unverified is ever left under its final name.
+     */
+    @Throws(IOException::class)
+    fun download(
+        input: InputStream,
+        root: File,
+        expected: ExpectedFile,
+        fileName: String,
+        onProgress: (bytes: Long) -> Unit = {},
+        checkActive: () -> Unit = {},
+    ): File {
+        val verifier = DownloadVerifier(expected)
+        val dir = File(root, dirNameFor(expected))
+        if (!dir.isDirectory && !dir.mkdirs()) throw IOException("Cannot create $dir")
+        val target = File(dir, sanitizeFileName(fileName))
+        val part = File.createTempFile("dl-", ".part", dir)
+        try {
+            FileOutputStream(part).use { out ->
+                val buf = ByteArray(8 * 1024)
+                while (true) {
+                    checkActive()
+                    val read = input.read(buf)
+                    if (read == -1) break
+                    verifier.update(buf, 0, read)
+                    out.write(buf, 0, read)
+                    onProgress(verifier.bytesSeen)
+                }
+                out.flush()
+                out.fd.sync()
+            }
+            verifier.finish()
+            if (target.exists() && !target.delete()) throw IOException("Cannot replace $target")
+            if (!part.renameTo(target)) throw IOException("Cannot move download to $target")
+            return target
+        } catch (e: Throwable) {
+            part.delete()
+            if (dir.list()?.isEmpty() == true) dir.delete()
+            throw e
+        }
+    }
+
+    /** Deletes a stored file (and its directory when empty); false if [file] is not in the store. */
+    fun delete(root: File, file: File): Boolean {
+        if (expectedFor(root, file) == null) return false
+        val canonical = file.canonicalFile
+        val deleted = canonical.delete()
+        val dir = canonical.parentFile
+        if (dir?.list()?.isEmpty() == true) dir.delete()
+        return deleted
+    }
+
+    /**
+     * Removes entries older than [maxAgeMillis] (and old leftovers that are not store entries).
+     * Recent directories are kept even when empty: a concurrent download may have just created
+     * its directory and not yet its temporary file.
+     */
+    fun cleanup(root: File, maxAgeMillis: Long, now: Long = System.currentTimeMillis()) {
+        fun isOld(f: File) = now - f.lastModified() > maxAgeMillis
+        root.listFiles()?.forEach { dir ->
+            // Checked before deleting anything inside, which bumps the directory's mtime.
+            val dirOld = isOld(dir)
+            if (!dir.isDirectory || expectedFromDirName(dir.name) == null) {
+                if (dirOld) dir.deleteRecursively()
+                return@forEach
+            }
+            dir.listFiles()?.forEach { f -> if (isOld(f)) f.delete() }
+            if (dirOld && dir.list()?.isEmpty() == true) dir.delete()
+        }
+    }
+}
