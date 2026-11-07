@@ -89,6 +89,7 @@ module_param_named(norc, xnsu_no_custom_rc, bool, 0);
 
 int __init xinovasu_init(void)
 {
+    int ret;
 #if defined(__x86_64__)
     // If the kernel has the hardening patch, X86_FEATURE_INDIRECT_SAFE must be set
     if (!boot_cpu_has(X86_FEATURE_INDIRECT_SAFE)) {
@@ -130,6 +131,18 @@ int __init xinovasu_init(void)
     }
 
     xnsu_init_symbol_resolver();
+
+    /* 6.6.144 moved lbs_inode in lsm_blob_sizes; the BTF lookup must run
+     * before anything calls xnsu_selinux_inode(). */
+    ret = xnsu_selinux_inode_init();
+    if (ret) {
+        if (xnsu_cred) {
+            put_cred(xnsu_cred);
+            xnsu_cred = NULL;
+        }
+        return ret;
+    }
+
     xnsu_syscall_hook_init();
 
     xnsu_feature_init();

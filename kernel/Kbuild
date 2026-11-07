@@ -22,6 +22,7 @@ xinovasu-objs += infra/event_queue.o
 xinovasu-objs += infra/seccomp_cache.o
 xinovasu-objs += infra/su_mount_ns.o
 xinovasu-objs += infra/symbol_resolver.o
+xinovasu-objs += infra/btf_parser.o
 
 ifneq ($(CONFIG_XNSU_DISABLE_MANAGER),y)
 xinovasu-objs += manager/apk_sign.o
@@ -37,6 +38,7 @@ xinovasu-objs += runtime/boot_event.o
 xinovasu-objs += runtime/xnsusd_integration.o
 
 xinovasu-objs += selinux/selinux.o
+xinovasu-objs += selinux/inode.o
 xinovasu-objs += selinux/rules.o
 xinovasu-objs += selinux/sepolicy.o
 

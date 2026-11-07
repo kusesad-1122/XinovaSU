@@ -37,6 +37,19 @@ void setup_xnsu_cred();
 
 void escape_to_root_for_adb_root();
 
+struct inode;
+struct inode_security_struct;
+struct inode_security_struct *xnsu_selinux_inode(const struct inode *inode);
+
+#if defined(MODULE) && defined(CONFIG_DEBUG_INFO_BTF)
+int __init xnsu_selinux_inode_init(void);
+#else
+static inline int xnsu_selinux_inode_init(void)
+{
+    return 0;
+}
+#endif
+
 extern u32 xnsu_file_sid;
 
 #endif
