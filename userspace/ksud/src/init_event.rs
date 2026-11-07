@@ -101,9 +101,10 @@ pub fn on_post_fs_data() -> Result<()> {
 
     // Re-apply persisted per-app path hiding (if configured).
     crate::path_hide::apply_from_config();
-
     // Re-apply persisted per-app VPN-detection hiding (if configured).
     crate::vpn_hide::apply_from_config();
+    // Re-apply persisted kernel-side log suppression (if configured).
+    crate::log_hide::apply();
 
     // execute metamodule post-fs-data script first (priority)
     if let Err(e) = metamodule::exec_stage_script("post-fs-data", wait) {

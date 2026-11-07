@@ -59,6 +59,8 @@ xinovasu-objs += feature/path_hide.o
 
 xinovasu-objs += feature/vpn_hide.o
 
+xinovasu-objs += feature/log_hide.o
+
 xinovasu-objs += feature/selinux_hide.o
 
 ifdef KBUILD_EXTMOD
