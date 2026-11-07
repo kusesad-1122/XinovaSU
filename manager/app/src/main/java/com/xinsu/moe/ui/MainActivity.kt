@@ -3,7 +3,9 @@ package com.xinsu.moe.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.LocalActivity
@@ -55,6 +57,7 @@ import androidx.navigationevent.compose.NavigationBackHandler
 import androidx.navigationevent.compose.rememberNavigationEventState
 import kotlinx.coroutines.flow.MutableStateFlow
 import com.xinsu.moe.Natives
+import com.xinsu.moe.R
 import com.xinsu.moe.ui.component.bottombar.BottomBar
 import com.xinsu.moe.ui.component.bottombar.MainPagerState
 import com.xinsu.moe.ui.component.bottombar.SideRail
@@ -62,7 +65,8 @@ import com.xinsu.moe.ui.component.bottombar.rememberMainPagerState
 import com.xinsu.moe.ui.component.decoration.RememberThemeMorphHost
 import com.xinsu.moe.ui.component.liquid.LiquidGlassTopPanel
 import com.xinsu.moe.ui.component.liquid.rememberLiquidGlassTopPanelState
-import com.xinsu.moe.ui.navigation3.IntentDispatcher
+import com.xinsu.moe.ui.component.dialog.rememberConfirmDialog
+import com.xinsu.moe.ui.navigation3.HandleDeepLink
 import com.xinsu.moe.ui.navigation3.LocalNavigator
 import com.xinsu.moe.ui.navigation3.Navigator
 import com.xinsu.moe.ui.navigation3.Route
@@ -71,6 +75,7 @@ import com.xinsu.moe.ui.screen.about.AboutScreen
 import com.xinsu.moe.ui.screen.appprofile.AppProfileScreen
 import com.xinsu.moe.ui.screen.colorpalette.ColorPaletteScreen
 import com.xinsu.moe.ui.screen.executemoduleaction.ExecuteModuleActionScreen
+import com.xinsu.moe.ui.screen.flash.FlashIt
 import com.xinsu.moe.ui.screen.flash.FlashScreen
 import com.xinsu.moe.ui.screen.functions.FunctionsScreen
 import com.xinsu.moe.ui.screen.home.HomePager
@@ -78,7 +83,6 @@ import com.xinsu.moe.ui.screen.install.InstallScreen
 import com.xinsu.moe.ui.screen.module.ModulePager
 import com.xinsu.moe.ui.screen.modulerepo.ModuleRepoDetailScreen
 import com.xinsu.moe.ui.screen.modulerepo.ModuleRepoScreen
-import com.xinsu.moe.ui.screen.scriptrun.ScriptRunScreen
 import com.xinsu.moe.ui.screen.settings.SettingPager
 import com.xinsu.moe.ui.screen.sulog.SulogScreen
 import com.xinsu.moe.ui.screen.superuser.SuperUserPager
@@ -119,6 +123,7 @@ import com.xinsu.moe.ui.theme.LocalEnableFloatingBottomBarBlur
 import com.xinsu.moe.ui.theme.BuiltInThemes
 import com.xinsu.moe.ui.theme.decoration.ThemeDecorationCatalog
 import com.xinsu.moe.ui.theme.tokens.BuiltInThemeCatalog
+import com.xinsu.moe.ui.util.getFileName
 import com.xinsu.moe.ui.util.install
 import com.xinsu.moe.ui.util.rememberBlurBackdrop
 import com.xinsu.moe.ui.util.rememberContentReady
@@ -230,13 +235,9 @@ class MainActivity : ComponentActivity() {
                         LocalThemeDecorationSpec provides themeDecorationSpec,
                     ) {
                         XinovaSUTheme(appSettings = appSettings, uiMode = uiMode) {
-                    IntentDispatcher(intentState = intentState)
+                    HandleDeepLink(intentState = intentState.collectAsStateWithLifecycle())
+                    ZipFileIntentHandler(intentState = intentState, isManager = isManager)
                     ShortcutIntentHandler(intentState = intentState)
-                    val scriptRunRoute = navigator.current() as? Route.ScriptRun
-                    var scriptRunBackEnabled by remember(scriptRunRoute) { mutableStateOf(true) }
-                    // This fork's NavDisplay has no per-entry swipe-to-dismiss API, so the
-                    // run-lock is consumed by onBack below; the callback state is read here
-                    // so the entryProvider lambda stays stable.
                     val mainScreenEntry = @Composable {
                         MainScreen(
                             initialPage = selectedMainPage,
@@ -261,10 +262,6 @@ class MainActivity : ComponentActivity() {
                                         }
                                     }
 
-                                    is Route.ScriptRun -> {
-                                        if (scriptRunBackEnabled) navigator.pop()
-                                    }
-
                                     else -> navigator.pop()
                                 }
                             },
@@ -282,14 +279,6 @@ class MainActivity : ComponentActivity() {
                                 entry<Route.Install> { InstallScreen() }
                                 entry<Route.Flash> { key -> FlashScreen(key.flashIt) }
                                 entry<Route.ExecuteModuleAction> { key -> ExecuteModuleActionScreen(key.moduleId, key.fromShortcut) }
-                                entry<Route.ScriptRun> { key ->
-                                    ScriptRunScreen(
-                                        key.arg,
-                                        onBackEnabledChange = { enabled ->
-                                            if (navigator.current() == key) scriptRunBackEnabled = enabled
-                                        },
-                                    )
-                                }
                                 entry<Route.Home> { mainScreenEntry() }
                                 entry<Route.SuperUser> { mainScreenEntry() }
                                 entry<Route.Module> { mainScreenEntry() }
@@ -565,6 +554,63 @@ private fun MainScreenBackHandler(
             mainState.animateToPage(0)
         }
     )
+}
+
+/**
+ * Handles ZIP file installation from external apps (e.g., file managers).
+ * - In normal mode: Shows a confirmation dialog before installation
+ * - In safe mode: Shows a Toast notification and prevents installation
+ */
+@SuppressLint("StringFormatInvalid", "LocalContextGetResourceValueCall")
+@Composable
+private fun ZipFileIntentHandler(
+    intentState: MutableStateFlow<Int>,
+    isManager: Boolean,
+) {
+    val activity = LocalActivity.current ?: return
+    val context = LocalContext.current
+    var zipUri by remember { mutableStateOf<Uri?>(null) }
+    val isSafeMode = Natives.isSafeMode
+    val clearZipUri = { zipUri = null }
+    val navigator = LocalNavigator.current
+
+    val installDialog = rememberConfirmDialog(
+        onConfirm = {
+            zipUri?.let { uri -> navigator.push(Route.Flash(FlashIt.FlashModules(listOf(uri)))) }
+            clearZipUri()
+        },
+        onDismiss = clearZipUri
+    )
+
+    fun getDisplayName(uri: Uri): String {
+        return uri.getFileName(context) ?: uri.lastPathSegment ?: "Unknown"
+    }
+
+    val intentStateValue by intentState.collectAsStateWithLifecycle()
+    LaunchedEffect(intentStateValue) {
+        val currentIntent = activity.intent
+        val uri = currentIntent?.data ?: return@LaunchedEffect
+
+        if (!isManager || uri.scheme != "content" || currentIntent.type != "application/zip") {
+            return@LaunchedEffect
+        }
+
+        activity.intent.data = null
+        activity.intent.type = null
+
+        if (isSafeMode) {
+            Toast.makeText(context, context.getString(R.string.safe_mode_module_disabled), Toast.LENGTH_SHORT).show()
+        } else {
+            zipUri = uri
+            installDialog.showConfirm(
+                title = context.getString(R.string.module),
+                content = context.getString(
+                    R.string.module_install_prompt_with_name,
+                    "\n${getDisplayName(uri)}"
+                )
+            )
+        }
+    }
 }
 
 @Composable

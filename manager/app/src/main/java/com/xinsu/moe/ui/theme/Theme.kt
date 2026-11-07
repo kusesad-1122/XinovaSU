@@ -210,8 +210,6 @@ val LocalEnableBlur = staticCompositionLocalOf { false }
 val LocalGlassBlurRadius = compositionLocalOf { LiquidGlassSpec.BlurRadius }
 
 
-val LocalModuleDescriptionMaxLines = staticCompositionLocalOf { 4 }
-
 val LocalEnableFloatingBottomBar = staticCompositionLocalOf { false }
 
 val LocalEnableFloatingBottomBarBlur = staticCompositionLocalOf { false }

@@ -7,12 +7,8 @@ import android.util.Log
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -73,36 +69,11 @@ class SuperUserViewModel(
         // Cache to support getAppIconDrawable static method
         private val appsLock = Any()
         private var cachedApps: List<AppInfo> = emptyList()
-        private var cachedUserIds: List<Int> = emptyList()
-        private var appListScan: Deferred<Result<Pair<List<AppInfo>, List<Int>>>>? = null
-        private val scanScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
         private val groupedAppsLock = Any()
         private var cachedGroupedApps: List<GroupedApps> = emptyList()
 
         val apps: List<AppInfo>
             get() = synchronized(appsLock) { cachedApps }
-
-        // Callers join a scan in flight instead of starting a parallel one. useCache = false
-        // still rescans when none is running, so a fresh screen sees newly installed apps.
-        suspend fun loadApps(
-            useCache: Boolean,
-            repo: SuperUserRepository = SuperUserRepositoryImpl(),
-        ): Result<Pair<List<AppInfo>, List<Int>>> {
-            val scan = synchronized(appsLock) {
-                if (useCache && cachedApps.isNotEmpty()) return Result.success(cachedApps to cachedUserIds)
-                appListScan?.takeIf { it.isActive } ?: scanScope.async {
-                    repo.getAppList()
-                        .onSuccess { (apps, ids) ->
-                            synchronized(appsLock) {
-                                cachedApps = apps
-                                cachedUserIds = ids
-                            }
-                        }
-                        .onFailure { Log.e(TAG, "loadApps failed", it) }
-                }.also { appListScan = it }
-            }
-            return scan.await()
-        }
 
         @JvmStatic
         fun getGroupedApp(uid: Int): GroupedApps? {
@@ -363,15 +334,18 @@ class SuperUserViewModel(
         refreshMutex.withLock {
             _uiState.update { it.copy(isRefreshing = true, error = null) }
 
-            loadApps(useCache = false, repo = repo).onSuccess { (newApps, ids) ->
+            repo.getAppList().onSuccess { (newApps, ids) ->
                 val (cachedGroups, grouped) = withContext(Dispatchers.IO) {
                     buildCachedGroups(newApps) to buildGroups(filterAndSort(newApps))
                 }
 
+                // Update cache for static method
+                synchronized(appsLock) { cachedApps = newApps }
                 updateCachedGroupedApps(cachedGroups)
                 updateVisibleApps(grouped)
                 _uiState.update { it.copy(userIds = ids, isRefreshing = false, hasLoaded = true) }
             }.onFailure { e ->
+                Log.e(TAG, "fetchAppList failed", e)
                 _uiState.update {
                     it.copy(
                         isRefreshing = false,

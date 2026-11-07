@@ -1,6 +1,6 @@
 {
   "name": "xinovasu",
-  "version": "3.3.0",
+  "version": "3.0.2",
   "description": "Library for XinovaSU's module WebUI",
   "main": "index.js",
   "types": "index.d.ts",

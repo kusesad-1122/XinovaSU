@@ -15,13 +15,6 @@ import androidx.core.net.toUri
 import com.xinsu.moe.ui.screen.flash.FlashIt
 import com.xinsu.moe.ui.util.DownloadService
 
-/** ZIP MIME types accepted from file managers, including the x-zip variants. */
-internal val ZIP_MIME_TYPES = setOf(
-    "application/zip",
-    "application/x-zip-compressed",
-    "application/x-zip",
-)
-
 /**
  * Deep link resolution: maps external Intent/Uri to an initial back stack.
  * Call resolve(intent) at Activity start to seed the back stack.

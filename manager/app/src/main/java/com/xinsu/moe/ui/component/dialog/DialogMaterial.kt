@@ -17,7 +17,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.xinsu.moe.data.registry.RegistryUrls
 import com.xinsu.moe.ui.component.markdown.MarkdownContent
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
@@ -58,14 +57,9 @@ fun ConfirmDialogMaterial(
             text = {
                 visuals.content?.let { content ->
                     when {
-                        // Registry content (and any HTML, which only comes from the registry) is rendered locked down.
-                    visuals.isRestricted || visuals.isHtml -> MarkdownContent(
-                        content = content,
-                        isMarkdown = !visuals.isHtml,
-                        restrictedBaseUrl = RegistryUrls.DEFAULT_BASE_URL,
-                    )
-                    visuals.isMarkdown -> MarkdownContent(content = content, isMarkdown = true)
-                    else -> Text(text = content)
+                        visuals.isMarkdown -> MarkdownContent(content = content, isMarkdown = true)
+                        visuals.isHtml -> MarkdownContent(content = content, isMarkdown = false)
+                        else -> Text(text = content)
                     }
                 }
             },

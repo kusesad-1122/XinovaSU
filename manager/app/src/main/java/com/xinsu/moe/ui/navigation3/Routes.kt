@@ -6,10 +6,8 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 import com.xinsu.moe.ui.screen.flash.FlashIt
 import com.xinsu.moe.ui.screen.modulerepo.RepoModuleArg
-import com.xinsu.moe.ui.screen.scriptrun.ScriptRunArg
 import com.xinsu.moe.ui.util.FlashItSerializer
 import com.xinsu.moe.ui.util.RepoModuleArgSerializer
-import com.xinsu.moe.ui.util.ScriptRunArgSerializer
 import com.xinsu.moe.ui.util.TemplateInfoSerializer
 import com.xinsu.moe.ui.viewmodel.TemplateViewModel
 
@@ -88,8 +86,4 @@ sealed interface Route : NavKey, Parcelable {
     @Parcelize
     @Serializable
     data class ExecuteModuleAction(val moduleId: String, val fromShortcut: Boolean = false) : Route
-
-    @Parcelize
-    @Serializable
-    data class ScriptRun(@Serializable(with = ScriptRunArgSerializer::class) val arg: ScriptRunArg) : Route
 }

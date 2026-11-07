@@ -2,6 +2,7 @@ package com.xinsu.moe.ui.viewmodel
 
 import android.os.SystemClock
 import android.util.Log
+import androidx.core.content.edit
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -18,14 +19,10 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
-import kotlin.time.Duration.Companion.milliseconds
 import com.xinsu.moe.Natives
 import com.xinsu.moe.R
 import com.xinsu.moe.data.model.Module
 import com.xinsu.moe.data.model.ModuleUpdateInfo
-import com.xinsu.moe.data.registry.UpdateVerification
-import com.xinsu.moe.data.repository.ModuleRepoRepository
-import com.xinsu.moe.data.repository.ModuleRepoRepositoryImpl
 import com.xinsu.moe.data.repository.ModuleRepository
 import com.xinsu.moe.data.repository.ModuleRepositoryImpl
 import com.xinsu.moe.ksuApp
@@ -35,19 +32,17 @@ import com.xinsu.moe.ui.screen.module.ModuleConfirmRequest
 import com.xinsu.moe.ui.screen.module.ModuleEffect
 import com.xinsu.moe.ui.screen.module.ModuleUiState
 import com.xinsu.moe.ui.util.hasMagisk
+import com.xinsu.moe.ui.util.module.fetchModuleDetail
+import com.xinsu.moe.ui.util.module.fetchReleaseDescriptionHtml
 import okhttp3.Request
 import java.text.Collator
 import java.util.Locale
 import com.xinsu.moe.ui.util.toggleModule as toggleModuleUtil
 import com.xinsu.moe.ui.util.undoUninstallModule as undoUninstallModuleUtil
 import com.xinsu.moe.ui.util.uninstallModule as uninstallModuleUtil
-import com.xinsu.moe.data.repository.SettingsRepository
-import com.xinsu.moe.data.repository.SettingsRepositoryImpl
 
 class ModuleViewModel(
-    private val repo: ModuleRepository = ModuleRepositoryImpl(),
-    private val settingsRepo: SettingsRepository = SettingsRepositoryImpl(),
-    private val registryRepo: ModuleRepoRepository = ModuleRepoRepositoryImpl(),
+    private val repo: ModuleRepository = ModuleRepositoryImpl()
 ) : ViewModel() {
 
     companion object {
@@ -89,11 +84,12 @@ class ModuleViewModel(
     }
 
     fun initializePreferences() {
+        val prefs = ksuApp.getSharedPreferences("settings", 0)
         _uiState.update {
             it.copy(
-                checkModuleUpdate = settingsRepo.checkModuleUpdate,
-                sortEnabledFirst = settingsRepo.moduleSortEnabledFirst,
-                sortActionFirst = settingsRepo.moduleSortActionFirst,
+                checkModuleUpdate = prefs.getBoolean("module_check_update", true),
+                sortEnabledFirst = prefs.getBoolean("module_sort_enabled_first", false),
+                sortActionFirst = prefs.getBoolean("module_sort_action_first", false),
             )
         }
         updateModuleList()
@@ -101,14 +97,18 @@ class ModuleViewModel(
 
     fun toggleSortActionFirst() {
         val newValue = !_uiState.value.sortActionFirst
-        settingsRepo.moduleSortActionFirst = newValue
+        ksuApp.getSharedPreferences("settings", 0).edit {
+            putBoolean("module_sort_action_first", newValue)
+        }
         _uiState.update { it.copy(sortActionFirst = newValue) }
         updateModuleList()
     }
 
     fun toggleSortEnabledFirst() {
         val newValue = !_uiState.value.sortEnabledFirst
-        settingsRepo.moduleSortEnabledFirst = newValue
+        ksuApp.getSharedPreferences("settings", 0).edit {
+            putBoolean("module_sort_enabled_first", newValue)
+        }
         _uiState.update { it.copy(sortEnabledFirst = newValue) }
         updateModuleList()
     }
@@ -294,7 +294,7 @@ class ModuleViewModel(
         val fetchedEntries = coroutineScope {
             modulesToFetch.map { (id, module, signature) ->
                 async {
-                    val info = withTimeoutOrNull(5_000L.milliseconds) {
+                    val info = withTimeoutOrNull(5_000L) {
                         withContext(Dispatchers.IO) { checkUpdate(module) }
                     } ?: ModuleUpdateInfo.Empty
                     id to ModuleUpdateCache(signature, info)
@@ -332,18 +332,7 @@ class ModuleViewModel(
 
     fun requestUpdateConfirmation(module: Module, updateInfo: ModuleUpdateInfo) {
         viewModelScope.launch {
-            val verification = registryRepo.resolveUpdate(
-                moduleId = module.id,
-                updateJsonUrl = module.updateJson,
-                zipUrl = updateInfo.downloadUrl,
-                versionCode = updateInfo.versionCode,
-            )
-            if (verification is UpdateVerification.Rejected) {
-                Log.w(TAG, "refusing update of ${module.id}: ${verification.reason}")
-                emitEffect(ModuleEffect.Toast(ksuApp.getString(R.string.module_update_unverifiable, module.name)))
-                return@launch
-            }
-            val dialogState = buildUpdateConfirmDialogState(module, updateInfo, verification)
+            val dialogState = buildUpdateConfirmDialogState(module, updateInfo)
             _uiState.update { it.copy(confirmDialogState = dialogState) }
         }
     }
@@ -439,71 +428,59 @@ class ModuleViewModel(
     private suspend fun buildUpdateConfirmDialogState(
         module: Module,
         updateInfo: ModuleUpdateInfo,
-        verification: UpdateVerification,
     ): ModuleConfirmDialogState {
         val res = ksuApp.resources
         val changelogUrl = updateInfo.changelog
 
         var changelog = ""
         var html = false
-        // Registry-hosted content is always shown in the restricted (JavaScript-off) renderer.
-        var restricted = false
 
-        withContext(Dispatchers.IO) {
-            if (verification is UpdateVerification.Registry) {
-                // A registry release: only ever show the registry's own release notes.
-                verification.release.changelogHtml?.takeIf { it.isNotBlank() }?.let {
-                    changelog = it
-                    html = true
-                    restricted = true
-                }
-                if (changelog.isBlank() && registryRepo.isRegistryUrl(changelogUrl)) {
-                    registryRepo.fetchRegistryText(changelogUrl)?.let {
-                        changelog = it
-                        restricted = true
+        if (changelogUrl.isNotBlank()) {
+            withContext(Dispatchers.IO) {
+                if (changelogUrl.startsWith("#") && changelogUrl.contains('@')) {
+                    val parts = changelogUrl.substring(1).split('@', limit = 2)
+                    if (parts.size == 2) {
+                        fetchReleaseDescriptionHtml(parts[0], parts[1])?.let {
+                            changelog = it
+                            html = true
+                        }
                     }
                 }
-                return@withContext
-            }
-            if (changelogUrl.isBlank()) return@withContext
-            if (changelogUrl.startsWith("#") && changelogUrl.contains('@')) {
-                val parts = changelogUrl.substring(1).split('@', limit = 2)
-                if (parts.size == 2) {
-                    registryRepo.fetchChangelogHtml(parts[0], parts[1])?.let {
-                        changelog = it
-                        html = true
-                        restricted = true
-                    }
+
+                if (changelog.isBlank()) {
+                    changelog = runCatching {
+                        ksuApp.okhttpClient.newCall(
+                            Request.Builder().url(changelogUrl).build()
+                        ).execute().body.string()
+                    }.getOrDefault("")
                 }
-                return@withContext
             }
-            if (registryRepo.isRegistryUrl(changelogUrl)) {
-                registryRepo.fetchRegistryText(changelogUrl)?.let {
-                    changelog = it
-                    restricted = true
-                }
-                return@withContext
-            }
-            changelog = runCatching {
-                ksuApp.okhttpClient.newCall(
-                    Request.Builder().url(changelogUrl).build()
-                ).execute().use { it.body.string() }
-            }.getOrDefault("")
         }
 
-        val registry = verification as? UpdateVerification.Registry
+        if (changelog.isBlank()) {
+            withContext(Dispatchers.IO) {
+                runCatching {
+                    val latestTag = fetchModuleDetail(module.id)?.latestTag.orEmpty()
+                    if (latestTag.isNotBlank()) {
+                        fetchReleaseDescriptionHtml(module.id, latestTag)?.let {
+                            changelog = it
+                            html = true
+                        }
+                    }
+                }
+            }
+        }
+
         return ModuleConfirmDialogState(
             request = ModuleConfirmRequest.Update(
                 module = module,
-                downloadUrl = registry?.zipUrl ?: updateInfo.downloadUrl,
+                downloadUrl = updateInfo.downloadUrl,
                 fileName = "${module.name}-${updateInfo.version}.zip",
-                expected = registry?.expected,
             ),
             title = if (changelog.isNotBlank()) res.getString(R.string.module_changelog) else res.getString(R.string.module_update),
             content = changelog.ifBlank { res.getString(R.string.module_start_downloading).format(module.name) },
             markdown = changelog.isNotBlank() && !html,
-            html = changelog.isNotBlank() && html,
-            restricted = changelog.isNotBlank() && restricted,
+            html = html,
             confirm = res.getString(R.string.module_update),
         )
     }

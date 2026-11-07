@@ -2,7 +2,6 @@ package com.xinsu.moe.ui.screen.module
 
 import android.net.Uri
 import androidx.compose.runtime.Immutable
-import com.xinsu.moe.data.registry.ExpectedFile
 import com.xinsu.moe.data.model.Module
 import com.xinsu.moe.data.model.ModuleUpdateInfo
 import com.xinsu.moe.ui.component.SearchStatus
@@ -12,8 +11,6 @@ sealed interface ModuleConfirmRequest {
         val module: Module,
         val downloadUrl: String,
         val fileName: String,
-        /** Set when the update is a registry release: size + SHA-256 are enforced. */
-        val expected: ExpectedFile? = null,
     ) : ModuleConfirmRequest
 
     data class Uninstall(
@@ -28,8 +25,6 @@ data class ModuleConfirmDialogState(
     val content: String? = null,
     val markdown: Boolean = false,
     val html: Boolean = false,
-    /** Registry-hosted content: render with JavaScript off and network locked to the registry. */
-    val restricted: Boolean = false,
     val confirm: String? = null,
     val dismiss: String? = null,
 )

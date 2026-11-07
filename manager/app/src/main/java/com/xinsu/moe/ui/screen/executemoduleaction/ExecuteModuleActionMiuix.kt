@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.captionBar
 import androidx.compose.foundation.layout.displayCutout
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.offset
@@ -52,7 +51,6 @@ import com.xinsu.moe.ui.component.KeyEventBlocker
 import com.xinsu.moe.ui.theme.LocalEnableBlur
 import com.xinsu.moe.ui.util.BlurredBar
 import com.xinsu.moe.ui.util.rememberBlurBackdrop
-import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.FloatingActionButton
 import top.yukonga.miuix.kmp.basic.Icon
 import top.yukonga.miuix.kmp.basic.IconButton
@@ -112,7 +110,6 @@ fun ExecuteModuleActionScreenMiuix(
             TopBar(
                 onBack = actions.onBack,
                 onSave = actions.onSaveLog,
-                title = state.title ?: stringResource(R.string.action),
                 backdrop = backdrop,
                 barColor = barColor,
             )
@@ -173,7 +170,6 @@ fun ExecuteModuleActionScreenMiuix(
                     fontSize = 12.sp,
                     fontFamily = FontFamily.Monospace,
                 )
-                state.resultNotice?.let { ResultNoticeMiuix(it) }
                 Spacer(
                     Modifier.height(
                         12.dp + WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding() +
@@ -189,14 +185,13 @@ fun ExecuteModuleActionScreenMiuix(
 private fun TopBar(
     onBack: () -> Unit = {},
     onSave: () -> Unit = {},
-    title: String,
     backdrop: LayerBackdrop?,
     barColor: Color,
 ) {
     BlurredBar(backdrop) {
         SmallTopAppBar(
             color = barColor,
-            title = title,
+            title = stringResource(R.string.action),
             navigationIcon = {
                 IconButton(
                     onClick = onBack
@@ -223,27 +218,6 @@ private fun TopBar(
                     )
                 }
             }
-        )
-    }
-}
-
-@Composable
-private fun ResultNoticeMiuix(notice: ActionResultNotice) {
-    val color = when (notice.kind) {
-        ActionResultKind.SUCCESS -> colorScheme.primary
-        ActionResultKind.NOT_APPLICABLE -> colorScheme.onSurfaceVariantSummary
-        ActionResultKind.FAILURE -> colorScheme.error
-    }
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 12.dp, vertical = 8.dp),
-    ) {
-        Text(
-            text = notice.text,
-            color = color,
-            fontSize = 15.sp,
-            modifier = Modifier.padding(16.dp),
         )
     }
 }

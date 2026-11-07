@@ -39,10 +39,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="content" />
-                <data android:mimeType="application/zip" />
-                <data android:mimeType="application/x-zip-compressed" />
-                <data android:mimeType="application/x-zip" />
+                <data
+                    android:mimeType="application/zip"
+                    android:scheme="content" />
             </intent-filter>
         </activity>
 

@@ -30,14 +30,6 @@ interface SettingsRepository {
     /** 「毛玻璃模糊度」滑块的取值，单位 dp（见 LiquidGlassSpec）。 */
     var glassBlurRadius: Float
     var enableWebDebugging: Boolean
-    var moduleSortEnabledFirst: Boolean
-    var moduleSortActionFirst: Boolean
-    /** Name of the [com.xinsu.moe.ui.screen.modulerepo.RepoSort] entry. */
-    var moduleRepoSortOrder: String
-    var superuserShowSystemApps: Boolean
-    var superuserShowOnlyPrimaryUserApps: Boolean
-    var superuserSortOption: Int
-    var suLogFilters: Set<String>?
     var autoJailbreak: Boolean
 
     suspend fun getSuCompatStatus(): String

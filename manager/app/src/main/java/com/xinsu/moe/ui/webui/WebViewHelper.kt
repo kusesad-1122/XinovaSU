@@ -18,27 +18,12 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.webkit.WebViewAssetLoader
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import com.xinsu.moe.R
 import com.xinsu.moe.data.repository.ModuleRepositoryImpl
 import com.xinsu.moe.ui.util.createRootShell
-import com.xinsu.moe.data.model.AppInfo
 import com.xinsu.moe.ui.viewmodel.SuperUserViewModel
 import java.io.File
-
-internal fun webUIApps(): List<AppInfo> = runBlocking {
-    SuperUserViewModel.loadApps(useCache = true).getOrNull()?.first.orEmpty()
-}
-
-private const val WEB_DOMAIN = "mui.xinovasu.org"
-private const val KSU_SCHEME = "ksu"
-private const val ICON_HOST = "icon"
-private const val INTERNAL_BLOB_DOWNLOAD_HOST = "blob-download.kernelsu.internal"
-
-private fun loadDownloadJs(context: Context): String {
-    return context.assets.open("webview/download.js").bufferedReader(Charsets.UTF_8).use { it.readText() }
-}
 
 fun Activity.setTaskDescription(label: String) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
@@ -103,7 +88,7 @@ internal suspend fun prepareWebView(
 
             val webRoot = File("${webUIState.modDir}/webroot")
             val webViewAssetLoader = WebViewAssetLoader.Builder()
-                .setDomain(WEB_DOMAIN)
+                .setDomain("mui.xinovasu.org")
                 .addPathHandler(
                     "/",
                     SuFilePathHandler(
@@ -119,10 +104,7 @@ internal suspend fun prepareWebView(
             webView.webViewClient = object : WebViewClient() {
                 override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
                     val url = request.url
-
-                    BlobDownloadHandler.shouldInterceptRequest(request)?.let { return it }
-
-                    if (url.scheme.equals(KSU_SCHEME, ignoreCase = true) && url.host.equals(ICON_HOST, ignoreCase = true)) {
+                    if (url.scheme.equals("ksu", ignoreCase = true) && url.host.equals("icon", ignoreCase = true)) {
                         val packageName = url.path?.substring(1)
                         if (!packageName.isNullOrEmpty()) {
                             val icon = AppIconUtil.loadAppIconSync(activity, packageName, 512)
@@ -143,7 +125,6 @@ internal suspend fun prepareWebView(
                 override fun doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean) {
                     webUIState.webCanGoBack = view?.canGoBack() ?: false
                     if (webUIState.isInsetsEnabled) webUIState.webView?.evaluateJavascript(webUIState.currentInsets.js, null)
-                    view?.evaluateJavascript(loadDownloadJs(activity), null)
                     super.doUpdateVisitedHistory(view, url, isReload)
                 }
             }
@@ -191,18 +172,8 @@ internal suspend fun prepareWebView(
 
             // JS Interface
             val webviewInterface = WebViewInterface(webUIState)
-            val downloadInterface = WebUIDownloadInterface(webUIState)
-            webUIState.webViewInterface = webviewInterface
-            webUIState.downloadInterface = downloadInterface
             webUIState.webView = webView
             webView.addJavascriptInterface(webviewInterface, "ksu")
-            webView.addJavascriptInterface(downloadInterface, "ksu_download")
-            webView.setDownloadListener { url, _, _, _, _ ->
-                if (Uri.parse(url).host != INTERNAL_BLOB_DOWNLOAD_HOST) {
-                    downloadInterface.openExternal(url)
-                }
-            }
-            webView.evaluateJavascript(loadDownloadJs(activity), null)
             webUIState.uiEvent = WebUIEvent.WebViewReady
         }
     }

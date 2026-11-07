@@ -293,7 +293,6 @@ dependencies {
 
     implementation(libs.commons.compress)
     implementation(libs.xz)
-    implementation(libs.protobuf.kotlin.lite)
 
     testImplementation(libs.junit)
 }

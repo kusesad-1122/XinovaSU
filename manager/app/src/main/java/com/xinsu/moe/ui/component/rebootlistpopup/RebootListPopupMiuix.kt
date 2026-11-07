@@ -62,7 +62,6 @@ import com.xinsu.moe.ui.component.liquid.LiquidGlassSpec
 import com.xinsu.moe.ui.component.liquid.PopupCardCornerRadius
 import com.xinsu.moe.ui.component.liquid.liquidGlassSurface
 import com.xinsu.moe.ui.component.liquid.liquidGlassTrigger
-import com.xinsu.moe.ui.component.miuix.DropdownItem
 import com.xinsu.moe.ui.theme.LocalCardBackdrop
 import com.xinsu.moe.ui.util.reboot
 import kotlin.math.roundToInt
@@ -365,7 +364,7 @@ fun RebootDropdownItem(
     index: Int,
     dropdownColors: DropdownColors = DropdownDefaults.dropdownColors(),
 ) {
-    DropdownItem(
+    com.xinsu.moe.ui.component.miuix.DropdownItem(
         text = stringResource(option.labelRes),
         optionSize = optionSize,
         dropdownColors = dropdownColors,
