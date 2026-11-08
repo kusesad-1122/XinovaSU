@@ -96,7 +96,10 @@ struct xnsu_set_app_profile_cmd {
 struct xnsu_get_feature_cmd {
     __u32 feature_id; /* Input: feature ID (enum xnsu_feature_id) */
     __u64 value; /* Output: feature value/state */
-    __u8 supported; /* Output: true if feature is supported, false otherwise */
+    __u8 supported; /* Output: XNSU_FEATURE_FLAG_* bits, 0 if feature is not supported */
+#define XNSU_FEATURE_FLAG_SUPPORTED (1 << 0)
+/* Value is forced by boot config (force_feature param), SET_FEATURE is refused */
+#define XNSU_FEATURE_FLAG_FORCED (1 << 1)
 };
 
 struct xnsu_set_feature_cmd {
