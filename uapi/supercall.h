@@ -17,6 +17,7 @@ struct xnsu_become_daemon_cmd {
 static const __u32 EVENT_POST_FS_DATA = 1;
 static const __u32 EVENT_BOOT_COMPLETED = 2;
 static const __u32 EVENT_MODULE_MOUNTED = 3;
+static const __u32 EVENT_SERVICES = 4;
 
 static const __u32 XNSU_GET_INFO_FLAG_LKM = (1U << 0);
 static const __u32 XNSU_GET_INFO_FLAG_MANAGER = (1U << 1);
@@ -96,7 +97,10 @@ struct xnsu_set_app_profile_cmd {
 struct xnsu_get_feature_cmd {
     __u32 feature_id; /* Input: feature ID (enum xnsu_feature_id) */
     __u64 value; /* Output: feature value/state */
-    __u8 supported; /* Output: true if feature is supported, false otherwise */
+    __u8 supported; /* Output: XNSU_FEATURE_FLAG_* bits, 0 if feature is not supported */
+#define XNSU_FEATURE_FLAG_SUPPORTED (1 << 0)
+/* Value is forced by boot config (force_feature param), SET_FEATURE is refused */
+#define XNSU_FEATURE_FLAG_FORCED (1 << 1)
 };
 
 struct xnsu_set_feature_cmd {
