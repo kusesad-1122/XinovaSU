@@ -1,4 +1,5 @@
 #include "feature/selinux_hide.h"
+#include "policy/feature.h"
 #include <linux/err.h>
 #include <linux/fs.h>
 #include <linux/namei.h>
@@ -17,6 +18,8 @@ bool xnsu_boot_completed __read_mostly = false;
 
 void on_post_fs_data(void)
 {
+    // retry forced features which failed at second stage
+    xnsu_feature_apply_forced();
     static bool done = false;
 
     if (done) {

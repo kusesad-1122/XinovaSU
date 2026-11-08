@@ -162,6 +162,9 @@ void xnsu_handle_execveat_xnsusd(const char *path, struct user_arg_ptr *argv)
             pr_info("/system/bin/init second_stage executed\n");
             xnsu_selinux_hide_handle_second_stage();
             apply_xinovasu_rules();
+
+            // after apply_xinovasu_rules, so that selinux_hide has its sepolicy backup
+            xnsu_feature_apply_forced();
             cache_sid();
             setup_xnsu_cred();
             init_second_stage_executed = true;

@@ -162,6 +162,8 @@ int __init xinovasu_init(void)
     if (xnsu_late_loaded) {
         pr_info("late load mode, skipping kprobe hooks\n");
 
+        xnsu_feature_apply_forced();
+
         apply_xinovasu_rules();
         cache_sid();
         setup_xnsu_cred();
