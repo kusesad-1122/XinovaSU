@@ -6,7 +6,7 @@ use crate::{
 };
 use anyhow::{Context, Result};
 use libc::_exit;
-use log::{info, warn};
+use log::{error, info, warn};
 use prop_rs_android::resetprop::ResetProp;
 use prop_rs_android::sys_prop;
 use rustix::process::chdir;
