@@ -71,6 +71,7 @@ static int do_get_info(void __user *arg)
 
 static int do_report_event(void __user *arg)
 {
+    static bool services_started = false;
     struct xnsu_report_event_cmd cmd;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -80,6 +81,9 @@ static int do_report_event(void __user *arg)
     switch (cmd.event) {
     case EVENT_POST_FS_DATA: {
         static bool post_fs_data_lock = false;
+
+        // Reset for emulated soft reboot
+        services_started = false;
         if (!post_fs_data_lock) {
             post_fs_data_lock = true;
             if (xnsu_late_loaded) {
@@ -108,6 +112,15 @@ static int do_report_event(void __user *arg)
         pr_info("module mounted!\n");
         on_module_mounted();
         break;
+    }
+    case EVENT_SERVICES: {
+        if (services_started) {
+            pr_info("services already started, skipping\n");
+            return 0;
+        }
+        services_started = true;
+        pr_info("services triggered\n");
+        return 1;
     }
     default:
         break;
@@ -353,7 +366,7 @@ static int do_set_app_profile(void __user *arg)
 static int do_get_feature(void __user *arg)
 {
     struct xnsu_get_feature_cmd cmd;
-    bool supported = false;
+    bool supported;
     int ret;
 
     if (copy_from_user(&cmd, arg, sizeof(cmd))) {
@@ -362,13 +375,7 @@ static int do_get_feature(void __user *arg)
     }
 
     ret = xnsu_get_feature(cmd.feature_id, &cmd.value, &supported);
-    cmd.supported = 0;
-    if (supported) {
-        cmd.supported |= XNSU_FEATURE_FLAG_SUPPORTED;
-        if (xnsu_feature_is_forced(cmd.feature_id)) {
-            cmd.supported |= XNSU_FEATURE_FLAG_FORCED;
-        }
-    }
+    cmd.supported = supported ? 1 : 0;
 
     if (ret && supported) {
         pr_err("get_feature: failed for feature %u: %d\n", cmd.feature_id, ret);

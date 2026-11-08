@@ -21,6 +21,12 @@ pub enum FeatureId {
     Sulog = 2,
     AdbRoot = 3,
     SelinuxHide = 4,
+    KernelSpoof = 5,
+    NetIsolate = 6,
+    PathHide = 7,
+    VpnHide = 8,
+    VpnPorts = 9,
+    LogHide = 10,
 }
 
 impl FeatureId {
@@ -31,6 +37,12 @@ impl FeatureId {
             2 => Some(Self::Sulog),
             3 => Some(Self::AdbRoot),
             4 => Some(Self::SelinuxHide),
+            5 => Some(Self::KernelSpoof),
+            6 => Some(Self::NetIsolate),
+            7 => Some(Self::PathHide),
+            8 => Some(Self::VpnHide),
+            9 => Some(Self::VpnPorts),
+            10 => Some(Self::LogHide),
             _ => None,
         }
     }
@@ -42,6 +54,12 @@ impl FeatureId {
             Self::Sulog => "sulog",
             Self::AdbRoot => "adb_root",
             Self::SelinuxHide => "selinux_hide",
+            Self::KernelSpoof => "kernel_spoof",
+            Self::NetIsolate => "net_isolate",
+            Self::PathHide => "path_hide",
+            Self::VpnHide => "vpn_hide",
+            Self::VpnPorts => "vpn_ports",
+            Self::LogHide => "log_hide",
         }
     }
 
@@ -60,6 +78,12 @@ impl FeatureId {
             Self::SelinuxHide => {
                 "SELinux Hide - sanitize /sys/fs/selinux access results for app UIDs"
             }
+            Self::KernelSpoof => "Kernel Spoof - rewrite uname release/version for hiding",
+            Self::NetIsolate => "Network Isolate - block kernel-level network for selected apps",
+            Self::PathHide => "Path Hide - return ENOENT for hidden paths on selected apps",
+            Self::VpnHide => "VPN Hide - hide VPN interfaces from selected apps",
+            Self::VpnPorts => "VPN Ports - reject loopback connects for selected apps",
+            Self::LogHide => "Log Hide - stub avc_denied/audit_log_start to silence root denials",
         }
     }
 }
@@ -71,6 +95,12 @@ fn parse_feature_id(name: &str) -> Result<FeatureId> {
         "sulog" | "2" => Ok(FeatureId::Sulog),
         "adb_root" | "3" => Ok(FeatureId::AdbRoot),
         "selinux_hide" | "4" => Ok(FeatureId::SelinuxHide),
+        "kernel_spoof" | "5" => Ok(FeatureId::KernelSpoof),
+        "net_isolate" | "6" => Ok(FeatureId::NetIsolate),
+        "path_hide" | "7" => Ok(FeatureId::PathHide),
+        "vpn_hide" | "8" => Ok(FeatureId::VpnHide),
+        "vpn_ports" | "9" => Ok(FeatureId::VpnPorts),
+        "log_hide" | "10" => Ok(FeatureId::LogHide),
         _ => bail!("Unknown feature: {name}"),
     }
 }

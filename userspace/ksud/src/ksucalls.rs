@@ -104,6 +104,15 @@ pub fn report_module_mounted() {
     report_event(xnsu_uapi::EVENT_MODULE_MOUNTED);
 }
 
+pub fn report_services() -> std::io::Result<bool> {
+    let mut cmd = xnsu_uapi::xnsu_report_event_cmd {
+        event: xnsu_uapi::EVENT_SERVICES,
+    };
+    let ret = ksuctl(xnsu_uapi::XNSU_IOCTL_REPORT_EVENT, &raw mut cmd)?;
+    Ok(ret > 0)
+}
+
+
 pub fn check_kernel_safemode() -> bool {
     let mut cmd = xnsu_uapi::xnsu_check_safemode_cmd { in_safe_mode: 0 };
     let _ = ksuctl(xnsu_uapi::XNSU_IOCTL_CHECK_SAFEMODE, &raw mut cmd);
