@@ -17,7 +17,6 @@ struct xnsu_become_daemon_cmd {
 static const __u32 EVENT_POST_FS_DATA = 1;
 static const __u32 EVENT_BOOT_COMPLETED = 2;
 static const __u32 EVENT_MODULE_MOUNTED = 3;
-static const __u32 EVENT_SERVICES = 4;
 
 static const __u32 XNSU_GET_INFO_FLAG_LKM = (1U << 0);
 static const __u32 XNSU_GET_INFO_FLAG_MANAGER = (1U << 1);

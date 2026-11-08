@@ -6,7 +6,7 @@ use crate::{
 };
 use anyhow::{Context, Result};
 use libc::_exit;
-use log::{error, info, warn};
+use log::{info, warn};
 use prop_rs_android::resetprop::ResetProp;
 use prop_rs_android::sys_prop;
 use rustix::process::chdir;
@@ -177,19 +177,6 @@ pub fn run_stage(stage: &str, wait: ScriptWait) {
 
 pub fn on_services() {
     info!("on_services triggered!");
-
-    match ksucalls::report_services() {
-        Ok(true) => {}
-        Ok(false) => {
-            info!("services already started, skipping");
-            return;
-        }
-        Err(e) => {
-            error!("Failed to report services: {e:#}");
-            return;
-        }
-    }
-
     run_stage("service", ScriptWait::NoWait);
 }
 
