@@ -17,6 +17,12 @@ bool xnsu_enforce(struct policydb *db, const char *type);
 bool xnsu_typeattribute(struct policydb *db, const char *type, const char *attr);
 bool xnsu_exists(struct policydb *db, const char *type);
 
+// Return 1 when the type value is from the initial policy, 0 when it is not, and -1 when metadata is unavailable
+int xnsu_type_is_original(struct policydb *db, u32 policy_generation, u32 type_value);
+bool xnsu_set_original_types(struct policydb *db, struct policydb *orig_db, u32 policy_generation);
+bool xnsu_advance_original_types(struct policydb *db, struct policydb *old_db, u32 old_policy_generation,
+                                 u32 policy_generation);
+
 // Access vector rules
 bool xnsu_allow(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *perm);
 bool xnsu_deny(struct policydb *db, const char *src, const char *tgt, const char *cls, const char *perm);
