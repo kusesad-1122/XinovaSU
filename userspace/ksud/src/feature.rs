@@ -347,6 +347,12 @@ pub fn list_features() {
         FeatureId::Sulog,
         FeatureId::AdbRoot,
         FeatureId::SelinuxHide,
+        FeatureId::KernelSpoof,
+        FeatureId::NetIsolate,
+        FeatureId::PathHide,
+        FeatureId::VpnHide,
+        FeatureId::VpnPorts,
+        FeatureId::LogHide,
     ];
 
     for feature_id in &all_features {
@@ -410,6 +416,12 @@ pub fn save_config() -> Result<()> {
         FeatureId::Sulog,
         FeatureId::AdbRoot,
         FeatureId::SelinuxHide,
+        FeatureId::KernelSpoof,
+        FeatureId::NetIsolate,
+        FeatureId::PathHide,
+        FeatureId::VpnHide,
+        FeatureId::VpnPorts,
+        FeatureId::LogHide,
     ];
 
     for feature_id in &all_features {
