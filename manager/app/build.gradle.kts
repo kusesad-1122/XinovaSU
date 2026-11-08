@@ -260,6 +260,7 @@ dependencies {
     implementation(libs.dev.rikka.rikkax.parcelablelist)
 
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.commonmark)
     implementation(libs.commonmark.ext.gfm.tables)
@@ -289,4 +290,18 @@ dependencies {
     implementation(libs.material.kolor)
 
     implementation(libs.appiconloader)
+
+    implementation(libs.commons.compress)
+    implementation(libs.xz)
+
+    testImplementation(libs.junit)
+}
+
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll(
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3ExpressiveApi",
+        )
+    }
 }
