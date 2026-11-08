@@ -2,7 +2,6 @@
 #define __XNSU_H_FEATURE
 
 #include <linux/types.h>
-#include <linux/stdbool.h>
 #include "uapi/feature.h" // IWYU pragma: keep
 
 typedef int (*xnsu_feature_get_t)(u64 *value);
