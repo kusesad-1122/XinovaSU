@@ -13,6 +13,8 @@ enum xnsu_feature_id {
     XNSU_FEATURE_VPN_HIDE = 8,
     XNSU_FEATURE_VPN_PORTS = 9,
     XNSU_FEATURE_LOG_HIDE = 10,
+    // Upstream assigns 6; that ID is already XNSU_FEATURE_NET_ISOLATE here.
+    XNSU_FEATURE_SHELL_SU_ADB_ONLY = 11,
 
     XNSU_FEATURE_MAX
 };

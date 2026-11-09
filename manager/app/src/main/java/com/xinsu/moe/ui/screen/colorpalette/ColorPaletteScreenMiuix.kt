@@ -335,11 +335,12 @@ fun ColorPaletteScreenMiuix(
                                     onClick = { imagePickerLauncher.launch(arrayOf("image/*")) },
                                 )
                                 ImageOpacityPreference(
-                                    title = stringResource(id = R.string.settings_image_opacity),
+                                    title = stringResource(id = R.string.settings_background_image_opacity),
                                     value = state.currentBackgroundImageAlpha,
                                     onChange = actions.onSetBackgroundImageAlpha,
                                 )
                                 ImagePositionPreference(
+                                    title = stringResource(id = R.string.settings_background_image_position),
                                     value = state.currentBackgroundImageAlign,
                                     onChange = actions.onSetBackgroundImageAlign,
                                 )
@@ -1060,6 +1061,7 @@ private fun ImageOpacityPreference(
 private fun ImagePositionPreference(
     value: Int,
     onChange: (Int) -> Unit,
+    title: String = stringResource(id = R.string.settings_image_position),
 ) {
     val items = listOf(
         stringResource(id = R.string.image_position_left),
@@ -1067,13 +1069,13 @@ private fun ImagePositionPreference(
         stringResource(id = R.string.image_position_right),
     )
     OverlayDropdownPreference(
-        title = stringResource(id = R.string.settings_image_position),
+        title = title,
         items = items,
         startAction = {
             Icon(
                 Icons.Rounded.AspectRatio,
                 modifier = Modifier.padding(end = 6.dp),
-                contentDescription = stringResource(id = R.string.settings_image_position),
+                contentDescription = title,
                 tint = colorScheme.onBackground
             )
         },

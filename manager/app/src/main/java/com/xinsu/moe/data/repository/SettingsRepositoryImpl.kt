@@ -17,12 +17,21 @@ import com.xinsu.moe.ui.theme.BackgroundStyle
 import com.xinsu.moe.ui.theme.KawaiiPalette
 import com.xinsu.moe.ui.util.execKsud
 import com.xinsu.moe.ui.util.getFeaturePersistValue
+import com.xinsu.moe.ui.util.getFeatureValue
 import com.xinsu.moe.ui.util.getFeatureStatus
+
+private const val SETTINGS_PREFS = "settings"
+private const val KEY_USE_SOFT_REBOOT = "soft_reboot"
+
+/** Prefer soft reboot: always in jailbreak mode, or when the setting is enabled. */
+fun isSoftRebootPreferred(): Boolean =
+    Natives.isLateLoadMode || ksuApp.getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE)
+        .getBoolean(KEY_USE_SOFT_REBOOT, false)
 
 class SettingsRepositoryImpl : SettingsRepository {
 
     private val prefs by lazy {
-        ksuApp.getSharedPreferences("settings", Context.MODE_PRIVATE)
+        ksuApp.getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE)
     }
 
     override var uiMode: String
@@ -155,6 +164,10 @@ class SettingsRepositoryImpl : SettingsRepository {
             }
         }
 
+    override var useSoftReboot: Boolean
+        get() = prefs.getBoolean(KEY_USE_SOFT_REBOOT, false)
+        set(value) = prefs.edit { putBoolean(KEY_USE_SOFT_REBOOT, value) }
+
     override suspend fun getSuCompatStatus(): String = getFeatureStatus("su_compat")
 
     override suspend fun getSuCompatPersistValue(): Long? = getFeaturePersistValue("su_compat")
@@ -196,6 +209,15 @@ class SettingsRepositoryImpl : SettingsRepository {
         } else {
             false
         }
+
+    override suspend fun getShellSuAdbOnlyStatus(): String = getFeatureStatus("shell_su_adb_only")
+
+    override suspend fun getShellSuAdbOnlyPersistValue(): Long? = getFeaturePersistValue("shell_su_adb_only")
+
+    override suspend fun getShellSuAdbOnlyValue(): Long? = getFeatureValue("shell_su_adb_only")
+
+    override fun setShellSuAdbOnlyEnabled(enabled: Boolean): Boolean =
+        execKsud("feature set shell_su_adb_only ${if (enabled) 1 else 0}", true)
 
     override fun isDefaultUmountModules(): Boolean = Natives.isDefaultUmountModules()
 

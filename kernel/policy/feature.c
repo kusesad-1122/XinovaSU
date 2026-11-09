@@ -21,7 +21,9 @@ static const char *const feature_names[XNSU_FEATURE_MAX] = {
     [XNSU_FEATURE_NET_ISOLATE] = "net_isolate",
     [XNSU_FEATURE_PATH_HIDE] = "path_hide",
     [XNSU_FEATURE_VPN_HIDE] = "vpn_hide",
+    [XNSU_FEATURE_VPN_PORTS] = "vpn_ports",
     [XNSU_FEATURE_LOG_HIDE] = "log_hide",
+    [XNSU_FEATURE_SHELL_SU_ADB_ONLY] = "shell_su_adb_only",
 };
 
 // Features forced by boot config. Written only while parsing module params

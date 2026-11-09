@@ -8,6 +8,7 @@ data class FlashUiState(
     val showRebootAction: Boolean,
     val flashingStatus: FlashingStatus,
     val showJailbreakWarning: Boolean,
+    val rebootLabelRes: Int = com.xinsu.moe.R.string.reboot,
 )
 
 @Immutable

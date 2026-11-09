@@ -268,7 +268,7 @@ static int do_uid_granted_root(void __user *arg)
         return -EFAULT;
     }
 
-    cmd.granted = xnsu_is_allow_uid_for_current(cmd.uid);
+    cmd.granted = xnsu_is_uid_granted_root(cmd.uid);
 
     if (copy_to_user(arg, &cmd, sizeof(cmd))) {
         pr_err("uid_granted_root: copy_to_user failed\n");
@@ -375,7 +375,13 @@ static int do_get_feature(void __user *arg)
     }
 
     ret = xnsu_get_feature(cmd.feature_id, &cmd.value, &supported);
-    cmd.supported = supported ? 1 : 0;
+    cmd.supported = 0;
+    if (supported) {
+        cmd.supported |= XNSU_FEATURE_FLAG_SUPPORTED;
+        if (xnsu_feature_is_forced(cmd.feature_id)) {
+            cmd.supported |= XNSU_FEATURE_FLAG_FORCED;
+        }
+    }
 
     if (ret && supported) {
         pr_err("get_feature: failed for feature %u: %d\n", cmd.feature_id, ret);

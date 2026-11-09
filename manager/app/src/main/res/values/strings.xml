@@ -214,6 +214,7 @@
     <string name="settings_sulog_summary">Record root-related events into XinovaSU sulog files.</string>
     <string name="feature_status_unsupported_summary">Kernel does not support this feature</string>
     <string name="feature_status_managed_summary">This feature is managed by a module</string>
+    <string name="feature_status_forced_summary">This feature is forced by boot config</string>
     <string name="settings_mode_enable_by_default">Enable (Default)</string>
     <string name="settings_mode_disable_until_reboot">Disable until Reboot</string>
     <string name="settings_mode_disable_always">Always disable</string>
@@ -418,6 +419,10 @@
     <string name="download_install">Install</string>
     <string name="settings_adb_root" translatable="false">ADB Root</string>
     <string name="settings_adb_root_summary">Run adbd daemon with root privileges</string>
+    <string name="settings_shell_su_adb_only">Restrict shell root to ADB</string>
+    <string name="settings_shell_su_adb_only_summary">Extra check when Shell is granted root: only processes spawned by adbd or a KernelSU root process (e.g. an ADB module) can use it, preventing apps that obtain shell privileges from escalating to root</string>
+    <string name="settings_soft_reboot">Soft restart instead of reboot</string>
+    <string name="settings_soft_reboot_summary">Use soft restart instead of a full reboot when installing, updating, or toggling modules.</string>
     <string name="menu_sort">Sort</string>
     <string name="sort_by_name">Application name</string>
     <string name="sort_by_package_name">Package name</string>
@@ -459,4 +464,6 @@
     <string name="functions_saved">Saved</string>
     <string name="functions_save_failed">Save failed</string>
     <string name="functions_remove">Remove</string>
+    <string name="settings_background_image_opacity">Background image opacity</string>
+    <string name="settings_background_image_position">Background image position</string>
 </resources>

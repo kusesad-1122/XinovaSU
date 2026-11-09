@@ -25,8 +25,10 @@ import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.Policy
 import androidx.compose.material.icons.filled.RemoveCircle
 import androidx.compose.material.icons.filled.RemoveModerator
+import androidx.compose.material.icons.filled.RestartAlt
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Update
+import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.rounded.Dashboard
 import androidx.compose.material.icons.rounded.UploadFile
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -280,6 +282,32 @@ fun SettingPagerMaterial(
                                 enabled = uiState.adbRootStatus == "supported",
                                 checked = uiState.isAdbRootEnabled,
                                 onCheckedChange = actions.onSetAdbRootEnabled
+                            )
+                        },
+                        {
+                            val shellSuAdbOnlySummary = when (uiState.shellSuAdbOnlyStatus) {
+                                "unsupported" -> stringResource(id = R.string.feature_status_unsupported_summary)
+                                "managed" -> stringResource(id = R.string.feature_status_managed_summary)
+                                "forced" -> stringResource(id = R.string.feature_status_forced_summary)
+                                else -> stringResource(id = R.string.settings_shell_su_adb_only_summary)
+                            }
+                            SegmentedSwitchItem(
+                                icon = Icons.Filled.VerifiedUser,
+                                title = stringResource(id = R.string.settings_shell_su_adb_only),
+                                summary = shellSuAdbOnlySummary,
+                                enabled = uiState.shellSuAdbOnlyStatus == "supported",
+                                checked = uiState.isShellSuAdbOnlyEnabled,
+                                onCheckedChange = actions.onSetShellSuAdbOnlyEnabled
+                            )
+                        },
+                        {
+                            SegmentedSwitchItem(
+                                icon = Icons.Filled.RestartAlt,
+                                title = stringResource(id = R.string.settings_soft_reboot),
+                                summary = stringResource(id = R.string.settings_soft_reboot_summary),
+                                enabled = !uiState.isLateLoadMode,
+                                checked = uiState.isLateLoadMode || uiState.useSoftReboot,
+                                onCheckedChange = actions.onSetUseSoftReboot
                             )
                         },
                     )
