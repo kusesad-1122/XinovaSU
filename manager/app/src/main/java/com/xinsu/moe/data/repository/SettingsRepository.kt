@@ -31,6 +31,7 @@ interface SettingsRepository {
     var glassBlurRadius: Float
     var enableWebDebugging: Boolean
     var autoJailbreak: Boolean
+    var useSoftReboot: Boolean
 
     suspend fun getSuCompatStatus(): String
     suspend fun getSuCompatPersistValue(): Long?
@@ -54,6 +55,10 @@ interface SettingsRepository {
     suspend fun getAdbRootStatus(): String
     suspend fun getAdbRootPersistValue(): Long?
     fun setAdbRootEnabled(enabled: Boolean): Boolean
+    suspend fun getShellSuAdbOnlyStatus(): String
+    suspend fun getShellSuAdbOnlyPersistValue(): Long?
+    suspend fun getShellSuAdbOnlyValue(): Long?
+    fun setShellSuAdbOnlyEnabled(enabled: Boolean): Boolean
 
     fun isDefaultUmountModules(): Boolean
     fun setDefaultUmountModules(enabled: Boolean): Boolean

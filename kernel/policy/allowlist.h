@@ -24,7 +24,12 @@ void xnsu_show_allow_list(void);
 bool __xnsu_is_allow_uid(uid_t uid);
 #define xnsu_is_allow_uid(uid) unlikely(__xnsu_is_allow_uid(uid))
 
-// Check if the uid is in allow list, or current is ksu domain root
+// Check if the uid is in allow list, or current is in the XinovaSU SELinux domain.
+// Only reflects the grant state; use xnsu_is_allow_uid_for_current() to authorize current.
+bool xnsu_is_uid_granted_root(uid_t uid);
+
+// xnsu_is_uid_granted_root() plus extra restrictions on current, e.g. shell
+// may have to descend from adbd or a XinovaSU domain root process.
 bool __xnsu_is_allow_uid_for_current(uid_t uid);
 #define xnsu_is_allow_uid_for_current(uid) unlikely(__xnsu_is_allow_uid_for_current(uid))
 

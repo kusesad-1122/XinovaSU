@@ -392,11 +392,12 @@ fun ColorPaletteScreenMaterial(
                         )
                     )
                     ImageOpacitySlider(
-                        title = stringResource(R.string.settings_image_opacity),
+                        title = stringResource(R.string.settings_background_image_opacity),
                         value = state.currentBackgroundImageAlpha,
                         onChange = actions.onSetBackgroundImageAlpha,
                     )
                     ImagePositionSelector(
+                        title = stringResource(R.string.settings_background_image_position),
                         value = state.currentBackgroundImageAlign,
                         onChange = actions.onSetBackgroundImageAlign,
                     )
@@ -886,6 +887,7 @@ private fun ImageOpacitySlider(
 private fun ImagePositionSelector(
     value: Int,
     onChange: (Int) -> Unit,
+    title: String = stringResource(R.string.settings_image_position),
 ) {
     SegmentedColumn(
         modifier = Modifier.padding(top = 4.dp),
@@ -898,7 +900,7 @@ private fun ImagePositionSelector(
                 )
                 SegmentedDropdownItem(
                     icon = Icons.Rounded.AspectRatio,
-                    title = stringResource(R.string.settings_image_position),
+                    title = title,
                     items = items,
                     selectedIndex = value.coerceIn(0, 2),
                     onItemSelected = { onChange(it) }

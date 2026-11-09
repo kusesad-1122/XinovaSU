@@ -64,11 +64,18 @@ data class SettingsUiState(
     val adbRootStatus: String = "",
     val isAdbRootEnabled: Boolean = false,
 
+    // Shell SU ADB Only
+    val shellSuAdbOnlyStatus: String = "",
+    val isShellSuAdbOnlyEnabled: Boolean = false,
+
     val isLkmMode: Boolean = false,
     val isLateLoadMode: Boolean = false,
 
     // Auto Jailbreak
-    val autoJailbreak: Boolean = false
+    val autoJailbreak: Boolean = false,
+
+    // Soft Reboot
+    val useSoftReboot: Boolean = false
 )
 
 @Immutable
@@ -83,6 +90,8 @@ data class SettingsScreenActions(
     val onSetSelinuxHideEnabled: (Boolean) -> Unit,
     val onSetSulogEnabled: (Boolean) -> Unit,
     val onSetAdbRootEnabled: (Boolean) -> Unit,
+    val onSetShellSuAdbOnlyEnabled: (Boolean) -> Unit,
+    val onSetUseSoftReboot: (Boolean) -> Unit,
     val onSetDefaultUmountModules: (Boolean) -> Unit,
     val onSetEnableWebDebugging: (Boolean) -> Unit,
     val onSetAutoJailbreak: (Boolean) -> Unit,

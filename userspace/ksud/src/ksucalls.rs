@@ -128,16 +128,27 @@ pub fn set_sepolicy(payload: *const u8, payload_len: u64) -> std::io::Result<i32
     ksuctl(xnsu_uapi::XNSU_IOCTL_SET_SEPOLICY, &raw mut ioctl_cmd)
 }
 
+#[derive(Debug, Clone, Copy, Default)]
+pub struct FeatureState {
+    pub value: u64,
+    pub supported: bool,
+    pub forced: bool,
+}
+
 /// Get feature value and support status from kernel
-/// Returns (value, supported)
-pub fn get_feature(feature_id: u32) -> std::io::Result<(u64, bool)> {
+pub fn get_feature(feature_id: u32) -> std::io::Result<FeatureState> {
     let mut cmd = xnsu_uapi::xnsu_get_feature_cmd {
         feature_id,
         value: 0,
         supported: 0,
     };
     ksuctl(xnsu_uapi::XNSU_IOCTL_GET_FEATURE, &raw mut cmd)?;
-    Ok((cmd.value, cmd.supported != 0))
+    let flags = u32::from(cmd.supported);
+    Ok(FeatureState {
+        value: cmd.value,
+        supported: flags & xnsu_uapi::XNSU_FEATURE_FLAG_SUPPORTED != 0,
+        forced: flags & xnsu_uapi::XNSU_FEATURE_FLAG_FORCED != 0,
+    })
 }
 
 /// Set feature value in kernel

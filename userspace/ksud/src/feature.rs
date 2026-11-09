@@ -27,6 +27,7 @@ pub enum FeatureId {
     VpnHide = 8,
     VpnPorts = 9,
     LogHide = 10,
+    ShellSuAdbOnly = 11,
 }
 
 impl FeatureId {
@@ -43,6 +44,7 @@ impl FeatureId {
             8 => Some(Self::VpnHide),
             9 => Some(Self::VpnPorts),
             10 => Some(Self::LogHide),
+            11 => Some(Self::ShellSuAdbOnly),
             _ => None,
         }
     }
@@ -60,6 +62,7 @@ impl FeatureId {
             Self::VpnHide => "vpn_hide",
             Self::VpnPorts => "vpn_ports",
             Self::LogHide => "log_hide",
+            Self::ShellSuAdbOnly => "shell_su_adb_only",
         }
     }
 
@@ -84,6 +87,9 @@ impl FeatureId {
             Self::VpnHide => "VPN Hide - hide VPN interfaces from selected apps",
             Self::VpnPorts => "VPN Ports - reject loopback connects for selected apps",
             Self::LogHide => "Log Hide - stub avc_denied/audit_log_start to silence root denials",
+            Self::ShellSuAdbOnly => {
+                "Shell SU ADB Only - require a granted shell process to descend from adbd or a XinovaSU domain root process"
+            }
         }
     }
 }
@@ -101,6 +107,7 @@ fn parse_feature_id(name: &str) -> Result<FeatureId> {
         "vpn_hide" | "8" => Ok(FeatureId::VpnHide),
         "vpn_ports" | "9" => Ok(FeatureId::VpnPorts),
         "log_hide" | "10" => Ok(FeatureId::LogHide),
+        "shell_su_adb_only" | "11" => Ok(FeatureId::ShellSuAdbOnly),
         _ => bail!("Unknown feature: {name}"),
     }
 }
@@ -236,10 +243,11 @@ pub fn apply_config(features: &HashMap<u32, u64>) {
 
 pub fn get_feature(id: &str) -> Result<()> {
     let feature_id = parse_feature_id(id)?;
-    let (value, supported) = crate::ksucalls::get_feature(feature_id as u32)
+    let state = crate::ksucalls::get_feature(feature_id as u32)
         .with_context(|| format!("Failed to get feature {id}"))?;
+    let value = state.value;
 
-    if !supported {
+    if !state.supported {
         println!("Feature '{id}' is not supported by kernel");
         return Ok(());
     }
@@ -353,16 +361,17 @@ pub fn list_features() {
         FeatureId::VpnHide,
         FeatureId::VpnPorts,
         FeatureId::LogHide,
+        FeatureId::ShellSuAdbOnly,
     ];
 
     for feature_id in &all_features {
         let id = *feature_id as u32;
-        let (value, supported) = crate::ksucalls::get_feature(id).unwrap_or((0, false));
+        let state = crate::ksucalls::get_feature(id).unwrap_or_default();
 
-        let status = if !supported {
+        let status = if !state.supported {
             "NOT_SUPPORTED".to_string()
-        } else if value != 0 {
-            format!("ENABLED ({value})")
+        } else if state.value != 0 {
+            format!("ENABLED ({})", state.value)
         } else {
             "DISABLED".to_string()
         };
@@ -422,15 +431,16 @@ pub fn save_config() -> Result<()> {
         FeatureId::VpnHide,
         FeatureId::VpnPorts,
         FeatureId::LogHide,
+        FeatureId::ShellSuAdbOnly,
     ];
 
     for feature_id in &all_features {
         let id = *feature_id as u32;
-        if let Ok((value, supported)) = crate::ksucalls::get_feature(id)
-            && supported
+        if let Ok(state) = crate::ksucalls::get_feature(id)
+            && state.supported
         {
-            features.insert(id, value);
-            log::info!("Saved feature {} = {value}", feature_id.name());
+            features.insert(id, state.value);
+            log::info!("Saved feature {} = {}", feature_id.name(), state.value);
         }
     }
 
@@ -445,6 +455,12 @@ pub fn save_config() -> Result<()> {
 pub fn check_feature(id: &str) -> Result<()> {
     let feature_id = parse_feature_id(id)?;
 
+    // Forced by boot config takes precedence over module management
+    if crate::ksucalls::get_feature(feature_id as u32).is_ok_and(|state| state.forced) {
+        println!("forced");
+        return Ok(());
+    }
+
     // Check if this feature is managed by any module
     let managed_features_map = crate::module::get_managed_features().unwrap_or_default();
     let is_managed = managed_features_map
@@ -457,10 +473,10 @@ pub fn check_feature(id: &str) -> Result<()> {
     }
 
     // Check if the feature is supported by kernel
-    let (_value, supported) = crate::ksucalls::get_feature(feature_id as u32)
+    let state = crate::ksucalls::get_feature(feature_id as u32)
         .with_context(|| format!("Failed to get feature {id}"))?;
 
-    if supported {
+    if state.supported {
         println!("supported");
     } else {
         println!("unsupported");

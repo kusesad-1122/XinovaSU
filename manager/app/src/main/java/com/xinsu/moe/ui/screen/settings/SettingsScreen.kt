@@ -38,6 +38,8 @@ fun SettingPager(
         onSetSelinuxHideEnabled = viewModel::setSelinuxHideEnabled,
         onSetSulogEnabled = viewModel::setSulogEnabled,
         onSetAdbRootEnabled = viewModel::setAdbRootEnabled,
+        onSetShellSuAdbOnlyEnabled = viewModel::setShellSuAdbOnlyEnabled,
+        onSetUseSoftReboot = viewModel::setUseSoftReboot,
         onSetDefaultUmountModules = viewModel::setDefaultUmountModules,
         onSetEnableWebDebugging = viewModel::setEnableWebDebugging,
         onSetAutoJailbreak = viewModel::setAutoJailbreak,

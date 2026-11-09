@@ -24,6 +24,7 @@
 #include "policy/allowlist.h"
 #include "manager/manager_identity.h"
 #include "infra/su_mount_ns.h"
+#include "feature/shell_su_adb_only.h"
 
 #define FILE_MAGIC 0x7f4b5355 // ' KSU', u32
 #define FILE_FORMAT_VERSION 3 // u32
@@ -293,13 +294,21 @@ bool __xnsu_is_allow_uid(uid_t uid)
     return false;
 }
 
-bool __xnsu_is_allow_uid_for_current(uid_t uid)
+bool xnsu_is_uid_granted_root(uid_t uid)
 {
     if (unlikely(uid == 0)) {
         // already root, but only allow our domain.
         return is_xnsu_domain();
     }
     return __xnsu_is_allow_uid(uid);
+}
+
+bool __xnsu_is_allow_uid_for_current(uid_t uid)
+{
+    if (unlikely(uid == SHELL_UID) && !xnsu_shell_su_allowed_for_current()) {
+        return false;
+    }
+    return xnsu_is_uid_granted_root(uid);
 }
 
 bool xnsu_uid_should_umount(uid_t uid)
@@ -423,7 +432,7 @@ bool xnsu_get_allow_list(int *array, u16 length, u16 *out_length, u16 *out_total
     return true;
 }
 
-// TODO: move to kernel thread or work queue
+// The persistent write could be offloaded to a kernel thread or work queue
 static void do_persistent_allow_list(struct callback_head *_cb)
 {
     u32 magic = FILE_MAGIC;

@@ -30,6 +30,7 @@
 #include "feature/vpn_hide.h"
 #include "feature/log_hide.h"
 #include "feature/selinux_hide.h"
+#include "feature/shell_su_adb_only.h"
 #include "infra/symbol_resolver.h"
 
 #if defined(__x86_64__)
@@ -152,6 +153,7 @@ int __init xinovasu_init(void)
     xnsu_kernel_spoof_init();
     xnsu_lsm_hook_init();
     xnsu_selinux_hide_init();
+    xnsu_shell_su_adb_only_init();
     xnsu_net_isolate_init();
     xnsu_path_hide_init();
     xnsu_vpn_hide_init();
@@ -230,6 +232,7 @@ void __exit xinovasu_exit(void)
 
     xnsu_allowlist_exit();
 
+    xnsu_shell_su_adb_only_exit();
     xnsu_selinux_hide_exit();
     xnsu_net_isolate_exit();
     xnsu_path_hide_exit();
